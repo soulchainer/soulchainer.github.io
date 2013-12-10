@@ -1,0 +1,17 @@
+User-Agent: *
+Disallow: /
+Disallow: /category/
+Disallow: /soulfeeds/
+Disallow: /images/
+Disallow: /tag/
+Disallow: /theme/
+Disallow: /404.html
+Disallow: /archives.html
+Disallow: /categories.html
+Disallow: /favicon.ico
+Disallow: /.git/
+Disallow: /.gitignore
+Disallow: /pelican.conf
+Disallow: /README.md
+Disallow: /tags.html
+Sitemap: /sitemap.xml

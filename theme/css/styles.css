@@ -1,0 +1,575 @@
+body {
+  background-color: #D9E2F8;
+  font-family: 'Droid Sans', serif;
+  font-size: 1.125em;
+  -webkit-font-smoothing: antialiased;
+}
+/* Sticky footer */
+html, body {
+  height: 100%;
+}
+#container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /*width: 80%;*/
+  max-width: 1024px;
+  margin: 0 auto -4em;
+  padding: 0em 2em;
+}
+footer, .push { clear:both; min-height: 4em;}
+/* Links. */
+a { /* Generic link styling, greyish and underlined. */
+    color: #2E2E2E;
+    text-decoration: none;
+    -o-transition:color .4s ease-in-out;
+    -webkit-transition:color .4s ease-in-out;
+    -moz-transition:color .4s ease-in-out;
+    transition:color .4s ease-in-out;
+}
+a:hover { /* transition to orange on hover */
+    -o-transition:color .4s ease-in-out;
+    -webkit-transition:color .4s ease-in-out;
+    -moz-transition:color .4s ease-in-out;
+    transition:color .4s ease-in-out;
+    color: #1566F4;
+}
+.article a {
+  color: #264DBD;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.article a:hover, .article a:active {
+  border-bottom: 2px dotted black;
+}
+/* Site header */
+.maintitle {
+    font-family: 'Lusitana', serif;
+    font-size: 4em;
+    padding-left: .14em;
+    position: relative;
+    left: -.14em;
+}
+.sitebanner {
+  margin-top: .833em;
+}
+.siteheader {
+    height: 11.12em;
+    margin-bottom: 1.67em;
+    overflow: visible;
+}
+.sitesubtitle {
+    color: #000;
+    font-size: 1em;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+/* The social navbar. */
+
+.socialmenu {
+    font-size: 1.5em;
+}
+.socialmenu li {
+    display: inline;
+}
+.socialmenu [class^=icon] {
+  line-height: 1.5em; /* for icon separation in small windows */
+}
+.icon-gplus, .icon-gplus:hover { color: #CB4534;}
+.icon-flickr, .icon-flickr:hover { color: #EA0079;}
+.icon-linkedin, .icon-linkedin:hover { color: #128CAE;}
+.icon-rss, .icon-rss:hover { color: #EF7723;}
+.icon-twitter, .icon-twitter:hover { color: #41B1E7;}
+.icon-lastfm, .icon-lastfm:hover { color: #CB1820;}
+.icon-gmail, .icon-gmail:hover { color: #FF0000;}
+.icon-tumblr, .icon-tumblr:hover { color: #45576C;}
+.icon-github, .icon-github:hover { color: #050505;}
+.icon-bitbucket, .icon-bitbucket:hover { color: #1E4C7A;}
+
+/* effects to social menu links */
+.socialmenu a:hover { /* Hover animation: flip */
+    display: inline-block;
+    position: relative; /* position needed for the animation */
+    /* animation (infinite flip) */
+    -moz-animation:flip 1500ms steps(19) infinite; /*Firefox*/
+    -webkit-animation:flip 1500ms steps(19) infinite; /*Safari and Chrome*/
+    -o-animation:flip 1500ms steps(19) infinite; /*Opera*/
+    animation:flip 1500ms steps(19) infinite;
+  }
+/* socialmenu icon flip animation */
+@-moz-keyframes flip /*Firefox*/
+{
+from {left:0;}
+to {left:0;-moz-transform:rotateY(-360deg)}
+}
+
+@-webkit-keyframes flip /*Safari and Chrome*/
+{
+from {left:0;}
+to {left:0;-webkit-transform:rotateY(-360deg)}
+}
+
+@-o-keyframes flip /*Opera*/
+{
+from {left:0;}
+to {left:0;-o-transform:rotateY(-360deg)}
+}
+
+@keyframes flip
+{
+from {left:0;}
+to {left:0;transform:rotateY(-360deg)}
+}
+
+/* The site navbar. */
+
+.sitemenu {
+    clear: both;
+    float: right;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+.sitemenu li {
+    display: inline-block;
+    margin: 1em .37em 1em 0em;
+    position: relative;
+    right: 0em;
+}
+/* sitemenu links with effects */
+.sitemenu a { /* site menu links, with color transition */
+    background: #E8EA70;
+    display: inline-block; /* needed for transforms */
+    float: right;
+    font-weight:bold;
+    padding: .185em;
+    text-decoration: none;
+    /* transition */
+    color: #2E2E2E;
+    -o-transition:color .4s ease-in-out;
+    -webkit-transition:color .4s ease-in-out;
+    -moz-transition:color .4s ease-in-out;
+    transition:color .4s ease-in-out;
+}
+.tape {
+  /* rotation and skew to simulate sticky tape*/
+    -moz-transform:rotate(-20deg) skewX(-20deg);
+    -webkit-transform:rotate(-20deg) skewX(-20deg);
+    -o-transform:rotate(-20deg) skewX(-20deg);
+    transform:rotate(-20deg) skewX(-20deg);
+}
+.sitemenu a:hover { /* transition to red on hover */
+    /* transition */
+    -o-transition:color .4s ease-in-out;
+    -webkit-transition:color .4s ease-in-out;
+    -moz-transition:color .4s ease-in-out;
+    transition:color .4s ease-in-out;
+    color: #C42E3F;
+}
+
+/* Article list on index page. */
+
+.posttitle {
+    font-size: 1.8em;
+}
+
+.posttitle a, .readmore a {
+    color: #5C6E8A;
+    font-style: italic;
+    margin-left: -.35em;
+    text-shadow: #2C7064 0em 0em 1px;
+    transition: none;
+}
+.posttitle a:hover, .readmore a:hover {
+  color: #C33873;
+  text-shadow: #9F466C 0em 0em 1px;
+  transition: none;
+}
+.readmore {
+  display: inline-block;
+  font-size: .9em;
+}
+.readmore a:hover {
+  text-shadow: #E68710 0em 0em 1px;
+}
+
+.postinfo {
+    margin-top: .4em;
+    margin-bottom: .8em;
+    color: #666;
+    font-size: .7em;
+}
+
+.post {
+    border-bottom: 2px dashed #B2C6F6;
+    list-style: none;
+    margin-bottom: 1.11em;
+    padding-bottom: 1em;
+}
+
+.postsummary {
+    font-weight: 300;
+    top: 1em;
+    padding-top: 1em;
+}
+
+.postsummary p {
+    margin-bottom: 1em;
+}
+.paginator {
+  display: inline-block;
+  font-family: Helvetica, sans-serif;
+  font-size: 0.9em;
+}
+.paginator li {
+  display: inline;
+  margin: 0em;
+}
+.paginator a {
+  background-color: #C5EEAA;
+  border: transparent;
+  box-shadow: inset 0em 0em .2em .025em #7EC650;
+  color: #2E5613;
+  display: inline-block;
+  float: left;
+  padding: .5em;
+}
+.paginator a:hover {
+  -o-transition:none;
+  -webkit-transition:none;
+  -moz-transition:none;
+  transition:none;
+}
+.paginator a.active, .paginator a:hover {
+  background-color: #AADF88;
+  box-shadow: inset 0em 0em .2em .025em #7EC650;
+}
+.paginator a.disabled, a.disabled:hover {
+  background-color: #DBEDD1;
+  color: #8BBE6D;
+  cursor: not-allowed;
+}
+.arrow {
+  font-weight: bold;
+  border-radius: 0em .5em .5em 0em;
+}
+.paginator li:first-child .arrow {
+  border-radius: .5em 0em 0em .5em;
+}
+/* Generic to all content. */
+.content ol, .content ul {
+    padding-left: 2.22em;
+    padding-bottom: 1.11em;
+}
+.content {
+  clear: both;
+  margin-bottom: 2em;
+}
+/* Make super and subscipts look reasonable. */
+
+sup, sub {
+    vertical-align: 0em;
+    position: relative;
+}
+
+sup {
+    bottom: 1ex;
+    font-size: 0.6em;
+}
+
+sub {
+    top: 0.8ex;
+    font-size: 0.6em;
+}
+
+/* Article */
+
+.article {
+    margin-top: 1.67em;
+}
+
+/* Lists */
+
+.article li {
+    line-height: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+/* Paragraphs. */
+
+.article p {
+    line-height: 1.3em;
+    margin-bottom: 1.5em;
+    clear: both; /* for keeping away from p.figure */
+}
+
+/* Headers. */
+
+.article h1 {
+    padding-bottom: 1em;
+    font-size: 1.4em;
+}
+
+.article h2 {
+    padding-bottom: 0.9em;
+    font-size: 1.2em;
+}
+
+.article h3 {
+    padding-bottom: 0.8em;
+    font-size: 1em;
+}
+
+/* Footnotes. */
+
+.article .footnote {
+    font-size: 0.8em;
+}
+
+/* Code */
+.codehilite, .highlight { /* Put code blocks in the right place. */
+    max-width: 600px;
+    margin-bottom: 1.12em;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.highlight pre { /* block code */
+    font-family: 'Inconsolata', sans-serif;
+    font-size: .85em;
+    margin: auto;
+    padding: 1em;
+    /* for pre, to allow fluid width change, breaking lines in any place
+    */
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.article code { /* inline code */
+    background-color: #F3F3F3;
+    border: 1px solid #A9AAAF;
+    border-radius: .2em;
+    color: #289539;
+    font-family: 'Inconsolata', sans-serif;
+    font-size: .9em;
+    padding: .1em .2em;
+}
+/* Tags */
+/* Tags at index */
+/*.postinfo + .tags {*/
+/*.postsummary + .tags {
+  padding: 0em;
+  height: 2em;
+  font-size: .78em;
+}*/
+
+/* Tags at artícle */
+.article + .tags {
+  padding: 2em 0em;
+}
+.tag {
+  display: inline-block;
+  position: relative;
+  left: 0em;
+  margin: 0.3em;
+}
+.tag a {
+  background: #EEE;
+  border-radius: 1em;
+  padding: 0 1em;
+  margin: 0em;
+}
+.tag:nth-child(2n+1) a {
+  color: #2D85F2;
+}
+.tag:nth-child(2n) a {
+  color: #C051D6;
+}
+.tag:nth-child(2n+1) a:hover, .tag:nth-child(2n+1) a:active {
+  background: #2D85F2;
+  color: #EEE;
+}
+.tag:nth-child(2n) a:hover, .tag:nth-child(2n) a:active {
+  background: #C051D6;
+  color: #EEE;
+}
+
+/* Tag Cloud */
+ul.tagcloud {
+  float: left;
+  list-style: none;
+  margin: 4em auto;
+  text-align: center;
+  width: 100%;
+}
+ul.tagcloud li {
+  display: inline-block;
+  padding: 0em 0.8em;
+}
+
+li.tag-4 a {
+  font-size: 75%;
+}
+
+li.tag-2 a {
+  font-size: 100%;
+}
+li.tag-1 a {
+  font-size: 150%;
+}
+li.tag-0 a {
+  font-size: 230%;
+}
+
+.tagcloud a {
+  font-weight: bold;
+  color: #222FA0;
+}
+
+.tagcloud a:hover, .tagcloug a:active {
+  color: #EA6F11;
+}
+
+/* Responsive Images */
+p.figure {
+  background-color: #F1F5FB;
+  padding: .67em;
+  min-height:0em;
+  float: left;
+  max-width: 100%;
+  width: auto;
+  border-color: #B7BAC0;
+  border: 1px solid rgba(183,186,192,0.7);
+  border-radius: .42em;
+  clear: none; /* To make posible do a little "gallery" in a post :) */
+  margin: 0em 1.5em 1.5em 0em;
+  font-size: .67em;
+  color: #817E7E;
+}
+.content img {
+    display: block;
+    /*margin: 1.1em auto;*/
+    max-width: 100%;
+    padding-bottom: .5em;
+    /*height: auto;*/
+    /*position: relative;*/
+}
+
+/* Blockquotes */
+
+.article blockquote {
+    color: #2B39B8;
+    font-family: Palatino,"Palatino Linotype",Georgia,serif;
+    font-size: 1.05em;
+    font-style: oblique;
+    /*font-weight: bold;*/
+    margin-left: 1.85em;
+    padding-left: 0.62em;
+    margin: 4em 0em 4em 1.85em;
+}
+.article blockquote p:first-child::before {
+  color: #293184;
+  content: "\2760";
+  display: inline-block;
+  font-size: 3em;
+  font-weight: normal;
+  float: left;
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+.article blockquote p:last-child::after {
+  color: #293184;
+  content: "\2760";
+  display: inline-block;
+  float: right;
+  font-size: 3em;
+  font-weight: normal;
+}
+/* Shadows */
+.codehilite, .highlight, .parts {
+  border-collapse: separate; /* to get box-shadow in IE9 and later */
+  box-shadow: .4em .4em .9em  #CCC;
+}
+/* PLUGIN STYLES */
+/* Multiparts */
+.parts {
+  background: #F0E99E;
+  border-radius: 1em;
+  font-weight: bold;
+  max-width: 400px;
+  padding: 1em;
+}
+.parts p {
+  color: #D45822;
+  padding-bottom: 1em;
+}
+.parts ul {
+  list-style-type: none;
+}
+.parts a{
+  color: #272822;
+  font-family: 'Inconsolata', sans-serif;
+}
+.parts a:hover, .part a:active {
+  color: #6622D0;
+}
+
+/* Disqus */
+#disqus_thread {
+  margin-top: 2em;
+}
+/* Footer at page bottom */
+footer {
+  background: #000;
+  background: linear-gradient(to bottom, #101010, #000);
+  border-collapse: separate; /* to get box-shadow in IE9 and later */
+  box-shadow: 0em -.2em 1em .4em #B5E4FC;
+  text-align: center;
+}
+footer p {
+  color: grey;
+  display: inline-block;
+  font-size: .7em;
+  padding: 1em 1em 0em;
+}
+
+/* Archives page */
+.archives {
+  margin:0em auto;
+  max-width: 600px;
+  padding: 2em 0em;
+}
+.archive-year {
+  border-bottom: .14em dotted #7C618A;
+  color: #3A194C;
+  font-size: 2em;
+  font-weight:bold;
+  margin-bottom: .6em;
+  text-align: right;
+}
+.archive-month, .archive-entry, .posttitle a {
+  font-family: Palatino,"Palatino Linotype",Georgia,serif;
+  font-weight: bold;
+}
+.archive-month {
+  color: #5D3043;
+  font-size: 1.2em;
+  font-style: italic;
+  margin: 1em 0em;
+}
+.archive-entry {
+  margin: .4em 0em;
+}
+.archive-day {
+  color: #B5A6BD;
+  font-size: 1.2em;
+  margin: auto 1em auto 2em;
+}
+.archive-entry a {
+  color: #D31867;
+}
+.archive-entry a:hover, .archive-entry a:active {
+  text-shadow: #F1F786 0em 0em .5em;
+}

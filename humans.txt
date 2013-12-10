@@ -1,0 +1,41 @@
+/* TEAM */
+
+  Developer: Juan Riquelme (a.k.a. Soulchainer)
+  Site: soulchainer[at]gmail[dot]com
+  Twitter: soulchainer
+  Location: Murcia, Spain
+
+/* THANKS */
+
+A http://humanstxt.org/ por impulsar la iniciativa de la creación de este
+archivo.
+
+To Google for their great webfonts service http://www.google.com/fonts/
+
+To the Pelican team http://getpelican.com/ , for their great Python Static
+Site Generator, without that this site wouldn't be possible.
+
+To Disqus for their free discussion system http://disqus.com/
+
+To James J. Porter, author of the minimalist Pelican crowsfoot theme
+(https://github.com/porterjamesj/crowsfoot). Now this site looks not so much
+alike to it, but that was my starting point :)
+
+To Sam Collins, creator of the cool Zocial iconfont (http://zocial.smcllns.com/).
+
+And last, but not less important, to https://bitbucket.org for hosting this site
+for free. You are awesome, guys :)
+
+¡Ah! Y a mi madre, que parece que estoy haciendo un discurso y esto no se lo lee
+(casi) nadie xD Eso y que este es un blog minúsculo y simplista, del montón, que
+he hecho sobre todo porque quería probar Pelican y escribir un par de cosas.
+Internet somos todos :)
+
+/* SITE */
+
+  Last update: 2013/12/02
+  Standards: CSS3, HTML5, Python
+  Components: Google Fonts, Pelican, Pelican plugins, Pelican crowsfoot base
+  theme, Pygments, Zocial icons
+  Software: Sublime text 3, Firefox
+  Language: Castellano
