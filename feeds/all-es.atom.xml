@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2013-12-18T02:46:00+01:00</updated><entry><title>Hello, blog!</title><link href="http://soulchainer.github.io/posts/2013/12/18/hello-blog/" rel="alternate"></link><updated>2013-12-18T02:46:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-18:posts/2013/12/18/hello-blog/</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;m&lt;/span&gt;    &lt;span class="n"&gt;m&lt;/span&gt;        &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;                  &lt;span class="o"&gt;#&lt;/span&gt;      &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;                    &lt;span class="n"&gt;m&lt;/span&gt;
-&lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;  &lt;span class="n"&gt;mmm&lt;/span&gt;     &lt;span class="o"&gt;#&lt;/span&gt;      &lt;span class="o"&gt;#&lt;/span&gt;     &lt;span class="n"&gt;mmm&lt;/span&gt;          &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;     &lt;span class="o"&gt;#&lt;/span&gt;     &lt;span class="n"&gt;mmm&lt;/span&gt;    &lt;span class="n"&gt;mmmm&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;
-&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;mmmm&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;  #    #      #    #"&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#         #"&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#    #    #"&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#  #"&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#    #&lt;/span&gt;
-&lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;      &lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt;         &lt;span class="o"&gt;#&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt;  &lt;span class="o"&gt;#&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="s2"&gt;"&lt;/span&gt;
-&lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#mm"&lt;/span&gt;    &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;mm    "&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt;  &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#m#"&lt;/span&gt;         &lt;span class="o"&gt;##&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;    "&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt;  &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#m#"&lt;/span&gt;  &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;#m"&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;    &lt;span class="o"&gt;#&lt;/span&gt;
-                                                                &lt;span class="n"&gt;m&lt;/span&gt;  &lt;span class="o"&gt;#&lt;/span&gt;
-                                                                 &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2013-12-18T02:46:00+01:00</updated><entry><title>Hello, blog!</title><link href="http://soulchainer.github.io/posts/2013/12/18/hello-blog/" rel="alternate"></link><updated>2013-12-18T02:46:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-18:posts/2013/12/18/hello-blog/</id><summary type="html">&lt;div class="figure" style="width: 563px; height: auto; max-width: 100%;"&gt;
+&lt;img alt='Ascii Art "Hello blog", generado con el programa de consola toilet' src="http://soulchainer.github.io/images/2013/2013-12-18_1.png" style="width: 563px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Ascii Art generado por consola (linux) con &lt;code&gt;toilet Hello blog --gay&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+En un principio iba a usar Ascii Art diretamente, pero en dispositivos móviles me
+hace la puñeta :p Y sí: it’s so gay xD&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="section" id="verborrea"&gt;
 &lt;h2&gt;Verborrea&lt;/h2&gt;
 &lt;p&gt;No recuerdo cuanto tiempo hace de mi última incursión en la blogosfera.&lt;/p&gt;
-&lt;p&gt;Y es que no me seduce demasiado la idea de tener un espacio en el que soltar de
-la correa a mi verborrea y dejarla correr, sin control. &lt;strong&gt;Me gusta el control&lt;/strong&gt;.
+&lt;p&gt;Y es que no me seduce demasiado la idea de tener un espacio en el que soltar la
+correa a mi verborrea y dejarla correr, sin control. &lt;strong&gt;Me gusta el control&lt;/strong&gt;.
 Pero el tipo de la bata blanca me ha dicho que tengo que dejar que estire las
 patas. Aunque sea sólo unos minutitos, en el fin de semana. En pequeñas dosis,
 como los azucarillos.&lt;/p&gt;
@@ -45,10 +44,10 @@ tiempo lo dirá.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="el-porque"&gt;
 &lt;h2&gt;El porqué&lt;/h2&gt;
-&lt;p&gt;Realmente, el blog nace, primero, por mi deseo de escribir una entrada concreta
-para compartirla en cierta &lt;a class="reference external" href="https://plus.google.com/u/0/communities/104485808862592783865"&gt;comunidad de Google+&lt;/a&gt; que administro (y que
-veremos a ver si finalmente ve la luz, ya que hace tiempo que pasó el momento),
-así como por mi interés en probar un sistema generador de sitios estáticos &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt;.
+&lt;p&gt;Realmente, el blog nace por el deseo de escribir una entrada concreta para
+cierta &lt;a class="reference external" href="https://plus.google.com/u/0/communities/104485808862592783865"&gt;comunidad de Google+&lt;/a&gt; que administro (y que veremos si finalmente ve
+la luz, porque ya pasó el momento), así como por el interés en probar un
+sistema generador de sitios estáticos &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt;.
 En este caso, &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;. Me ha gustado bastante. Es posible que escriba una
 (o varias) entradas sobre su configuración y uso.&lt;/p&gt;
 &lt;/div&gt;
@@ -58,7 +57,7 @@ En este caso, &lt;a class="reference external" href="http://docs.getpelican.com/
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Me fuerza a usar control de versiones &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt; con &lt;a class="reference external" href="http://www.git-scm.com/"&gt;git&lt;/a&gt;, ya que uso el servicio de hosting de &lt;a class="reference external" href="http://pages.github.com/"&gt;GitHub Pages&lt;/a&gt;. Lo cual me ayuda a no olvidar su uso y, además, es muy práctico.&lt;/li&gt;
 &lt;li&gt;He aprendido a trastear a nivel básico con el motor de plantillas &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;He empezado a apreciar las bondades de &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;reST&lt;/a&gt; (frente a &lt;a class="reference external" href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; ) como lenguaje de marcas ligero &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;He empezado a apreciar las bondades de &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;reStructuredText&lt;/a&gt; (frente a &lt;a class="reference external" href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; ) como lenguaje de marcas ligero &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Debo comentar además que he activado la opción &lt;a class="reference external" href="http://help.disqus.com/customer/portal/articles/666278-introducing-promoted-discovery-and-f-a-q-"&gt;Promoted Discovery&lt;/a&gt; en
 &lt;a class="reference external" href="http://disqus.com/"&gt;Disqus&lt;/a&gt;, que muestra enlaces promocionados, supuestamente relacionados con el contenido.&lt;/p&gt;
@@ -89,7 +88,7 @@ El diablo está en los pequeños detalles.&lt;/blockquote&gt;
 &lt;p&gt;Me despido por ahora con unos minutos musicales, de la mano de &lt;a class="reference external" href="http://grooveshark.com/#!/profile/ELLEGARDEN/22340050"&gt;Ellegarden&lt;/a&gt;,
 una de mis bandas japonesas favoritas (y que lamentablemente está en un hiatus
 indefinido) ñ_ñ&lt;/p&gt;
-&lt;div align="center" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/e_qHyj9-CWs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;hr class="docutils"/&gt;
+&lt;div align="center" class="youtube"&gt;&lt;iframe class="iytb" frameborder="0" height="315" src="https://www.youtube.com/embed/e_qHyj9-CWs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;hr class="docutils"/&gt;
 &lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
