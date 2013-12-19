@@ -1,5 +1,4 @@
 User-Agent: *
-Disallow: /
 Disallow: /archives/
 Disallow: /category/
 Disallow: /feeds/
