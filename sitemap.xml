@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://soulchainer.github.io/index.html</loc>
-<lastmod>2013-12-19T20:32:46-00:00</lastmod>
+<lastmod>2013-12-19T21:01:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://soulchainer.github.io/categories.html</loc>
-<lastmod>2013-12-19T20:32:46-00:00</lastmod>
+<lastmod>2013-12-19T21:01:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,6 +40,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://soulchainer.github.io/tags/comienzo/</loc>
+<lastmod>2013-12-18T02:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://soulchainer.github.io/tags/pelican/</loc>
 <lastmod>2013-12-18T02:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
