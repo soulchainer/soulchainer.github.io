@@ -1,5 +1,4 @@
 User-Agent: *
-Disallow: /
 Disallow: /archives/
 Disallow: /category/
 Disallow: /feeds/
@@ -14,3 +13,8 @@ Disallow: /pelican.conf
 Disallow: /README.rst
 Disallow: /tags.html
 Sitemap: /sitemap.xml
+
+User-agent: Twitterbot
+Disallow: *
+Allow: /images
+Allow: /posts
