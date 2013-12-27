@@ -23,7 +23,7 @@ alike to it, but that was my starting point :)
 
 To Sam Collins, creator of the cool Zocial iconfont (http://zocial.smcllns.com/).
 
-And last, but not less important, to https://bitbucket.org for hosting this site
+And last, but not less important, to https://github.com/ for hosting this site
 for free. You are awesome, guys :)
 
 ¡Ah! Y a mi madre, que parece que estoy haciendo un discurso y esto no se lo lee
@@ -33,7 +33,7 @@ Internet somos todos :)
 
 /* SITE */
 
-  Last update: 2013/12/02
+  Last update: 2013/12/27
   Standards: CSS3, HTML5, Python
   Components: Google Fonts, Pelican, Pelican plugins, Pelican crowsfoot base
   theme, Pygments, Zocial icons
