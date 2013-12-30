@@ -3,9 +3,9 @@
 
   <head>
       <meta charset="utf-8" />
-      <meta name="author" content="Juan Riquelme (a.k.a. soulchainer)" />
-      <meta name="description" content="Blog personal de Juan Riquelme (a.k.a. soulchainer)." />
-      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits,[<Tag python>, <Tag pip>, <Tag virtualenv>, <Tag virtualenvwrapper>, <Tag linux>, <Tag archlinux>]" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, archlinux, linux, pip, python, virtualenv, virtualenvwrapper" />
       <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
       <title>Soulbits</title>
       <!-- fonts -->
@@ -32,6 +32,19 @@
       <meta name="twitter:creator" content="@soulchainer">
       <meta name="twitter:title" content="Gestión de paquetes & entornos virtuales Python con pip, virtualenv & virtualenvwrapper">
       <meta name="twitter:description" content="Cuando usas Python con asiduidad, ya sea por cuestiones de desarrollo o simplemente por preferir ciertas aplicaciones construidas en este lenguaje, tarde o temprano te encuentras con un problema: las dichosas dependencias y la versionitis.">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Gestión de paquetes & entornos virtuales Python con pip, virtualenv & virtualenvwrapper" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" />
+      <meta property="og:article:section" content="programación" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="pip" />
+      <meta property="og:article:tag" content="python" />
+      <meta property="og:article:tag" content="virtualenv" />
+      <meta property="og:article:tag" content="virtualenvwrapper" />
+      <meta property="og:description" content="Cuando usas Python con asiduidad, ya sea por cuestiones de desarrollo o simplemente por preferir ciertas aplicaciones construidas en este lenguaje, tarde o temprano te encuentras con un problema: las dichosas dependencias y la versionitis." />
+      <meta property="og:locale" content="es_ES" />
       <link type="text/plain" rel="author" href="humans.txt" />
       <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
   </head>
@@ -106,7 +119,7 @@ tarde o temprano te encuentras con un problema: las dichosas dependencias y la
 versionitis <a class="footnote-reference" href="#id8" id="id1">[1]</a>.</p>
 <p>Consideremos los siguientes supuestos:</p>
 <ol class="arabic">
-<li><p class="first">Estás desarrollando dos aplicaciones con <a class="reference external" href="http://www.python.org/">Python</a> 3.3.3.</p>
+<li><p class="first">Estás desarrollando dos aplicaciones con Python 3.3.3.</p>
 <blockquote>
 <ol class="arabic simple">
 <li>La primera aplicación importa la librería <code>wlib</code>, que tiene entre sus dependencias la librería <code>libpeta == 1.0</code> , instalada globalmente en el sistema.</li>
@@ -115,32 +128,32 @@ versionitis <a class="footnote-reference" href="#id8" id="id1">[1]</a>.</p>
 <p>Si actualizas <code>libpeta</code> de la versión 1.0 a la 1.5, para cumplir los requisitos de <code>ylib</code> , la primera aplicación <strong>peta</strong>. Ya la hemos liado.</p>
 </blockquote>
 </li>
-<li><p class="first">Quieres probar una aplicación supercuriosa que has visto en <a class="reference external" href="https://github.com/">GitHub</a>, pero vaya: tiene un montón de dependencias, está basada en una versión de <a class="reference external" href="http://www.python.org/">Python</a> que no usas, muchas de sus librerías no están en los repositorios de tu distro… Y encima no trae script de desinstalación. Esto va a ser un marrón cuando quiera borrarla: si no quiero que me deje el sistema lleno de <em>basurilla</em> voy a tener que crearme un script o desinstalar las dependencias a manita. ¿No hay una forma más fácil de hacer esto?</p>
+<li><p class="first">Quieres probar una aplicación supercuriosa que has visto en <a class="reference external" href="https://github.com/">GitHub</a>, pero vaya: tiene un montón de dependencias, está basada en una versión de Python que no usas, muchas de sus librerías no están en los repositorios de tu distro… Y encima no trae script de desinstalación. Esto va a ser un marrón cuando quiera borrarla: si no quiero que me deje el sistema lleno de <em>basurilla</em> voy a tener que crearme un script o desinstalar las dependencias a manita. ¿No hay una forma más fácil de hacer esto?</p>
 </li>
 </ol>
 </div>
 <div class="section" id="pip-para-instalar-administrar-paquetes">
 <h2>pip para instalar <span class="amp">&amp;</span> administrar paquetes</h2>
-<p><a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> es una utilidad que nos facilita enormemente la tarea de instalar y
-administrar paquetes <a class="reference external" href="http://www.python.org/">Python</a>.</p>
+<p>pip es una utilidad que nos facilita enormemente la tarea de instalar y
+administrar paquetes Python.</p>
 <div class="section" id="instalacion">
 <h3>Instalación</h3>
 <p><a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> requiere de <a class="reference external" href="https://pypi.python.org/pypi/setuptools/">setuptools</a> para funcionar. De hecho, está diseñado para
-ser un reemplazo de <a class="reference external" href="https://pythonhosted.org/setuptools/easy_install.html">easy_install</a>, un módulo <a class="reference external" href="http://www.python.org/">Python</a> que se empaqueta
-junto a <a class="reference external" href="https://pypi.python.org/pypi/setuptools/">setuptools</a>.</p>
-<p>No obstante, centrándonos en Linux, <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> suele estar disponible en los
+ser un reemplazo de <a class="reference external" href="https://pythonhosted.org/setuptools/easy_install.html">easy_install</a>, un módulo Python que se empaqueta
+junto a setuptools.</p>
+<p>No obstante, centrándonos en Linux, pip suele estar disponible en los
 repositorios de las principales distribuciones, por lo que se puede instalar
 fácilmente via <em>Administrador de Paquetes</em>.</p>
 <p>Así, en <a class="reference external" href="https://www.archlinux.org/">Archlinux</a> :</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S python-pip
 </pre></div>
-<p>nos instalará tanto <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> como <a class="reference external" href="https://pypi.python.org/pypi/setuptools/">setuptools</a> (en el caso de que no se
+<p>nos instalará tanto pip como setuptools (en el caso de que no se
 encuentre instalado), de forma global en el sistema. En otras distribuciones
 contaremos con paquetes similares instalables a través de sus respectivos gestores.</p>
 </div>
 <div class="section" id="instalar-paquetes">
 <h3>Instalar paquetes</h3>
-<p>Normalmente se usa <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> para instalar paquetes de <a class="reference external" href="https://pypi.python.org/pypi/">PyPI</a> <a class="footnote-reference" href="#id9" id="id2">[2]</a>, pero también
+<p>Normalmente se usa pip para instalar paquetes de <a class="reference external" href="https://pypi.python.org/pypi/">PyPI</a> <a class="footnote-reference" href="#id9" id="id2">[2]</a>, pero también
 puede usarse para instalar paquetes de otros índices, de urls de proyectos
 gestionados con un <em><span class="caps">VCS</span></em> <a class="footnote-reference" href="#id10" id="id3">[3]</a>, de directorios de proyectos locales y de
 archivos locales o remotos.</p>
@@ -156,13 +169,13 @@ pip install <span class="o">[</span>opciones<span class="o">]</span> &lt;url/rut
 </pre></div>
 <p>Veamos algunos ejemplos concretos del uso común de <code>pip install</code>:</p>
 <ul>
-<li><p class="first">Instalación básica de un paquete de <a class="reference external" href="https://pypi.python.org/pypi/">PyPI</a>:</p>
+<li><p class="first">Instalación básica de un paquete de PyPI:</p>
 <blockquote>
 <div class="highlight"><pre><span class="nv">$ </span>pip install nombre_paquete
 </pre></div>
 </blockquote>
 </li>
-<li><p class="first">Instalación de un paquete de <a class="reference external" href="https://pypi.python.org/pypi/">PyPI</a> especificando un <em>requisito</em>:</p>
+<li><p class="first">Instalación de un paquete de PyPI especificando un <em>requisito</em>:</p>
 <blockquote>
 <div class="highlight"><pre><span class="nv">$ </span>pip install <span class="s1">'nombre_paquete==2.5'</span>
 </pre></div>
@@ -203,7 +216,7 @@ nos pida confirmación sobre los archivos a borrar con la desinstalación:</p>
 </div>
 <div class="section" id="listar-paquetes-informacion">
 <h3>Listar paquetes <span class="amp">&amp;</span> información</h3>
-<p>Tenemos dos formas de listar los paquetes instalados con <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a>:</p>
+<p>Tenemos dos formas de listar los paquetes instalados con pip:</p>
 <ol class="arabic">
 <li><p class="first">Listar los paquetes en formato de <em>requisitos</em>.</p>
 <blockquote>
@@ -274,7 +287,7 @@ todos los archivos referentes a un paquete:</p>
 </div>
 <div class="section" id="buscar-paquetes">
 <h3>Buscar paquetes</h3>
-<p>Podemos buscar paquetes en <a class="reference external" href="https://pypi.python.org/pypi/">PyPI</a> desde la línea de comandos con:</p>
+<p>Podemos buscar paquetes en PyPI desde la línea de comandos con:</p>
 <div class="highlight"><pre>pip search <span class="o">[</span>opciones<span class="o">]</span> &lt;búsqueda&gt;
 </pre></div>
 <p>Lo que nos arroja resultados relacionados con la palabra clave señalada:</p>
@@ -284,26 +297,26 @@ py_w3c                    - Library <span class="k">for </span><span class="caps
 w3c-validator             - <span class="caps">W3C</span> panel <span class="k">for </span>Django Debug Toolbar using requests.
 ...
 </pre></div>
-<p><a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> es mucho más que todo esto. <a class="reference external" href="http://www.pip-installer.org/en/latest/"><span class="caps">RTFM</span></a>.</p>
+<p>pip es mucho más que todo esto. <a class="reference external" href="http://www.pip-installer.org/en/latest/"><span class="caps">RTFM</span></a>.</p>
 </div>
 </div>
 <div class="section" id="entornos-virtuales-python">
 <h2>Entornos virtuales Python</h2>
 <p>Los entornos virtuales vienen a solucionar el problema planteado en el primer
 supuesto de <a class="reference internal" href="#problematica">Problemática</a>.</p>
-<p>Básicamente, un entorno virtual <a class="reference external" href="http://www.python.org/">Python</a> es una carpeta que contiene enlaces
+<p>Básicamente, un entorno virtual Python es una carpeta que contiene enlaces
 simbólicos al entorno global del lenguaje en nuestro sistema, pero que mantiene
-todo paquete instalado con <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> dentro de sus límites. De esta forma, podemos
-hacer y deshacer sin que esto afecte al entorno <a class="reference external" href="http://www.python.org/">Python</a> global, evitando así
+todo paquete instalado con pip dentro de sus límites. De esta forma, podemos
+hacer y deshacer sin que esto afecte al entorno Python global, evitando así
 problemas de dependencias.</p>
 <p>Para trabajar con entornos virtuales usaremos <a class="reference external" href="https://pypi.python.org/pypi/virtualenv">virtualenv</a> y
 <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>. Este último no es estrictamente necesario, pero facilita
 mucho el uso cotidiano del primero, proporcionando una capa de comandos muy
-útil. De hecho, lo considero tan imprescindible que de <a class="reference external" href="https://pypi.python.org/pypi/virtualenv">virtualenv</a> sólo
-trataré su obligada instalación, el resto recaerá sobre <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>.</p>
+útil. De hecho, lo considero tan imprescindible que de virtualenv sólo
+trataré su obligada instalación, el resto recaerá sobre virtualenvwrapper.</p>
 <div class="section" id="id4">
 <h3>Instalación</h3>
-<p>Una vez tenemos instalado <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a>, podemos instalar ambos herramientas a través
+<p>Una vez tenemos instalado pip, podemos instalar ambos herramientas a través
 de él:</p>
 <div class="highlight"><pre><span class="nv">$ </span>pip install virtualenv virtualenvwrapper
 </pre></div>
@@ -312,13 +325,13 @@ del sistema, para no tener que preocuparme de revisar periódicamente si hay
 actualizaciones y esas cosas.</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S python-virtualenvwrapper
 </pre></div>
-<p>Con esto es suficiente: en <a class="reference external" href="https://www.archlinux.org/">Archlinux</a> este paquete tiene como dependencias los
+<p>Con esto es suficiente: en Archlinux este paquete tiene como dependencias los
 paquetes <code>python-virtualenv python2-virtualenv</code>, que corresponden a las
-versiones para <a class="reference external" href="http://www.python.org/">Python</a> 3.x y <a class="reference external" href="http://www.python.org/">Python</a> 2.x de <a class="reference external" href="https://pypi.python.org/pypi/virtualenv">virtualenv</a>, respectivamente.</p>
+versiones para Python 3.x y Python 2.x de virtualenv, respectivamente.</p>
 </div>
 <div class="section" id="configuracion">
 <h3>Configuración</h3>
-<p>Como a partir de este punto es muy posible que sólo usemos <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a> en entornos
+<p>Como a partir de este punto es muy posible que sólo usemos pip en entornos
 virtuales, podemos decirle que sólo se ejecute cuando haya un entorno virtual
 activado. Para ello, desde consola:</p>
 <div class="highlight"><pre><span class="nb">export </span><span class="nv">PIP_REQUIRE_VIRTUALENV</span><span class="o">=</span><span class="nb">true</span>
@@ -329,10 +342,10 @@ permanente hemos de añadir la misma línea a <code>~/.bashrc</code> <a class="f
 <div class="highlight"><pre><span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span>~/.virtualenvs
 <span class="nb">source</span> /usr/bin/virtualenvwrapper.sh
 </pre></div>
-<p>La primera línea es para que <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> sepa dónde se encuentran nuestros entornos.
+<p>La primera línea es para que virtualenvwrapper sepa dónde se encuentran nuestros entornos.
 Entornos que, como podemos observar, estarán en nuestra carpeta de usuario,
 dentro de una carpeta oculta llamada <code>.virtualenvs</code>.</p>
-<p>Esto sólo es necesario si vamos a guardar nuestros entornos en una ruta distinta, ya que si no declaramos <code>WORKON_HOME</code>, <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>
+<p>Esto sólo es necesario si vamos a guardar nuestros entornos en una ruta distinta, ya que si no declaramos <code>WORKON_HOME</code>, virtualenvwrapper
 asume que se encuentran en esa ubicación.</p>
 <p>La segunda línea carga <cite>virtualenvwrapper</cite> cada vez que abrimos un terminal.
 Yo realmente <a class="reference internal" href="#no-hago-esto">no hago esto</a> .</p>
@@ -342,7 +355,7 @@ Yo realmente <a class="reference internal" href="#no-hago-esto">no hago esto</a>
 </div>
 <div class="section" id="uso-basico">
 <h3>Uso básico</h3>
-<p>Desenvolverse con los entornos virtuales con <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> es
+<p>Desenvolverse con los entornos virtuales con virtualenvwrapper es
 pasmosamente simple.</p>
 <div class="section" id="crear-un-entorno">
 <h4>Crear un entorno</h4>
@@ -400,7 +413,7 @@ con limpiar todos los paquetes que instalamos en él:</p>
 <div class="highlight"><pre><span class="o">(</span>mi_entorno<span class="o">)</span><span class="nv">$ </span>wipeenv
 </pre></div>
 <p>Como bién señalé antes, esto es sólo una pequeña muestra de <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">todo lo que virtualenvwrapper puede hacer</a>.</p>
-<p>Aparte del resto de comandos que <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> pone a nuestra
+<p>Aparte del resto de comandos que virtualenvwrapper pone a nuestra
 disposición, destacaría los
 <a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html">scripts que se ejecutan antes y después de ciertas acciones</a>. Se encuentran
 en la raíz de tu directorio <code>WORKON_HOME</code> y pueden ser muy útiles.</p>
@@ -434,7 +447,7 @@ a engañar; y por ello tengo definidos una serie de <em>alias</em> <a class="foo
 <table class="docutils footnote" frame="void" id="id9" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><em>Python Package Index</em> (<em>Índice de Paquetes Python</em>). Es un gran repositorio de paquetes <a class="reference external" href="http://www.python.org/">Python</a>. En el momento de escribir esto lista 38300 paquetes.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><em>Python Package Index</em> (<em>Índice de Paquetes Python</em>). Es un gran repositorio de paquetes Python. En el momento de escribir esto lista 38300 paquetes.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id10" rules="none">
