@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://soulchainer.github.io/index.html</loc>
-<lastmod>2013-12-30T18:59:49-00:00</lastmod>
+<lastmod>2013-12-30T19:58:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://soulchainer.github.io/categories.html</loc>
-<lastmod>2013-12-30T18:59:49-00:00</lastmod>
+<lastmod>2013-12-30T19:58:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -46,28 +46,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://soulchainer.github.io/tags/comienzo/</loc>
-<lastmod>2013-12-18T02:46:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://soulchainer.github.io/tags/virtualenvwrapper/</loc>
-<lastmod>2013-12-30T18:30:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://soulchainer.github.io/tags/python/</loc>
-<lastmod>2013-12-30T18:30:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://soulchainer.github.io/tags/archlinux/</loc>
 <lastmod>2013-12-30T18:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -81,13 +60,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://soulchainer.github.io/tags/pelican/</loc>
-<lastmod>2013-12-18T02:46:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://soulchainer.github.io/tags/linux/</loc>
 <lastmod>2013-12-30T18:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -95,6 +67,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://soulchainer.github.io/tags/virtualenv/</loc>
+<lastmod>2013-12-30T18:30:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://soulchainer.github.io/tags/comienzo/</loc>
+<lastmod>2013-12-18T02:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://soulchainer.github.io/tags/archlinux/</loc>
+<lastmod>2013-12-30T18:30:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://soulchainer.github.io/tags/virtualenvwrapper/</loc>
+<lastmod>2013-12-30T18:30:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://soulchainer.github.io/tags/pelican/</loc>
 <lastmod>2013-12-18T02:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -102,8 +102,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://soulchainer.github.io/tags/virtualenv/</loc>
-<lastmod>2013-12-30T18:30:00-00:00</lastmod>
+<loc>http://soulchainer.github.io/tags/blog/</loc>
+<lastmod>2013-12-18T02:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
