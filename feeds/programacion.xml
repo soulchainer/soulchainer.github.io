@@ -4,40 +4,38 @@
 &lt;p&gt;Cuando usas &lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt; con asiduidad, ya sea por cuestiones de desarrollo o
 simplemente por preferir ciertas aplicaciones construidas en este lenguaje,
 tarde o temprano te encuentras con un problema: las dichosas dependencias y la
-versionitis &lt;a class="footnote-reference" href="#id8" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+&lt;em&gt;versionitis&lt;/em&gt; &lt;a class="footnote-reference" href="#id8" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Consideremos los siguientes supuestos:&lt;/p&gt;
-&lt;ol class="arabic"&gt;
+&lt;ol class="arabic" id="el-primer-supuesto-anterior"&gt;
 &lt;li&gt;&lt;p class="first"&gt;Estás desarrollando dos aplicaciones con Python 3.3.3.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;La primera aplicación importa la librería &lt;code&gt;wlib&lt;/code&gt;, que tiene entre sus dependencias la librería &lt;code&gt;libpeta == 1.0&lt;/code&gt; , instalada globalmente en el sistema.&lt;/li&gt;
 &lt;li&gt;En la segunda aplicación necesitas usar la librería &lt;code&gt;ylib&lt;/code&gt;, que requiere &lt;code&gt;libpeta &amp;gt;= 1.5&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Si actualizas &lt;code&gt;libpeta&lt;/code&gt; de la versión 1.0 a la 1.5, para cumplir los requisitos de &lt;code&gt;ylib&lt;/code&gt; , la primera aplicación &lt;strong&gt;peta&lt;/strong&gt;. Ya la hemos liado.&lt;/p&gt;
+&lt;p&gt;Si actualizas &lt;code&gt;libpeta&lt;/code&gt; de la versión 1.0 a la 1.5, para cumplir los requisitos de &lt;code&gt;ylib&lt;/code&gt; , la primera aplicación &lt;strong&gt;peta&lt;/strong&gt;. Ya la hemos liado. &lt;a class="reference internal" href="#que-hacemos-ahora"&gt;¿Qué hacemos ahora?&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Quieres probar una aplicación supercuriosa que has visto en &lt;a class="reference external" href="https://github.com/"&gt;GitHub&lt;/a&gt;, pero vaya: tiene un montón de dependencias, está basada en una versión de Python que no usas, muchas de sus librerías no están en los repositorios de tu distro… Y encima no trae script de desinstalación. Esto va a ser un marrón cuando quiera borrarla: si no quiero que me deje el sistema lleno de &lt;em&gt;basurilla&lt;/em&gt; voy a tener que crearme un script o desinstalar las dependencias a manita. ¿No hay una forma más fácil de hacer esto?&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;Quieres probar una aplicación supercuriosa que has visto en &lt;a class="reference external" href="https://github.com/"&gt;GitHub&lt;/a&gt;, pero vaya: tiene un montón de dependencias, está basada en una versión de &lt;em&gt;Python&lt;/em&gt; que no usas, muchas de sus librerías no están en los repositorios de tu distro… Y encima no trae script de desinstalación. Esto va a ser un marrón cuando quiera borrarla: si no quiero que me deje el sistema lleno de &lt;em&gt;basurilla&lt;/em&gt; voy a tener que crearme un script o desinstalar las dependencias a manita. ¿No hay una forma más fácil de hacer esto?&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="section" id="pip-para-instalar-administrar-paquetes"&gt;
 &lt;h2&gt;pip para instalar &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; administrar paquetes&lt;/h2&gt;
-&lt;p&gt;pip es una utilidad que nos facilita enormemente la tarea de instalar y
-administrar paquetes Python.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.pip-installer.org/en/latest/"&gt;pip&lt;/a&gt; es una utilidad que nos facilita enormemente la tarea de instalar y
+administrar paquetes &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="section" id="instalacion"&gt;
 &lt;h3&gt;Instalación&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://www.pip-installer.org/en/latest/"&gt;pip&lt;/a&gt; requiere de &lt;a class="reference external" href="https://pypi.python.org/pypi/setuptools/"&gt;setuptools&lt;/a&gt; para funcionar. De hecho, está diseñado para
-ser un reemplazo de &lt;a class="reference external" href="https://pythonhosted.org/setuptools/easy_install.html"&gt;easy_install&lt;/a&gt;, un módulo Python que se empaqueta
-junto a setuptools.&lt;/p&gt;
-&lt;p&gt;No obstante, centrándonos en Linux, pip suele estar disponible en los
+&lt;p&gt;&lt;em&gt;pip&lt;/em&gt; requiere de &lt;a class="reference external" href="https://pypi.python.org/pypi/setuptools/"&gt;setuptools&lt;/a&gt; para funcionar. De hecho, está diseñado para
+ser un reemplazo de &lt;a class="reference external" href="https://pythonhosted.org/setuptools/easy_install.html"&gt;easy_install&lt;/a&gt;, un módulo &lt;em&gt;Python&lt;/em&gt; que se empaqueta
+junto a &lt;em&gt;setuptools&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;No obstante, centrándonos en &lt;strong&gt;Linux&lt;/strong&gt;, &lt;em&gt;pip&lt;/em&gt; suele estar disponible en los
 repositorios de las principales distribuciones, por lo que se puede instalar
 fácilmente via &lt;em&gt;Administrador de Paquetes&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Así, en &lt;a class="reference external" href="https://www.archlinux.org/"&gt;Archlinux&lt;/a&gt; :&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S python-pip
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;nos instalará tanto pip como setuptools (en el caso de que no se
-encuentre instalado), de forma global en el sistema. En otras distribuciones
-contaremos con paquetes similares instalables a través de sus respectivos gestores.&lt;/p&gt;
+&lt;p&gt;nos instalará tanto &lt;em&gt;pip&lt;/em&gt; como &lt;em&gt;setuptools&lt;/em&gt; de forma global en el sistema.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalar-paquetes"&gt;
 &lt;h3&gt;Instalar paquetes&lt;/h3&gt;
@@ -57,13 +55,13 @@ pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Veamos algunos ejemplos concretos del uso común de &lt;code&gt;pip install&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Instalación básica de un paquete de PyPI:&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;Instalación básica de un paquete de &lt;em&gt;PyPI&lt;/em&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install nombre_paquete
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Instalación de un paquete de PyPI especificando un &lt;em&gt;requisito&lt;/em&gt;:&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;Instalación de un paquete de &lt;em&gt;PyPI&lt;/em&gt; especificando un &lt;em&gt;requisito&lt;/em&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install &lt;span class="s1"&gt;'nombre_paquete==2.5'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -84,7 +82,7 @@ nombre_paquete3!&lt;span class="o"&gt;=&lt;/span&gt;3.1
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; También se pueden instalar varios paquetes sin recurrir al uso de
 un &lt;em&gt;archivo de requisitos&lt;/em&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install nombre_paquete1 nombre_paquete2 nombre_paquete3&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;1.12.24
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install nombre_paquete1 nombre_paquete2 &lt;span class="s2"&gt;"nombre_paquete3&amp;gt;=1.12.24"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
@@ -98,13 +96,13 @@ pip uninstall &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Si vamos a desinstalar uno o varios paquetes y estamos absolutamente seguros de
 lo que hacemos, podemos usar la opción &lt;code&gt;-y&lt;/code&gt; o &lt;code&gt;--yes&lt;/code&gt; para que no
-nos pida confirmación sobre los archivos a borrar con la desinstalación:&lt;/p&gt;
+nos pida confirmación sobre los archivos a borrar:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip uninstall -y nombre_paquete
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="listar-paquetes-informacion"&gt;
 &lt;h3&gt;Listar paquetes &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; información&lt;/h3&gt;
-&lt;p&gt;Tenemos dos formas de listar los paquetes instalados con pip:&lt;/p&gt;
+&lt;p&gt;Tenemos dos formas de listar los paquetes instalados con &lt;em&gt;pip&lt;/em&gt;:&lt;/p&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;Listar los paquetes en formato de &lt;em&gt;requisitos&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -119,8 +117,8 @@ nos pida confirmación sobre los archivos a borrar con la desinstalación:&lt;/
 &lt;span class="nv"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;3.3
 ...
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Este formato de listado nos puede resultar muy útil si queremos instalar
-los mismos paquetes en otro entorno. En ese supuesto, sólo tendríamos que hacer:&lt;/p&gt;
+&lt;p&gt;Este formato de listado resulta muy útil cuando queremos instalar los
+mismos paquetes en otro entorno. En ese supuesto, sólo tendríamos que hacer:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip freeze &amp;gt; requisitos.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;para obtener el &lt;em&gt;archivo de requisitos&lt;/em&gt;; e instalarlos después en el nuevo
@@ -150,8 +148,8 @@ setuptools &lt;span class="o"&gt;(&lt;/span&gt;Current: 0.9.8 Latest: 2.0.2&lt;s
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Si lo que deseamos no es listar paquetes instalados, sino obtener información
-algo más detallada de los mismos, usaremos:&lt;/p&gt;
+&lt;p&gt;Si lo que deseamos no es listar paquetes instalados, sino obtener mayor
+información de los mismos, usaremos:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip show &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;paquete&amp;gt; ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Por defecto, nos muestra el nombre del paquete, la versión instalada, la ruta
@@ -175,36 +173,36 @@ todos los archivos referentes a un paquete:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="buscar-paquetes"&gt;
 &lt;h3&gt;Buscar paquetes&lt;/h3&gt;
-&lt;p&gt;Podemos buscar paquetes en PyPI desde la línea de comandos con:&lt;/p&gt;
+&lt;p&gt;Se puede buscar paquetes en &lt;em&gt;PyPI&lt;/em&gt; desde la línea de comandos con:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip search &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;búsqueda&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Lo que nos arroja resultados relacionados con la palabra clave señalada:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ppip search w3c
+&lt;p&gt;Si buscamos por &lt;code&gt;w3c&lt;/code&gt;, por ejemplo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip search w3c
 pyprov                    - A Python implementation of &lt;span class="caps"&gt;W3C&lt;/span&gt; &lt;span class="caps"&gt;PROV&lt;/span&gt; data model
 py_w3c                    - Library &lt;span class="k"&gt;for &lt;/span&gt;&lt;span class="caps"&gt;W3C&lt;/span&gt; markup validation &lt;span class="caps"&gt;SOAP&lt;/span&gt; service
 w3c-validator             - &lt;span class="caps"&gt;W3C&lt;/span&gt; panel &lt;span class="k"&gt;for &lt;/span&gt;Django Debug Toolbar using requests.
 ...
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;pip es mucho más que todo esto. &lt;a class="reference external" href="http://www.pip-installer.org/en/latest/"&gt;&lt;span class="caps"&gt;RTFM&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;pip&lt;/em&gt; es mucho más que todo esto. &lt;a class="reference external" href="http://www.pip-installer.org/en/latest/"&gt;&lt;span class="caps"&gt;RTFM&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="entornos-virtuales-python"&gt;
 &lt;h2&gt;Entornos virtuales Python&lt;/h2&gt;
-&lt;p&gt;Los entornos virtuales vienen a solucionar el problema planteado en el primer
-supuesto de &lt;a class="reference internal" href="#problematica"&gt;Problemática&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Básicamente, un entorno virtual Python es una carpeta que contiene enlaces
-simbólicos al entorno global del lenguaje en nuestro sistema, pero que mantiene
-todo paquete instalado con pip dentro de sus límites. De esta forma, podemos
-hacer y deshacer sin que esto afecte al entorno Python global, evitando así
-problemas de dependencias.&lt;/p&gt;
+&lt;p id="que-hacemos-ahora"&gt;Los entornos virtuales vienen a solucionar el problema planteado en &lt;a class="reference internal" href="#el-primer-supuesto-anterior"&gt;el primer
+supuesto anterior&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Un entorno virtual &lt;em&gt;Python&lt;/em&gt; no es más que una carpeta con una copia de &lt;em&gt;Python&lt;/em&gt;
+(enlaza a su librería estándar y añade los paquetes &lt;code&gt;setuptools pip&lt;/code&gt;),
+donde podemos instalar los paquetes adicionales que queramos con &lt;em&gt;pip&lt;/em&gt;,
+sin miedo a crear conflictos con la instalación global. Es un entorno aislado.&lt;/p&gt;
 &lt;p&gt;Para trabajar con entornos virtuales usaremos &lt;a class="reference external" href="https://pypi.python.org/pypi/virtualenv"&gt;virtualenv&lt;/a&gt; y
 &lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;virtualenvwrapper&lt;/a&gt;. Este último no es estrictamente necesario, pero facilita
-mucho el uso cotidiano del primero, proporcionando una capa de comandos muy
-útil. De hecho, lo considero tan imprescindible que de virtualenv sólo
-trataré su obligada instalación, el resto recaerá sobre virtualenvwrapper.&lt;/p&gt;
+mucho el uso cotidiano del anterior, proporcionando una capa de comandos que lo
+vuelve imprescindible. Tanto que sólo trataremos con &lt;em&gt;virtualenv&lt;/em&gt; durante su
+obligada instalación, el resto del tiempo &lt;em&gt;virtualenvwrapper&lt;/em&gt; mediará con él
+por nosotros.&lt;/p&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;Instalación&lt;/h3&gt;
-&lt;p&gt;Una vez tenemos instalado pip, podemos instalar ambos herramientas a través
+&lt;p&gt;Una vez tenemos instalado &lt;em&gt;pip&lt;/em&gt;, podemos instalar ambas herramientas a través
 de él:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install virtualenv virtualenvwrapper
 &lt;/pre&gt;&lt;/div&gt;
@@ -213,13 +211,13 @@ del sistema, para no tener que preocuparme de revisar periódicamente si hay
 actualizaciones y esas cosas.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S python-virtualenvwrapper
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Con esto es suficiente: en Archlinux este paquete tiene como dependencias los
+&lt;p&gt;Con esto es suficiente: en &lt;em&gt;Archlinux&lt;/em&gt; este paquete tiene como dependencias los
 paquetes &lt;code&gt;python-virtualenv python2-virtualenv&lt;/code&gt;, que corresponden a las
-versiones para Python 3.x y Python 2.x de virtualenv, respectivamente.&lt;/p&gt;
+versiones para &lt;em&gt;Python 3.x&lt;/em&gt; y &lt;em&gt;Python 2.x&lt;/em&gt; de &lt;em&gt;virtualenv&lt;/em&gt;, respectivamente.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="configuracion"&gt;
 &lt;h3&gt;Configuración&lt;/h3&gt;
-&lt;p&gt;Como a partir de este punto es muy posible que sólo usemos pip en entornos
+&lt;p&gt;Como a partir de este punto es muy posible que sólo usemos &lt;em&gt;pip&lt;/em&gt; en entornos
 virtuales, podemos decirle que sólo se ejecute cuando haya un entorno virtual
 activado. Para ello, desde consola:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;PIP_REQUIRE_VIRTUALENV&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
@@ -230,27 +228,28 @@ permanente hemos de añadir la misma línea a &lt;code&gt;~/.bashrc&lt;/code&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;~/.virtualenvs
 &lt;span class="nb"&gt;source&lt;/span&gt; /usr/bin/virtualenvwrapper.sh
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;La primera línea es para que virtualenvwrapper sepa dónde se encuentran nuestros entornos.
+&lt;p&gt;La primera línea hace saber a &lt;em&gt;virtualenvwrapper&lt;/em&gt; dónde se encuentran nuestros
+entornos.
 Entornos que, como podemos observar, estarán en nuestra carpeta de usuario,
 dentro de una carpeta oculta llamada &lt;code&gt;.virtualenvs&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Esto sólo es necesario si vamos a guardar nuestros entornos en una ruta distinta, ya que si no declaramos &lt;code&gt;WORKON_HOME&lt;/code&gt;, virtualenvwrapper
+&lt;p&gt;Esto sólo es necesario si vamos a guardar nuestros entornos en una ruta distinta, ya que si no declaramos &lt;code&gt;WORKON_HOME&lt;/code&gt;, &lt;em&gt;virtualenvwrapper&lt;/em&gt;
 asume que se encuentran en esa ubicación.&lt;/p&gt;
-&lt;p&gt;La segunda línea carga &lt;cite&gt;virtualenvwrapper&lt;/cite&gt; cada vez que abrimos un terminal.
-Yo realmente &lt;a class="reference internal" href="#no-hago-esto"&gt;no hago esto&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;La segunda línea carga &lt;em&gt;virtualenvwrapper&lt;/em&gt; cada vez que abrimos un terminal.
+Yo realmente &lt;a class="reference internal" href="#no-hago-esto"&gt;no hago esto&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Para terminar, creamos el directorio que albergará los entornos:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir ~/.virtualenvs
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="uso-basico"&gt;
 &lt;h3&gt;Uso básico&lt;/h3&gt;
-&lt;p&gt;Desenvolverse con los entornos virtuales con virtualenvwrapper es
+&lt;p&gt;Desenvolverse con los entornos virtuales con &lt;em&gt;virtualenvwrapper&lt;/em&gt; es
 pasmosamente simple.&lt;/p&gt;
 &lt;div class="section" id="crear-un-entorno"&gt;
 &lt;h4&gt;Crear un entorno&lt;/h4&gt;
 &lt;p&gt;Creamos entornos virtuales con &lt;code&gt;mkvirtualenv&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;mkvirtualenv &lt;span class="o"&gt;[&lt;/span&gt;-a ruta_proyecto&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-i paquete&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-r archivo_requisitos&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;opciones virtualenv&lt;span class="o"&gt;]&lt;/span&gt; NOMBRE_ENTORNO
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Para simplemente crear un entorno con el intérprete &lt;cite&gt;Python&lt;/cite&gt; por defecto:&lt;/p&gt;
+&lt;p&gt;Para simplemente crear un entorno con el intérprete &lt;em&gt;Python&lt;/em&gt; por defecto:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv mi_entorno
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Si queremos que emplee otro intérprete, tenemos que especificárselo con la
@@ -259,7 +258,7 @@ opción &lt;code&gt;-p&lt;/code&gt; o &lt;code&gt;--python&lt;/code&gt;:&lt;/p&g
 &lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv --python&lt;span class="o"&gt;=&lt;/span&gt;python2.7 mi_entorno
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como se puede apreciar en la síntaxis del comando, con la opción &lt;code&gt;-r&lt;/code&gt;
-podemos indicarle un archivo de requisitos, para que instale determinados
+podemos indicarle un &lt;em&gt;archivo de requisitos&lt;/em&gt;, para que instale determinados
 paquetes en el entorno justo después de su creación.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="activar-el-entorno"&gt;
@@ -270,7 +269,7 @@ paquetes en el entorno justo después de su creación.&lt;/p&gt;
 &lt;p&gt;Al activar un entorno, el &lt;em&gt;prompt&lt;/em&gt; cambia a:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;mi_entorno&lt;span class="o"&gt;)[&lt;/span&gt;usuario@hostname&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;carpeta&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Como un recordatorio del entorno en el que nos encontramos&lt;/p&gt;
+&lt;p&gt;Como un recordatorio del entorno en el que nos encontramos.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="listar-entornos"&gt;
 &lt;h4&gt;Listar entornos&lt;/h4&gt;
@@ -297,11 +296,12 @@ del entorno actual:&lt;/p&gt;
 &lt;div class="section" id="limpiar-un-entorno"&gt;
 &lt;h4&gt;Limpiar un entorno&lt;/h4&gt;
 &lt;p&gt;Si sólo queremos empezar de cero con un entorno, no hace falta borrarlo, basta
-con limpiar todos los paquetes que instalamos en él:&lt;/p&gt;
+con limpiar todos los paquetes en él instalados:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;mi_entorno&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;wipeenv
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Como bién señalé antes, esto es sólo una pequeña muestra de &lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;todo lo que virtualenvwrapper puede hacer&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Aparte del resto de comandos que virtualenvwrapper pone a nuestra
+&lt;p&gt;Como bien señalé antes, esto es sólo una pequeña muestra de
+&lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;todo lo que virtualenvwrapper puede hacer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Aparte del resto de comandos que &lt;em&gt;virtualenvwrapper&lt;/em&gt; pone a nuestra
 disposición, destacaría los
 &lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html"&gt;scripts que se ejecutan antes y después de ciertas acciones&lt;/a&gt;. Se encuentran
 en la raíz de tu directorio &lt;code&gt;WORKON_HOME&lt;/code&gt; y pueden ser muy útiles.&lt;/p&gt;
@@ -311,9 +311,10 @@ paquete en cada entorno que creo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="extra-de-configuracion"&gt;
 &lt;h3&gt;Extra de configuración&lt;/h3&gt;
-&lt;p id="no-hago-esto"&gt;Yo soy algo perezoso &lt;a class="footnote-reference" href="#id12" id="id6"&gt;[5]&lt;/a&gt; y desmemoriado (&lt;strong&gt;muy desmemoriado&lt;/strong&gt;, para qué nos
-vamos a engañar); y es por ello que tengo definidos en mi &lt;code&gt;.bashrc&lt;/code&gt; una
-serie de &lt;em&gt;alias&lt;/em&gt; &lt;a class="footnote-reference" href="#id13" id="id7"&gt;[6]&lt;/a&gt; que me hacen la vida un poco más fácil:&lt;/p&gt;
+&lt;p id="no-hago-esto"&gt;Como colofón, mencionar que soy algo perezoso &lt;a class="footnote-reference" href="#id12" id="id6"&gt;[5]&lt;/a&gt; y desmemoriado
+(&lt;strong&gt;muy desmemoriado&lt;/strong&gt;, para qué nos vamos a engañar), y por ello tengo
+definidos en mi &lt;code&gt;.bashrc&lt;/code&gt; una serie de &lt;em&gt;alias&lt;/em&gt; &lt;a class="footnote-reference" href="#id13" id="id7"&gt;[6]&lt;/a&gt; que me hacen la vida
+un poco más fácil:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Entornos virtuales (.virtualenvs) con virtualenvwrapper&lt;/span&gt;
 &lt;span class="c"&gt;# http://virtualenvwrapper.readthedocs.org/en/latest/&lt;/span&gt;
 &lt;span class="nb"&gt;alias &lt;/span&gt;&lt;span class="nv"&gt;venvson&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'source virtualenvwrapper.sh'&lt;/span&gt; &lt;span class="c"&gt;# activa gestor de entornos Python&lt;/span&gt;
@@ -347,7 +348,7 @@ serie de &lt;em&gt;alias&lt;/em&gt; &lt;a class="footnote-reference" href="#id13
 &lt;table class="docutils footnote" frame="void" id="id11" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id5"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;.bashrc&lt;/code&gt; es el fichero de configuración de &lt;em&gt;Bash&lt;/em&gt; (&lt;em&gt;Bourne again shell&lt;/em&gt;), la shell (intérprete de comandos) por defecto en &lt;em&gt;Linux&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id5"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;.bashrc&lt;/em&gt; es el fichero de configuración de &lt;em&gt;Bash&lt;/em&gt; (&lt;em&gt;Bourne again shell&lt;/em&gt;), la shell (intérprete de comandos) por defecto en &lt;em&gt;Linux&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table class="docutils footnote" frame="void" id="id12" rules="none"&gt;
