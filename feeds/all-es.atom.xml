@@ -77,7 +77,7 @@ o dobles para evitar que se interpreten los símbolos &lt;code&gt;&amp;lt; &amp;
 &lt;blockquote&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install -r archivo_requisitos.txt
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Dónde &lt;code&gt;archivo_requisitos.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Donde &lt;code&gt;archivo_requisitos.txt&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;nombre_paquete1&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;2.5
 nombre_paquete2&amp;gt;0.5
 nombre_paquete3!&lt;span class="o"&gt;=&lt;/span&gt;3.1
@@ -311,9 +311,9 @@ paquete en cada entorno que creo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="extra-de-configuracion"&gt;
 &lt;h3&gt;Extra de configuración&lt;/h3&gt;
-&lt;p id="no-hago-esto"&gt;Yo soy algo perezoso &lt;a class="footnote-reference" href="#id12" id="id6"&gt;[5]&lt;/a&gt; y desmemoriado, muy desmemoriado, para qué nos vamos
-a engañar; y por ello tengo definidos una serie de &lt;em&gt;alias&lt;/em&gt; &lt;a class="footnote-reference" href="#id13" id="id7"&gt;[6]&lt;/a&gt; en mi
-&lt;code&gt;.bashrc&lt;/code&gt;, que me hacen la vida un poco más fácil:&lt;/p&gt;
+&lt;p id="no-hago-esto"&gt;Yo soy algo perezoso &lt;a class="footnote-reference" href="#id12" id="id6"&gt;[5]&lt;/a&gt; y desmemoriado (&lt;strong&gt;muy desmemoriado&lt;/strong&gt;, para qué nos
+vamos a engañar); y es por ello que tengo definidos en mi &lt;code&gt;.bashrc&lt;/code&gt; una
+serie de &lt;em&gt;alias&lt;/em&gt; &lt;a class="footnote-reference" href="#id13" id="id7"&gt;[6]&lt;/a&gt; que me hacen la vida un poco más fácil:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Entornos virtuales (.virtualenvs) con virtualenvwrapper&lt;/span&gt;
 &lt;span class="c"&gt;# http://virtualenvwrapper.readthedocs.org/en/latest/&lt;/span&gt;
 &lt;span class="nb"&gt;alias &lt;/span&gt;&lt;span class="nv"&gt;venvson&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'source virtualenvwrapper.sh'&lt;/span&gt; &lt;span class="c"&gt;# activa gestor de entornos Python&lt;/span&gt;
