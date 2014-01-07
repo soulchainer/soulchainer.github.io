@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2013-12-30T18:30:00+01:00</updated><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="section" id="problematica"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-07T20:45:00+01:00</updated><entry><title>"Mobile Web Development", nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="" src="http://soulchainer.github.io/images/2014/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
+&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;`’Mobile Web Development’`_&lt;/span&gt;&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que
+aprovecho y actualizo el blog con una entradita breve.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; es mi plataforma de &lt;strong&gt;MOOCs&lt;/strong&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; favorita &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;. Y es que considero
+que llevan su tiempo haciendo las cosas muy bien. Ya podrían aprender un
+poquito &lt;em&gt;otras&lt;/em&gt; &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt;. Su sitio es estable y está bien organizado (con sus
+respectivas wikis, descarga de recursos, foro…); su comunidad es muy amigable
+y participativa; y, sobre todo, cuenta con unos
+&lt;strong&gt;instructores altamente cualificados&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Pongo especial énfasis en este último punto porque estoy literalmente
+&lt;em&gt;hasta las narices&lt;/em&gt; de que quienes imparten ciertos &lt;em&gt;MOOCs&lt;/em&gt; demuestren
+ser los primeros que necesitan cimentar su formación. Incluso en aspectos
+escándalosamente básicos de la materia que "dominan". Me preocupa (&lt;em&gt;y mucho&lt;/em&gt;)
+que quienes se supone tienen por misión divulgar el conocimiento vayan por ahí
+plantando la semilla de la &lt;em&gt;ignorancia&lt;/em&gt; y la &lt;em&gt;mala praxis&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Además de este punto tan importante, otro aspecto que me gusta mucho de
+&lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; es que, al contrario que demasiadas autoproclamadas plataformas
+&lt;em&gt;de MOOCs&lt;/em&gt;, cumple la condición de impartir cursos &lt;strong&gt;abiertos&lt;/strong&gt; y mantiene la
+filosofía de democratizar la educación. Nunca acudirás a &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; y te
+encontrarás con un curso &lt;strong&gt;&lt;span class="caps"&gt;CERRADO&lt;/span&gt;&lt;/strong&gt;, porque esto es contrario a dicha
+filosofía. Si de verdad quieres democratizar la educación, no la restringes. De
+ningún modo. Y menos de acuerdo a absurdos plazos.&lt;/p&gt;
+&lt;p&gt;Los cursos en &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; puedes hacerlos cuando quieras. Progresar cuando
+quieras. A tu ritmo. Son cursos &lt;strong&gt;abiertos de verdad&lt;/strong&gt;, no de boquilla.&lt;/p&gt;
+&lt;p&gt;Bueno, no me enrollo más, que se supone que iba a hacer una entrada corta.
+Tenía ganas de hablaros un poco de &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; y ya lo he hecho &lt;a class="footnote-reference" href="#id8" id="id4"&gt;[4]&lt;/a&gt;. Dejo bajo
+estas líneas el vídeo de presentación del curso, para que hable por sí mismo.&lt;/p&gt;
+&lt;div align="center" class="youtube"&gt;&lt;iframe class="iytb" frameborder="0" height="315" src="https://www.youtube.com/embed/bFmMT2ZDQ8M" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Y como dicen en &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt;: &lt;strong&gt;Stay Udacious&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; (&lt;em&gt;Massive Open Online Course&lt;/em&gt;, &lt;em&gt;Curso en Línea Masivo y Abierto&lt;/em&gt;) es un curso de educación abierta y gratuita, impartido a través de internet. Su finalidad última es la democratización del conocimiento.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;span class="caps"&gt;OJO&lt;/span&gt;&lt;/strong&gt;: de habla inglesa. Aunque al poco de salir los vídeos, suelen publicarse subtítulos. Al menos hasta el momento. Pero no hay que poner demasiadas expectativas en estos: los ingleses son los únicos que no suelen faltar.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Cof, cof, &lt;a class="reference external" href="https://www.miriadax.net"&gt;Miríada X&lt;/a&gt;, cof, cof, cof… Ay, que tosecita más tonta me ha dado.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Y a pesar de toda esta publicidad gratuita, yo no veo un duro de ellos, oye… xD&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: &lt;span class="caps"&gt;ERROR&lt;/span&gt;/3 (&lt;tt class="docutils"&gt;/home/soulchainer/Dev/Proyectos/Web/blog/content/posts/2014/2014-01-07.rst&lt;/tt&gt;, line 13); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: "’mobile web development’".&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="dev"></category><category term="movil"></category><category term="html5"></category><category term="educacion"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="section" id="problematica"&gt;
 &lt;h2&gt;Problemática&lt;/h2&gt;
 &lt;p&gt;Cuando usas &lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt; con asiduidad, ya sea por cuestiones de desarrollo o
 simplemente por preferir ciertas aplicaciones construidas en este lenguaje,
@@ -7,7 +69,7 @@ tarde o temprano te encuentras con un problema: las dichosas dependencias y la
 &lt;em&gt;versionitis&lt;/em&gt; &lt;a class="footnote-reference" href="#id8" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Consideremos los siguientes supuestos:&lt;/p&gt;
 &lt;ol class="arabic" id="el-primer-supuesto-anterior"&gt;
-&lt;li&gt;&lt;p class="first"&gt;Estás desarrollando dos aplicaciones con Python 3.3.3.&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;Estás desarrollando dos aplicaciones con &lt;em&gt;Python 3.3.3&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;La primera aplicación importa la librería &lt;code&gt;wlib&lt;/code&gt;, que tiene entre sus dependencias la librería &lt;code&gt;libpeta == 1.0&lt;/code&gt; , instalada globalmente en el sistema.&lt;/li&gt;
@@ -309,8 +371,8 @@ en la raíz de tu directorio &lt;code&gt;WORKON_HOME&lt;/code&gt; y pueden ser m
 paquete en cada entorno que creo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="extra-de-configuracion"&gt;
-&lt;h3&gt;Extra de configuración&lt;/h3&gt;
+&lt;div class="section" id="configuracion-extra"&gt;
+&lt;h3&gt;Configuración extra&lt;/h3&gt;
 &lt;p id="no-hago-esto"&gt;Como colofón, mencionar que soy algo perezoso &lt;a class="footnote-reference" href="#id12" id="id6"&gt;[5]&lt;/a&gt; y desmemoriado
 (&lt;strong&gt;muy desmemoriado&lt;/strong&gt;, para qué nos vamos a engañar), y por ello tengo
 definidos en mi &lt;code&gt;.bashrc&lt;/code&gt; una serie de &lt;em&gt;alias&lt;/em&gt; &lt;a class="footnote-reference" href="#id13" id="id7"&gt;[6]&lt;/a&gt; que me hacen la vida
