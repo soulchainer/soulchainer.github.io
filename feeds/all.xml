@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-07T20:45:00+01:00</updated><entry><title>"Mobile Web Development", nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-07T20:45:00+01:00</updated><entry><title>Mobile Web Development, nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="" src="http://soulchainer.github.io/images/2014/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
-&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;`’Mobile Web Development’`_&lt;/span&gt;&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que
+&lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;"Mobile Web Development"&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que
 aprovecho y actualizo el blog con una entradita breve.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; es mi plataforma de &lt;strong&gt;MOOCs&lt;/strong&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; favorita &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;. Y es que considero
 que llevan su tiempo haciendo las cosas muy bien. Ya podrían aprender un
@@ -55,12 +55,6 @@ estas líneas el vídeo de presentación del curso, para que hable por sí mism
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Y a pesar de toda esta publicidad gratuita, yo no veo un duro de ellos, oye… xD&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;div class="system-messages section"&gt;
-&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
-&lt;div class="system-message" id="id9"&gt;
-&lt;p class="system-message-title"&gt;System Message: &lt;span class="caps"&gt;ERROR&lt;/span&gt;/3 (&lt;tt class="docutils"&gt;/home/soulchainer/Dev/Proyectos/Web/blog/content/posts/2014/2014-01-07.rst&lt;/tt&gt;, line 13); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-Unknown target name: "’mobile web development’".&lt;/div&gt;
-&lt;/div&gt;
 </summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="dev"></category><category term="movil"></category><category term="html5"></category><category term="educacion"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="section" id="problematica"&gt;
 &lt;h2&gt;Problemática&lt;/h2&gt;
 &lt;p&gt;Cuando usas &lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt; con asiduidad, ya sea por cuestiones de desarrollo o
