@@ -3,7 +3,7 @@
 &lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="http://soulchainer.github.io/images/2014/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;ATENCIÓN&lt;/strong&gt;: Contenido &lt;span class="caps"&gt;NTSW&lt;/span&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ATENCIÓN&lt;/strong&gt;: Contenido &lt;span class="caps"&gt;NSFW&lt;/span&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Estaba yo buscando en &lt;a class="reference external" href="http://www.flickr.com"&gt;Flickr&lt;/a&gt; una imagen de una &lt;em&gt;pitón&lt;/em&gt; (ya sabéis, la
 serpiente, esa que hace eso de la lengua y da unos abrazos muy cariñosos) para
 complementar mi vieja entrada sobre
@@ -79,7 +79,11 @@ estas líneas el vídeo de presentación del curso, para que hable por sí mism
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Y a pesar de toda esta publicidad gratuita, yo no veo un duro de ellos, oye… xD&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="dev"></category><category term="movil"></category><category term="html5"></category><category term="educacion"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="section" id="problematica"&gt;
+</summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="dev"></category><category term="movil"></category><category term="html5"></category><category term="educacion"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="figure" style="width: 766px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Python verde (Morelia Viridis)." src="http://soulchainer.github.io/images/2013/2013-12-28_1.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Pitón arborícola verde (Morelia Viridis). Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/"&gt;Marie&lt;/a&gt;, con unos toquecitos. &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/5513104816/"&gt;Original&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="problematica"&gt;
 &lt;h2&gt;Problemática&lt;/h2&gt;
 &lt;p&gt;Cuando usas &lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt; con asiduidad, ya sea por cuestiones de desarrollo o
 simplemente por preferir ciertas aplicaciones construidas en este lenguaje,
