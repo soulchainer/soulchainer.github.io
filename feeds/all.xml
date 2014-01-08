@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-07T20:45:00+01:00</updated><entry><title>Mobile Web Development, nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="" src="http://soulchainer.github.io/images/2014/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-08T14:00:00+01:00</updated><entry><title>Geekcalendar: calendario geek ligerito de ropa</title><link href="http://soulchainer.github.io/posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/" rel="alternate"></link><updated>2014-01-08T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-08:posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</id><summary type="html">&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="http://soulchainer.github.io/images/2014/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;ATENCIÓN&lt;/strong&gt;: Contenido &lt;span class="caps"&gt;NTSW&lt;/span&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Estaba yo buscando en &lt;a class="reference external" href="http://www.flickr.com"&gt;Flickr&lt;/a&gt; una imagen de una &lt;em&gt;pitón&lt;/em&gt; (ya sabéis, la
+serpiente, esa que hace eso de la lengua y da unos abrazos muy cariñosos) para
+complementar mi vieja entrada sobre
+&lt;a class="reference external" href="{filename}/2013/2013-12-18.rst"&gt;pip &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; entornos virtuales Python&lt;/a&gt; cuando, me
+he topado con &lt;a class="reference external" href="http://www.flickr.com/photos/exey/9686764667/"&gt;cierta foto&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt; que no era una pitón, pero
+que también posee &lt;a class="reference external" href="https://twitter.com/FreakViking"&gt;ciertos efectos hipnóticos en determinados individuos&lt;/a&gt;. Y
+no he podido evitar acordarme de mi follower vikingo favorito: &lt;a class="reference external" href="https://twitter.com/FreakViking"&gt;@FreakViking&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Al encontrar esta imagen, que tanto anima a programar, he curioseado por la
+galería de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey&lt;/a&gt; y he caído en la cuenta de que estas imágenes iban
+destinadas a la publicación de un calendario para el presente año y que podéis
+encontrar &lt;a class="reference external" href="http://exeypanteleev.com/geeklendar/"&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Happy Coding! :D&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Not Safe/Suitable For Work&lt;/em&gt; (No es apropiado/seguro para el trabajo). Que no te pille tu jefe viendo esto cuando se supone que estás trabajando ò_ó&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</summary><category term="calendario"></category><category term="geek"></category><category term="fotografia"></category><category term="desnudo"></category><category term="lenguajes"></category><category term="programacion"></category><category term="NSFW"></category></entry><entry><title>Mobile Web Development, nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Logo y Slogan de Udacity." src="http://soulchainer.github.io/images/2014/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
 &lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;"Mobile Web Development"&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que
