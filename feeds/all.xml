@@ -1,20 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-08T14:00:00+01:00</updated><entry><title>Geekcalendar: calendario geek ligerito de ropa</title><link href="http://soulchainer.github.io/posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/" rel="alternate"></link><updated>2014-01-08T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-08:posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</id><summary type="html">&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-12T13:30:00+01:00</updated><entry><title>Depuración remota &amp; testeo en Firefox para Android</title><link href="http://soulchainer.github.io/posts/2014/01/12/depuracion-remota-firefox-android/" rel="alternate"></link><updated>2014-01-12T13:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-12:posts/2014/01/12/depuracion-remota-firefox-android/</id><summary type="html">&lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha Chu (http://www.flickr.com/photos/shashachu/)." src="http://soulchainer.github.io/images/2014/2014-01-12_1.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Fire fox (Panda Rojo, &lt;em&gt;Ailurus fulgens&lt;/em&gt;). ¿No son adorables estos animales?
+&lt;a class="reference external" href="http://www.flickr.com/photos/shashachu/258240635/"&gt;Fotografía&lt;/a&gt; obra de &lt;a class="reference external" href="http://www.flickr.com/photos/shashachu/"&gt;Sha Sha Chu&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Como ya comenté &lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/"&gt;anteriormente&lt;/a&gt;, estoy
+siguiendo un &lt;em&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/em&gt; sobre &lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;desarrollo web orientado a dispositivos móviles&lt;/a&gt;
+en &lt;a class="reference external" href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt;. La cuestión es que en el curso se usa de forma intensiva
+&lt;em&gt;Google Chrome&lt;/em&gt; y sus &lt;em&gt;herramientas de desarrollo&lt;/em&gt;. Y todos tan contentos…
+hasta que se toca el tema de la &lt;em&gt;depuración remota&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Y es que para ello es necesario instalar &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.chrome.beta"&gt;Google Chrome Beta&lt;/a&gt; en &lt;em&gt;Android&lt;/em&gt;.
+Lo que a su vez requiere disponer de &lt;strong&gt;Android &amp;gt;= 4.0&lt;/strong&gt; &lt;a class="footnote-reference" href="#id8" id="id1"&gt;[1]&lt;/a&gt;. Y podéis decirme
+que "hoy día la mayoría tiene &lt;em&gt;&lt;span class="caps"&gt;ICS&lt;/span&gt;&lt;/em&gt; o superior", pero resulta que el número de
+usuarios que no entra en esa &lt;em&gt;mayoría&lt;/em&gt;, entre los cuales me encuentro &lt;strong&gt;yo&lt;/strong&gt;
+(&lt;em&gt;Android 2.3.5&lt;/em&gt;), es bastante númeroso.&lt;/p&gt;
+&lt;div class="section" id="firefox-saves-the-day"&gt;
+&lt;h2&gt;Firefox saves the day&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Firefox&lt;/em&gt; también soporta la depuración remota, sin la imposición de esta (en
+mi opinión) &lt;strong&gt;absurda&lt;/strong&gt; restricción.&lt;/p&gt;
+&lt;p&gt;Siempre es útil conocer más herramientas. Además, yo soy &lt;strong&gt;pro Firefox&lt;/strong&gt;, así
+que: veamos cómo se hace.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="depuracion-remota"&gt;
+&lt;h2&gt;Depuración remota&lt;/h2&gt;
+&lt;div class="section" id="requisitos"&gt;
+&lt;h3&gt;Requisitos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Equipo ejecutando una versión de escritorio de &lt;em&gt;Firefox&lt;/em&gt; &lt;strong&gt;&amp;gt;= 15&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Dispositivo &lt;em&gt;Android&lt;/em&gt; ejecutando &lt;strong&gt;Firefox &amp;gt;= 15&lt;/strong&gt;. Versión de
+&lt;strong&gt;Android &amp;gt;= 2.2&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Conectar ambos dispositivos.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol class="arabic simple" id="conectividad-wifi"&gt;
+&lt;li&gt;Vía cable &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Vía &lt;em&gt;WiFi&lt;/em&gt; (&lt;strong&gt;requiere root&lt;/strong&gt;). Usando aplicaciones como &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.ryosoftware.adbw"&gt;&lt;span class="caps"&gt;ADB&lt;/span&gt; WiFi&lt;/a&gt;
+(&lt;strong&gt;Android &amp;gt;= 2.1&lt;/strong&gt;, &lt;em&gt;traducida&lt;/em&gt;) o &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb"&gt;WiFi &lt;span class="caps"&gt;ADB&lt;/span&gt; - Debug Over Air&lt;/a&gt;
+(&lt;strong&gt;Android &amp;gt;= 2.3&lt;/strong&gt;, &lt;em&gt;mejor diseño&lt;/em&gt;). Yo uso la última.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;em&gt;&lt;span class="caps"&gt;ADB&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id9" id="id2"&gt;[2]&lt;/a&gt;. Implica la instalación del &lt;a class="reference external" href="http://developer.android.com/intl/es/sdk/index.html"&gt;Android &lt;span class="caps"&gt;SDK&lt;/span&gt;&lt;/a&gt; y las
+&lt;a class="reference external" href="http://developer.android.com/sdk/installing/adding-packages.html"&gt;Android Platforms Tools&lt;/a&gt; correspondientes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No detallo los dos últimos puntos aquí. Ante cualquier duda, podéis preguntar
+en los comentarios.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="activar-la-depuracion-remota-localhost"&gt;
+&lt;h3&gt;Activar la depuración remota (localhost)&lt;/h3&gt;
+&lt;p&gt;Debemos activar la &lt;em&gt;depuración remota&lt;/em&gt; en ambos dispositivos (&lt;em&gt;escritorio&lt;/em&gt; y
+&lt;em&gt;Android&lt;/em&gt;).&lt;/p&gt;
+&lt;div class="section" id="en-firefox-para-android-24"&gt;
+&lt;h4&gt;En Firefox para Android &amp;lt;= 24&lt;/h4&gt;
+&lt;p&gt;Tecleamos &lt;code&gt;about:config&lt;/code&gt; en la &lt;em&gt;barra de direcciones&lt;/em&gt; y filtramos la
+lista de preferencias con la cadena &lt;code&gt;debugger&lt;/code&gt;.
+Localizada entre los resultados &lt;code&gt;devtools.debugger.remote-enabled&lt;/code&gt;,
+cambiamos su valor a &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Búsqueda de la cadena 'debugger' en about:config." src="http://soulchainer.github.io/images/2014/2014-01-12_2.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Después, reiniciamos el navegador.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="en-firefox-para-android-25"&gt;
+&lt;h4&gt;En Firefox para Android &amp;gt;= 25&lt;/h4&gt;
+&lt;p&gt;Aunque posible, en este caso no hay necesidad de recurrir a
+&lt;code&gt;about:config&lt;/code&gt;, pues contamos con una opción específica en el menú de la
+aplicación. En mi terminal la ruta es:
+&lt;strong&gt;Más → Configuración → Herramientas de desarrolladores → Depuración remota&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/2014-01-12_3.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Al activarla nos recuerda que hemos de configurar el &lt;a class="reference internal" href="#desvio-de-puertos"&gt;desvío de puertos&lt;/a&gt; para
+conectar las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; al dispositivo. Lo haremos
+&lt;a class="reference internal" href="#mas-adelante"&gt;más adelante&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;De nuevo aquí, reiniciamos el navegador.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="en-la-version-de-escritorio"&gt;
+&lt;h4&gt;En la versión de escritorio&lt;/h4&gt;
+&lt;p&gt;En la versión de escritorio nos basta con abrir las
+&lt;em&gt;herramientas de desarrollo&lt;/em&gt; (&lt;strong&gt;menú Firefox/Tools → Web Developer →&lt;/strong&gt;
+&lt;strong&gt;marcar la casilla Toggle Tools&lt;/strong&gt;) y, en la pestaña de opciones, marcar
+&lt;em&gt;Enable remote debugging&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/2014-01-12_4.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Si usamos &lt;strong&gt;Firefox &amp;lt; 27&lt;/strong&gt; tendremos que reiniciar el navegador para que se
+apliquen los cambios.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="activar-la-depuracion-remota-red-local"&gt;
+&lt;h3&gt;Activar la depuración remota (red local)&lt;/h3&gt;
+&lt;div class="section" id="en-firefox-para-android"&gt;
+&lt;h4&gt;En Firefox para Android&lt;/h4&gt;
+&lt;p&gt;Si queremos que el navegador atienda conexiones en la red local (facilita las
+cosas, y es clave para la &lt;a class="reference internal" href="#conectividad-wifi"&gt;conectividad WiFi&lt;/a&gt;), ajustamos a &lt;code&gt;false&lt;/code&gt; la
+preferencia &lt;code&gt;devtools.debugger.force-local&lt;/code&gt; (en &lt;code&gt;about:config&lt;/code&gt;).&lt;/p&gt;
+&lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Preferencia devtools.debbuger.force-local establecida a false." src="http://soulchainer.github.io/images/2014/2014-01-12_5.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conectar-red-local"&gt;
+&lt;h3&gt;Conectar (red local)&lt;/h3&gt;
+&lt;p&gt;Una vez activada la &lt;em&gt;depuración remota&lt;/em&gt;, conectar las
+&lt;em&gt;herramientas de desarrollo&lt;/em&gt; al dispositivo es bastante sencillo.&lt;/p&gt;
+&lt;div class="section" id="obtener-la-ip-del-dispositivo"&gt;
+&lt;h4&gt;Obtener la &lt;span class="caps"&gt;IP&lt;/span&gt; del dispositivo&lt;/h4&gt;
+&lt;p&gt;En &lt;em&gt;Android 2.3.5&lt;/em&gt;, podemos obtenerla yendo a
+&lt;strong&gt;Ajustes → Conexiones inalámbricas → Ajustes Wi-Fi&lt;/strong&gt; y pulsando en la red a
+la que nos encontramos conectados. Aparece entonces una ventana emergente con
+información sobre la conexión.&lt;/p&gt;
+&lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Ventana emergente con información sobre la conexión wireless en el dispositivo Android." src="http://soulchainer.github.io/images/2014/2014-01-12_6.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;En versiones más recientes de &lt;em&gt;Android&lt;/em&gt; se puede encontrar en
+&lt;strong&gt;Ajustes → Acerca del teléfono → Estado&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="establecer-la-conexion"&gt;
+&lt;h4&gt;Establecer la conexión&lt;/h4&gt;
+&lt;p&gt;Una vez tenemos la &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt;, seleccionamos la opción de &lt;em&gt;Conectar&lt;/em&gt; en el escritorio
+(&lt;strong&gt;Firefox/Tools → Web Developer → Connect…&lt;/strong&gt;).&lt;/p&gt;
+&lt;div class="figure" style="width: 650px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Página de conexión de las herramientas de desarrollo al dispositivo Android (red local)." src="http://soulchainer.github.io/images/2014/2014-01-12_7.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Introducimos nuestra &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en el campo &lt;code&gt;Host&lt;/code&gt;, dejamos el campo del puerto
+tal cual (salvo que lo hayamos cambiado, es el puerto por defecto) y
+presionamos &lt;em&gt;Connect&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Al hacerlo, salta una ventana en nuestro dispositivo informando del intento de
+conexión y dándonos a elegir qué hacer:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Ventana emergente solicitando confirmación de conexión en Firefox para Android." src="http://soulchainer.github.io/images/2014/2014-01-12_8.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;El icono insectoide de la barra de estado es de &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb"&gt;WiFi &lt;span class="caps"&gt;ADB&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Una vez aceptamos, conectamos al fin:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 650px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Página con la conexión al dispositivo Android realizada, mostrando las pestañas y los procesos remotos disponibles." src="http://soulchainer.github.io/images/2014/2014-01-12_9.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Si no se efectua la conexión o esta falla, podemos comprobar si el dispositivo
+está realmente conectado con &lt;code&gt;adb devices&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ adb devices
+List of devices attached
+192.168.1.129:5555  device # dará algo así si estamos conectados por WiFi
+c089070e02561ecd    device # o algo parecido a esto si lo estamos por USB
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y revisar los diversos ajustes en busca del problema.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conectar-localhost"&gt;
+&lt;h3&gt;Conectar (localhost)&lt;/h3&gt;
+&lt;p&gt;La conexión sin acceso a la red local es ligeramente distinta.&lt;/p&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;span id="mas-adelante"&gt;&lt;/span&gt;&lt;span id="desvio-de-puertos"&gt;&lt;/span&gt;&lt;h4&gt;Desvío de puertos&lt;/h4&gt;
+&lt;p&gt;Antes de conectar, hemos de configurar el &lt;em&gt;desvío de puertos&lt;/em&gt;. Tecleamos en consola:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ adb forward tcp:6000 tcp:6000
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto deriva las conexiones &lt;em&gt;&lt;span class="caps"&gt;TCP&lt;/span&gt;&lt;/em&gt; de nuestra máquina al puerto &lt;em&gt;6000&lt;/em&gt;, al puerto
+&lt;em&gt;6000&lt;/em&gt; de nuestro dispositivo, permitiendo así la &lt;em&gt;depuración remota&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h4&gt;Establecer la conexión&lt;/h4&gt;
+&lt;p&gt;Como ya dijimos antes, &lt;strong&gt;sólo es posible vía &lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Por lo demás, el procedimiento es idéntico a la conexión usando la red local,
+excepto que en el campo &lt;code&gt;Host&lt;/code&gt; de la página de conexión indicamos
+&lt;code&gt;localhost&lt;/code&gt;, en lugar de la &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; de nuestro dispositivo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="depurar-remotamente"&gt;
+&lt;h3&gt;Depurar remotamente&lt;/h3&gt;
+&lt;p&gt;Ya conectados, simplemente debemos elegir la pestaña que deseamos depurar de
+entre todas las pestañas remotas disponibles. Una vez escogida, recibimos
+una nueva ventana con las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; asociadas al código de
+la misma.&lt;/p&gt;
+&lt;div class="figure" style="width: 700px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Ventana en nuestro escritorio con las herramientas de desarrollo de Firefox mostrando parte del código de una página abierta en nuestro Android." src="http://soulchainer.github.io/images/2014/2014-01-12_10.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="testear-sitios-alojados-en-un-servidor-local"&gt;
+&lt;h2&gt;Testear sitios alojados en un servidor local&lt;/h2&gt;
+&lt;p&gt;Hasta ahora hemos visto que, usando &lt;em&gt;Firefox&lt;/em&gt; y &lt;em&gt;Firefox para Android&lt;/em&gt;, podemos
+depurar/testear desde nuestro escritorio sitios online cargados en nuestro
+&lt;em&gt;Android&lt;/em&gt;; pero, si queremos,
+&lt;strong&gt;podemos hacer lo mismo con sitios alojados en un servidor web local&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Para ello, lo primero de todo es tener un servidor corriendo, obviamente.
+Una forma sencilla de montar uno &lt;strong&gt;de pruebas&lt;/strong&gt; rapidito es usando
+&lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt;.
+Entre los muchos &lt;em&gt;módulos&lt;/em&gt; que trae el lenguaje por defecto, hay uno que
+define &lt;em&gt;clases&lt;/em&gt; para implementar servidores web.&lt;/p&gt;
+&lt;p&gt;Así, con &lt;strong&gt;Python 2.x&lt;/strong&gt; podemos iniciar un servidor local desde consola con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python2 -m SimpleHTTPServer 9999
+Serving &lt;span class="caps"&gt;HTTP&lt;/span&gt; on 0.0.0.0 port 9999 ...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En &lt;strong&gt;Python 3.x&lt;/strong&gt; dicho &lt;em&gt;módulo&lt;/em&gt; ha pasado a ser &lt;code&gt;http.server&lt;/code&gt;, por lo
+que en su lugar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python -m http.server 8000
+Serving &lt;span class="caps"&gt;HTTP&lt;/span&gt; on 0.0.0.0 port 8000 ...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
+desde la carpeta con los &lt;em&gt;&lt;span class="caps"&gt;HTML&lt;/span&gt;&lt;/em&gt; de mi blog, y accedo vía &lt;em&gt;Firefox&lt;/em&gt; a la
+dirección indicada por &lt;em&gt;Python&lt;/em&gt; (0.0.0.0 → &lt;em&gt;localhost&lt;/em&gt; ← 127.0.0.1):&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para escritorio." src="http://soulchainer.github.io/images/2014/2014-01-12_15.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Acceder desde nuestro &lt;em&gt;Android&lt;/em&gt; al servidor es igual de fácil.
+Aunque esta vez necesitamos conocer su &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en la red local. La averiguamos con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ifconfig
+eth0: &lt;span class="nv"&gt;flags&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4163&amp;lt;&lt;span class="caps"&gt;UP&lt;/span&gt;,&lt;span class="caps"&gt;BROADCAST&lt;/span&gt;,&lt;span class="caps"&gt;RUNNING&lt;/span&gt;,&lt;span class="caps"&gt;MULTICAST&lt;/span&gt;&amp;gt;  mtu 1500
+    inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
+    inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20&amp;lt;link&amp;gt;
+    ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  &lt;span class="o"&gt;(&lt;/span&gt;Ethernet&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="caps"&gt;RX&lt;/span&gt; packets 598614  bytes 650747078 &lt;span class="o"&gt;(&lt;/span&gt;620.6 MiB&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="caps"&gt;RX&lt;/span&gt; errors 0  dropped 16  overruns 0  frame 0
+    &lt;span class="caps"&gt;TX&lt;/span&gt; packets 388523  bytes 69392562 &lt;span class="o"&gt;(&lt;/span&gt;66.1 MiB&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="caps"&gt;TX&lt;/span&gt; errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
+&lt;em&gt;androide&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para Android." src="http://soulchainer.github.io/images/2014/2014-01-12_16.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Y a trastear con el sitio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sobre-la-depuracion-remota-en-firefox"&gt;
+&lt;h2&gt;Sobre la depuración remota en Firefox&lt;/h2&gt;
+&lt;p&gt;Esta funcionalidad está bien, pero &lt;em&gt;Firefox&lt;/em&gt; aún ha de avanzar mucho al respecto.&lt;/p&gt;
+&lt;p&gt;A primera vista, le encuentro un par de peros:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Cuando escoges una pestaña a depurar, te abre una ventana nueva con las
+herramientas asociadas, sí… pero, al mismo tiempo, cierra la ventana desde
+la que realizaste la conexión. Por lo que si quieres saltar luego a otra
+pestaña, te toca establecer una nueva conexión. Es un poco absurdo.
+&lt;em&gt;Google Chrome&lt;/em&gt; mantiene dicha pestaña abierta. Tiene sentido y agiliza el trabajo.&lt;/li&gt;
+&lt;li&gt;Una vez conectados, las opciones que provee la página de conexión son
+muy pobres: puedes elegir una pestaña entre todas las abiertas en
+&lt;em&gt;Firefox para Android&lt;/em&gt;… y ya está. Con la herramienta correspondiente de
+&lt;em&gt;Google Chrome&lt;/em&gt; puedes abrir pestañas, recargarlas, cerrarlas… Y no es una
+página estática. Si se abren nuevas pestañas, las muestra en la lista de
+pestañas, por ejemplo. Como he dicho, es bastante limitada por ahora.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="alternativa-a-la-funcion-screencast"&gt;
+&lt;h2&gt;Alternativa a la función screencast&lt;/h2&gt;
+&lt;p&gt;Parte de lo explicado anteriormente sobre la &lt;em&gt;depuración remota&lt;/em&gt; en &lt;em&gt;Firefox&lt;/em&gt;
+puede encontrarse en la &lt;a class="reference external" href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging/Firefox_for_Android"&gt;correspondiente guía&lt;/a&gt; de la &lt;strong&gt;&lt;span class="caps"&gt;MDN&lt;/span&gt;&lt;/strong&gt; y en
+&lt;a class="reference external" href="https://hacks.mozilla.org/2012/08/remote-debugging-on-firefox-for-android/"&gt;un artículo de hacks.mozilla.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Y me dejé un último pero, muy visual, para el final: la ausencia de una
+alternativa nativa a la función &lt;em&gt;screencast&lt;/em&gt; de &lt;em&gt;Google Chrome&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Captura de la opción screencast de las herramientas de desarrollo de Google Chrome. Muestra en tiempo real la pantalla de nuestro dispositivo Android en el navegador y permite interactuar con ella." src="http://soulchainer.github.io/images/2014/2014-01-12_11.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Con &lt;em&gt;screencast&lt;/em&gt; visualizamos e interactuamos con la pantalla del
+dispositivo en el navegador.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Lo ideal sería que &lt;em&gt;Mozilla&lt;/em&gt; implementara esta función en &lt;a class="reference external" href="https://developer.mozilla.org/es/docs/Mozilla/Firefox_OS/Using_the_App_Manager/"&gt;app-manager&lt;/a&gt;.
+O que la incluyera como una más entre las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; por
+defecto de &lt;em&gt;Firefox&lt;/em&gt;. Pero es que ni siquiera para los terminales &lt;a class="reference external" href="http://www.mozilla.org/es-ES/firefox/os/"&gt;Firefox &lt;span class="caps"&gt;OS&lt;/span&gt;&lt;/a&gt;
+contamos con algo así. Lo más parecido es la opción de tomar una captura de
+pantalla (que con una pequeña triquiñuela se puede emplear también con
+terminales &lt;em&gt;Android&lt;/em&gt;). Y no hay punto de comparación.&lt;/p&gt;
+&lt;p&gt;Ante esta carencia, he indagado en busca de una alternativa para &lt;em&gt;Firefox&lt;/em&gt;, y
+sólo he encontrado una opción satisfactoria: &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=org.onaips.vnc"&gt;Odroid &lt;span class="caps"&gt;VNC&lt;/span&gt; server&lt;/a&gt;
+(&lt;strong&gt;requiere root&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Se trata de una aplicación &lt;em&gt;Android&lt;/em&gt; capaz de levantar un
+&lt;em&gt;servidor &lt;span class="caps"&gt;VNC&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id10" id="id5"&gt;[3]&lt;/a&gt; en nuestro dispositivo. Por desgracia, está discontinuado
+&lt;a class="footnote-reference" href="#id11" id="id6"&gt;[4]&lt;/a&gt; (recibió su última actualización el 11 de junio de 2012). Esto acarrea
+que quizás no funcione para terminales con versiones de &lt;em&gt;Android&lt;/em&gt; posteriores a
+la fecha, pero es funcional en mi terminal. Y, por las críticas de sus años
+mozos, aparentemente también lo será en otros dispositivos que tienen
+&lt;em&gt;Google Chrome&lt;/em&gt; vedado.&lt;/p&gt;
+&lt;div class="section" id="configurar-poner-en-marcha-el-servidor"&gt;
+&lt;h3&gt;Configurar &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; poner en marcha el servidor&lt;/h3&gt;
+&lt;p&gt;Una vez instalado a través de &lt;em&gt;Google Play&lt;/em&gt;, lo ejecutamos, le concedemos
+permiso de &lt;strong&gt;superusuario&lt;/strong&gt;, pulsamos el inmenso botón &lt;strong&gt;&lt;span class="caps"&gt;START&lt;/span&gt;&lt;/strong&gt; y ya está:
+servidor corriendo (si no ocurre ninguna hecatombe &lt;a class="footnote-reference" href="#id12" id="id7"&gt;[5]&lt;/a&gt;).&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 600px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Capturas de Odroid VNC server detenido y en ejecución." src="http://soulchainer.github.io/images/2014/2014-01-12_12.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;A la izquierda, el servidor detenido. A la derecha, en ejecución.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Dispone de un &lt;em&gt;menú de ajustes&lt;/em&gt; (&lt;em&gt;settings&lt;/em&gt;), donde podemos establecer algunas
+preferencias sobre el servidor, la pantalla y otros detalles.&lt;/p&gt;
+&lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Captura del menú de preferencias del servidor vnc." src="http://soulchainer.github.io/images/2014/2014-01-12_13.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalar-usar-el-cliente"&gt;
+&lt;h3&gt;Instalar &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; usar el cliente&lt;/h3&gt;
+&lt;p&gt;Ya está el servidor funcionando, pero sin un programa cliente para conectarnos
+a él desde el escritorio, no sirve de nada.&lt;/p&gt;
+&lt;p&gt;En &lt;cite&gt;Archlinux&lt;/cite&gt;, instalamos &lt;code&gt;tightvnc&lt;/code&gt; desde &lt;strong&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S tightvnc
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O, si lo preferimos, &lt;code&gt;tigervnc&lt;/code&gt; desde los repositorios oficiales:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pacman -S tigervnc&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ambos paquetes proporcionan un cliente/servidor de &lt;em&gt;vnc&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ahora sí podemos acceder al servidor. Desde el navegador, con la url que nos
+proporcionó &lt;em&gt;Odroid&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 422px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Applet Java que proporciona Odroid, mostrando la pantalla de nuestro Android." src="http://soulchainer.github.io/images/2014/2014-01-12_14.png" style="width: 422px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;em&gt;Applet Java&lt;/em&gt; proporcionado por &lt;em&gt;Odroid&lt;/em&gt;, mostrando la pantalla de nuestro
+&lt;em&gt;Android&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;De las dos opciones que proporciona &lt;em&gt;Odroid&lt;/em&gt; para manejar la pantalla, el
+&lt;em&gt;applet Java&lt;/em&gt; parece ser la que mejor funciona. En mi caso, la versión
+&lt;em&gt;Javascript&lt;/em&gt; altera los colores. Además, el applet permite configurar diversas
+opciones del servidor, como el nivel de compresión o la calidad del &lt;em&gt;jpeg&lt;/em&gt;,
+que mejoran su velocidad de respuesta.&lt;/p&gt;
+&lt;p&gt;Si conseguimos que nos funcione &lt;em&gt;Odroid&lt;/em&gt;, no echaremos de menos la función
+&lt;em&gt;screencast&lt;/em&gt; de &lt;em&gt;Google Chrome&lt;/em&gt;. Y viene con un &lt;strong&gt;extra&lt;/strong&gt; bastante importante:
+&lt;strong&gt;podemos controlar nuestro Android totalmente&lt;/strong&gt; y visualizarlo en nuestro
+escritorio, no sólo nuestro navegador.&lt;/p&gt;
+&lt;p&gt;Controles de &lt;em&gt;Odroid &lt;span class="caps"&gt;VCN&lt;/span&gt; server&lt;/em&gt;:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Botón derecho del ratón: &lt;strong&gt;Volver atrás&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Botón izquierdo del ratón: &lt;strong&gt;tap/clic/swipe&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Botón central del ratón: &lt;strong&gt;apagar/encender pantalla&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Con esta alternativa, se suple perfectamente la ausencia de &lt;em&gt;screencast&lt;/em&gt; en
+&lt;em&gt;Firefox&lt;/em&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Y que si me preguntarais a mí, os diría que esa limitación se ajusta más a la voluntad de forzar al usuario a renovar su terminal &lt;em&gt;Android&lt;/em&gt; (y/o versión del sistema) que a limitaciones insalvables. Por descontado, se esgrimirá la excusa de "garantizar la experiencia de usuario".&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id9" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Android Debug Bridge&lt;/em&gt;. Es una herramienta del &lt;a class="reference external" href="http://developer.android.com/intl/es/sdk/index.html"&gt;Android &lt;span class="caps"&gt;SDK&lt;/span&gt;&lt;/a&gt;, que nos permite controlar y comunicarnos con nuestro dispositivo &lt;em&gt;Android&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id10" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id5"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Virtual Network Computing&lt;/em&gt; (Computación Virtual en Red). &lt;em&gt;&lt;span class="caps"&gt;VNC&lt;/span&gt;&lt;/em&gt; es un software de escritorio remoto, con una estructura cliente-servidor. El servidor es el programa que reside en la máquina que comparte su pantalla, mientras que el cliente (o visor) es un programa que, ejecutándose en otra máquina, visualiza, controla e interactua con el servidor.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id11" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id6"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;El tema de los &lt;strong&gt;servidores&lt;/strong&gt; &lt;em&gt;&lt;span class="caps"&gt;VNC&lt;/span&gt;&lt;/em&gt; en &lt;em&gt;Android&lt;/em&gt; es un poco peliagudo: clientes hay a patadas, pero los servidores pueden contarse con los dedos de la mano, y de los pocos disponibles la mitad no funcionan en demasiados dispositivos, son de pago (lo que no garantiza su funcionalidad, si atendemos a las valoraciones que reciben) o están discontinuados (el caso que nos ocupa).&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id12" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id7"&gt;[5]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://twitter.com/FreakViking/status/421780992668729344"&gt;@FreakViking dice que…&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="depuración remota"></category><category term="firefox"></category><category term="android"></category><category term="control remoto"></category><category term="vnc"></category><category term="desarrollo web"></category><category term="servidor web"></category><category term="local"></category><category term="python"></category><category term="testeo"></category></entry><entry><title>Geekcalendar: calendario geek ligerito de ropa</title><link href="http://soulchainer.github.io/posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/" rel="alternate"></link><updated>2014-01-08T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-08:posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</id><summary type="html">&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="http://soulchainer.github.io/images/2014/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;ATENCIÓN&lt;/strong&gt;: Contenido &lt;span class="caps"&gt;NSFW&lt;/span&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Estaba yo buscando en &lt;a class="reference external" href="http://www.flickr.com"&gt;Flickr&lt;/a&gt; una imagen de una &lt;em&gt;pitón&lt;/em&gt; (ya sabéis, la
+&lt;p&gt;Estaba yo buscando en &lt;a class="reference external" href="http://www.flickr.com/"&gt;Flickr&lt;/a&gt; una imagen de una &lt;em&gt;pitón&lt;/em&gt; (ya sabéis, la
 serpiente, esa que hace eso de la lengua y da unos abrazos muy cariñosos) para
 complementar mi vieja entrada sobre
-&lt;a class="reference external" href="{filename}/2013/2013-12-18.rst"&gt;pip &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; entornos virtuales Python&lt;/a&gt; cuando, me
-he topado con &lt;a class="reference external" href="http://www.flickr.com/photos/exey/9686764667/"&gt;cierta foto&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt; que no era una pitón, pero
-que también posee &lt;a class="reference external" href="https://twitter.com/FreakViking"&gt;ciertos efectos hipnóticos en determinados individuos&lt;/a&gt;. Y
-no he podido evitar acordarme de mi follower vikingo favorito: &lt;a class="reference external" href="https://twitter.com/FreakViking"&gt;@FreakViking&lt;/a&gt;.&lt;/p&gt;
+&lt;a class="reference external" href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/"&gt;pip &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; entornos virtuales Python&lt;/a&gt;
+cuando, me he topado con &lt;a class="reference external" href="http://www.flickr.com/photos/exey/9686764667/"&gt;cierta foto&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt; que no era una
+pitón, pero que también posee
+&lt;a class="reference external" href="https://twitter.com/FreakViking/"&gt;ciertos efectos hipnóticos en determinados individuos&lt;/a&gt;. Y no he podido evitar
+acordarme de mi follower vikingo favorito: &lt;a class="reference external" href="https://twitter.com/FreakViking/"&gt;@FreakViking&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Al encontrar esta imagen, que tanto anima a programar, he curioseado por la
 galería de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey&lt;/a&gt; y he caído en la cuenta de que estas imágenes iban
-destinadas a la publicación de un calendario para el presente año y que podéis
-encontrar &lt;a class="reference external" href="http://exeypanteleev.com/geeklendar/"&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+destinadas a la publicación de un calendario para el presente año. Calendario
+que podéis encontrar &lt;a class="reference external" href="http://exeypanteleev.com/geeklendar/"&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy Coding! :D&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
 &lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
@@ -23,13 +378,13 @@ encontrar &lt;a class="reference external" href="http://exeypanteleev.com/geekle
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Not Safe/Suitable For Work&lt;/em&gt; (No es apropiado/seguro para el trabajo). Que no te pille tu jefe viendo esto cuando se supone que estás trabajando ò_ó&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</summary><category term="calendario"></category><category term="geek"></category><category term="fotografia"></category><category term="desnudo"></category><category term="lenguajes"></category><category term="programacion"></category><category term="NSFW"></category></entry><entry><title>Mobile Web Development, nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
+</summary><category term="calendario"></category><category term="geek"></category><category term="fotografía"></category><category term="desnudo"></category><category term="lenguajes"></category><category term="programación"></category><category term="NSFW"></category></entry><entry><title>Mobile Web Development, nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Logo y Slogan de Udacity." src="http://soulchainer.github.io/images/2014/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
-&lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
+&lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
 &lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;"Mobile Web Development"&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que
 aprovecho y actualizo el blog con una entradita breve.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; es mi plataforma de &lt;strong&gt;MOOCs&lt;/strong&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; favorita &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;. Y es que considero
+&lt;p&gt;&lt;em&gt;Udacity&lt;/em&gt; es mi plataforma de &lt;strong&gt;MOOCs&lt;/strong&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; favorita &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;. Y es que considero
 que llevan su tiempo haciendo las cosas muy bien. Ya podrían aprender un
 poquito &lt;em&gt;otras&lt;/em&gt; &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt;. Su sitio es estable y está bien organizado (con sus
 respectivas wikis, descarga de recursos, foro…); su comunidad es muy amigable
@@ -42,18 +397,18 @@ escándalosamente básicos de la materia que "dominan". Me preocupa (&lt;em&gt;y
 que quienes se supone tienen por misión divulgar el conocimiento vayan por ahí
 plantando la semilla de la &lt;em&gt;ignorancia&lt;/em&gt; y la &lt;em&gt;mala praxis&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Además de este punto tan importante, otro aspecto que me gusta mucho de
-&lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; es que, al contrario que demasiadas autoproclamadas plataformas
+&lt;em&gt;Udacity&lt;/em&gt; es que, al contrario que demasiadas autoproclamadas plataformas
 &lt;em&gt;de MOOCs&lt;/em&gt;, cumple la condición de impartir cursos &lt;strong&gt;abiertos&lt;/strong&gt; y mantiene la
-filosofía de democratizar la educación. Nunca acudirás a &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; y te
+filosofía de democratizar la educación. Nunca acudirás a &lt;em&gt;Udacity&lt;/em&gt; y te
 encontrarás con un curso &lt;strong&gt;&lt;span class="caps"&gt;CERRADO&lt;/span&gt;&lt;/strong&gt;, porque esto es contrario a dicha
 filosofía. Si de verdad quieres democratizar la educación, no la restringes. De
 ningún modo. Y menos de acuerdo a absurdos plazos.&lt;/p&gt;
-&lt;p&gt;Los cursos en &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; puedes hacerlos cuando quieras. Progresar cuando
+&lt;p&gt;Los cursos en &lt;em&gt;Udacity&lt;/em&gt; puedes hacerlos cuando quieras. Progresar cuando
 quieras. A tu ritmo. Son cursos &lt;strong&gt;abiertos de verdad&lt;/strong&gt;, no de boquilla.&lt;/p&gt;
 &lt;p&gt;Bueno, no me enrollo más, que se supone que iba a hacer una entrada corta.
-Tenía ganas de hablaros un poco de &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt; y ya lo he hecho &lt;a class="footnote-reference" href="#id8" id="id4"&gt;[4]&lt;/a&gt;. Dejo bajo
+Tenía ganas de hablaros un poco de &lt;em&gt;Udacity&lt;/em&gt; y ya lo he hecho &lt;a class="footnote-reference" href="#id8" id="id4"&gt;[4]&lt;/a&gt;. Dejo bajo
 estas líneas el vídeo de presentación del curso, para que hable por sí mismo.&lt;/p&gt;
-&lt;div align="center" class="youtube"&gt;&lt;iframe class="iytb" frameborder="0" height="315" src="https://www.youtube.com/embed/bFmMT2ZDQ8M" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Y como dicen en &lt;a class="reference external" href="https://www.udacity.com"&gt;Udacity&lt;/a&gt;: &lt;strong&gt;Stay Udacious&lt;/strong&gt;.&lt;/p&gt;
+&lt;div align="center" class="youtube"&gt;&lt;iframe class="iytb" frameborder="0" height="315" src="https://www.youtube.com/embed/bFmMT2ZDQ8M" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Y como dicen en &lt;em&gt;Udacity&lt;/em&gt;: &lt;strong&gt;Stay Udacious&lt;/strong&gt;.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
 &lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
@@ -70,7 +425,7 @@ estas líneas el vídeo de presentación del curso, para que hable por sí mism
 &lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Cof, cof, &lt;a class="reference external" href="https://www.miriadax.net"&gt;Miríada X&lt;/a&gt;, cof, cof, cof… Ay, que tosecita más tonta me ha dado.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Cof, cof, &lt;a class="reference external" href="https://www.miriadax.net/"&gt;Miríada X&lt;/a&gt;, cof, cof, cof… Ay, que tosecita más tonta me ha dado.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
@@ -79,7 +434,7 @@ estas líneas el vídeo de presentación del curso, para que hable por sí mism
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Y a pesar de toda esta publicidad gratuita, yo no veo un duro de ellos, oye… xD&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="dev"></category><category term="movil"></category><category term="html5"></category><category term="educacion"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="figure" style="width: 766px; height: auto; max-width: 100%;"&gt;
+</summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="móvil"></category><category term="html5"></category><category term="educación"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="figure" style="width: 766px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Python verde (Morelia Viridis)." src="http://soulchainer.github.io/images/2013/2013-12-28_1.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Pitón arborícola verde (Morelia Viridis). Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/"&gt;Marie&lt;/a&gt;, con unos toquecitos. &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/5513104816/"&gt;Original&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
