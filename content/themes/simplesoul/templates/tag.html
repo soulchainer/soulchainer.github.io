@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="content">
+
+  <ul id="postlist">
+
+    {% for article in articles_page.object_list %}
+    <li class="post">
+        <header>
+          <h3><a class="posttitle notransition" href="{{ SITEURL }}/{{ article.url }}"
+                  rel="bookmark" title="Permalink a {{ article.title|striptags }}">{{ article.title }}</a>
+          </h3>
+        </header>
+        <div class="postinfo">
+          <p class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }}, por {{ AUTHOR}} </p>
+        </div><!-- /.postinfo -->
+        <div class="postsummary"> {{ article.summary }}
+        <a class="notransition readmore" href="{{ SITEURL }}/{{ article.url }}"
+                  title="{{ article.title|striptags }}">seguir leyendo...</a>
+        </div>
+    </li>
+    {% endfor %}
+
+  </ul><!-- /#post-list -->
+
+  {% include 'pagination.html' %}
+
+</section><!-- /#content -->
+
+{% endblock content %}

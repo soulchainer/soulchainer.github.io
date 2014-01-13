@@ -1,0 +1,16 @@
+      <meta property="og:site_name" content="Soulbits" />
+      {% if article %}
+      <meta property="og:title" content="{{ article.title|striptags }}" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+      {% if article.twimg %}
+      <meta property="og:image" content="{{ SITEURL }}/images/{{ article.date|strftime('%Y') }}/{{ article.twimg }}" />
+      {% endif %}
+      <meta property="og:article:section" content="{{ article.category }}" />
+      {% for tag in article.tags|sort %}
+      <meta property="og:article:tag" content="{{ tag }}" />
+      {% endfor %}
+      <meta property="og:description" content="{% if article.twsummary %}{{ article.twsummary }}{% else %}{{ article.summary|striptags }}{% endif %}" />
+      {% endif %}
+      <meta property="og:locale" content="es_ES" />
+

@@ -1,0 +1,12 @@
+{% if article.metadata.parts_articles %}
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+          {% for part_article in article.metadata.parts_articles %}
+              <li {% if part_article == article %}class="active"{% endif %}>
+                  <a class="partlink" href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
+              </li>
+          {% endfor %}
+      </ul>
+    </aside>
+{% endif %}

@@ -1,0 +1,463 @@
+Depuración remota & testeo en Firefox para Android
+##################################################
+:date: 2014-01-12 19:45
+:tags: android, control remoto, depuración remota, desarrollo web, firefox, local, python, servidor web, testeo, vnc
+:category: CÓMOS, desarrollo web
+:slug: depuracion-remota-firefox-android
+:author: Soulchainer
+:twsummary: Como ya comenté anteriormente, estoy siguiendo un MOOC sobre desarrollo web orientado a dispositivos móviles en Udacity. La cuestión es que en el curso se usa de forma intensiva Google Chrome y sus herramientas de desarrollo. Y todos tan contentos... hasta que se toca el tema de la depuración remota.
+:twimg: 2014-01-12_1.png
+
+**************************************************
+Depuración remota & testeo en Firefox para Android
+**************************************************
+
+.. figure:: {filename}/images/2014/2014-01-12_1.png
+    :alt: Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha
+          Chu (http://www.flickr.com/photos/shashachu/).
+
+    Fire fox (Panda Rojo, *Ailurus fulgens*). ¿No son adorables estos animales?
+    `Fotografía`_ obra de `Sha Sha Chu`_.
+
+Como ya comenté  `anteriormente <{filename}/posts/2014/2014-01-07.rst>`_, estoy
+siguiendo un *MOOC* sobre `desarrollo web orientado a dispositivos móviles`_
+en `Udacity`_. La cuestión es que en el curso se usa de forma intensiva
+*Google Chrome* y sus *herramientas de desarrollo*. Y todos tan contentos…
+hasta que se toca el tema de la *depuración remota*.
+
+Y es que para ello es necesario instalar `Google Chrome Beta`_ en *Android*.
+Lo que a su vez requiere disponer de **Android >= 4.0** [#]_. Y podéis decirme
+que "hoy día la mayoría tiene *ICS* o superior", pero resulta que el número de
+usuarios que no entra en esa *mayoría*, entre los cuales me encuentro **yo**
+(*Android 2.3.5*), es bastante númeroso.
+
+*********************
+Firefox saves the day
+*********************
+
+*Firefox* también soporta la depuración remota, sin la imposición de esta (en
+mi opinión) **absurda** restricción.
+
+Siempre es útil conocer más herramientas. Además, yo soy **pro Firefox**, así
+que: veamos cómo se hace.
+
+*****************
+Depuración remota
+*****************
+
+Requisitos
+==========
+
+- Equipo ejecutando una versión de escritorio de *Firefox* **>= 15**.
+- Dispositivo *Android* ejecutando **Firefox >= 15**. Versión de
+  **Android >= 2.2**.
+- Conectar ambos dispositivos.
+
+  .. _conectividad wifi:
+
+  1. Vía cable *USB*.
+  2. Vía *WiFi* (**requiere root**). Usando aplicaciones como `ADB WiFi`_
+     (**Android >= 2.1**, *traducida*) o `WiFi ADB - Debug Over Air`_
+     (**Android >= 2.3**, *mejor diseño*). Yo uso la última.
+
+- *ADB* [#]_. Implica la instalación del `Android SDK`_ y las
+  `Android Platforms Tools`_ correspondientes.
+
+No detallo los dos últimos puntos aquí. Ante cualquier duda, podéis preguntar
+en los comentarios.
+
+Activar la depuración remota (localhost)
+========================================
+
+Debemos activar la *depuración remota* en ambos dispositivos (*escritorio* y
+*Android*).
+
+En Firefox para Android <= 24
+-----------------------------
+
+Tecleamos :code:`about:config` en la *barra de direcciones* y filtramos la
+lista de preferencias con la cadena :code:`debugger`.
+Localizada entre los resultados :code:`devtools.debugger.remote-enabled`,
+cambiamos su valor a :code:`true`.
+
+.. figure:: {filename}/images/2014/2014-01-12_2.png
+    :alt: Búsqueda de la cadena 'debugger' en about:config.
+    :align: center
+
+Después, reiniciamos el navegador.
+
+En Firefox para Android >= 25
+-----------------------------
+
+Aunque posible, en este caso no hay necesidad de recurrir a
+:code:`about:config`, pues contamos con una opción específica en el menú de la
+aplicación. En mi terminal la ruta es:
+**Más → Configuración → Herramientas de desarrolladores → Depuración remota**.
+
+.. figure:: {filename}/images/2014/2014-01-12_3.png
+    :alt: Activación de la opción de 'Depuración remota'.
+    :align: center
+
+Al activarla nos recuerda que hemos de configurar el `desvío de puertos`_ para
+conectar las *herramientas de desarrollo* al dispositivo. Lo haremos
+`más adelante`_.
+
+De nuevo aquí, reiniciamos el navegador.
+
+
+En la versión de escritorio
+---------------------------
+
+En la versión de escritorio nos basta con abrir las
+*herramientas de desarrollo* (**menú Firefox/Tools → Web Developer →**
+**marcar la casilla Toggle Tools**) y, en la pestaña de opciones, marcar
+*Enable remote debugging*.
+
+.. figure:: {filename}/images/2014/2014-01-12_4.png
+    :alt: Activación de la opción de 'Depuración remota'.
+
+Si usamos **Firefox < 27** tendremos que reiniciar el navegador para que se
+apliquen los cambios.
+
+Activar la depuración remota (red local)
+========================================
+
+En Firefox para Android
+-----------------------
+
+Si queremos que el navegador atienda conexiones en la red local (facilita las
+cosas, y es clave para la `conectividad WiFi`_), ajustamos a :code:`false` la
+preferencia :code:`devtools.debugger.force-local` (en :code:`about:config`).
+
+.. figure:: {filename}/images/2014/2014-01-12_5.png
+    :alt: Preferencia devtools.debbuger.force-local establecida a false.
+
+Conectar (red local)
+====================
+
+Una vez activada la *depuración remota*, conectar las
+*herramientas de desarrollo* al dispositivo es bastante sencillo.
+
+Obtener la IP del dispositivo
+-----------------------------
+
+En *Android 2.3.5*, podemos obtenerla yendo a
+**Ajustes → Conexiones inalámbricas → Ajustes Wi-Fi** y pulsando en la red a
+la que nos encontramos conectados. Aparece entonces una ventana emergente con
+información sobre la conexión.
+
+.. figure:: {filename}/images/2014/2014-01-12_6.png
+    :alt: Ventana emergente con información sobre la conexión wireless en el
+          dispositivo Android.
+
+En versiones más recientes de *Android* se puede encontrar en
+**Ajustes → Acerca del teléfono → Estado**.
+
+Establecer la conexión
+----------------------
+
+Una vez tenemos la *IP*, seleccionamos la opción de *Conectar* en el escritorio
+(**Firefox/Tools → Web Developer → Connect…**).
+
+.. figure:: {filename}/images/2014/2014-01-12_7.png
+    :alt: Página de conexión de las herramientas de desarrollo al dispositivo
+          Android (red local).
+
+Introducimos nuestra *IP* en el campo :code:`Host`, dejamos el campo del puerto
+tal cual (salvo que lo hayamos cambiado, es el puerto por defecto) y
+presionamos *Connect*.
+
+Al hacerlo, salta una ventana en nuestro dispositivo informando del intento de
+conexión y dándonos a elegir qué hacer:
+
+.. figure:: {filename}/images/2014/2014-01-12_8.png
+    :alt: Ventana emergente solicitando confirmación de conexión en Firefox
+          para Android.
+    :align: center
+
+    El icono insectoide de la barra de estado es de `WiFi ADB`_.
+
+
+Una vez aceptamos, conectamos al fin:
+
+.. figure:: {filename}/images/2014/2014-01-12_9.png
+    :alt: Página con la conexión al dispositivo Android realizada, mostrando
+          las pestañas y los procesos remotos disponibles.
+    :align: center
+
+Si no se efectua la conexión o esta falla, podemos comprobar si el dispositivo
+está realmente conectado con :code:`adb devices`:
+
+.. code-block:: sh
+
+    $ adb devices
+    List of devices attached
+    192.168.1.129:5555  device # dará algo así si estamos conectados por WiFi
+    c089070e02561ecd    device # o algo parecido a esto si lo estamos por USB
+
+Y revisar los diversos ajustes en busca del problema.
+
+Conectar (localhost)
+====================
+
+La conexión sin acceso a la red local es ligeramente distinta.
+
+.. _más adelante:
+.. _desvío de puertos:
+
+Desvío de puertos
+-----------------
+
+Antes de conectar, hemos de configurar el *desvío de puertos*. Tecleamos en 
+consola:
+
+.. code-block:: sh
+
+    $ adb forward tcp:6000 tcp:6000
+
+Esto deriva las conexiones *TCP* de nuestra máquina al puerto *6000*, al puerto
+*6000* de nuestro dispositivo, permitiendo así la *depuración remota*.
+
+Establecer la conexión
+----------------------
+
+Como ya dijimos antes, **sólo es posible vía USB**.
+
+Por lo demás, el procedimiento es idéntico a la conexión usando la red local,
+excepto que en el campo :code:`Host` de la página de conexión indicamos
+:code:`localhost`, en lugar de la *IP* de nuestro dispositivo.
+
+Depurar remotamente
+===================
+
+Ya conectados, simplemente debemos elegir la pestaña que deseamos depurar de
+entre todas las pestañas remotas disponibles. Una vez escogida, recibimos
+una nueva ventana con las *herramientas de desarrollo* asociadas al código de
+la misma.
+
+.. figure:: {filename}/images/2014/2014-01-12_10.png
+    :alt: Ventana en nuestro escritorio con las herramientas de desarrollo de
+          Firefox mostrando parte del código de una página abierta en nuestro
+          Android.
+
+********************************************
+Testear sitios alojados en un servidor local
+********************************************
+
+Hasta ahora hemos visto que, usando *Firefox* y *Firefox para Android*, podemos
+depurar/testear desde nuestro escritorio sitios online cargados en nuestro
+*Android*; pero, si queremos,
+**podemos hacer lo mismo con sitios alojados en un servidor web local**.
+
+Para ello, lo primero de todo es tener un servidor corriendo, obviamente.
+Una forma sencilla de montar uno **de pruebas** rapidito es usando `Python`_.
+Entre los muchos *módulos* que trae el lenguaje por defecto, hay uno que
+define *clases* para implementar servidores web.
+
+Así, con **Python 2.x** podemos iniciar un servidor local desde consola con:
+
+.. code-block:: sh
+
+    $ python2 -m SimpleHTTPServer 9999
+    Serving HTTP on 0.0.0.0 port 9999 ...
+
+En **Python 3.x** dicho *módulo* ha pasado a ser :code:`http.server`, por lo
+que en su lugar:
+
+.. code-block:: sh
+
+    $ python -m http.server 8000
+    Serving HTTP on 0.0.0.0 port 8000 ...
+
+Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
+desde la carpeta con los *HTML* de mi blog, y accedo vía *Firefox* a la
+dirección indicada por *Python* (0.0.0.0 → *localhost* ← 127.0.0.1):
+
+.. figure:: {filename}/images/2014/2014-01-12_15.png
+    :alt: Página principal del blog, alojada en servidor local, vista desde
+          Firefox para escritorio.
+    :align: center
+
+Acceder desde nuestro *Android* al servidor es igual de fácil.
+Aunque esta vez necesitamos conocer su *IP* en la red local. La averiguamos 
+con:
+
+.. code-block:: sh
+
+    $ ifconfig
+    eth0: <span class="nv">flags<span class="o">=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20<link>
+        ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  <span class="o">(Ethernet<span class="o">)
+        RX packets 598614  bytes 650747078 <span class="o">(620.6 MiB<span class="o">)
+        RX errors 0  dropped 16  overruns 0  frame 0
+        TX packets 388523  bytes 69392562 <span class="o">(66.1 MiB<span class="o">)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    ...
+
+Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
+*androide*:
+
+.. figure:: {filename}/images/2014/2014-01-12_16.png
+    :alt: Página principal del blog, alojada en servidor local, vista desde
+          Firefox para Android.
+    :align: center
+
+Y a trastear con el sitio.
+
+*************************************
+Sobre la depuración remota en Firefox
+*************************************
+
+Esta funcionalidad está bien, pero *Firefox* aún ha de avanzar mucho al 
+respecto.
+
+A primera vista, le encuentro un par de peros:
+
+1. Cuando escoges una pestaña a depurar, te abre una ventana nueva con las
+   herramientas asociadas, sí… pero, al mismo tiempo, cierra la ventana desde
+   la que realizaste la conexión. Por lo que si quieres saltar luego a otra
+   pestaña, te toca establecer una nueva conexión. Es un poco absurdo.
+   *Google Chrome* mantiene dicha pestaña abierta. Tiene sentido y agiliza
+   el trabajo.
+2. Una vez conectados, las opciones que provee la página de conexión son
+   muy pobres: puedes elegir una pestaña entre todas las abiertas en
+   *Firefox para Android*… y ya está. Con la herramienta correspondiente de
+   *Google Chrome* puedes abrir pestañas, recargarlas, cerrarlas… Y no es una
+   página estática. Si se abren nuevas pestañas, las muestra en la lista de
+   pestañas, por ejemplo. Como he dicho, es bastante limitada por ahora.
+
+***********************************
+Alternativa a la función screencast
+***********************************
+
+Parte de lo explicado anteriormente sobre la *depuración remota* en *Firefox*
+puede encontrarse en la `correspondiente guía`_ de la **MDN** y en
+`un artículo de hacks.mozilla.org`_.
+
+Y me dejé un último pero, muy visual, para el final: la ausencia de una
+alternativa nativa a la función *screencast* de *Google Chrome*:
+
+.. figure:: {filename}/images/2014/2014-01-12_11.png
+    :alt: Captura de la opción screencast de las herramientas de desarrollo de
+          Google Chrome. Muestra en tiempo real la pantalla de nuestro
+          dispositivo Android en el navegador y permite interactuar con ella.
+    :align: center
+
+    Con *screencast* visualizamos e interactuamos con la pantalla del
+    dispositivo en el navegador.
+
+Lo ideal sería que *Mozilla* implementara esta función en `app-manager`_.
+O que la incluyera como una más entre las *herramientas de desarrollo* por
+defecto de *Firefox*. Pero es que ni siquiera para los terminales `Firefox OS`_
+contamos con algo así. Lo más parecido es la opción de tomar una captura de
+pantalla (que con una pequeña triquiñuela se puede emplear también con
+terminales *Android*). Y no hay punto de comparación.
+
+Ante esta carencia, he indagado en busca de una alternativa para *Firefox*, y
+sólo he encontrado una opción satisfactoria: `Odroid VNC server`_
+(**requiere root**).
+
+Se trata de una aplicación *Android* capaz de levantar un
+*servidor VNC* [#]_ en nuestro dispositivo. Por desgracia, está discontinuado
+[#]_ (recibió su última actualización el 11 de junio de 2012). Esto acarrea
+que quizás no funcione para terminales con versiones de *Android* posteriores a
+la fecha, pero es funcional en mi terminal. Y, por las críticas de sus años
+mozos, aparentemente también lo será en otros dispositivos que tienen
+*Google Chrome* vedado.
+
+Configurar & poner en marcha el servidor
+========================================
+
+Una vez instalado a través de *Google Play*, lo ejecutamos, le concedemos
+permiso de **superusuario**, pulsamos el inmenso botón **START** y ya está:
+servidor corriendo (si no ocurre ninguna hecatombe [#]_).
+
+.. figure:: {filename}/images/2014/2014-01-12_12.png
+    :alt: Capturas de Odroid VNC server detenido y en ejecución.
+    :align: center
+
+    A la izquierda, el servidor detenido. A la derecha, en ejecución.
+
+Dispone de un *menú de ajustes* (*settings*), donde podemos establecer algunas
+preferencias sobre el servidor, la pantalla y otros detalles.
+
+.. figure:: {filename}/images/2014/2014-01-12_13.png
+    :alt: Captura del menú de preferencias del servidor vnc.
+
+Instalar & usar el cliente
+==========================
+
+Ya está el servidor funcionando, pero sin un programa cliente para conectarnos
+a él desde el escritorio, no sirve de nada.
+
+En **Archlinux**, instalamos :code:`tightvnc` desde **AUR**:
+
+.. code-block:: sh
+
+    $ yaourt -S tightvnc
+
+O, si lo preferimos, :code:`tigervnc` desde los repositorios oficiales:
+
+.. code-block:: sh
+
+    # pacman -S tigervnc
+
+Ambos paquetes proporcionan un cliente/servidor de *vnc*.
+
+Ahora sí podemos acceder al servidor. Desde el navegador, con la url que nos
+proporcionó *Odroid*:
+
+.. figure:: {filename}/images/2014/2014-01-12_14.png
+    :alt: Applet Java que proporciona Odroid, mostrando la pantalla de nuestro
+          Android.
+    :align: center
+
+    *Applet Java* proporcionado por *Odroid*, mostrando la pantalla de nuestro
+    *Android*.
+
+De las dos opciones que proporciona *Odroid* para manejar la pantalla, el
+*applet Java* parece ser la que mejor funciona. En mi caso, la versión
+*Javascript* altera los colores. Además, el applet permite configurar diversas
+opciones del servidor, como el nivel de compresión o la calidad del *jpeg*,
+que mejoran su velocidad de respuesta.
+
+Si conseguimos que nos funcione *Odroid*, no echaremos de menos la función
+*screencast* de *Google Chrome*. Y viene con un **extra** bastante importante:
+**podemos controlar nuestro Android totalmente** y visualizarlo en nuestro
+escritorio, no sólo nuestro navegador.
+
+Controles de *Odroid VCN server*:
+
+- Botón derecho del ratón: **Volver atrás**
+- Botón izquierdo del ratón: **tap/clic/swipe**
+- Botón central del ratón: **apagar/encender pantalla**
+
+Con esta alternativa, se suple perfectamente la ausencia de *screencast* en
+*Firefox*.
+
+.. _Fotografía: href="http://www.flickr.com/photos/shashachu/258240635/
+.. _Sha Sha Chu: http://www.flickr.com/photos/shashachu/
+.. _desarrollo web orientado a dispositivos móviles: https://www.udacity.com/course/cs256
+.. _Udacity: https://www.udacity.com/
+.. _Google Chrome Beta: https://play.google.com/store/apps/details?id=com.chrome.beta
+.. _ADB WiFi: https://play.google.com/store/apps/details?id=com.ryosoftware.adbw
+.. _WiFi ADB:
+.. _WiFi ADB - Debug Over Air: https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb
+.. _Android SDK: http://developer.android.com/intl/es/sdk/index.html
+.. _Android Platforms Tools: http://developer.android.com/sdk/installing/adding-packages.html
+.. _Python: http://www.python.org/
+.. _correspondiente guía: https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging/Firefox_for_Android
+.. _un artículo de hacks.mozilla.org: https://hacks.mozilla.org/2012/08/remote-debugging-on-firefox-for-android/
+.. _app-manager: https://developer.mozilla.org/es/docs/Mozilla/Firefox_OS/Using_the_App_Manager/
+.. _Firefox OS: http://www.mozilla.org/es-ES/firefox/os/
+.. _Odroid VNC server: https://play.google.com/store/apps/details?id=org.onaips.vnc
+.. _@FreakViking dice que…: https://twitter.com/FreakViking/status/421780992668729344
+
+----
+
+.. [#] Si me preguntáis a mí, esa limitación se ajusta más a la voluntad de forzar al usuario a renovar su terminal *Android* (y/o versión del sistema) que a limitaciones insalvables. Por descontado, se esgrimirá la excusa de "garantizar la experiencia de usuario".
+.. [#] *Android Debug Bridge*. Es una herramienta del `Android SDK`_, que nos permite controlar y comunicarnos con nuestro dispositivo *Android*.
+.. [#] Virtual Network Computing* (Computación Virtual en Red). *VNC* es un software de escritorio remoto, con una estructura cliente-servidor. El servidor es el programa que reside en la máquina que comparte su pantalla, mientras que el cliente (o visor) es un programa que, ejecutándose en otra máquina, visualiza, controla e interactua con el servidor.
+.. [#] El tema de los **servidores** *VNC* en *Android* es un poco peliagudo: clientes hay a patadas, pero los servidores pueden contarse con los dedos de la mano, y de los pocos disponibles la mitad no funcionan en demasiados dispositivos, son de pago (lo que no garantiza su funcionalidad, si atendemos a las valoraciones que reciben) o están discontinuados (el caso que nos ocupa).
+.. [#] `@FreakViking dice que…`_

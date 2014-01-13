@@ -1,0 +1,142 @@
+Activar el puñetero H.264 en Firefox
+####################################
+:date: 2014-01-13 17:15
+:tags: firefox, html5, h.264, vídeo, youtube, vimeo
+:category: CÓMOS, linux
+:slug: activar-video-h264-firefox
+:author: Soulchainer
+:twsummary: Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas de verdad. Y ese es mi caso con Firefox y la reproducción de vídeo con HTML5.
+:twimg: 2014-01-13_1.png
+
+.. vimeo:: 76979871
+   :align: center
+
+Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por
+ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas
+**de verdad**. Y ese es mi caso con `Firefox`_ y la reproducción de vídeo con
+*HTML5*.
+
+***********
+El problema
+***********
+
+El dichoso **H.264**.
+
+Es un *códec* de vídeo de alta compresión, muy empleado por sitios de streaming
+y con el gran inconveniente de que **NO ES LIBRE** y está atado por patentes.
+No es el único *códec* soportado por *HTML5*, por supuesto. Está también
+`WebM`_, por ejemplo. Pero con la excusa de que da mejor calidad, que si
+patatín, que si patatán, se ha convertido en un estándar de facto.
+
+Y la mayoría de portales de vídeos, como `Vimeo`_ o `Youtube`_, lo soportan.
+Además, lo suelen anunciar a bombo y platillo. Algo así:
+
+  Ahora contamos con un nuevo y mejorado de la leche reproductor de vídeo en
+  **HTML5**. ¡Es la hostia! ¡Probadlo y flipad!
+
+Cuando realmente quieren decir algo así:
+
+  Ahora contamos con un nuevo reproductor para que podáis sufrir toditos
+  nuestros vídeos comprimidos **con el puñetero H.264 de los cojones**.
+  Y sólo con él.
+
+  ¡No existen más formatos para nosotros!
+
+  ¡MUAJAJAJAJAJAJAJA!
+
+**Vimeo**, te estoy mirando muy fijamente en este preciso instante, que lo
+sepas Ò_Ó
+
+**Youtube** hace como que soporta más formatos y tal y cual, como que apoya al
+software libre, pero sus acciones (y omisiones) van por otros derroteros.
+
+Etcétera.
+
+Aún así, todo esto no habría sido un problema de no ser porque, debido a su
+carácter **no libre**, `Mozilla`_ tomó la decisión de no dar soporte en su
+navegador a este formato. No ha sido hasta fechas relativamente recientes [#]_
+que ha cedido un poco y habilitado su uso. A través, eso sí, de software de
+terceros.
+
+***********
+La solución
+***********
+
+Realmente no hay mayor problema. Salvo claro, el hecho de que no se
+clarifica en un lugar visible como podemos reproducir este tipo de contenido.
+
+No existe una opción específica entre los menús de *Firefox*, para activar
+o desactivar su soporte. Y cuando nos encontramos con este tipo de contenido en
+la red, no recibimos una alerta que nos avise de nuestro problema y de como
+solucionarlo.
+
+Simplemente, si no reunimos los requisitos necesarios no funciona.
+
+Requisitos
+==========
+
+Para que *Firefox* sea capaz de reproducir vídeos comprimidos con *H.264* en
+*Archlinux*, necesitamos:
+
+1. Activar la preferencia :code:`media.gstreamer.enabled` en
+   :code:`about:config`. Aunque en las últimas versiones de *Firefox* ya no sea
+   necesario, al venir activada por defecto, no está de más saberlo.
+
+   .. figure:: {filename}/images/2014/2014-01-13_2.png
+    :alt: Página about:config de Firefox, con el valor de la
+          preferencia media.gstreamer.enabled ajustado a true.
+    :align: center
+
+    Doble click para cambiar el valor de *false* a *true*.
+
+2. Instalar los siguientes paquetes:
+
+   .. code-block:: sh
+
+       $ yaourt -S gstreamer0.10-ffmpeg gstreamer0.10-good-plugins gstreamer0.10-ugly-plugins
+
+   No son necesarios para *H.264*, pero sí para otros formatos:
+
+   .. code-block:: sh
+
+       $ yaourt -S  gstreamer0.10-bad-plugins gstreamer0.10-base-plugins
+
+Lo gracioso de todo esto es que a mí sólo me faltaba el paquete
+:code:`gstreamer0.10-good-plugins`. Ha sido instalarlo y funcionar.
+
+Acabando
+========
+
+Tras esto, reiniciamos el navegador y ya podemos disfrutar en su plenitud de
+todos esos flamantes reproductores "*HTML5*" online.
+
+**Vimeo**, sigo mirándote fijamente. Reprodúceme algo sexy ya Ò_Ó
+
+Una vez activado, quizás queramos activar el `modo HTML5`_ de *Youtube*. Lo
+cito porque, además de ser una opción interesante, nos sirve para comprobar
+que realmente tenemos activado el soporte.
+
+.. figure:: {filename}/images/2014/2014-01-13_3.png
+    :alt: Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los
+          que es compatible nuestro navegador
+    :align: center
+
+Si no estuviera disponible esta opción de *Youtube*, siempre podemos comprobar
+que nuestro navegador cumple en el apartado de vídeo con el utilísimo
+`html5test`_.
+
+Y ahora me voy a ver un vídeo en *Vimeo*, que hace algo así como **eras** que
+no puedo disfrutar de uno. Buenas tardes.
+
+.. _Firefox: https://www.mozilla.org/es-ES/firefox/new/
+.. _WebM: http://www.webmproject.org/
+.. _Vimeo: https://vimeo.com/
+.. _Youtube: https://www.youtube.com/
+.. _Mozilla: http://www.mozilla.org/es-ES/
+.. _modo HTML5: https://www.youtube.com/html5
+.. _html5test: http://html5test.com/
+.. _Flashblock: https://addons.mozilla.org/en-US/firefox/addon/flashblock/
+
+----
+
+.. [#] Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?

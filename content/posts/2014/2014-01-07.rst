@@ -1,0 +1,61 @@
+Mobile Web Development, nuevo MOOC de Udacity
+###############################################
+:date: 2014-01-07 20:45
+:tags: curso, mooc, udacity, desarrollo web, móvil, html5, educación
+:category: recursos
+:slug: curso-udacity-desarrollo-web
+:author: Soulchainer
+:twsummary: Ayer mismo me llegó un correo de Udacity avisándome del inicio de su curso 'Mobile Web Development' , al que llevo un tiempo pre-inscrito. Así que aprovecho y actualizo el blog con una entradita breve :D
+:twimg: 2014-01-07_1.png
+
+.. figure:: {filename}/images/2014/2014-01-07_1.png
+    :alt: Logo y Slogan de Udacity.
+
+Ayer mismo me llegó un correo de `Udacity`_ avisándome del inicio de su curso
+`"Mobile Web Development"`_ , al que llevo un tiempo pre-inscrito. Así que
+aprovecho y actualizo el blog con una entradita breve.
+
+*Udacity* es mi plataforma de **MOOCs** [#]_ favorita [#]_. Y es que considero
+que llevan su tiempo haciendo las cosas muy bien. Ya podrían aprender un
+poquito *otras* [#]_. Su sitio es estable y está bien organizado (con sus
+respectivas wikis, descarga de recursos, foro...); su comunidad es muy amigable
+y participativa; y, sobre todo, cuenta con unos
+**instructores altamente cualificados**.
+
+Pongo especial énfasis en este último punto porque estoy literalmente
+*hasta las narices* de que quienes imparten ciertos *MOOCs* demuestren
+ser los primeros que necesitan cimentar su formación. Incluso en aspectos
+escándalosamente básicos de la materia que "dominan". Me preocupa (*y mucho*)
+que quienes se supone tienen por misión divulgar el conocimiento vayan por ahí
+plantando la semilla de la *ignorancia* y la *mala praxis*.
+
+Además de este punto tan importante, otro aspecto que me gusta mucho de
+*Udacity* es que, al contrario que demasiadas autoproclamadas plataformas
+*de MOOCs*, cumple la condición de impartir cursos **abiertos** y mantiene la
+filosofía de democratizar la educación. Nunca acudirás a *Udacity* y te
+encontrarás con un curso **CERRADO**, porque esto es contrario a dicha
+filosofía. Si de verdad quieres democratizar la educación, no la restringes. De
+ningún modo. Y menos de acuerdo a absurdos plazos.
+
+Los cursos en *Udacity* puedes hacerlos cuando quieras. Progresar cuando
+quieras. A tu ritmo. Son cursos **abiertos de verdad**, no de boquilla.
+
+Bueno, no me enrollo más, que se supone que iba a hacer una entrada corta.
+Tenía ganas de hablaros un poco de *Udacity* y ya lo he hecho [#]_. Dejo bajo
+estas líneas el vídeo de presentación del curso, para que hable por sí mismo.
+
+.. youtube:: bFmMT2ZDQ8M
+    :align: center
+
+Y como dicen en *Udacity*: **Stay Udacious**.
+
+.. _"Mobile Web Development": https://www.udacity.com/course/cs256
+.. _Udacity: https://www.udacity.com/
+.. _Miríada X: https://www.miriadax.net/
+
+----
+
+.. [#] Un **MOOC** (*Massive Open Online Course*, *Curso en Línea Masivo y Abierto*) es un curso de educación abierta y gratuita, impartido a través de internet. Su finalidad última es la democratización del conocimiento.
+.. [#] **OJO**: de habla inglesa. Aunque al poco de salir los vídeos, suelen publicarse subtítulos. Al menos hasta el momento. Pero no hay que poner demasiadas expectativas en estos: los ingleses son los únicos que no suelen faltar.
+.. [#] Cof, cof, `Miríada X`_, cof, cof, cof... Ay, que tosecita más tonta me ha dado.
+.. [#] Y a pesar de toda esta publicidad gratuita, yo no veo un duro de ellos, oye... xD

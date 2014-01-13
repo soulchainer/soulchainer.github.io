@@ -1,0 +1,44 @@
+Geekcalendar: calendario geek ligerito de ropa
+###############################################
+:date: 2014-01-08 14:00
+:tags: calendario, geek, fotografía, desnudo, lenguajes, programación, NSFW
+:category: programación, fotografía
+:slug: geekcalendar-calendario-programacion-desnudo
+:author: Soulchainer
+:twsummary: Estaba yo buscando en Flickr una imagen de una pitón (ya sabéis, la serpiente, esa que hace eso de la lengua y da unos abrazos muy cariñosos) para complementar mi vieja entrada sobre pip & entornos virtuales Python, cuando...
+:twimg: 2014-01-08_1.png
+
+.. figure:: {filename}/images/2014/2014-01-08_1.png
+    :alt: Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa.
+
+    Foto de `Exey Panteleev`_.
+
+**ATENCIÓN**: Contenido NSFW [#]_.
+
+Estaba yo buscando en `Flickr`_ una imagen de una *pitón* (ya sabéis, la
+serpiente, esa que hace eso de la lengua y da unos abrazos muy cariñosos) para
+complementar mi vieja entrada sobre
+`pip & entornos virtuales Python <{filename}/posts/2013/2013-12-28.rst>`_
+cuando, me he topado con `cierta foto`_ de `Exey Panteleev`_ que no era una
+pitón, pero que también posee
+`ciertos efectos hipnóticos en determinados individuos`_. Y no he podido evitar
+acordarme de mi follower vikingo favorito: `@FreakViking`_.
+
+Al encontrar esta imagen, que tanto anima a programar, he curioseado por la
+galería de `Exey`_ y he caído en la cuenta de que estas imágenes iban
+destinadas a la publicación de un calendario para el presente año. Calendario
+que podéis encontrar `aquí`_.
+
+Happy Coding! :D
+
+.. _Flickr: http://www.flickr.com/
+.. _cierta foto: http://www.flickr.com/photos/exey/9686764667/
+.. _Exey:
+.. _Exey Panteleev: http://www.flickr.com/photos/exey/
+.. _ciertos efectos hipnóticos en determinados individuos:
+.. _@FreakViking: https://twitter.com/FreakViking/
+.. _aquí: http://exeypanteleev.com/geeklendar/
+
+----
+
+.. [#] *Not Safe/Suitable For Work* (No es apropiado/seguro para el trabajo). Que no te pille tu jefe viendo esto cuando se supone que estás trabajando ò_ó

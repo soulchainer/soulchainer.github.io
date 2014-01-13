@@ -1,0 +1,10 @@
+      {% if article %}
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="{{ article.title|striptags }}">
+      <meta name="twitter:description" content="{% if article.twsummary %}{{ article.twsummary }}{% else %}{{ article.summary|striptags }}{% endif %}">
+      {%if article.twimg %}
+      <meta name="twitter:image:src" content="{{ SITEURL }}/images/{{ article.date|strftime('%Y') }}/{{ article.twimg }}">
+      {% endif %}
+      {% endif %}

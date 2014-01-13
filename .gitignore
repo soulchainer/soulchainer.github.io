@@ -1,0 +1,8 @@
+node_modules/
+output/
+publish/
+__pycache__/
+soulbits/
+develop_server.sh
+Gruntfile.js
+package.json

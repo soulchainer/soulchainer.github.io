@@ -1,0 +1,98 @@
+{% if DEFAULT_PAGINATION %}
+<nav>
+<ul class="paginator notransition">
+    {# imprimimos la flecha de retroceder, habilitada o no según el caso #}
+    <li class="pagitem">
+        <a class="paglink arrow{% if articles_page.number == 1 %} disabled{% endif %}" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}{% if articles_page.number -1 > 1 %}page/{{ articles_page.number - 1 }}/{% endif %}">←</a>
+    </li>
+    {% if articles_page.has_previous() and articles_page.has_next() %}
+    {# si existe anterior y siguiente página, se representan las tres, con
+    la actual en el centro, deshabilitada y su respectiva flecha de avance
+    habilitada #}
+    <li class="pagitem">
+        <a class="paglink" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}{% if articles_page.number -1 > 1 %}page/{{ articles_page.number -1 }}/{% endif %}">{{ articles_page.number - 1 }}</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink active" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/{{ articles_page.number }}/">{{ articles_page.number }}</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/{{ articles_page.number + 1 }}/">{{ articles_page.number +1 }}</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink arrow" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/{{articles_page.number + 1 }}/">→</a>
+    </li>
+    {% elif articles_page.has_previous() %}
+    {# si existen sólo páginas anteriores (se trata de la última página) #}
+    {% if articles_page.number > 2 %}
+    {# si la página actual es mayor de 2, tiene 2 anteriores (y ella misma) a
+    representar #}
+    <li class="pagitem">
+        <a class="paglink" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}{% if articles_page.number - 2 > 1 %}page/{{ articles_page.number - 2 }}{% endif %}/">{{ articles_page.number - 2 }}</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/{{ articles_page.number - 1 }}/">{{ articles_page.number - 1 }}</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink active" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/{{ articles_page.number }}/">{{ articles_page.number }}</a>
+    </li>
+    {% else %} {# sólo existe 1 ó 2 páginas #}
+    {% if articles_page.number == 2 %}  {# si sólo existen 2 páginas, imprimimos la anterior #}
+    <li class="pagitem">
+        <a class="paglink" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}">1</a>
+    </li>
+    {% endif%}
+    <li class="pagitem">
+        <a class="paglink active" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}{% if articles_page.number == 2 %}page/2{% endif %}/">{{ articles_page.number}}</a>
+    </li>
+    {% if articles_page.number == 1 %}  {# si sólo existe 1 página, imprimimos la siguiente #}
+    <li class="pagitem">
+        <a class="paglink disabled" href="#">2</a>
+    </li>
+    {% endif%}
+    {# tanto si sólo existe una o dos páginas, imprimimos una tercera y la
+    flecha de selección, para tener un cuadro de paginación consistente #}
+    <li class="pagitem">
+        <a class="paglink disabled" href="#">3</a>
+    </li>
+    {% endif %} {# fin de evaluación de últimas páginas (sólo tienen previas)
+    teniendo en cuenta el número de páginas #}
+    {# añadimos finalmente la flecha a estas páginas, que siempre la tendrán
+    deshabilitada, al tratarse de últimas páginas #}
+    <li class="pagitem">
+        <a class="paglink arrow disabled" href="#">→</a>
+    </li>
+    {% elif articles_page.has_next() %}
+    {# si sólo existen siguientes páginas, estámos tratando con la 1ª página.
+    Ya hemos tratado anteriormente el caso en el que sólo existe una página,
+    nos quedan los casos en los que existen 1, 2 ó más páginas siguientes, tratamos los 2 últimos #}
+    <li class="pagitem">
+        <a class="paglink{% if articles_page.number == 1 %} active{% endif %}" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}">1</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink{% if articles_page.number == 2 %} active{% endif %}" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/2/">2</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink{% if articles_page.number == 3 and articles_paginator._get_num_pages() >= 3 %} active{% endif %}" href="{% if articles_paginator._get_num_pages() >= 3  %}{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/3/{% else %}#{% endif %}">3</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink arrow" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}page/2/">→</a>
+    </li>
+    {% else %} {# nos queda el caso en el que no tiene ni página anterior
+    ni siquiente (sólo existe 1 página). Tendrá todos los otros enlaces
+    deshabilitados #}
+    <li class="pagitem">
+        <a class="paglink active" href="{{ SITEURL }}/{% if page_name != 'index' %}{{ page_name }}/{% endif %}">1</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink disabled" href="#">2</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink disabled" href="#">3</a>
+    </li>
+    <li class="pagitem">
+        <a class="paglink arrow disabled" href="#">→</a>
+    </li>
+    {% endif %}
+</ul>
+</nav>
+{% endif %}

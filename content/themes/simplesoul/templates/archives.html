@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="content" id="archives">
+
+{% for year in articles|groupby('date.year')|sort(True) %}
+    <h2 class="archive-year">{{ year.grouper }}</h2>
+    <dl>
+    {% for month in year.list|groupby('date.month')|sort(True) %}
+      <dt class="archive-month">
+      {% if month.grouper == 12 %}
+        Diciembre
+      {% elif month.grouper == 11 %}
+        Noviembre
+      {% elif month.grouper == 10 %}
+        Octubre
+      {% elif month.grouper == 09 %}
+        Septiembre
+      {% elif month.grouper == 08 %}
+        Agosto
+      {% elif month.grouper == 07 %}
+        Julio
+      {% elif month.grouper == 06 %}
+        Junio
+      {% elif month.grouper == 05 %}
+        Mayo
+      {% elif month.grouper == 04 %}
+        Abril
+      {% elif month.grouper == 03 %}
+        Marzo
+      {% elif month.grouper == 02 %}
+        Febrero
+      {% elif month.grouper == 01 %}
+        Enero
+      {% endif %}
+      </dt>
+      {% for article in month.list %}
+        <dd class="archive-entry"><span class="archive-day">{{ article.date|strftime('%d')}}</span>
+        <a class="archlink" href="{{ SITEURL }}/{{ article.url }}">
+        {{ article.title }}</a></dd>
+      {% endfor %}
+    {% endfor %}
+    </dl>
+{% endfor %}
+</section>
+{% endblock %}

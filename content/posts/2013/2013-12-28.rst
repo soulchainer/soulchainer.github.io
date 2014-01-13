@@ -1,0 +1,489 @@
+Gestión de paquetes & entornos virtuales Python con pip, virtualenv & virtualenvwrapper
+#######################################################################################
+:date: 2013-12-30 18:30
+:tags: python, pip, virtualenv, virtualenvwrapper, linux, archlinux
+:category: CÓMOS, programación
+:slug: python-paquetes-entornos-virtuales
+:author: Soulchainer
+:twsummary: Cuando usas Python con asiduidad, ya sea por cuestiones de desarrollo o simplemente por preferir ciertas aplicaciones construidas en este lenguaje, tarde o temprano te encuentras con un problema: las dichosas dependencias y la versionitis.
+:twimg: 2013-12-28_1.png
+
+.. figure:: {filename}/images/2013/2013-12-28_1.png
+    :alt: Python verde (Morelia Viridis).
+
+    Pitón arborícola verde (Morelia Viridis). Foto de `Marie`_, con unos toquecitos. `Original`_.
+
+************
+Problemática
+************
+
+Cuando usas `Python`_ con asiduidad, ya sea por cuestiones de desarrollo o
+simplemente por preferir ciertas aplicaciones construidas en este lenguaje,
+tarde o temprano te encuentras con un problema: las dichosas dependencias y la
+*versionitis* [#]_.
+
+Consideremos los siguientes supuestos:
+
+.. _el primer supuesto anterior:
+
+1. Estás desarrollando dos aplicaciones con *Python 3.3.3*.
+
+    1. La primera aplicación importa la librería :code:`wlib`, que tiene entre sus dependencias la librería :code:`libpeta == 1.0` , instalada globalmente en el sistema.
+    2. En la segunda aplicación necesitas usar la librería :code:`ylib`, que requiere :code:`libpeta >= 1.5`.
+
+    Si actualizas :code:`libpeta` de la versión 1.0 a la 1.5, para cumplir los requisitos de :code:`ylib` , la primera aplicación **peta**. Ya la hemos liado. `¿Qué hacemos ahora?`_.
+2. Quieres probar una aplicación supercuriosa que has visto en `GitHub`_, pero vaya: tiene un montón de dependencias, está basada en una versión de *Python* que no usas, muchas de sus librerías no están en los repositorios de tu distro... Y encima no trae script de desinstalación. Esto va a ser un marrón cuando quiera borrarla: si no quiero que me deje el sistema lleno de *basurilla* voy a tener que crearme un script o desinstalar las dependencias a manita. ¿No hay una forma más fácil de hacer esto?
+
+****************************************
+pip para instalar & administrar paquetes
+****************************************
+
+`pip`_ es una utilidad que nos facilita enormemente la tarea de instalar y
+administrar paquetes *Python*.
+
+Instalación
+===========
+
+*pip* requiere de `setuptools`_ para funcionar. De hecho, está diseñado para
+ser un reemplazo de `easy_install`_, un módulo *Python* que se empaqueta
+junto a *setuptools*.
+
+No obstante, centrándonos en **Linux**, *pip* suele estar disponible en los
+repositorios de las principales distribuciones, por lo que se puede instalar
+fácilmente via *Administrador de Paquetes*.
+
+Así, en `Archlinux`_ :
+
+.. code-block:: sh
+
+    $ yaourt -S python-pip
+
+nos instalará tanto *pip* como *setuptools* de forma global en el sistema.
+
+Instalar paquetes
+=======================
+
+Normalmente se usa pip para instalar paquetes de `PyPI`_ [#]_, pero también
+puede usarse para instalar paquetes de otros índices, de urls de proyectos
+gestionados con un *VCS* [#]_, de directorios de proyectos locales y de
+archivos locales o remotos.
+
+Además, también soporta la instalación de paquetes listados en *archivos de
+requisitos* (que no son más que archivos de texto plano con un requisito a
+satisfacer por línea), proveyéndonos así de una forma rápida y sencilla de
+especificar **un entorno completo** a instalar.
+
+.. code-block:: sh
+
+    pip install [opciones] <especificación de requisito> ...
+    pip install [opciones] -r <archivo de requisitos> ...
+    pip install [opciones] [-e] <url proyecto VCS> ...
+    pip install [opciones] [-e] <ruta proyecto local> ...
+    pip install [opciones] <url/ruta archivo> ...
+
+Veamos algunos ejemplos concretos del uso común de :code:`pip install`:
+
+- Instalación básica de un paquete de *PyPI*:
+
+    .. code-block:: sh
+
+        $ pip install nombre_paquete
+
+- Instalación de un paquete de *PyPI* especificando un *requisito*:
+
+    .. code-block:: sh
+
+        $ pip install 'nombre_paquete==2.5'
+
+    Aquí especificamos que queremos instalar la versión 2.5 de
+    :code:`nombre_paquete`. Se pueden usar, `entre otros`_, los típicos
+    operadores de comparación :code:`< <= != == >= >`. Se usan comillas simples
+    o dobles para evitar que se interpreten los símbolos :code:`< >` como
+    redirecciones.
+
+- Instalación de varios paquetes mediante un *archivo de requisitos*:
+
+    .. code-block:: sh
+
+        $ pip install -r archivo_requisitos.txt
+
+    Donde :code:`archivo_requisitos.txt`:
+
+    .. code-block:: sh
+
+        nombre_paquete1==2.5
+        nombre_paquete2>0.5
+        nombre_paquete3!=3.1
+
+    **NOTA:** También se pueden instalar varios paquetes sin recurrir al uso de
+    un *archivo de requisitos*:
+
+    .. code-block:: sh
+
+        $ pip install nombre_paquete1 nombre_paquete2 "nombre_paquete3>=1.12.24"
+
+Desinstalar paquetes
+======================
+
+Una vez hemos aprendido a instalar paquetes, desinstalarlos es bastante
+sencillo:
+
+.. code-block:: sh
+
+    pip uninstall [opciones] <paquete> ...
+    pip uninstall [opciones] -r <archivo de requisitos> ...
+
+Si vamos a desinstalar uno o varios paquetes y estamos absolutamente seguros de
+lo que hacemos, podemos usar la opción :code:`-y` o :code:`--yes` para que no
+nos pida confirmación sobre los archivos a borrar:
+
+.. code-block:: sh
+
+    $ pip uninstall -y nombre_paquete
+
+Listar paquetes & información
+================================
+
+Tenemos dos formas de listar los paquetes instalados con *pip*:
+
+1. Listar los paquetes en formato de *requisitos*.
+
+    .. code-block:: sh
+
+        pip freeze [opciones]
+
+    Así, sobre el entorno que tengo configurado para este blog:
+
+    .. code-block:: sh
+
+        (entorno)[usuario@hostname] [carpeta] $ pip freeze
+        Jinja2==2.7.1
+        Markdown==2.3.1
+        Pygments==1.6
+        beautifulsoup4==4.3.2
+        pelican==3.3
+        ...
+
+    Este formato de listado resulta muy útil cuando queremos instalar los
+    mismos paquetes en otro entorno. En ese supuesto, sólo tendríamos que
+    hacer:
+
+    .. code-block:: sh
+
+        pip freeze > requisitos.txt
+
+    para obtener el *archivo de requisitos*; e instalarlos después en el nuevo
+    entorno como ya vimos anteriormente.
+2. Listar de forma ordinaria.
+
+    .. code-block:: sh
+
+        pip list [opciones]
+
+    Retomando el ejemplo anterior, el comando ahora devolvería:
+
+    .. code-block:: sh
+
+        (entorno)[usuario@hostname] [carpeta] $ pip list
+        beautifulsoup4 (4.3.2)
+        Jinja2 (2.7.1)
+        Markdown (2.3.1)
+        pelican (3.3)
+        Pygments (1.6)
+        ...
+
+    En este caso resulta particularmente útil la opción :code:`-o` o
+    :code:`--outdated`, que comprueba las versiones de los paquetes
+    instalados e imprime una lista con los nombres de los desactualizados,
+    enfrentando sus versiones actuales con las últimas disponibles.
+
+    .. code-block:: sh
+
+        $ pip list -o
+        setuptools (Current: 0.9.8 Latest: 2.0.2)
+
+Si lo que deseamos no es listar paquetes instalados, sino obtener mayor
+información de los mismos, usaremos:
+
+.. code-block:: sh
+
+    pip show [opciones] <paquete> ...
+
+Por defecto, nos muestra el nombre del paquete, la versión instalada, la ruta
+de instalación y sus dependencias:
+
+.. code-block:: sh
+
+    $ pip show pip pelican
+    ---
+    Name: pip
+    Version: 1.4.1
+    Location: /ruta/de/instalacion
+    Requires:
+    ---
+    Name: pelican
+    Version: 3.3
+    Location: /ruta/de/instalacion
+    Requires: feedgenerator, jinja2, pygments, docutils, pytz, blinker, unidecode, six
+
+Podemos usar la opción :code:`-f` o :code:`--files` para obtener la lista de
+todos los archivos referentes a un paquete:
+
+.. code-block:: sh
+
+    $ pip show -f nombre_paquete
+
+Buscar paquetes
+=================
+
+Se puede buscar paquetes en *PyPI* desde la línea de comandos con:
+
+.. code-block:: sh
+
+    pip search [opciones] <búsqueda>
+
+Si buscamos por :code:`w3c`, por ejemplo:
+
+.. code-block:: sh
+
+    $ pip search w3c
+    pyprov                    - A Python implementation of W3C PROV data model
+    py_w3c                    - Library for W3C markup validation SOAP service
+    w3c-validator             - W3C panel for Django Debug Toolbar using requests.
+    ...
+
+*pip* es mucho más que todo esto. `RTFM`_.
+
+*************************
+Entornos virtuales Python
+*************************
+
+.. _¿Qué hacemos ahora?:
+
+Los entornos virtuales vienen a solucionar el problema planteado en `el primer
+supuesto anterior`_.
+
+Un entorno virtual *Python* no es más que una carpeta con una copia de *Python*
+(enlaza a su librería estándar y añade los paquetes :code:`setuptools pip`),
+donde podemos instalar los paquetes adicionales que queramos con *pip*,
+sin miedo a crear conflictos con la instalación global. Es un entorno aislado.
+
+Para trabajar con entornos virtuales usaremos `virtualenv`_ y
+`virtualenvwrapper`_. Este último no es estrictamente necesario, pero facilita
+mucho el uso cotidiano del anterior, proporcionando una capa de comandos que lo
+vuelve imprescindible. Tanto que sólo trataremos con *virtualenv* durante su
+obligada instalación, el resto del tiempo *virtualenvwrapper* mediará con él
+por nosotros.
+
+Instalación
+===========
+
+Una vez tenemos instalado *pip*, podemos instalar ambas herramientas a través
+de él:
+
+.. code-block:: sh
+
+    $ pip install virtualenv virtualenvwrapper
+
+Aunque en este caso yo prefiero instalarlas con el *Administrador de paquetes*
+del sistema, para no tener que preocuparme de revisar periódicamente si hay
+actualizaciones y esas cosas.
+
+.. code-block:: sh
+
+    $ yaourt -S python-virtualenvwrapper
+
+Con esto es suficiente: en *Archlinux* este paquete tiene como dependencias los
+paquetes :code:`python-virtualenv python2-virtualenv`, que corresponden a las
+versiones para *Python 3.x* y *Python 2.x* de *virtualenv*, respectivamente.
+
+Configuración
+=============
+
+Como a partir de este punto es muy posible que sólo usemos *pip* en entornos
+virtuales, podemos decirle que sólo se ejecute cuando haya un entorno virtual
+activado. Para ello, desde consola:
+
+.. code-block:: sh
+
+    export PIP_REQUIRE_VIRTUALENV=true
+
+Pero esto sólo lo hace temporal (durante la sesión actual). Para volverlo
+permanente hemos de añadir la misma línea a :code:`~/.bashrc` [#]_.
+
+También podemos añadir a nuestro :code:`~/.bashrc` las siguientes líneas:
+
+.. code-block:: sh
+
+    export WORKON_HOME=~/.virtualenvs
+    source /usr/bin/virtualenvwrapper.sh
+
+La primera línea hace saber a *virtualenvwrapper* dónde se encuentran nuestros
+entornos.
+Entornos que, como podemos observar, estarán en nuestra carpeta de usuario,
+dentro de una carpeta oculta llamada :code:`.virtualenvs`.
+
+Esto sólo es necesario si vamos a guardar nuestros entornos en una ruta distinta, ya que si no declaramos :code:`WORKON_HOME`, *virtualenvwrapper*
+asume que se encuentran en esa ubicación.
+
+La segunda línea carga *virtualenvwrapper* cada vez que abrimos un terminal.
+Yo realmente `no hago esto`_.
+
+Para terminar, creamos el directorio que albergará los entornos:
+
+.. code-block:: sh
+
+    $ mkdir ~/.virtualenvs
+
+Uso básico
+===========
+
+Desenvolverse con los entornos virtuales con *virtualenvwrapper* es
+pasmosamente simple.
+
+Crear un entorno
+------------------
+
+Creamos entornos virtuales con :code:`mkvirtualenv`:
+
+.. code-block:: sh
+
+    mkvirtualenv [-a ruta_proyecto] [-i paquete] [-r archivo_requisitos] [opciones virtualenv] NOMBRE_ENTORNO
+
+Para simplemente crear un entorno con el intérprete *Python* por defecto:
+
+.. code-block:: sh
+
+    $ mkvirtualenv mi_entorno
+
+Si queremos que emplee otro intérprete, tenemos que especificárselo con la
+opción :code:`-p` o :code:`--python`:
+
+.. code-block:: sh
+
+    $ mkvirtualenv -p python2.7 mi_entorno
+    $ mkvirtualenv --python=python2.7 mi_entorno
+
+Como se puede apreciar en la síntaxis del comando, con la opción :code:`-r`
+podemos indicarle un *archivo de requisitos*, para que instale determinados
+paquetes en el entorno justo después de su creación.
+
+Activar el entorno
+--------------------
+
+Para comenzar a trabajar en un entorno, hemos de activarlo:
+
+.. code-block:: sh
+
+    $ workon mi_entorno
+
+Al activar un entorno, el *prompt* cambia a:
+
+.. code-block:: sh
+
+    (mi_entorno)[usuario@hostname] [carpeta] $
+
+Como un recordatorio del entorno en el que nos encontramos.
+
+Listar entornos
+-----------------
+
+Podemos listar los entornos creados hasta el momento con:
+
+.. code-block:: sh
+
+    $ workon
+
+Si lo que queremos listar es el contenido de la carpeta :code:`site-packages`
+del entorno actual:
+
+.. code-block:: sh
+
+    (mi_entorno)$ lssitepackages
+
+Borrar entornos
+-----------------
+
+Podemos borrar entornos con:
+
+.. code-block:: sh
+
+    (mi_entorno)$ rmvirtualenv otro_entorno
+
+No podemos borrar un entorno si lo tenemos activado, tenemos que...
+
+Desactivar el entorno
+---------------------
+
+.. code-block:: sh
+
+    (mi_entorno)$ deactivate
+
+Limpiar un entorno
+------------------
+
+Si sólo queremos empezar de cero con un entorno, no hace falta borrarlo, basta
+con limpiar todos los paquetes en él instalados:
+
+.. code-block:: sh
+
+    (mi_entorno)$ wipeenv
+
+Como bien señalé antes, esto es sólo una pequeña muestra de
+`todo lo que virtualenvwrapper puede hacer`_.
+
+Aparte del resto de comandos que *virtualenvwrapper* pone a nuestra
+disposición, destacaría los
+`scripts que se ejecutan antes y después de ciertas acciones`_. Se encuentran
+en la raíz de tu directorio :code:`WORKON_HOME` y pueden ser muy útiles.
+
+Yo por ahora sólo empleo :code:`postmkvirtualenv`, para instalar determinado
+paquete en cada entorno que creo.
+
+Configuración extra
+====================
+
+.. _no hago esto:
+
+Como colofón, mencionar que soy algo perezoso [#]_ y desmemoriado
+(**muy desmemoriado**, para qué nos vamos a engañar), y por ello tengo
+definidos en mi :code:`.bashrc` una serie de *alias* [#]_ que me hacen la vida
+un poco más fácil:
+
+.. code-block:: sh
+
+    # Entornos virtuales (.virtualenvs) con virtualenvwrapper
+    # http://virtualenvwrapper.readthedocs.org/en/latest/
+    alias venvson='source virtualenvwrapper.sh' # activa gestor de entornos Python
+    alias addvenv='mkvirtualenv' # crea y activa nuevo entorno (dado el nombre)
+    alias addvenv2='mkvirtualenv -p /usr/bin/python2.7' # con python2.7
+    # "workon entorno" para activar/cambiar a entorno
+    # "workon" para listar los entornos
+    alias venvoff='deactivate'  # salir del entorno
+    alias rmvenv='rmvirtualenv' # elimina el entorno (dado el nombre)
+    alias lsvenv='lssitepackages' # lista contenido carpeta site-packages venv
+
+.. _Marie: http://www.flickr.com/photos/lesmontsdore/
+.. _Original: http://www.flickr.com/photos/lesmontsdore/5513104816/
+.. _Python: http://www.python.org/
+.. _GitHub: https://github.com/
+.. _RTFM:
+.. _pip: http://www.pip-installer.org/en/latest/
+.. _PyPI: https://pypi.python.org/pypi/
+.. _setuptools: https://pypi.python.org/pypi/setuptools/
+.. _easy_install: https://pythonhosted.org/setuptools/easy_install.html
+.. _Archlinux: https://www.archlinux.org/
+.. _entre otros: http://pythonhosted.org/setuptools/pkg_resources.html#requirement-objects
+.. _virtualenv: https://pypi.python.org/pypi/virtualenv
+.. _todo lo que virtualenvwrapper puede hacer:
+.. _virtualenvwrapper: http://virtualenvwrapper.readthedocs.org/en/latest/
+.. _scripts que se ejecutan antes y después de ciertas acciones: http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html
+
+----
+
+.. [#] Una situación en la que hay muchas versiones diferentes (y posiblemente incompatibles) del mismo software, archivo o documento.
+.. [#] *Python Package Index* (*Índice de Paquetes Python*). Es un gran repositorio de paquetes Python. En el momento de escribir esto lista 38300 paquetes.
+.. [#] *Version Control System* (*Sistema de Control de Versiones*). Un sistema de control de versiones es una pieza de software diseñada para gestionar proyectos homónimos: almacenamiento, historial de cambios de los archivos, manejo de distintas ramas de desarrollo (versiones).
+.. [#] *.bashrc* es el fichero de configuración de *Bash* (*Bourne again shell*), la shell (intérprete de comandos) por defecto en *Linux*.
+.. [#] Ser perezoso no siempre es malo: a veces agudiza el ingenio :)
+.. [#] Los alias de *Bash* son *mnemónicos*: términos que sustituyen cadenas de instrucciones más largas y, al mismo tiempo, resultan más fáciles de recordar.

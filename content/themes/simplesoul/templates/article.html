@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+      {{ article.title }}
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="{{ article.date.isoformat() }}">
+      {{ article.locale_date }}, por {{ AUTHOR }}
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    {{ article.content }}
+  </div><!-- .content -->
+
+  {% if article.tags %}
+  <div class="tags">
+    <ul>
+    {% for tag in article.tags|sort %}
+    <li class="tag"><a class="taglink notransition" href="{{ SITEURL }}/{{ tag.url }}">{{tag}}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% include "_includes/multiparts.html"%}
+
+  {% include "_includes/disqus.html" %}
+
+</section>
+
+{% endblock %}
