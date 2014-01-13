@@ -111,67 +111,64 @@
   </h3>
 
   <div class="postinfo">
-    <p class="published" title="2014-01-12T13:30:00">
+    <p class="published" title="2014-01-12T19:45:00">
       dom 12 enero 2014, por Soulchainer
     </p>
   </div><!-- .postinfo -->
 
   <div class="article">
-    <div class="figure" style="width: 400px; height: auto; max-width: 100%;">
+    <div class="section" id="id1">
+<h2>Depuración remota <span class="amp">&amp;</span> testeo en Firefox para Android</h2>
+<div class="figure" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha Chu (http://www.flickr.com/photos/shashachu/)." src="http://soulchainer.github.io/images/2014/2014-01-12_1.png" style="width: 400px; height: auto; max-width: 100%;"/>
 <p class="caption">Fire fox (Panda Rojo, <em>Ailurus fulgens</em>). ¿No son adorables estos animales?
-<a class="reference external" href="http://www.flickr.com/photos/shashachu/258240635/">Fotografía</a> obra de <a class="reference external" href="http://www.flickr.com/photos/shashachu/">Sha Sha Chu</a>.</p>
+<a class="reference external" href='href="http://www.flickr.com/photos/shashachu/258240635/'>Fotografía</a> obra de <a class="reference external" href="http://www.flickr.com/photos/shashachu/">Sha Sha Chu</a>.</p>
 </div>
-<p>Como ya comenté <a class="reference external" href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/">anteriormente</a>, estoy
+<p>Como ya comenté  <a class="reference external" href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/">anteriormente</a>, estoy
 siguiendo un <em><span class="caps">MOOC</span></em> sobre <a class="reference external" href="https://www.udacity.com/course/cs256">desarrollo web orientado a dispositivos móviles</a>
 en <a class="reference external" href="https://www.udacity.com/">Udacity</a>. La cuestión es que en el curso se usa de forma intensiva
 <em>Google Chrome</em> y sus <em>herramientas de desarrollo</em>. Y todos tan contentos…
 hasta que se toca el tema de la <em>depuración remota</em>.</p>
 <p>Y es que para ello es necesario instalar <a class="reference external" href="https://play.google.com/store/apps/details?id=com.chrome.beta">Google Chrome Beta</a> en <em>Android</em>.
-Lo que a su vez requiere disponer de <strong>Android &gt;= 4.0</strong> <a class="footnote-reference" href="#id8" id="id1">[1]</a>. Y podéis decirme
+Lo que a su vez requiere disponer de <strong>Android &gt;= 4.0</strong> <a class="footnote-reference" href="#id9" id="id2">[1]</a>. Y podéis decirme
 que "hoy día la mayoría tiene <em><span class="caps">ICS</span></em> o superior", pero resulta que el número de
 usuarios que no entra en esa <em>mayoría</em>, entre los cuales me encuentro <strong>yo</strong>
-(<em>Android 2.3.5</em>), es bastante númeroso.</p>
+(<em>Android 2.3.5</em>), es bastante númeroso.</p>
+</div>
 <div class="section" id="firefox-saves-the-day">
 <h2>Firefox saves the day</h2>
 <p><em>Firefox</em> también soporta la depuración remota, sin la imposición de esta (en
 mi opinión) <strong>absurda</strong> restricción.</p>
 <p>Siempre es útil conocer más herramientas. Además, yo soy <strong>pro Firefox</strong>, así
-que: veamos cómo se hace.</p>
+que: veamos cómo se hace.</p>
 </div>
 <div class="section" id="depuracion-remota">
 <h2>Depuración remota</h2>
 <div class="section" id="requisitos">
 <h3>Requisitos</h3>
-<ul>
-<li><p class="first">Equipo ejecutando una versión de escritorio de <em>Firefox</em> <strong>&gt;= 15</strong>.</p>
-</li>
-<li><p class="first">Dispositivo <em>Android</em> ejecutando <strong>Firefox &gt;= 15</strong>. Versión de
-<strong>Android &gt;= 2.2</strong>.</p>
-</li>
-<li><p class="first">Conectar ambos dispositivos.</p>
-<blockquote>
-<ol class="arabic simple" id="conectividad-wifi">
+<ul class="simple">
+<li>Equipo ejecutando una versión de escritorio de <em>Firefox</em> <strong>&gt;= 15</strong>.</li>
+<li>Dispositivo <em>Android</em> ejecutando <strong>Firefox &gt;= 15</strong>. Versión de
+<strong>Android &gt;= 2.2</strong>.</li>
+<li>Conectar ambos dispositivos.<ol class="arabic" id="conectividad-wifi">
 <li>Vía cable <em><span class="caps">USB</span></em>.</li>
 <li>Vía <em>WiFi</em> (<strong>requiere root</strong>). Usando aplicaciones como <a class="reference external" href="https://play.google.com/store/apps/details?id=com.ryosoftware.adbw"><span class="caps">ADB</span> WiFi</a>
 (<strong>Android &gt;= 2.1</strong>, <em>traducida</em>) o <a class="reference external" href="https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb">WiFi <span class="caps">ADB</span> - Debug Over Air</a>
-(<strong>Android &gt;= 2.3</strong>, <em>mejor diseño</em>). Yo uso la última.</li>
+(<strong>Android &gt;= 2.3</strong>, <em>mejor diseño</em>). Yo uso la última.</li>
 </ol>
-</blockquote>
 </li>
-<li><p class="first"><em><span class="caps">ADB</span></em> <a class="footnote-reference" href="#id9" id="id2">[2]</a>. Implica la instalación del <a class="reference external" href="http://developer.android.com/intl/es/sdk/index.html">Android <span class="caps">SDK</span></a> y las
-<a class="reference external" href="http://developer.android.com/sdk/installing/adding-packages.html">Android Platforms Tools</a> correspondientes.</p>
-</li>
+<li><em><span class="caps">ADB</span></em> <a class="footnote-reference" href="#id10" id="id3">[2]</a>. Implica la instalación del <a class="reference external" href="http://developer.android.com/intl/es/sdk/index.html">Android <span class="caps">SDK</span></a> y las
+<a class="reference external" href="http://developer.android.com/sdk/installing/adding-packages.html">Android Platforms Tools</a> correspondientes.</li>
 </ul>
 <p>No detallo los dos últimos puntos aquí. Ante cualquier duda, podéis preguntar
-en los comentarios.</p>
+en los comentarios.</p>
 </div>
 <div class="section" id="activar-la-depuracion-remota-localhost">
 <h3>Activar la depuración remota (localhost)</h3>
 <p>Debemos activar la <em>depuración remota</em> en ambos dispositivos (<em>escritorio</em> y
 <em>Android</em>).</p>
 <div class="section" id="en-firefox-para-android-24">
-<h4>En Firefox para Android &lt;= 24</h4>
+<h4>En Firefox para Android &lt;= 24</h4>
 <p>Tecleamos <code>about:config</code> en la <em>barra de direcciones</em> y filtramos la
 lista de preferencias con la cadena <code>debugger</code>.
 Localizada entre los resultados <code>devtools.debugger.remote-enabled</code>,
@@ -179,7 +176,7 @@ cambiamos su valor a <code>true</code>.</p>
 <div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Búsqueda de la cadena 'debugger' en about:config." src="http://soulchainer.github.io/images/2014/2014-01-12_2.png" style="width: 400px; height: auto; max-width: 100%;"/>
 </div>
-<p>Después, reiniciamos el navegador.</p>
+<p>Después, reiniciamos el navegador.</p>
 </div>
 <div class="section" id="en-firefox-para-android-25">
 <h4>En Firefox para Android &gt;= 25</h4>
@@ -193,7 +190,7 @@ aplicación. En mi terminal la ruta es:
 <p>Al activarla nos recuerda que hemos de configurar el <a class="reference internal" href="#desvio-de-puertos">desvío de puertos</a> para
 conectar las <em>herramientas de desarrollo</em> al dispositivo. Lo haremos
 <a class="reference internal" href="#mas-adelante">más adelante</a>.</p>
-<p>De nuevo aquí, reiniciamos el navegador.</p>
+<p>De nuevo aquí, reiniciamos el navegador.</p>
 </div>
 <div class="section" id="en-la-version-de-escritorio">
 <h4>En la versión de escritorio</h4>
@@ -205,7 +202,7 @@ conectar las <em>herramientas de desarrollo</em> al dispositivo. Lo haremos
 <img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/2014-01-12_4.png" style="width: 800px; height: auto; max-width: 100%;"/>
 </div>
 <p>Si usamos <strong>Firefox &lt; 27</strong> tendremos que reiniciar el navegador para que se
-apliquen los cambios.</p>
+apliquen los cambios.</p>
 </div>
 </div>
 <div class="section" id="activar-la-depuracion-remota-red-local">
@@ -223,13 +220,13 @@ preferencia <code>devtools.debugger.force-local</code> (en <code>about:config</c
 <div class="section" id="conectar-red-local">
 <h3>Conectar (red local)</h3>
 <p>Una vez activada la <em>depuración remota</em>, conectar las
-<em>herramientas de desarrollo</em> al dispositivo es bastante sencillo.</p>
+<em>herramientas de desarrollo</em> al dispositivo es bastante sencillo.</p>
 <div class="section" id="obtener-la-ip-del-dispositivo">
 <h4>Obtener la <span class="caps">IP</span> del dispositivo</h4>
 <p>En <em>Android 2.3.5</em>, podemos obtenerla yendo a
 <strong>Ajustes → Conexiones inalámbricas → Ajustes Wi-Fi</strong> y pulsando en la red a
 la que nos encontramos conectados. Aparece entonces una ventana emergente con
-información sobre la conexión.</p>
+información sobre la conexión.</p>
 <div class="figure" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Ventana emergente con información sobre la conexión wireless en el dispositivo Android." src="http://soulchainer.github.io/images/2014/2014-01-12_6.png" style="width: 400px; height: auto; max-width: 100%;"/>
 </div>
@@ -247,50 +244,49 @@ información sobre la conexión.</p>
 tal cual (salvo que lo hayamos cambiado, es el puerto por defecto) y
 presionamos <em>Connect</em>.</p>
 <p>Al hacerlo, salta una ventana en nuestro dispositivo informando del intento de
-conexión y dándonos a elegir qué hacer:</p>
+conexión y dándonos a elegir qué hacer:</p>
 <div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Ventana emergente solicitando confirmación de conexión en Firefox para Android." src="http://soulchainer.github.io/images/2014/2014-01-12_8.png" style="width: 400px; height: auto; max-width: 100%;"/>
 <p class="caption">El icono insectoide de la barra de estado es de <a class="reference external" href="https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb">WiFi <span class="caps">ADB</span></a>.</p>
 </div>
-<p>Una vez aceptamos, conectamos al fin:</p>
+<p>Una vez aceptamos, conectamos al fin:</p>
 <div class="figure align-center" style="width: 650px; height: auto; max-width: 100%;">
 <img alt="Página con la conexión al dispositivo Android realizada, mostrando las pestañas y los procesos remotos disponibles." src="http://soulchainer.github.io/images/2014/2014-01-12_9.png" style="width: 650px; height: auto; max-width: 100%;"/>
 </div>
 <p>Si no se efectua la conexión o esta falla, podemos comprobar si el dispositivo
 está realmente conectado con <code>adb devices</code>:</p>
-<div class="highlight"><pre>$ adb devices
+<div class="highlight"><pre><span class="nv">$ </span>adb devices
 List of devices attached
-192.168.1.129:5555  device # dará algo así si estamos conectados por WiFi
-c089070e02561ecd    device # o algo parecido a esto si lo estamos por USB
+192.168.1.129:5555  device <span class="c"># dará algo así si estamos conectados por WiFi</span>
+c089070e02561ecd    device <span class="c"># o algo parecido a esto si lo estamos por <span class="caps">USB</span></span>
 </pre></div>
-<p>Y revisar los diversos ajustes en busca del problema.</p>
+<p>Y revisar los diversos ajustes en busca del problema.</p>
 </div>
 </div>
 <div class="section" id="conectar-localhost">
 <h3>Conectar (localhost)</h3>
-<p>La conexión sin acceso a la red local es ligeramente distinta.</p>
-<div class="section" id="id3">
-<span id="mas-adelante"></span><span id="desvio-de-puertos"></span><h4>Desvío de puertos</h4>
+<p>La conexión sin acceso a la red local es ligeramente distinta.</p>
+<div class="section" id="id4">
+<span id="desvio-de-puertos"></span><span id="mas-adelante"></span><h4>Desvío de puertos</h4>
 <p>Antes de conectar, hemos de configurar el <em>desvío de puertos</em>. Tecleamos en consola:</p>
-<div class="highlight"><pre>$ adb forward tcp:6000 tcp:6000
+<div class="highlight"><pre><span class="nv">$ </span>adb forward tcp:6000 tcp:6000
 </pre></div>
 <p>Esto deriva las conexiones <em><span class="caps">TCP</span></em> de nuestra máquina al puerto <em>6000</em>, al puerto
 <em>6000</em> de nuestro dispositivo, permitiendo así la <em>depuración remota</em>.</p>
 </div>
-<div class="section" id="id4">
+<div class="section" id="id5">
 <h4>Establecer la conexión</h4>
 <p>Como ya dijimos antes, <strong>sólo es posible vía <span class="caps">USB</span></strong>.</p>
 <p>Por lo demás, el procedimiento es idéntico a la conexión usando la red local,
 excepto que en el campo <code>Host</code> de la página de conexión indicamos
-<code>localhost</code>, en lugar de la <em><span class="caps">IP</span></em> de nuestro dispositivo.</p>
+<code>localhost</code>, en lugar de la <em><span class="caps">IP</span></em> de nuestro dispositivo.</p>
 </div>
 </div>
 <div class="section" id="depurar-remotamente">
 <h3>Depurar remotamente</h3>
 <p>Ya conectados, simplemente debemos elegir la pestaña que deseamos depurar de
 entre todas las pestañas remotas disponibles. Una vez escogida, recibimos
-una nueva ventana con las <em>herramientas de desarrollo</em> asociadas al código de
-la misma.</p>
+una nueva ventana con las <em>herramientas de desarrollo</em> asociadas al código de la misma.</p>
 <div class="figure" style="width: 700px; height: auto; max-width: 100%;">
 <img alt="Ventana en nuestro escritorio con las herramientas de desarrollo de Firefox mostrando parte del código de una página abierta en nuestro Android." src="http://soulchainer.github.io/images/2014/2014-01-12_10.png" style="width: 700px; height: auto; max-width: 100%;"/>
 </div>
@@ -303,35 +299,34 @@ depurar/testear desde nuestro escritorio sitios online cargados en nuestro
 <em>Android</em>; pero, si queremos,
 <strong>podemos hacer lo mismo con sitios alojados en un servidor web local</strong>.</p>
 <p>Para ello, lo primero de todo es tener un servidor corriendo, obviamente.
-Una forma sencilla de montar uno <strong>de pruebas</strong> rapidito es usando
-<a class="reference external" href="http://www.python.org/">Python</a>.
+Una forma sencilla de montar uno <strong>de pruebas</strong> rapidito es usando <a class="reference external" href="http://www.python.org/">Python</a>.
 Entre los muchos <em>módulos</em> que trae el lenguaje por defecto, hay uno que
-define <em>clases</em> para implementar servidores web.</p>
-<p>Así, con <strong>Python 2.x</strong> podemos iniciar un servidor local desde consola con:</p>
+define <em>clases</em> para implementar servidores web.</p>
+<p>Así, con <strong>Python 2.x</strong> podemos iniciar un servidor local desde consola con:</p>
 <div class="highlight"><pre><span class="nv">$ </span>python2 -m SimpleHTTPServer 9999
 Serving <span class="caps">HTTP</span> on 0.0.0.0 port 9999 ...
 </pre></div>
 <p>En <strong>Python 3.x</strong> dicho <em>módulo</em> ha pasado a ser <code>http.server</code>, por lo
-que en su lugar:</p>
+que en su lugar:</p>
 <div class="highlight"><pre><span class="nv">$ </span>python -m http.server 8000
 Serving <span class="caps">HTTP</span> on 0.0.0.0 port 8000 ...
 </pre></div>
 <p>Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
 desde la carpeta con los <em><span class="caps">HTML</span></em> de mi blog, y accedo vía <em>Firefox</em> a la
-dirección indicada por <em>Python</em> (0.0.0.0 → <em>localhost</em> ← 127.0.0.1):</p>
+dirección indicada por <em>Python</em> (0.0.0.0 → <em>localhost</em> ← 127.0.0.1):</p>
 <div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para escritorio." src="http://soulchainer.github.io/images/2014/2014-01-12_15.png" style="width: 400px; height: auto; max-width: 100%;"/>
 </div>
 <p>Acceder desde nuestro <em>Android</em> al servidor es igual de fácil.
 Aunque esta vez necesitamos conocer su <em><span class="caps">IP</span></em> en la red local. La averiguamos con:</p>
 <div class="highlight"><pre><span class="nv">$ </span>ifconfig
-eth0: <span class="nv">flags</span><span class="o">=</span>4163&lt;<span class="caps">UP</span>,<span class="caps">BROADCAST</span>,<span class="caps">RUNNING</span>,<span class="caps">MULTICAST</span>&gt;  mtu 1500
+eth0: &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"nv"</span>&gt;flags&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">=</span>4163&lt;<span class="caps">UP</span>,<span class="caps">BROADCAST</span>,<span class="caps">RUNNING</span>,<span class="caps">MULTICAST</span>&gt;  mtu 1500
     inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
     inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20&lt;link&gt;
-    ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  <span class="o">(</span>Ethernet<span class="o">)</span>
-    <span class="caps">RX</span> packets 598614  bytes 650747078 <span class="o">(</span>620.6 MiB<span class="o">)</span>
+    ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>Ethernet&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
+    <span class="caps">RX</span> packets 598614  bytes 650747078 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>620.6 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
     <span class="caps">RX</span> errors 0  dropped 16  overruns 0  frame 0
-    <span class="caps">TX</span> packets 388523  bytes 69392562 <span class="o">(</span>66.1 MiB<span class="o">)</span>
+    <span class="caps">TX</span> packets 388523  bytes 69392562 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>66.1 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
     <span class="caps">TX</span> errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ...
 </pre></div>
@@ -340,24 +335,25 @@ eth0: <span class="nv">flags</span><span class="o">=</span>4163&lt;<span class="
 <div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para Android." src="http://soulchainer.github.io/images/2014/2014-01-12_16.png" style="width: 400px; height: auto; max-width: 100%;"/>
 </div>
-<p>Y a trastear con el sitio.</p>
+<p>Y a trastear con el sitio.</p>
 </div>
 <div class="section" id="sobre-la-depuracion-remota-en-firefox">
 <h2>Sobre la depuración remota en Firefox</h2>
 <p>Esta funcionalidad está bien, pero <em>Firefox</em> aún ha de avanzar mucho al respecto.</p>
-<p>A primera vista, le encuentro un par de peros:</p>
+<p>A primera vista, le encuentro un par de peros:</p>
 <ol class="arabic simple">
 <li>Cuando escoges una pestaña a depurar, te abre una ventana nueva con las
 herramientas asociadas, sí… pero, al mismo tiempo, cierra la ventana desde
 la que realizaste la conexión. Por lo que si quieres saltar luego a otra
 pestaña, te toca establecer una nueva conexión. Es un poco absurdo.
-<em>Google Chrome</em> mantiene dicha pestaña abierta. Tiene sentido y agiliza el trabajo.</li>
+<em>Google Chrome</em> mantiene dicha pestaña abierta. Tiene sentido y agiliza
+el trabajo.</li>
 <li>Una vez conectados, las opciones que provee la página de conexión son
 muy pobres: puedes elegir una pestaña entre todas las abiertas en
 <em>Firefox para Android</em>… y ya está. Con la herramienta correspondiente de
 <em>Google Chrome</em> puedes abrir pestañas, recargarlas, cerrarlas… Y no es una
 página estática. Si se abren nuevas pestañas, las muestra en la lista de
-pestañas, por ejemplo. Como he dicho, es bastante limitada por ahora.</li>
+pestañas, por ejemplo. Como he dicho, es bastante limitada por ahora.</li>
 </ol>
 </div>
 <div class="section" id="alternativa-a-la-funcion-screencast">
@@ -370,20 +366,20 @@ alternativa nativa a la función <em>screencast</em> de <em>Google Chrome</em>:<
 <div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;">
 <img alt="Captura de la opción screencast de las herramientas de desarrollo de Google Chrome. Muestra en tiempo real la pantalla de nuestro dispositivo Android en el navegador y permite interactuar con ella." src="http://soulchainer.github.io/images/2014/2014-01-12_11.png" style="width: 700px; height: auto; max-width: 100%;"/>
 <p class="caption">Con <em>screencast</em> visualizamos e interactuamos con la pantalla del
-dispositivo en el navegador.</p>
+dispositivo en el navegador.</p>
 </div>
 <p>Lo ideal sería que <em>Mozilla</em> implementara esta función en <a class="reference external" href="https://developer.mozilla.org/es/docs/Mozilla/Firefox_OS/Using_the_App_Manager/">app-manager</a>.
 O que la incluyera como una más entre las <em>herramientas de desarrollo</em> por
 defecto de <em>Firefox</em>. Pero es que ni siquiera para los terminales <a class="reference external" href="http://www.mozilla.org/es-ES/firefox/os/">Firefox <span class="caps">OS</span></a>
 contamos con algo así. Lo más parecido es la opción de tomar una captura de
 pantalla (que con una pequeña triquiñuela se puede emplear también con
-terminales <em>Android</em>). Y no hay punto de comparación.</p>
+terminales <em>Android</em>). Y no hay punto de comparación.</p>
 <p>Ante esta carencia, he indagado en busca de una alternativa para <em>Firefox</em>, y
 sólo he encontrado una opción satisfactoria: <a class="reference external" href="https://play.google.com/store/apps/details?id=org.onaips.vnc">Odroid <span class="caps">VNC</span> server</a>
 (<strong>requiere root</strong>).</p>
 <p>Se trata de una aplicación <em>Android</em> capaz de levantar un
-<em>servidor <span class="caps">VNC</span></em> <a class="footnote-reference" href="#id10" id="id5">[3]</a> en nuestro dispositivo. Por desgracia, está discontinuado
-<a class="footnote-reference" href="#id11" id="id6">[4]</a> (recibió su última actualización el 11 de junio de 2012). Esto acarrea
+<em>servidor <span class="caps">VNC</span></em> <a class="footnote-reference" href="#id11" id="id6">[3]</a> en nuestro dispositivo. Por desgracia, está discontinuado
+<a class="footnote-reference" href="#id12" id="id7">[4]</a> (recibió su última actualización el 11 de junio de 2012). Esto acarrea
 que quizás no funcione para terminales con versiones de <em>Android</em> posteriores a
 la fecha, pero es funcional en mi terminal. Y, por las críticas de sus años
 mozos, aparentemente también lo será en otros dispositivos que tienen
@@ -392,13 +388,13 @@ mozos, aparentemente también lo será en otros dispositivos que tienen
 <h3>Configurar <span class="amp">&amp;</span> poner en marcha el servidor</h3>
 <p>Una vez instalado a través de <em>Google Play</em>, lo ejecutamos, le concedemos
 permiso de <strong>superusuario</strong>, pulsamos el inmenso botón <strong><span class="caps">START</span></strong> y ya está:
-servidor corriendo (si no ocurre ninguna hecatombe <a class="footnote-reference" href="#id12" id="id7">[5]</a>).</p>
+servidor corriendo (si no ocurre ninguna hecatombe <a class="footnote-reference" href="#id13" id="id8">[5]</a>).</p>
 <div class="figure align-center" style="width: 600px; height: auto; max-width: 100%;">
 <img alt="Capturas de Odroid VNC server detenido y en ejecución." src="http://soulchainer.github.io/images/2014/2014-01-12_12.png" style="width: 600px; height: auto; max-width: 100%;"/>
-<p class="caption">A la izquierda, el servidor detenido. A la derecha, en ejecución.</p>
+<p class="caption">A la izquierda, el servidor detenido. A la derecha, en ejecución.</p>
 </div>
 <p>Dispone de un <em>menú de ajustes</em> (<em>settings</em>), donde podemos establecer algunas
-preferencias sobre el servidor, la pantalla y otros detalles.</p>
+preferencias sobre el servidor, la pantalla y otros detalles.</p>
 <div class="figure" style="width: 400px; height: auto; max-width: 100%;">
 <img alt="Captura del menú de preferencias del servidor vnc." src="http://soulchainer.github.io/images/2014/2014-01-12_13.png" style="width: 400px; height: auto; max-width: 100%;"/>
 </div>
@@ -406,11 +402,11 @@ preferencias sobre el servidor, la pantalla y otros detalles.</p>
 <div class="section" id="instalar-usar-el-cliente">
 <h3>Instalar <span class="amp">&amp;</span> usar el cliente</h3>
 <p>Ya está el servidor funcionando, pero sin un programa cliente para conectarnos
-a él desde el escritorio, no sirve de nada.</p>
-<p>En <cite>Archlinux</cite>, instalamos <code>tightvnc</code> desde <strong><span class="caps">AUR</span></strong>:</p>
+a él desde el escritorio, no sirve de nada.</p>
+<p>En <strong>Archlinux</strong>, instalamos <code>tightvnc</code> desde <strong><span class="caps">AUR</span></strong>:</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S tightvnc
 </pre></div>
-<p>O, si lo preferimos, <code>tigervnc</code> desde los repositorios oficiales:</p>
+<p>O, si lo preferimos, <code>tigervnc</code> desde los repositorios oficiales:</p>
 <div class="highlight"><pre><span class="c"># pacman -S tigervnc</span>
 </pre></div>
 <p>Ambos paquetes proporcionan un cliente/servidor de <em>vnc</em>.</p>
@@ -425,11 +421,11 @@ proporcionó <em>Odroid</em>:</p>
 <em>applet Java</em> parece ser la que mejor funciona. En mi caso, la versión
 <em>Javascript</em> altera los colores. Además, el applet permite configurar diversas
 opciones del servidor, como el nivel de compresión o la calidad del <em>jpeg</em>,
-que mejoran su velocidad de respuesta.</p>
+que mejoran su velocidad de respuesta.</p>
 <p>Si conseguimos que nos funcione <em>Odroid</em>, no echaremos de menos la función
 <em>screencast</em> de <em>Google Chrome</em>. Y viene con un <strong>extra</strong> bastante importante:
 <strong>podemos controlar nuestro Android totalmente</strong> y visualizarlo en nuestro
-escritorio, no sólo nuestro navegador.</p>
+escritorio, no sólo nuestro navegador.</p>
 <p>Controles de <em>Odroid <span class="caps">VCN</span> server</em>:</p>
 <ul class="simple">
 <li>Botón derecho del ratón: <strong>Volver atrás</strong></li>
@@ -439,34 +435,34 @@ escritorio, no sólo nuestro navegador.</p>
 <p>Con esta alternativa, se suple perfectamente la ausencia de <em>screencast</em> en
 <em>Firefox</em>.</p>
 <hr class="docutils"/>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label"></col><col></col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Y que si me preguntarais a mí, os diría que esa limitación se ajusta más a la voluntad de forzar al usuario a renovar su terminal <em>Android</em> (y/o versión del sistema) que a limitaciones insalvables. Por descontado, se esgrimirá la excusa de "garantizar la experiencia de usuario".</td></tr>
-</tbody>
-</table>
 <table class="docutils footnote" frame="void" id="id9" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><em>Android Debug Bridge</em>. Es una herramienta del <a class="reference external" href="http://developer.android.com/intl/es/sdk/index.html">Android <span class="caps">SDK</span></a>, que nos permite controlar y comunicarnos con nuestro dispositivo <em>Android</em>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Si me preguntáis a mí, esa limitación se ajusta más a la voluntad de forzar al usuario a renovar su terminal <em>Android</em> (y/o versión del sistema) que a limitaciones insalvables. Por descontado, se esgrimirá la excusa de "garantizar la experiencia de usuario".</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id10" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td><em>Virtual Network Computing</em> (Computación Virtual en Red). <em><span class="caps">VNC</span></em> es un software de escritorio remoto, con una estructura cliente-servidor. El servidor es el programa que reside en la máquina que comparte su pantalla, mientras que el cliente (o visor) es un programa que, ejecutándose en otra máquina, visualiza, controla e interactua con el servidor.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><em>Android Debug Bridge</em>. Es una herramienta del <a class="reference external" href="http://developer.android.com/intl/es/sdk/index.html">Android <span class="caps">SDK</span></a>, que nos permite controlar y comunicarnos con nuestro dispositivo <em>Android</em>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id11" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[4]</a></td><td>El tema de los <strong>servidores</strong> <em><span class="caps">VNC</span></em> en <em>Android</em> es un poco peliagudo: clientes hay a patadas, pero los servidores pueden contarse con los dedos de la mano, y de los pocos disponibles la mitad no funcionan en demasiados dispositivos, son de pago (lo que no garantiza su funcionalidad, si atendemos a las valoraciones que reciben) o están discontinuados (el caso que nos ocupa).</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td>Virtual Network Computing* (Computación Virtual en Red). <em><span class="caps">VNC</span></em> es un software de escritorio remoto, con una estructura cliente-servidor. El servidor es el programa que reside en la máquina que comparte su pantalla, mientras que el cliente (o visor) es un programa que, ejecutándose en otra máquina, visualiza, controla e interactua con el servidor.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id12" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[5]</a></td><td><a class="reference external" href="https://twitter.com/FreakViking/status/421780992668729344">@FreakViking dice que…</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[4]</a></td><td>El tema de los <strong>servidores</strong> <em><span class="caps">VNC</span></em> en <em>Android</em> es un poco peliagudo: clientes hay a patadas, pero los servidores pueden contarse con los dedos de la mano, y de los pocos disponibles la mitad no funcionan en demasiados dispositivos, son de pago (lo que no garantiza su funcionalidad, si atendemos a las valoraciones que reciben) o están discontinuados (el caso que nos ocupa).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[5]</a></td><td><a class="reference external" href="https://twitter.com/FreakViking/status/421780992668729344">@FreakViking dice que…</a></td></tr>
 </tbody>
 </table>
 </div>
