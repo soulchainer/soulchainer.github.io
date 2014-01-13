@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, firefox, h.264, html5, vídeo, vimeo, youtube" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Activar el puñetero H.264 en Firefox">
+      <meta name="twitter:description" content="Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas de verdad. Y ese es mi caso con Firefox y la reproducción de vídeo con HTML5.">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/2014-01-13_1.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Activar el puñetero H.264 en Firefox" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/01/13/activar-video-h264-firefox/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/2014-01-13_1.png" />
+      <meta property="og:article:section" content="CÓMOS, linux" />
+      <meta property="og:article:tag" content="firefox" />
+      <meta property="og:article:tag" content="h.264" />
+      <meta property="og:article:tag" content="html5" />
+      <meta property="og:article:tag" content="vídeo" />
+      <meta property="og:article:tag" content="vimeo" />
+      <meta property="og:article:tag" content="youtube" />
+      <meta property="og:description" content="Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas de verdad. Y ese es mi caso con Firefox y la reproducción de vídeo con HTML5." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="youtube.com" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/01/13/activar-video-h264-firefox/" rel="bookmark" title="Permalink to Activar el puñetero H.264 en Firefox">
+      Activar el puñetero H.264 en&nbsp;Firefox
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-01-13T17:15:00">
+      lun 13 enero 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div align="center" class="vimeo"><iframe frameborder="0" height="315" src="https://player.vimeo.com/video/76979871" width="420"></iframe></div><p>Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por
+ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas
+<strong>de verdad</strong>. Y ese es mi caso con <a class="reference external" href="https://www.mozilla.org/es-ES/firefox/new/">Firefox</a> y la reproducción de vídeo con
+<em><span class="caps">HTML5</span></em>.</p>
+<div class="section" id="el-problema">
+<h2>El problema</h2>
+<p>El dichoso <strong>H.264</strong>.</p>
+<p>Es un <em>códec</em> de vídeo de alta compresión, muy empleado por sitios de streaming
+y con el gran inconveniente de que <strong><span class="caps">NO</span> <span class="caps">ES</span> <span class="caps">LIBRE</span></strong> y está atado por patentes.
+No es el único <em>códec</em> soportado por <em><span class="caps">HTML5</span></em>, por supuesto. Está también
+<a class="reference external" href="http://www.webmproject.org/">WebM</a>, por ejemplo. Pero con la excusa de que da mejor calidad, que si
+patatín, que si patatán, se ha convertido en un estándar de facto.</p>
+<p>Y la mayoría de portales de vídeos, como <a class="reference external" href="https://vimeo.com/">Vimeo</a> o <a class="reference external" href="https://www.youtube.com/">Youtube</a>, lo soportan.
+Además, lo suelen anunciar a bombo y platillo. Algo así:</p>
+<blockquote>
+Ahora contamos con un nuevo y mejorado de la leche reproductor de vídeo en
+<strong><span class="caps">HTML5</span></strong>. ¡Es la hostia! ¡Probadlo y flipad!</blockquote>
+<p>Cuando realmente quieren decir algo así:</p>
+<blockquote>
+<p>Ahora contamos con un nuevo reproductor para que podáis sufrir toditos
+nuestros vídeos comprimidos <strong>con el puñetero H.264 de los cojones</strong>.
+Y sólo con él.</p>
+<p>¡No existen más formatos para nosotros!</p>
+<p>¡<span class="caps">MUAJAJAJAJAJAJAJA</span>!</p>
+</blockquote>
+<p><strong>Vimeo</strong>, te estoy mirando muy fijamente en este preciso instante, que lo
+sepas Ò_Ó</p>
+<p><strong>Youtube</strong> hace como que soporta más formatos y tal y cual, como que apoya al
+software libre, pero sus acciones (y omisiones) van por otros derroteros.</p>
+<p>Etcétera.</p>
+<p>Aún así, todo esto no habría sido un problema de no ser porque, debido a su
+carácter <strong>no libre</strong>, <a class="reference external" href="http://www.mozilla.org/es-ES/">Mozilla</a> tomó la decisión de no dar soporte en su
+navegador a este formato. No ha sido hasta fechas relativamente recientes <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+que ha cedido un poco y habilitado su uso. A través, eso sí, de software de terceros.</p>
+</div>
+<div class="section" id="la-solucion">
+<h2>La solución</h2>
+<p>Realmente no hay mayor problema. Salvo claro, el hecho de que no se
+clarifica en un lugar visible como podemos reproducir este tipo de contenido.</p>
+<p>No existe una opción específica entre los menús de <em>Firefox</em>, para activar
+o desactivar su soporte. Y cuando nos encontramos con este tipo de contenido en
+la red, no recibimos una alerta que nos avise de nuestro problema y de como solucionarlo.</p>
+<p>Simplemente, si no reunimos los requisitos necesarios no funciona.</p>
+<div class="section" id="requisitos">
+<h3>Requisitos</h3>
+<p>Para que <em>Firefox</em> sea capaz de reproducir vídeos comprimidos con <em>H.264</em> en
+<em>Archlinux</em>, necesitamos:</p>
+<ol class="arabic">
+<li><p class="first">Activar la preferencia <code>media.gstreamer.enabled</code> en
+<code>about:config</code>. Aunque en las últimas versiones de <em>Firefox</em> ya no sea
+necesario, al venir activada por defecto, no está de más saberlo.</p>
+<div class="figure align-center" style="width: 555px; height: auto; max-width: 100%;">
+<img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="http://soulchainer.github.io/images/2014/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/>
+<p class="caption">Doble click para cambiar el valor de <em>false</em> a <em>true</em>.</p>
+</div>
+</li>
+<li><p class="first">Instalar los siguientes paquetes:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S gstreamer0.10-ffmpeg gstreamer0.10-good-plugins gstreamer0.10-ugly-plugins
+</pre></div>
+<p>No son necesarios para <em>H.264</em>, pero sí para otros formatos:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S  gstreamer0.10-bad-plugins gstreamer0.10-base-plugins
+</pre></div>
+</li>
+</ol>
+<p>Lo gracioso de todo esto es que a mí sólo me faltaba el paquete
+<code>gstreamer0.10-good-plugins</code>. Ha sido instalarlo y funcionar.</p>
+</div>
+<div class="section" id="acabando">
+<h3>Acabando</h3>
+<p>Tras esto, reiniciamos el navegador y ya podemos disfrutar en su plenitud de
+todos esos flamantes reproductores "<em><span class="caps">HTML5</span></em>" online.</p>
+<p><strong>Vimeo</strong>, sigo mirándote fijamente. Reprodúceme algo sexy ya Ò_Ó</p>
+<p>Una vez activado, quizás queramos activar el <a class="reference external" href="https://www.youtube.com/html5">modo <span class="caps">HTML5</span></a> de <em>Youtube</em>. Lo
+cito porque, además de ser una opción interesante, nos sirve para comprobar
+que realmente tenemos activado el soporte.</p>
+<div class="figure align-center" style="width: 695px; height: auto; max-width: 100%;">
+<img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="http://soulchainer.github.io/images/2014/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/>
+</div>
+<p>Si no estuviera disponible esta opción de <em>Youtube</em>, siempre podemos comprobar
+que nuestro navegador cumple en el apartado de vídeo con el utilísimo
+<a class="reference external" href="http://html5test.com/">html5test</a>.</p>
+<p>Y ahora me voy a ver un vídeo en <em>Vimeo</em>, que hace algo así como <strong>eras</strong> que
+no puedo disfrutar de uno. Buenas tardes.</p>
+<hr class="docutils"/>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/firefox/">firefox</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/h264/">h.264</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/html5/">html5</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/video/">vídeo</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/vimeo/">vimeo</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/youtube/">youtube</a></li>
+    </ul>
+  </div>
+
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
