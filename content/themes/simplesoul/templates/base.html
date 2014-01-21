@@ -39,6 +39,7 @@
       {% if FEED_RSS %}
         <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
       {% endif %}
+      {% include "_includes/addthis_share.html" %}
     {% endblock head %}
   </head>
 

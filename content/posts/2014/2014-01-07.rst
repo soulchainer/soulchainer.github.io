@@ -8,7 +8,7 @@ Mobile Web Development, nuevo MOOC de Udacity
 :twsummary: Ayer mismo me llegó un correo de Udacity avisándome del inicio de su curso 'Mobile Web Development' , al que llevo un tiempo pre-inscrito. Así que aprovecho y actualizo el blog con una entradita breve :D
 :twimg: 2014-01-07_1.png
 
-.. figure:: {filename}/images/2014/2014-01-07_1.png
+.. figure:: {filename}/images/2014/01/2014-01-07_1.png
     :alt: Logo y Slogan de Udacity.
 
 Ayer mismo me llegó un correo de `Udacity`_ avisándome del inicio de su curso

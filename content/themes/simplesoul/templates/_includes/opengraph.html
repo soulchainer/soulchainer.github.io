@@ -4,7 +4,7 @@
       <meta property="og:type" content="article" />
       <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
       {% if article.twimg %}
-      <meta property="og:image" content="{{ SITEURL }}/images/{{ article.date|strftime('%Y') }}/{{ article.twimg }}" />
+      <meta property="og:image" content="{{ SITEURL }}/images/{{ article.date|strftime('%Y/%m') }}/{{ article.twimg }}" />
       {% endif %}
       <meta property="og:article:section" content="{{ article.category }}" />
       {% for tag in article.tags|sort %}

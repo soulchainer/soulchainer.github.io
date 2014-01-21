@@ -232,7 +232,7 @@ sub {
     margin-top: 1.67em;
 }
 /* Lists */
-.section > ul, .section > ol, .content > ul, .content > ol {
+.section > ul, .section > ol, .content > ul, .content > ol, li > ul {
   padding-left: 1.2em;
 }
 .section li, .content li {
@@ -241,13 +241,39 @@ sub {
 ul.simple, ol.simple {
   left: 2.2em;
   padding-bottom: 1.11em;
-  position: relative;
   right: 2.2em;
 }
 .simple li {
     line-height: 1.1em;
     margin-top: .3em;
     margin-bottom: .3em;
+}
+.contents ul { /* for TOC */
+  list-style: none;
+}
+
+/* TOC (Table of Contents) */
+.show { /* to show or hide the TOC */
+  display: block;
+}
+.hide {
+  display: none;
+}
+.topic-title { /* for the TOC title */
+  background-color: #C5DE95;
+  border-radius: 5px;
+  padding: .25em .5em;
+}
+/* arrow for TOC title */
+.arrowup::after {
+  content: " ↑";
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.arrowdown::after {
+  content: " ↓";
+  font-size: 1.2em;
+  font-weight: bold;
 }
 /* Paragraphs. */
 .content p, .postsummary p, .line-block { /* post article and summary article */
@@ -256,8 +282,8 @@ ul.simple, ol.simple {
     margin-bottom: 1.2em;
 }
 .content
-/* Headers. */
-.section, .align-center + p { /* header and p after figure image */
+/* Headings. */
+.section, .align-center + p, li + p, ol + p, ul + p { /* headings and p after figure image */
   clear: both;
 }
 .section h1, .section h2, .section h3, .section h4 {
@@ -268,18 +294,24 @@ ul.simple, ol.simple {
     font-size: 2em;
     padding-bottom: 1em;
 }
-.section h2 {
+.section h2, h2 > a, h2 > a:hover { /* headings and headings links (for TOC) color */
     color: #E2400F;
+}
+.section h2 {
     font-size: 1.6em;
     padding-bottom: .9em;
 }
-.section h3 {
+.section h3, h3 > a, h3 > a:hover { /* headings and headings links (for TOC) color */
     color: #9B3333;
+}
+.section h3 {
     font-size: 1.2em;
     padding-bottom: .8em;
 }
+.section h4, h4 > a, h4 > a:hover { /* headings and headings links (for TOC) color */
+    color: #CC2E52;
+}
 .section h4 {
-  color: #CC2E52;
   font-size: 1.1em;
   padding-bottom: .7em;
 }

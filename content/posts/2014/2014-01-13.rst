@@ -22,11 +22,12 @@ El problema
 
 El dichoso **H.264**.
 
-Es un *códec* de vídeo de alta compresión, muy empleado por sitios de streaming
-y con el gran inconveniente de que **NO ES LIBRE** y está atado por patentes.
-No es el único *códec* soportado por *HTML5*, por supuesto. Está también
-`WebM`_, por ejemplo. Pero con la excusa de que da mejor calidad, que si
-patatín, que si patatán, se ha convertido en un estándar de facto.
+Es un *códec* de vídeo de alta compresión, muy empleado por sitios de
+streaming, y con el gran inconveniente de que **NO ES LIBRE** (está atado por
+patentes).
+No es el único *códec* soportado por *HTML5* [#]_, pero con la excusa de que da
+mejor calidad, que si patatín, que si patatán, se ha convertido en un estándar
+de facto.
 
 Y la mayoría de portales de vídeos, como `Vimeo`_ o `Youtube`_, lo soportan.
 Además, lo suelen anunciar a bombo y platillo. Algo así:
@@ -82,7 +83,7 @@ Para que *Firefox* sea capaz de reproducir vídeos comprimidos con *H.264* en
    :code:`about:config`. Aunque en las últimas versiones de *Firefox* ya no sea
    necesario, al venir activada por defecto, no está de más saberlo.
 
-   .. figure:: {filename}/images/2014/2014-01-13_2.png
+   .. figure:: {filename}/images/2014/01/2014-01-13_2.png
     :alt: Página about:config de Firefox, con el valor de la
           preferencia media.gstreamer.enabled ajustado a true.
     :align: center
@@ -116,7 +117,7 @@ Una vez activado, quizás queramos activar el `modo HTML5`_ de *Youtube*. Lo
 cito porque, además de ser una opción interesante, nos sirve para comprobar
 que realmente tenemos activado el soporte.
 
-.. figure:: {filename}/images/2014/2014-01-13_3.png
+.. figure:: {filename}/images/2014/01/2014-01-13_3.png
     :alt: Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los
           que es compatible nuestro navegador
     :align: center
@@ -139,4 +140,5 @@ no puedo disfrutar de uno. Buenas tardes.
 
 ----
 
+.. [#] Está también `WebM`_, por ejemplo.
 .. [#] Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?

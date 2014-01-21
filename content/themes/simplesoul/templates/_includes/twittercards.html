@@ -5,6 +5,6 @@
       <meta name="twitter:title" content="{{ article.title|striptags }}">
       <meta name="twitter:description" content="{% if article.twsummary %}{{ article.twsummary }}{% else %}{{ article.summary|striptags }}{% endif %}">
       {%if article.twimg %}
-      <meta name="twitter:image:src" content="{{ SITEURL }}/images/{{ article.date|strftime('%Y') }}/{{ article.twimg }}">
+      <meta name="twitter:image:src" content="{{ SITEURL }}/images/{{ article.date|strftime('%Y/%m') }}/{{ article.twimg }}">
       {% endif %}
       {% endif %}

@@ -12,7 +12,7 @@ Depuración remota & testeo en Firefox para Android
 Depuración remota & testeo en Firefox para Android
 **************************************************
 
-.. figure:: {filename}/images/2014/2014-01-12_1.png
+.. figure:: {filename}/images/2014/01/2014-01-12_1.png
     :alt: Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha
           Chu (http://www.flickr.com/photos/shashachu/).
 
@@ -80,7 +80,7 @@ lista de preferencias con la cadena :code:`debugger`.
 Localizada entre los resultados :code:`devtools.debugger.remote-enabled`,
 cambiamos su valor a :code:`true`.
 
-.. figure:: {filename}/images/2014/2014-01-12_2.png
+.. figure:: {filename}/images/2014/01/2014-01-12_2.png
     :alt: Búsqueda de la cadena 'debugger' en about:config.
     :align: center
 
@@ -94,7 +94,7 @@ Aunque posible, en este caso no hay necesidad de recurrir a
 aplicación. En mi terminal la ruta es:
 **Más → Configuración → Herramientas de desarrolladores → Depuración remota**.
 
-.. figure:: {filename}/images/2014/2014-01-12_3.png
+.. figure:: {filename}/images/2014/01/2014-01-12_3.png
     :alt: Activación de la opción de 'Depuración remota'.
     :align: center
 
@@ -113,7 +113,7 @@ En la versión de escritorio nos basta con abrir las
 **marcar la casilla Toggle Tools**) y, en la pestaña de opciones, marcar
 *Enable remote debugging*.
 
-.. figure:: {filename}/images/2014/2014-01-12_4.png
+.. figure:: {filename}/images/2014/01/2014-01-12_4.png
     :alt: Activación de la opción de 'Depuración remota'.
 
 Si usamos **Firefox < 27** tendremos que reiniciar el navegador para que se
@@ -129,7 +129,7 @@ Si queremos que el navegador atienda conexiones en la red local (facilita las
 cosas, y es clave para la `conectividad WiFi`_), ajustamos a :code:`false` la
 preferencia :code:`devtools.debugger.force-local` (en :code:`about:config`).
 
-.. figure:: {filename}/images/2014/2014-01-12_5.png
+.. figure:: {filename}/images/2014/01/2014-01-12_5.png
     :alt: Preferencia devtools.debbuger.force-local establecida a false.
 
 Conectar (red local)
@@ -146,7 +146,7 @@ En *Android 2.3.5*, podemos obtenerla yendo a
 la que nos encontramos conectados. Aparece entonces una ventana emergente con
 información sobre la conexión.
 
-.. figure:: {filename}/images/2014/2014-01-12_6.png
+.. figure:: {filename}/images/2014/01/2014-01-12_6.png
     :alt: Ventana emergente con información sobre la conexión wireless en el
           dispositivo Android.
 
@@ -159,7 +159,7 @@ Establecer la conexión
 Una vez tenemos la *IP*, seleccionamos la opción de *Conectar* en el escritorio
 (**Firefox/Tools → Web Developer → Connect…**).
 
-.. figure:: {filename}/images/2014/2014-01-12_7.png
+.. figure:: {filename}/images/2014/01/2014-01-12_7.png
     :alt: Página de conexión de las herramientas de desarrollo al dispositivo
           Android (red local).
 
@@ -170,7 +170,7 @@ presionamos *Connect*.
 Al hacerlo, salta una ventana en nuestro dispositivo informando del intento de
 conexión y dándonos a elegir qué hacer:
 
-.. figure:: {filename}/images/2014/2014-01-12_8.png
+.. figure:: {filename}/images/2014/01/2014-01-12_8.png
     :alt: Ventana emergente solicitando confirmación de conexión en Firefox
           para Android.
     :align: center
@@ -180,7 +180,7 @@ conexión y dándonos a elegir qué hacer:
 
 Una vez aceptamos, conectamos al fin:
 
-.. figure:: {filename}/images/2014/2014-01-12_9.png
+.. figure:: {filename}/images/2014/01/2014-01-12_9.png
     :alt: Página con la conexión al dispositivo Android realizada, mostrando
           las pestañas y los procesos remotos disponibles.
     :align: center
@@ -235,7 +235,7 @@ entre todas las pestañas remotas disponibles. Una vez escogida, recibimos
 una nueva ventana con las *herramientas de desarrollo* asociadas al código de
 la misma.
 
-.. figure:: {filename}/images/2014/2014-01-12_10.png
+.. figure:: {filename}/images/2014/01/2014-01-12_10.png
     :alt: Ventana en nuestro escritorio con las herramientas de desarrollo de
           Firefox mostrando parte del código de una página abierta en nuestro
           Android.
@@ -273,7 +273,7 @@ Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
 desde la carpeta con los *HTML* de mi blog, y accedo vía *Firefox* a la
 dirección indicada por *Python* (0.0.0.0 → *localhost* ← 127.0.0.1):
 
-.. figure:: {filename}/images/2014/2014-01-12_15.png
+.. figure:: {filename}/images/2014/01/2014-01-12_15.png
     :alt: Página principal del blog, alojada en servidor local, vista desde
           Firefox para escritorio.
     :align: center
@@ -298,7 +298,7 @@ con:
 Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
 *androide*:
 
-.. figure:: {filename}/images/2014/2014-01-12_16.png
+.. figure:: {filename}/images/2014/01/2014-01-12_16.png
     :alt: Página principal del blog, alojada en servidor local, vista desde
           Firefox para Android.
     :align: center
@@ -338,7 +338,7 @@ puede encontrarse en la `correspondiente guía`_ de la **MDN** y en
 Y me dejé un último pero, muy visual, para el final: la ausencia de una
 alternativa nativa a la función *screencast* de *Google Chrome*:
 
-.. figure:: {filename}/images/2014/2014-01-12_11.png
+.. figure:: {filename}/images/2014/01/2014-01-12_11.png
     :alt: Captura de la opción screencast de las herramientas de desarrollo de
           Google Chrome. Muestra en tiempo real la pantalla de nuestro
           dispositivo Android en el navegador y permite interactuar con ella.
@@ -373,7 +373,7 @@ Una vez instalado a través de *Google Play*, lo ejecutamos, le concedemos
 permiso de **superusuario**, pulsamos el inmenso botón **START** y ya está:
 servidor corriendo (si no ocurre ninguna hecatombe [#]_).
 
-.. figure:: {filename}/images/2014/2014-01-12_12.png
+.. figure:: {filename}/images/2014/01/2014-01-12_12.png
     :alt: Capturas de Odroid VNC server detenido y en ejecución.
     :align: center
 
@@ -382,7 +382,7 @@ servidor corriendo (si no ocurre ninguna hecatombe [#]_).
 Dispone de un *menú de ajustes* (*settings*), donde podemos establecer algunas
 preferencias sobre el servidor, la pantalla y otros detalles.
 
-.. figure:: {filename}/images/2014/2014-01-12_13.png
+.. figure:: {filename}/images/2014/01/2014-01-12_13.png
     :alt: Captura del menú de preferencias del servidor vnc.
 
 Instalar & usar el cliente
@@ -408,7 +408,7 @@ Ambos paquetes proporcionan un cliente/servidor de *vnc*.
 Ahora sí podemos acceder al servidor. Desde el navegador, con la url que nos
 proporcionó *Odroid*:
 
-.. figure:: {filename}/images/2014/2014-01-12_14.png
+.. figure:: {filename}/images/2014/01/2014-01-12_14.png
     :alt: Applet Java que proporciona Odroid, mostrando la pantalla de nuestro
           Android.
     :align: center

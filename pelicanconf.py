@@ -11,8 +11,10 @@ PAGE_DIR = 'pages'
 ARTICLE_DIR = 'posts'
 PLUGIN_PATH = 'plugins/'
 PLUGINS = ['better_figures_and_images', 'multi_part',
-           'pelican_youtube', 'sitemap', 'pelican_vimeo']
+           'pelican_youtube', 'sitemap', 'pelican_vimeo', 'summary']
 SUMMARY_MAX_LENGTH = 70
+SUMMARY_BEGIN_MARKER = "{BEGIN_SUMMARY}"
+SUMMARY_END_MARKER = "{END_SUMMARY}"
 
 TIMEZONE = 'Europe/Madrid'
 
