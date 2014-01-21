@@ -1,16 +1,623 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-13T17:15:00+01:00</updated><entry><title>Activar el puñetero H.264 en Firefox</title><link href="http://soulchainer.github.io/posts/2014/01/13/activar-video-h264-firefox/" rel="alternate"></link><updated>2014-01-13T17:15:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-13:posts/2014/01/13/activar-video-h264-firefox/</id><summary type="html">&lt;div align="center" class="vimeo"&gt;&lt;iframe frameborder="0" height="315" src="https://player.vimeo.com/video/76979871" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-21T10:00:00+01:00</updated><entry><title>Antergos paso a paso (I): instalación básica</title><link href="http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/" rel="alternate"></link><updated>2014-01-21T10:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-21:posts/2014/01/21/antergos-tutorial-parte1/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#descarga" id="id27"&gt;Descarga&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#arranque" id="id28"&gt;Arranque&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#de-la-imagen" id="id29"&gt;De la imagen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#del-instalador" id="id30"&gt;Del instalador&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#advertencia" id="id31"&gt;&lt;span class="caps"&gt;ADVERTENCIA&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion" id="id32"&gt;Instalación&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#idioma-localizacion" id="id33"&gt;Idioma &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; localización&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#escritorio-caracteristicas" id="id34"&gt;Escritorio &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; características&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#particionado-de-discos" id="id35"&gt;Particionado de discos&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#atencion-para-tablas-de-particiones-gpt" id="id36"&gt;ATENCIÓN: para tablas de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#particionado-avanzado" id="id37"&gt;Particionado avanzado&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#revision-del-particionado-cargador-de-arranque" id="id38"&gt;Revisión del particionado &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; cargador de arranque&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ajustes-finales" id="id39"&gt;Ajustes finales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#acabando" id="id40"&gt;Acabando&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#inicio-de-antergos" id="id41"&gt;Inicio de Antergos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#apendice-crear-un-usb-autoarrancable-de-antergos" id="id42"&gt;Apéndice: Crear un &lt;span class="caps"&gt;USB&lt;/span&gt; autoarrancable de Antergos&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#requisitos" id="id43"&gt;Requisitos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#crear-el-usb-autoarrancable" id="id44"&gt;Crear el &lt;span class="caps"&gt;USB&lt;/span&gt; autoarrancable&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#con-suse-image-writer" id="id45"&gt;Con Suse Image Writer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#desde-la-linea-de-comandos-solo-linux" id="id46"&gt;Desde la línea de comandos (sólo Linux)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 1  Descarga
+2  Arranque
+  2.1  De la imagen
+  2.2  Del instalador
+  2.3 ADVERTENCIA
+3  Instalación
+  3.1  Idioma &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; localización
+  3.2  Escritorio &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; características
+  3.3  Particionado de discos
+    3.3.1  ATENCIÓN: para tablas de particiones GPT
+    3.3.2  Particionado avanzado
+    3.3.3  Revisión del particionado &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; cargador de arranque
+  3.4  Ajustes finales
+4  Inicio de Antergos
+5  Apéndice: Crear un USB autoarrancable de Antergos
+  5.1  Requisitos
+  5.2  Crear el USB autoarrancable
+    5.2.1  Con Suse Image Writer
+    5.2.2  Desde la línea de comandos (sólo Linux) --&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Logo y eslogan de &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hace poco &lt;em&gt;"convencí"&lt;/em&gt; a mí padre para que me dejara meter la mano en su
+portátil e instalar una distribución linux para tareas rutinarias (esto se
+traduce en jugar al solitario y revisar el correo).&lt;/p&gt;
+&lt;p&gt;Estuve pensando un poco qué distribución usar. Barajé ponerle la misma
+que a mi hermana (&lt;a class="reference external" href="http://crunchbang.org/"&gt;Crunchbang&lt;/a&gt;), pero rápidamente lo descarté: quería probar
+algo nuevo. Además, una vez te haces al rollo &lt;strong&gt;rolling release&lt;/strong&gt; &lt;a class="footnote-reference" href="#id14" id="id1"&gt;[1]&lt;/a&gt;, no
+quieres probar otra cosa.&lt;/p&gt;
+&lt;p&gt;Así que buceé en &lt;a class="reference external" href="http://distrowatch.com/"&gt;DistroWatch&lt;/a&gt; en busca de algún tesoro con forma de
+distribución derivada de &lt;a class="reference external" href="https://www.archlinux.org/"&gt;Archlinux&lt;/a&gt; (la niña de mis ojos). Y ahí estaba
+&lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;: larga melena, ojos azules, con ascendencia española… y un sitio
+en perfecto inglés xD&lt;/p&gt;
+&lt;p&gt;En &lt;strong&gt;DistroWatch&lt;/strong&gt; dicen de ella:&lt;/p&gt;
+&lt;blockquote&gt;
+Cobró vida bajo el nombre de Cinnarch, combinando el escritorio de Cinnamon
+con la distribución de Arch Linux, pero el proyecto se ha apartado de sus
+metas originales y ahora ofrece una variedad de escritorios que incluyen a
+&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3 (por defecto), a Cinnamon, a Razor-qt y a Xfce. Antergos también
+provee su propio programa gráfico de instalación.&lt;/blockquote&gt;
+&lt;p&gt;Y aquí estoy, escribiendo esta pequeña biblia, con la esperanza de que pueda
+resultarle de ayuda a alguien. Aunque sea para conciliar el sueño en una larga
+noche de tormenta. Aunque sólo la lea &lt;strong&gt;esa pequeña blogger&lt;/strong&gt; que responde por
+&lt;a class="reference external" href="http://geekstorming.wordpress.com/"&gt;Beelzenef&lt;/a&gt; (me motiva mucho saber que al menos ella intentará leerla ñ_ñ).&lt;/p&gt;
+&lt;p&gt;Vamos a ello pues :)&lt;/p&gt;
+&lt;div class="section" id="descarga"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;Descarga&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Lo primero de todo es &lt;a class="reference external" href="http://antergos.com/try-it/"&gt;descargar la imagen &lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/a&gt;, que posteriormente
+quemaremos en un &lt;em&gt;&lt;span class="caps"&gt;CD&lt;/span&gt;/&lt;span class="caps"&gt;DVD&lt;/span&gt;&lt;/em&gt; o &lt;a class="reference internal" href="#escribiremos-en-una-memoria-usb"&gt;escribiremos en una memoria &lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/a&gt;.
+Yo me decanto por la segunda opción: nos ahorramos desperdiciar un disco, que
+encima es muy probable que no volvamos a usar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="arranque"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;Arranque&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="de-la-imagen"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;De la imagen&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Preparado el &lt;em&gt;&lt;span class="caps"&gt;CD&lt;/span&gt;/&lt;span class="caps"&gt;DVD&lt;/span&gt;/&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; de instalación, lo introducimos en la unidad lectora
+o puerto correspondiente y reiniciamos.&lt;/p&gt;
+&lt;p&gt;Comprobamos la configuración de la &lt;em&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;/&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/em&gt; con respecto a los medios de
+arranque. Para ello (&lt;strong&gt;estas indicaciones son meramente orientativas&lt;/strong&gt;):&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Averiguar como se entra en la &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/strong&gt; (depende del
+modelo/fabricante). Normalmente puede accederse pulsando una tecla concreta
+al comienzo de la carga del sistema. Suele ser una tecla de función (&lt;em&gt;F2&lt;/em&gt;,
+&lt;em&gt;F10&lt;/em&gt;, &lt;em&gt;F12&lt;/em&gt;…) que aparece sobreimpresa por unos instantes en un extremo
+de la pantalla.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Realizar los ajustes oportunos si nuestra maquina tiene &lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Tales como:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Desactivar (disable) el Arranque Seguro (Secure Boot)&lt;/strong&gt; en
+&lt;em&gt;Seguridad (Security)&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cambiar el Modo de Arranque (Boot Mode) a Arranque &lt;span class="caps"&gt;CSM&lt;/span&gt;&lt;/strong&gt;
+&lt;strong&gt;(&lt;span class="caps"&gt;CSM&lt;/span&gt; Boot)/Legacy &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/strong&gt;… en
+&lt;em&gt;Advanced → System Configuration (Avanzada → Configuración del Sistema)&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt; &lt;span class="caps"&gt;IMPORTANTE&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id15" id="id2"&gt;[2]&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Ordenar los dispositivos de arranque&lt;/strong&gt;, poniendo primero los &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; o
+&lt;em&gt;&lt;span class="caps"&gt;CD&lt;/span&gt;/&lt;span class="caps"&gt;DVD&lt;/span&gt;&lt;/em&gt;, según desde donde se quiera arrancar la imagen. Esto se hace en
+&lt;em&gt;Configuración del sistema/Arranque → Secuencia de inicio/arranque&lt;/em&gt; u
+opciones similares.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Guardar los cambios &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; salir&lt;/strong&gt; (normalmente &lt;em&gt;F10&lt;/em&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si todo va bien, el sistema cargará ahora la distribución desde el
+&lt;em&gt;&lt;span class="caps"&gt;CD&lt;/span&gt;/&lt;span class="caps"&gt;DVD&lt;/span&gt;/&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="del-instalador"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;Del instalador&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Menú de arranque de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;em&gt;F2&lt;/em&gt; para elegir idioma. &lt;em&gt;F3&lt;/em&gt; para elegir resolución de pantalla.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Indicamos que queremos &lt;em&gt;Iniciar Antergos Live&lt;/em&gt; y, tras una breve espera,
+aterrizaremos en un escritorio &lt;a class="reference external" href="https://www.gnome.org/gnome-3/"&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/a&gt; con la atención centrada en el
+asistente de instalación, &lt;strong&gt;Cnchi&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Cnchi, el amigable asistente de instalación de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_02.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Me recuerda a la tita Conchi, oye xD&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;En este punto, se nos plantean tres opciones:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Probar&lt;/strong&gt;. Probar &lt;em&gt;Antergos&lt;/em&gt; desde el medio extraíble, sin hacer cambios
+en nuestro sistema.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Instalador &lt;span class="caps"&gt;CLI&lt;/span&gt;&lt;/strong&gt;. Instalar desde un terminal, como los hombres y mujeres
+(&lt;strong&gt;¡Aupa esas linuxeras! :3&lt;/strong&gt;) de verdad ò_ó&lt;/p&gt;
+&lt;div class="figure" style="width: 782px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Pantalla de presentación del instalador de Antergos desde terminal." src="http://soulchainer.github.io/images/2014/01/2014-01-21_03.png" style="width: 782px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Realmente instalar desde terminal no es tan difícil. Aparte del
+aspecto visual, la mayor diferencia suele ser que usas más el teclado y
+menos el ratón.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Instalador Gráfico&lt;/strong&gt;. Instalar con un asistente visual, del estilo
+&lt;strong&gt;siguiente → siguiente&lt;/strong&gt;, al que tan acostumbrado está el usuario llano.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nosotros vamos a emplear la tercera opción, porque somos perezosos y/o
+principiantes. Y esta última es la opción de los perezosos y/o principiantes :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="advertencia"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;&lt;span class="caps"&gt;ADVERTENCIA&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Según la configuración de nuestra máquina, pueden ser necesarios algunos
+preparativos antes de lanzarnos a instalar otro &lt;strong&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id16" id="id3"&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hay un par de supuestos importantes a tener en cuenta:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Equipo con &lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id17" id="id4"&gt;[4]&lt;/a&gt; &lt;strong&gt;(en lugar de &lt;span class="caps"&gt;BIOS&lt;/span&gt;) &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Windows pre-instalado&lt;/strong&gt;. Si
+trae &lt;em&gt;Windows 8&lt;/em&gt;, casi seguro que lleva &lt;em&gt;&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Equipo con &lt;span class="caps"&gt;BIOS&lt;/span&gt; &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; tabla de particiones &lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id18" id="id5"&gt;[5]&lt;/a&gt; &lt;strong&gt;exhausta&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;El fabricante te cobra el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt; original, pero no te proporciona copia, sino
+que incluye en el disco duro un par de particiones extra: una,
+&lt;em&gt;copia de seguridad&lt;/em&gt; del sistema instalado; la otra, herramientas de recuperación.&lt;/p&gt;
+&lt;p&gt;Además de ser un &lt;strong&gt;robo de espacio por la cara&lt;/strong&gt;, estas particiones, junto
+a las de arranque y sistema, suman cuatro primarias.&lt;/p&gt;
+&lt;p&gt;¿Y cuántas particiones básicas permite &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;? Cuatro: cuatro primarias o
+tres primarias y una extendida. &lt;strong&gt;¡Qué casualidad!&lt;/strong&gt;.
+Cualquiera diría que es en prevención de que se nos ocurra instalar un
+sistema operativo de la competencia.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;En ambos casos hay que tener &lt;span class="caps"&gt;ESPECIAL&lt;/span&gt; &lt;span class="caps"&gt;CUIDADO&lt;/span&gt; con lo que se hace e
+informarse bien antes de tocar nada. Y, de cualquier modo, se aconseja
+realizar copias de seguridad de toda la información sensible.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Este tutorial parte de la idea de que se dispone de un sistema libre de
+restricciones y de que el usuario ha hecho los deberes ñ_ñ&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id32"&gt;Instalación&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Empezamos pues la instalación, escogiendo la última opción.&lt;/p&gt;
+&lt;div class="section" id="idioma-localizacion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;Idioma &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; localización&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Si establecimos el lenguaje al inicio de &lt;em&gt;Antergos&lt;/em&gt;, tendremos ya marcado por
+defecto nuestro idioma. En caso contrario, lo seleccionamos.&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Selección del idioma." src="http://soulchainer.github.io/images/2014/01/2014-01-21_04.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;A continuación, hacemos lo propio con la localización, eligiendo nuestro país:&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Selección de localización" src="http://soulchainer.github.io/images/2014/01/2014-01-21_05.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;En mi caso, escojo España.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="escritorio-caracteristicas"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;Escritorio &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; características&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Tras una breve comprobación del sistema,&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Comprobación del sistema" src="http://soulchainer.github.io/images/2014/01/2014-01-21_06.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;es hora de escoger cuál será nuestro entorno de escritorio.&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Elección del entorno de escritorio" src="http://soulchainer.github.io/images/2014/01/2014-01-21_07.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;¡Te elijo a ti, &lt;strong&gt;Openbox&lt;/strong&gt;! &lt;em&gt;*lanza su pokeball*&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Esta opción es bastante personal. Tenemos varias opciones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Base&lt;/strong&gt;. Para los amantes del hardcore. Nada de entorno gráfico: la
+&lt;em&gt;pantalla negra&lt;/em&gt; en todo su esplendor. Puede ser tu opción si planeas usar
+el equipo como servidor o si quieres instalar un entorno no incluido en la
+lista, como &lt;a class="reference external" href="http://www.kde.org/"&gt;&lt;span class="caps"&gt;KDE&lt;/span&gt;&lt;/a&gt; o &lt;a class="reference external" href="http://mate-desktop.org/"&gt;Mate&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://cinnamon.linuxmint.com/"&gt;Cinnamon&lt;/a&gt;. Fork &lt;a class="footnote-reference" href="#id19" id="id6"&gt;[6]&lt;/a&gt; de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/em&gt;. Su objetivo es permitirnos sacar
+provecho de las novedades de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/em&gt; sin necesidad de sacrificar el tan
+apreciado interfaz de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 2&lt;/em&gt;. Es el que elegí para mi padre: un entorno
+viejo por fuera, pero nuevo por dentro. Ideal para alguien acostumbrado al
+viejo &lt;em&gt;&lt;span class="caps"&gt;XP&lt;/span&gt;&lt;/em&gt; y reacio al más mínimo cambio (sigo en fase de persuasión).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://www.gnome.org/gnome-3/"&gt;Gnome&lt;/a&gt; (&lt;strong&gt;3&lt;/strong&gt;). Entorno por defecto de &lt;em&gt;Antergos&lt;/em&gt;. Tras el brusco cambio
+desde &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 2&lt;/em&gt;, los usuarios lo odian y aman a partes iguales.&lt;/p&gt;
+&lt;p&gt;De todas las opciones, esta es la menos apropiada para equipos modestos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://openbox.org/"&gt;Openbox&lt;/a&gt;. Es &lt;strong&gt;ligero, potente y muy configurable&lt;/strong&gt;. Junto a su primo
+lejano, &lt;a class="reference external" href="http://fluxbox.org/"&gt;Fluxbox&lt;/a&gt;, es mi &lt;em&gt;stacking window manager&lt;/em&gt; &lt;a class="footnote-reference" href="#id20" id="id7"&gt;[7]&lt;/a&gt; favorito. Y, por
+ello, &lt;strong&gt;mi elección para este tutorial&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Es es la alternativa ideal para los equipos más modestos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://razor-qt.org/"&gt;Razor-qt&lt;/a&gt;. Entorno basado en &lt;a class="reference external" href="http://qt-project.org/"&gt;Qt&lt;/a&gt;, como &lt;em&gt;&lt;span class="caps"&gt;KDE&lt;/span&gt;&lt;/em&gt;, que nos ofrece un entorno
+más ligero y simple que este último. De todos, es el único del que no puedo
+hablar con conocimiento de causa. En cualquier caso, de acuerdo con la wiki
+de &lt;em&gt;Archlinux&lt;/em&gt;, parece que &lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Razor-qt#Merge_with_LXDE-Qt"&gt;en breve se fusionará&lt;/a&gt; con &lt;a class="reference external" href="http://lxde.org/"&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;&lt;/a&gt;, dando lugar
+a &lt;em&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;-Qt&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://www.xfce.org/"&gt;Xfce&lt;/a&gt;. Otro entorno que pretende ser ligero a la vez que completo.
+Históricamente (antes de que llegara &lt;em&gt;Mate&lt;/em&gt;) ha sido la primera opción para
+aquellos que querían obtener la funcionalidad de &lt;em&gt;Gnome 2&lt;/em&gt; sin sacrificar el rendimiento.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hecha nuestra elección, seleccionamos algunas características:&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Selección de algunas características básicas del entorno." src="http://soulchainer.github.io/images/2014/01/2014-01-21_08.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Activa el soporte bluetooth sólo si piensas usarlo.&lt;/p&gt;
+&lt;div class="legend"&gt;
+A no ser que tengas un equipo &lt;strong&gt;&lt;span class="caps"&gt;MUY&lt;/span&gt; antiguo&lt;/strong&gt;, puedes activar los efectos
+visuales sin miedo: consumen poco.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Antes de darnos paso a la siguiente pantalla, &lt;em&gt;Cnchi&lt;/em&gt; nos anuncia la
+configuración por defecto del cortafuegos (&lt;a class="reference external" href="http://gufw.org/"&gt;Uncomplicated Firewall&lt;/a&gt;).&lt;/p&gt;
+&lt;div class="figure" style="width: 491px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Aviso de la configuración por defecto del cortafuegos" src="http://soulchainer.github.io/images/2014/01/2014-01-21_09.png" style="width: 491px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="particionado-de-discos"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;Particionado de discos&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Llegamos a &lt;strong&gt;un punto clave&lt;/strong&gt; de la instalación: el &lt;em&gt;particionado de discos&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Elección de modo de tipo de instalación: borrado completo del disco o modo avanzado(manual)." src="http://soulchainer.github.io/images/2014/01/2014-01-21_10.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Casi siempre interesa optar por el &lt;em&gt;modo avanzado&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="atencion-para-tablas-de-particiones-gpt"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id36"&gt;ATENCIÓN: para tablas de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Si no se escoge el &lt;em&gt;modo avanzado&lt;/em&gt;, &lt;em&gt;Cnchi&lt;/em&gt; cambia automáticamente el estilo de
+la partición a &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Si quieres usar un disco con tabla de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id21" id="id8"&gt;[8]&lt;/a&gt;
+&lt;strong&gt;bajo un sistema &lt;span class="caps"&gt;BIOS&lt;/span&gt;. tienes que elegir el modo avanzado&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Además, de ser ese es el caso, el &lt;a class="reference external" href="https://www.gnu.org/software/grub/"&gt;&lt;span class="caps"&gt;GRUB&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference" href="#id22" id="id9"&gt;[9]&lt;/a&gt; &lt;strong&gt;necesita una&lt;/strong&gt;
+&lt;a class="reference external" href="http://www.gnu.org/software/grub/manual/html_node/BIOS-installation.html"&gt;partición para el arranque de la &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference" href="#id23" id="id10"&gt;[10]&lt;/a&gt;. Pero
+&lt;strong&gt;Cnchi no es capaz de hacerla aún, por lo que tenemos que usar GParted&lt;/strong&gt;
+&lt;strong&gt;para ello&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://gparted.sourceforge.net/"&gt;GParted&lt;/a&gt; está incluido en la &lt;em&gt;versión Live&lt;/em&gt; de &lt;em&gt;Antergos&lt;/em&gt;. Sin cerrar
+&lt;em&gt;Cnchi&lt;/em&gt;, abrimos &lt;em&gt;GParted&lt;/em&gt;&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 659px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Búsqueda de GParted en el menú Actividades de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_11.png" style="width: 659px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Pulsamos en &lt;em&gt;Actividades&lt;/em&gt; (esquina superior izquierda) y buscamos
+&lt;em&gt;"gparted"&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;y procedemos a crear una partición de al menos
+&lt;strong&gt;1 &lt;span class="caps"&gt;MB&lt;/span&gt;, sin sistema de archivos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Aquí pueden darse dos casos que requieren acciones adicionales:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partimos de un disco duro virgen&lt;/strong&gt;: hemos de crear primero la tabla &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="figure" style="width: 783px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Creación de la tabla de particiones GPT con GParted." src="http://soulchainer.github.io/images/2014/01/2014-01-21_12.png" style="width: 783px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Dispositivo → Crear tabla de particiones…&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Ya existen particiones en el disco y no hay espacio libre&lt;/strong&gt;: tenemos que
+redimensionar alguna de las particiones existentes. De ser posible, la
+primera, colocando la nueva partición delante.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 560px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Redimensionando una particion para hacer espacio a la partición de arranque de la BIOS." src="http://soulchainer.github.io/images/2014/01/2014-01-21_13.png" style="width: 560px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en partición → Redimensionar/mover&lt;/strong&gt; y declaramos el
+&lt;strong&gt;Espacio libre precedente&lt;/strong&gt; correspondiente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Una vez tenemos el espacio libre, ya podemos crear la partición.&lt;/p&gt;
+&lt;div class="figure" style="width: 712px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Creando la partición para el arranque de la BIOS." src="http://soulchainer.github.io/images/2014/01/2014-01-21_14.png" style="width: 712px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en espacio sin asignar → Nueva&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="legend"&gt;
+En la captura estamos tratando con un &lt;em&gt;disco duro virgen&lt;/em&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Terminamos de preparar la &lt;em&gt;partición para el arranque de la &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/em&gt;, marcándola
+como &lt;code&gt;bios_grub&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="figure" style="width: 312px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Seleccionamos la opción bios_grub para la partición creada." src="http://soulchainer.github.io/images/2014/01/2014-01-21_15.png" style="width: 312px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en partición → Gestionar opciones&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Tras esto, ya podemos continuar donde lo dejamos con &lt;em&gt;Cnchi&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="particionado-avanzado"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id37"&gt;Particionado avanzado&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Si optaste por usar una tabla de particiones &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt; (si partes de cero, es
+aconsejable), ya tendrás creada dicha tabla tras el apartado anterior. En caso
+contrario (vas a usar una tabla &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;), la creamos
+(&lt;strong&gt;Nueva tabla de partición → Tipo de tabla de partición: msdos (aka &lt;span class="caps"&gt;MBR&lt;/span&gt;) → Aceptar&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Yo voy a optar por la &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;, pero el proceso de particionado restante es
+idéntico al de una tabla &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id24" id="id11"&gt;[11]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos seleccionando el &lt;em&gt;espacio libre&lt;/em&gt; restante y pulsando en &lt;em&gt;Añadir&lt;/em&gt; para ir
+agregando las sucesivas particiones.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 352px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Creación de partición swap, root y home (básicas) con Cnchi." src="http://soulchainer.github.io/images/2014/01/2014-01-21_16.gif" style="width: 352px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Creación de particiones &lt;em&gt;swap&lt;/em&gt;, &lt;em&gt;root&lt;/em&gt; y &lt;em&gt;home&lt;/em&gt; con &lt;em&gt;Cnchi&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Ejemplo de particionado para un disco de &lt;span class="caps"&gt;8GB&lt;/span&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;En un entorno real, donde dispongamos del espacio suficiente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partición swap.&lt;/strong&gt; La &lt;em&gt;wiki&lt;/em&gt; de &lt;em&gt;Antergos&lt;/em&gt; recomienda &lt;strong&gt;2 &lt;span class="caps"&gt;GB&lt;/span&gt; (2048 &lt;span class="caps"&gt;MB&lt;/span&gt;)&lt;/strong&gt;
+para la &lt;em&gt;swap&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ese tamaño está bien, aunque si nos sobra espacio y queremos configurar la
+función de hibernar, nos conviene tener una cantidad similar a la  de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partición root (/)&lt;/strong&gt;. Con unos &lt;strong&gt;18-20 &lt;span class="caps"&gt;GB&lt;/span&gt; (18432-2480 &lt;span class="caps"&gt;MB&lt;/span&gt;)&lt;/strong&gt; para la
+partición &lt;em&gt;root&lt;/em&gt; debería estar bien.&lt;/p&gt;
+&lt;p&gt;Aquí se almacena todo el software instalado, por lo que también depende del
+volumen de programas que manejemos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nota para usuarios de software de virtualización&lt;/strong&gt;: recién instalada ocupa
+unos &lt;em&gt;4.6 &lt;span class="caps"&gt;GB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partición home (/home)&lt;/strong&gt;. El resto del disco duro.&lt;/p&gt;
+&lt;p&gt;En esta partición se guardan las configuraciones y datos del usuario.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Este es el particionado básico (&lt;strong&gt;en ese orden&lt;/strong&gt;), pero puede resultar
+conveniente, por ejemplo, una partición dedicada a multimedia, u otra en
+formato &lt;em&gt;&lt;span class="caps"&gt;NTFS&lt;/span&gt;&lt;/em&gt; para compartir archivos con &lt;em&gt;Windows&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Sea como sea, a pesar de que numerosas distribuciones realizan su instalación
+completa en &lt;em&gt;una única partición root (/)&lt;/em&gt; cuando se usa el &lt;em&gt;modo guiado&lt;/em&gt;, es
+recomendable separar particiones: si por alguna razón se estropea el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt;,
+sólo tendremos que formatear la &lt;em&gt;root&lt;/em&gt;, conservando así la mayoría de nuestras
+configuraciones, descargas, fotos… (con la precaución de nombrar de otra
+manera a nuestro nuevo usuario).&lt;/p&gt;
+&lt;p&gt;Las particiones personalizadas suelen montarse en &lt;strong&gt;/media/NombreParticion&lt;/strong&gt;
+o en &lt;strong&gt;/mnt/NombreParticion&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="revision-del-particionado-cargador-de-arranque"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id38"&gt;Revisión del particionado &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; cargador de arranque&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Una vez realizadas las particiones convenientes, nos encontraríamos con algo
+como esto:&lt;/p&gt;
+&lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Esquema final de particionado de los discos" src="http://soulchainer.github.io/images/2014/01/2014-01-21_17.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Si alguno de nuestros discos es &lt;span class="caps"&gt;SSD&lt;/span&gt; &lt;a class="footnote-reference" href="#id25" id="id12"&gt;[12]&lt;/a&gt;, marcaremos la casilla correspondiente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Está todo en orden y el desplegable referido a la instalación del
+&lt;em&gt;cargador de arranque&lt;/em&gt; indica el disco en el que hemos creado la partición
+&lt;em&gt;root&lt;/em&gt;… &lt;strong&gt;¡Instalar ahora!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Un vistazo rápido de confirmación a los cambios que vamos a hacer en los
+discos y pasamos a los…&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ajustes-finales"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id39"&gt;Ajustes finales&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Selección de la franja horaria." src="http://soulchainer.github.io/images/2014/01/2014-01-21_18.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Seleccionamos nuestra franja horaria y permitimos la sincronización de
+la hora con servidores de internet.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure" style="width: 863px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Selección de la distribución de teclado." src="http://soulchainer.github.io/images/2014/01/2014-01-21_19.png" style="width: 863px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Seleccionamos la distribución de teclado (puede modificarse después).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Creación de cuenta de usuario" src="http://soulchainer.github.io/images/2014/01/2014-01-21_20.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Creamos nuestra cuenta de usuario.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Aunque se puede establecer la opción de
+&lt;strong&gt;Acceder automáticamente al escritorio&lt;/strong&gt; sin introducir contraseña, es
+preferible que se solicite. Aún cuando se trate del equipo de tu hogar, te
+librará de situaciones incómodas y de las intromisiones de personas
+demasiado &lt;em&gt;curiosas&lt;/em&gt; o &lt;em&gt;graciosas&lt;/em&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="acabando"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id40"&gt;Acabando&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Después de introducir los datos para la creación de nuestro usuario empieza el
+proceso de instalación en sí, en el que &lt;em&gt;Antergos&lt;/em&gt; se copia en el disco duro.
+Esperamos pacientemente hasta que termine, lo cual puede llevar varios minutos.&lt;/p&gt;
+&lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Tras unos minutos de espera, Antergos termina de instalarse." src="http://soulchainer.github.io/images/2014/01/2014-01-21_21.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Yatta!!&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Aceptamos, sin olvidarnos de extraer el medio con &lt;em&gt;Antergos&lt;/em&gt; antes de que se
+cargue de nuevo al iniciar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="inicio-de-antergos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id41"&gt;Inicio de Antergos&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Si no fuimos lo bastante rápidos, nos basta con escoger la segunda opción del
+menú de inicio de &lt;em&gt;Antergos&lt;/em&gt;, para que arranque desde disco duro: ya
+extraeremos el medio una vez inicie.&lt;/p&gt;
+&lt;p&gt;Por fin, podemos arrancar nuestro sistema :D&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Cargador de arranque, con las entradas de los SO disponibles." src="http://soulchainer.github.io/images/2014/01/2014-01-21_22.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Tanto la 1ª como la 3ª entrada arrancan nuestro &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt;, ya veremos más
+adelante como editar esto.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Si ya teníamos otros sistemas instalados previamente, aparecerán aquí
+también.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Introducimos nuestro usuario y contraseña y…&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Escritorio de Antergos, recién instalado, con Openbox." src="http://soulchainer.github.io/images/2014/01/2014-01-21_23.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;"Estoy dentro"&lt;/strong&gt; - Trinity dixit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Y eso es todo por ahora. En la &lt;strong&gt;segunda parte&lt;/strong&gt; del artículo, trataré la
+&lt;strong&gt;configuración de Openbox&lt;/strong&gt; y/o &lt;strong&gt;la configuración básica del sistema&lt;/strong&gt;. Aún
+no lo tengo decidido. Hasta dentro de una semana o así, pues ;)&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;/div&gt;
+&lt;div class="section" id="apendice-crear-un-usb-autoarrancable-de-antergos"&gt;
+&lt;span id="escribiremos-en-una-memoria-usb"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id42"&gt;Apéndice: Crear un &lt;span class="caps"&gt;USB&lt;/span&gt; autoarrancable de Antergos&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="requisitos"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id43"&gt;Requisitos&lt;/a&gt;&lt;/h3&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Una memoria &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;, formateada en
+&lt;em&gt;&lt;span class="caps"&gt;FAT16&lt;/span&gt;/&lt;span class="caps"&gt;FAT32&lt;/span&gt; (opción recomendada)/&lt;span class="caps"&gt;NTFS&lt;/span&gt; (inestable)&lt;/em&gt;, a partir de  &lt;em&gt;1 &lt;span class="caps"&gt;GB&lt;/span&gt;&lt;/em&gt; de
+capacidad (aproximadamente).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/openSUSE/imagewriter/"&gt;Suse Image Writer&lt;/a&gt;, por su sencillez y &lt;strong&gt;efectividad&lt;/strong&gt; &lt;a class="footnote-reference" href="#id26" id="id13"&gt;[13]&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://aur.archlinux.org/packages/imagewriter/"&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt; - Antergos, Arch, Manjaro&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S imagewriter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://sourceforge.net/projects/linuxfreedomfor/files/Mix/imagewriter_1.9-1~lffl_all.deb"&gt;.deb - Debian, Mint, Ubuntu&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://software.opensuse.org/package/imagewriter"&gt;.rpm - openSUSE&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/downloads/openSUSE/kiwi/ImageWriter.exe"&gt;Windows&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="crear-el-usb-autoarrancable"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id44"&gt;Crear el &lt;span class="caps"&gt;USB&lt;/span&gt; autoarrancable&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="con-suse-image-writer"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id45"&gt;Con Suse Image Writer&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;El proceso de creación es , tanto en &lt;em&gt;Windows&lt;/em&gt; como en &lt;strong&gt;Linux&lt;/strong&gt;, muy sencillo:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Ejecutamos la aplicación. En &lt;strong&gt;Linux&lt;/strong&gt; hemos de hacerlo con permisos de administrador:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo imagewriter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Pulsamos &lt;em&gt;select&lt;/em&gt; y elegimos la imagen &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt; a grabar. O bien, simplemente
+arrastramos y soltamos el archivo en la ventana.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;En el desplegable de la parte inferior, elegimos el dispositio &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; en el
+que queremos escribir la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class="figure" style="width: 600px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Suse Image Writer, preparado para escribir la ISO en la memoria USB." src="http://soulchainer.github.io/images/2014/01/2014-01-21_24.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Pulsamos &lt;em&gt;Write&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Si la memoria se encontraba montada, nos pregunta sí queremos desmontarla
+para proceder a la escritura. Le decimos que &lt;em&gt;Yes&lt;/em&gt; y le repetimos que &lt;em&gt;&lt;span class="caps"&gt;OK&lt;/span&gt;&lt;/em&gt;,
+que queremos sobreescribir los datos de esa memoria.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Esperamos a que la barra de progreso de escritura se complete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Y ya tenemos la memoria lista para arrancar &lt;em&gt;Antergos&lt;/em&gt; desde ella.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="desde-la-linea-de-comandos-solo-linux"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id46"&gt;Desde la línea de comandos (sólo Linux)&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Es aún más sencillo que desde la interfax gráfica (hay que perder el miedo a
+la consola). Usando el comando &lt;code&gt;dd&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/ruta/a/antergos.iso &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdx
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donde se ha de sustituir la &lt;strong&gt;x&lt;/strong&gt; de &lt;code&gt;/dev/sdx&lt;/code&gt; por la letra
+correspondiente a nuestra unidad &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;. Podemos averiguarla también desde la
+terminal con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk -l &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;"Disk /"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto listará todos los dispositivos de almacenamiento (discos) conectados. Por
+ejemplo, en mi caso:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Disk /dev/sda: 298,1 GiB, 320069031424 bytes, 625134827 sectors
+Disk /dev/sdb: 931,5 GiB, 1000204886016 bytes, 1953525168 sectors
+Disk /dev/sdc: 149,1 GiB, 160041885696 bytes, 312581808 sectors
+Disk /dev/sdd: 7,5 GiB, 8010194944 bytes, 15644912 sectors
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por lo que, fijándome en las capacidades de cada disco, sé que la ruta de mi
+dispositivo es &lt;code&gt;/dev/sdd&lt;/code&gt;, ya que se trata de una memoria de &lt;em&gt;8 &lt;span class="caps"&gt;GB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;En este caso no nos aparece una barra de progreso, como con
+&lt;em&gt;Suse Image Writer&lt;/em&gt;. Sólo se nos muestra el cursor parpadeando en la pantalla.
+Tenemos que esperar pacientemente hasta que, al fin, nos aparecen unas líneas
+con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;1468416+0 registros leídos
+1468416+0 registros escritos
+751828992 bytes &lt;span class="o"&gt;(&lt;/span&gt;752 &lt;span class="caps"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; copiados, 257,767 s, 2,9 &lt;span class="caps"&gt;MB&lt;/span&gt;/s
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y ya estamos listos para arrancar la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt; vía &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id14" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Rolling release&lt;/em&gt; es sinónimo de comodidad y vanguardia. Se instala el sistema una única vez (&lt;em&gt;de verdad&lt;/em&gt;) y se dejan en el pasado las grandes actualizaciones con cada nueva versión liberada. Un único comando, ejecutado periódicamente, y estás siempre actualizado.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id15" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Apuntes basados en &lt;a class="reference external" href="http://aps2.toshiba-tro.de/kb0/TSB2B03F30002R01ES.htm"&gt;un boletín de servicio técnico&lt;/a&gt; de &lt;em&gt;Toshiba&lt;/em&gt;. &lt;strong&gt;Hay que tener mucho cuidado con &lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt;. Busca documentación específica de tu fabricante.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id16" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Sistema Operativo&lt;/strong&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id17" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Unified Extensible Firmware Interface (Interfaz Extensible del Firmware Unificada)&lt;/strong&gt;. Especificación dirigida a reemplazar al &lt;em&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/em&gt;. Actua como puente entre el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt; y el firmware base.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id18" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id5"&gt;[5]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Master Boot Record (Registro de Arranque Maestro)&lt;/strong&gt;. Primer sector de un dispositivo de almacenamiento. Contiene el gestor de arranque y la tabla de particiones.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id19" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id6"&gt;[6]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Fork (bifurcación)&lt;/strong&gt;. Pieza de software desarrollada a partir del código fuente de un proyecto ya existente, para marcar otro rumbo al desarrollo o añadir funciones extra.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id20" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id7"&gt;[7]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Gestor de ventanas&lt;/strong&gt;. Programa encargado de controlar la ubicación y apariencia de las ventanas en una interfaz gráfica de usuario. &lt;em&gt;Openbox&lt;/em&gt; en un &lt;strong&gt;Gestor de ventanas en modo flotante&lt;/strong&gt; (pueden superponerse unas ventanas con otras).&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id21" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id8"&gt;[8]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Tabla de particiones &lt;span class="caps"&gt;GUID&lt;/span&gt; (&lt;span class="caps"&gt;GPT&lt;/span&gt;)&lt;/strong&gt;. Estándar para la colocación de la tabla de particiones en un disco duro. Parte de la &lt;em&gt;&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/em&gt;, &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt; sustituye al &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id22" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id9"&gt;[9]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Cargador de arranque usado en &lt;em&gt;Antergos&lt;/em&gt;. Carga el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id23" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id10"&gt;[10]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Partición necesaria para arrancar en sistemas basados en &lt;em&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/em&gt; donde el dispositivo desde el que arranca el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt; tiene una tabla &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id24" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id11"&gt;[11]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Con la salvedad de que en &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt; podemos tener todas las particiones primarias que queramos, mientras que en &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt; podemos tener sólo cuatro, o tres y una extendida (con un número indeterminado de lógicas).&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id25" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id12"&gt;[12]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Solid-State Drive (Unidad de Estado Sólido)&lt;/strong&gt;. Dispositivo de almacenamiento que usa una memoria no volátil para almacenar datos de forma persistente. Son menos sensibles a los golpes, prácticamente inaudibles y más rápidas que los discos duros convencionales.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id26" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id13"&gt;[13]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Ciertas herramientas de creación de &lt;em&gt;Live &lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; alteran las etiquetas de particiones incluidas en la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt; de &lt;em&gt;Antergos&lt;/em&gt;, imposibilitando su arranque. La &lt;a class="reference external" href="http://wiki.antergos.com"&gt;wiki&lt;/a&gt; de la distro &lt;a class="reference external" href="http://wiki.antergos.com/Create+a+working+Live+USB"&gt;recomienda&lt;/a&gt; evitar su uso.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="antergos"></category><category term="archlinux"></category><category term="linux"></category><category term="como"></category><category term="tutorial"></category><category term="instalación"></category></entry><entry><title>Activar el puñetero H.264 en Firefox</title><link href="http://soulchainer.github.io/posts/2014/01/13/activar-video-h264-firefox/" rel="alternate"></link><updated>2014-01-13T17:15:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-13:posts/2014/01/13/activar-video-h264-firefox/</id><summary type="html">&lt;div align="center" class="vimeo"&gt;&lt;iframe frameborder="0" height="315" src="https://player.vimeo.com/video/76979871" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por
 ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas
 &lt;strong&gt;de verdad&lt;/strong&gt;. Y ese es mi caso con &lt;a class="reference external" href="https://www.mozilla.org/es-ES/firefox/new/"&gt;Firefox&lt;/a&gt; y la reproducción de vídeo con
 &lt;em&gt;&lt;span class="caps"&gt;HTML5&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="section" id="el-problema"&gt;
 &lt;h2&gt;El problema&lt;/h2&gt;
 &lt;p&gt;El dichoso &lt;strong&gt;H.264&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Es un &lt;em&gt;códec&lt;/em&gt; de vídeo de alta compresión, muy empleado por sitios de streaming
-y con el gran inconveniente de que &lt;strong&gt;&lt;span class="caps"&gt;NO&lt;/span&gt; &lt;span class="caps"&gt;ES&lt;/span&gt; &lt;span class="caps"&gt;LIBRE&lt;/span&gt;&lt;/strong&gt; y está atado por patentes.
-No es el único &lt;em&gt;códec&lt;/em&gt; soportado por &lt;em&gt;&lt;span class="caps"&gt;HTML5&lt;/span&gt;&lt;/em&gt;, por supuesto. Está también
-&lt;a class="reference external" href="http://www.webmproject.org/"&gt;WebM&lt;/a&gt;, por ejemplo. Pero con la excusa de que da mejor calidad, que si
-patatín, que si patatán, se ha convertido en un estándar de facto.&lt;/p&gt;
+&lt;p&gt;Es un &lt;em&gt;códec&lt;/em&gt; de vídeo de alta compresión, muy empleado por sitios de
+streaming, y con el gran inconveniente de que &lt;strong&gt;&lt;span class="caps"&gt;NO&lt;/span&gt; &lt;span class="caps"&gt;ES&lt;/span&gt; &lt;span class="caps"&gt;LIBRE&lt;/span&gt;&lt;/strong&gt; (está atado por
+patentes).
+No es el único &lt;em&gt;códec&lt;/em&gt; soportado por &lt;em&gt;&lt;span class="caps"&gt;HTML5&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id3" id="id1"&gt;[1]&lt;/a&gt;, pero con la excusa de que da
+mejor calidad, que si patatín, que si patatán, se ha convertido en un estándar
+de facto.&lt;/p&gt;
 &lt;p&gt;Y la mayoría de portales de vídeos, como &lt;a class="reference external" href="https://vimeo.com/"&gt;Vimeo&lt;/a&gt; o &lt;a class="reference external" href="https://www.youtube.com/"&gt;Youtube&lt;/a&gt;, lo soportan.
 Además, lo suelen anunciar a bombo y platillo. Algo así:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -31,7 +638,7 @@ software libre, pero sus acciones (y omisiones) van por otros derroteros.&lt;/p
 &lt;p&gt;Etcétera.&lt;/p&gt;
 &lt;p&gt;Aún así, todo esto no habría sido un problema de no ser porque, debido a su
 carácter &lt;strong&gt;no libre&lt;/strong&gt;, &lt;a class="reference external" href="http://www.mozilla.org/es-ES/"&gt;Mozilla&lt;/a&gt; tomó la decisión de no dar soporte en su
-navegador a este formato. No ha sido hasta fechas relativamente recientes &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;
+navegador a este formato. No ha sido hasta fechas relativamente recientes &lt;a class="footnote-reference" href="#id4" id="id2"&gt;[2]&lt;/a&gt;
 que ha cedido un poco y habilitado su uso. A través, eso sí, de software de terceros.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="la-solucion"&gt;
@@ -51,7 +658,7 @@ la red, no recibimos una alerta que nos avise de nuestro problema y de como sol
 &lt;code&gt;about:config&lt;/code&gt;. Aunque en las últimas versiones de &lt;em&gt;Firefox&lt;/em&gt; ya no sea
 necesario, al venir activada por defecto, no está de más saberlo.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 555px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="http://soulchainer.github.io/images/2014/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="http://soulchainer.github.io/images/2014/01/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Doble click para cambiar el valor de &lt;em&gt;false&lt;/em&gt; a &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -75,7 +682,7 @@ todos esos flamantes reproductores "&lt;em&gt;&lt;span class="caps"&gt;HTML5&lt;
 cito porque, además de ser una opción interesante, nos sirve para comprobar
 que realmente tenemos activado el soporte.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 695px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="http://soulchainer.github.io/images/2014/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="http://soulchainer.github.io/images/2014/01/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Si no estuviera disponible esta opción de &lt;em&gt;Youtube&lt;/em&gt;, siempre podemos comprobar
 que nuestro navegador cumple en el apartado de vídeo con el utilísimo
@@ -83,10 +690,16 @@ que nuestro navegador cumple en el apartado de vídeo con el utilísimo
 &lt;p&gt;Y ahora me voy a ver un vídeo en &lt;em&gt;Vimeo&lt;/em&gt;, que hace algo así como &lt;strong&gt;eras&lt;/strong&gt; que
 no puedo disfrutar de uno. Buenas tardes.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
-&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;table class="docutils footnote" frame="void" id="id3" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Está también &lt;a class="reference external" href="http://www.webmproject.org/"&gt;WebM&lt;/a&gt;, por ejemplo.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
@@ -94,7 +707,7 @@ no puedo disfrutar de uno. Buenas tardes.&lt;/p&gt;
 </summary><category term="firefox"></category><category term="html5"></category><category term="h.264"></category><category term="vídeo"></category><category term="youtube"></category><category term="vimeo"></category></entry><entry><title>Depuración remota &amp; testeo en Firefox para Android</title><link href="http://soulchainer.github.io/posts/2014/01/12/depuracion-remota-firefox-android/" rel="alternate"></link><updated>2014-01-12T19:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-12:posts/2014/01/12/depuracion-remota-firefox-android/</id><summary type="html">&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;Depuración remota &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; testeo en Firefox para Android&lt;/h2&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha Chu (http://www.flickr.com/photos/shashachu/)." src="http://soulchainer.github.io/images/2014/2014-01-12_1.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha Chu (http://www.flickr.com/photos/shashachu/)." src="http://soulchainer.github.io/images/2014/01/2014-01-12_1.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Fire fox (Panda Rojo, &lt;em&gt;Ailurus fulgens&lt;/em&gt;). ¿No son adorables estos animales?
 &lt;a class="reference external" href='href="http://www.flickr.com/photos/shashachu/258240635/'&gt;Fotografía&lt;/a&gt; obra de &lt;a class="reference external" href="http://www.flickr.com/photos/shashachu/"&gt;Sha Sha Chu&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -148,7 +761,7 @@ lista de preferencias con la cadena &lt;code&gt;debugger&lt;/code&gt;.
 Localizada entre los resultados &lt;code&gt;devtools.debugger.remote-enabled&lt;/code&gt;,
 cambiamos su valor a &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Búsqueda de la cadena 'debugger' en about:config." src="http://soulchainer.github.io/images/2014/2014-01-12_2.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Búsqueda de la cadena 'debugger' en about:config." src="http://soulchainer.github.io/images/2014/01/2014-01-12_2.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Después, reiniciamos el navegador.&lt;/p&gt;
 &lt;/div&gt;
@@ -159,7 +772,7 @@ cambiamos su valor a &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
 aplicación. En mi terminal la ruta es:
 &lt;strong&gt;Más → Configuración → Herramientas de desarrolladores → Depuración remota&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/2014-01-12_3.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/01/2014-01-12_3.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Al activarla nos recuerda que hemos de configurar el &lt;a class="reference internal" href="#desvio-de-puertos"&gt;desvío de puertos&lt;/a&gt; para
 conectar las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; al dispositivo. Lo haremos
@@ -173,7 +786,7 @@ conectar las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; al dispositivo. Lo 
 &lt;strong&gt;marcar la casilla Toggle Tools&lt;/strong&gt;) y, en la pestaña de opciones, marcar
 &lt;em&gt;Enable remote debugging&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/2014-01-12_4.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/01/2014-01-12_4.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Si usamos &lt;strong&gt;Firefox &amp;lt; 27&lt;/strong&gt; tendremos que reiniciar el navegador para que se
 apliquen los cambios.&lt;/p&gt;
@@ -187,7 +800,7 @@ apliquen los cambios.&lt;/p&gt;
 cosas, y es clave para la &lt;a class="reference internal" href="#conectividad-wifi"&gt;conectividad WiFi&lt;/a&gt;), ajustamos a &lt;code&gt;false&lt;/code&gt; la
 preferencia &lt;code&gt;devtools.debugger.force-local&lt;/code&gt; (en &lt;code&gt;about:config&lt;/code&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Preferencia devtools.debbuger.force-local establecida a false." src="http://soulchainer.github.io/images/2014/2014-01-12_5.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Preferencia devtools.debbuger.force-local establecida a false." src="http://soulchainer.github.io/images/2014/01/2014-01-12_5.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -202,7 +815,7 @@ preferencia &lt;code&gt;devtools.debugger.force-local&lt;/code&gt; (en &lt;code&
 la que nos encontramos conectados. Aparece entonces una ventana emergente con
 información sobre la conexión.&lt;/p&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ventana emergente con información sobre la conexión wireless en el dispositivo Android." src="http://soulchainer.github.io/images/2014/2014-01-12_6.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ventana emergente con información sobre la conexión wireless en el dispositivo Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_6.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;En versiones más recientes de &lt;em&gt;Android&lt;/em&gt; se puede encontrar en
 &lt;strong&gt;Ajustes → Acerca del teléfono → Estado&lt;/strong&gt;.&lt;/p&gt;
@@ -212,7 +825,7 @@ información sobre la conexión.&lt;/p&gt;
 &lt;p&gt;Una vez tenemos la &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt;, seleccionamos la opción de &lt;em&gt;Conectar&lt;/em&gt; en el escritorio
 (&lt;strong&gt;Firefox/Tools → Web Developer → Connect…&lt;/strong&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 650px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página de conexión de las herramientas de desarrollo al dispositivo Android (red local)." src="http://soulchainer.github.io/images/2014/2014-01-12_7.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página de conexión de las herramientas de desarrollo al dispositivo Android (red local)." src="http://soulchainer.github.io/images/2014/01/2014-01-12_7.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Introducimos nuestra &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en el campo &lt;code&gt;Host&lt;/code&gt;, dejamos el campo del puerto
 tal cual (salvo que lo hayamos cambiado, es el puerto por defecto) y
@@ -220,12 +833,12 @@ presionamos &lt;em&gt;Connect&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Al hacerlo, salta una ventana en nuestro dispositivo informando del intento de
 conexión y dándonos a elegir qué hacer:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ventana emergente solicitando confirmación de conexión en Firefox para Android." src="http://soulchainer.github.io/images/2014/2014-01-12_8.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ventana emergente solicitando confirmación de conexión en Firefox para Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_8.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;El icono insectoide de la barra de estado es de &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb"&gt;WiFi &lt;span class="caps"&gt;ADB&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Una vez aceptamos, conectamos al fin:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 650px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página con la conexión al dispositivo Android realizada, mostrando las pestañas y los procesos remotos disponibles." src="http://soulchainer.github.io/images/2014/2014-01-12_9.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página con la conexión al dispositivo Android realizada, mostrando las pestañas y los procesos remotos disponibles." src="http://soulchainer.github.io/images/2014/01/2014-01-12_9.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Si no se efectua la conexión o esta falla, podemos comprobar si el dispositivo
 está realmente conectado con &lt;code&gt;adb devices&lt;/code&gt;:&lt;/p&gt;
@@ -262,7 +875,7 @@ excepto que en el campo &lt;code&gt;Host&lt;/code&gt; de la página de conexión
 entre todas las pestañas remotas disponibles. Una vez escogida, recibimos
 una nueva ventana con las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; asociadas al código de la misma.&lt;/p&gt;
 &lt;div class="figure" style="width: 700px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ventana en nuestro escritorio con las herramientas de desarrollo de Firefox mostrando parte del código de una página abierta en nuestro Android." src="http://soulchainer.github.io/images/2014/2014-01-12_10.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ventana en nuestro escritorio con las herramientas de desarrollo de Firefox mostrando parte del código de una página abierta en nuestro Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_10.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -289,7 +902,7 @@ Serving &lt;span class="caps"&gt;HTTP&lt;/span&gt; on 0.0.0.0 port 8000 ...
 desde la carpeta con los &lt;em&gt;&lt;span class="caps"&gt;HTML&lt;/span&gt;&lt;/em&gt; de mi blog, y accedo vía &lt;em&gt;Firefox&lt;/em&gt; a la
 dirección indicada por &lt;em&gt;Python&lt;/em&gt; (0.0.0.0 → &lt;em&gt;localhost&lt;/em&gt; ← 127.0.0.1):&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para escritorio." src="http://soulchainer.github.io/images/2014/2014-01-12_15.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para escritorio." src="http://soulchainer.github.io/images/2014/01/2014-01-12_15.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Acceder desde nuestro &lt;em&gt;Android&lt;/em&gt; al servidor es igual de fácil.
 Aunque esta vez necesitamos conocer su &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en la red local. La averiguamos con:&lt;/p&gt;
@@ -307,7 +920,7 @@ eth0: &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&g
 &lt;p&gt;Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
 &lt;em&gt;androide&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para Android." src="http://soulchainer.github.io/images/2014/2014-01-12_16.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_16.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Y a trastear con el sitio.&lt;/p&gt;
 &lt;/div&gt;
@@ -338,7 +951,7 @@ puede encontrarse en la &lt;a class="reference external" href="https://developer
 &lt;p&gt;Y me dejé un último pero, muy visual, para el final: la ausencia de una
 alternativa nativa a la función &lt;em&gt;screencast&lt;/em&gt; de &lt;em&gt;Google Chrome&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Captura de la opción screencast de las herramientas de desarrollo de Google Chrome. Muestra en tiempo real la pantalla de nuestro dispositivo Android en el navegador y permite interactuar con ella." src="http://soulchainer.github.io/images/2014/2014-01-12_11.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Captura de la opción screencast de las herramientas de desarrollo de Google Chrome. Muestra en tiempo real la pantalla de nuestro dispositivo Android en el navegador y permite interactuar con ella." src="http://soulchainer.github.io/images/2014/01/2014-01-12_11.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Con &lt;em&gt;screencast&lt;/em&gt; visualizamos e interactuamos con la pantalla del
 dispositivo en el navegador.&lt;/p&gt;
 &lt;/div&gt;
@@ -364,13 +977,13 @@ mozos, aparentemente también lo será en otros dispositivos que tienen
 permiso de &lt;strong&gt;superusuario&lt;/strong&gt;, pulsamos el inmenso botón &lt;strong&gt;&lt;span class="caps"&gt;START&lt;/span&gt;&lt;/strong&gt; y ya está:
 servidor corriendo (si no ocurre ninguna hecatombe &lt;a class="footnote-reference" href="#id13" id="id8"&gt;[5]&lt;/a&gt;).&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 600px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Capturas de Odroid VNC server detenido y en ejecución." src="http://soulchainer.github.io/images/2014/2014-01-12_12.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Capturas de Odroid VNC server detenido y en ejecución." src="http://soulchainer.github.io/images/2014/01/2014-01-12_12.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;A la izquierda, el servidor detenido. A la derecha, en ejecución.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Dispone de un &lt;em&gt;menú de ajustes&lt;/em&gt; (&lt;em&gt;settings&lt;/em&gt;), donde podemos establecer algunas
 preferencias sobre el servidor, la pantalla y otros detalles.&lt;/p&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Captura del menú de preferencias del servidor vnc." src="http://soulchainer.github.io/images/2014/2014-01-12_13.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Captura del menú de preferencias del servidor vnc." src="http://soulchainer.github.io/images/2014/01/2014-01-12_13.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalar-usar-el-cliente"&gt;
@@ -387,7 +1000,7 @@ a él desde el escritorio, no sirve de nada.&lt;/p&gt;
 &lt;p&gt;Ahora sí podemos acceder al servidor. Desde el navegador, con la url que nos
 proporcionó &lt;em&gt;Odroid&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 422px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Applet Java que proporciona Odroid, mostrando la pantalla de nuestro Android." src="http://soulchainer.github.io/images/2014/2014-01-12_14.png" style="width: 422px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Applet Java que proporciona Odroid, mostrando la pantalla de nuestro Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_14.png" style="width: 422px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;em&gt;Applet Java&lt;/em&gt; proporcionado por &lt;em&gt;Odroid&lt;/em&gt;, mostrando la pantalla de nuestro
 &lt;em&gt;Android&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -442,7 +1055,7 @@ escritorio, no sólo nuestro navegador.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="android"></category><category term="control remoto"></category><category term="depuración remota"></category><category term="desarrollo web"></category><category term="firefox"></category><category term="local"></category><category term="python"></category><category term="servidor web"></category><category term="testeo"></category><category term="vnc"></category></entry><entry><title>Geekcalendar: calendario geek ligerito de ropa</title><link href="http://soulchainer.github.io/posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/" rel="alternate"></link><updated>2014-01-08T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-08:posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</id><summary type="html">&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="http://soulchainer.github.io/images/2014/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="http://soulchainer.github.io/images/2014/01/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;ATENCIÓN&lt;/strong&gt;: Contenido &lt;span class="caps"&gt;NSFW&lt;/span&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
@@ -467,7 +1080,7 @@ que podéis encontrar &lt;a class="reference external" href="http://exeypantelee
 &lt;/tbody&gt;
 &lt;/table&gt;
 </summary><category term="calendario"></category><category term="geek"></category><category term="fotografía"></category><category term="desnudo"></category><category term="lenguajes"></category><category term="programación"></category><category term="NSFW"></category></entry><entry><title>Mobile Web Development, nuevo MOOC de Udacity</title><link href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/" rel="alternate"></link><updated>2014-01-07T20:45:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</id><summary type="html">&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Logo y Slogan de Udacity." src="http://soulchainer.github.io/images/2014/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Logo y Slogan de Udacity." src="http://soulchainer.github.io/images/2014/01/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
 &lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;"Mobile Web Development"&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que

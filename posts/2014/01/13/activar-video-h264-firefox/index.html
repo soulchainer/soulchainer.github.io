@@ -32,12 +32,12 @@
       <meta name="twitter:creator" content="@soulchainer">
       <meta name="twitter:title" content="Activar el puñetero H.264 en Firefox">
       <meta name="twitter:description" content="Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas de verdad. Y ese es mi caso con Firefox y la reproducción de vídeo con HTML5.">
-      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/2014-01-13_1.png">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/01/2014-01-13_1.png">
       <meta property="og:site_name" content="Soulbits" />
       <meta property="og:title" content="Activar el puñetero H.264 en Firefox" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="http://soulchainer.github.io/posts/2014/01/13/activar-video-h264-firefox/" />
-      <meta property="og:image" content="http://soulchainer.github.io/images/2014/2014-01-13_1.png" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/01/2014-01-13_1.png" />
       <meta property="og:article:section" content="CÓMOS, linux" />
       <meta property="og:article:tag" content="firefox" />
       <meta property="og:article:tag" content="h.264" />
@@ -120,11 +120,12 @@ ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas
 <div class="section" id="el-problema">
 <h2>El problema</h2>
 <p>El dichoso <strong>H.264</strong>.</p>
-<p>Es un <em>códec</em> de vídeo de alta compresión, muy empleado por sitios de streaming
-y con el gran inconveniente de que <strong><span class="caps">NO</span> <span class="caps">ES</span> <span class="caps">LIBRE</span></strong> y está atado por patentes.
-No es el único <em>códec</em> soportado por <em><span class="caps">HTML5</span></em>, por supuesto. Está también
-<a class="reference external" href="http://www.webmproject.org/">WebM</a>, por ejemplo. Pero con la excusa de que da mejor calidad, que si
-patatín, que si patatán, se ha convertido en un estándar de facto.</p>
+<p>Es un <em>códec</em> de vídeo de alta compresión, muy empleado por sitios de
+streaming, y con el gran inconveniente de que <strong><span class="caps">NO</span> <span class="caps">ES</span> <span class="caps">LIBRE</span></strong> (está atado por
+patentes).
+No es el único <em>códec</em> soportado por <em><span class="caps">HTML5</span></em> <a class="footnote-reference" href="#id3" id="id1">[1]</a>, pero con la excusa de que da
+mejor calidad, que si patatín, que si patatán, se ha convertido en un estándar
+de facto.</p>
 <p>Y la mayoría de portales de vídeos, como <a class="reference external" href="https://vimeo.com/">Vimeo</a> o <a class="reference external" href="https://www.youtube.com/">Youtube</a>, lo soportan.
 Además, lo suelen anunciar a bombo y platillo. Algo así:</p>
 <blockquote>
@@ -145,7 +146,7 @@ software libre, pero sus acciones (y omisiones) van por otros derroteros.</p>
 <p>Etcétera.</p>
 <p>Aún así, todo esto no habría sido un problema de no ser porque, debido a su
 carácter <strong>no libre</strong>, <a class="reference external" href="http://www.mozilla.org/es-ES/">Mozilla</a> tomó la decisión de no dar soporte en su
-navegador a este formato. No ha sido hasta fechas relativamente recientes <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+navegador a este formato. No ha sido hasta fechas relativamente recientes <a class="footnote-reference" href="#id4" id="id2">[2]</a>
 que ha cedido un poco y habilitado su uso. A través, eso sí, de software de terceros.</p>
 </div>
 <div class="section" id="la-solucion">
@@ -165,7 +166,7 @@ la red, no recibimos una alerta que nos avise de nuestro problema y de como sol
 <code>about:config</code>. Aunque en las últimas versiones de <em>Firefox</em> ya no sea
 necesario, al venir activada por defecto, no está de más saberlo.</p>
 <div class="figure align-center" style="width: 555px; height: auto; max-width: 100%;">
-<img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="http://soulchainer.github.io/images/2014/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/>
+<img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="http://soulchainer.github.io/images/2014/01/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/>
 <p class="caption">Doble click para cambiar el valor de <em>false</em> a <em>true</em>.</p>
 </div>
 </li>
@@ -189,7 +190,7 @@ todos esos flamantes reproductores "<em><span class="caps">HTML5</span></em>" o
 cito porque, además de ser una opción interesante, nos sirve para comprobar
 que realmente tenemos activado el soporte.</p>
 <div class="figure align-center" style="width: 695px; height: auto; max-width: 100%;">
-<img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="http://soulchainer.github.io/images/2014/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/>
+<img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="http://soulchainer.github.io/images/2014/01/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/>
 </div>
 <p>Si no estuviera disponible esta opción de <em>Youtube</em>, siempre podemos comprobar
 que nuestro navegador cumple en el apartado de vídeo con el utilísimo
@@ -197,10 +198,16 @@ que nuestro navegador cumple en el apartado de vídeo con el utilísimo
 <p>Y ahora me voy a ver un vídeo en <em>Vimeo</em>, que hace algo así como <strong>eras</strong> que
 no puedo disfrutar de uno. Buenas tardes.</p>
 <hr class="docutils"/>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
+<table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Está también <a class="reference external" href="http://www.webmproject.org/">WebM</a>, por ejemplo.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Bueno, unos dos años, pero, ¿a quién le importa? xD Ya he dicho que es un problema con el que podía vivir, ¿no?</td></tr>
 </tbody>
 </table>
 </div>
@@ -235,7 +242,7 @@ no puedo disfrutar de uno. Buenas tardes.</p>
   </section>
 
 </section>
-
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
       <div class="push"></div>
     </div>
     <!-- footer -->
