@@ -63,7 +63,7 @@ portátil e instalar una distribución linux para tareas rutinarias (esto se
 traduce en jugar al solitario y revisar el correo).&lt;/p&gt;
 &lt;p&gt;Estuve pensando un poco qué distribución usar. Barajé ponerle la misma
 que a mi hermana (&lt;a class="reference external" href="http://crunchbang.org/"&gt;Crunchbang&lt;/a&gt;), pero rápidamente lo descarté: quería probar
-algo nuevo. Además, una vez te haces al rollo &lt;strong&gt;rolling release&lt;/strong&gt; &lt;a class="footnote-reference" href="#id14" id="id1"&gt;[1]&lt;/a&gt;, no
+algo nuevo. Además, una vez te haces al rollo &lt;strong&gt;rolling release&lt;/strong&gt; &lt;a class="footnote-reference" href="#id14" id="id1"&gt;[1]&lt;/a&gt; no
 quieres probar otra cosa.&lt;/p&gt;
 &lt;p&gt;
 Así que buceé en &lt;a class="reference external" href="http://distrowatch.com/"&gt;DistroWatch&lt;/a&gt; en busca de algún tesoro con forma de
@@ -77,7 +77,7 @@ con la distribución de Arch Linux, pero el proyecto se ha apartado de sus
 metas originales y ahora ofrece una variedad de escritorios que incluyen a
 &lt;span class="caps"&gt;GNOME&lt;/span&gt; 3 (por defecto), a Cinnamon, a Razor-qt y a Xfce. Antergos también
 provee su propio programa gráfico de instalación.&lt;/blockquote&gt;
-&lt;p&gt;Y aquí estoy, escribiendo esta pequeña biblia, con la esperanza de que pueda
+&lt;p&gt;Y aquí estoy, escribiendo esta pequeña biblia con la esperanza de que pueda
 resultarle de ayuda a alguien. Aunque sea para conciliar el sueño en una larga
 noche de tormenta. Aunque sólo la lea &lt;strong&gt;esa pequeña blogger&lt;/strong&gt; que responde por
 &lt;a class="reference external" href="http://geekstorming.wordpress.com/"&gt;Beelzenef&lt;/a&gt; (me motiva mucho saber que al menos ella intentará leerla ñ_ñ).&lt;/p&gt;
@@ -223,8 +223,8 @@ el equipo como servidor o si quieres instalar un entorno no incluido en la
 lista, como &lt;a class="reference external" href="http://www.kde.org/"&gt;&lt;span class="caps"&gt;KDE&lt;/span&gt;&lt;/a&gt; o &lt;a class="reference external" href="http://mate-desktop.org/"&gt;Mate&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://cinnamon.linuxmint.com/"&gt;Cinnamon&lt;/a&gt;. Fork &lt;a class="footnote-reference" href="#id19" id="id6"&gt;[6]&lt;/a&gt; de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/em&gt;. Su objetivo es permitirnos sacar
-provecho de las novedades de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/em&gt; sin necesidad de sacrificar el tan
-apreciado interfaz de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 2&lt;/em&gt;. Es el que elegí para mi padre: un entorno
+provecho de las novedades de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/em&gt; sin necesidad de sacrificar la tan
+apreciada interfaz de &lt;em&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 2&lt;/em&gt;. Es el que elegí para mi padre: un entorno
 viejo por fuera, pero nuevo por dentro. Ideal para alguien acostumbrado al
 viejo &lt;em&gt;&lt;span class="caps"&gt;XP&lt;/span&gt;&lt;/em&gt; y reacio al más mínimo cambio (sigo en fase de persuasión).&lt;/p&gt;
 &lt;/li&gt;
@@ -240,8 +240,8 @@ ello, &lt;strong&gt;mi elección para este tutorial&lt;/strong&gt;.&lt;/p&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://razor-qt.org/"&gt;Razor-qt&lt;/a&gt;. Entorno basado en &lt;a class="reference external" href="http://qt-project.org/"&gt;Qt&lt;/a&gt;, como &lt;em&gt;&lt;span class="caps"&gt;KDE&lt;/span&gt;&lt;/em&gt;, que nos ofrece un entorno
 más ligero y simple que este último. De todos, es el único del que no puedo
 hablar con conocimiento de causa. En cualquier caso, de acuerdo con la wiki
-de &lt;em&gt;Archlinux&lt;/em&gt;, parece que &lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Razor-qt#Merge_with_LXDE-Qt"&gt;en breve se fusionará&lt;/a&gt; con &lt;a class="reference external" href="http://lxde.org/"&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;&lt;/a&gt;, dando lugar
-a &lt;em&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;-Qt&lt;/em&gt;.&lt;/p&gt;
+de &lt;em&gt;Archlinux&lt;/em&gt;, parece ser que &lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Razor-qt#Merge_with_LXDE-Qt"&gt;en breve se fusionará&lt;/a&gt; con &lt;a class="reference external" href="http://lxde.org/"&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;&lt;/a&gt;, dando
+lugar a &lt;em&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;-Qt&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://www.xfce.org/"&gt;Xfce&lt;/a&gt;. Otro entorno que pretende ser ligero a la vez que completo.
 Históricamente (antes de que llegara &lt;em&gt;Mate&lt;/em&gt;) ha sido la primera opción para
@@ -274,8 +274,8 @@ configuración por defecto del cortafuegos (&lt;a class="reference external" hre
 &lt;p&gt;Si no se escoge el &lt;em&gt;modo avanzado&lt;/em&gt;, &lt;em&gt;Cnchi&lt;/em&gt; cambia automáticamente el estilo de
 la partición a &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Si quieres usar un disco con tabla de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id21" id="id8"&gt;[8]&lt;/a&gt;
-&lt;strong&gt;bajo un sistema &lt;span class="caps"&gt;BIOS&lt;/span&gt;. tienes que elegir el modo avanzado&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Además, de ser ese es el caso, el &lt;a class="reference external" href="https://www.gnu.org/software/grub/"&gt;&lt;span class="caps"&gt;GRUB&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference" href="#id22" id="id9"&gt;[9]&lt;/a&gt; &lt;strong&gt;necesita una&lt;/strong&gt;
+&lt;strong&gt;bajo un sistema &lt;span class="caps"&gt;BIOS&lt;/span&gt;, tienes que elegir el modo avanzado&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Además, de ser ese el caso, &lt;a class="reference external" href="https://www.gnu.org/software/grub/"&gt;&lt;span class="caps"&gt;GRUB&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference" href="#id22" id="id9"&gt;[9]&lt;/a&gt; &lt;strong&gt;necesita una&lt;/strong&gt;
 &lt;a class="reference external" href="http://www.gnu.org/software/grub/manual/html_node/BIOS-installation.html"&gt;partición para el arranque de la &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference" href="#id23" id="id10"&gt;[10]&lt;/a&gt;. Pero
 &lt;strong&gt;Cnchi no es capaz de hacerla aún, por lo que tenemos que usar GParted&lt;/strong&gt;
 &lt;strong&gt;para ello&lt;/strong&gt;.&lt;/p&gt;
@@ -306,7 +306,7 @@ primera, colocando la nueva partición delante.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Una vez tenemos el espacio libre, ya podemos crear la partición.&lt;/p&gt;
+&lt;p&gt;Una vez tenemos el espacio libre, podemos crear la partición.&lt;/p&gt;
 &lt;div class="figure" style="width: 712px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Creando la partición para el arranque de la BIOS." src="http://soulchainer.github.io/images/2014/01/2014-01-21_14.png" style="width: 712px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en espacio sin asignar → Nueva&lt;/strong&gt;&lt;/p&gt;
@@ -323,12 +323,12 @@ como &lt;code&gt;bios_grub&lt;/code&gt;:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="particionado-avanzado"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id37"&gt;Particionado avanzado&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Si optaste por usar una tabla de particiones &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt; (si partes de cero, es
+&lt;p&gt;Si optaste por usar una tabla de particiones &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt; (si partes de cero es
 aconsejable), ya tendrás creada dicha tabla tras el apartado anterior. En caso
 contrario (vas a usar una tabla &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;), la creamos
 (&lt;strong&gt;Nueva tabla de partición → Tipo de tabla de partición: msdos (aka &lt;span class="caps"&gt;MBR&lt;/span&gt;) → Aceptar&lt;/strong&gt;).&lt;/p&gt;
 &lt;p&gt;Yo voy a optar por la &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;, pero el proceso de particionado restante es
-idéntico al de una tabla &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id24" id="id11"&gt;[11]&lt;/a&gt;.&lt;/p&gt;
+idéntico con una tabla &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id24" id="id11"&gt;[11]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Vamos seleccionando el &lt;em&gt;espacio libre&lt;/em&gt; restante y pulsando en &lt;em&gt;Añadir&lt;/em&gt; para ir
 agregando las sucesivas particiones.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 352px; height: auto; max-width: 100%;"&gt;
@@ -337,7 +337,7 @@ agregando las sucesivas particiones.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Ejemplo de particionado para un disco de &lt;span class="caps"&gt;8GB&lt;/span&gt;.&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;En un entorno real, donde dispongamos del espacio suficiente:&lt;/p&gt;
+&lt;p&gt;En un entorno real, disponiendo del espacio suficiente:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partición swap.&lt;/strong&gt; La &lt;em&gt;wiki&lt;/em&gt; de &lt;em&gt;Antergos&lt;/em&gt; recomienda &lt;strong&gt;2 &lt;span class="caps"&gt;GB&lt;/span&gt; (2048 &lt;span class="caps"&gt;MB&lt;/span&gt;)&lt;/strong&gt;
 para la &lt;em&gt;swap&lt;/em&gt;.&lt;/p&gt;
@@ -345,7 +345,7 @@ para la &lt;em&gt;swap&lt;/em&gt;.&lt;/p&gt;
 función de hibernar, nos conviene tener una cantidad similar a la  de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partición root (/)&lt;/strong&gt;. Con unos &lt;strong&gt;18-20 &lt;span class="caps"&gt;GB&lt;/span&gt; (18432-2480 &lt;span class="caps"&gt;MB&lt;/span&gt;)&lt;/strong&gt; para la
-partición &lt;em&gt;root&lt;/em&gt; debería estar bien.&lt;/p&gt;
+partición &lt;em&gt;root&lt;/em&gt; no debería haber problema.&lt;/p&gt;
 &lt;p&gt;Aquí se almacena todo el software instalado, por lo que también depende del
 volumen de programas que manejemos.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Nota para usuarios de software de virtualización&lt;/strong&gt;: recién instalada ocupa
@@ -369,17 +369,15 @@ o en &lt;strong&gt;/mnt/NombreParticion&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="revision-del-particionado-cargador-de-arranque"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id38"&gt;Revisión del particionado &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; cargador de arranque&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Una vez realizadas las particiones convenientes, nos encontraríamos con algo
-como esto:&lt;/p&gt;
+&lt;p&gt;Una vez realizadas las particiones convenientes, nos encontramos con algo como esto:&lt;/p&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Esquema final de particionado de los discos" src="http://soulchainer.github.io/images/2014/01/2014-01-21_17.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
-&lt;p class="caption"&gt;Si alguno de nuestros discos es &lt;span class="caps"&gt;SSD&lt;/span&gt; &lt;a class="footnote-reference" href="#id25" id="id12"&gt;[12]&lt;/a&gt;, marcaremos la casilla correspondiente.&lt;/p&gt;
+&lt;p class="caption"&gt;Si alguno de nuestros discos es &lt;span class="caps"&gt;SSD&lt;/span&gt; &lt;a class="footnote-reference" href="#id25" id="id12"&gt;[12]&lt;/a&gt;, marcamos la casilla correspondiente.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Está todo en orden y el desplegable referido a la instalación del
 &lt;em&gt;cargador de arranque&lt;/em&gt; indica el disco en el que hemos creado la partición
 &lt;em&gt;root&lt;/em&gt;… &lt;strong&gt;¡Instalar ahora!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Un vistazo rápido de confirmación a los cambios que vamos a hacer en los
-discos y pasamos a los…&lt;/p&gt;
+&lt;p&gt;Un vistazo rápido a los cambios que vamos a hacer en los discos y pasamos a los…&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ajustes-finales"&gt;
@@ -407,21 +405,21 @@ demasiado &lt;em&gt;curiosas&lt;/em&gt; o &lt;em&gt;graciosas&lt;/em&gt;.&lt;/di
 &lt;div class="section" id="acabando"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id40"&gt;Acabando&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Después de introducir los datos para la creación de nuestro usuario empieza el
-proceso de instalación en sí, en el que &lt;em&gt;Antergos&lt;/em&gt; se copia en el disco duro.
+proceso de instalación en sí, en el que &lt;em&gt;Antergos&lt;/em&gt; se copia al disco duro.
 Esperamos pacientemente hasta que termine, lo cual puede llevar varios minutos.&lt;/p&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Tras unos minutos de espera, Antergos termina de instalarse." src="http://soulchainer.github.io/images/2014/01/2014-01-21_21.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Yatta!!&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Aceptamos, sin olvidarnos de extraer el medio con &lt;em&gt;Antergos&lt;/em&gt; antes de que se
-cargue de nuevo al iniciar.&lt;/p&gt;
+cargue de nuevo al reiniciar.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="inicio-de-antergos"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id41"&gt;Inicio de Antergos&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Si no fuimos lo bastante rápidos, nos basta con escoger la segunda opción del
-menú de inicio de &lt;em&gt;Antergos&lt;/em&gt;, para que arranque desde disco duro: ya
-extraeremos el medio una vez inicie.&lt;/p&gt;
+menú de inicio de &lt;em&gt;Antergos&lt;/em&gt; para que arranque desde disco duro: ya
+extraeremos el medio después.&lt;/p&gt;
 &lt;p&gt;Por fin, podemos arrancar nuestro sistema :D&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Cargador de arranque, con las entradas de los SO disponibles." src="http://soulchainer.github.io/images/2014/01/2014-01-21_22.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
@@ -436,7 +434,7 @@ también.&lt;/div&gt;
 &lt;img alt="Escritorio de Antergos, recién instalado, con Openbox." src="http://soulchainer.github.io/images/2014/01/2014-01-21_23.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;"Estoy dentro"&lt;/strong&gt; - Trinity dixit.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Y eso es todo por ahora. En la &lt;strong&gt;segunda parte&lt;/strong&gt; del artículo, trataré la
+&lt;p&gt;Y eso es todo por ahora. En la &lt;strong&gt;segunda parte&lt;/strong&gt; del artículo trataré la
 &lt;strong&gt;configuración de Openbox&lt;/strong&gt; y/o &lt;strong&gt;la configuración básica del sistema&lt;/strong&gt;. Aún
 no lo tengo decidido. Hasta dentro de una semana o así, pues ;)&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
@@ -447,7 +445,7 @@ no lo tengo decidido. Hasta dentro de una semana o así, pues ;)&lt;/p&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id43"&gt;Requisitos&lt;/a&gt;&lt;/h3&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;Una memoria &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;, formateada en
-&lt;em&gt;&lt;span class="caps"&gt;FAT16&lt;/span&gt;/&lt;span class="caps"&gt;FAT32&lt;/span&gt; (opción recomendada)/&lt;span class="caps"&gt;NTFS&lt;/span&gt; (inestable)&lt;/em&gt;, a partir de  &lt;em&gt;1 &lt;span class="caps"&gt;GB&lt;/span&gt;&lt;/em&gt; de
+&lt;em&gt;&lt;span class="caps"&gt;FAT16&lt;/span&gt;/&lt;span class="caps"&gt;FAT32&lt;/span&gt; (opción recomendada)/&lt;span class="caps"&gt;NTFS&lt;/span&gt; (inestable)&lt;/em&gt; y con &lt;em&gt;1 &lt;span class="caps"&gt;GB&lt;/span&gt;&lt;/em&gt; o más de
 capacidad (aproximadamente).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/openSUSE/imagewriter/"&gt;Suse Image Writer&lt;/a&gt;, por su sencillez y &lt;strong&gt;efectividad&lt;/strong&gt; &lt;a class="footnote-reference" href="#id26" id="id13"&gt;[13]&lt;/a&gt;.&lt;/p&gt;
@@ -470,16 +468,16 @@ capacidad (aproximadamente).&lt;/p&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id44"&gt;Crear el &lt;span class="caps"&gt;USB&lt;/span&gt; autoarrancable&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="con-suse-image-writer"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id45"&gt;Con Suse Image Writer&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;El proceso de creación es , tanto en &lt;em&gt;Windows&lt;/em&gt; como en &lt;strong&gt;Linux&lt;/strong&gt;, muy sencillo:&lt;/p&gt;
+&lt;p&gt;El proceso de creación, tanto en &lt;em&gt;Windows&lt;/em&gt; como en &lt;strong&gt;Linux&lt;/strong&gt;, es muy sencillo:&lt;/p&gt;
 &lt;ol class="arabic"&gt;
-&lt;li&gt;&lt;p class="first"&gt;Ejecutamos la aplicación. En &lt;strong&gt;Linux&lt;/strong&gt; hemos de hacerlo con permisos de administrador:&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;Ejecutamos la aplicación. En &lt;strong&gt;Linux&lt;/strong&gt; necesitamos permisos de administrador:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo imagewriter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Pulsamos &lt;em&gt;select&lt;/em&gt; y elegimos la imagen &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt; a grabar. O bien, simplemente
 arrastramos y soltamos el archivo en la ventana.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;En el desplegable de la parte inferior, elegimos el dispositio &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; en el
+&lt;li&gt;&lt;p class="first"&gt;En el desplegable de la parte inferior elegimos el dispositio &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; en el
 que queremos escribir la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 600px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Suse Image Writer, preparado para escribir la ISO en la memoria USB." src="http://soulchainer.github.io/images/2014/01/2014-01-21_24.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
@@ -487,7 +485,7 @@ que queremos escribir la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Pulsamos &lt;em&gt;Write&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Si la memoria se encontraba montada, nos pregunta sí queremos desmontarla
+&lt;li&gt;&lt;p class="first"&gt;Si la memoria se encuentra montada nos preguntará sí queremos desmontarla
 para proceder a la escritura. Le decimos que &lt;em&gt;Yes&lt;/em&gt; y le repetimos que &lt;em&gt;&lt;span class="caps"&gt;OK&lt;/span&gt;&lt;/em&gt;,
 que queremos sobreescribir los datos de esa memoria.&lt;/p&gt;
 &lt;/li&gt;
@@ -535,7 +533,7 @@ con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:&
 &lt;table class="docutils footnote" frame="void" id="id15" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Apuntes basados en &lt;a class="reference external" href="http://aps2.toshiba-tro.de/kb0/TSB2B03F30002R01ES.htm"&gt;un boletín de servicio técnico&lt;/a&gt; de &lt;em&gt;Toshiba&lt;/em&gt;. &lt;strong&gt;Hay que tener mucho cuidado con &lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt;. Busca documentación específica de tu fabricante.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Apuntes basados en &lt;a class="reference external" href="http://aps2.toshiba-tro.de/kb0/TSB2B03F30002R01ES.htm"&gt;un boletín de servicio técnico&lt;/a&gt; de &lt;em&gt;Toshiba&lt;/em&gt;. &lt;strong&gt;Hay que tener mucho cuidado con la &lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt;. Busca documentación específica de tu fabricante.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table class="docutils footnote" frame="void" id="id16" rules="none"&gt;
@@ -583,7 +581,7 @@ con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:&
 &lt;table class="docutils footnote" frame="void" id="id23" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id10"&gt;[10]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Partición necesaria para arrancar en sistemas basados en &lt;em&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/em&gt; donde el dispositivo desde el que arranca el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt; tiene una tabla &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id10"&gt;[10]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Partición necesaria para arrancar en sistemas basados en &lt;em&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/em&gt; cuando el dispositivo desde el que arranca el &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt; tiene una tabla &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table class="docutils footnote" frame="void" id="id24" rules="none"&gt;
