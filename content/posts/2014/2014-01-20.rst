@@ -14,7 +14,7 @@ Antergos paso a paso (I): instalación básica
             Estuve pensando un poco qué distribución usar. Barajé ponerle la
             misma que a mi hermana (Crunchbang), pero rápidamente lo descarté:
             quería probar algo nuevo. Además, una vez te haces al rollo rolling
-            release, no quieres probar otra cosa.
+            release no quieres probar otra cosa.
 
             Así que buceé en DistroWatch...
 :twimg: 2014-01-21_01.png
@@ -55,7 +55,7 @@ traduce en jugar al solitario y revisar el correo).
 
 Estuve pensando un poco qué distribución usar. Barajé ponerle la misma
 que a mi hermana (`Crunchbang`_), pero rápidamente lo descarté: quería probar
-algo nuevo. Además, una vez te haces al rollo **rolling release** [#]_, no
+algo nuevo. Además, una vez te haces al rollo **rolling release** [#]_ no
 quieres probar otra cosa.
 
 {END_SUMMARY}
@@ -72,7 +72,7 @@ En **DistroWatch** dicen de ella:
   GNOME 3 (por defecto), a Cinnamon, a Razor-qt y a Xfce. Antergos también
   provee su propio programa gráfico de instalación.
 
-Y aquí estoy, escribiendo esta pequeña biblia, con la esperanza de que pueda
+Y aquí estoy, escribiendo esta pequeña biblia con la esperanza de que pueda
 resultarle de ayuda a alguien. Aunque sea para conciliar el sueño en una larga
 noche de tormenta. Aunque sólo la lea **esa pequeña blogger** que responde por
 `Beelzenef`_ (me motiva mucho saber que al menos ella intentará leerla ñ_ñ).
@@ -240,8 +240,8 @@ Esta opción es bastante personal. Tenemos varias opciones:
   el equipo como servidor o si quieres instalar un entorno no incluido en la
   lista, como `KDE`_ o `Mate`_.
 - `Cinnamon`_. Fork [#]_ de *GNOME 3*. Su objetivo es permitirnos sacar
-  provecho de las novedades de *GNOME 3* sin necesidad de sacrificar el tan
-  apreciado interfaz de *GNOME 2*. Es el que elegí para mi padre: un entorno
+  provecho de las novedades de *GNOME 3* sin necesidad de sacrificar la tan
+  apreciada interfaz de *GNOME 2*. Es el que elegí para mi padre: un entorno
   viejo por fuera, pero nuevo por dentro. Ideal para alguien acostumbrado al
   viejo *XP* y reacio al más mínimo cambio (sigo en fase de persuasión).
 - `Gnome`_ (**3**). Entorno por defecto de *Antergos*. Tras el brusco cambio
@@ -256,8 +256,8 @@ Esta opción es bastante personal. Tenemos varias opciones:
 - `Razor-qt`_. Entorno basado en `Qt`_, como *KDE*, que nos ofrece un entorno
   más ligero y simple que este último. De todos, es el único del que no puedo
   hablar con conocimiento de causa. En cualquier caso, de acuerdo con la wiki
-  de *Archlinux*, parece que `en breve se fusionará`_ con `LXDE`_, dando lugar
-  a *LXDE-Qt*.
+  de *Archlinux*, parece ser que `en breve se fusionará`_ con `LXDE`_, dando
+  lugar a *LXDE-Qt*.
 - `Xfce`_. Otro entorno que pretende ser ligero a la vez que completo.
   Históricamente (antes de que llegara *Mate*) ha sido la primera opción para
   aquellos que querían obtener la funcionalidad de *Gnome 2* sin sacrificar el
@@ -297,9 +297,9 @@ Si no se escoge el *modo avanzado*, *Cnchi* cambia automáticamente el estilo de
 la partición a *MBR*.
 
 **Si quieres usar un disco con tabla de particiones GPT** [#]_
-**bajo un sistema BIOS. tienes que elegir el modo avanzado**.
+**bajo un sistema BIOS, tienes que elegir el modo avanzado**.
 
-Además, de ser ese es el caso, el `GRUB`_ [#]_ **necesita una**
+Además, de ser ese el caso, `GRUB`_ [#]_ **necesita una**
 `partición para el arranque de la BIOS`_ [#]_. Pero
 **Cnchi no es capaz de hacerla aún, por lo que tenemos que usar GParted**
 **para ello**.
@@ -338,7 +338,7 @@ Aquí pueden darse dos casos que requieren acciones adicionales:
         **Botón derecho en partición → Redimensionar/mover** y declaramos el
         **Espacio libre precedente** correspondiente.
 
-Una vez tenemos el espacio libre, ya podemos crear la partición.
+Una vez tenemos el espacio libre, podemos crear la partición.
 
 .. figure:: {filename}/images/2014/01/2014-01-21_14.png
     :alt: Creando la partición para el arranque de la BIOS.
@@ -360,13 +360,13 @@ Tras esto, ya podemos continuar donde lo dejamos con *Cnchi*.
 Particionado avanzado
 ---------------------
 
-Si optaste por usar una tabla de particiones *GPT* (si partes de cero, es
+Si optaste por usar una tabla de particiones *GPT* (si partes de cero es
 aconsejable), ya tendrás creada dicha tabla tras el apartado anterior. En caso
 contrario (vas a usar una tabla *MBR*), la creamos
 (**Nueva tabla de partición → Tipo de tabla de partición: msdos (aka MBR) → Aceptar**).
 
 Yo voy a optar por la *GPT*, pero el proceso de particionado restante es
-idéntico al de una tabla *MBR* [#]_.
+idéntico con una tabla *MBR* [#]_.
 
 Vamos seleccionando el *espacio libre* restante y pulsando en *Añadir* para ir
 agregando las sucesivas particiones.
@@ -379,7 +379,7 @@ agregando las sucesivas particiones.
 
     Ejemplo de particionado para un disco de 8GB.
 
-En un entorno real, donde dispongamos del espacio suficiente:
+En un entorno real, disponiendo del espacio suficiente:
 
 - **Partición swap.** La *wiki* de *Antergos* recomienda **2 GB (2048 MB)**
   para la *swap*.
@@ -387,7 +387,7 @@ En un entorno real, donde dispongamos del espacio suficiente:
   Ese tamaño está bien, aunque si nos sobra espacio y queremos configurar la
   función de hibernar, nos conviene tener una cantidad similar a la  de *RAM*.
 - **Partición root (/)**. Con unos **18-20 GB (18432-2480 MB)** para la
-  partición *root* debería estar bien.
+  partición *root* no debería haber problema.
 
   Aquí se almacena todo el software instalado, por lo que también depende del
   volumen de programas que manejemos.
@@ -415,21 +415,21 @@ o en **/mnt/NombreParticion**.
 Revisión del particionado & cargador de arranque
 -------------------------------------------------
 
-Una vez realizadas las particiones convenientes, nos encontraríamos con algo
-como esto:
+Una vez realizadas las particiones convenientes, nos encontramos con algo como
+esto:
 
 .. figure:: {filename}/images/2014/01/2014-01-21_17.png
     :alt: Esquema final de particionado de los discos
 
-    Si alguno de nuestros discos es SSD [#]_, marcaremos la casilla
+    Si alguno de nuestros discos es SSD [#]_, marcamos la casilla
     correspondiente.
 
 Está todo en orden y el desplegable referido a la instalación del
 *cargador de arranque* indica el disco en el que hemos creado la partición
 *root*... **¡Instalar ahora!**
 
-Un vistazo rápido de confirmación a los cambios que vamos a hacer en los
-discos y pasamos a los...
+Un vistazo rápido a los cambios que vamos a hacer en los discos y pasamos a
+los...
 
 Ajustes finales
 ===============
@@ -460,7 +460,7 @@ Acabando
 ========
 
 Después de introducir los datos para la creación de nuestro usuario empieza el
-proceso de instalación en sí, en el que *Antergos* se copia en el disco duro.
+proceso de instalación en sí, en el que *Antergos* se copia al disco duro.
 Esperamos pacientemente hasta que termine, lo cual puede llevar varios minutos.
 
 .. figure:: {filename}/images/2014/01/2014-01-21_21.png
@@ -469,15 +469,15 @@ Esperamos pacientemente hasta que termine, lo cual puede llevar varios minutos.
     **Yatta!!**
 
 Aceptamos, sin olvidarnos de extraer el medio con *Antergos* antes de que se
-cargue de nuevo al iniciar.
+cargue de nuevo al reiniciar.
 
 ******************
 Inicio de Antergos
 ******************
 
 Si no fuimos lo bastante rápidos, nos basta con escoger la segunda opción del
-menú de inicio de *Antergos*, para que arranque desde disco duro: ya
-extraeremos el medio una vez inicie.
+menú de inicio de *Antergos* para que arranque desde disco duro: ya
+extraeremos el medio después.
 
 Por fin, podemos arrancar nuestro sistema :D
 
@@ -498,7 +498,7 @@ Introducimos nuestro usuario y contraseña y...
 
     **"Estoy dentro"** - Trinity dixit.
 
-Y eso es todo por ahora. En la **segunda parte** del artículo, trataré la
+Y eso es todo por ahora. En la **segunda parte** del artículo trataré la
 **configuración de Openbox** y/o **la configuración básica del sistema**. Aún
 no lo tengo decidido. Hasta dentro de una semana o así, pues ;)
 
@@ -514,7 +514,7 @@ Requisitos
 ==========
 
 1. Una memoria *USB*, formateada en
-   *FAT16/FAT32 (opción recomendada)/NTFS (inestable)*, a partir de  *1 GB* de
+   *FAT16/FAT32 (opción recomendada)/NTFS (inestable)* y con *1 GB* o más de
    capacidad (aproximadamente).
 2. `Suse Image Writer`_, por su sencillez y **efectividad** [#]_.
 
@@ -534,9 +534,9 @@ Crear el USB autoarrancable
 Con Suse Image Writer
 ---------------------
 
-El proceso de creación es , tanto en *Windows* como en **Linux**, muy sencillo:
+El proceso de creación, tanto en *Windows* como en **Linux**, es muy sencillo:
 
-1. Ejecutamos la aplicación. En **Linux** hemos de hacerlo con permisos de
+1. Ejecutamos la aplicación. En **Linux** necesitamos permisos de
    administrador:
 
    .. code-block:: sh
@@ -545,14 +545,14 @@ El proceso de creación es , tanto en *Windows* como en **Linux**, muy sencillo:
 
 2. Pulsamos *select* y elegimos la imagen *ISO* a grabar. O bien, simplemente
    arrastramos y soltamos el archivo en la ventana.
-3. En el desplegable de la parte inferior, elegimos el dispositio *USB* en el
+3. En el desplegable de la parte inferior elegimos el dispositio *USB* en el
    que queremos escribir la *ISO*
 
    .. figure:: {filename}/images/2014/01/2014-01-21_24.png
     :alt: Suse Image Writer, preparado para escribir la ISO en la memoria USB.
 
 4. Pulsamos *Write*.
-5. Si la memoria se encontraba montada, nos pregunta sí queremos desmontarla
+5. Si la memoria se encuentra montada nos preguntará sí queremos desmontarla
    para proceder a la escritura. Le decimos que *Yes* y le repetimos que *OK*,
    que queremos sobreescribir los datos de esa memoria.
 6. Esperamos a que la barra de progreso de escritura se complete.
@@ -639,7 +639,7 @@ Y ya estamos listos para arrancar la *ISO* vía *USB*.
 ----
 
 .. [#] *Rolling release* es sinónimo de comodidad y vanguardia. Se instala el sistema una única vez (*de verdad*) y se dejan en el pasado las grandes actualizaciones con cada nueva versión liberada. Un único comando, ejecutado periódicamente, y estás siempre actualizado.
-.. [#] Apuntes basados en `un boletín de servicio técnico`_ de *Toshiba*. **Hay que tener mucho cuidado con UEFI**. Busca documentación específica de tu fabricante.
+.. [#] Apuntes basados en `un boletín de servicio técnico`_ de *Toshiba*. **Hay que tener mucho cuidado con la UEFI**. Busca documentación específica de tu fabricante.
 .. [#] **Sistema Operativo**.
 .. [#] **Unified Extensible Firmware Interface (Interfaz Extensible del Firmware Unificada)**. Especificación dirigida a reemplazar al *BIOS*. Actua como puente entre el *SO* y el firmware base.
 .. [#] **Master Boot Record (Registro de Arranque Maestro)**. Primer sector de un dispositivo de almacenamiento. Contiene el gestor de arranque y la tabla de particiones.
@@ -647,7 +647,7 @@ Y ya estamos listos para arrancar la *ISO* vía *USB*.
 .. [#] **Gestor de ventanas**. Programa encargado de controlar la ubicación y apariencia de las ventanas en una interfaz gráfica de usuario. *Openbox* en un **Gestor de ventanas en modo flotante** (pueden superponerse unas ventanas con otras).
 .. [#] **Tabla de particiones GUID (GPT)**. Estándar para la colocación de la tabla de particiones en un disco duro. Parte de la *UEFI*, *GPT* sustituye al *MBR*.
 .. [#] Cargador de arranque usado en *Antergos*. Carga el *SO*.
-.. [#] Partición necesaria para arrancar en sistemas basados en *BIOS* donde el dispositivo desde el que arranca el *SO* tiene una tabla *GPT*.
+.. [#] Partición necesaria para arrancar en sistemas basados en *BIOS* cuando el dispositivo desde el que arranca el *SO* tiene una tabla *GPT*.
 .. [#] Con la salvedad de que en *GPT* podemos tener todas las particiones primarias que queramos, mientras que en *MBR* podemos tener sólo cuatro, o tres y una extendida (con un número indeterminado de lógicas).
 .. [#] **Solid-State Drive (Unidad de Estado Sólido)**. Dispositivo de almacenamiento que usa una memoria no volátil para almacenar datos de forma persistente. Son menos sensibles a los golpes, prácticamente inaudibles y más rápidas que los discos duros convencionales.
 .. [#] Ciertas herramientas de creación de *Live USB* alteran las etiquetas de particiones incluidas en la *ISO* de *Antergos*, imposibilitando su arranque. La `wiki`_ de la distro `recomienda`_ evitar su uso.
