@@ -68,7 +68,8 @@ considero debe estar funcionando desde &lt;strong&gt;&lt;span class="caps"&gt;YA
 &lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/"&gt;la primera parte del tutorial&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 … hay que perderle el miedo a la consola.&lt;/blockquote&gt;
-&lt;p&gt;Para el usuario medio/avanzado de &lt;strong&gt;Linux&lt;/strong&gt;, la consola es una pieza vital del
+&lt;p&gt;
+Para el usuario medio/avanzado de &lt;strong&gt;Linux&lt;/strong&gt;, la consola es una pieza vital del
 sistema. Es cierto que si se quiere se puede evitar su uso recurriendo a
 interfaces gráficas, pero conocer bien la terminal es fundamental: nos hará
 más productivos. Además de que nos puede sacar de un apuro en más de una ocasión.&lt;/p&gt;
@@ -79,7 +80,6 @@ más productivos. Además de que nos puede sacar de un apuro en más de una oca
 panel (útil en caso de tener una ventana maximizada).&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;O bien con el atajo predefinido en &lt;em&gt;Openbox&lt;/em&gt;: &lt;strong&gt;Super + T&lt;/strong&gt; &lt;a class="footnote-reference" href="#id13" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.pleyades.net/david/projects/sakura/"&gt;Sakura&lt;/a&gt;, emulador de terminal por defecto en &lt;em&gt;Antergos&lt;/em&gt;, sustituye la
 típica barra de menús con un completo menú contextual.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 736px; height: auto; max-width: 100%;"&gt;
@@ -381,7 +381,7 @@ emplea para sus búsquedas:&lt;/p&gt;
 &lt;em&gt;una tarea programada&lt;/em&gt; a tal efecto en &lt;code&gt;/etc/cron.daily&lt;/code&gt; (que se ejecuta
 diariamente). Sólo tendremos que recurrir a &lt;code&gt;updatedb&lt;/code&gt; cuando queramos
 localizar algo que se encuentre entre archivos creados hoy mismo.&lt;/p&gt;
-&lt;p&gt;El uso de &lt;code&gt;locate&lt;/code&gt; es muy transparente:&lt;/p&gt;
+&lt;p&gt;El uso de &lt;code&gt;locate&lt;/code&gt; es transparente:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;locate texto_en_el_archivo_y_o_ruta
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Y nos lista todas las rutas de archivos que coincidan con el término de
