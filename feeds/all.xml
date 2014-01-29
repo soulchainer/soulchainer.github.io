@@ -1,5 +1,588 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-21T10:00:00+01:00</updated><entry><title>Antergos paso a paso (I): instalación básica</title><link href="http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/" rel="alternate"></link><updated>2014-01-21T10:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-21:posts/2014/01/21/antergos-tutorial-parte1/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-29T21:00:00+01:00</updated><entry><title>Antergos paso a paso (II): configuración esencial</title><link href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/" rel="alternate"></link><updated>2014-01-29T21:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-29:posts/2014/01/29/antergos-tutorial-parte2/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#introduccion" id="id21"&gt;Introducción&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#la-terminal-una-herramienta-para-gobernarlas-a-todas" id="id22"&gt;La terminal: una herramienta para gobernarlas a todas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#red" id="id23"&gt;Red&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#wifi" id="id24"&gt;WiFi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configurar-el-cortafuegos-ufw" id="id25"&gt;Configurar el cortafuegos (ufw)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#el-gestor-de-paquetes" id="id26"&gt;El gestor de paquetes&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#pacman" id="id27"&gt;Pacman&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#yaourt" id="id28"&gt;Yaourt&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion" id="id29"&gt;Instalación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#uso-diario" id="id30"&gt;Uso diario&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#repositorios" id="id31"&gt;Repositorios&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#pacmanxg" id="id32"&gt;PacmanXG&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#buscar-archivos-consola" id="id33"&gt;Buscar archivos (consola)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#impresoras" id="id34"&gt;Impresoras&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#escaneres" id="id35"&gt;Escáneres&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#simple-scan" id="id36"&gt;Simple Scan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#escanear-con-gimp" id="id37"&gt;Escanear con &lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#proxima-parte" id="id38"&gt;Próxima parte&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 1  Introducción
+2  La terminal: una herramienta para gobernarlas a todas
+3  Red
+  3.1 WiFi
+  3.2 Configurar el firewall (ufw)
+4  El gestor de paquetes
+  4.1  Pacman
+  4.2  Yaourt
+    4.2.1  Instalación
+    4.2.2  Uso diario
+  4.3  Repositorios
+  4.4  PacmanXG
+5  Buscar archivos (consola)
+6  Impresoras
+7  Escáneres
+  6.1  Simple Scan
+  6.2  Escanear con GIMP
+8  Próxima parte --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Logo y eslogan de &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Bueno, ya tenemos instalada &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;. Y ahora, ¿qué?&lt;/p&gt;
+&lt;div class="section" id="introduccion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;Introducción&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pues lo primero es lo primero. Y tras la instalación del sistema operativo, es
+el turno de la &lt;strong&gt;configuración esencial&lt;/strong&gt; del sistema: todo aquello que
+considero debe estar funcionando desde &lt;strong&gt;&lt;span class="caps"&gt;YA&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;La personalización del aspecto y todas esas pijaditas quedan pues relegadas al
+último lugar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="la-terminal-una-herramienta-para-gobernarlas-a-todas"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;La terminal: una herramienta para gobernarlas a todas&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Como ya comenté en
+&lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/"&gt;la primera parte del tutorial&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+… hay que perderle el miedo a la consola.&lt;/blockquote&gt;
+&lt;p&gt;
+Para el usuario medio/avanzado de &lt;strong&gt;Linux&lt;/strong&gt;, la consola es una pieza vital del
+sistema. Es cierto que si se quiere se puede evitar su uso recurriendo a
+interfaces gráficas, pero conocer bien la terminal es fundamental: nos hará
+más productivos. Además de que nos puede sacar de un apuro en más de una ocasión.&lt;/p&gt;
+&lt;p&gt;Podemos lanzarla desde el menú contextual de &lt;a class="reference external" href="http://openbox.org/"&gt;Openbox&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 534px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Menú contextual de Openbox, con foco en la entrada para el emulador de terminal." src="http://soulchainer.github.io/images/2014/01/2014-01-27_02.png" style="width: 534px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;El menú contextual aparece haciendo clic derecho en el escritorio o en el
+panel (útil en caso de tener una ventana maximizada).&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;O bien con el atajo predefinido en &lt;em&gt;Openbox&lt;/em&gt;: &lt;strong&gt;Super + T&lt;/strong&gt; &lt;a class="footnote-reference" href="#id13" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.pleyades.net/david/projects/sakura/"&gt;Sakura&lt;/a&gt;, emulador de terminal por defecto en &lt;em&gt;Antergos&lt;/em&gt;, sustituye la
+típica barra de menús con un completo menú contextual.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 736px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Sakura, emulador de terminal por defecto en Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-27_03.png" style="width: 736px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="http://www.pleyades.net/david/projects/sakura/"&gt;Sakura&lt;/a&gt; tras una leve personalización.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Si necesitamos ahondar más en la configuración, podemos revisar el archivo
+&lt;code&gt;~/.config/sakura/sakura.conf&lt;/code&gt; &lt;a class="footnote-reference" href="#id14" id="id2"&gt;[2]&lt;/a&gt;. Por ejemplo, para modificar los
+atajos de teclado.&lt;/p&gt;
+&lt;p&gt;En un principio, estos últimos son (extraído del manual de &lt;em&gt;Sakura&lt;/em&gt;,
+&lt;code&gt;man sakura&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Ctrl + Shift + T                 → Nueva pestaña
+Ctrl + Shift + W                 → Cerrar pestaña
+Ctrl + Shift + C                 → Copiar texto
+Ctrl + Shift + V                 → Pegar texto
+Alt  + ←                        → Pestaña anterior
+Alt  + →                        → Siguiente pestaña
+Alt  + &lt;span class="o"&gt;[&lt;/span&gt;1-9&lt;span class="o"&gt;]&lt;/span&gt;                     → Ir a la pestaña N &lt;span class="o"&gt;(&lt;/span&gt;1-9&lt;span class="o"&gt;)&lt;/span&gt;
+Ctrl + Shift + S                 → Mostar/ocultar barra de desplazamiento
+Ctrl + Shift + Botón izdo ratón  → Abrir link
+F11                              → Pantalla completa
+Shift + Avpag                    → Avanzar página a página &lt;span class="o"&gt;(&lt;/span&gt;de texto en consola&lt;span class="o"&gt;)&lt;/span&gt;
+Shift + Repag                    → Retroceder página a página
+Ctrl + Shift + ↑                → Retroceder línea a línea
+Ctrl + Shift + ↓                → Avanzar línea a línea
+Ctrl + &lt;span class="s1"&gt;'+'&lt;/span&gt;                       → Aumentar el tamaño del texto
+Ctrl + &lt;span class="s1"&gt;'-'&lt;/span&gt;                       → Disminuir el tamaño del texto
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="red"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;Red&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Acabamos de echar un vistazo a la terminal, pero antes de empezar a
+toquetearla vamos a revisar &lt;strong&gt;de pasada&lt;/strong&gt; un par de aspectos sobre la red:
+disponer de conexión es relevante para &lt;a class="reference internal" href="#el-siguiente-apartado"&gt;el siguiente apartado&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="wifi"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;WiFi&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Dada su potencial complejidad, es muy difícil tratar el tema de la conectividad
+&lt;em&gt;wireless&lt;/em&gt; de forma breve y definitiva. Por ello, me limitaré a cubrir el
+supuesto más sencillo: nuestra tarjeta inalámbrica está perfectamente soportada
+y funciona nada más encender el equipo.&lt;/p&gt;
+&lt;p&gt;En ese caso, podemos acudir al &lt;em&gt;applet&lt;/em&gt; de &lt;a class="reference external" href="https://wiki.gnome.org/Projects/NetworkManager/"&gt;Network Manager&lt;/a&gt; para conectarnos
+a la red inalámbrica.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 353px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="nm-applet, applet de Network Manager, en la bandeja del sistema." src="http://soulchainer.github.io/images/2014/01/2014-01-27_14.png" style="width: 353px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;code&gt;nm-applet&lt;/code&gt;, applet de Network Manager, en la bandeja del sistema.&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;strong&gt;Editar las conexiones…&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;O bien, de forma más directa, lanzando &lt;code&gt;nm-connection-editor&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 537px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Elección de la conexión de red que queremos añadir, en nuestro caso, una inalámbrica." src="http://soulchainer.github.io/images/2014/01/2014-01-27_15.png" style="width: 537px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Añadir → Inalámbrica → Crear…&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Su configuración es muy simple:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Establecemos el &lt;strong&gt;Nombre de la conexión&lt;/strong&gt; en el campo homónimo.&lt;/li&gt;
+&lt;li&gt;Añadimos el identificador de la red a la que nos queremos conectar en el
+campo &lt;strong&gt;&lt;span class="caps"&gt;SSID&lt;/span&gt;&lt;/strong&gt; de la pestaña &lt;strong&gt;Inalámbrica&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;En la pestaña de &lt;strong&gt;Seguridad inalámbrica&lt;/strong&gt; indicamos la susodicha de la red
+deseada, así como su usuario/contraseña, de ser necesario.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="figure" style="width: 537px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Configuración de la conexión inalámbrica." src="http://soulchainer.github.io/images/2014/01/2014-01-27_16.gif" style="width: 537px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Configuración de la conexión inalámbrica.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configurar-el-cortafuegos-ufw"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Configurar el cortafuegos (ufw)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Antergos&lt;/em&gt; nos permite configurar fácilmente un cortafuegos vía &lt;a class="reference external" href="http://gufw.org/"&gt;gufw&lt;/a&gt;, una
+&lt;span class="caps"&gt;GUI&lt;/span&gt; &lt;a class="footnote-reference" href="#id15" id="id3"&gt;[3]&lt;/a&gt; para &lt;a class="reference external" href="https://launchpad.net/ufw"&gt;ufw&lt;/a&gt;
+(&lt;strong&gt;Uncomplicated FireWall, un cortafuegos sin complicaciones&lt;/strong&gt;).&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 373px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Gufw activado, con el perfil Casa." src="http://soulchainer.github.io/images/2014/01/2014-01-27_17.png" style="width: 373px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;em&gt;gufw&lt;/em&gt; está desactivado por defecto. ¿El motivo? Su configuración inicial
+bloquea todas las conexiones entrantes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Su uso es similar al de cualquier cortafuegos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Si es la primera vez que lo ejecutamos, lo activamos haciendo click en
+&lt;strong&gt;Estado&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Tarda un poco en aplicarse, pero sólo hay que hacerlo una vez: arrancará sólo
+en el próximo inicio.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Establecemos el perfil deseado.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Decidimos si queremos &lt;strong&gt;Permitir&lt;/strong&gt;, &lt;strong&gt;Denegar&lt;/strong&gt; o &lt;strong&gt;Rechazar&lt;/strong&gt; las conexiones
+entrantes y salientes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Creamos las reglas necesarias (&lt;strong&gt;Reglas → +&lt;/strong&gt;).&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 603px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Visor de reglas e informes de escucha." src="http://soulchainer.github.io/images/2014/01/2014-01-27_18.png" style="width: 603px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;También podemos crear una regla directamente desde un informe de escucha,
+seleccionándolo y pulsando &lt;strong&gt;+&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Si queremos aceptar conexiones entrantes (el ejemplo más popular es el de los
+programas de descarga &lt;strong&gt;&lt;span class="caps"&gt;P2P&lt;/span&gt;&lt;/strong&gt;), necesitamos establecer estos permisos. &lt;em&gt;Gufw&lt;/em&gt;
+cuenta con un apartado de &lt;strong&gt;reglas preconfiguradas&lt;/strong&gt; muy claro.&lt;/p&gt;
+&lt;div class="figure" style="width: 618px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Configuración de reglas para el cortafuegos." src="http://soulchainer.github.io/images/2014/01/2014-01-27_19.gif" style="width: 618px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Avanzada&lt;/strong&gt;: Damos nombre a la regla, indicamos el número de regla
+preferido (por si queremos sobreescribir una anterior), la política
+(&lt;strong&gt;Permitir/Denegar/Rechazar&lt;/strong&gt;), la interfaz (si queremos que se aplique
+sólo a la red cableada o a cierta red &lt;em&gt;WiFi&lt;/em&gt;), el protocolo (si no lo
+tenemos claro, no lo tocamos) y la &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt;/puerto de origen (línea
+&lt;strong&gt;Desde&lt;/strong&gt;) y destino (línea &lt;strong&gt;A&lt;/strong&gt;) de las conexiones. Podemos indicar un
+rango de puertos utilizando la síntaxis &lt;code&gt;NºPUERTOINF:NºPUERTOSUP&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; Al intentar ejecutar &lt;code&gt;gufw&lt;/code&gt;, como he estado trasteando un
+poquillo, no arranca. Si lo ejecuto desde consola me arroja un error. Es al
+reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Gufw needs DBUS service started to run correctly!
+/tmp/alpm_CftMsk/.INSTALL: línea 8: ptintf: no se encontró la orden
+&lt;span class="c"&gt;## &lt;span class="caps"&gt;PLEASE&lt;/span&gt; &lt;span class="caps"&gt;READ&lt;/span&gt; &lt;span class="caps"&gt;BELOW&lt;/span&gt; ##&lt;/span&gt;
+1&lt;span class="o"&gt;)&lt;/span&gt; A workaround was applied to /usr/lib/python2.7/sysconfig.py.
+   Please see: https://bugs.archlinux.org/task/30812 &lt;span class="k"&gt;for &lt;/span&gt;more information
+2&lt;span class="o"&gt;)&lt;/span&gt; Removing this package will reverse this workaround.
+3&lt;span class="o"&gt;)&lt;/span&gt; This workaround will be needed after every python2 update/install,
+   simply re-install gufw package to re-apply the workaround.
+If you know a more clean workaround o propper fix, please share it whit we.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Resumiendo&lt;/strong&gt;: hay un error que impide que &lt;em&gt;gufw&lt;/em&gt; se inicie, error que se
+solventa (automáticamente) parcheando &lt;em&gt;python2.7&lt;/em&gt;. Por ello, mientras no se
+encuentre una solución definitiva,
+&lt;strong&gt;hay que reinstalar gufw cada vez que se actualice o reinstale python2&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="el-gestor-de-paquetes"&gt;
+&lt;span id="el-siguiente-apartado"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;El gestor de paquetes&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="pacman"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Pacman&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure align-center" style="width: 443px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Pac-man © Namco." src="http://soulchainer.github.io/images/2014/01/2014-01-27_04.png" style="width: 443px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Pac-Man (パックマン Pakku Man)&lt;/strong&gt; © &lt;a class="reference external" href="http://www.namco.co.jp/"&gt;Namco&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+No: no hablamos de este Pac-Man.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Pacman_(Espa%C3%B1ol)"&gt;Pacman&lt;/a&gt; es el &lt;em&gt;gestor de paquetes&lt;/em&gt; de &lt;a class="reference external" href="https://www.archlinux.org/"&gt;Archlinux&lt;/a&gt; (recordemos que
+&lt;em&gt;Antergos&lt;/em&gt; nace de ella) y una de sus principales señas de identidad.
+Abreviando, &lt;em&gt;Pacman&lt;/em&gt; permite administrar fácilmente el &lt;em&gt;software&lt;/em&gt; de nuestro
+sistema, ya sea instalado desde los &lt;a class="reference external" href="https://www.archlinux.org/packages/"&gt;repositorios oficiales&lt;/a&gt; &lt;a class="footnote-reference" href="#id16" id="id4"&gt;[4]&lt;/a&gt; de
+&lt;em&gt;Arch&lt;/em&gt; (y de &lt;em&gt;Antergos&lt;/em&gt;) o compilado por nosotros.&lt;/p&gt;
+&lt;p&gt;Con &lt;strong&gt;un único comando&lt;/strong&gt; (aderezado con diversas opciones), podemos  instalar,
+actualizar, configurar y eliminar software de nuestro ordenador.
+&lt;strong&gt;Cómodo y práctico&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Y aquí pasaría a explicar como utilizarlo, pero en lugar de eso os voy a hablar de…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="yaourt"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Yaourt&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 333px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Yogurt. Fotografía de Sodanie Chea." src="http://soulchainer.github.io/images/2014/01/2014-01-27_05.png" style="width: 333px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Yogurt. &lt;a class="reference external" href="http://www.flickr.com/photos/sodaniechea/7218919986/"&gt;Fotografía&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/sodaniechea/7218919986/"&gt;Sodanie Chea&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+¡No! ¡Tampoco hablo de esto!&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://archlinux.fr/yaourt-en"&gt;Yaourt&lt;/a&gt; (&lt;strong&gt;Yet AnOther User Repository Tool&lt;/strong&gt;; &lt;em&gt;Yogurt&lt;/em&gt; en francés) es una
+interfaz de comandos para &lt;em&gt;Pacman&lt;/em&gt;. Facilita su uso y, lo que más nos importa,
+añade soporte de &lt;a class="reference external" href="https://aur.archlinux.org/?setlang=es"&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference" href="#id17" id="id5"&gt;[5]&lt;/a&gt;. Y todo ello manteniendo una sintáxis casi
+idéntica a la de &lt;em&gt;Pacman&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id29"&gt;Instalación&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Normalmente, para poder instalarlo en nuestro equipo, tenemos que añadir el
+repositorio de &lt;a class="reference external" href="http://archlinux.fr/"&gt;Archlinux.fr&lt;/a&gt;, pero la gente de &lt;em&gt;Antergos&lt;/em&gt; es tan apañada que
+ya lo incluye en sus repositorios.&lt;/p&gt;
+&lt;p&gt;Instalamos &lt;em&gt;Yaourt&lt;/em&gt; haciendo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pacman -S yaourt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y, con suerte, no volveremos a usar &lt;em&gt;Pacman&lt;/em&gt; en muuuucho tiempo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="uso-diario"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id30"&gt;Uso diario&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;En nuestro día a día, normalmente nos bastará con las siguientes opciones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Para instalar un paquete:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S nombre_paquete
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lo busca en los &lt;em&gt;repositorios oficiales&lt;/em&gt; y, si no lo encuentra, en &lt;em&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Para actualizar todos los paquetes (incluyendo archivos instalados de &lt;em&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/em&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Syua
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Para borrar un paquete:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Rs nombre_paquete
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Para borrar caché de paquetes antiguos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Sc
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este punto es importante, porque se pueden llegar a acumular &lt;strong&gt;muchos&lt;/strong&gt; y, si
+se ocupa todo el espacio de disco, no podremos instalar cosas nuevas.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Para buscar un determinado paquete:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt patrón_de_búsqueda
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En los patrones de búsqueda se usa el símbolo asterisco (*) como caracter
+comodín, para sustituir 0, 1 o más caracteres.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yo no gasto a menudo el comando de búsqueda: casi siempre tiro de la
+interfaz web de los &lt;a class="reference external" href="https://www.archlinux.org/packages/"&gt;repositorios oficiales&lt;/a&gt; o de &lt;a class="reference external" href="https://aur.archlinux.org/?setlang=es"&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/a&gt;. Pero es muy útil.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="repositorios"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;Repositorios&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Mencionamos anteriormente los &lt;em&gt;repositorios&lt;/em&gt;. La configuración de &lt;em&gt;Pacman&lt;/em&gt; (y
+de &lt;em&gt;Yaourt&lt;/em&gt;) respecto a los repositorios puede encontrarse en
+&lt;code&gt;/etc/pacman.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;El fichero tal como viene con &lt;em&gt;Antergos&lt;/em&gt; será suficiente en la mayoría de los
+casos, ya que tiene activados todos los repositorios habituales.
+Ojeándolo con &lt;a class="reference external" href="http://www.nano-editor.org/"&gt;nano&lt;/a&gt; &lt;a class="footnote-reference" href="#id18" id="id6"&gt;[6]&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/pacman.conf
+
+...
+
+&lt;span class="c"&gt;#[testing]&lt;/span&gt;
+&lt;span class="c"&gt;#SigLevel = PackageRequired&lt;/span&gt;
+&lt;span class="c"&gt;#Include = /etc/pacman.d/mirrorlist&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;core&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="c"&gt;#SigLevel = PackageRequired&lt;/span&gt;
+&lt;span class="nv"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /etc/pacman.d/mirrorlist
+
+&lt;span class="o"&gt;[&lt;/span&gt;extra&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="c"&gt;#SigLevel = PackageRequired&lt;/span&gt;
+&lt;span class="nv"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /etc/pacman.d/mirrorlist
+
+&lt;span class="c"&gt;#[community-testing]&lt;/span&gt;
+&lt;span class="c"&gt;#SigLevel = PackageRequired&lt;/span&gt;
+&lt;span class="c"&gt;#Include = /etc/pacman.d/mirrorlist&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;community&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="c"&gt;#SigLevel = PackageRequired&lt;/span&gt;
+&lt;span class="nv"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /etc/pacman.d/mirrorlist
+
+&lt;span class="o"&gt;[&lt;/span&gt;antergos&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="c"&gt;#SigLevel = PackageRequired&lt;/span&gt;
+&lt;span class="nv"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /etc/pacman.d/antergos-mirrorlist
+
+&lt;span class="o"&gt;[&lt;/span&gt;multilib&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;SigLevel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; PackageRequired
+&lt;span class="nv"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /etc/pacman.d/mirrorlist
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;La estructura de una declaración de repositorio es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;[&lt;/span&gt;nombre-repo&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;Server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; NombreServidor
+&lt;span class="nv"&gt;SigLevel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; NivelDeFirmado
+&lt;span class="nv"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; RutaArchivoAIncluir
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donde:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;[nombre-repo]&lt;/strong&gt;. Nombre del repositorio. &lt;strong&gt;Esencial&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt;. Dirección del repositorio. &lt;strong&gt;No necesaria si declaramos Include&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SigLevel&lt;/strong&gt;. Nivel de exigencia sobre el firmado de paquetes. Por defecto
+está establecido en &lt;em&gt;Optional&lt;/em&gt; en las opciones generales de &lt;em&gt;Pacman&lt;/em&gt;.
+Esto quiere decir que aceptará paquetes estén o no firmados por sus
+creadores. Para mayor seguridad, habría que instalar sólo paquetes firmados,
+ajustando esta opción a &lt;em&gt;Required&lt;/em&gt;, pero normalmente estamos bien con
+&lt;em&gt;Optional&lt;/em&gt;. &lt;strong&gt;Necesaria si queremos declarar un nivel específico&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Include&lt;/strong&gt;. Ruta a un archivo con una lista de servidores. Se suelen guardar
+en &lt;code&gt;/etc/pacman.d/archivo&lt;/code&gt;. &lt;strong&gt;No necesaria si declaramos Server&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Como podemos observar en el extracto de la configuración anterior, los
+repositorios de &lt;em&gt;Testing&lt;/em&gt; están desactivados (líneas precedidas por &lt;strong&gt;#&lt;/strong&gt;). Y
+están bien así: hay que tener cuidado con ellos, pues manejan versiones muy
+experimentales y pueden romper nuestra instalación.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pacmanxg"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;PacmanXG&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Hasta aquí he tirado de consola a manta, pero &lt;em&gt;Antergos&lt;/em&gt; trae instalada por
+defecto una interfaz gráfica para hacer buena parte de lo anterior desde
+ventanitas. ¿Que por qué no he empezado por ahí? Pues porque si no muchos ni
+tocáis &lt;strong&gt;la consola&lt;/strong&gt;. Y realmente, cuando te haces a ella,
+&lt;strong&gt;es la opción más sencilla y rápida&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://almin-soft.ru/index.php?programmy/pacmanxg/tags/pacmanxg"&gt;PacmanXG&lt;/a&gt; (la web es un poco… &lt;strong&gt;rusa&lt;/strong&gt;) se encuentra en el menú contextual
+de &lt;em&gt;Openbox&lt;/em&gt;, siguiendo la ruta &lt;strong&gt;Applications → Accesorios → PacmanXG&lt;/strong&gt;,
+pero, y esto se aplica al resto de herramientas, es más práctico ejecutarla
+desde el &lt;em&gt;lanzador de aplicaciones&lt;/em&gt; (&lt;strong&gt;Alt + F2&lt;/strong&gt; y teclear &lt;em&gt;PacmanXG&lt;/em&gt;;
+autocompletado con &lt;strong&gt;Tab&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Y esto es todo lo que voy a decir sobre la interfaz gráfica, por las razones
+ya mencionadas. Jugad con ella si realmente lo deseáis. Yo no la he usado nunca.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="buscar-archivos-consola"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id33"&gt;Buscar archivos (consola)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Justo después de configurar el &lt;em&gt;gestor de paquetes&lt;/em&gt; suelo habilitar el comando
+&lt;code&gt;locate&lt;/code&gt;. Lo uso mucho para localizar rápidamente archivos en el sistema.
+Se me antoja más sensato que alternativas como &lt;a class="reference external" href="http://es.wikipedia.org/wiki/Strigi"&gt;Strigi&lt;/a&gt; o &lt;a class="reference external" href="https://wiki.gnome.org/Projects/Tracker/"&gt;Tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Lo instalamos con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S mlocate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si lo queremos usar inmediatamente debemos actualizar la base de datos que
+emplea para sus búsquedas:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo updatedb
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este proceso lo hace de forma periódica él solo, configurando
+&lt;em&gt;una tarea programada&lt;/em&gt; a tal efecto en &lt;code&gt;/etc/cron.daily&lt;/code&gt; (que se ejecuta
+diariamente). Sólo tendremos que recurrir a &lt;code&gt;updatedb&lt;/code&gt; cuando queramos
+localizar algo que se encuentre entre archivos creados hoy mismo.&lt;/p&gt;
+&lt;p&gt;El uso de &lt;code&gt;locate&lt;/code&gt; es transparente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;locate texto_en_el_archivo_y_o_ruta
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y nos lista todas las rutas de archivos que coincidan con el término de
+búsqueda. Como siempre, podemos usar el asterisco como carácter comodín.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;&lt;/strong&gt;: inicialmente no busca en los directorios &lt;code&gt;/media&lt;/code&gt; y
+&lt;code&gt;/mnt&lt;/code&gt; (entre otros de lógica exclusión), usados tradicionalmente para
+montar dispositivos externos. Si queremos que también rastree esas rutas, hemos
+de editar la cadena &lt;code&gt;PRUNEPATHS&lt;/code&gt; de su archivo de configuración.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/updatedb.conf
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="impresoras"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id34"&gt;Impresoras&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Antergos&lt;/em&gt; viene con el sistema de impresión &lt;strong&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/strong&gt; de serie. Con él podemos
+configurar nuestras impresoras vía navegador, desde la &lt;em&gt;&lt;span class="caps"&gt;URL&lt;/span&gt;&lt;/em&gt;
+&lt;a class="reference external" href="http://localhost:631"&gt;http://localhost:631&lt;/a&gt; (o &lt;a class="reference external" href="http://127.0.0.1:631"&gt;http://127.0.0.1:631&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Normalmente este acceso viene ya habilitado con la instalación, pero, no sé por
+qué, no es mi caso. Revisando &lt;code&gt;/etc/cups/cupsd.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/cups/cupsd.conf
+
+...
+
+&lt;span class="c"&gt;# Restrict access to the server...&lt;/span&gt;
+&amp;lt;Location /&amp;gt;
+  Order allow,deny
+&amp;lt;/Location&amp;gt;
+
+&lt;span class="c"&gt;# Restrict access to the admin pages...&lt;/span&gt;
+&amp;lt;Location /admin&amp;gt;
+  Order allow,deny
+&amp;lt;/Location&amp;gt;
+
+&lt;span class="c"&gt;# Restrict access to configuration files...&lt;/span&gt;
+&amp;lt;Location /admin/conf&amp;gt;
+  AuthType Default
+  Require user @&lt;span class="caps"&gt;SYSTEM&lt;/span&gt;
+  Order allow,deny
+&amp;lt;/Location&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Debajo de cada orden &lt;code&gt;Order allow, deny&lt;/code&gt; de estas directivas
+&lt;code&gt;Location&lt;/code&gt; debería haber una línea&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Allow @LOCAL
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;para permitir el acceso desde la red local al servidor &lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt;. Editamos y guardamos.&lt;/p&gt;
+&lt;p&gt;Además, para permitir el acceso a las secciones que requieren permisos
+administrativos, en &lt;code&gt;/etc/cups/cups-files.conf&lt;/code&gt; buscamos la línea&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Administrator user group, used to match @&lt;span class="caps"&gt;SYSTEM&lt;/span&gt; in cupsd.conf policy rules...&lt;/span&gt;
+SystemGroup sys root
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;y la sustituimos por&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Administrator user group, used to match @&lt;span class="caps"&gt;SYSTEM&lt;/span&gt; in cupsd.conf policy rules...&lt;/span&gt;
+SystemGroup sys root lp
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Editamos y recargamos el servidor con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl restart cupsd
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y ya podemos acceder con normalidad a &lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt; usando &lt;a class="reference external" href="http://www.chromium.org/Home/"&gt;Chromium&lt;/a&gt;
+(&lt;strong&gt;Alt + F2 → chromium&lt;/strong&gt;).&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Pantalla de inicio de la interfaz web de CUPS." src="http://soulchainer.github.io/images/2014/01/2014-01-27_06.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Para agregar una impresora nueva nos dirigimos a la pestaña de
+&lt;strong&gt;Administración&lt;/strong&gt; y pulsamos en &lt;strong&gt;Añadir impresora&lt;/strong&gt; &lt;a class="footnote-reference" href="#id19" id="id7"&gt;[7]&lt;/a&gt;. En ese momento,
+&lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt; nos solicita un usuario y contraseña. Nos logueamos con nuestro usuario
+(anteriormente añadimos el grupo &lt;em&gt;lp&lt;/em&gt; en el archivo
+&lt;code&gt;/etc/cups/cups-files.conf&lt;/code&gt; y nuestro usuario pertenece a ese grupo):&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Pantalla de solicitud de usuario y contraseña para añadir impresora." src="http://soulchainer.github.io/images/2014/01/2014-01-27_07.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Tras loguearnos, procedemos a añadir nuestra impresora:&lt;/p&gt;
+&lt;div class="figure" style="width: 778px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Pantalla de añadir impresora en CUPS." src="http://soulchainer.github.io/images/2014/01/2014-01-27_08.png" style="width: 778px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Y podría seguir guiándoos paso a paso, pero entonces esta guía sería
+interminable. Hay muchas configuraciones posibles, ajustes varios necesarios en
+función de la marca y modelo de impresora… En este punto lo mejor es recurrir
+a  la &lt;a class="reference external" href="http://www.cups.org/documentation.php"&gt;documentación de &lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/a&gt;, a la del fabricante de tu impresora, a la
+&lt;a class="reference external" href="https://wiki.archlinux.org/index.php/CUPS_(Espa%C3%B1ol)"&gt;wiki de Archlinux&lt;/a&gt;, buscar problemas específicos, etcétera. El tema de las
+impresoras &lt;strong&gt;puede ser muy complicado&lt;/strong&gt;. No obstante, si puedo ayudar en algo,
+aquí estoy (aunque actualmente no cuento con ninguna impresora instalada vía
+&lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Aparte de &lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt;, &lt;em&gt;Antergos&lt;/em&gt; trae instaladas las &lt;a class="reference external" href="http://hplipopensource.com/hplip-web/index.html"&gt;herramientas de &lt;span class="caps"&gt;HP&lt;/span&gt;&lt;/a&gt; para
+sus impresoras y escáneres &lt;a class="footnote-reference" href="#id20" id="id8"&gt;[8]&lt;/a&gt;. Peroooo… no sucede lo mismo con el soporte gráfico.&lt;/p&gt;
+&lt;div class="figure" style="width: 794px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Mensaje de error de las herramientas de HP." src="http://soulchainer.github.io/images/2014/01/2014-01-27_09.png" style="width: 794px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Por consola, &lt;code&gt;hp-toolbox&lt;/code&gt; nos advierte de que el soporte gráfico no
+está disponible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Tenemos que instalar un paquete extra para contar con él.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S python2-pyqt4
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y ya podemos invocar &lt;code&gt;hp-toolbox&lt;/code&gt;, bien desde el
+&lt;em&gt;lanzador de aplicaciones&lt;/em&gt; o desde el &lt;em&gt;menú contextual de Openbox&lt;/em&gt;, en
+&lt;strong&gt;Applications → Accesorios → &lt;span class="caps"&gt;HP&lt;/span&gt; Device Manager&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 702px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Herramientas de HP para administrar impresoras y escáneres." src="http://soulchainer.github.io/images/2014/01/2014-01-27_10.png" style="width: 702px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;A poco que dominemos el inglés (o un buen diccionario), la configuración de
+nuestro dispositivo &lt;em&gt;&lt;span class="caps"&gt;HP&lt;/span&gt;&lt;/em&gt; se facilita bastante.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;HPLIP&lt;/span&gt;&lt;/strong&gt; coloca un icono/acceso rápido en la bandeja del sistema.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="escaneres"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id35"&gt;Escáneres&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="simple-scan"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;Simple Scan&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://launchpad.net/simple-scan/"&gt;Simple Scan&lt;/a&gt;, y esto nos pilla por sorpresa, es una utilidad muy simple para
+manejar el escáner.&lt;/p&gt;
+&lt;p&gt;La instalamos con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S simple-scan
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si tenemos suerte y nuestro escáner funciona nada más conectarlo, el
+&lt;em&gt;complejo&lt;/em&gt; funcionamiento de &lt;code&gt;simple-scan&lt;/code&gt; se reduce a pulsar
+&lt;strong&gt;Escanear&lt;/strong&gt;. En cambio, si nos encontramos algo como esto&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 711px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Simple Scan no detecta ningún escáner." src="http://soulchainer.github.io/images/2014/01/2014-01-27_11.png" style="width: 711px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;¡Houston! ¡Tenemos un problema!&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;y hemos sido lo bastante hábiles como para conectar y encender el escáner
+antes, pues… toca correr. Puede que ya existan drivers específicos para
+nuestro modelo, es cuestión de buscar en &lt;a class="reference external" href="https://aur.archlinux.org/?setlang=es"&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/a&gt;, en la &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;wiki&lt;/a&gt;, comprobar en
+la &lt;a class="reference external" href="http://www.sane-project.org/cgi-bin/driver.pl"&gt;base de datos de Sane&lt;/a&gt; si nuestro modelo está soportado (si lo está,
+seguramente se trate de un problema de configuración), etcétera.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="escanear-con-gimp"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Escanear con &lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Sin perjuicio de lo anterior, para un escaneado más avanzado yo prefiero usar
+&lt;a class="reference external" href="http://www.xsane.org/"&gt;Xsane&lt;/a&gt; desde &lt;a class="reference external" href="http://www.gimp.org/"&gt;&lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Instalamos todo lo necesario:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S xsane-gimp
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ejecutamos &lt;em&gt;&lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/em&gt; (el programa de manipulación de imágenes libre por excelencia)&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 929px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="GIMP, ejecutado por primera vez." src="http://soulchainer.github.io/images/2014/01/2014-01-27_12.png" style="width: 929px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Quizás queramos activar el modo &lt;em&gt;Ventana de ventana única&lt;/em&gt;:
+&lt;strong&gt;Ventanas → Modo de ventana única&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Y lanzamos &lt;em&gt;Xsane&lt;/em&gt; desde &lt;strong&gt;Archivo → Crear → Xsane…&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="figure" style="width: 637px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Interfaz de Xsane." src="http://soulchainer.github.io/images/2014/01/2014-01-27_13.png" style="width: 637px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Ventana principal de &lt;em&gt;Xsane&lt;/em&gt; e histograma.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ya queda en vuestras manos el juguetear con el programa.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="proxima-parte"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id38"&gt;Próxima parte&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Y aquí nos detenemos, que ya es hora. En la &lt;strong&gt;tercera parte&lt;/strong&gt; del artículo
+puede que trate la &lt;strong&gt;configuración de Openbox&lt;/strong&gt; y, si ha lugar, otros aspectos
+de personalización. Lo sabré seguro cuando me ponga a ello :p&lt;/p&gt;
+&lt;p&gt;Hasta la semana que viene :)&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id13" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La tecla &lt;strong&gt;Super&lt;/strong&gt; suele ser aquella que se encuentra entre &lt;strong&gt;Ctrl&lt;/strong&gt; y &lt;strong&gt;Alt&lt;/strong&gt;, normalmente serigrafiada con el icono del sistema operativo.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id14" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La virgulilla (~) sustituye a la carpeta del usuario (/home/nombre_usuario).&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id15" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Graphical User Interface&lt;/strong&gt; (&lt;strong&gt;Interfaz Gráfica de Usuario&lt;/strong&gt;). Programa que proporciona un entorno visual sencillo para comunicarnos con determinado software del sistema operativo, generalmente poco amigable para el usuario final.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id16" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un repositorio es un sitio centralizado donde se almacena y mantiene información digital. En este caso, paquetes de software para nuestro &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id17" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id5"&gt;[5]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Arch User Repository&lt;/strong&gt;. Repositorio mantenido por y para la comunidad de usuarios de &lt;em&gt;Arch&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id18" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id6"&gt;[6]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;nano&lt;/strong&gt; es, junto a &lt;a class="reference external" href="http://www.vim.org/about.php"&gt;vim&lt;/a&gt;, uno de los editores de consola más populares del universo &lt;strong&gt;&lt;span class="caps"&gt;GNU&lt;/span&gt;/Linux&lt;/strong&gt;. &lt;strong&gt;Nota de uso&lt;/strong&gt;: el carácter &lt;em&gt;^&lt;/em&gt; mostrado en los atajos de &lt;em&gt;nano&lt;/em&gt; al pie de la pantalla se corresponde con la tecla &lt;strong&gt;Ctrl&lt;/strong&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id19" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id7"&gt;[7]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Si sólo quisieramos añadir una impresora compartida en la red local, probaríamos antes la opción &lt;strong&gt;Encontrar nuevas impresoras&lt;/strong&gt;, ya que, en caso de detectarla, agilizaría el proceso.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id20" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id8"&gt;[8]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;A mi juicio, optar por una impresora &lt;strong&gt;&lt;span class="caps"&gt;HP&lt;/span&gt;&lt;/strong&gt; es la opción más segura en un entorno &lt;strong&gt;Linux&lt;/strong&gt;. Creo que es una de las marcas mejor soportadas.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="antergos"></category><category term="archlinux"></category><category term="linux"></category><category term="como"></category><category term="tutorial"></category><category term="configuración"></category></entry><entry><title>Antergos paso a paso (I): instalación básica</title><link href="http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/" rel="alternate"></link><updated>2014-01-21T10:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-21:posts/2014/01/21/antergos-tutorial-parte1/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#descarga" id="id27"&gt;Descarga&lt;/a&gt;&lt;/li&gt;
@@ -111,13 +694,13 @@ de la pantalla.&lt;/p&gt;
 &lt;em&gt;Seguridad (Security)&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Cambiar el Modo de Arranque (Boot Mode) a Arranque &lt;span class="caps"&gt;CSM&lt;/span&gt;&lt;/strong&gt;
 &lt;strong&gt;(&lt;span class="caps"&gt;CSM&lt;/span&gt; Boot)/Legacy &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/strong&gt;… en
-&lt;em&gt;Advanced → System Configuration (Avanzada → Configuración del Sistema)&lt;/em&gt;.&lt;/li&gt;
+&lt;strong&gt;Advanced → System Configuration (Avanzada → Configuración del Sistema)&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt; &lt;span class="caps"&gt;IMPORTANTE&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id15" id="id2"&gt;[2]&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Ordenar los dispositivos de arranque&lt;/strong&gt;, poniendo primero los &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; o
 &lt;em&gt;&lt;span class="caps"&gt;CD&lt;/span&gt;/&lt;span class="caps"&gt;DVD&lt;/span&gt;&lt;/em&gt;, según desde donde se quiera arrancar la imagen. Esto se hace en
-&lt;em&gt;Configuración del sistema/Arranque → Secuencia de inicio/arranque&lt;/em&gt; u
+&lt;strong&gt;Configuración del sistema/Arranque → Secuencia de inicio/arranque&lt;/strong&gt; u
 opciones similares.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Guardar los cambios &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; salir&lt;/strong&gt; (normalmente &lt;em&gt;F10&lt;/em&gt;).&lt;/p&gt;
@@ -496,7 +1079,7 @@ que queremos sobreescribir los datos de esa memoria.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="desde-la-linea-de-comandos-solo-linux"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id46"&gt;Desde la línea de comandos (sólo Linux)&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Es aún más sencillo que desde la interfax gráfica (hay que perder el miedo a
+&lt;p&gt;Es aún más sencillo que desde la interfax gráfica (hay que perderle el miedo a
 la consola). Usando el comando &lt;code&gt;dd&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/ruta/a/antergos.iso &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdx
 &lt;/pre&gt;&lt;/div&gt;
