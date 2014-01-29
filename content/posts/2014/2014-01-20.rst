@@ -114,12 +114,12 @@ arranque. Para ello (**estas indicaciones son meramente orientativas**):
      *Seguridad (Security)*.
    - **Cambiar el Modo de Arranque (Boot Mode) a Arranque CSM**
      **(CSM Boot)/Legacy BIOS**... en
-     *Advanced → System Configuration (Avanzada → Configuración del Sistema)*.
+     **Advanced → System Configuration (Avanzada → Configuración del Sistema)**.
 
    **NOTA IMPORTANTE** [#]_.
 3. **Ordenar los dispositivos de arranque**, poniendo primero los *USB* o
    *CD/DVD*, según desde donde se quiera arrancar la imagen. Esto se hace en
-   *Configuración del sistema/Arranque → Secuencia de inicio/arranque* u
+   **Configuración del sistema/Arranque → Secuencia de inicio/arranque** u
    opciones similares.
 4. **Guardar los cambios & salir** (normalmente *F10*).
 
@@ -562,7 +562,7 @@ Y ya tenemos la memoria lista para arrancar *Antergos* desde ella.
 Desde la línea de comandos (sólo Linux)
 -----------------------------------------
 
-Es aún más sencillo que desde la interfax gráfica (hay que perder el miedo a
+Es aún más sencillo que desde la interfax gráfica (hay que perderle el miedo a
 la consola). Usando el comando :code:`dd`:
 
 .. code-block:: sh

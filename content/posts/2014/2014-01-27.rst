@@ -1,0 +1,719 @@
+Antergos paso a paso (II): configuración esencial
+#################################################
+:date: 2014-01-29 21:00
+:tags: antergos, archlinux, linux, como, tutorial, configuración
+:category: CÓMOS, linux
+:slug: antergos-tutorial-parte2
+:author: Soulchainer
+:parts:  Antergos_paso_a_paso
+:twsummary: Pues lo primero es lo primero. Y tras la instalación del sistema
+            operativo, es el turno de la configuración esencial del sistema:
+            todo aquello que considero debe estar funcionando desde YA.
+
+            La personalización del aspecto y todas esas pijaditas quedan pues
+            relegadas al último lugar.
+:twimg: 2014-01-21_01.png
+
+.. contents:: **Índice de contenido**
+..
+   1  Introducción
+   2  La terminal: una herramienta para gobernarlas a todas
+   3  Red
+     3.1 WiFi
+     3.2 Configurar el firewall (ufw)
+   4  El gestor de paquetes
+     4.1  Pacman
+     4.2  Yaourt
+       4.2.1  Instalación
+       4.2.2  Uso diario
+     4.3  Repositorios
+     4.4  PacmanXG
+   5  Buscar archivos (consola)
+   6  Impresoras
+   7  Escáneres
+     6.1  Simple Scan
+     6.2  Escanear con GIMP
+   8  Próxima parte
+
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2014/01/2014-01-21_00.png
+    :alt: Logo y eslogan de Antergos.
+
+    Logo y eslogan de `Antergos`_.
+
+Bueno, ya tenemos instalada `Antergos`_. Y ahora, ¿qué?
+
+*************
+Introducción
+*************
+
+Pues lo primero es lo primero. Y tras la instalación del sistema operativo, es
+el turno de la **configuración esencial** del sistema: todo aquello que
+considero debe estar funcionando desde **YA**.
+
+La personalización del aspecto y todas esas pijaditas quedan pues relegadas al
+último lugar.
+
+*****************************************************
+La terminal: una herramienta para gobernarlas a todas
+*****************************************************
+
+Como ya comenté en
+`la primera parte del tutorial <{filename}/posts/2014/2014-01-20.rst>`_:
+
+  ... hay que perderle el miedo a la consola.
+
+{END_SUMMARY}
+Para el usuario medio/avanzado de **Linux**, la consola es una pieza vital del
+sistema. Es cierto que si se quiere se puede evitar su uso recurriendo a
+interfaces gráficas, pero conocer bien la terminal es fundamental: nos hará
+más productivos. Además de que nos puede sacar de un apuro en más de una
+ocasión.
+
+Podemos lanzarla desde el menú contextual de `Openbox`_:
+
+.. figure:: {filename}/images/2014/01/2014-01-27_02.png
+    :alt: Menú contextual de Openbox, con foco en la entrada para el emulador
+          de terminal.
+    :align: center
+
+    El menú contextual aparece haciendo clic derecho en el escritorio o en el
+    panel (útil en caso de tener una ventana maximizada).
+
+O bien con el atajo predefinido en *Openbox*: **Super + T** [#]_.
+
+`Sakura`_, emulador de terminal por defecto en *Antergos*, sustituye la
+típica barra de menús con un completo menú contextual.
+
+.. figure:: {filename}/images/2014/01/2014-01-27_03.png
+    :alt: Sakura, emulador de terminal por defecto en Antergos.
+    :align: center
+
+    `Sakura`_ tras una leve personalización.
+
+Si necesitamos ahondar más en la configuración, podemos revisar el archivo
+:code:`~/.config/sakura/sakura.conf` [#]_. Por ejemplo, para modificar los
+atajos de teclado.
+
+En un principio, estos últimos son (extraído del manual de *Sakura*,
+:code:`man sakura`):
+
+.. code-block:: sh
+
+       Ctrl + Shift + T                 → Nueva pestaña
+       Ctrl + Shift + W                 → Cerrar pestaña
+       Ctrl + Shift + C                 → Copiar texto
+       Ctrl + Shift + V                 → Pegar texto
+       Alt  + ←                        → Pestaña anterior
+       Alt  + →                        → Siguiente pestaña
+       Alt  + [1-9]                     → Ir a la pestaña N (1-9)
+       Ctrl + Shift + S                 → Mostar/ocultar barra de desplazamiento
+       Ctrl + Shift + Botón izdo ratón  → Abrir link
+       F11                              → Pantalla completa
+       Shift + Avpag                    → Avanzar página a página (de texto en consola)
+       Shift + Repag                    → Retroceder página a página
+       Ctrl + Shift + ↑                → Retroceder línea a línea
+       Ctrl + Shift + ↓                → Avanzar línea a línea
+       Ctrl + '+'                       → Aumentar el tamaño del texto
+       Ctrl + '-'                       → Disminuir el tamaño del texto
+
+
+***
+Red
+***
+
+Acabamos de echar un vistazo a la terminal, pero antes de empezar a
+toquetearla vamos a revisar **de pasada** un par de aspectos sobre la red:
+disponer de conexión es relevante para `el siguiente apartado`_.
+
+WiFi
+====
+
+Dada su potencial complejidad, es muy difícil tratar el tema de la conectividad
+*wireless* de forma breve y definitiva. Por ello, me limitaré a cubrir el
+supuesto más sencillo: nuestra tarjeta inalámbrica está perfectamente soportada
+y funciona nada más encender el equipo.
+
+En ese caso, podemos acudir al *applet* de `Network Manager`_ para conectarnos
+a la red inalámbrica.
+
+.. figure:: {filename}/images/2014/01/2014-01-27_14.png
+    :alt: nm-applet, applet de Network Manager, en la bandeja del sistema.
+    :align: center
+
+    :code:`nm-applet`, applet de Network Manager, en la bandeja del sistema.
+
+    **Editar las conexiones...**
+
+O bien, de forma más directa, lanzando :code:`nm-connection-editor`.
+
+.. figure:: {filename}/images/2014/01/2014-01-27_15.png
+    :alt: Elección de la conexión de red que queremos añadir, en nuestro caso,
+          una inalámbrica.
+    :align: center
+
+    **Añadir → Inalámbrica → Crear...**
+
+Su configuración es muy simple:
+
+1. Establecemos el **Nombre de la conexión** en el campo homónimo.
+2. Añadimos el identificador de la red a la que nos queremos conectar en el
+   campo **SSID** de la pestaña **Inalámbrica**.
+3. En la pestaña de **Seguridad inalámbrica** indicamos la susodicha de la red
+   deseada, así como su usuario/contraseña, de ser necesario.
+
+.. figure:: {filename}/images/2014/01/2014-01-27_16.gif
+    :alt: Configuración de la conexión inalámbrica.
+
+    Configuración de la conexión inalámbrica.
+
+Configurar el cortafuegos (ufw)
+===============================
+
+*Antergos* nos permite configurar fácilmente un cortafuegos vía `gufw`_, una
+GUI [#]_ para `ufw`_
+(**Uncomplicated FireWall, un cortafuegos sin complicaciones**).
+
+.. figure:: {filename}/images/2014/01/2014-01-27_17.png
+    :alt: Gufw activado, con el perfil Casa.
+    :align: center
+
+    *gufw* está desactivado por defecto. ¿El motivo? Su configuración inicial
+    bloquea todas las conexiones entrantes.
+
+Su uso es similar al de cualquier cortafuegos:
+
+- Si es la primera vez que lo ejecutamos, lo activamos haciendo click en
+  **Estado**.
+
+  Tarda un poco en aplicarse, pero sólo hay que hacerlo una vez: arrancará sólo
+  en el próximo inicio.
+- Establecemos el perfil deseado.
+- Decidimos si queremos **Permitir**, **Denegar** o **Rechazar** las conexiones
+  entrantes y salientes.
+- Creamos las reglas necesarias (**Reglas → +**).
+
+  .. figure:: {filename}/images/2014/01/2014-01-27_18.png
+      :alt: Visor de reglas e informes de escucha.
+      :align: center
+
+      También podemos crear una regla directamente desde un informe de escucha,
+      seleccionándolo y pulsando **+**.
+
+  Si queremos aceptar conexiones entrantes (el ejemplo más popular es el de los
+  programas de descarga **P2P**), necesitamos establecer estos permisos. *Gufw*
+  cuenta con un apartado de **reglas preconfiguradas** muy claro.
+
+  .. figure:: {filename}/images/2014/01/2014-01-27_19.gif
+      :alt: Configuración de reglas para el cortafuegos.
+
+      **Avanzada**: Damos nombre a la regla, indicamos el número de regla
+      preferido (por si queremos sobreescribir una anterior), la política
+      (**Permitir/Denegar/Rechazar**), la interfaz (si queremos que se aplique
+      sólo a la red cableada o a cierta red *WiFi*), el protocolo (si no lo
+      tenemos claro, no lo tocamos) y la *IP*/puerto de origen (línea
+      **Desde**) y destino (línea **A**) de las conexiones. Podemos indicar un
+      rango de puertos utilizando la síntaxis :code:`NºPUERTOINF:NºPUERTOSUP`.
+
+----
+
+**NOTA:** Al intentar ejecutar :code:`gufw`, como he estado trasteando un
+poquillo, no arranca. Si lo ejecuto desde consola me arroja un error. Es al
+reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:
+
+.. code-block:: sh
+
+    Gufw needs DBUS service started to run correctly!
+    /tmp/alpm_CftMsk/.INSTALL: línea 8: ptintf: no se encontró la orden
+    ## PLEASE READ BELOW ##
+    1) A workaround was applied to /usr/lib/python2.7/sysconfig.py.
+       Please see: https://bugs.archlinux.org/task/30812 for more information
+    2) Removing this package will reverse this workaround.
+    3) This workaround will be needed after every python2 update/install,
+       simply re-install gufw package to re-apply the workaround.
+    If you know a more clean workaround o propper fix, please share it whit we.
+
+**Resumiendo**: hay un error que impide que *gufw* se inicie, error que se
+solventa (automáticamente) parcheando *python2.7*. Por ello, mientras no se
+encuentre una solución definitiva,
+**hay que reinstalar gufw cada vez que se actualice o reinstale python2**.
+
+.. _el siguiente apartado:
+
+*********************
+El gestor de paquetes
+*********************
+
+Pacman
+======
+
+.. figure:: {filename}/images/2014/01/2014-01-27_04.png
+    :alt: Pac-man © Namco.
+    :align: center
+
+    **Pac-Man (パックマン Pakku Man)** © `Namco`_.
+
+    No: no hablamos de este Pac-Man.
+
+`Pacman`_ es el *gestor de paquetes* de `Archlinux`_ (recordemos que
+*Antergos* nace de ella) y una de sus principales señas de identidad.
+Abreviando, *Pacman* permite administrar fácilmente el *software* de nuestro
+sistema, ya sea instalado desde los `repositorios oficiales`_ [#]_ de
+*Arch* (y de *Antergos*) o compilado por nosotros.
+
+Con **un único comando** (aderezado con diversas opciones), podemos  instalar,
+actualizar, configurar y eliminar software de nuestro ordenador.
+**Cómodo y práctico**.
+
+Y aquí pasaría a explicar como utilizarlo, pero en lugar de eso os voy a hablar
+de...
+
+Yaourt
+======
+
+.. figure:: {filename}/images/2014/01/2014-01-27_05.png
+    :alt: Yogurt. Fotografía de Sodanie Chea.
+
+    Yogurt. `Fotografía`_ de `Sodanie Chea`_.
+
+    ¡No! ¡Tampoco hablo de esto!
+
+`Yaourt`_ (**Yet AnOther User Repository Tool**; *Yogurt* en francés) es una
+interfaz de comandos para *Pacman*. Facilita su uso y, lo que más nos importa,
+añade soporte de `AUR`_ [#]_. Y todo ello manteniendo una sintáxis casi
+idéntica a la de *Pacman*.
+
+Instalación
+-----------
+
+Normalmente, para poder instalarlo en nuestro equipo, tenemos que añadir el
+repositorio de `Archlinux.fr`_, pero la gente de *Antergos* es tan apañada que
+ya lo incluye en sus repositorios.
+
+Instalamos *Yaourt* haciendo:
+
+.. code-block:: sh
+
+    $ sudo pacman -S yaourt
+
+Y, con suerte, no volveremos a usar *Pacman* en muuuucho tiempo.
+
+Uso diario
+----------
+
+En nuestro día a día, normalmente nos bastará con las siguientes opciones:
+
+- Para instalar un paquete:
+
+  .. code-block:: sh
+
+      $ yaourt -S nombre_paquete
+
+  Lo busca en los *repositorios oficiales* y, si no lo encuentra, en *AUR*.
+
+- Para actualizar todos los paquetes (incluyendo archivos instalados de *AUR*):
+
+  .. code-block:: sh
+
+      $ yaourt -Syua
+
+- Para borrar un paquete:
+
+  .. code-block:: sh
+
+      $ yaourt -Rs nombre_paquete
+
+- Para borrar caché de paquetes antiguos:
+
+  .. code-block:: sh
+
+      $ yaourt -Sc
+
+  Este punto es importante, porque se pueden llegar a acumular **muchos** y, si
+  se ocupa todo el espacio de disco, no podremos instalar cosas nuevas.
+
+- Para buscar un determinado paquete:
+
+  .. code-block:: sh
+
+      $ yaourt patrón_de_búsqueda
+
+  En los patrones de búsqueda se usa el símbolo asterisco (\*) como caracter
+  comodín, para sustituir 0, 1 o más caracteres.
+
+Yo no gasto a menudo el comando de búsqueda: casi siempre tiro de la
+interfaz web de los `repositorios oficiales`_ o de `AUR`_. Pero es muy útil.
+
+Repositorios
+============
+
+Mencionamos anteriormente los *repositorios*. La configuración de *Pacman* (y
+de *Yaourt*) respecto a los repositorios puede encontrarse en
+:code:`/etc/pacman.conf`.
+
+El fichero tal como viene con *Antergos* será suficiente en la mayoría de los
+casos, ya que tiene activados todos los repositorios habituales.
+Ojeándolo con `nano`_ [#]_:
+
+.. code-block:: sh
+
+    $ sudo nano /etc/pacman.conf
+
+    ...
+
+    #[testing]
+    #SigLevel = PackageRequired
+    #Include = /etc/pacman.d/mirrorlist
+
+    [core]
+    #SigLevel = PackageRequired
+    Include = /etc/pacman.d/mirrorlist
+
+    [extra]
+    #SigLevel = PackageRequired
+    Include = /etc/pacman.d/mirrorlist
+
+    #[community-testing]
+    #SigLevel = PackageRequired
+    #Include = /etc/pacman.d/mirrorlist
+
+    [community]
+    #SigLevel = PackageRequired
+    Include = /etc/pacman.d/mirrorlist
+
+    [antergos]
+    #SigLevel = PackageRequired
+    Include = /etc/pacman.d/antergos-mirrorlist
+
+    [multilib]
+    SigLevel = PackageRequired
+    Include = /etc/pacman.d/mirrorlist
+
+La estructura de una declaración de repositorio es:
+
+.. code-block:: sh
+
+    [nombre-repo]
+    Server = NombreServidor
+    SigLevel = NivelDeFirmado
+    Include = RutaArchivoAIncluir
+
+Donde:
+
+- **[nombre-repo]**. Nombre del repositorio. **Esencial**.
+- **Server**. Dirección del repositorio. **No necesaria si declaramos Include**.
+- **SigLevel**. Nivel de exigencia sobre el firmado de paquetes. Por defecto
+  está establecido en *Optional* en las opciones generales de *Pacman*.
+  Esto quiere decir que aceptará paquetes estén o no firmados por sus
+  creadores. Para mayor seguridad, habría que instalar sólo paquetes firmados,
+  ajustando esta opción a *Required*, pero normalmente estamos bien con
+  *Optional*. **Necesaria si queremos declarar un nivel específico**.
+- **Include**. Ruta a un archivo con una lista de servidores. Se suelen guardar
+  en :code:`/etc/pacman.d/archivo`. **No necesaria si declaramos Server**.
+
+Como podemos observar en el extracto de la configuración anterior, los
+repositorios de *Testing* están desactivados (líneas precedidas por **#**). Y
+están bien así: hay que tener cuidado con ellos, pues manejan versiones muy
+experimentales y pueden romper nuestra instalación.
+
+PacmanXG
+========
+
+Hasta aquí he tirado de consola a manta, pero *Antergos* trae instalada por
+defecto una interfaz gráfica para hacer buena parte de lo anterior desde
+ventanitas. ¿Que por qué no he empezado por ahí? Pues porque si no muchos ni
+tocáis **la consola**. Y realmente, cuando te haces a ella,
+**es la opción más sencilla y rápida**.
+
+`PacmanXG`_ (la web es un poco... **rusa**) se encuentra en el menú contextual
+de *Openbox*, siguiendo la ruta **Applications → Accesorios → PacmanXG**,
+pero, y esto se aplica al resto de herramientas, es más práctico ejecutarla
+desde el *lanzador de aplicaciones* (**Alt + F2** y teclear *PacmanXG*;
+autocompletado con **Tab**).
+
+Y esto es todo lo que voy a decir sobre la interfaz gráfica, por las razones
+ya mencionadas. Jugad con ella si realmente lo deseáis. Yo no la he usado nunca.
+
+*************************
+Buscar archivos (consola)
+*************************
+
+Justo después de configurar el *gestor de paquetes* suelo habilitar el comando
+:code:`locate`. Lo uso mucho para localizar rápidamente archivos en el sistema.
+Se me antoja más sensato que alternativas como `Strigi`_ o `Tracker`_.
+
+Lo instalamos con:
+
+.. code-block:: sh
+
+    $ yaourt -S mlocate
+
+Si lo queremos usar inmediatamente debemos actualizar la base de datos que
+emplea para sus búsquedas:
+
+.. code-block:: sh
+
+    $ sudo updatedb
+
+Este proceso lo hace de forma periódica él solo, configurando
+*una tarea programada* a tal efecto en :code:`/etc/cron.daily` (que se ejecuta
+diariamente). Sólo tendremos que recurrir a :code:`updatedb` cuando queramos
+localizar algo que se encuentre entre archivos creados hoy mismo.
+
+El uso de :code:`locate` es transparente:
+
+.. code-block:: sh
+
+    $ locate texto_en_el_archivo_y_o_ruta
+
+Y nos lista todas las rutas de archivos que coincidan con el término de
+búsqueda. Como siempre, podemos usar el asterisco como carácter comodín.
+
+**NOTA**: inicialmente no busca en los directorios :code:`/media` y
+:code:`/mnt` (entre otros de lógica exclusión), usados tradicionalmente para
+montar dispositivos externos. Si queremos que también rastree esas rutas, hemos
+de editar la cadena :code:`PRUNEPATHS` de su archivo de configuración.
+
+.. code-block:: sh
+
+    $ sudo nano /etc/updatedb.conf
+
+**********
+Impresoras
+**********
+
+*Antergos* viene con el sistema de impresión **CUPS** de serie. Con él podemos
+configurar nuestras impresoras vía navegador, desde la *URL*
+http://localhost:631 (o http://127.0.0.1:631).
+
+Normalmente este acceso viene ya habilitado con la instalación, pero, no sé por
+qué, no es mi caso. Revisando :code:`/etc/cups/cupsd.conf`:
+
+.. code-block:: sh
+
+    $ sudo nano /etc/cups/cupsd.conf
+
+    ...
+
+    # Restrict access to the server...
+    <Location />
+      Order allow,deny
+    </Location>
+
+    # Restrict access to the admin pages...
+    <Location /admin>
+      Order allow,deny
+    </Location>
+
+    # Restrict access to configuration files...
+    <Location /admin/conf>
+      AuthType Default
+      Require user @SYSTEM
+      Order allow,deny
+    </Location>
+
+Debajo de cada orden :code:`Order allow, deny` de estas directivas
+:code:`Location` debería haber una línea
+
+.. code-block:: sh
+
+    Allow @LOCAL
+
+para permitir el acceso desde la red local al servidor *CUPS*. Editamos y
+guardamos.
+
+Además, para permitir el acceso a las secciones que requieren permisos
+administrativos, en :code:`/etc/cups/cups-files.conf` buscamos la línea
+
+.. code-block:: sh
+
+    # Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...
+    SystemGroup sys root
+
+y la sustituimos por
+
+.. code-block:: sh
+
+    # Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...
+    SystemGroup sys root lp
+
+Editamos y recargamos el servidor con:
+
+.. code-block:: sh
+
+    $ sudo systemctl restart cupsd
+
+Y ya podemos acceder con normalidad a *CUPS* usando `Chromium`_
+(**Alt + F2 → chromium**).
+
+.. figure:: {filename}/images/2014/01/2014-01-27_06.png
+    :alt: Pantalla de inicio de la interfaz web de CUPS.
+
+Para agregar una impresora nueva nos dirigimos a la pestaña de
+**Administración** y pulsamos en **Añadir impresora** [#]_. En ese momento,
+*CUPS* nos solicita un usuario y contraseña. Nos logueamos con nuestro usuario
+(anteriormente añadimos el grupo *lp* en el archivo
+:code:`/etc/cups/cups-files.conf` y nuestro usuario pertenece a ese grupo):
+
+.. figure:: {filename}/images/2014/01/2014-01-27_07.png
+    :alt: Pantalla de solicitud de usuario y contraseña para añadir impresora.
+
+Tras loguearnos, procedemos a añadir nuestra impresora:
+
+.. figure:: {filename}/images/2014/01/2014-01-27_08.png
+    :alt: Pantalla de añadir impresora en CUPS.
+
+Y podría seguir guiándoos paso a paso, pero entonces esta guía sería
+interminable. Hay muchas configuraciones posibles, ajustes varios necesarios en
+función de la marca y modelo de impresora... En este punto lo mejor es recurrir
+a  la `documentación de CUPS`_, a la del fabricante de tu impresora, a la
+`wiki de Archlinux`_, buscar problemas específicos, etcétera. El tema de las
+impresoras **puede ser muy complicado**. No obstante, si puedo ayudar en algo,
+aquí estoy (aunque actualmente no cuento con ninguna impresora instalada vía
+*CUPS*).
+
+Aparte de *CUPS*, *Antergos* trae instaladas las `herramientas de HP`_ para
+sus impresoras y escáneres [#]_. Peroooo... no sucede lo mismo con el soporte
+gráfico.
+
+.. figure:: {filename}/images/2014/01/2014-01-27_09.png
+    :alt: Mensaje de error de las herramientas de HP.
+
+    Por consola, :code:`hp-toolbox` nos advierte de que el soporte gráfico no
+    está disponible.
+
+Tenemos que instalar un paquete extra para contar con él.
+
+.. code-block:: sh
+
+    $ yaourt -S python2-pyqt4
+
+Y ya podemos invocar :code:`hp-toolbox`, bien desde el
+*lanzador de aplicaciones* o desde el *menú contextual de Openbox*, en
+**Applications → Accesorios → HP Device Manager**.
+
+.. figure:: {filename}/images/2014/01/2014-01-27_10.png
+    :alt: Herramientas de HP para administrar impresoras y escáneres.
+    :align: center
+
+    A poco que dominemos el inglés (o un buen diccionario), la configuración de
+    nuestro dispositivo *HP* se facilita bastante.
+
+**HPLIP** coloca un icono/acceso rápido en la bandeja del sistema.
+
+*********
+Escáneres
+*********
+
+Simple Scan
+===========
+
+`Simple Scan`_, y esto nos pilla por sorpresa, es una utilidad muy simple para
+manejar el escáner.
+
+La instalamos con:
+
+.. code-block:: sh
+
+    $ yaourt -S simple-scan
+
+Si tenemos suerte y nuestro escáner funciona nada más conectarlo, el
+*complejo* funcionamiento de :code:`simple-scan` se reduce a pulsar
+**Escanear**. En cambio, si nos encontramos algo como esto
+
+.. figure:: {filename}/images/2014/01/2014-01-27_11.png
+    :alt: Simple Scan no detecta ningún escáner.
+    :align: center
+
+    ¡Houston! ¡Tenemos un problema!
+
+y hemos sido lo bastante hábiles como para conectar y encender el escáner
+antes, pues... toca correr. Puede que ya existan drivers específicos para
+nuestro modelo, es cuestión de buscar en `AUR`_, en la `wiki`_, comprobar en
+la `base de datos de Sane`_ si nuestro modelo está soportado (si lo está,
+seguramente se trate de un problema de configuración), etcétera.
+
+Escanear con GIMP
+=================
+
+Sin perjuicio de lo anterior, para un escaneado más avanzado yo prefiero usar
+`Xsane`_ desde `GIMP`_.
+
+Instalamos todo lo necesario:
+
+.. code-block:: sh
+
+    $ yaourt -S xsane-gimp
+
+Ejecutamos *GIMP* (el programa de manipulación de imágenes libre por
+excelencia)
+
+.. figure:: {filename}/images/2014/01/2014-01-27_12.png
+    :alt: GIMP, ejecutado por primera vez.
+    :align: center
+
+    Quizás queramos activar el modo *Ventana de ventana única*:
+    **Ventanas → Modo de ventana única**.
+
+Y lanzamos *Xsane* desde **Archivo → Crear → Xsane...**:
+
+.. figure:: {filename}/images/2014/01/2014-01-27_13.png
+    :alt: Interfaz de Xsane.
+
+    Ventana principal de *Xsane* e histograma.
+
+Ya queda en vuestras manos el juguetear con el programa.
+
+*************
+Próxima parte
+*************
+
+Y aquí nos detenemos, que ya es hora. En la **tercera parte** del artículo
+puede que trate la **configuración de Openbox** y, si ha lugar, otros aspectos
+de personalización. Lo sabré seguro cuando me ponga a ello :p
+
+Hasta la semana que viene :)
+
+.. _Antergos: http://antergos.com/
+.. _Openbox: http://openbox.org/
+.. _Sakura: http://www.pleyades.net/david/projects/sakura/
+.. _Namco: http://www.namco.co.jp/
+.. _Pacman: https://wiki.archlinux.org/index.php/Pacman_(Espa%C3%B1ol)
+.. _Archlinux: https://www.archlinux.org/
+.. _repositorios oficiales: https://www.archlinux.org/packages/
+.. _Sodanie Chea:
+.. _Fotografía: http://www.flickr.com/photos/sodaniechea/7218919986/
+.. _Yaourt: http://archlinux.fr/yaourt-en
+.. _AUR: https://aur.archlinux.org/?setlang=es
+.. _Archlinux.fr: http://archlinux.fr/
+.. _PacmanXG: http://almin-soft.ru/index.php?programmy/pacmanxg/tags/pacmanxg
+.. _Strigi: http://es.wikipedia.org/wiki/Strigi
+.. _Tracker: https://wiki.gnome.org/Projects/Tracker/
+.. _nano: http://www.nano-editor.org/
+.. _vim: http://www.vim.org/about.php
+.. _CUPS: http://www.cups.org/
+.. _Chromium: http://www.chromium.org/Home/
+.. _documentación de CUPS: http://www.cups.org/documentation.php
+.. _wiki de Archlinux: https://wiki.archlinux.org/index.php/CUPS_(Espa%C3%B1ol)
+.. _herramientas de HP: http://hplipopensource.com/hplip-web/index.html
+.. _Simple Scan: https://launchpad.net/simple-scan/
+.. _wiki: https://wiki.archlinux.org/
+.. _base de datos de Sane: http://www.sane-project.org/cgi-bin/driver.pl
+.. _Xsane: http://www.xsane.org/
+.. _GIMP: http://www.gimp.org/
+.. _Network Manager: https://wiki.gnome.org/Projects/NetworkManager/
+.. _gufw: http://gufw.org/
+.. _ufw: https://launchpad.net/ufw
+
+----
+
+.. [#] La tecla **Super** suele ser aquella que se encuentra entre **Ctrl** y **Alt**, normalmente serigrafiada con el icono del sistema operativo.
+.. [#] La virgulilla (~) sustituye a la carpeta del usuario (/home/nombre_usuario).
+.. [#] **Graphical User Interface** (**Interfaz Gráfica de Usuario**). Programa que proporciona un entorno visual sencillo para comunicarnos con determinado software del sistema operativo, generalmente poco amigable para el usuario final.
+.. [#] Un repositorio es un sitio centralizado donde se almacena y mantiene información digital. En este caso, paquetes de software para nuestro *SO*.
+.. [#] **Arch User Repository**. Repositorio mantenido por y para la comunidad de usuarios de *Arch*.
+.. [#] **nano** es, junto a `vim`_, uno de los editores de consola más populares del universo **GNU/Linux**. **Nota de uso**: el carácter *^* mostrado en los atajos de *nano* al pie de la pantalla se corresponde con la tecla **Ctrl**.
+.. [#] Si sólo quisieramos añadir una impresora compartida en la red local, probaríamos antes la opción **Encontrar nuevas impresoras**, ya que, en caso de detectarla, agilizaría el proceso.
+.. [#] A mi juicio, optar por una impresora **HP** es la opción más segura en un entorno **Linux**. Creo que es una de las marcas mejor soportadas.

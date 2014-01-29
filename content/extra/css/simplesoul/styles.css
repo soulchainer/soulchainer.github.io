@@ -286,7 +286,7 @@ ul.simple, ol.simple {
 .section, .align-center + p, li + p, ol + p, ul + p { /* headings and p after figure image */
   clear: both;
 }
-.section h1, .section h2, .section h3, .section h4 {
+.section h1, .section h2, .section h3, .section h4, .section h5 {
   font-family: Palatino,"Palatino Linotype",Georgia,serif;
   word-wrap: break-word;
 }
@@ -311,7 +311,10 @@ ul.simple, ol.simple {
 .section h4, h4 > a, h4 > a:hover { /* headings and headings links (for TOC) color */
     color: #CC2E52;
 }
-.section h4 {
+.section h5, h5 > a, h5 > a:hover { /* headings and headings links (for TOC) color */
+    color: #E749A7;
+}
+.section h4, .section h5 {
   font-size: 1.1em;
   padding-bottom: .7em;
 }
