@@ -79,6 +79,7 @@ STATIC_PATHS = [
     'extra/humans.txt',
     'extra/favicon.ico',
     'extra/README.rst',
+    'extra/.nojekyll',
     ]
 EXTRA_PATH_METADATA = {
     'images': {'path': 'images'},
@@ -86,6 +87,7 @@ EXTRA_PATH_METADATA = {
     'extra/humans.txt': {'path': 'humans.txt'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/README.rst': {'path': 'README.rst'},
+    'extra/.nojekyll': {'path': '.nojekyll'},
     }
 # Tag Cloud
 TAG_CLOUD_STEPS = 4     # Count of different font sizes in the tag cloud.

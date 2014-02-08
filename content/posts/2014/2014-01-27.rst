@@ -12,7 +12,7 @@ Antergos paso a paso (II): configuración esencial
 
             La personalización del aspecto y todas esas pijaditas quedan pues
             relegadas al último lugar.
-:twimg: 2014-01-21_01.png
+:twimg: 2014-01-27_04.png
 
 .. contents:: **Índice de contenido**
 ..
@@ -219,7 +219,7 @@ Su uso es similar al de cualquier cortafuegos:
 
 ----
 
-**NOTA:** Al intentar ejecutar :code:`gufw`, como he estado trasteando un
+**NOTA:** Al intentar ejecutar *gufw*, como he estado trasteando un
 poquillo, no arranca. Si lo ejecuto desde consola me arroja un error. Es al
 reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:
 

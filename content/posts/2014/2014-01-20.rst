@@ -355,7 +355,8 @@ como :code:`bios_grub`:
 
     **Botón derecho en partición → Gestionar opciones**
 
-Tras esto, ya podemos continuar donde lo dejamos con *Cnchi*.
+Tras esto, aplicamos los cambios (**Editar → Aplicar todas las operaciones**)
+y ya podemos continuar donde lo dejamos con *Cnchi*.
 
 Particionado avanzado
 ---------------------

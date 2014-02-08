@@ -1,0 +1,796 @@
+Antergos paso a paso (III): puesta a punto de Openbox
+#####################################################
+:date: 2014-02-08 18:15
+:tags: antergos, archlinux, linux, como, tutorial, configuración, openbox
+:category: CÓMOS, linux
+:slug: antergos-tutorial-parte3
+:author: Soulchainer
+:parts:  Antergos_paso_a_paso
+:twsummary: Con Antergos instalada y funcional, ya podemos dedicarnos a
+            personalizarla un poco. Así que vamos a darle un repasito a Openbox.
+            Empezaremos con el menú.
+            Un detalle de Openbox que me gusta mucho es que su menú principal
+            no ocupa espacio en pantalla: se basta y se sobra con un menú
+            contextual ...
+:twimg: 2014-02-07_11.png
+
+.. contents:: **Índice de contenido**
+..
+
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2014/01/2014-01-21_00.png
+    :alt: Logo y eslogan de Antergos.
+
+    Logo y eslogan de `Antergos`_.
+
+*************
+Introducción
+*************
+
+Con `Antergos`_ instalada y funcional, ya podemos dedicarnos a personalizarla
+un poco. Así que vamos a darle un repasito a `Openbox`_.
+
+Empezaremos con el...
+
+*****
+Menú
+*****
+
+Un detalle de *Openbox* que me gusta mucho es que su menú principal no ocupa
+espacio en pantalla: se basta y se sobra con un *menú contextual* (**clic
+derecho en el escritorio**).
+
+Un menú muy completito, además. La única pega es que todas sus entradas,
+excepto el submenú de aplicaciones, están en perfecto inglés. Si esto nos
+incomoda, o bien queremos añadir alguna entrada personalizada, podemos utilizar
+`obmenu`_ para editarlo.
+
+{END_SUMMARY}
+
+.. figure:: {filename}/images/2014/02/2014-02-07_01.png
+    :alt: Obmenu, editor gráfico del menú de Openbox.
+
+    **Preferences → Openbox Config → GUI Menu Editor**.
+
+    El menú se guarda en :code:`~/.config/openbox/menu.xml`.
+
+Aquí podemos editar los nombres de cada entrada del menú (**Label**), así como
+añadir nuevas entradas (**New item**), nuevos submenús (**New menu**) y
+separadores (**New separator**), que dibujan una fina línea entre elementos.
+
+Aparte del submenú ordinario, hay un *tipo especial* de menú: el **pipemenu**.
+
+Mientras que el normal es estático, un
+**pipemenu se genera dinamicamente a través de un script**. Los *pipemenus* en
+uso se encuentran en :code:`~/.config/openbox/pipemenus`. *Obmenu* pone ya a
+nuestra disposición `unos cuantos`_, aunque también podemos escribir los
+nuestros propios usando *python2.x* y `obxml`_ (`documentación de OB`_).
+
+*****
+Panel
+*****
+
+Vale, vale: esto no es parte de *Openbox*, no. Pero lo voy a tratar ya porque
+me apetece y me parece relevante para el siguiente punto.
+
+El *panel* es esa zona del escritorio donde descansa el reloj, iconos de apps
+en ejecución, la lista de ventanas...
+
+De entre todos los paneles a elegir (usamos **Linux**, ¿no?), el equipo de
+*Antergos* se ha decantado por `tint2`_. Y con bastante buen juicio: es un
+*panel* muy ligerito, sencillo y elegante :)
+
+Editor de configuración
+========================
+
+Podemos personalizar el comportamiento de *tint2* con :code:`tintwizard.py`.
+
+.. figure:: {filename}/images/2014/02/2014-02-07_02.png
+    :alt: Tint Wizard, editor de configuración de tint2
+    :align: center
+
+    **Preferences → tint2 config → Tint Wizard**
+
+    La configuración de *tint2* se guarda por defecto en
+    :code:`~/.config/tint2/tint2rc`.
+
+Copia de seguridad
+------------------
+Antes de empezar a tocar nada es recomendable crear una copia de la
+configuración actual, para poder trabajar en ella sin perder la anterior (en
+caso de desear restaurarla): **File → Save as →**, la nombramos y guardamos.
+Veremos como cambia entonces la *barra de estado* del editor para reflejar la
+ruta del archivo recién creado.
+
+Aplicar los cambios
+-------------------
+
+Cada vez que ajustemos un parámetro y queramos comprobar como afecta al *panel*
+tendremos que aplicar los cambios: **Tint2 → Apply Config**. La primera vez
+nos preguntará si queremos hacer que el nuevo archivo sea o no la configuración
+por defecto. En nuestras manos está. Podemos restaurarla en cualquier momento
+abriendo otro archivo y repitiendo el proceso.
+
+Configuración
+-------------
+
+**NOTA**: si no se quiere leer todo este apartado (que aunque parezca largo,
+realmente es muy poca cosa), se puede optar por conservar la configuración por
+defecto, o bien probar la que proporciono en: `Archivo de configuración`_.
+
+----
+
+*Tint Wizard* consta de una serie de secciones, algunas de ellas divididas a su
+vez en subsecciones. A continuación, una *breve* descripción de cada una de
+ellas y de las opciones disponibles:
+
+* **Backgrounds**:
+
+  Por defecto contiene dos pestañas
+  (**Background ID 1** y **Background ID 2**), pero se pueden ir añadiendo más
+  (**Nuevo**) o borrar las ya presentes (**Eliminar**).
+
+  En cada pestaña se declara una variante del mismo conjunto de opciones,
+  relacionadas con la visualización del fondo. Estas variantes, numeradas, se
+  declaran para aplicarlas en los campos :code:`* Background ID` de las
+  secciones restantes. Así, se podrán aplicar ajustes personalizados de las
+  mismas opciones a uno u otro elemento del panel.
+
+  .. _opciones de fondo:
+
+  *Opciones:*
+
+  * **Corner Rounding (px):** redondeado de esquinas. Radio en píxeles.
+  * **Background color & Border color:** color de fondo (contenido y borde).
+    Declaración simple (*hexadecimal*) y selección de color avanzada, para
+    mayor control (p. ej: selección de transparencia).
+  * **Border width (px):** ancho del borde de los elementos, en píxeles.
+
+* **Panel**: opciones relacionadas con todo el *panel*.
+
+  Dividida en tres secciones:
+
+  1. **Panel Display:** cómo se mostrará el panel.
+
+     *Opciones:*
+
+     * **Position:** posición del panel. Dos desplegables, uno para el eje
+       vertical (**top**/arriba, **bottom**/abajo y **center**/centro) y otro
+       para el horizontal (**left**/izda., **right**/dcha. y **center**).
+     * **Panel Orientation:** orientación del panel. **vertical** u
+       **horizontal**.
+     * **Size (width, height):** ancho y alto del panel. 0 == máximo.
+     * **Margin (x, y):** margen (izda./dcha., arriba/abajo) entre el panel y
+       el escritorio.
+     * **Padding (x, y):** espacio (izda./dcha., arriba/abajo) entre el borde
+       del panel y su contenido.
+     * **Horizontal Spacing:** espacio horizontal entre cada elemento del panel.
+     * **Panel Background ID**: elección de `opciones de fondo`_ para el
+       panel.
+  2. **Panel Settings:** otros ajustes del panel.
+
+     *Opciones:*
+
+     .. _Window Manager Menu:
+
+     * **Window Manager Menu:** que *tint2* redirija los eventos de ratón
+       al *gestor de ventanas* (*Openbox*). Esto nos permitirá invocar el menú
+       principal de *Openbox* haciendo clic derecho en el panel cuando tengamos
+       ventanas maximizadas en el escritorio [#]_.
+
+       .. _lo dicho anteriormente:
+
+     * **Place in Window Manager Dock:** establecer *tint2* como *dock* [#]_.
+       Es una opción que personalmente **no me gusta**.
+       `Si queremos un dock, lo mejor es instalar un dock`_.
+     * **Panel Layer:** capa en la que se situará el panel. Tres opciones:
+       **bottom** (por debajo de todo), **normal** y **top** (siempre encima).
+       Yo me quedo con la **normal**, como `bic cristal`_.
+     * **Strut Policy:** determina el tamaño de las ventanas maximizadas. De
+       nuevo, tres opciones: **minimum** (usar el tamaño mínimo),
+       **follow_size** (ajustarse a los cambios de tamaño de *tint2*, muy útil
+       cuando se auto-oculta) o **none** (tamaño de la pantalla). Yo prefiero
+       **follow_size**.
+     * **Panel Monitor (all, 1, 2, ...)**: monitores en los que mostrar el
+       panel, por si se dispone de un sistema multi-monitor.
+  3. **Panel Autohide:** opciones de auto-ocultación del panel.
+
+     *Opciones:*
+
+     * **Autohide Panel:** si se desea auto-ocultar el panel.
+     * **Autohide Show Timeout (seconds):** tiempo que tarda en aparecer el
+       panel al situar el puntero.
+     * **Autohide Hide Timeout (seconds):** ídem, pero para la ocultación.
+     * **Autohide Hidden Height:** altura *visible* del panel en estado
+       *oculto*. Si optara por auto-ocultar, le dejaría algo de altura: unos
+       5-10 píxeles.
+
+* **Taskbar:** barra de tareas (lista las ventanas abiertas).
+
+  *Opciones:*
+
+  * **Taskbar Mode:** si queremos mostrar sólo la lista de ventanas del
+    escritorio en el que nos encontramos (**single_desktop**) o de todos a la
+    vez (**multi_desktop**), debidamente organizados. Yo prefiero la última.
+  * **Padding (x, y):** espacio (izda./dcha., arriba/abajo) entre el borde de la
+    barra de tareas y los iconos.
+  * **Horizontal Spacing:** espacio horizontal entre icono e icono.
+  * **Taskbar Background ID:** elección de `opciones de fondo`_ para las
+    barras de tareas de cada escritorio.
+  * **Active Taskbar Background ID:** ídem para la barra de tareas del
+    escritorio activo. Casilla para activar o no este ajuste.
+
+* **Tasks:** tareas (ventanas).
+
+  Dividida en dos grandes secciones:
+
+  1. **Task Settings:** ajustes de las tareas.
+
+     *Opciones:*
+
+     * **Number of 'Blinks' on Urgent Event:** veces que parpadeará el icono de
+       un evento urgente. Un evento urgente puede ser, por ejemplo, una llamada
+       en *Skype*.
+     * **Show Icons:** mostrar los iconos de las ventanas.
+     * **Show Text:** mostrar texto descriptivo de las ventanas. Yo tiendo a
+       mostrar sólo los iconos.
+     * **Centre Text:** centrar el texto anterior.
+     * **Font:** modificar la fuente del texto.
+     * **Show Font Shadow:** añadir sombra al texto.
+     * **Maximum Size (x, y):** tamaño máximo (ancho, alto) que puede ocupar un
+       icono.
+     * **Padding (x, y):** espacio (izda./dcha., arriba/abajo) a dejar entre el
+       máximo permitido para un icono y el comienzo del mismo.
+
+  2. **Normal/Active/Urgent/Iconified Tasks:** ajustes de tareas normales,
+     activas (tienen el foco), urgentes e iconificadas (ventanas minimizadas).
+
+     *Opciones:*
+
+     * **\* Task Background ID:** elección de `opciones de fondo`_.
+
+       .. _System Tray Icon Alpha/Saturation/Brightness (-100 to 100):
+
+     * **\* Icon Alpha (0 to 100):** grado de transparencia de los iconos. De
+       0 (totalmente transparente) a 100 (nada transparente).
+     * **\* Icon Saturation (-100 to 100):** grado de saturación de colores de
+       los iconos. De -100 (nada saturado, blanco y negro) a 100 (totalmente
+       saturado).
+     * **\* Icon Brightness (-100 to 100):** nivel de brillo de los iconos. De
+       -100 (nada de brillo, negro) a 100 (muy blanqueado).
+     * **\* Font Color:** color de la fuente del texto que acompaña al icono.
+
+* **System Tray:** bandeja del sistema. Junto al reloj, muestra algunos iconos
+  con el estado o acceso directo a ciertas aplicaciones.
+
+  *Opciones:*
+
+  * **Show System Tray:** mostrar la bandeja.
+  * **Padding (x, y):** espacio (izda./dcha., arriba/abajo) entre la bandeja y su
+    contenido.
+  * **Horizontal Spacing:** espacio horizontal entre icono e icono.
+  * **System Tray Background ID:** elección de `opciones de fondo`_ de la bandeja.
+  * **Icon Ordering:** pauta de ordenación de los iconos. **ascending**
+    (ascendente), **descending** (descendente), **left2right** (izda. a dcha.),
+    **right2left** (dcha. a izda.).
+  * **Maximum Icon Size (0 for automatic size):** tamaño máximo (ancho, alto) de
+    un icono.
+  * `System Tray Icon Alpha/Saturation/Brightness (-100 to 100)`_
+
+* **Clock:** reloj junto a la bandeja del sistema.
+
+  Dividida en dos secciones:
+
+  1. **Clock Display:** formato del reloj.
+
+     *Opciones:*
+
+     * **Show:** mostrar la opción correspondiente.
+     * **Time x/Tooltip Format:** Formato [#]_ de la línea *x*/de la
+       descripción emergente [#]_ del reloj.
+     * **Time x Font:** configuración de la fuente de la línea correspondiente.
+
+  2. **Clock Settings:** ajustes del reloj.
+
+     *Opciones:*
+
+     * **Clock Font Color:** ajustes de color de la fuente.
+     * **Padding (x, y):** espacio (izda./dcha., arriba/abajo) entre el
+       contenedor del reloj y el texto.
+     * **Clock Background ID:** elección de `opciones de fondo`_.
+     * **Left/Right Click Command:** comando a ejecutar al hacer clic
+       izdo./dcho. en el reloj.
+
+       Una buena idea para esto podría ser:
+
+       * **Clic izquierdo**: instalar el calendario ligero `gsimplecal`_.
+
+         .. code-block:: sh
+
+             $ yaourt -S gsimplecal
+
+         Y añadir :code:`gsimplecal` en ese campo.
+       * **Clic derecho**: si usamos alguna aplicación de notas, asociarla
+         aquí.
+     * **Time x/Tooltip Zone:** zona horaria a mostrar en cada línea de
+       tiempo/en la descripción emergente. Útil si queremos, por ejemplo,
+       mostrar las horas de España y Chile.
+
+       Para mostrar la hora en España usaríamos :code:`Europe/Madrid`.
+       Las zonas horarias disponibles se pueden consultar con:
+
+       .. code-block:: sh
+
+           $ nano /usr/share/zoneinfo/zone.tab
+
+* **Mouse:** eventos al utilizar el ratón sobre *tint2*. Desactivados si
+  tenemos marcada la opción `Window Manager Menu`_.
+
+  Eventos de ratón:
+
+  * **Middle Mouse Click** → clic ruleta del ratón
+  * **Right Mouse Click**  → clic derecho
+  * **Wheel Scroll Up**    → desplazamiento hacia arriba de la ruleta
+  * **Wheel Scroll Down**  → desplazamiento hacia abajo
+
+  Acciones posibles:
+
+  * **none** → no hacer nada
+  * **close** → cierra la ventana
+  * **toggle** → activa la ventana (le pasa el foco)
+  * **iconify** → minimiza la ventana
+  * **toggle_iconify** → minimiza o activa la ventana
+  * **maximize_restore** → maximiza o restaura la ventana
+  * **desktop_left** → envía la ventana al escritorio de la izda.
+  * **desktop_right** → envía la ventana al escritorio de la dcha.
+  * **next_task** → enfoca la siguiente ventana
+  * **prev_task** → enfoca la ventana anterior
+
+* **Tooltips:** ajustes de descripciones emergentes.
+
+  *Opciones:*
+
+  * **Tooltip Show Timeout (seconds)**: tiempo en segundos que tarda en
+    mostrarse la descripción emergente cuando se situa el puntero en un
+    elemento.
+  * **Tooltip Hide Timeout (seconds)**: tiempo en segundos que tarda en
+    ocultarse cuando se retira el puntero de un elemento.
+
+* **Battery:** ajustes del applet de batería.
+
+  *Opciones:*
+
+  * **Battery Low Status (%):** a qué nivel considerar que la batería anda
+    corta de carga.
+  * **Battery Low Action:** comando a ejecutar cuando queda poca carga. Por
+    defecto muestra el mensaje *"battery low"*. Como nosotros preferimos la
+    lengua de *Cervantes*, mejor cambiamos este campo por algo como
+    :code:`notify-send "Batería baja"`.
+  * **Battery Hide (0 to 100):** a qué nivel se oculta el icono de la batería
+    del panel. Acepta como valores *"never"* y enteros del 1 al 100.
+
+
+Archivo de configuración
+========================
+
+A modo de ejemplo, dejo aquí la configuración que he realizado escribiendo esta
+entrada: https://gist.github.com/soulchainer/a26a16611bd1401f04c5
+
+.. figure:: {filename}/images/2014/02/2014-02-07_03.png
+    :alt: Ejemplo de configuración de tint2
+
+    Uso: guardad en :code:`~/.config/tint2/tint2rc` o abrid y aplicad cambios
+    con :code:`tintwizard`.
+
+*********************************
+Configuración general de Openbox
+*********************************
+
+Tras el desbordamiento de texto del punto anterior (¡Gomen!), en este punto voy
+a ser mucho más gráfico y breve, si cabe.
+
+La configuración general de *Openbox* se establece con :code:`obconf`. Podemos
+encontrarlo en **Preferences → Openbox Config → GUI Config Tool**.
+
+Tema & apariencia
+=================
+
+.. figure:: {filename}/images/2014/02/2014-02-07_04.png
+    :alt: Herramienta de configuración de Openbox. Configuración de Tema.
+
+    Elección de tema. *Antergos* viene con *Zukitwo* por defecto. Y me gusta.
+
+    Fuentes para obtener nuevos temas: `Box-look`_, `Customize.org`_ o
+    `deviantART`_, entre otras.
+
+Cuando descarguemos un tema, si su creador es majo, nos encontraremos con un
+archivo *.obt*. Instalar un tema así es pan comido:
+
+* Si no tenemos *obconf* abierto: **Ctrl + F** (explorador de archivos
+  `PCManFM`_) → descomprimimos → clic derecho en el *.obt* →
+  **Openbox Configuration Manager** → Instalado.
+* Desde *obconf*: **Instalar un nuevo tema** → lo buscamos → Instalado.
+
+Si no es majo (¬_¬), en el archivo comprimido vendrán varias carpetas y
+adjuntará un **README** con instrucciones de dónde copiar qué, a patita.
+
+Como complemento a los ajustes de **Tema** y **Apariencia** de *ObConf*, se
+puede usar también *LXAppearance* (:code:`lxappearance` o
+**Preferences → User Interface Settings**).
+
+.. figure:: {filename}/images/2014/02/2014-02-07_07.gif
+    :alt: Lxappearance. Configuración extra de Tema.
+
+    Aunque duplica funciones de *ObConf*, incluye opciones extra, como la
+    gestión de temas de iconos y cursores de ratón.
+
+    `Descargar temas de iconos`_. `Descargar temas de cursores`_.
+
+
+
+Manipulación de las ventanas
+=============================
+
+.. figure:: {filename}/images/2014/02/2014-02-07_05.png
+    :alt: Herramienta de configuración de Openbox. Configuración de manejo de
+          las ventanas.
+
+    La resistencia es el impedimento que suponen ciertos bordes al avance de
+    una ventana. A mayor resistencia, más duro el avance.
+
+    **Switch desktops when moving...** → cambio de escritorio al sobrepasar
+    una ventana sus límites. Después, tiempo en milisegundos a contar antes de
+    considerar el cambio.
+
+Ratón
+=====
+
+.. figure:: {filename}/images/2014/02/2014-02-07_06.png
+    :alt: Herramienta de configuración de Openbox. Configuración del ratón.
+
+    Establecer el enfoque de ventanas con el ratón (la ventana bajo el puntero
+    pasa a ser la ventana activa) es tentador. Suena práctico, pero para mí
+    termina siendo un inconveniente.
+
+En este punto, puede ser interesante configurar también el comportamiento del
+ratón, con :code:`lxinput` (**Preferences → Input Device Preferences**).
+Sobre todo si somos zurdos.
+
+.. figure:: {filename}/images/2014/02/2014-02-07_08.png
+    :alt: Lxinput. Configuración del comportamiento del ratón.
+
+Escritorios virtuales
+=====================
+
+.. figure:: {filename}/images/2014/02/2014-02-07_09.png
+    :alt: Herramienta de configuración de Openbox. Configuración de escritorios
+          virtuales.
+
+    La notificación anuncia en el centro de la pantalla el cambio de
+    escritorio.
+
+    Yo suelo nombrar los escritorios (doble clic para editar), dividiéndolos
+    por tareas, como *IM* (mensajería), *Web*, *Dev*, ... Me ayuda a
+    organizarme.
+
+Otras secciones
+===============
+
+He obviado algunas secciones aquí, al ser bastante triviales.
+Dejo sin repasar, especialmente, la desafortunadamente llamada *"Muelle"*.
+`Diga lo que diga la Wikipedia`_, queda fatal llamar a un *Dock* así. Me remito
+a `lo dicho anteriormente`_.
+
+.. _Si queremos un dock, lo mejor es instalar un dock:
+
+****
+Dock
+****
+
+Y es que, si queremos utilizar un *dock*, lo suyo es usar un software
+específico para ello. En **Linux** hay muchas alternativas. Algunas de las más
+conocidas son `Gnome Do`_ o `AWN`_, pero, además del hecho de que yo no soy de
+docks, cuando las he usado han resultado ser más pesadas que una vaca en
+brazos.
+
+Que sí, que los docks son muy bonitos y todo lo que se quiera, pero cuando no
+aportan una funcionalidad extra relevante y todo se reduce a una cuestión
+estética... a la que además sumamos el factor consumo, pues
+**adiós muy buenas**.
+
+Plank
+=====
+
+*Antergos* viene con `Plank`_ instalado
+(**Applications → Accesorios → Plank**). Lo he probado, y la verdad es que,
+pese a mis reticencias, me gusta [#]_. Es ligero y come poquitos recursos:
+unos *25 MB* sin ninguna aplicación corriendo. No está mal. No son los *2 MB*
+que dicen por ahí (a saber de dónde salen esos números...), pero no está mal.
+Aunque abriendo un programa o dos la cosa sube, claro.
+
+.. figure:: {filename}/images/2014/02/2014-02-07_10.png
+    :alt: Plank: el dock ligero predeterminado en Antergos.
+
+    Lo mejor es que no necesita configuración alguna: instalado y a correr.
+
+    Cuando ejecutemos una aplicación y queramos mantenerla en el dock:
+    **clic dcho. → Mantener en el dock**.
+
+**********************
+Aplicaciones al inicio
+**********************
+
+Ya que hemos instalado *Plank*, quizás sea el momento de configurar las
+aplicaciones que arrancan con *Openbox*.
+
+Para ello, hemos de editar un archivo de texto. Fácil y rápido, además.
+
+Accedemos al archivo en cuestión (:code:`~/.config/openbox/autostart`) desde el
+menú: **Preferences → Openbox Config → Edit autostart**. Y obtenemos algo así:
+
+.. code-block:: sh
+
+    nitrogen --restore &
+    volumeicon &
+    compton -fC  &
+    tint2 &
+    #sleep 1s && conky -c ~/.config/conky/conkyrc-workspace &
+    #sleep 1s && conky -c ~/.config/conky/conkyrc &
+    #/usr/lib/lxpolkit/lxpolkit &
+
+Como podéis ver, ahí está *tint2*, con el que tanto os he dado la paliza antes.
+Hay tres cosas básicas que hay que saber a la hora de editar el *autostart*:
+
+1. Tras agregar una aplicación,
+   **siempre hay que acabar la línea con un ampersand (&)**. Si nos olvidamos
+   de hacerlo y añadimos algún comando después, no se ejecutará.
+2. Cuando ejecutemos un comando que vaya a llevarse su tiempo o que necesite
+   de otro comando ejecutado anteriormente para su uso, debemos usar el comando
+   :code:`sleep` para añadir un tiempo de espera (en segundos) antes de su
+   ejecución. Algo así:
+
+   .. code-block:: sh
+
+       (sleep 1s && tint2) &
+
+   En el ejemplo, esperamos 1 segundo antes de lanzar *tint2*.
+3. Las líneas que empiezan por almohadillas (**#**) son comentarios. No se
+   tienen en cuenta.
+
+Y ya está :D
+
+Antes de editarlo, un repaso rápido a las líneas ejecutadas por el actual
+:code:`autostart`:
+
+.. code-block:: sh
+
+    nitrogen --restore &
+
+Restaura el último fondo de pantalla utilizado. Utiliza la app `nitrogen`_.
+Es un clásico y funciona genial.
+
+.. figure:: {filename}/images/2014/02/2014-02-07_11.png
+    :alt: Nitrogen. Aplicación para establecer el fondo de pantalla.
+
+    :code:`nitrogen` o **Preferences → Wallpaper**.
+
+    Podemos configurar nuestra propia carpeta de fondos con
+    **Preferences → Add**. Después elegimos la miniatura de un fondo y
+    **Apply**. Listo. Cerramos.
+
+.. code-block:: sh
+
+    volumeicon &
+
+El applet de control de volumen que aparece en la *bandeja del sistema*. Desde
+ahí podemos configurar el sonido.
+
+.. code-block:: sh
+
+    compton -fC  &
+
+`Compton`_ es un compositor de ventanas (es lo que instalamos al marcar
+**Efectos de escritorio** en la instalación de *Antergos*). Es el encargado de
+imbuir de algunos efectillos a las ventanas, sombreado de bordes, etc. Con las
+opciones actuales sólo dispone el efecto de desvanecimiento cuando cerramos
+una ventana y evita dibujar sombras en paneles/docks. Pero es capaz de
+mucho más. Podría detallarlo, pero esto sería interminable. Y
+**hay que aprender a leer páginas man**:
+
+.. code-block:: sh
+
+    $ man compton
+
+Una vez sabido esto, y si así lo queremos, añadimos el *dock*
+(**y alguna otra cosilla**) al inicio:
+
+.. code-block:: sh
+
+    numlockx &  # activa el bloqueo numérico al inicio
+    nitrogen --restore &
+    volumeicon &
+    # regula la temperatura de color del monitor según la hora
+    xflux -z tu_codigo_postal &
+    compton -fCGb
+    tint2 &
+    (sleep 1s && plank) &
+    #sleep 1s && conky -c ~/.config/conky/conkyrc-workspace &
+    #sleep 1s && conky -c ~/.config/conky/conkyrc &
+    #/usr/lib/lxpolkit/lxpolkit &
+
+Sustituimos el contenido del *autostart* actual por esto y guardamos. Al
+próximo reinicio se aplicarán los cambios :)
+
+Obviamente, hemos de instalar :code:`numlockx`:
+
+.. code-block:: sh
+
+    $ yaourt -S numlockx
+
+Además, yo recomendaría la instalación de `f.lux`_:
+
+.. code-block:: sh
+
+    $ yaourt -S xflux
+
+Lo he añadido ya arriba, es vuestra elección usarlo o no. Por la noche se nota
+mucho. Los ojos sufren menos. Se puede configurar introduciendo directamente la
+latitud y longitud, pero he elegido esa configuración para que no sea sea tan
+complicado (yo lo tengo con lat. y long.).
+
+*****************
+Atajos de teclado
+*****************
+
+Este punto es bastante importante para mí, ya que no suelo usar ni menú ni
+*dock*: me basto y me sobro con el lanzador básico de aplicaciones
+(**Alt + F2**, con autocompletado) y con atajos de teclado. Muchos atajos.
+
+Instalamos el asistente de configuración con:
+
+.. code-block:: sh
+
+    $ yaourt -S obkey
+
+Y lo ejecutamos desde **Preferences → Openbox Config → Key Editor**.
+
+.. figure:: {filename}/images/2014/02/2014-02-07_12.png
+    :alt: Obkey, editor de atajos de teclado de Openbox.
+    :align: center
+
+    Iconos panel principal, de izda. a dcha.: **guardar config**,
+    **añadir atajo**, **añadir atajo hijo**, **borrar atajo**, **cerrar**.
+
+    Iconos panel Action: **añadir acción**, **borrar acción**,
+    **mover arriba**, **mover abajo**, **borrar todas**.
+
+Su funcionamiento es muy sencillo:
+
+1. Añadimos un atajo pulsando el botón análogo.
+2. Doble clic en el campo :code:`Key`.
+3. Ejecutamos el atajo deseado.
+4. Escribimos en el campo Key Text dicho atajo. Indicaciones:
+
+   * La tecla **Super** es la tecla normalmente representada por el logo del
+     *SO*. En un teclado *Windows*, es la tecla **Windows**. En texto, se
+     representa con la **W**.
+   * La tecla **Alt** se representa con una **A**.
+   * La tecla **Ctrl** se representa con una **C**.
+   * La tecla **Mayus** es **Bloq Mayús** y en texto se representa con la **S**
+     (de **Shift**).
+   * Hay más teclas, pero resultan evidentes a poco que domines el inglés.
+   * Las teclas correspondiendes a letras se escriben en minúsculas.
+5. Añadimos una acción a la tecla. Doble clic y podemos cambiarla.
+6. Hay muchas acciones y `todos los nombres`_ están en inglés, pero son bastante
+   evidentes. Para lanzar aplicaciones se usa la acción **Execute**. Después,
+   en el campo **comand** introducimos el comando a ejecutar y guardamos. Suele
+   bastar. El conjunto de campos **startupnotify** es para dar determinada
+   información al gestor de ventanas cuando lanzamos el programa.
+
+   Es muy recomendable que leas `más sobre las acciones`_, porque facilitan
+   mucho el trabajo diario. Cosas como cambiar de escritorio, mover ventanas de
+   un escritorio a otro, maximizar, minimizar, redimensionar ventanas, acceder
+   al menú... todo se puede hacer sin levantar un dedo del teclado. También
+   puedes leer más a fondo sobre los atajos en la `documentación de Openbox`_.
+
+Hay que tener en cuenta que por defecto **obkey** viene con muchos atajos ya
+preconfigurados. Algunos de los cuales corresponden a programas que ni tenemos
+instalados (como `Audacious`_). Seguramente desearemos editarlos antes que
+crear un atajo repetido. Otros comandos los tenemos instalados, aunque no lo
+sepamos (como `slimlock`_, que bloquea la pantalla y solicita contraseña).
+Comprobar si los tenemos o no es tan fácil como usar el autocompletado del
+lanzador simple de aplicaciones (**Alt + F2**) o el de consola (**Super + T**).
+
+Algunas teclas usadas en los atajos pueden sonarnos un poco a chino, como
+**XF86AudioNext**. O puede que queramos asociar un atajo a esa tecla multimedia
+*chachi piruli* de nuestro teclado y que no sepamos como se llama. ¿Qué hacemos?
+
+Instalamos :code:`xorg-xev`:
+
+.. code-block:: sh
+
+    $ yaourt -S xorg-xev
+
+Y lo ejecutamos desde consola:
+
+.. code-block:: sh
+
+    $ xev
+
+.. figure:: {filename}/images/2014/02/2014-02-07_13.png
+    :alt: xev, capturador de eventos de teclado/ratón.
+    :align: center
+
+    :code:`xev` captura **TODO** lo que hagamos con el teclado/ratón.
+
+    En verde, la zona donde aparecerá el nombre de la tecla o botón pulsado.
+
+Cuando hayamos pulsado la tecla que queramos utilizar o encontrado la que
+buscamos, cerramos la ventanita de *xev* y buscamos entre todos los datos
+devueltos lo que nos interesa.
+
+Una vez terminamos de añadir todos los atajos, guardamos y arreando.
+
+*************************************
+Recargar la configuración manualmente
+*************************************
+
+A veces es necesario recargar manualmente la configuración de *Openbox* para
+que se apliquen los cambios realizados:
+**Preferences → Openbox Config → Reconfigure**.
+
+*************
+Próxima parte
+*************
+
+O no... Aún no lo sé xD En cualquier caso, aquí lo dejamos por ahora, que
+seguro que ya estábais pensando que esto no iba a acabarse nunca :p
+Creo que he repasado todo lo importante, pero es posible que me haya dejado
+algo. Que no os de miedo preguntar :)
+
+Si es que hago una última parte la próxima semana, esta será un compendio de
+alternativas ligeras para cubrir las necesidades más (y no tan) comunes del día
+a día.
+
+Y tras tres semanas de **artículos interminables**, intentaré darme un
+descansito y hacer alguno que otro algo más cortito.
+
+¡Propicios días!
+
+.. _Antergos: http://antergos.com/
+.. _Openbox: http://openbox.org/
+.. _obmenu: http://obmenu.sourceforge.net/
+.. _unos cuantos: http://obmenu.sourceforge.net/pipes-help
+.. _obxml: http://obmenu.sourceforge.net/obxml-help
+.. _documentación de OB: http://obmenu.sourceforge.net/doc.html
+.. _tint2: http://code.google.com/p/tint2/
+.. _bic cristal: http://www.youtube.com/watch?v=hD-dgSuzkzU
+.. _gsimplecal: http://dmedvinsky.github.io/gsimplecal/
+.. _Box-look: http://box-look.org/index.php?xcontentmode=7402
+.. _Customize.org: http://customize.org/browse/tags/openbox
+.. _deviantART: http://www.deviantart.com/customization/skins/linuxutil/winmanagers/openbox/
+.. _PCManFM: http://wiki.lxde.org/en/PCManFM
+.. _Descargar temas de iconos: http://gnome-look.org/index.php?xcontentmode=121
+.. _Descargar temas de cursores: http://gnome-look.org/index.php?xcontentmode=36
+.. _Diga lo que diga la Wikipedia: http://es.wikipedia.org/wiki/Dock
+.. _Gnome Do: http://do.cooperteam.net/
+.. _AWN: https://launchpad.net/awn/
+.. _Plank: https://launchpad.net/plank
+.. _nitrogen: http://projects.l3ib.org/nitrogen/
+.. _Compton: https://github.com/chjj/compton
+.. _f.lux: http://justgetflux.com/
+.. _Audacious: http://audacious-media-player.org/
+.. _slimlock: http://joelburget.com/slimlock/
+.. _más sobre las acciones:
+.. _todos los nombres: http://openbox.org/wiki/Help:Actions
+.. _documentación de Openbox: http://openbox.org/wiki/Help:Bindings
+
+----
+
+.. [#] Recordemos que se trata de un menú contextual: para invocarlo tenemos que hacer clic con el botón derecho sobre el escritorio. Si tenemos una ventana ocupándolo todo, no tenemos desde donde invocarlo a no ser que usemos un atajo de teclado.
+.. [#] Es un elemento de la *GUI* que permite a los usuarios iniciar, cambiar y controlar aplicaciones. En su concepción más simple, es una barra con accesos directos a aplicaciones favoritas, que suele asentarse en la base de la pantalla.
+.. [#] Al pie de la ventana hay una lista con algunas de las etiquetas de formato de tiempo admitidas.
+.. [#] Un **tooltip** o **descripción emergente** es el texto que aparece al situar el puntero del ratón sobre determinados elementos de la *GUI*, mostrando información adicional.
+.. [#] Lo que no quiere decir que vaya a empezar a usar docks ahora, ¿eh? xD
