@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, antergos, archlinux, como, configuración, linux, openbox, tutorial" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Antergos paso a paso (III): puesta a punto de Openbox">
+      <meta name="twitter:description" content="Con Antergos instalada y funcional, ya podemos dedicarnos a
+personalizarla un poco. Así que vamos a darle un repasito a Openbox.
+Empezaremos con el menú.
+Un detalle de Openbox que me gusta mucho es que su menú principal
+no ocupa espacio en pantalla: se basta y se sobra con un menú
+contextual ...">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/02/2014-01-21_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Antergos paso a paso (III): puesta a punto de Openbox" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/02/07/antergos-tutorial-parte3/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/02/2014-01-21_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux" />
+      <meta property="og:article:tag" content="antergos" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="como" />
+      <meta property="og:article:tag" content="configuración" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="openbox" />
+      <meta property="og:article:tag" content="tutorial" />
+      <meta property="og:description" content="Con Antergos instalada y funcional, ya podemos dedicarnos a
+personalizarla un poco. Así que vamos a darle un repasito a Openbox.
+Empezaremos con el menú.
+Un detalle de Openbox que me gusta mucho es que su menú principal
+no ocupa espacio en pantalla: se basta y se sobra con un menú
+contextual ..." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="youtube.com" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/02/07/antergos-tutorial-parte3/" rel="bookmark" title="Permalink to Antergos paso a paso (III): puesta a punto de Openbox">
+      Antergos paso a paso (<span class="caps">III</span>): puesta a punto de&nbsp;Openbox
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-02-07T23:59:00">
+      vie 07 febrero 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="contents topic" id="indice-de-contenido">
+<p class="topic-title first"><strong>Índice de contenido</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#introduccion" id="id12">Introducción</a></li>
+<li><a class="reference internal" href="#menu" id="id13">Menú</a></li>
+<li><a class="reference internal" href="#panel" id="id14">Panel</a><ul>
+<li><a class="reference internal" href="#editor-de-configuracion" id="id15">Editor de configuración</a><ul>
+<li><a class="reference internal" href="#copia-de-seguridad" id="id16">Copia de seguridad</a></li>
+<li><a class="reference internal" href="#aplicar-los-cambios" id="id17">Aplicar los cambios</a></li>
+<li><a class="reference internal" href="#configuracion" id="id18">Configuración</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#archivo-de-configuracion" id="id19">Archivo de configuración</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuracion-general-de-openbox" id="id20">Configuración general de Openbox</a><ul>
+<li><a class="reference internal" href="#tema-apariencia" id="id21">Tema <span class="amp">&amp;</span> apariencia</a></li>
+<li><a class="reference internal" href="#manipulacion-de-las-ventanas" id="id22">Manipulación de las ventanas</a></li>
+<li><a class="reference internal" href="#raton" id="id23">Ratón</a></li>
+<li><a class="reference internal" href="#escritorios-virtuales" id="id24">Escritorios virtuales</a></li>
+<li><a class="reference internal" href="#otras-secciones" id="id25">Otras secciones</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dock" id="id26">Dock</a><ul>
+<li><a class="reference internal" href="#plank" id="id27">Plank</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aplicaciones-al-inicio" id="id28">Aplicaciones al inicio</a></li>
+<li><a class="reference internal" href="#atajos-de-teclado" id="id29">Atajos de teclado</a></li>
+<li><a class="reference internal" href="#recargar-la-configuracion-manualmente" id="id30">Recargar la configuración manualmente</a></li>
+<li><a class="reference internal" href="#proxima-parte" id="id31">Próxima parte</a></li>
+</ul>
+</div>
+<!-- -->
+<p></p>
+<div class="figure" style="width: 800px; height: auto; max-width: 100%;">
+<img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/>
+<p class="caption">Logo y eslogan de <a class="reference external" href="http://antergos.com/">Antergos</a>.</p>
+</div>
+<div class="section" id="introduccion">
+<h2><a class="toc-backref" href="#id12">Introducción</a></h2>
+<p>Con <a class="reference external" href="http://antergos.com/">Antergos</a> instalada y funcional, ya podemos dedicarnos a personalizarla
+un poco. Así que vamos a darle un repasito a <a class="reference external" href="http://openbox.org/">Openbox</a>.</p>
+<p>Empezaremos con el…</p>
+</div>
+<div class="section" id="menu">
+<h2><a class="toc-backref" href="#id13">Menú</a></h2>
+<p>Un detalle de <em>Openbox</em> que me gusta mucho es que su menú principal no ocupa
+espacio en pantalla: se basta y se sobra con un <em>menú contextual</em> (<strong>clic
+derecho en el escritorio</strong>).</p>
+<p>Un menú muy completito, además. La única pega es que todas sus entradas,
+excepto el submenú de aplicaciones, están en perfecto inglés. Si esto nos
+incomoda, o bien queremos añadir alguna entrada personalizada, podemos utilizar
+<a class="reference external" href="http://obmenu.sourceforge.net/">obmenu</a> para editarlo.</p>
+<p></p>
+<div class="figure" style="width: 560px; height: auto; max-width: 100%;">
+<img alt="Obmenu, editor gráfico del menú de Openbox." src="http://soulchainer.github.io/images/2014/02/2014-02-07_01.png" style="width: 560px; height: auto; max-width: 100%;"/>
+<p class="caption"><strong>Preferences → Openbox Config → <span class="caps">GUI</span> Menu Editor</strong>.</p>
+<div class="legend">
+El menú se guarda en <code>~/.config/openbox/menu.xml</code>.</div>
+</div>
+<p>Aquí podemos editar los nombres de cada entrada del menú (<strong>Label</strong>), así como
+añadir nuevas entradas (<strong>New item</strong>), nuevos submenús (<strong>New menu</strong>) y
+separadores (<strong>New separator</strong>), que dibujan una fina línea entre elementos.</p>
+<p>Aparte del submenú ordinario, hay un <em>tipo especial</em> de menú: el <strong>pipemenu</strong>.</p>
+<p>Mientras que el normal es estático, un
+<strong>pipemenu se genera dinamicamente a través de un script</strong>. Los <em>pipemenus</em> en
+uso se encuentran en <code>~/.config/openbox/pipemenus</code>. <em>Obmenu</em> pone ya a
+nuestra disposición <a class="reference external" href="http://obmenu.sourceforge.net/pipes-help">unos cuantos</a>, aunque también podemos escribir los
+nuestros propios usando <em>python2.x</em> y <a class="reference external" href="http://obmenu.sourceforge.net/obxml-help">obxml</a> (<a class="reference external" href="http://obmenu.sourceforge.net/doc.html">documentación de <span class="caps">OB</span></a>).</p>
+</div>
+<div class="section" id="panel">
+<h2><a class="toc-backref" href="#id14">Panel</a></h2>
+<p>Vale, vale: esto no es parte de <em>Openbox</em>, no. Pero lo voy a tratar ya porque
+me apetece y me parece relevante para el siguiente punto.</p>
+<p>El <em>panel</em> es esa zona del escritorio donde descansa el reloj, iconos de apps
+en ejecución, la lista de ventanas…</p>
+<p>De entre todos los paneles a elegir (usamos <strong>Linux</strong>, ¿no?), el equipo de
+<em>Antergos</em> se ha decantado por <a class="reference external" href="http://code.google.com/p/tint2/">tint2</a>. Y con bastante buen juicio: es un
+<em>panel</em> muy ligerito, sencillo y elegante :)</p>
+<div class="section" id="editor-de-configuracion">
+<h3><a class="toc-backref" href="#id15">Editor de configuración</a></h3>
+<p>Podemos personalizar el comportamiento de <em>tint2</em> con <code>tintwizard.py</code>.</p>
+<div class="figure align-center" style="width: 661px; height: auto; max-width: 100%;">
+<img alt="Tint Wizard, editor de configuración de tint2" src="http://soulchainer.github.io/images/2014/02/2014-02-07_02.png" style="width: 661px; height: auto; max-width: 100%;"/>
+<p class="caption"><strong>Preferences → tint2 config → Tint Wizard</strong></p>
+<div class="legend">
+La configuración de <em>tint2</em> se guarda por defecto en
+<code>~/.config/tint2/tint2rc</code>.</div>
+</div>
+<div class="section" id="copia-de-seguridad">
+<h4><a class="toc-backref" href="#id16">Copia de seguridad</a></h4>
+<p>Antes de empezar a tocar nada es recomendable crear una copia de la
+configuración actual, para poder trabajar en ella sin perder la anterior (en
+caso de desear restaurarla): <strong>File → Save as →</strong>, la nombramos y guardamos.
+Veremos como cambia entonces la <em>barra de estado</em> del editor para reflejar la
+ruta del archivo recién creado.</p>
+</div>
+<div class="section" id="aplicar-los-cambios">
+<h4><a class="toc-backref" href="#id17">Aplicar los cambios</a></h4>
+<p>Cada vez que ajustemos un parámetro y queramos comprobar como afecta al <em>panel</em>
+tendremos que aplicar los cambios: <strong>Tint2 → Apply Config</strong>. La primera vez
+nos preguntará si queremos hacer que el nuevo archivo sea o no la configuración
+por defecto. En nuestras manos está. Podemos restaurarla en cualquier momento
+abriendo otro archivo y repitiendo el proceso.</p>
+</div>
+<div class="section" id="configuracion">
+<h4><a class="toc-backref" href="#id18">Configuración</a></h4>
+<p><strong><span class="caps">NOTA</span></strong>: si no se quiere leer todo este apartado (que aunque parezca largo,
+realmente es muy poca cosa), se puede optar por conservar la configuración por
+defecto, o bien probar la que proporciono en: <a class="reference internal" href="#archivo-de-configuracion">Archivo de configuración</a>.</p>
+<hr class="docutils"/>
+<p><em>Tint Wizard</em> consta de una serie de secciones, algunas de ellas divididas a su
+vez en subsecciones. A continuación, una <em>breve</em> descripción de cada una de
+ellas y de las opciones disponibles:</p>
+<ul>
+<li><p class="first"><strong>Backgrounds</strong>:</p>
+<p>Por defecto contiene dos pestañas
+(<strong>Background <span class="caps">ID</span> 1</strong> y <strong>Background <span class="caps">ID</span> 2</strong>), pero se pueden ir añadiendo más
+(<strong>Nuevo</strong>) o borrar las ya presentes (<strong>Eliminar</strong>).</p>
+<p>En cada pestaña se declara una variante del mismo conjunto de opciones,
+relacionadas con la visualización del fondo. Estas variantes, numeradas, se
+declaran para aplicarlas en los campos <code>* Background ID</code> de las
+secciones restantes. Así, se podrán aplicar ajustes personalizados de las
+mismas opciones a uno u otro elemento del panel.</p>
+<p id="opciones-de-fondo"><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Corner Rounding (px):</strong> redondeado de esquinas. Radio en píxeles.</li>
+<li><strong>Background color <span class="amp">&amp;</span> Border color:</strong> color de fondo (contenido y borde).
+Declaración simple (<em>hexadecimal</em>) y selección de color avanzada, para
+mayor control (p. ej: selección de transparencia).</li>
+<li><strong>Border width (px):</strong> ancho del borde de los elementos, en píxeles.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Panel</strong>: opciones relacionadas con todo el <em>panel</em>.</p>
+<p>Dividida en tres secciones:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Panel Display:</strong> cómo se mostrará el panel.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Position:</strong> posición del panel. Dos desplegables, uno para el eje
+vertical (<strong>top</strong>/arriba, <strong>bottom</strong>/abajo y <strong>center</strong>/centro) y otro
+para el horizontal (<strong>left</strong>/izda., <strong>right</strong>/dcha. y <strong>center</strong>).</li>
+<li><strong>Panel Orientation:</strong> orientación del panel. <strong>vertical</strong> u
+<strong>horizontal</strong>.</li>
+<li><strong>Size (width, height):</strong> ancho y alto del panel. 0 == máximo.</li>
+<li><strong>Margin (x, y):</strong> margen (izda./dcha., arriba/abajo) entre el panel y
+el escritorio.</li>
+<li><strong>Padding (x, y):</strong> espacio (izda./dcha., arriba/abajo) entre el borde
+del panel y su contenido.</li>
+<li><strong>Horizontal Spacing:</strong> espacio horizontal entre cada elemento del panel.</li>
+<li><strong>Panel Background <span class="caps">ID</span></strong>: elección de <a class="reference internal" href="#opciones-de-fondo">opciones de fondo</a> para el panel.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Panel Settings:</strong> otros ajustes del panel.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple" id="window-manager-menu">
+<li><strong>Window Manager Menu:</strong> que <em>tint2</em> redirija los eventos de ratón
+al <em>gestor de ventanas</em> (<em>Openbox</em>). Esto nos permitirá invocar el menú
+principal de <em>Openbox</em> haciendo clic derecho en el panel cuando tengamos
+ventanas maximizadas en el escritorio <a class="footnote-reference" href="#id7" id="id1">[1]</a>.</li>
+<li id="lo-dicho-anteriormente"><strong>Place in Window Manager Dock:</strong> establecer <em>tint2</em> como <em>dock</em> <a class="footnote-reference" href="#id8" id="id2">[2]</a>.
+Es una opción que personalmente <strong>no me gusta</strong>.
+<a class="reference internal" href="#si-queremos-un-dock-lo-mejor-es-instalar-un-dock">Si queremos un dock, lo mejor es instalar un dock</a>.</li>
+<li><strong>Panel Layer:</strong> capa en la que se situará el panel. Tres opciones:
+<strong>bottom</strong> (por debajo de todo), <strong>normal</strong> y <strong>top</strong> (siempre encima).
+Yo me quedo con la <strong>normal</strong>, como <a class="reference external" href="http://www.youtube.com/watch?v=hD-dgSuzkzU">bic cristal</a>.</li>
+<li><strong>Strut Policy:</strong> determina el tamaño de las ventanas maximizadas. De
+nuevo, tres opciones: <strong>minimum</strong> (usar el tamaño mínimo),
+<strong>follow_size</strong> (ajustarse a los cambios de tamaño de <em>tint2</em>, muy útil
+cuando se auto-oculta) o <strong>none</strong> (tamaño de la pantalla). Yo prefiero
+<strong>follow_size</strong>.</li>
+<li><strong>Panel Monitor (all, 1, 2, …)</strong>: monitores en los que mostrar el
+panel, por si se dispone de un sistema multi-monitor.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Panel Autohide:</strong> opciones de auto-ocultación del panel.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Autohide Panel:</strong> si se desea auto-ocultar el panel.</li>
+<li><strong>Autohide Show Timeout (seconds):</strong> tiempo que tarda en aparecer el
+panel al situar el puntero.</li>
+<li><strong>Autohide Hide Timeout (seconds):</strong> ídem, pero para la ocultación.</li>
+<li><strong>Autohide Hidden Height:</strong> altura <em>visible</em> del panel en estado
+<em>oculto</em>. Si optara por auto-ocultar, le dejaría algo de altura: unos
+5-10 píxeles.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p class="first"><strong>Taskbar:</strong> barra de tareas (lista las ventanas abiertas).</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Taskbar Mode:</strong> si queremos mostrar sólo la lista de ventanas del
+escritorio en el que nos encontramos (<strong>single_desktop</strong>) o de todos a la
+vez (<strong>multi_desktop</strong>), debidamente organizados. Yo prefiero la última.</li>
+<li><strong>Padding (x, y):</strong> espacio (izda./dcha., arriba/abajo) entre el borde de la
+barra de tareas y los iconos.</li>
+<li><strong>Horizontal Spacing:</strong> espacio horizontal entre icono e icono.</li>
+<li><strong>Taskbar Background <span class="caps">ID</span>:</strong> elección de <a class="reference internal" href="#opciones-de-fondo">opciones de fondo</a> para las
+barras de tareas de cada escritorio.</li>
+<li><strong>Active Taskbar Background <span class="caps">ID</span>:</strong> ídem para la barra de tareas del
+escritorio activo. Casilla para activar o no este ajuste.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Tasks:</strong> tareas (ventanas).</p>
+<p>Dividida en dos grandes secciones:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Task Settings:</strong> ajustes de las tareas.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Number of ‘Blinks’ on Urgent Event:</strong> veces que parpadeará el icono de
+un evento urgente. Un evento urgente puede ser, por ejemplo, una llamada
+en <em>Skype</em>.</li>
+<li><strong>Show Icons:</strong> mostrar los iconos de las ventanas.</li>
+<li><strong>Show Text:</strong> mostrar texto descriptivo de las ventanas. Yo tiendo a
+mostrar sólo los iconos.</li>
+<li><strong>Centre Text:</strong> centrar el texto anterior.</li>
+<li><strong>Font:</strong> modificar la fuente del texto.</li>
+<li><strong>Show Font Shadow:</strong> añadir sombra al texto.</li>
+<li><strong>Maximum Size (x, y):</strong> tamaño máximo (ancho, alto) que puede ocupar un icono.</li>
+<li><strong>Padding (x, y):</strong> espacio (izda./dcha., arriba/abajo) a dejar entre el
+máximo permitido para un icono y el comienzo del mismo.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Normal/Active/Urgent/Iconified Tasks:</strong> ajustes de tareas normales,
+activas (tienen el foco), urgentes e iconificadas (ventanas minimizadas).</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>* Task Background <span class="caps">ID</span>:</strong> elección de <a class="reference internal" href="#opciones-de-fondo">opciones de fondo</a>.</li>
+<li id="system-tray-icon-alpha-saturation-brightness-100-to-100"><strong>* Icon Alpha (0 to 100):</strong> grado de transparencia de los iconos. De
+0 (totalmente transparente) a 100 (nada transparente).</li>
+<li><strong>* Icon Saturation (-100 to 100):</strong> grado de saturación de colores de
+los iconos. De -100 (nada saturado, blanco y negro) a 100 (totalmente saturado).</li>
+<li><strong>* Icon Brightness (-100 to 100):</strong> nivel de brillo de los iconos. De
+-100 (nada de brillo, negro) a 100 (muy blanqueado).</li>
+<li><strong>* Font Color:</strong> color de la fuente del texto que acompaña al icono.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p class="first"><strong>System Tray:</strong> bandeja del sistema. Junto al reloj, muestra algunos iconos
+con el estado o acceso directo a ciertas aplicaciones.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Show System Tray:</strong> mostrar la bandeja.</li>
+<li><strong>Padding (x, y):</strong> espacio (izda./dcha., arriba/abajo) entre la bandeja y su contenido.</li>
+<li><strong>Horizontal Spacing:</strong> espacio horizontal entre icono e icono.</li>
+<li><strong>System Tray Background <span class="caps">ID</span>:</strong> elección de <a class="reference internal" href="#opciones-de-fondo">opciones de fondo</a> de la bandeja.</li>
+<li><strong>Icon Ordering:</strong> pauta de ordenación de los iconos. <strong>ascending</strong>
+(ascendente), <strong>descending</strong> (descendente), <strong>left2right</strong> (izda. a dcha.),
+<strong>right2left</strong> (dcha. a izda.).</li>
+<li><strong>Maximum Icon Size (0 for automatic size):</strong> tamaño máximo (ancho, alto) de
+un icono.</li>
+<li><a class="reference internal" href="#system-tray-icon-alpha-saturation-brightness-100-to-100">System Tray Icon Alpha/Saturation/Brightness (-100 to 100)</a></li>
+</ul>
+</li>
+<li><p class="first"><strong>Clock:</strong> reloj junto a la bandeja del sistema.</p>
+<p>Dividida en dos secciones:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Clock Display:</strong> formato del reloj.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Show:</strong> mostrar la opción correspondiente.</li>
+<li><strong>Time x/Tooltip Format:</strong> Formato <a class="footnote-reference" href="#id9" id="id3">[3]</a> de la línea <em>x</em>/de la
+descripción emergente <a class="footnote-reference" href="#id10" id="id4">[4]</a> del reloj.</li>
+<li><strong>Time x Font:</strong> configuración de la fuente de la línea correspondiente.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Clock Settings:</strong> ajustes del reloj.</p>
+<p><em>Opciones:</em></p>
+<ul>
+<li><p class="first"><strong>Clock Font Color:</strong> ajustes de color de la fuente.</p>
+</li>
+<li><p class="first"><strong>Padding (x, y):</strong> espacio (izda./dcha., arriba/abajo) entre el
+contenedor del reloj y el texto.</p>
+</li>
+<li><p class="first"><strong>Clock Background <span class="caps">ID</span>:</strong> elección de <a class="reference internal" href="#opciones-de-fondo">opciones de fondo</a>.</p>
+</li>
+<li><p class="first"><strong>Left/Right Click Command:</strong> comando a ejecutar al hacer clic
+izdo./dcho. en el reloj.</p>
+<p>Una buena idea para esto podría ser:</p>
+<ul>
+<li><p class="first"><strong>Clic izquierdo</strong>: instalar el calendario ligero <a class="reference external" href="http://dmedvinsky.github.io/gsimplecal/">gsimplecal</a>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S gsimplecal
+</pre></div>
+<p>Y añadir <code>gsimplecal</code> en ese campo.</p>
+</li>
+<li><p class="first"><strong>Clic derecho</strong>: si usamos alguna aplicación de notas, asociarla aquí.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Time x/Tooltip Zone:</strong> zona horaria a mostrar en cada línea de
+tiempo/en la descripción emergente. Útil si queremos, por ejemplo,
+mostrar las horas de España y Chile.</p>
+<p>Para mostrar la hora en España usaríamos <code>Europe/Madrid</code>.
+Las zonas horarias disponibles se pueden consultar con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>nano /usr/share/zoneinfo/zone.tab
+</pre></div>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p class="first"><strong>Mouse:</strong> eventos al utilizar el ratón sobre <em>tint2</em>. Desactivados si
+tenemos marcada la opción <a class="reference internal" href="#window-manager-menu">Window Manager Menu</a>.</p>
+<p>Eventos de ratón:</p>
+<ul class="simple">
+<li><strong>Middle Mouse Click</strong> → clic ruleta del ratón</li>
+<li><strong>Right Mouse Click</strong>  → clic derecho</li>
+<li><strong>Wheel Scroll Up</strong>    → desplazamiento hacia arriba de la ruleta</li>
+<li><strong>Wheel Scroll Down</strong>  → desplazamiento hacia abajo</li>
+</ul>
+<p>Acciones posibles:</p>
+<ul class="simple">
+<li><strong>none</strong> → no hacer nada</li>
+<li><strong>close</strong> → cierra la ventana</li>
+<li><strong>toggle</strong> → activa la ventana (le pasa el foco)</li>
+<li><strong>iconify</strong> → minimiza la ventana</li>
+<li><strong>toggle_iconify</strong> → minimiza o activa la ventana</li>
+<li><strong>maximize_restore</strong> → maximiza o restaura la ventana</li>
+<li><strong>desktop_left</strong> → envía la ventana al escritorio de la izda.</li>
+<li><strong>desktop_right</strong> → envía la ventana al escritorio de la dcha.</li>
+<li><strong>next_task</strong> → enfoca la siguiente ventana</li>
+<li><strong>prev_task</strong> → enfoca la ventana anterior</li>
+</ul>
+</li>
+<li><p class="first"><strong>Tooltips:</strong> ajustes de descripciones emergentes.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Tooltip Show Timeout (seconds)</strong>: tiempo en segundos que tarda en
+mostrarse la descripción emergente cuando se situa el puntero en un elemento.</li>
+<li><strong>Tooltip Hide Timeout (seconds)</strong>: tiempo en segundos que tarda en
+ocultarse cuando se retira el puntero de un elemento.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Battery:</strong> ajustes del applet de batería.</p>
+<p><em>Opciones:</em></p>
+<ul class="simple">
+<li><strong>Battery Low Status (%):</strong> a qué nivel considerar que la batería anda
+corta de carga.</li>
+<li><strong>Battery Low Action:</strong> comando a ejecutar cuando queda poca carga. Por
+defecto muestra el mensaje <em>"battery low"</em>. Como nosotros preferimos la
+lengua de <em>Cervantes</em>, mejor cambiamos este campo por algo como
+<code>notify-send "Batería baja"</code>.</li>
+<li><strong>Battery Hide (0 to 100):</strong> a qué nivel se oculta el icono de la batería
+del panel. Acepta como valores <em>"never"</em> y enteros del 1 al 100.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="archivo-de-configuracion">
+<h3><a class="toc-backref" href="#id19">Archivo de configuración</a></h3>
+<p>A modo de ejemplo, dejo aquí la configuración que he realizado escribiendo esta
+entrada: <a class="reference external" href="https://gist.github.com/soulchainer/a26a16611bd1401f04c5">https://gist.github.com/soulchainer/a26a16611bd1401f04c5</a></p>
+<div class="figure" style="width: 800px; height: auto; max-width: 100%;">
+<img alt="Ejemplo de configuración de tint2" src="http://soulchainer.github.io/images/2014/02/2014-02-07_03.png" style="width: 800px; height: auto; max-width: 100%;"/>
+<p class="caption">Uso: guardad en <code>~/.config/tint2/tint2rc</code> o abrid y aplicad cambios
+con <code>tintwizard</code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="configuracion-general-de-openbox">
+<h2><a class="toc-backref" href="#id20">Configuración general de Openbox</a></h2>
+<p>Tras el desbordamiento de texto del punto anterior (¡Gomen!), en este punto voy
+a ser mucho más gráfico y breve, si cabe.</p>
+<p>La configuración general de <em>Openbox</em> se establece con <code>obconf</code>. Podemos
+encontrarlo en <strong>Preferences → Openbox Config → <span class="caps">GUI</span> Config Tool</strong>.</p>
+<div class="section" id="tema-apariencia">
+<h3><a class="toc-backref" href="#id21">Tema <span class="amp">&amp;</span> apariencia</a></h3>
+<div class="figure" style="width: 802px; height: auto; max-width: 100%;">
+<img alt="Herramienta de configuración de Openbox. Configuración de Tema." src="http://soulchainer.github.io/images/2014/02/2014-02-07_04.png" style="width: 802px; height: auto; max-width: 100%;"/>
+<p class="caption">Elección de tema. <em>Antergos</em> viene con <em>Zukitwo</em> por defecto. Y me gusta.</p>
+<div class="legend">
+Fuentes para obtener nuevos temas: <a class="reference external" href="http://box-look.org/index.php?xcontentmode=7402">Box-look</a>, <a class="reference external" href="http://customize.org/browse/tags/openbox">Customize.org</a> o
+<a class="reference external" href="http://www.deviantart.com/customization/skins/linuxutil/winmanagers/openbox/">deviantART</a>, entre otras.</div>
+</div>
+<p>Cuando descarguemos un tema, si su creador es majo, nos encontraremos con un
+archivo <em>.obt</em>. Instalar un tema así es pan comido:</p>
+<ul class="simple">
+<li>Si no tenemos <em>obconf</em> abierto: <strong>Ctrl + F</strong> (explorador de archivos
+<a class="reference external" href="http://wiki.lxde.org/en/PCManFM">PCManFM</a>) → descomprimimos → clic derecho en el <em>.obt</em> →
+<strong>Openbox Configuration Manager</strong> → Instalado.</li>
+<li>Desde <em>obconf</em>: <strong>Instalar un nuevo tema</strong> → lo buscamos → Instalado.</li>
+</ul>
+<p>Si no es majo (¬_¬), en el archivo comprimido vendrán varias carpetas y
+adjuntará un <strong><span class="caps">README</span></strong> con instrucciones de dónde copiar qué, a patita.</p>
+<p>Como complemento a los ajustes de <strong>Tema</strong> y <strong>Apariencia</strong> de <em>ObConf</em>, se
+puede usar también <em>LXAppearance</em> (<code>lxappearance</code> o
+<strong>Preferences → User Interface Settings</strong>).</p>
+<div class="figure" style="width: 686px; height: auto; max-width: 100%;">
+<img alt="Lxappearance. Configuración extra de Tema." src="http://soulchainer.github.io/images/2014/02/2014-02-07_07.gif" style="width: 686px; height: auto; max-width: 100%;"/>
+<p class="caption">Aunque duplica funciones de <em>ObConf</em>, incluye opciones extra, como la
+gestión de temas de iconos y cursores de ratón.</p>
+<div class="legend">
+<a class="reference external" href="http://gnome-look.org/index.php?xcontentmode=121">Descargar temas de iconos</a>. <a class="reference external" href="http://gnome-look.org/index.php?xcontentmode=36">Descargar temas de cursores</a>.</div>
+</div>
+</div>
+<div class="section" id="manipulacion-de-las-ventanas">
+<h3><a class="toc-backref" href="#id22">Manipulación de las ventanas</a></h3>
+<div class="figure" style="width: 816px; height: auto; max-width: 100%;">
+<img alt="Herramienta de configuración de Openbox. Configuración de manejo de las ventanas." src="http://soulchainer.github.io/images/2014/02/2014-02-07_05.png" style="width: 816px; height: auto; max-width: 100%;"/>
+<p class="caption">La resistencia es el impedimento que suponen ciertos bordes al avance de
+una ventana. A mayor resistencia, más duro el avance.</p>
+<div class="legend">
+<strong>Switch desktops when moving…</strong> → cambio de escritorio al sobrepasar
+una ventana sus límites. Después, tiempo en milisegundos a contar antes de
+considerar el cambio.</div>
+</div>
+</div>
+<div class="section" id="raton">
+<h3><a class="toc-backref" href="#id23">Ratón</a></h3>
+<div class="figure" style="width: 816px; height: auto; max-width: 100%;">
+<img alt="Herramienta de configuración de Openbox. Configuración del ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_06.png" style="width: 816px; height: auto; max-width: 100%;"/>
+<p class="caption">Establecer el enfoque de ventanas con el ratón (la ventana bajo el puntero
+pasa a ser la ventana activa) es tentador. Suena práctico, pero para mí
+termina siendo un inconveniente.</p>
+</div>
+<p>En este punto, puede ser interesante configurar también el comportamiento del
+ratón, con <code>lxinput</code> (<strong>Preferences → Input Device Preferences</strong>).
+Sobre todo si somos zurdos.</p>
+<div class="figure" style="width: 575px; height: auto; max-width: 100%;">
+<img alt="Lxinput. Configuración del comportamiento del ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_08.png" style="width: 575px; height: auto; max-width: 100%;"/>
+</div>
+</div>
+<div class="section" id="escritorios-virtuales">
+<h3><a class="toc-backref" href="#id24">Escritorios virtuales</a></h3>
+<div class="figure" style="width: 816px; height: auto; max-width: 100%;">
+<img alt="Herramienta de configuración de Openbox. Configuración de escritorios virtuales." src="http://soulchainer.github.io/images/2014/02/2014-02-07_09.png" style="width: 816px; height: auto; max-width: 100%;"/>
+<p class="caption">La notificación anuncia en el centro de la pantalla el cambio de escritorio.</p>
+<div class="legend">
+Yo suelo nombrar los escritorios (doble clic para editar), dividiéndolos
+por tareas, como <em><span class="caps">IM</span></em> (mensajería), <em>Web</em>, <em>Dev</em>, … Me ayuda a
+organizarme.</div>
+</div>
+</div>
+<div class="section" id="otras-secciones">
+<h3><a class="toc-backref" href="#id25">Otras secciones</a></h3>
+<p>He obviado algunas secciones aquí, al ser bastante triviales.
+Dejo sin repasar, especialmente, la desafortunadamente llamada <em>"Muelle"</em>.
+<a class="reference external" href="http://es.wikipedia.org/wiki/Dock">Diga lo que diga la Wikipedia</a>, queda fatal llamar a un <em>Dock</em> así. Me remito
+a <a class="reference internal" href="#lo-dicho-anteriormente">lo dicho anteriormente</a>.</p>
+</div>
+</div>
+<div class="section" id="dock">
+<span id="si-queremos-un-dock-lo-mejor-es-instalar-un-dock"></span><h2><a class="toc-backref" href="#id26">Dock</a></h2>
+<p>Y es que, si queremos utilizar un <em>dock</em>, lo suyo es usar un software
+específico para ello. En <strong>Linux</strong> hay muchas alternativas. Algunas de las más
+conocidas son <a class="reference external" href="http://do.cooperteam.net/">Gnome Do</a> o <a class="reference external" href="https://launchpad.net/awn/"><span class="caps">AWN</span></a>, pero, además del hecho de que yo no soy de
+docks, cuando las he usado han resultado ser más pesadas que una vaca en brazos.</p>
+<p>Que sí, que los docks son muy bonitos y todo lo que se quiera, pero cuando no
+aportan una funcionalidad extra relevante y todo se reduce a una cuestión
+estética… a la que además sumamos el factor consumo, pues
+<strong>adiós muy buenas</strong>.</p>
+<div class="section" id="plank">
+<h3><a class="toc-backref" href="#id27">Plank</a></h3>
+<p><em>Antergos</em> viene con <a class="reference external" href="https://launchpad.net/plank">Plank</a> instalado
+(<strong>Applications → Accesorios → Plank</strong>). Lo he probado, y la verdad es que,
+pese a mis reticencias, me gusta <a class="footnote-reference" href="#id11" id="id5">[5]</a>. Es ligero y come poquitos recursos:
+unos <em>25 <span class="caps">MB</span></em> sin ninguna aplicación corriendo. No está mal. No son los <em>2 <span class="caps">MB</span></em>
+que dicen por ahí (a saber de dónde salen esos números…), pero no está mal.
+Aunque abriendo un programa o dos la cosa sube, claro.</p>
+<div class="figure" style="width: 474px; height: auto; max-width: 100%;">
+<img alt="Plank: el dock ligero predeterminado en Antergos." src="http://soulchainer.github.io/images/2014/02/2014-02-07_10.png" style="width: 474px; height: auto; max-width: 100%;"/>
+<p class="caption">Lo mejor es que no necesita configuración alguna: instalado y a correr.</p>
+<div class="legend">
+Cuando ejecutemos una aplicación y queramos mantenerla en el dock:
+<strong>clic dcho. → Mantener en el dock</strong>.</div>
+</div>
+</div>
+</div>
+<div class="section" id="aplicaciones-al-inicio">
+<h2><a class="toc-backref" href="#id28">Aplicaciones al inicio</a></h2>
+<p>Ya que hemos instalado <em>Plank</em>, quizás sea el momento de configurar las
+aplicaciones que arrancan con <em>Openbox</em>.</p>
+<p>Para ello, hemos de editar un archivo de texto. Fácil y rápido, además.</p>
+<p>Accedemos al archivo en cuestión (<code>~/.config/openbox/autostart</code>) desde el
+menú: <strong>Preferences → Openbox Config → Edit autostart</strong>. Y obtenemos algo así:</p>
+<div class="highlight"><pre>nitrogen --restore <span class="p">&amp;</span>
+volumeicon <span class="p">&amp;</span>
+compton -fC  <span class="p">&amp;</span>
+tint2 <span class="p">&amp;</span>
+<span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc-workspace &amp;</span>
+<span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc &amp;</span>
+<span class="c">#/usr/lib/lxpolkit/lxpolkit &amp;</span>
+</pre></div>
+<p>Como podéis ver, ahí está <em>tint2</em>, con el que tanto os he dado la paliza antes.
+Hay tres cosas básicas que hay que saber a la hora de editar el <em>autostart</em>:</p>
+<ol class="arabic">
+<li><p class="first">Tras agregar una aplicación,
+<strong>siempre hay que acabar la línea con un ampersand (&amp;)</strong>. Si nos olvidamos
+de hacerlo y añadimos algún comando después, no se ejecutará.</p>
+</li>
+<li><p class="first">Cuando ejecutemos un comando que vaya a llevarse su tiempo o que necesite
+de otro comando ejecutado anteriormente para su uso, debemos usar el comando
+<code>sleep</code> para añadir un tiempo de espera (en segundos) antes de su
+ejecución. Algo así:</p>
+<div class="highlight"><pre><span class="o">(</span>sleep 1s <span class="o">&amp;&amp;</span> tint2<span class="o">)</span> <span class="p">&amp;</span>
+</pre></div>
+<p>En el ejemplo, esperamos 1 segundo antes de lanzar <em>tint2</em>.</p>
+</li>
+<li><p class="first">Las líneas que empiezan por almohadillas (<strong>#</strong>) son comentarios. No se
+tienen en cuenta.</p>
+</li>
+</ol>
+<p>Y ya está :D</p>
+<p>Antes de editarlo, un repaso rápido a las líneas ejecutadas por el actual
+<code>autostart</code>:</p>
+<div class="highlight"><pre>nitrogen --restore <span class="p">&amp;</span>
+</pre></div>
+<p>Restaura el último fondo de pantalla utilizado. Utiliza la app <a class="reference external" href="http://projects.l3ib.org/nitrogen/">nitrogen</a>.
+Es un clásico y funciona genial.</p>
+<div class="figure" style="width: 502px; height: auto; max-width: 100%;">
+<img alt="Nitrogen. Aplicación para establecer el fondo de pantalla." src="http://soulchainer.github.io/images/2014/02/2014-02-07_11.png" style="width: 502px; height: auto; max-width: 100%;"/>
+<p class="caption"><code>nitrogen</code> o <strong>Preferences → Wallpaper</strong>.</p>
+<div class="legend">
+Podemos configurar nuestra propia carpeta de fondos con
+<strong>Preferences → Add</strong>. Después elegimos la miniatura de un fondo y
+<strong>Apply</strong>. Listo. Cerramos.</div>
+</div>
+<div class="highlight"><pre>volumeicon <span class="p">&amp;</span>
+</pre></div>
+<p>El applet de control de volumen que aparece en la <em>bandeja del sistema</em>. Desde
+ahí podemos configurar el sonido.</p>
+<div class="highlight"><pre>compton -fC  <span class="p">&amp;</span>
+</pre></div>
+<p><a class="reference external" href="https://github.com/chjj/compton">Compton</a> es un compositor de ventanas (es lo que instalamos al marcar
+<strong>Efectos de escritorio</strong> en la instalación de <em>Antergos</em>). Es el encargado de
+imbuir de algunos efectillos a las ventanas, sombreado de bordes, etc. Con las
+opciones actuales sólo dispone el efecto de desvanecimiento cuando cerramos
+una ventana y evita dibujar sombras en paneles/docks. Pero es capaz de
+mucho más. Podría detallarlo, pero esto sería interminable. Y
+<strong>hay que aprender a leer páginas man</strong>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>man compton
+</pre></div>
+<p>Una vez sabido esto, y si así lo queremos, añadimos el <em>dock</em>
+(<strong>y alguna otra cosilla</strong>) al inicio:</p>
+<div class="highlight"><pre>numlockx <span class="p">&amp;</span>  <span class="c"># activa el bloqueo numérico al inicio</span>
+nitrogen --restore <span class="p">&amp;</span>
+volumeicon <span class="p">&amp;</span>
+<span class="c"># regula la temperatura de color del monitor según la hora</span>
+xflux -z tu_codigo_postal <span class="p">&amp;</span>
+compton -fCGb
+tint2 <span class="p">&amp;</span>
+<span class="o">(</span>sleep 1s <span class="o">&amp;&amp;</span> plank<span class="o">)</span> <span class="p">&amp;</span>
+<span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc-workspace &amp;</span>
+<span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc &amp;</span>
+<span class="c">#/usr/lib/lxpolkit/lxpolkit &amp;</span>
+</pre></div>
+<p>Sustituimos el contenido del <em>autostart</em> actual por esto y guardamos. Al
+próximo reinicio se aplicarán los cambios :)</p>
+<p>Obviamente, hemos de instalar <code>numlockx</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S numlockx
+</pre></div>
+<p>Además, yo recomendaría la instalación de <a class="reference external" href="http://justgetflux.com/">f.lux</a>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S xflux
+</pre></div>
+<p>Lo he añadido ya arriba, es vuestra elección usarlo o no. Por la noche se nota
+mucho. Los ojos sufren menos. Se puede configurar introduciendo directamente la
+latitud y longitud, pero he elegido esa configuración para que no sea sea tan
+complicado (yo lo tengo con lat. y long.).</p>
+</div>
+<div class="section" id="atajos-de-teclado">
+<h2><a class="toc-backref" href="#id29">Atajos de teclado</a></h2>
+<p>Este punto es bastante importante para mí, ya que no suelo usar ni menú ni
+<em>dock</em>: me basto y me sobro con el lanzador básico de aplicaciones
+(<strong>Alt + F2</strong>, con autocompletado) y con atajos de teclado. Muchos atajos.</p>
+<p>Instalamos el asistente de configuración con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S obkey
+</pre></div>
+<p>Y lo ejecutamos desde <strong>Preferences → Openbox Config → Key Editor</strong>.</p>
+<div class="figure align-center" style="width: 685px; height: auto; max-width: 100%;">
+<img alt="Obkey, editor de atajos de teclado de Openbox." src="http://soulchainer.github.io/images/2014/02/2014-02-07_12.png" style="width: 685px; height: auto; max-width: 100%;"/>
+<p class="caption">Iconos panel principal, de izda. a dcha.: <strong>guardar config</strong>,
+<strong>añadir atajo</strong>, <strong>añadir atajo hijo</strong>, <strong>borrar atajo</strong>, <strong>cerrar</strong>.</p>
+<div class="legend">
+Iconos panel Action: <strong>añadir acción</strong>, <strong>borrar acción</strong>,
+<strong>mover arriba</strong>, <strong>mover abajo</strong>, <strong>borrar todas</strong>.</div>
+</div>
+<p>Su funcionamiento es muy sencillo:</p>
+<ol class="arabic">
+<li><p class="first">Añadimos un atajo pulsando el botón análogo.</p>
+</li>
+<li><p class="first">Doble clic en el campo <code>Key</code>.</p>
+</li>
+<li><p class="first">Ejecutamos el atajo deseado.</p>
+</li>
+<li><p class="first">Escribimos en el campo Key Text dicho atajo. Indicaciones:</p>
+<ul class="simple">
+<li>La tecla <strong>Super</strong> es la tecla normalmente representada por el logo del
+<em><span class="caps">SO</span></em>. En un teclado <em>Windows</em>, es la tecla <strong>Windows</strong>. En texto, se
+representa con la <strong>W</strong>.</li>
+<li>La tecla <strong>Alt</strong> se representa con una <strong>A</strong>.</li>
+<li>La tecla <strong>Ctrl</strong> se representa con una <strong>C</strong>.</li>
+<li>La tecla <strong>Mayus</strong> es <strong>Bloq Mayús</strong> y en texto se representa con la <strong>S</strong>
+(de <strong>Shift</strong>).</li>
+<li>Hay más teclas, pero resultan evidentes a poco que domines el inglés.</li>
+<li>Las teclas correspondiendes a letras se escriben en minúsculas.</li>
+</ul>
+</li>
+<li><p class="first">Añadimos una acción a la tecla. Doble clic y podemos cambiarla.</p>
+</li>
+<li><p class="first">Hay muchas acciones y <a class="reference external" href="http://openbox.org/wiki/Help:Actions">todos los nombres</a> están en inglés, pero son bastante
+evidentes. Para lanzar aplicaciones se usa la acción <strong>Execute</strong>. Después,
+en el campo <strong>comand</strong> introducimos el comando a ejecutar y guardamos. Suele
+bastar. El conjunto de campos <strong>startupnotify</strong> es para dar determinada
+información al gestor de ventanas cuando lanzamos el programa.</p>
+<p>Es muy recomendable que leas <a class="reference external" href="http://openbox.org/wiki/Help:Actions">más sobre las acciones</a>, porque facilitan
+mucho el trabajo diario. Cosas como cambiar de escritorio, mover ventanas de
+un escritorio a otro, maximizar, minimizar, redimensionar ventanas, acceder
+al menú… todo se puede hacer sin levantar un dedo del teclado. También
+puedes leer más a fondo sobre los atajos en la <a class="reference external" href="http://openbox.org/wiki/Help:Bindings">documentación de Openbox</a>.</p>
+</li>
+</ol>
+<p>Hay que tener en cuenta que por defecto <strong>obkey</strong> viene con muchos atajos ya
+preconfigurados. Algunos de los cuales corresponden a programas que ni tenemos
+instalados (como <a class="reference external" href="http://audacious-media-player.org/">Audacious</a>). Seguramente desearemos editarlos antes que
+crear un atajo repetido. Otros comandos los tenemos instalados, aunque no lo
+sepamos (como <a class="reference external" href="http://joelburget.com/slimlock/">slimlock</a>, que bloquea la pantalla y solicita contraseña).
+Comprobar si los tenemos o no es tan fácil como usar el autocompletado del
+lanzador simple de aplicaciones (<strong>Alt + F2</strong>) o el de consola (<strong>Super + T</strong>).</p>
+<p>Algunas teclas usadas en los atajos pueden sonarnos un poco a chino, como
+<strong>XF86AudioNext</strong>. O puede que queramos asociar un atajo a esa tecla multimedia
+<em>chachi piruli</em> de nuestro teclado y que no sepamos como se llama. ¿Qué hacemos?</p>
+<p>Instalamos <code>xorg-xev</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S xorg-xev
+</pre></div>
+<p>Y lo ejecutamos desde consola:</p>
+<div class="highlight"><pre><span class="nv">$ </span>xev
+</pre></div>
+<div class="figure align-center" style="width: 1002px; height: auto; max-width: 100%;">
+<img alt="xev, capturador de eventos de teclado/ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_13.png" style="width: 1002px; height: auto; max-width: 100%;"/>
+<p class="caption"><code>xev</code> captura <strong><span class="caps">TODO</span></strong> lo que hagamos con el teclado/ratón.</p>
+<div class="legend">
+En verde, la zona donde aparecerá el nombre de la tecla o botón pulsado.</div>
+</div>
+<p>Cuando hayamos pulsado la tecla que queramos utilizar o encontrado la que
+buscamos, cerramos la ventanita de <em>xev</em> y buscamos entre todos los datos
+devueltos lo que nos interesa.</p>
+<p>Una vez terminamos de añadir todos los atajos, guardamos y arreando.</p>
+</div>
+<div class="section" id="recargar-la-configuracion-manualmente">
+<h2><a class="toc-backref" href="#id30">Recargar la configuración manualmente</a></h2>
+<p>A veces es necesario recargar manualmente la configuración de <em>Openbox</em> para
+que se apliquen los cambios realizados:
+<strong>Preferences → Openbox Config → Reconfigure</strong>.</p>
+</div>
+<div class="section" id="proxima-parte">
+<h2><a class="toc-backref" href="#id31">Próxima parte</a></h2>
+<p>O no… Aún no lo sé xD En cualquier caso, aquí lo dejamos por ahora, que
+seguro que ya estábais pensando que esto no iba a acabarse nunca :p
+Creo que he repasado todo lo importante, pero es posible que me haya dejado
+algo. Que no os de miedo preguntar :)</p>
+<p>Si es que hago una última parte la próxima semana, esta será un compendio de
+alternativas ligeras para cubrir las necesidades más (y no tan) comunes del día
+a día.</p>
+<p>Y tras tres semanas de <strong>artículos interminables</strong>, intentaré darme un
+descansito y hacer alguno que otro algo más cortito.</p>
+<p>¡Propicios días!</p>
+<hr class="docutils"/>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Recordemos que se trata de un menú contextual: para invocarlo tenemos que hacer clic con el botón derecho sobre el escritorio. Si tenemos una ventana ocupándolo todo, no tenemos desde donde invocarlo a no ser que usemos un atajo de teclado.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Es un elemento de la <em><span class="caps">GUI</span></em> que permite a los usuarios iniciar, cambiar y controlar aplicaciones. En su concepción más simple, es una barra con accesos directos a aplicaciones favoritas, que suele asentarse en la base de la pantalla.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Al pie de la ventana hay una lista con algunas de las etiquetas de formato de tiempo admitidas.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Un <strong>tooltip</strong> o <strong>descripción emergente</strong> es el texto que aparece al situar el puntero del ratón sobre determinados elementos de la <em><span class="caps">GUI</span></em>, mostrando información adicional.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Lo que no quiere decir que vaya a empezar a usar docks ahora, ¿eh? xD</td></tr>
+</tbody>
+</table>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/antergos/">antergos</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/archlinux/">archlinux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/como/">como</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/configuracion/">configuración</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/openbox/">openbox</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/tutorial/">tutorial</a></li>
+    </ul>
+  </div>
+
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+              <li >
+                  <a class="partlink" href='http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/'>Antergos paso a paso (I): instalación&nbsp;básica</a>
+              </li>
+              <li >
+                  <a class="partlink" href='http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/'>Antergos paso a paso (<span class="caps">II</span>): configuración&nbsp;esencial</a>
+              </li>
+              <li class="active">
+                  <a class="partlink" href='http://soulchainer.github.io/posts/2014/02/07/antergos-tutorial-parte3/'>Antergos paso a paso (<span class="caps">III</span>): puesta a punto de&nbsp;Openbox</a>
+              </li>
+      </ul>
+    </aside>
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>

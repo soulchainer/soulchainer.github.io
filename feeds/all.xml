@@ -1,5 +1,697 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-01-29T21:00:00+01:00</updated><entry><title>Antergos paso a paso (II): configuración esencial</title><link href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/" rel="alternate"></link><updated>2014-01-29T21:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-29:posts/2014/01/29/antergos-tutorial-parte2/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-02-07T23:59:00+01:00</updated><entry><title>Antergos paso a paso (III): puesta a punto de Openbox</title><link href="http://soulchainer.github.io/posts/2014/02/07/antergos-tutorial-parte3/" rel="alternate"></link><updated>2014-02-07T23:59:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-07:posts/2014/02/07/antergos-tutorial-parte3/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#introduccion" id="id12"&gt;Introducción&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#menu" id="id13"&gt;Menú&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#panel" id="id14"&gt;Panel&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#editor-de-configuracion" id="id15"&gt;Editor de configuración&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#copia-de-seguridad" id="id16"&gt;Copia de seguridad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#aplicar-los-cambios" id="id17"&gt;Aplicar los cambios&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion" id="id18"&gt;Configuración&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#archivo-de-configuracion" id="id19"&gt;Archivo de configuración&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-general-de-openbox" id="id20"&gt;Configuración general de Openbox&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#tema-apariencia" id="id21"&gt;Tema &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; apariencia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#manipulacion-de-las-ventanas" id="id22"&gt;Manipulación de las ventanas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#raton" id="id23"&gt;Ratón&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#escritorios-virtuales" id="id24"&gt;Escritorios virtuales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#otras-secciones" id="id25"&gt;Otras secciones&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#dock" id="id26"&gt;Dock&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#plank" id="id27"&gt;Plank&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#aplicaciones-al-inicio" id="id28"&gt;Aplicaciones al inicio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#atajos-de-teclado" id="id29"&gt;Atajos de teclado&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#recargar-la-configuracion-manualmente" id="id30"&gt;Recargar la configuración manualmente&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#proxima-parte" id="id31"&gt;Próxima parte&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Logo y eslogan de &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="introduccion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Introducción&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Con &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt; instalada y funcional, ya podemos dedicarnos a personalizarla
+un poco. Así que vamos a darle un repasito a &lt;a class="reference external" href="http://openbox.org/"&gt;Openbox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Empezaremos con el…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="menu"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Menú&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Un detalle de &lt;em&gt;Openbox&lt;/em&gt; que me gusta mucho es que su menú principal no ocupa
+espacio en pantalla: se basta y se sobra con un &lt;em&gt;menú contextual&lt;/em&gt; (&lt;strong&gt;clic
+derecho en el escritorio&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Un menú muy completito, además. La única pega es que todas sus entradas,
+excepto el submenú de aplicaciones, están en perfecto inglés. Si esto nos
+incomoda, o bien queremos añadir alguna entrada personalizada, podemos utilizar
+&lt;a class="reference external" href="http://obmenu.sourceforge.net/"&gt;obmenu&lt;/a&gt; para editarlo.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="figure" style="width: 560px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Obmenu, editor gráfico del menú de Openbox." src="http://soulchainer.github.io/images/2014/02/2014-02-07_01.png" style="width: 560px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Preferences → Openbox Config → &lt;span class="caps"&gt;GUI&lt;/span&gt; Menu Editor&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+El menú se guarda en &lt;code&gt;~/.config/openbox/menu.xml&lt;/code&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Aquí podemos editar los nombres de cada entrada del menú (&lt;strong&gt;Label&lt;/strong&gt;), así como
+añadir nuevas entradas (&lt;strong&gt;New item&lt;/strong&gt;), nuevos submenús (&lt;strong&gt;New menu&lt;/strong&gt;) y
+separadores (&lt;strong&gt;New separator&lt;/strong&gt;), que dibujan una fina línea entre elementos.&lt;/p&gt;
+&lt;p&gt;Aparte del submenú ordinario, hay un &lt;em&gt;tipo especial&lt;/em&gt; de menú: el &lt;strong&gt;pipemenu&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Mientras que el normal es estático, un
+&lt;strong&gt;pipemenu se genera dinamicamente a través de un script&lt;/strong&gt;. Los &lt;em&gt;pipemenus&lt;/em&gt; en
+uso se encuentran en &lt;code&gt;~/.config/openbox/pipemenus&lt;/code&gt;. &lt;em&gt;Obmenu&lt;/em&gt; pone ya a
+nuestra disposición &lt;a class="reference external" href="http://obmenu.sourceforge.net/pipes-help"&gt;unos cuantos&lt;/a&gt;, aunque también podemos escribir los
+nuestros propios usando &lt;em&gt;python2.x&lt;/em&gt; y &lt;a class="reference external" href="http://obmenu.sourceforge.net/obxml-help"&gt;obxml&lt;/a&gt; (&lt;a class="reference external" href="http://obmenu.sourceforge.net/doc.html"&gt;documentación de &lt;span class="caps"&gt;OB&lt;/span&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="panel"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Panel&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Vale, vale: esto no es parte de &lt;em&gt;Openbox&lt;/em&gt;, no. Pero lo voy a tratar ya porque
+me apetece y me parece relevante para el siguiente punto.&lt;/p&gt;
+&lt;p&gt;El &lt;em&gt;panel&lt;/em&gt; es esa zona del escritorio donde descansa el reloj, iconos de apps
+en ejecución, la lista de ventanas…&lt;/p&gt;
+&lt;p&gt;De entre todos los paneles a elegir (usamos &lt;strong&gt;Linux&lt;/strong&gt;, ¿no?), el equipo de
+&lt;em&gt;Antergos&lt;/em&gt; se ha decantado por &lt;a class="reference external" href="http://code.google.com/p/tint2/"&gt;tint2&lt;/a&gt;. Y con bastante buen juicio: es un
+&lt;em&gt;panel&lt;/em&gt; muy ligerito, sencillo y elegante :)&lt;/p&gt;
+&lt;div class="section" id="editor-de-configuracion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Editor de configuración&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Podemos personalizar el comportamiento de &lt;em&gt;tint2&lt;/em&gt; con &lt;code&gt;tintwizard.py&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 661px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Tint Wizard, editor de configuración de tint2" src="http://soulchainer.github.io/images/2014/02/2014-02-07_02.png" style="width: 661px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;strong&gt;Preferences → tint2 config → Tint Wizard&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="legend"&gt;
+La configuración de &lt;em&gt;tint2&lt;/em&gt; se guarda por defecto en
+&lt;code&gt;~/.config/tint2/tint2rc&lt;/code&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="copia-de-seguridad"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Copia de seguridad&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Antes de empezar a tocar nada es recomendable crear una copia de la
+configuración actual, para poder trabajar en ella sin perder la anterior (en
+caso de desear restaurarla): &lt;strong&gt;File → Save as →&lt;/strong&gt;, la nombramos y guardamos.
+Veremos como cambia entonces la &lt;em&gt;barra de estado&lt;/em&gt; del editor para reflejar la
+ruta del archivo recién creado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="aplicar-los-cambios"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Aplicar los cambios&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Cada vez que ajustemos un parámetro y queramos comprobar como afecta al &lt;em&gt;panel&lt;/em&gt;
+tendremos que aplicar los cambios: &lt;strong&gt;Tint2 → Apply Config&lt;/strong&gt;. La primera vez
+nos preguntará si queremos hacer que el nuevo archivo sea o no la configuración
+por defecto. En nuestras manos está. Podemos restaurarla en cualquier momento
+abriendo otro archivo y repitiendo el proceso.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Configuración&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;&lt;/strong&gt;: si no se quiere leer todo este apartado (que aunque parezca largo,
+realmente es muy poca cosa), se puede optar por conservar la configuración por
+defecto, o bien probar la que proporciono en: &lt;a class="reference internal" href="#archivo-de-configuracion"&gt;Archivo de configuración&lt;/a&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;&lt;em&gt;Tint Wizard&lt;/em&gt; consta de una serie de secciones, algunas de ellas divididas a su
+vez en subsecciones. A continuación, una &lt;em&gt;breve&lt;/em&gt; descripción de cada una de
+ellas y de las opciones disponibles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Backgrounds&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Por defecto contiene dos pestañas
+(&lt;strong&gt;Background &lt;span class="caps"&gt;ID&lt;/span&gt; 1&lt;/strong&gt; y &lt;strong&gt;Background &lt;span class="caps"&gt;ID&lt;/span&gt; 2&lt;/strong&gt;), pero se pueden ir añadiendo más
+(&lt;strong&gt;Nuevo&lt;/strong&gt;) o borrar las ya presentes (&lt;strong&gt;Eliminar&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;En cada pestaña se declara una variante del mismo conjunto de opciones,
+relacionadas con la visualización del fondo. Estas variantes, numeradas, se
+declaran para aplicarlas en los campos &lt;code&gt;* Background ID&lt;/code&gt; de las
+secciones restantes. Así, se podrán aplicar ajustes personalizados de las
+mismas opciones a uno u otro elemento del panel.&lt;/p&gt;
+&lt;p id="opciones-de-fondo"&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Corner Rounding (px):&lt;/strong&gt; redondeado de esquinas. Radio en píxeles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Background color &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Border color:&lt;/strong&gt; color de fondo (contenido y borde).
+Declaración simple (&lt;em&gt;hexadecimal&lt;/em&gt;) y selección de color avanzada, para
+mayor control (p. ej: selección de transparencia).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Border width (px):&lt;/strong&gt; ancho del borde de los elementos, en píxeles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Panel&lt;/strong&gt;: opciones relacionadas con todo el &lt;em&gt;panel&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Dividida en tres secciones:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Panel Display:&lt;/strong&gt; cómo se mostrará el panel.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Position:&lt;/strong&gt; posición del panel. Dos desplegables, uno para el eje
+vertical (&lt;strong&gt;top&lt;/strong&gt;/arriba, &lt;strong&gt;bottom&lt;/strong&gt;/abajo y &lt;strong&gt;center&lt;/strong&gt;/centro) y otro
+para el horizontal (&lt;strong&gt;left&lt;/strong&gt;/izda., &lt;strong&gt;right&lt;/strong&gt;/dcha. y &lt;strong&gt;center&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Panel Orientation:&lt;/strong&gt; orientación del panel. &lt;strong&gt;vertical&lt;/strong&gt; u
+&lt;strong&gt;horizontal&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Size (width, height):&lt;/strong&gt; ancho y alto del panel. 0 == máximo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Margin (x, y):&lt;/strong&gt; margen (izda./dcha., arriba/abajo) entre el panel y
+el escritorio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Padding (x, y):&lt;/strong&gt; espacio (izda./dcha., arriba/abajo) entre el borde
+del panel y su contenido.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Horizontal Spacing:&lt;/strong&gt; espacio horizontal entre cada elemento del panel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Panel Background &lt;span class="caps"&gt;ID&lt;/span&gt;&lt;/strong&gt;: elección de &lt;a class="reference internal" href="#opciones-de-fondo"&gt;opciones de fondo&lt;/a&gt; para el panel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Panel Settings:&lt;/strong&gt; otros ajustes del panel.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple" id="window-manager-menu"&gt;
+&lt;li&gt;&lt;strong&gt;Window Manager Menu:&lt;/strong&gt; que &lt;em&gt;tint2&lt;/em&gt; redirija los eventos de ratón
+al &lt;em&gt;gestor de ventanas&lt;/em&gt; (&lt;em&gt;Openbox&lt;/em&gt;). Esto nos permitirá invocar el menú
+principal de &lt;em&gt;Openbox&lt;/em&gt; haciendo clic derecho en el panel cuando tengamos
+ventanas maximizadas en el escritorio &lt;a class="footnote-reference" href="#id7" id="id1"&gt;[1]&lt;/a&gt;.&lt;/li&gt;
+&lt;li id="lo-dicho-anteriormente"&gt;&lt;strong&gt;Place in Window Manager Dock:&lt;/strong&gt; establecer &lt;em&gt;tint2&lt;/em&gt; como &lt;em&gt;dock&lt;/em&gt; &lt;a class="footnote-reference" href="#id8" id="id2"&gt;[2]&lt;/a&gt;.
+Es una opción que personalmente &lt;strong&gt;no me gusta&lt;/strong&gt;.
+&lt;a class="reference internal" href="#si-queremos-un-dock-lo-mejor-es-instalar-un-dock"&gt;Si queremos un dock, lo mejor es instalar un dock&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Panel Layer:&lt;/strong&gt; capa en la que se situará el panel. Tres opciones:
+&lt;strong&gt;bottom&lt;/strong&gt; (por debajo de todo), &lt;strong&gt;normal&lt;/strong&gt; y &lt;strong&gt;top&lt;/strong&gt; (siempre encima).
+Yo me quedo con la &lt;strong&gt;normal&lt;/strong&gt;, como &lt;a class="reference external" href="http://www.youtube.com/watch?v=hD-dgSuzkzU"&gt;bic cristal&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strut Policy:&lt;/strong&gt; determina el tamaño de las ventanas maximizadas. De
+nuevo, tres opciones: &lt;strong&gt;minimum&lt;/strong&gt; (usar el tamaño mínimo),
+&lt;strong&gt;follow_size&lt;/strong&gt; (ajustarse a los cambios de tamaño de &lt;em&gt;tint2&lt;/em&gt;, muy útil
+cuando se auto-oculta) o &lt;strong&gt;none&lt;/strong&gt; (tamaño de la pantalla). Yo prefiero
+&lt;strong&gt;follow_size&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Panel Monitor (all, 1, 2, …)&lt;/strong&gt;: monitores en los que mostrar el
+panel, por si se dispone de un sistema multi-monitor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Panel Autohide:&lt;/strong&gt; opciones de auto-ocultación del panel.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Autohide Panel:&lt;/strong&gt; si se desea auto-ocultar el panel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Autohide Show Timeout (seconds):&lt;/strong&gt; tiempo que tarda en aparecer el
+panel al situar el puntero.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Autohide Hide Timeout (seconds):&lt;/strong&gt; ídem, pero para la ocultación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Autohide Hidden Height:&lt;/strong&gt; altura &lt;em&gt;visible&lt;/em&gt; del panel en estado
+&lt;em&gt;oculto&lt;/em&gt;. Si optara por auto-ocultar, le dejaría algo de altura: unos
+5-10 píxeles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Taskbar:&lt;/strong&gt; barra de tareas (lista las ventanas abiertas).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Taskbar Mode:&lt;/strong&gt; si queremos mostrar sólo la lista de ventanas del
+escritorio en el que nos encontramos (&lt;strong&gt;single_desktop&lt;/strong&gt;) o de todos a la
+vez (&lt;strong&gt;multi_desktop&lt;/strong&gt;), debidamente organizados. Yo prefiero la última.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Padding (x, y):&lt;/strong&gt; espacio (izda./dcha., arriba/abajo) entre el borde de la
+barra de tareas y los iconos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Horizontal Spacing:&lt;/strong&gt; espacio horizontal entre icono e icono.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Taskbar Background &lt;span class="caps"&gt;ID&lt;/span&gt;:&lt;/strong&gt; elección de &lt;a class="reference internal" href="#opciones-de-fondo"&gt;opciones de fondo&lt;/a&gt; para las
+barras de tareas de cada escritorio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Active Taskbar Background &lt;span class="caps"&gt;ID&lt;/span&gt;:&lt;/strong&gt; ídem para la barra de tareas del
+escritorio activo. Casilla para activar o no este ajuste.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Tasks:&lt;/strong&gt; tareas (ventanas).&lt;/p&gt;
+&lt;p&gt;Dividida en dos grandes secciones:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Task Settings:&lt;/strong&gt; ajustes de las tareas.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Number of ‘Blinks’ on Urgent Event:&lt;/strong&gt; veces que parpadeará el icono de
+un evento urgente. Un evento urgente puede ser, por ejemplo, una llamada
+en &lt;em&gt;Skype&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Show Icons:&lt;/strong&gt; mostrar los iconos de las ventanas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Show Text:&lt;/strong&gt; mostrar texto descriptivo de las ventanas. Yo tiendo a
+mostrar sólo los iconos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Centre Text:&lt;/strong&gt; centrar el texto anterior.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Font:&lt;/strong&gt; modificar la fuente del texto.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Show Font Shadow:&lt;/strong&gt; añadir sombra al texto.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maximum Size (x, y):&lt;/strong&gt; tamaño máximo (ancho, alto) que puede ocupar un icono.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Padding (x, y):&lt;/strong&gt; espacio (izda./dcha., arriba/abajo) a dejar entre el
+máximo permitido para un icono y el comienzo del mismo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Normal/Active/Urgent/Iconified Tasks:&lt;/strong&gt; ajustes de tareas normales,
+activas (tienen el foco), urgentes e iconificadas (ventanas minimizadas).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;* Task Background &lt;span class="caps"&gt;ID&lt;/span&gt;:&lt;/strong&gt; elección de &lt;a class="reference internal" href="#opciones-de-fondo"&gt;opciones de fondo&lt;/a&gt;.&lt;/li&gt;
+&lt;li id="system-tray-icon-alpha-saturation-brightness-100-to-100"&gt;&lt;strong&gt;* Icon Alpha (0 to 100):&lt;/strong&gt; grado de transparencia de los iconos. De
+0 (totalmente transparente) a 100 (nada transparente).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;* Icon Saturation (-100 to 100):&lt;/strong&gt; grado de saturación de colores de
+los iconos. De -100 (nada saturado, blanco y negro) a 100 (totalmente saturado).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;* Icon Brightness (-100 to 100):&lt;/strong&gt; nivel de brillo de los iconos. De
+-100 (nada de brillo, negro) a 100 (muy blanqueado).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;* Font Color:&lt;/strong&gt; color de la fuente del texto que acompaña al icono.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;System Tray:&lt;/strong&gt; bandeja del sistema. Junto al reloj, muestra algunos iconos
+con el estado o acceso directo a ciertas aplicaciones.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Show System Tray:&lt;/strong&gt; mostrar la bandeja.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Padding (x, y):&lt;/strong&gt; espacio (izda./dcha., arriba/abajo) entre la bandeja y su contenido.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Horizontal Spacing:&lt;/strong&gt; espacio horizontal entre icono e icono.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Tray Background &lt;span class="caps"&gt;ID&lt;/span&gt;:&lt;/strong&gt; elección de &lt;a class="reference internal" href="#opciones-de-fondo"&gt;opciones de fondo&lt;/a&gt; de la bandeja.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Icon Ordering:&lt;/strong&gt; pauta de ordenación de los iconos. &lt;strong&gt;ascending&lt;/strong&gt;
+(ascendente), &lt;strong&gt;descending&lt;/strong&gt; (descendente), &lt;strong&gt;left2right&lt;/strong&gt; (izda. a dcha.),
+&lt;strong&gt;right2left&lt;/strong&gt; (dcha. a izda.).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maximum Icon Size (0 for automatic size):&lt;/strong&gt; tamaño máximo (ancho, alto) de
+un icono.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#system-tray-icon-alpha-saturation-brightness-100-to-100"&gt;System Tray Icon Alpha/Saturation/Brightness (-100 to 100)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clock:&lt;/strong&gt; reloj junto a la bandeja del sistema.&lt;/p&gt;
+&lt;p&gt;Dividida en dos secciones:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clock Display:&lt;/strong&gt; formato del reloj.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Show:&lt;/strong&gt; mostrar la opción correspondiente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Time x/Tooltip Format:&lt;/strong&gt; Formato &lt;a class="footnote-reference" href="#id9" id="id3"&gt;[3]&lt;/a&gt; de la línea &lt;em&gt;x&lt;/em&gt;/de la
+descripción emergente &lt;a class="footnote-reference" href="#id10" id="id4"&gt;[4]&lt;/a&gt; del reloj.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Time x Font:&lt;/strong&gt; configuración de la fuente de la línea correspondiente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clock Settings:&lt;/strong&gt; ajustes del reloj.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clock Font Color:&lt;/strong&gt; ajustes de color de la fuente.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Padding (x, y):&lt;/strong&gt; espacio (izda./dcha., arriba/abajo) entre el
+contenedor del reloj y el texto.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clock Background &lt;span class="caps"&gt;ID&lt;/span&gt;:&lt;/strong&gt; elección de &lt;a class="reference internal" href="#opciones-de-fondo"&gt;opciones de fondo&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Left/Right Click Command:&lt;/strong&gt; comando a ejecutar al hacer clic
+izdo./dcho. en el reloj.&lt;/p&gt;
+&lt;p&gt;Una buena idea para esto podría ser:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clic izquierdo&lt;/strong&gt;: instalar el calendario ligero &lt;a class="reference external" href="http://dmedvinsky.github.io/gsimplecal/"&gt;gsimplecal&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S gsimplecal
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y añadir &lt;code&gt;gsimplecal&lt;/code&gt; en ese campo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Clic derecho&lt;/strong&gt;: si usamos alguna aplicación de notas, asociarla aquí.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Time x/Tooltip Zone:&lt;/strong&gt; zona horaria a mostrar en cada línea de
+tiempo/en la descripción emergente. Útil si queremos, por ejemplo,
+mostrar las horas de España y Chile.&lt;/p&gt;
+&lt;p&gt;Para mostrar la hora en España usaríamos &lt;code&gt;Europe/Madrid&lt;/code&gt;.
+Las zonas horarias disponibles se pueden consultar con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;nano /usr/share/zoneinfo/zone.tab
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Mouse:&lt;/strong&gt; eventos al utilizar el ratón sobre &lt;em&gt;tint2&lt;/em&gt;. Desactivados si
+tenemos marcada la opción &lt;a class="reference internal" href="#window-manager-menu"&gt;Window Manager Menu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Eventos de ratón:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Middle Mouse Click&lt;/strong&gt; → clic ruleta del ratón&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Right Mouse Click&lt;/strong&gt;  → clic derecho&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wheel Scroll Up&lt;/strong&gt;    → desplazamiento hacia arriba de la ruleta&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wheel Scroll Down&lt;/strong&gt;  → desplazamiento hacia abajo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Acciones posibles:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;none&lt;/strong&gt; → no hacer nada&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;close&lt;/strong&gt; → cierra la ventana&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;toggle&lt;/strong&gt; → activa la ventana (le pasa el foco)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;iconify&lt;/strong&gt; → minimiza la ventana&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;toggle_iconify&lt;/strong&gt; → minimiza o activa la ventana&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;maximize_restore&lt;/strong&gt; → maximiza o restaura la ventana&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;desktop_left&lt;/strong&gt; → envía la ventana al escritorio de la izda.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;desktop_right&lt;/strong&gt; → envía la ventana al escritorio de la dcha.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;next_task&lt;/strong&gt; → enfoca la siguiente ventana&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prev_task&lt;/strong&gt; → enfoca la ventana anterior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Tooltips:&lt;/strong&gt; ajustes de descripciones emergentes.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Tooltip Show Timeout (seconds)&lt;/strong&gt;: tiempo en segundos que tarda en
+mostrarse la descripción emergente cuando se situa el puntero en un elemento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tooltip Hide Timeout (seconds)&lt;/strong&gt;: tiempo en segundos que tarda en
+ocultarse cuando se retira el puntero de un elemento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Battery:&lt;/strong&gt; ajustes del applet de batería.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Opciones:&lt;/em&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Battery Low Status (%):&lt;/strong&gt; a qué nivel considerar que la batería anda
+corta de carga.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Battery Low Action:&lt;/strong&gt; comando a ejecutar cuando queda poca carga. Por
+defecto muestra el mensaje &lt;em&gt;"battery low"&lt;/em&gt;. Como nosotros preferimos la
+lengua de &lt;em&gt;Cervantes&lt;/em&gt;, mejor cambiamos este campo por algo como
+&lt;code&gt;notify-send "Batería baja"&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Battery Hide (0 to 100):&lt;/strong&gt; a qué nivel se oculta el icono de la batería
+del panel. Acepta como valores &lt;em&gt;"never"&lt;/em&gt; y enteros del 1 al 100.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="archivo-de-configuracion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Archivo de configuración&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A modo de ejemplo, dejo aquí la configuración que he realizado escribiendo esta
+entrada: &lt;a class="reference external" href="https://gist.github.com/soulchainer/a26a16611bd1401f04c5"&gt;https://gist.github.com/soulchainer/a26a16611bd1401f04c5&lt;/a&gt;&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Ejemplo de configuración de tint2" src="http://soulchainer.github.io/images/2014/02/2014-02-07_03.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Uso: guardad en &lt;code&gt;~/.config/tint2/tint2rc&lt;/code&gt; o abrid y aplicad cambios
+con &lt;code&gt;tintwizard&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-general-de-openbox"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;Configuración general de Openbox&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Tras el desbordamiento de texto del punto anterior (¡Gomen!), en este punto voy
+a ser mucho más gráfico y breve, si cabe.&lt;/p&gt;
+&lt;p&gt;La configuración general de &lt;em&gt;Openbox&lt;/em&gt; se establece con &lt;code&gt;obconf&lt;/code&gt;. Podemos
+encontrarlo en &lt;strong&gt;Preferences → Openbox Config → &lt;span class="caps"&gt;GUI&lt;/span&gt; Config Tool&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="section" id="tema-apariencia"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Tema &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; apariencia&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración de Tema." src="http://soulchainer.github.io/images/2014/02/2014-02-07_04.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Elección de tema. &lt;em&gt;Antergos&lt;/em&gt; viene con &lt;em&gt;Zukitwo&lt;/em&gt; por defecto. Y me gusta.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Fuentes para obtener nuevos temas: &lt;a class="reference external" href="http://box-look.org/index.php?xcontentmode=7402"&gt;Box-look&lt;/a&gt;, &lt;a class="reference external" href="http://customize.org/browse/tags/openbox"&gt;Customize.org&lt;/a&gt; o
+&lt;a class="reference external" href="http://www.deviantart.com/customization/skins/linuxutil/winmanagers/openbox/"&gt;deviantART&lt;/a&gt;, entre otras.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Cuando descarguemos un tema, si su creador es majo, nos encontraremos con un
+archivo &lt;em&gt;.obt&lt;/em&gt;. Instalar un tema así es pan comido:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Si no tenemos &lt;em&gt;obconf&lt;/em&gt; abierto: &lt;strong&gt;Ctrl + F&lt;/strong&gt; (explorador de archivos
+&lt;a class="reference external" href="http://wiki.lxde.org/en/PCManFM"&gt;PCManFM&lt;/a&gt;) → descomprimimos → clic derecho en el &lt;em&gt;.obt&lt;/em&gt; →
+&lt;strong&gt;Openbox Configuration Manager&lt;/strong&gt; → Instalado.&lt;/li&gt;
+&lt;li&gt;Desde &lt;em&gt;obconf&lt;/em&gt;: &lt;strong&gt;Instalar un nuevo tema&lt;/strong&gt; → lo buscamos → Instalado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Si no es majo (¬_¬), en el archivo comprimido vendrán varias carpetas y
+adjuntará un &lt;strong&gt;&lt;span class="caps"&gt;README&lt;/span&gt;&lt;/strong&gt; con instrucciones de dónde copiar qué, a patita.&lt;/p&gt;
+&lt;p&gt;Como complemento a los ajustes de &lt;strong&gt;Tema&lt;/strong&gt; y &lt;strong&gt;Apariencia&lt;/strong&gt; de &lt;em&gt;ObConf&lt;/em&gt;, se
+puede usar también &lt;em&gt;LXAppearance&lt;/em&gt; (&lt;code&gt;lxappearance&lt;/code&gt; o
+&lt;strong&gt;Preferences → User Interface Settings&lt;/strong&gt;).&lt;/p&gt;
+&lt;div class="figure" style="width: 686px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Lxappearance. Configuración extra de Tema." src="http://soulchainer.github.io/images/2014/02/2014-02-07_07.gif" style="width: 686px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Aunque duplica funciones de &lt;em&gt;ObConf&lt;/em&gt;, incluye opciones extra, como la
+gestión de temas de iconos y cursores de ratón.&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;a class="reference external" href="http://gnome-look.org/index.php?xcontentmode=121"&gt;Descargar temas de iconos&lt;/a&gt;. &lt;a class="reference external" href="http://gnome-look.org/index.php?xcontentmode=36"&gt;Descargar temas de cursores&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="manipulacion-de-las-ventanas"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Manipulación de las ventanas&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 816px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración de manejo de las ventanas." src="http://soulchainer.github.io/images/2014/02/2014-02-07_05.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;La resistencia es el impedimento que suponen ciertos bordes al avance de
+una ventana. A mayor resistencia, más duro el avance.&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;strong&gt;Switch desktops when moving…&lt;/strong&gt; → cambio de escritorio al sobrepasar
+una ventana sus límites. Después, tiempo en milisegundos a contar antes de
+considerar el cambio.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="raton"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Ratón&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 816px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración del ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_06.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Establecer el enfoque de ventanas con el ratón (la ventana bajo el puntero
+pasa a ser la ventana activa) es tentador. Suena práctico, pero para mí
+termina siendo un inconveniente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;En este punto, puede ser interesante configurar también el comportamiento del
+ratón, con &lt;code&gt;lxinput&lt;/code&gt; (&lt;strong&gt;Preferences → Input Device Preferences&lt;/strong&gt;).
+Sobre todo si somos zurdos.&lt;/p&gt;
+&lt;div class="figure" style="width: 575px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Lxinput. Configuración del comportamiento del ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_08.png" style="width: 575px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="escritorios-virtuales"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Escritorios virtuales&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure" style="width: 816px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración de escritorios virtuales." src="http://soulchainer.github.io/images/2014/02/2014-02-07_09.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;La notificación anuncia en el centro de la pantalla el cambio de escritorio.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Yo suelo nombrar los escritorios (doble clic para editar), dividiéndolos
+por tareas, como &lt;em&gt;&lt;span class="caps"&gt;IM&lt;/span&gt;&lt;/em&gt; (mensajería), &lt;em&gt;Web&lt;/em&gt;, &lt;em&gt;Dev&lt;/em&gt;, … Me ayuda a
+organizarme.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="otras-secciones"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Otras secciones&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;He obviado algunas secciones aquí, al ser bastante triviales.
+Dejo sin repasar, especialmente, la desafortunadamente llamada &lt;em&gt;"Muelle"&lt;/em&gt;.
+&lt;a class="reference external" href="http://es.wikipedia.org/wiki/Dock"&gt;Diga lo que diga la Wikipedia&lt;/a&gt;, queda fatal llamar a un &lt;em&gt;Dock&lt;/em&gt; así. Me remito
+a &lt;a class="reference internal" href="#lo-dicho-anteriormente"&gt;lo dicho anteriormente&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dock"&gt;
+&lt;span id="si-queremos-un-dock-lo-mejor-es-instalar-un-dock"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;Dock&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Y es que, si queremos utilizar un &lt;em&gt;dock&lt;/em&gt;, lo suyo es usar un software
+específico para ello. En &lt;strong&gt;Linux&lt;/strong&gt; hay muchas alternativas. Algunas de las más
+conocidas son &lt;a class="reference external" href="http://do.cooperteam.net/"&gt;Gnome Do&lt;/a&gt; o &lt;a class="reference external" href="https://launchpad.net/awn/"&gt;&lt;span class="caps"&gt;AWN&lt;/span&gt;&lt;/a&gt;, pero, además del hecho de que yo no soy de
+docks, cuando las he usado han resultado ser más pesadas que una vaca en brazos.&lt;/p&gt;
+&lt;p&gt;Que sí, que los docks son muy bonitos y todo lo que se quiera, pero cuando no
+aportan una funcionalidad extra relevante y todo se reduce a una cuestión
+estética… a la que además sumamos el factor consumo, pues
+&lt;strong&gt;adiós muy buenas&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="section" id="plank"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Plank&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Antergos&lt;/em&gt; viene con &lt;a class="reference external" href="https://launchpad.net/plank"&gt;Plank&lt;/a&gt; instalado
+(&lt;strong&gt;Applications → Accesorios → Plank&lt;/strong&gt;). Lo he probado, y la verdad es que,
+pese a mis reticencias, me gusta &lt;a class="footnote-reference" href="#id11" id="id5"&gt;[5]&lt;/a&gt;. Es ligero y come poquitos recursos:
+unos &lt;em&gt;25 &lt;span class="caps"&gt;MB&lt;/span&gt;&lt;/em&gt; sin ninguna aplicación corriendo. No está mal. No son los &lt;em&gt;2 &lt;span class="caps"&gt;MB&lt;/span&gt;&lt;/em&gt;
+que dicen por ahí (a saber de dónde salen esos números…), pero no está mal.
+Aunque abriendo un programa o dos la cosa sube, claro.&lt;/p&gt;
+&lt;div class="figure" style="width: 474px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Plank: el dock ligero predeterminado en Antergos." src="http://soulchainer.github.io/images/2014/02/2014-02-07_10.png" style="width: 474px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Lo mejor es que no necesita configuración alguna: instalado y a correr.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Cuando ejecutemos una aplicación y queramos mantenerla en el dock:
+&lt;strong&gt;clic dcho. → Mantener en el dock&lt;/strong&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="aplicaciones-al-inicio"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;Aplicaciones al inicio&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ya que hemos instalado &lt;em&gt;Plank&lt;/em&gt;, quizás sea el momento de configurar las
+aplicaciones que arrancan con &lt;em&gt;Openbox&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para ello, hemos de editar un archivo de texto. Fácil y rápido, además.&lt;/p&gt;
+&lt;p&gt;Accedemos al archivo en cuestión (&lt;code&gt;~/.config/openbox/autostart&lt;/code&gt;) desde el
+menú: &lt;strong&gt;Preferences → Openbox Config → Edit autostart&lt;/strong&gt;. Y obtenemos algo así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+compton -fC  &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+tint2 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc-workspace &amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc &amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;#/usr/lib/lxpolkit/lxpolkit &amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como podéis ver, ahí está &lt;em&gt;tint2&lt;/em&gt;, con el que tanto os he dado la paliza antes.
+Hay tres cosas básicas que hay que saber a la hora de editar el &lt;em&gt;autostart&lt;/em&gt;:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Tras agregar una aplicación,
+&lt;strong&gt;siempre hay que acabar la línea con un ampersand (&amp;amp;)&lt;/strong&gt;. Si nos olvidamos
+de hacerlo y añadimos algún comando después, no se ejecutará.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Cuando ejecutemos un comando que vaya a llevarse su tiempo o que necesite
+de otro comando ejecutado anteriormente para su uso, debemos usar el comando
+&lt;code&gt;sleep&lt;/code&gt; para añadir un tiempo de espera (en segundos) antes de su
+ejecución. Algo así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tint2&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En el ejemplo, esperamos 1 segundo antes de lanzar &lt;em&gt;tint2&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Las líneas que empiezan por almohadillas (&lt;strong&gt;#&lt;/strong&gt;) son comentarios. No se
+tienen en cuenta.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Y ya está :D&lt;/p&gt;
+&lt;p&gt;Antes de editarlo, un repaso rápido a las líneas ejecutadas por el actual
+&lt;code&gt;autostart&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Restaura el último fondo de pantalla utilizado. Utiliza la app &lt;a class="reference external" href="http://projects.l3ib.org/nitrogen/"&gt;nitrogen&lt;/a&gt;.
+Es un clásico y funciona genial.&lt;/p&gt;
+&lt;div class="figure" style="width: 502px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Nitrogen. Aplicación para establecer el fondo de pantalla." src="http://soulchainer.github.io/images/2014/02/2014-02-07_11.png" style="width: 502px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;code&gt;nitrogen&lt;/code&gt; o &lt;strong&gt;Preferences → Wallpaper&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Podemos configurar nuestra propia carpeta de fondos con
+&lt;strong&gt;Preferences → Add&lt;/strong&gt;. Después elegimos la miniatura de un fondo y
+&lt;strong&gt;Apply&lt;/strong&gt;. Listo. Cerramos.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;El applet de control de volumen que aparece en la &lt;em&gt;bandeja del sistema&lt;/em&gt;. Desde
+ahí podemos configurar el sonido.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;compton -fC  &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/chjj/compton"&gt;Compton&lt;/a&gt; es un compositor de ventanas (es lo que instalamos al marcar
+&lt;strong&gt;Efectos de escritorio&lt;/strong&gt; en la instalación de &lt;em&gt;Antergos&lt;/em&gt;). Es el encargado de
+imbuir de algunos efectillos a las ventanas, sombreado de bordes, etc. Con las
+opciones actuales sólo dispone el efecto de desvanecimiento cuando cerramos
+una ventana y evita dibujar sombras en paneles/docks. Pero es capaz de
+mucho más. Podría detallarlo, pero esto sería interminable. Y
+&lt;strong&gt;hay que aprender a leer páginas man&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;man compton
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Una vez sabido esto, y si así lo queremos, añadimos el &lt;em&gt;dock&lt;/em&gt;
+(&lt;strong&gt;y alguna otra cosilla&lt;/strong&gt;) al inicio:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;numlockx &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;  &lt;span class="c"&gt;# activa el bloqueo numérico al inicio&lt;/span&gt;
+nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;# regula la temperatura de color del monitor según la hora&lt;/span&gt;
+xflux -z tu_codigo_postal &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+compton -fCGb
+tint2 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; plank&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc-workspace &amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc &amp;amp;&lt;/span&gt;
+&lt;span class="c"&gt;#/usr/lib/lxpolkit/lxpolkit &amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sustituimos el contenido del &lt;em&gt;autostart&lt;/em&gt; actual por esto y guardamos. Al
+próximo reinicio se aplicarán los cambios :)&lt;/p&gt;
+&lt;p&gt;Obviamente, hemos de instalar &lt;code&gt;numlockx&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S numlockx
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Además, yo recomendaría la instalación de &lt;a class="reference external" href="http://justgetflux.com/"&gt;f.lux&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S xflux
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lo he añadido ya arriba, es vuestra elección usarlo o no. Por la noche se nota
+mucho. Los ojos sufren menos. Se puede configurar introduciendo directamente la
+latitud y longitud, pero he elegido esa configuración para que no sea sea tan
+complicado (yo lo tengo con lat. y long.).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="atajos-de-teclado"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;Atajos de teclado&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Este punto es bastante importante para mí, ya que no suelo usar ni menú ni
+&lt;em&gt;dock&lt;/em&gt;: me basto y me sobro con el lanzador básico de aplicaciones
+(&lt;strong&gt;Alt + F2&lt;/strong&gt;, con autocompletado) y con atajos de teclado. Muchos atajos.&lt;/p&gt;
+&lt;p&gt;Instalamos el asistente de configuración con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S obkey
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y lo ejecutamos desde &lt;strong&gt;Preferences → Openbox Config → Key Editor&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 685px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Obkey, editor de atajos de teclado de Openbox." src="http://soulchainer.github.io/images/2014/02/2014-02-07_12.png" style="width: 685px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Iconos panel principal, de izda. a dcha.: &lt;strong&gt;guardar config&lt;/strong&gt;,
+&lt;strong&gt;añadir atajo&lt;/strong&gt;, &lt;strong&gt;añadir atajo hijo&lt;/strong&gt;, &lt;strong&gt;borrar atajo&lt;/strong&gt;, &lt;strong&gt;cerrar&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Iconos panel Action: &lt;strong&gt;añadir acción&lt;/strong&gt;, &lt;strong&gt;borrar acción&lt;/strong&gt;,
+&lt;strong&gt;mover arriba&lt;/strong&gt;, &lt;strong&gt;mover abajo&lt;/strong&gt;, &lt;strong&gt;borrar todas&lt;/strong&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Su funcionamiento es muy sencillo:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Añadimos un atajo pulsando el botón análogo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Doble clic en el campo &lt;code&gt;Key&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Ejecutamos el atajo deseado.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Escribimos en el campo Key Text dicho atajo. Indicaciones:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;La tecla &lt;strong&gt;Super&lt;/strong&gt; es la tecla normalmente representada por el logo del
+&lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt;. En un teclado &lt;em&gt;Windows&lt;/em&gt;, es la tecla &lt;strong&gt;Windows&lt;/strong&gt;. En texto, se
+representa con la &lt;strong&gt;W&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;La tecla &lt;strong&gt;Alt&lt;/strong&gt; se representa con una &lt;strong&gt;A&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;La tecla &lt;strong&gt;Ctrl&lt;/strong&gt; se representa con una &lt;strong&gt;C&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;La tecla &lt;strong&gt;Mayus&lt;/strong&gt; es &lt;strong&gt;Bloq Mayús&lt;/strong&gt; y en texto se representa con la &lt;strong&gt;S&lt;/strong&gt;
+(de &lt;strong&gt;Shift&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;Hay más teclas, pero resultan evidentes a poco que domines el inglés.&lt;/li&gt;
+&lt;li&gt;Las teclas correspondiendes a letras se escriben en minúsculas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Añadimos una acción a la tecla. Doble clic y podemos cambiarla.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Hay muchas acciones y &lt;a class="reference external" href="http://openbox.org/wiki/Help:Actions"&gt;todos los nombres&lt;/a&gt; están en inglés, pero son bastante
+evidentes. Para lanzar aplicaciones se usa la acción &lt;strong&gt;Execute&lt;/strong&gt;. Después,
+en el campo &lt;strong&gt;comand&lt;/strong&gt; introducimos el comando a ejecutar y guardamos. Suele
+bastar. El conjunto de campos &lt;strong&gt;startupnotify&lt;/strong&gt; es para dar determinada
+información al gestor de ventanas cuando lanzamos el programa.&lt;/p&gt;
+&lt;p&gt;Es muy recomendable que leas &lt;a class="reference external" href="http://openbox.org/wiki/Help:Actions"&gt;más sobre las acciones&lt;/a&gt;, porque facilitan
+mucho el trabajo diario. Cosas como cambiar de escritorio, mover ventanas de
+un escritorio a otro, maximizar, minimizar, redimensionar ventanas, acceder
+al menú… todo se puede hacer sin levantar un dedo del teclado. También
+puedes leer más a fondo sobre los atajos en la &lt;a class="reference external" href="http://openbox.org/wiki/Help:Bindings"&gt;documentación de Openbox&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Hay que tener en cuenta que por defecto &lt;strong&gt;obkey&lt;/strong&gt; viene con muchos atajos ya
+preconfigurados. Algunos de los cuales corresponden a programas que ni tenemos
+instalados (como &lt;a class="reference external" href="http://audacious-media-player.org/"&gt;Audacious&lt;/a&gt;). Seguramente desearemos editarlos antes que
+crear un atajo repetido. Otros comandos los tenemos instalados, aunque no lo
+sepamos (como &lt;a class="reference external" href="http://joelburget.com/slimlock/"&gt;slimlock&lt;/a&gt;, que bloquea la pantalla y solicita contraseña).
+Comprobar si los tenemos o no es tan fácil como usar el autocompletado del
+lanzador simple de aplicaciones (&lt;strong&gt;Alt + F2&lt;/strong&gt;) o el de consola (&lt;strong&gt;Super + T&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Algunas teclas usadas en los atajos pueden sonarnos un poco a chino, como
+&lt;strong&gt;XF86AudioNext&lt;/strong&gt;. O puede que queramos asociar un atajo a esa tecla multimedia
+&lt;em&gt;chachi piruli&lt;/em&gt; de nuestro teclado y que no sepamos como se llama. ¿Qué hacemos?&lt;/p&gt;
+&lt;p&gt;Instalamos &lt;code&gt;xorg-xev&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S xorg-xev
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y lo ejecutamos desde consola:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;xev
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure align-center" style="width: 1002px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="xev, capturador de eventos de teclado/ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_13.png" style="width: 1002px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;code&gt;xev&lt;/code&gt; captura &lt;strong&gt;&lt;span class="caps"&gt;TODO&lt;/span&gt;&lt;/strong&gt; lo que hagamos con el teclado/ratón.&lt;/p&gt;
+&lt;div class="legend"&gt;
+En verde, la zona donde aparecerá el nombre de la tecla o botón pulsado.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Cuando hayamos pulsado la tecla que queramos utilizar o encontrado la que
+buscamos, cerramos la ventanita de &lt;em&gt;xev&lt;/em&gt; y buscamos entre todos los datos
+devueltos lo que nos interesa.&lt;/p&gt;
+&lt;p&gt;Una vez terminamos de añadir todos los atajos, guardamos y arreando.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="recargar-la-configuracion-manualmente"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id30"&gt;Recargar la configuración manualmente&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A veces es necesario recargar manualmente la configuración de &lt;em&gt;Openbox&lt;/em&gt; para
+que se apliquen los cambios realizados:
+&lt;strong&gt;Preferences → Openbox Config → Reconfigure&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="proxima-parte"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id31"&gt;Próxima parte&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;O no… Aún no lo sé xD En cualquier caso, aquí lo dejamos por ahora, que
+seguro que ya estábais pensando que esto no iba a acabarse nunca :p
+Creo que he repasado todo lo importante, pero es posible que me haya dejado
+algo. Que no os de miedo preguntar :)&lt;/p&gt;
+&lt;p&gt;Si es que hago una última parte la próxima semana, esta será un compendio de
+alternativas ligeras para cubrir las necesidades más (y no tan) comunes del día
+a día.&lt;/p&gt;
+&lt;p&gt;Y tras tres semanas de &lt;strong&gt;artículos interminables&lt;/strong&gt;, intentaré darme un
+descansito y hacer alguno que otro algo más cortito.&lt;/p&gt;
+&lt;p&gt;¡Propicios días!&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Recordemos que se trata de un menú contextual: para invocarlo tenemos que hacer clic con el botón derecho sobre el escritorio. Si tenemos una ventana ocupándolo todo, no tenemos desde donde invocarlo a no ser que usemos un atajo de teclado.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Es un elemento de la &lt;em&gt;&lt;span class="caps"&gt;GUI&lt;/span&gt;&lt;/em&gt; que permite a los usuarios iniciar, cambiar y controlar aplicaciones. En su concepción más simple, es una barra con accesos directos a aplicaciones favoritas, que suele asentarse en la base de la pantalla.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id9" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Al pie de la ventana hay una lista con algunas de las etiquetas de formato de tiempo admitidas.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id10" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;strong&gt;tooltip&lt;/strong&gt; o &lt;strong&gt;descripción emergente&lt;/strong&gt; es el texto que aparece al situar el puntero del ratón sobre determinados elementos de la &lt;em&gt;&lt;span class="caps"&gt;GUI&lt;/span&gt;&lt;/em&gt;, mostrando información adicional.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id11" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id5"&gt;[5]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Lo que no quiere decir que vaya a empezar a usar docks ahora, ¿eh? xD&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="antergos"></category><category term="archlinux"></category><category term="linux"></category><category term="como"></category><category term="tutorial"></category><category term="configuración"></category><category term="openbox"></category></entry><entry><title>Antergos paso a paso (II): configuración esencial</title><link href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/" rel="alternate"></link><updated>2014-01-29T21:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-01-29:posts/2014/01/29/antergos-tutorial-parte2/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#introduccion" id="id21"&gt;Introducción&lt;/a&gt;&lt;/li&gt;
@@ -190,7 +882,7 @@ rango de puertos utilizando la síntaxis &lt;code&gt;NºPUERTOINF:NºPUERTOSUP&l
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils"/&gt;
-&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; Al intentar ejecutar &lt;code&gt;gufw&lt;/code&gt;, como he estado trasteando un
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; Al intentar ejecutar &lt;em&gt;gufw&lt;/em&gt;, como he estado trasteando un
 poquillo, no arranca. Si lo ejecuto desde consola me arroja un error. Es al
 reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;Gufw needs DBUS service started to run correctly!
@@ -902,7 +1594,8 @@ como &lt;code&gt;bios_grub&lt;/code&gt;:&lt;/p&gt;
 &lt;img alt="Seleccionamos la opción bios_grub para la partición creada." src="http://soulchainer.github.io/images/2014/01/2014-01-21_15.png" style="width: 312px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en partición → Gestionar opciones&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Tras esto, ya podemos continuar donde lo dejamos con &lt;em&gt;Cnchi&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Tras esto, aplicamos los cambios (&lt;strong&gt;Editar → Aplicar todas las operaciones&lt;/strong&gt;)
+y ya podemos continuar donde lo dejamos con &lt;em&gt;Cnchi&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="particionado-avanzado"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id37"&gt;Particionado avanzado&lt;/a&gt;&lt;/h4&gt;
