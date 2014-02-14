@@ -61,7 +61,7 @@ los telegrafistas sin cambiar de cliente? ¡Si lo que queremos es atarlos a
 &lt;em&gt;Telegram&lt;/em&gt;, hombre! Que usen nuestro protocolo &lt;em&gt;libre&lt;/em&gt; o no hay tu tía. ¡Que
 los desarrolladores de todos esos otros programas hagan un plugin nuevo para
 soportar mi nuevo protocolo! En vez de usar uno ya ampliamente implantado,
-re-inventamos la rueda y que usen el nuestro. Porque no sabes la satisfacción
+reinventamos la rueda y que usen el nuestro. Porque no sabes la satisfacción
 que aporta el que usen &lt;strong&gt;tu gran cosa&lt;/strong&gt; en lugar de la de los demás. ¿Que usan
 otra cosa? ¡Pues ya se están cambiando y usando la mía! ¡Faltaría más!&lt;/p&gt;
 &lt;p&gt;Y de esto es de lo que trata el asunto al final. De que usen tu gran cosa.
@@ -70,8 +70,8 @@ orgullo y satisfacción. Te &lt;em&gt;aborbona&lt;/em&gt; :)&lt;/p&gt;
 &lt;p&gt;Lo que convierte a &lt;em&gt;Telegram&lt;/em&gt; en &lt;strong&gt;otra&lt;/strong&gt; excelente alternativa para hacer
 corrillos :D Corrillos muy seguros y privados. Qué digo privados… ¡Secretos!&lt;/p&gt;
 &lt;p&gt;Cool Stuff.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; oye, pues al final si suena como un ataque xD Que sepáis que no es
-premeditado. Es completamente incidental. No es más que mi opinión. Podéis
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; oye, pues al final sí que suena como un ataque xD Que sepáis que no
+es premeditado. Es completamente incidental. No es más que mi opinión. Podéis
 compartirla o no :p&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt; 2:&lt;/strong&gt; si la alternativa que barajáis es &lt;em&gt;WhatsApp&lt;/em&gt;, ¡cambiad, insensatos!&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
@@ -2494,7 +2494,7 @@ estas líneas el vídeo de presentación del curso, para que hable por sí mism
 &lt;/tbody&gt;
 &lt;/table&gt;
 </summary><category term="curso"></category><category term="mooc"></category><category term="udacity"></category><category term="desarrollo web"></category><category term="móvil"></category><category term="html5"></category><category term="educación"></category></entry><entry><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/" rel="alternate"></link><updated>2013-12-30T18:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</id><summary type="html">&lt;div class="figure" style="width: 766px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Python verde (Morelia Viridis)." src="http://soulchainer.github.io/images/2013/2013-12-28_1.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Python verde (Morelia Viridis)." src="http://soulchainer.github.io/images/2013/12/2013-12-28_1.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Pitón arborícola verde (Morelia Viridis). Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/"&gt;Marie&lt;/a&gt;, con unos toquecitos. &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/5513104816/"&gt;Original&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="problematica"&gt;
@@ -2871,7 +2871,7 @@ un poco más fácil:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="pip"></category><category term="virtualenv"></category><category term="virtualenvwrapper"></category><category term="linux"></category><category term="archlinux"></category></entry><entry><title>Hello, blog!</title><link href="http://soulchainer.github.io/posts/2013/12/18/hello-blog/" rel="alternate"></link><updated>2013-12-18T02:46:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2013-12-18:posts/2013/12/18/hello-blog/</id><summary type="html">&lt;div class="figure" style="width: 563px; height: auto; max-width: 100%;"&gt;
-&lt;img alt='Ascii Art "Hello blog", generado con el programa de consola toilet' src="http://soulchainer.github.io/images/2013/2013-12-18_1.png" style="width: 563px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt='Ascii Art "Hello blog", generado con el programa de consola toilet' src="http://soulchainer.github.io/images/2013/12/2013-12-18_1.png" style="width: 563px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Ascii Art generado por consola con &lt;code&gt;toilet Hello blog --gay&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="verborrea"&gt;
