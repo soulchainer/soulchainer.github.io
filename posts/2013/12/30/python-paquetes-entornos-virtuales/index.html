@@ -171,6 +171,13 @@ fácilmente via <em>Administrador de Paquetes</em>.</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S python-pip
 </pre></div>
 <p>nos instalará tanto <em>pip</em> como <em>setuptools</em> de forma global en el sistema.</p>
+<p><strong>EDICIÓN:</strong> lo anterior instalará <em>pip</em> para <em>Python 3</em>, que es la versión por
+defecto en <em>Archlinux</em> y otras distribuciones. Por lo que si planeamos usar
+<em>Pyhton 2.x</em>, deberíamos instalar también:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S python2-pip
+</pre></div>
+<p>E instalar via pip los paquetes que deseemos usar en ese entorno (globalmente)
+con <code>pip2</code> o <code>pip2.7</code>.</p>
 </div>
 <div class="section" id="instalar-paquetes">
 <h3>Instalar paquetes</h3>
