@@ -1,0 +1,131 @@
+Telegram, Line, WhatsApp y pollas en vinagre
+############################################
+:date: 2014-02-14 14:25
+:tags: telegram, line, whatsapp, mensajería, im, xmpp, software libre, opinión
+:category: opinión
+:slug: telegram-line-wa-pollas-vinagre
+:author: Soulchainer
+:twsummary: Tras esta imagen tan Flower Power, influenciada por el día en el
+            que estamos, y para suavizar un poco el titular, vamos al tema en
+            cuestión.
+            Y este no es otro sino la última moda en mensajería: Telegram.
+            Últimamente está en boca de todos: que si Telegram esto, que si
+            Telegram aquello, que si es gratis...
+:twimg: 2014-02-14_03.png
+
+.. image:: {filename}/images/2014/02/2014-02-14_01.png
+    :alt: I love Free Software!
+    :target: http://ilovefs.org
+    :class: image
+
+
+Tras esta imagen tan *Flower Power*, influenciada por el día en el que estamos,
+y para suavizar un poco el titular, vamos al tema en cuestión.
+
+Y este no es otro sino **la última moda** en mensajería:  `Telegram`_.
+
+.. figure:: {filename}/images/2014/02/2014-02-14_02.png
+    :alt: Logo y eslogan de Telegram
+
+    Logo y eslogan de *Telegram*.
+
+    *Recuperando nuestro derecho a la privacidad*
+
+Últimamente está en boca de todos: que si *Telegram* esto, que si *Telegram*
+aquello, que si es gratis, que si es libre, que si vuela, que si es la pera
+limonera, que si patatín, que si patatán... que si
+**bájatelo para que podamos hablar**...
+
+Y esta última es la cuestión que quiero tratar, vertiendo mi opinión sobre el
+panorama de los programas de mensajería en general y sobre *Telegram* en
+particular.
+
+Dejar claro que esto no es un ataque a *Telegram*. Hasta lo tengo instalado,
+a pesar de que aún no tengo a nadie (me comunico más por redes sociales). El
+caso es que *Telegram* parece un buen software: es bonito, seguro, rápido,
+gratis, protege tu privacidad, es *software libre*...
+
+.. figure:: {filename}/images/2014/02/2014-02-14_03.png
+    :alt: Algunas de las virtudes de Telegram
+
+    Algunas de las virtudes atribuidas a *Telegram*.
+
+
+
+Espera un segundo: ¿es libre?
+
+Bueno, depende del concepto que tenga uno de *libertad*. A pesar de que patea
+duro en los genitales a `WhatsApp`_ (tampoco es que haga falta mucho, *WA* se
+patea él sólo), adolece del mismo problema que la mayoría de clientes de
+mensajería:
+
+  Mis usuarios son míos y DE NADIE MÁS.
+
+Ese problema. **YES**.
+
+A mí no me parece que esa actitud favorezca mucho la *libertad*, qué queréis
+que os diga. Aquí se dan los mismos pasos que con (**casi**) cualquier programa
+**IM** [#]_ nuevo que aparece, sea propietario o *"libre"*:
+
+1. Saco un nuevo cliente de mensajería instantánea.
+2. Digo que es la pera limonera y hago campaña.
+3. Sólo puedes hablar con otros usuarios de ese programa... ¡Y con nadie más!
+4. ¡Traete a todos tus contactos!
+5. Algunos no vienen. Mantén tu cuenta en: *WhatsApp*, `Line`_, `BBM`_,
+   `Skype`_, ...
+6. Pasa de moda (o no)/se estanca.
+7. Volvemos al punto uno, con el último y novísimo cliente. Esta vez sí que es
+   el cliente definitivo. Todos a migrar por enésima vez.
+
+Y no me malinterpretéis: yo no soy un inmovilista. El quid de la cuestión es
+que se supone que estamos en la *"era de la comunicación"*, pero... ¡castañas
+pilongas! A mí me parece todo lo contrario.
+
+Sinceramente, este tipo de movimiento yo me lo esperaría de un cliente
+propietario, porque a fin de cuentas va a hacer negocio: quiere que sus
+usuarios dependan de él y renuncien a lo demás. Es lo que da beneficio.
+
+Pero, ¿de un software *libre*? Que eres libre, sí... eres libre de atarte a
+*Telegram* para hablar *sólo con la gente de Telegram*. Total libertad de
+elección. Ni siquiera trae compatibilidad con `XMPP`_: un protocolo de
+mensajería ya existente, **EL PROTOCOLO** libre. Que puede tomarse y mejorarse
+si hace falta. Que ya partes de una gran base de usuarios (`Facebook chat`_ y
+`Hangouts`_ usan *XMPP*)...
+
+No. Ni siquiera como opción. ¿Para qué? ¿Para que se puedan comunicar con
+los telegrafistas sin cambiar de cliente? ¡Si lo que queremos es atarlos a
+*Telegram*, hombre! Que usen nuestro protocolo *libre* o no hay tu tía. ¡Que
+los desarrolladores de todos esos otros programas hagan un plugin nuevo para
+soportar mi nuevo protocolo! En vez de usar uno ya ampliamente implantado,
+reinventamos la rueda y que usen el nuestro. Porque no sabes la satisfacción
+que aporta el que usen **tu gran cosa** en lugar de la de los demás. ¿Que usan
+otra cosa? ¡Pues ya se están cambiando y usando la mía! ¡Faltaría más!
+
+Y de esto es de lo que trata el asunto al final. De que usen tu gran cosa.
+Porque tu gran cosa es la mejor cosa. ¡Para algo la has hecho tú! Y te llena de
+orgullo y satisfacción. Te *aborbona* :)
+
+Lo que convierte a *Telegram* en **otra** excelente alternativa para hacer
+corrillos :D Corrillos muy seguros y privados. Qué digo privados... ¡Secretos!
+
+Cool Stuff.
+
+**NOTA:** oye, pues al final sí que suena como un ataque xD Que sepáis que no
+es premeditado. Es completamente incidental. No es más que mi opinión. Podéis
+compartirla o no :p
+
+**NOTA 2:** si la alternativa que barajáis es *WhatsApp*, ¡cambiad, insensatos!
+
+----
+
+
+.. _Telegram: https://telegram.org/
+.. _WhatsApp: http://www.whatsapp.com/
+.. _Line: http://line.me/en/
+.. _BBM: http://es.blackberry.com/bbm.html
+.. _Skype: http://www.skype.com/es/
+.. _XMPP: http://xmpp.org/
+.. _Facebook chat: https://www.facebook.com/sitetour/chat.php
+.. _Hangouts: http://www.google.com/intl/es_ALL/+/learnmore/hangouts/
+
+.. [#] **Instant Messaging** (Mensajería Instantánea).

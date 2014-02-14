@@ -8,7 +8,7 @@ Hello, blog!
 :twimg: 2013-12-18_1.png
 :twsummary: No recuerdo cuanto tiempo hace de mi última incursión en la blogosfera. Y es que no me seduce demasiado la idea de tener un espacio en el que soltar la correa a mi verborrea y dejarla correr, sin control. Me gusta el control. Pero...
 
-.. figure:: {filename}/images/2013/2013-12-18_1.png
+.. figure:: {filename}/images/2013/12/2013-12-18_1.png
     :alt: Ascii Art "Hello blog", generado con el programa de consola toilet
 
     Ascii Art generado por consola con :code:`toilet Hello blog --gay`.

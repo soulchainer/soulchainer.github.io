@@ -504,6 +504,9 @@ hr.docutils::after { /* for the symbol */
 
     float: left;
 }
+.image {
+  margin: 1em 0em;
+}
 /* Blockquotes */
 .article > blockquote, .section > blockquote {
   clear: both;

@@ -8,7 +8,7 @@ Gestión de paquetes & entornos virtuales Python con pip, virtualenv & virtualen
 :twsummary: Cuando usas Python con asiduidad, ya sea por cuestiones de desarrollo o simplemente por preferir ciertas aplicaciones construidas en este lenguaje, tarde o temprano te encuentras con un problema: las dichosas dependencias y la versionitis.
 :twimg: 2013-12-28_1.png
 
-.. figure:: {filename}/images/2013/2013-12-28_1.png
+.. figure:: {filename}/images/2013/12/2013-12-28_1.png
     :alt: Python verde (Morelia Viridis).
 
     Pitón arborícola verde (Morelia Viridis). Foto de `Marie`_, con unos toquecitos. `Original`_.
@@ -59,6 +59,17 @@ Así, en `Archlinux`_ :
     $ yaourt -S python-pip
 
 nos instalará tanto *pip* como *setuptools* de forma global en el sistema.
+
+**EDICIÓN:** lo anterior instalará *pip* para *Python 3*, que es la versión por
+defecto en *Archlinux* y otras distribuciones. Por lo que si planeamos usar
+*Pyhton 2.x*, deberíamos instalar también:
+
+.. code-block:: sh
+
+    $ yaourt -S python2-pip
+
+E instalar via pip los paquetes que deseemos usar en ese entorno (globalmente)
+con :code:`pip2` o :code:`pip2.7`.
 
 Instalar paquetes
 =======================
