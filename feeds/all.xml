@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-02-08T18:15:00+01:00</updated><entry><title>Antergos paso a paso (III): puesta a punto de Openbox</title><link href="http://soulchainer.github.io/posts/2014/02/08/antergos-tutorial-parte3/" rel="alternate"></link><updated>2014-02-08T18:15:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-08:posts/2014/02/08/antergos-tutorial-parte3/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-02-14T14:25:00+01:00</updated><entry><title>Telegram, Line, WhatsApp y pollas en vinagre</title><link href="http://soulchainer.github.io/posts/2014/02/14/telegram-line-wa-pollas-vinagre/" rel="alternate"></link><updated>2014-02-14T14:25:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-14:posts/2014/02/14/telegram-line-wa-pollas-vinagre/</id><summary type="html">&lt;a class="reference external image-reference" href="http://ilovefs.org"&gt;&lt;img alt="I love Free Software!" class="image" src="http://soulchainer.github.io/images/2014/02/2014-02-14_01.png" style="width: 627px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;p&gt;Tras esta imagen tan &lt;em&gt;Flower Power&lt;/em&gt;, influenciada por el día en el que estamos,
+y para suavizar un poco el titular, vamos al tema en cuestión.&lt;/p&gt;
+&lt;p&gt;Y este no es otro sino &lt;strong&gt;la última moda&lt;/strong&gt; en mensajería:  &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Logo y eslogan de Telegram" src="http://soulchainer.github.io/images/2014/02/2014-02-14_02.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Logo y eslogan de &lt;em&gt;Telegram&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;em&gt;Recuperando nuestro derecho a la privacidad&lt;/em&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Últimamente está en boca de todos: que si &lt;em&gt;Telegram&lt;/em&gt; esto, que si &lt;em&gt;Telegram&lt;/em&gt;
+aquello, que si es gratis, que si es libre, que si vuela, que si es la pera
+limonera, que si patatín, que si patatán… que si
+&lt;strong&gt;bájatelo para que podamos hablar&lt;/strong&gt;…&lt;/p&gt;
+&lt;p&gt;Y esta última es la cuestión que quiero tratar, vertiendo mi opinión sobre el
+panorama de los programas de mensajería en general y sobre &lt;em&gt;Telegram&lt;/em&gt; en particular.&lt;/p&gt;
+&lt;p&gt;Dejar claro que esto no es un ataque a &lt;em&gt;Telegram&lt;/em&gt;. Hasta lo tengo instalado,
+a pesar de que aún no tengo a nadie (me comunico más por redes sociales). El
+caso es que &lt;em&gt;Telegram&lt;/em&gt; parece un buen software: es bonito, seguro, rápido,
+gratis, protege tu privacidad, es &lt;em&gt;software libre&lt;/em&gt;…&lt;/p&gt;
+&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Algunas de las virtudes de Telegram" src="http://soulchainer.github.io/images/2014/02/2014-02-14_03.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Algunas de las virtudes atribuidas a &lt;em&gt;Telegram&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Espera un segundo: ¿es libre?&lt;/p&gt;
+&lt;p&gt;Bueno, depende del concepto que tenga uno de &lt;em&gt;libertad&lt;/em&gt;. A pesar de que patea
+duro en los genitales a &lt;a class="reference external" href="http://www.whatsapp.com/"&gt;WhatsApp&lt;/a&gt; (tampoco es que haga falta mucho, &lt;em&gt;&lt;span class="caps"&gt;WA&lt;/span&gt;&lt;/em&gt; se
+patea él sólo), adolece del mismo problema que la mayoría de clientes de mensajería:&lt;/p&gt;
+&lt;blockquote&gt;
+Mis usuarios son míos y &lt;span class="caps"&gt;DE&lt;/span&gt; &lt;span class="caps"&gt;NADIE&lt;/span&gt; MÁS.&lt;/blockquote&gt;
+&lt;p&gt;Ese problema. &lt;strong&gt;&lt;span class="caps"&gt;YES&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A mí no me parece que esa actitud favorezca mucho la &lt;em&gt;libertad&lt;/em&gt;, qué queréis
+que os diga. Aquí se dan los mismos pasos que con (&lt;strong&gt;casi&lt;/strong&gt;) cualquier programa
+&lt;strong&gt;&lt;span class="caps"&gt;IM&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt; nuevo que aparece, sea propietario o &lt;em&gt;"libre"&lt;/em&gt;:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Saco un nuevo cliente de mensajería instantánea.&lt;/li&gt;
+&lt;li&gt;Digo que es la pera limonera y hago campaña.&lt;/li&gt;
+&lt;li&gt;Sólo puedes hablar con otros usuarios de ese programa… ¡Y con nadie más!&lt;/li&gt;
+&lt;li&gt;¡Traete a todos tus contactos!&lt;/li&gt;
+&lt;li&gt;Algunos no vienen. Mantén tu cuenta en: &lt;em&gt;WhatsApp&lt;/em&gt;, &lt;a class="reference external" href="http://line.me/en/"&gt;Line&lt;/a&gt;, &lt;a class="reference external" href="http://es.blackberry.com/bbm.html"&gt;&lt;span class="caps"&gt;BBM&lt;/span&gt;&lt;/a&gt;,
+&lt;a class="reference external" href="http://www.skype.com/es/"&gt;Skype&lt;/a&gt;, …&lt;/li&gt;
+&lt;li&gt;Pasa de moda (o no)/se estanca.&lt;/li&gt;
+&lt;li&gt;Volvemos al punto uno, con el último y novísimo cliente. Esta vez sí que es
+el cliente definitivo. Todos a migrar por enésima vez.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Y no me malinterpretéis: yo no soy un inmovilista. El quid de la cuestión es
+que se supone que estamos en la &lt;em&gt;"era de la comunicación"&lt;/em&gt;, pero… ¡castañas
+pilongas! A mí me parece todo lo contrario.&lt;/p&gt;
+&lt;p&gt;Sinceramente, este tipo de movimiento yo me lo esperaría de un cliente
+propietario, porque a fin de cuentas va a hacer negocio: quiere que sus
+usuarios dependan de él y renuncien a lo demás. Es lo que da beneficio.&lt;/p&gt;
+&lt;p&gt;Pero, ¿de un software &lt;em&gt;libre&lt;/em&gt;? Que eres libre, sí… eres libre de atarte a
+&lt;em&gt;Telegram&lt;/em&gt; para hablar &lt;em&gt;sólo con la gente de Telegram&lt;/em&gt;. Total libertad de
+elección. Ni siquiera trae compatibilidad con &lt;a class="reference external" href="http://xmpp.org/"&gt;&lt;span class="caps"&gt;XMPP&lt;/span&gt;&lt;/a&gt;: un protocolo de
+mensajería ya existente, &lt;strong&gt;&lt;span class="caps"&gt;EL&lt;/span&gt; &lt;span class="caps"&gt;PROTOCOLO&lt;/span&gt;&lt;/strong&gt; libre. Que puede tomarse y mejorarse
+si hace falta. Que ya partes de una gran base de usuarios (&lt;a class="reference external" href="https://www.facebook.com/sitetour/chat.php"&gt;Facebook chat&lt;/a&gt; y
+&lt;a class="reference external" href="http://www.google.com/intl/es_ALL/+/learnmore/hangouts/"&gt;Hangouts&lt;/a&gt; usan &lt;em&gt;&lt;span class="caps"&gt;XMPP&lt;/span&gt;&lt;/em&gt;)…&lt;/p&gt;
+&lt;p&gt;No. Ni siquiera como opción. ¿Para qué? ¿Para que se puedan comunicar con
+los telegrafistas sin cambiar de cliente? ¡Si lo que queremos es atarlos a
+&lt;em&gt;Telegram&lt;/em&gt;, hombre! Que usen nuestro protocolo &lt;em&gt;libre&lt;/em&gt; o no hay tu tía. ¡Que
+los desarrolladores de todos esos otros programas hagan un plugin nuevo para
+soportar mi nuevo protocolo! En vez de usar uno ya ampliamente implantado,
+re-inventamos la rueda y que usen el nuestro. Porque no sabes la satisfacción
+que aporta el que usen &lt;strong&gt;tu gran cosa&lt;/strong&gt; en lugar de la de los demás. ¿Que usan
+otra cosa? ¡Pues ya se están cambiando y usando la mía! ¡Faltaría más!&lt;/p&gt;
+&lt;p&gt;Y de esto es de lo que trata el asunto al final. De que usen tu gran cosa.
+Porque tu gran cosa es la mejor cosa. ¡Para algo la has hecho tú! Y te llena de
+orgullo y satisfacción. Te &lt;em&gt;aborbona&lt;/em&gt; :)&lt;/p&gt;
+&lt;p&gt;Lo que convierte a &lt;em&gt;Telegram&lt;/em&gt; en &lt;strong&gt;otra&lt;/strong&gt; excelente alternativa para hacer
+corrillos :D Corrillos muy seguros y privados. Qué digo privados… ¡Secretos!&lt;/p&gt;
+&lt;p&gt;Cool Stuff.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; oye, pues al final si suena como un ataque xD Que sepáis que no es
+premeditado. Es completamente incidental. No es más que mi opinión. Podéis
+compartirla o no :p&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt; 2:&lt;/strong&gt; si la alternativa que barajáis es &lt;em&gt;WhatsApp&lt;/em&gt;, ¡cambiad, insensatos!&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Instant Messaging&lt;/strong&gt; (Mensajería Instantánea).&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</summary><category term="telegram"></category><category term="line"></category><category term="whatsapp"></category><category term="mensajería"></category><category term="im"></category><category term="xmpp"></category><category term="software libre"></category><category term="opinión"></category></entry><entry><title>Antergos paso a paso (III): puesta a punto de Openbox</title><link href="http://soulchainer.github.io/posts/2014/02/08/antergos-tutorial-parte3/" rel="alternate"></link><updated>2014-02-08T18:15:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-08:posts/2014/02/08/antergos-tutorial-parte3/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#introduccion" id="id12"&gt;Introducción&lt;/a&gt;&lt;/li&gt;
@@ -2452,6 +2534,13 @@ fácilmente via &lt;em&gt;Administrador de Paquetes&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S python-pip
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;nos instalará tanto &lt;em&gt;pip&lt;/em&gt; como &lt;em&gt;setuptools&lt;/em&gt; de forma global en el sistema.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EDICIÓN:&lt;/strong&gt; lo anterior instalará &lt;em&gt;pip&lt;/em&gt; para &lt;em&gt;Python 3&lt;/em&gt;, que es la versión por
+defecto en &lt;em&gt;Archlinux&lt;/em&gt; y otras distribuciones. Por lo que si planeamos usar
+&lt;em&gt;Pyhton 2.x&lt;/em&gt;, deberíamos instalar también:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S python2-pip
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E instalar via pip los paquetes que deseemos usar en ese entorno (globalmente)
+con &lt;code&gt;pip2&lt;/code&gt; o &lt;code&gt;pip2.7&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalar-paquetes"&gt;
 &lt;h3&gt;Instalar paquetes&lt;/h3&gt;

@@ -1,0 +1,44 @@
+/*the form*/
+#search {
+  max-width: 200px;
+}
+#search input {
+  background-color: #A2BBFA;
+  border: 2px;
+  border-color: transparent;
+  border-radius: .5em;
+  font-family: Verdana, sans-serif;
+  font-size: .6em;
+  height: 1.5em;
+}
+#search input:focus {
+  outline: none;
+}
+#searchtxt {
+  box-sizing: content-box;
+  color: #394C73;
+  font-size: 1.2em;
+  font-weight: bold;
+  max-width: 200px;
+  padding: .2em;
+  width: 100%;
+}
+#query {
+  display: none;
+}
+/* Tweak for placeholder */
+#searchtxt::-webkit-input-placeholder {
+  color: #394C73;
+   font-size: 1.2em;
+   font-weight: bold;
+}
+#searchtxt::-moz-placeholder {
+   color: #394C73;
+   font-size: 1.2em;
+   font-weight: bold;
+ }
+#searchtxt:-ms-input-placeholder {
+  color: #394C73;
+  font-size: 1.2em;
+  font-weight: bold;
+}
