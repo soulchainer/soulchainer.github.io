@@ -1,5 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-02-14T14:25:00+01:00</updated><entry><title>Telegram, Line, WhatsApp y pollas en vinagre</title><link href="http://soulchainer.github.io/posts/2014/02/14/telegram-line-wa-pollas-vinagre/" rel="alternate"></link><updated>2014-02-14T14:25:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-14:posts/2014/02/14/telegram-line-wa-pollas-vinagre/</id><summary type="html">&lt;a class="reference external image-reference" href="http://ilovefs.org"&gt;&lt;img alt="I love Free Software!" class="image" src="http://soulchainer.github.io/images/2014/02/2014-02-14_01.png" style="width: 627px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-02-24T19:05:00+01:00</updated><entry><title>Mi MOOC ideal</title><link href="http://soulchainer.github.io/posts/2014/02/24/mi-mooc-ideal/" rel="alternate"></link><updated>2014-02-24T19:05:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-24:posts/2014/02/24/mi-mooc-ideal/</id><summary type="html">&lt;div class="section" id="introduccion"&gt;
+&lt;h2&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;Esta misma mañana he recibido un correo de &lt;a class="reference external" href="https://www.futurelearn.com"&gt;FutureLearn&lt;/a&gt; avisándome de que hoy
+comienza &lt;a class="reference external" href="https://www.futurelearn.com/courses/begin-programming-2014/"&gt;un nuevo &lt;span class="caps"&gt;MOOC&lt;/span&gt; al que estoy apuntado&lt;/a&gt;, y, como tengo aún pendiente de
+escribir la entrada de rigor de la semana pasada (mal, muy mal ò_ó), se me ha
+ocurrido contaros como creo yo que debería ser un &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt;. Parte de las
+ideas aquí expuestas ya las traté en
+&lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/"&gt;un artículo a principio del mes pasado&lt;/a&gt;,
+pero aquí amplío y trato un poco más abiertamente el tema.&lt;/p&gt;
+&lt;p&gt;La verdad, esto no debería ser necesario: sé que alguna de estas ideas pueden
+ser difíciles de aceptar o poner en práctica, al depender de factores externos,
+pero considero todo esto una cuestión de sentido común.&lt;/p&gt;
+&lt;p&gt;Aún así, se cumple la tan manida sentencia:
+&lt;em&gt;"el sentido común es el menos común de todos los sentidos"&lt;/em&gt;. Eso y que
+ciertas… entidades se suman al carro de ofrecer su &lt;em&gt;plataforma de MOOCs&lt;/em&gt; por
+el simple hecho de que &lt;strong&gt;está de moda, es trending topic, es requete-cool&lt;/strong&gt;. Y
+no demuestran tener &lt;strong&gt;un compromiso real para con la Educación&lt;/strong&gt;. Eso, o lo
+disimulan bastante bien.&lt;/p&gt;
+&lt;div class="figure" style="width: 600px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Para relajar tensiones, antes de amuermaros un poquito... ¡La vacuna del humor!" src="http://soulchainer.github.io/images/2014/02/2014-02-24_01.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Para relajar tensiones, antes de amuermaros un poquito… ¡La vacuna del humor!&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;a class="reference external" href="http://www.flickr.com/photos/ajc1/7566869868/"&gt;Foto original&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/ajc1/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt; Cann&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="claves"&gt;
+&lt;h2&gt;Claves&lt;/h2&gt;
+&lt;p&gt;Mi &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; (y quien dice &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; dice cursillo) ideal se caracterizaría por:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Abajo los plazos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Uno de los propósitos de un &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; es el de ser
+&lt;strong&gt;una plataforma de Educación Abierta&lt;/strong&gt;. Poner plazos
+&lt;strong&gt;escandalosamente restrictivos&lt;/strong&gt;, como hacen algunas plataformas, no es de
+recibo. Otras incluso cierran el acceso a sus contenidos una vez concluídos
+estos. Y tienen el descaro de autoproclamarse
+&lt;em&gt;"plataforma de MOOCs"&lt;/em&gt;. Una cosa es que tengas un servicio &lt;strong&gt;adicional&lt;/strong&gt;
+(normalmente de pago) que aporte un valor añadido, y que ahí sí pongas
+plazos. Pero un &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; ha de garantizar el fácil (y libre) acceso a sus
+contenidos, no sujeto a rígidos plazos. De no ser así, no es abierto. Y si no
+es abierto, &lt;strong&gt;no es un &lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; (
+&lt;strong&gt;Massive Open Online Course, Curso en Línea Masivo y Abierto&lt;/strong&gt;), sino un
+&lt;strong&gt;&lt;span class="caps"&gt;MOC&lt;/span&gt;&lt;/strong&gt; (&lt;strong&gt;Massive Online Course, Curso Masivo en Línea&lt;/strong&gt;). Y ya.&lt;/p&gt;
+&lt;p&gt;Además, esto refleja un hilirante desconocimiento de su alumnado potencial.
+Muchos son universitarios. O personas con un trabajo, que siguen el curso en
+sus ratos libres. Muchos, aún intentándolo, no pueden cumplir con estos
+plazos. Y se ven obligados a abandonar, en contra de su voluntad. Y luego
+vienen los lloros de los responsables del &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; de turno, con el &lt;em&gt;"se
+apuntaron 20.000 y sólo terminaron el curso 700"&lt;/em&gt;. Es verdad que los que se
+apuntan sólo &lt;em&gt;"por probar"&lt;/em&gt; y luego no vuelven o abandonan a la primera de
+cambio también están ahí, pero esa no es sino una razón más para no abonar
+el abandono del resto por esta soberana ridiculez.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Profesorado capaz&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Y aquí ahondo sobre todo en los cursos del sector tecnológico. ¿Que qué
+entiendo por &lt;em&gt;"profesorado capaz"&lt;/em&gt;? Pues por profesorado capaz entiendo…
+eso que no debería de hacer falta explicar pero que luego viene la realidad
+y te desengaña.&lt;/p&gt;
+&lt;p&gt;Un &lt;em&gt;profesorado capaz&lt;/em&gt; es aquel que está actualizado y domina la materia que
+imparte. O que, al menos, te hace sentir que puedes confiar en su criterio.&lt;/p&gt;
+&lt;p&gt;Un &lt;em&gt;profesorado capaz&lt;/em&gt; es aquel que, además, sabe transmitir sus conocimientos.
+Que te motiva, en lugar de inducirte el sueño con insípidas peroratas.&lt;/p&gt;
+&lt;p&gt;Un &lt;em&gt;profesorado capaz&lt;/em&gt; es aquel perfectamente diferenciable de un sistema
+sintetizador de voz, una máquina de diapositivas o de la anciana &lt;a class="reference external" href="http://es.wikipedia.org/wiki/Microsoft_Encarta"&gt;Encarta&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Eso es un &lt;em&gt;profesorado capaz&lt;/em&gt;. El concepto es sencillo, pero has de tener la
+suerte de dar con uno. Son los Pokémon shiny de la región Cátedra.&lt;/p&gt;
+&lt;p&gt;Aprovecho y mando un saludo a mi antigua profesora de &lt;em&gt;Java&lt;/em&gt;, &lt;strong&gt;Nancy&lt;/strong&gt;.
+Sigue siendo la mejor profesora de programación que he tenido jamás :)
+Lástima que escaseen tanto.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Estabilidad de la plataforma&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;De poco sirve tener un profesorado capaz y estar haciendo las cosas bien si
+luego el alumnado se tiene que enfrentar a una plataforma que no es que
+sea o no amigable: es su más acérrima enemiga. &lt;strong&gt;Voldemort&lt;/strong&gt;, &lt;strong&gt;Sauron&lt;/strong&gt; o
+el ministro Wert (estamos hablamos de educación, ¿no?) &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt; son lindos
+corderitos comparados con un &lt;a class="reference external" href="https://moodle.org/"&gt;Moodle&lt;/a&gt; mal gestionado, esas
+&lt;strong&gt;aulas virtuales&lt;/strong&gt; hijas de &lt;strong&gt;Satanás&lt;/strong&gt; y aquellas
+&lt;em&gt;"plataformas de &lt;span class="caps"&gt;MOOC&lt;/span&gt;"&lt;/em&gt;, que ni plata, ni formas. Suben y bajan más que un yoyó.&lt;/p&gt;
+&lt;p&gt;Este es uno de esos aspectos que puedes capear escudándote en que
+&lt;em&gt;"son factores ajenos a nuestro control"&lt;/em&gt;. Salvo, claro está, que presumas
+a los cuatro vientos de contar con el apoyo de &lt;em&gt;grandes empresas&lt;/em&gt; como
+&lt;em&gt;Telefónica&lt;/em&gt;, &lt;em&gt;Banco Santander&lt;/em&gt;… ò_ó En esos casos no cuela :) Y se entra
+de pleno en la categoría de
+&lt;strong&gt;"no demuestran tener un compromiso real para con la Educación"&lt;/strong&gt;. Pura propaganda.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Aprovecha las tecnologías, coño&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Bien. Decimos adiós a los plazos constrictivos, tenemos unos profesores
+capaces, una plataforma que ni &lt;strong&gt;Bastión de Tormentas&lt;/strong&gt;… y van y se olvidan
+de que &lt;strong&gt;un &lt;span class="caps"&gt;MOOC&lt;/span&gt; es un servicio online&lt;/strong&gt;. Y de que la tecnología, como el
+amor, está en el aire: wikis ornamentales, foros de discusión desatendidos o
+con software tercermundista, ¿&lt;strong&gt;ludificación&lt;/strong&gt;? &lt;a class="footnote-reference" href="#id6" id="id3"&gt;[3]&lt;/a&gt; ¿eso se come?&lt;/p&gt;
+&lt;p&gt;Están en Internet. Son una plataforma tecnológica. ¡Usen todos los recursos a
+su alcance, coño! No hagan como si continuaran dentro de su limitado aulario.
+No pongan puertas al campo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;:&lt;/strong&gt; usar Internet &lt;strong&gt;&lt;span class="caps"&gt;NO&lt;/span&gt;&lt;/strong&gt; es apuntar al alumno tal enlace para que se
+lea tal cosa para hacer tal ejercicio, cosa que en más de una ocasión
+deberías de haber explicado en tu último vídeo, en vez de andarte por las
+ramas. Porque para eso son los vídeos: para explicar las cosas, no para
+&lt;strong&gt;powerpointear&lt;/strong&gt;. Si no aportas nada al alumno aparte de apuntar unos
+enlaces que ya se encuentran en Internet, ¿qué le impide sustituirte?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusión&lt;/h2&gt;
+&lt;p&gt;Y hasta aquí llegamos. Sólo quería dar mi opinión sobre esto. Y patalear un
+poco. Soy un consumidor de &lt;strong&gt;MOOCs&lt;/strong&gt; y ciertas plataformas me tienen
+quemadillo.
+Antes de despedirme quisiera recomendar la lectura de
+&lt;a class="reference external" href="http://geekstorming.wordpress.com/2014/02/21/cultura-libre-y-educacion-hacker/"&gt;Cultura libre y educación hacker&lt;/a&gt;, un breve artículo de una amiga, que, si
+bien no tiene relación directa con el tema tratado aquí, si lo toca
+tangencialmente. Igual que me tocó la patata con el párrafo que lo cierra :)&lt;/p&gt;
+&lt;p&gt;¡Hasta pronto!&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;span class="caps"&gt;MOOC&lt;/span&gt; (Massive Open Online Course, Curso en Línea Masivo y Abierto) es un curso de educación abierta y gratuita, impartido a través de internet. Su finalidad última es la democratización del conocimiento.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;No tengo que mencionar que no les llega a la suela de los zapatos ni en sus más húmedos sueños, ¿verdad? La negrita ya se encarga solita de eso, ¿no?&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Del inglés &lt;em&gt;Gamification&lt;/em&gt;, traducido más literalmente (&lt;a class="reference external" href="http://www.fundeu.es/recomendacion/ludificacion-mejor-que-gamificacion-como-traduccion-de-gamification-1390/"&gt;que no correctamente&lt;/a&gt;) como &lt;em&gt;Gamificación&lt;/em&gt;,  se refiere a la aplicación de mecánicas de juego a entornos no lúdicos, como la enseñanza, en este caso. Un ejemplo de &lt;em&gt;ludificación&lt;/em&gt; es &lt;a class="reference external" href="http://www.codecademy.com/"&gt;Codecademy&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="mooc"></category><category term="cursos"></category><category term="educación"></category></entry><entry><title>Telegram, Line, WhatsApp y pollas en vinagre</title><link href="http://soulchainer.github.io/posts/2014/02/14/telegram-line-wa-pollas-vinagre/" rel="alternate"></link><updated>2014-02-14T14:25:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-14:posts/2014/02/14/telegram-line-wa-pollas-vinagre/</id><summary type="html">&lt;a class="reference external image-reference" href="http://ilovefs.org"&gt;&lt;img alt="I love Free Software!" class="image" src="http://soulchainer.github.io/images/2014/02/2014-02-14_01.png" style="width: 627px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
 &lt;p&gt;Tras esta imagen tan &lt;em&gt;Flower Power&lt;/em&gt;, influenciada por el día en el que estamos,
 y para suavizar un poco el titular, vamos al tema en cuestión.&lt;/p&gt;
 &lt;p&gt;Y este no es otro sino &lt;strong&gt;la última moda&lt;/strong&gt; en mensajería:  &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt;.&lt;/p&gt;
