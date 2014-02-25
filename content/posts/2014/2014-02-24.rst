@@ -1,0 +1,168 @@
+Mi MOOC ideal
+#############
+:date: 2014-02-24 19:05
+:tags: mooc, cursos, educación
+:category: opinión
+:slug: mi-mooc-ideal
+:author: Soulchainer
+:twsummary: Esta misma mañana he recibido un correo de FutureLearn avisándome
+            de que hoy comienza un nuevo MOOC al que estoy apuntado, y, como
+            tengo aún pendiente de escribir la entrada de rigor de la semana
+            pasada (mal, muy mal ò_ó), se me ha ocurrido contaros como creo yo
+            que debería ser un MOOC. Parte de las ideas aquí expuestas ya las
+            traté en un artículo a principio del mes pasado...
+:twimg: 2014-02-24_01.png
+
+
+************
+Introducción
+************
+Esta misma mañana he recibido un correo de `FutureLearn`_ avisándome de que hoy
+comienza `un nuevo MOOC al que estoy apuntado`_, y, como tengo aún pendiente de
+escribir la entrada de rigor de la semana pasada (mal, muy mal ò_ó), se me ha
+ocurrido contaros como creo yo que debería ser un **MOOC** [#]_. Parte de las
+ideas aquí expuestas ya las traté en
+`un artículo a principio del mes pasado <{filename}/posts/2014/2014-01-07.rst>`_,
+pero aquí amplío y trato un poco más abiertamente el tema.
+
+La verdad, esto no debería ser necesario: sé que alguna de estas ideas pueden
+ser difíciles de aceptar o poner en práctica, al depender de factores externos,
+pero considero todo esto una cuestión de sentido común.
+
+Aún así, se cumple la tan manida sentencia:
+*"el sentido común es el menos común de todos los sentidos"*. Eso y que
+ciertas... entidades se suman al carro de ofrecer su *plataforma de MOOCs* por
+el simple hecho de que **está de moda, es trending topic, es requete-cool**. Y
+no demuestran tener **un compromiso real para con la Educación**. Eso, o lo
+disimulan bastante bien.
+
+.. figure:: {filename}/images/2014/02/2014-02-24_01.png
+    :alt: Para relajar tensiones, antes de amuermaros un poquito...
+          ¡La vacuna del humor!
+
+    Para relajar tensiones, antes de amuermaros un poquito... ¡La vacuna del
+    humor!
+
+    `Foto original`_ de `AJ Cann`_.
+
+******
+Claves
+******
+
+Mi **MOOC** (y quien dice **MOOC** dice cursillo) ideal se caracterizaría por:
+
+- **Abajo los plazos**.
+
+  Uno de los propósitos de un **MOOC** es el de ser
+  **una plataforma de Educación Abierta**. Poner plazos
+  **escandalosamente restrictivos**, como hacen algunas plataformas, no es de
+  recibo. Otras incluso cierran el acceso a sus contenidos una vez concluídos
+  estos. Y tienen el descaro de autoproclamarse
+  *"plataforma de MOOCs"*. Una cosa es que tengas un servicio **adicional**
+  (normalmente de pago) que aporte un valor añadido, y que ahí sí pongas
+  plazos. Pero un **MOOC** ha de garantizar el fácil (y libre) acceso a sus
+  contenidos, no sujeto a rígidos plazos. De no ser así, no es abierto. Y si no
+  es abierto, **no es un MOOC** (
+  **Massive Open Online Course, Curso en Línea Masivo y Abierto**), sino un
+  **MOC** (**Massive Online Course, Curso Masivo en Línea**). Y ya.
+
+  Además, esto refleja un hilirante desconocimiento de su alumnado potencial.
+  Muchos son universitarios. O personas con un trabajo, que siguen el curso en
+  sus ratos libres. Muchos, aún intentándolo, no pueden cumplir con estos
+  plazos. Y se ven obligados a abandonar, en contra de su voluntad. Y luego
+  vienen los lloros de los responsables del **MOOC** de turno, con el *"se
+  apuntaron 20.000 y sólo terminaron el curso 700"*. Es verdad que los que se
+  apuntan sólo *"por probar"* y luego no vuelven o abandonan a la primera de
+  cambio también están ahí, pero esa no es sino una razón más para no abonar
+  el abandono del resto por esta soberana ridiculez.
+
+- **Profesorado capaz**.
+
+  Y aquí ahondo sobre todo en los cursos del sector tecnológico. ¿Que qué
+  entiendo por *"profesorado capaz"*? Pues por profesorado capaz entiendo...
+  eso que no debería de hacer falta explicar pero que luego viene la realidad
+  y te desengaña.
+
+  Un *profesorado capaz* es aquel que está actualizado y domina la materia que
+  imparte. O que, al menos, te hace sentir que puedes confiar en su criterio.
+
+  Un *profesorado capaz* es aquel que, además, sabe transmitir sus conocimientos.
+  Que te motiva, en lugar de inducirte el sueño con insípidas peroratas.
+
+  Un *profesorado capaz* es aquel perfectamente diferenciable de un sistema
+  sintetizador de voz, una máquina de diapositivas o de la anciana `Encarta`_.
+
+  Eso es un *profesorado capaz*. El concepto es sencillo, pero has de tener la
+  suerte de dar con uno. Son los Pokémon shiny de la región Cátedra.
+
+  Aprovecho y mando un saludo a mi antigua profesora de *Java*, **Nancy**.
+  Sigue siendo la mejor profesora de programación que he tenido jamás :)
+  Lástima que escaseen tanto.
+
+- **Estabilidad de la plataforma**.
+
+    De poco sirve tener un profesorado capaz y estar haciendo las cosas bien si
+    luego el alumnado se tiene que enfrentar a una plataforma que no es que
+    sea o no amigable: es su más acérrima enemiga. **Voldemort**, **Sauron** o
+    el ministro Wert (estamos hablamos de educación, ¿no?) [#]_ son lindos
+    corderitos comparados con un `Moodle`_ mal gestionado, esas
+    **aulas virtuales** hijas de **Satanás** y aquellas
+    *"plataformas de MOOC"*, que ni plata, ni formas. Suben y bajan más que un
+    yoyó.
+
+    Este es uno de esos aspectos que puedes capear escudándote en que
+    *"son factores ajenos a nuestro control"*. Salvo, claro está, que presumas
+    a los cuatro vientos de contar con el apoyo de *grandes empresas* como
+    *Telefónica*, *Banco Santander*... ò_ó En esos casos no cuela :) Y se entra
+    de pleno en la categoría de
+    **"no demuestran tener un compromiso real para con la Educación"**. Pura
+    propaganda.
+
+- **Aprovecha las tecnologías, coño**.
+
+  Bien. Decimos adiós a los plazos constrictivos, tenemos unos profesores
+  capaces, una plataforma que ni **Bastión de Tormentas**... y van y se olvidan
+  de que **un MOOC es un servicio online**. Y de que la tecnología, como el
+  amor, está en el aire: wikis ornamentales, foros de discusión desatendidos o
+  con software tercermundista, ¿**ludificación**? [#]_ ¿eso se come?
+
+  Están en Internet. Son una plataforma tecnológica. ¡Usen todos los recursos a
+  su alcance, coño! No hagan como si continuaran dentro de su limitado aulario.
+  No pongan puertas al campo.
+
+  **NOTA:** usar Internet **NO** es apuntar al alumno tal enlace para que se
+  lea tal cosa para hacer tal ejercicio, cosa que en más de una ocasión
+  deberías de haber explicado en tu último vídeo, en vez de andarte por las
+  ramas. Porque para eso son los vídeos: para explicar las cosas, no para
+  **powerpointear**. Si no aportas nada al alumno aparte de apuntar unos
+  enlaces que ya se encuentran en Internet, ¿qué le impide sustituirte?
+
+**********
+Conclusión
+**********
+
+Y hasta aquí llegamos. Sólo quería dar mi opinión sobre esto. Y patalear un
+poco. Soy un consumidor de **MOOCs** y ciertas plataformas me tienen
+quemadillo.
+Antes de despedirme quisiera recomendar la lectura de
+`Cultura libre y educación hacker`_, un breve artículo de una amiga, que, si
+bien no tiene relación directa con el tema tratado aquí, si lo toca
+tangencialmente. Igual que me tocó la patata con el párrafo que lo cierra :)
+
+¡Hasta pronto!
+
+----
+
+.. _FutureLearn: https://www.futurelearn.com
+.. _un nuevo MOOC al que estoy apuntado: https://www.futurelearn.com/courses/begin-programming-2014/
+.. _Foto original: http://www.flickr.com/photos/ajc1/7566869868/
+.. _AJ Cann: http://www.flickr.com/photos/ajc1/
+.. _Encarta: http://es.wikipedia.org/wiki/Microsoft_Encarta
+.. _Moodle: https://moodle.org/
+.. _que no correctamente: http://www.fundeu.es/recomendacion/ludificacion-mejor-que-gamificacion-como-traduccion-de-gamification-1390/
+.. _Codecademy: http://www.codecademy.com/
+.. _Cultura libre y educación hacker: http://geekstorming.wordpress.com/2014/02/21/cultura-libre-y-educacion-hacker/
+
+.. [#] Un MOOC (Massive Open Online Course, Curso en Línea Masivo y Abierto) es un curso de educación abierta y gratuita, impartido a través de internet. Su finalidad última es la democratización del conocimiento.
+.. [#] No tengo que mencionar que no les llega a la suela de los zapatos ni en sus más húmedos sueños, ¿verdad? La negrita ya se encarga solita de eso, ¿no?
+.. [#] Del inglés *Gamification*, traducido más literalmente (`que no correctamente`_) como *Gamificación*,  se refiere a la aplicación de mecánicas de juego a entornos no lúdicos, como la enseñanza, en este caso. Un ejemplo de *ludificación* es `Codecademy`_
