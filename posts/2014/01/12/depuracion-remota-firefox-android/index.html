@@ -275,7 +275,7 @@ está realmente conectado con <code>adb devices</code>:</p>
 <div class="highlight"><pre><span class="nv">$ </span>adb devices
 List of devices attached
 192.168.1.129:5555  device <span class="c"># dará algo así si estamos conectados por WiFi</span>
-c089070e02561ecd    device <span class="c"># o algo parecido a esto si lo estamos por <span class="caps">USB</span></span>
+c089070e02561ecd    device <span class="c"># o algo parecido a esto si lo estamos por USB</span>
 </pre></div>
 <p>Y revisar los diversos ajustes en busca del problema.</p>
 </div>
@@ -321,12 +321,12 @@ Entre los muchos <em>módulos</em> que trae el lenguaje por defecto, hay uno que
 define <em>clases</em> para implementar servidores web.</p>
 <p>Así, con <strong>Python 2.x</strong> podemos iniciar un servidor local desde consola con:</p>
 <div class="highlight"><pre><span class="nv">$ </span>python2 -m SimpleHTTPServer 9999
-Serving <span class="caps">HTTP</span> on 0.0.0.0 port 9999 ...
+Serving HTTP on 0.0.0.0 port 9999 ...
 </pre></div>
 <p>En <strong>Python 3.x</strong> dicho <em>módulo</em> ha pasado a ser <code>http.server</code>, por lo
 que en su lugar:</p>
 <div class="highlight"><pre><span class="nv">$ </span>python -m http.server 8000
-Serving <span class="caps">HTTP</span> on 0.0.0.0 port 8000 ...
+Serving HTTP on 0.0.0.0 port 8000 ...
 </pre></div>
 <p>Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
 desde la carpeta con los <em><span class="caps">HTML</span></em> de mi blog, y accedo vía <em>Firefox</em> a la
@@ -337,14 +337,14 @@ dirección indicada por <em>Python</em> (0.0.0.0 → <em>localhost</em> ← 12
 <p>Acceder desde nuestro <em>Android</em> al servidor es igual de fácil.
 Aunque esta vez necesitamos conocer su <em><span class="caps">IP</span></em> en la red local. La averiguamos con:</p>
 <div class="highlight"><pre><span class="nv">$ </span>ifconfig
-eth0: &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"nv"</span>&gt;flags&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">=</span>4163&lt;<span class="caps">UP</span>,<span class="caps">BROADCAST</span>,<span class="caps">RUNNING</span>,<span class="caps">MULTICAST</span>&gt;  mtu 1500
+eth0: &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"nv"</span>&gt;flags&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
     inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
     inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20&lt;link&gt;
     ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>Ethernet&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
-    <span class="caps">RX</span> packets 598614  bytes 650747078 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>620.6 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
-    <span class="caps">RX</span> errors 0  dropped 16  overruns 0  frame 0
-    <span class="caps">TX</span> packets 388523  bytes 69392562 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>66.1 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
-    <span class="caps">TX</span> errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    RX packets 598614  bytes 650747078 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>620.6 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
+    RX errors 0  dropped 16  overruns 0  frame 0
+    TX packets 388523  bytes 69392562 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>66.1 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
+    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ...
 </pre></div>
 <p>Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el

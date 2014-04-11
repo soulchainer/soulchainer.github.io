@@ -164,7 +164,7 @@ Así que buceé en DistroWatch..." />
 <li><a class="reference internal" href="#idioma-localizacion" id="id33">Idioma <span class="amp">&amp;</span> localización</a></li>
 <li><a class="reference internal" href="#escritorio-caracteristicas" id="id34">Escritorio <span class="amp">&amp;</span> características</a></li>
 <li><a class="reference internal" href="#particionado-de-discos" id="id35">Particionado de discos</a><ul>
-<li><a class="reference internal" href="#atencion-para-tablas-de-particiones-gpt" id="id36">ATENCIÓN: para tablas de particiones <span class="caps">GPT</span></a></li>
+<li><a class="reference internal" href="#atencion-para-tablas-de-particiones-gpt" id="id36">ATENCIÓN: para tablas de particiones <span class="caps">GPT</span></a></li>
 <li><a class="reference internal" href="#particionado-avanzado" id="id37">Particionado avanzado</a></li>
 <li><a class="reference internal" href="#revision-del-particionado-cargador-de-arranque" id="id38">Revisión del particionado <span class="amp">&amp;</span> cargador de arranque</a></li>
 </ul>
@@ -421,7 +421,7 @@ configuración por defecto del cortafuegos (<a class="reference external" href="
 <p class="caption">Casi siempre interesa optar por el <em>modo avanzado</em>.</p>
 </div>
 <div class="section" id="atencion-para-tablas-de-particiones-gpt">
-<h4><a class="toc-backref" href="#id36">ATENCIÓN: para tablas de particiones <span class="caps">GPT</span></a></h4>
+<h4><a class="toc-backref" href="#id36">ATENCIÓN: para tablas de particiones <span class="caps">GPT</span></a></h4>
 <p>Si no se escoge el <em>modo avanzado</em>, <em>Cnchi</em> cambia automáticamente el estilo de
 la partición a <em><span class="caps">MBR</span></em>.</p>
 <p><strong>Si quieres usar un disco con tabla de particiones <span class="caps">GPT</span></strong> <a class="footnote-reference" href="#id21" id="id8">[8]</a>
@@ -655,7 +655,7 @@ la consola). Usando el comando <code>dd</code>:</p>
 <p>Donde se ha de sustituir la <strong>x</strong> de <code>/dev/sdx</code> por la letra
 correspondiente a nuestra unidad <em><span class="caps">USB</span></em>. Podemos averiguarla también desde la
 terminal con:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo fdisk -l <span class="p">|</span> grep <span class="s2">"Disk /"</span>
+<div class="highlight"><pre><span class="nv">$ </span>sudo fdisk -l | grep <span class="s2">"Disk /"</span>
 </pre></div>
 <p>Esto listará todos los dispositivos de almacenamiento (discos) conectados. Por
 ejemplo, en mi caso:</p>
@@ -672,7 +672,7 @@ Tenemos que esperar pacientemente hasta que, al fin, nos aparecen unas líneas
 con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:</p>
 <div class="highlight"><pre>1468416+0 registros leídos
 1468416+0 registros escritos
-751828992 bytes <span class="o">(</span>752 <span class="caps">MB</span><span class="o">)</span> copiados, 257,767 s, 2,9 <span class="caps">MB</span>/s
+751828992 bytes <span class="o">(</span>752 MB<span class="o">)</span> copiados, 257,767 s, 2,9 MB/s
 </pre></div>
 <p>Y ya estamos listos para arrancar la <em><span class="caps">ISO</span></em> vía <em><span class="caps">USB</span></em>.</p>
 <hr class="docutils"/>

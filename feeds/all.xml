@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-02-24T19:05:00+01:00</updated><entry><title>Mi MOOC ideal</title><link href="http://soulchainer.github.io/posts/2014/02/24/mi-mooc-ideal/" rel="alternate"></link><updated>2014-02-24T19:05:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-24:posts/2014/02/24/mi-mooc-ideal/</id><summary type="html">&lt;div class="section" id="introduccion"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-04-11T23:59:00+02:00</updated><entry><title>Utilizar un dispositivo Android como micrófono</title><link href="http://soulchainer.github.io/posts/2014/04/11/android-como-microfono/" rel="alternate"></link><updated>2014-04-11T23:59:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-04-11:posts/2014/04/11/android-como-microfono/</id><summary type="html">&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Micrófono RCA. Foto perteneciente al NFSA (National Film and Sound Archive of Australia). Fotógrafo: Brooke Shannon." src="http://soulchainer.github.io/images/2014/04/2014-04-11_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Micrófono &lt;span class="caps"&gt;RCA&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Foto perteneciente al &lt;a class="reference external" href="https://www.flickr.com/photos/nfsa/"&gt;archivo&lt;/a&gt; del &lt;a class="reference external" href="http://www.nfsa.gov.au/"&gt;&lt;span class="caps"&gt;NFSA&lt;/span&gt;&lt;/a&gt; (
+&lt;a class="reference external" href="http://www.nfsa.gov.au/"&gt;The National Film and Sound Archive of Australia&lt;/a&gt;). &lt;a class="reference external" href="https://flic.kr/p/7YJ4vz"&gt;Foto original&lt;/a&gt; obra
+del fotógrafo &lt;strong&gt;Brooke Shannon&lt;/strong&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="problema"&gt;
+&lt;h2&gt;Problema&lt;/h2&gt;
+&lt;p&gt;A principios de semana, &lt;a class="reference external" href="https://plus.google.com/u/3/+AinusSolheim/"&gt;un tal "Ainus"&lt;/a&gt; organizó una &lt;a class="reference external" href="https://plus.google.com/u/3/hangouts/"&gt;Hangout&lt;/a&gt; en &lt;strong&gt;Google+&lt;/strong&gt;,
+a la que tuvo a bien invitarme. Hasta ahí genial. Pero el caso es que hace
+mucho, mucho, pero que &lt;strong&gt;&lt;span class="caps"&gt;MUCHO&lt;/span&gt;&lt;/strong&gt; tiempo que no dispongo de micrófono.&lt;/p&gt;
+&lt;p&gt;Antaño tenía unos cascos con micrófono incorporado, pero, como todos los cascos
+de ese estilo que he tenido, el micro es lo primero en fastidiarse. No falla.
+Además, está el detallito de que no soy muy hablador y la gente tampoco es que
+me requiera continuamente…&lt;/p&gt;
+&lt;p&gt;Así que: ¿para qué seguir renovando algo que siempre se estropea en un tris y
+que al final no uso? Por eso dejé de comprar cascos con micro. Y cuando tenía
+que hacer una conferencia, utilizaba &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.skype.raider"&gt;Skype&lt;/a&gt; para &lt;strong&gt;Android&lt;/strong&gt;. Hasta que,
+después de mucho tiempo sin utilizarlo, mi amiga &lt;a class="reference external" href="https://twitter.com/GaraziSastre/"&gt;Garazi&lt;/a&gt; necesitó de mi
+asistencia… y voy y me encuentro con que la gente de &lt;em&gt;Skype&lt;/em&gt; ha roto la
+funcionalidad de su app para mi dispositivo. Vamos, que ya no funciona el
+micro. Y como uso una versión de &lt;em&gt;Android&lt;/em&gt; que quieren dejar en el olvido
+(&lt;em&gt;Android 2.3.5&lt;/em&gt;), no creo que vayan a solucionarlo. Total, que fue una faena
+tremenda y tuve que apañarme tomando prestado el portátil de mi padre (que
+tiene micro integrado, claro).&lt;/p&gt;
+&lt;p&gt;Y al poco de esto, vino &lt;a class="reference external" href="https://plus.google.com/u/3/+AinusSolheim/"&gt;el tal "Ainus"&lt;/a&gt; ondeando la banderita de los
+&lt;em&gt;hangouts&lt;/em&gt;. Y eso de participar en una videollamada sólo con la webcam y
+haciendo gestitos, como que no se lleva, ¿sabéis? xD&lt;/p&gt;
+&lt;p&gt;Así que, con tiempo como tenía, me dije: "esto tiene que tener alguna
+solución para pobres (como yo), que me evite el gastarme el dinero en un micrófono…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="que-necesitamos"&gt;
+&lt;h2&gt;Qué necesitamos&lt;/h2&gt;
+&lt;p&gt;Y vaya sí la tiene: ¡podemos usar nuestro &lt;em&gt;Android&lt;/em&gt; como un micrófono para el
+&lt;em&gt;&lt;span class="caps"&gt;PC&lt;/span&gt;&lt;/em&gt;!&lt;/p&gt;
+&lt;p&gt;Para ello, necesitamos:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Un dispositivo con &lt;em&gt;Android&lt;/em&gt; 1.5 o superior.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Un cable con 2 conectores macho de audio 3.5mm.&lt;/p&gt;
+&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Cable de audio macho-macho 3.5 milímetros." src="http://soulchainer.github.io/images/2014/04/2014-04-11_02.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Algo así. Seguro que tienes alguno por casa o puedes hacer un apaño. De
+hecho, yo estoy usando un alargador de audio + un minicable macho-macho.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Una app de &lt;em&gt;Android&lt;/em&gt; para hacer de puente entre el dispositivo y el &lt;em&gt;&lt;span class="caps"&gt;PC&lt;/span&gt;&lt;/em&gt;. Hay
+varias aplicaciones de este estilo. Yo utilizo &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=net.bitplane.android.microphone"&gt;Micrófono&lt;/a&gt;. Es muy sencilla
+de utilizar y me funciona bien, así que no probé más.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="uso"&gt;
+&lt;h2&gt;Uso&lt;/h2&gt;
+&lt;p&gt;Una vez instalada la app de &lt;em&gt;Android&lt;/em&gt;, su uso es muy sencillo:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Conectamos un extremo del cable de audio a la toma de auriculares de nuestro
+&lt;em&gt;Android&lt;/em&gt; y el otro a la toma de micrófono de nuestros altavoces/tarjeta de sonido.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Iniciamos la aplicación &lt;em&gt;Micrófono&lt;/em&gt; y pulsamos en el micrófono que aparece.&lt;/p&gt;
+&lt;div class="figure" style="width: 480px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Micrófono activado." src="http://soulchainer.github.io/images/2014/04/2014-04-11_03.png" style="width: 480px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;El micrófono se vuelve rojo cuando está activo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Y ya está. Ya podemos usar nuestro &lt;em&gt;Android&lt;/em&gt; como un micrófono para nuestro
+&lt;em&gt;&lt;span class="caps"&gt;PC&lt;/span&gt;&lt;/em&gt;. La aplicación no tiene más opciones. Más simple imposible.
+Para subir o bajar el volumen del micrófono podemos usar las teclas de volumen
+de nuestro dispositivo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;&lt;/strong&gt;: si activamos la aplicación sin conectarla previamente, emitirá un
+sonido un poco molesto.&lt;/p&gt;
+&lt;p&gt;Obviamente, no da la misma calidad que un buen micrófono, pero para un uso
+normalito, a mí me vale.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="android"></category><category term="sonido"></category><category term="micrófono"></category><category term="hangouts"></category></entry><entry><title>Mi MOOC ideal</title><link href="http://soulchainer.github.io/posts/2014/02/24/mi-mooc-ideal/" rel="alternate"></link><updated>2014-02-24T19:05:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-02-24:posts/2014/02/24/mi-mooc-ideal/</id><summary type="html">&lt;div class="section" id="introduccion"&gt;
 &lt;h2&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;Esta misma mañana he recibido un correo de &lt;a class="reference external" href="https://www.futurelearn.com"&gt;FutureLearn&lt;/a&gt; avisándome de que hoy
 comienza &lt;a class="reference external" href="https://www.futurelearn.com/courses/begin-programming-2014/"&gt;un nuevo &lt;span class="caps"&gt;MOOC&lt;/span&gt; al que estoy apuntado&lt;/a&gt;, y, como tengo aún pendiente de
@@ -694,10 +771,10 @@ aplicaciones que arrancan con &lt;em&gt;Openbox&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Para ello, hemos de editar un archivo de texto. Fácil y rápido, además.&lt;/p&gt;
 &lt;p&gt;Accedemos al archivo en cuestión (&lt;code&gt;~/.config/openbox/autostart&lt;/code&gt;) desde el
 menú: &lt;strong&gt;Preferences → Openbox Config → Edit autostart&lt;/strong&gt;. Y obtenemos algo así:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-compton -fC  &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-tint2 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &amp;amp;
+volumeicon &amp;amp;
+compton -fC  &amp;amp;
+tint2 &amp;amp;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc-workspace &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#/usr/lib/lxpolkit/lxpolkit &amp;amp;&lt;/span&gt;
@@ -713,7 +790,7 @@ de hacerlo y añadimos algún comando después, no se ejecutará.&lt;/p&gt;
 de otro comando ejecutado anteriormente para su uso, debemos usar el comando
 &lt;code&gt;sleep&lt;/code&gt; para añadir un tiempo de espera (en segundos) antes de su
 ejecución. Algo así:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tint2&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tint2&lt;span class="o"&gt;)&lt;/span&gt; &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;En el ejemplo, esperamos 1 segundo antes de lanzar &lt;em&gt;tint2&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
@@ -724,7 +801,7 @@ tienen en cuenta.&lt;/p&gt;
 &lt;p&gt;Y ya está :D&lt;/p&gt;
 &lt;p&gt;Antes de editarlo, un repaso rápido a las líneas ejecutadas por el actual
 &lt;code&gt;autostart&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Restaura el último fondo de pantalla utilizado. Utiliza la app &lt;a class="reference external" href="http://projects.l3ib.org/nitrogen/"&gt;nitrogen&lt;/a&gt;.
 Es un clásico y funciona genial.&lt;/p&gt;
@@ -736,11 +813,11 @@ Podemos configurar nuestra propia carpeta de fondos con
 &lt;strong&gt;Preferences → Add&lt;/strong&gt;. Después elegimos la miniatura de un fondo y
 &lt;strong&gt;Apply&lt;/strong&gt;. Listo. Cerramos.&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;volumeicon &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;El applet de control de volumen que aparece en la &lt;em&gt;bandeja del sistema&lt;/em&gt;. Desde
 ahí podemos configurar el sonido.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;compton -fC  &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;compton -fC  &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/chjj/compton"&gt;Compton&lt;/a&gt; es un compositor de ventanas (es lo que instalamos al marcar
 &lt;strong&gt;Efectos de escritorio&lt;/strong&gt; en la instalación de &lt;em&gt;Antergos&lt;/em&gt;). Es el encargado de
@@ -753,14 +830,14 @@ mucho más. Podría detallarlo, pero esto sería interminable. Y
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Una vez sabido esto, y si así lo queremos, añadimos el &lt;em&gt;dock&lt;/em&gt;
 (&lt;strong&gt;y alguna otra cosilla&lt;/strong&gt;) al inicio:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;numlockx &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;  &lt;span class="c"&gt;# activa el bloqueo numérico al inicio&lt;/span&gt;
-nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;numlockx &amp;amp;  &lt;span class="c"&gt;# activa el bloqueo numérico al inicio&lt;/span&gt;
+nitrogen --restore &amp;amp;
+volumeicon &amp;amp;
 &lt;span class="c"&gt;# regula la temperatura de color del monitor según la hora&lt;/span&gt;
-xflux -z tu_codigo_postal &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+xflux -z tu_codigo_postal &amp;amp;
 compton -fCGb
-tint2 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; plank&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+tint2 &amp;amp;
+&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; plank&lt;span class="o"&gt;)&lt;/span&gt; &amp;amp;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc-workspace &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#/usr/lib/lxpolkit/lxpolkit &amp;amp;&lt;/span&gt;
@@ -932,7 +1009,7 @@ descansito y hacer alguno que otro algo más cortito.&lt;/p&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#impresoras" id="id34"&gt;Impresoras&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#escaneres" id="id35"&gt;Escáneres&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#simple-scan" id="id36"&gt;Simple Scan&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#escanear-con-gimp" id="id37"&gt;Escanear con &lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#escanear-con-gimp" id="id37"&gt;Escanear con &lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#proxima-parte" id="id38"&gt;Próxima parte&lt;/a&gt;&lt;/li&gt;
@@ -1103,7 +1180,7 @@ poquillo, no arranca. Si lo ejecuto desde consola me arroja un error. Es al
 reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;Gufw needs DBUS service started to run correctly!
 /tmp/alpm_CftMsk/.INSTALL: línea 8: ptintf: no se encontró la orden
-&lt;span class="c"&gt;## &lt;span class="caps"&gt;PLEASE&lt;/span&gt; &lt;span class="caps"&gt;READ&lt;/span&gt; &lt;span class="caps"&gt;BELOW&lt;/span&gt; ##&lt;/span&gt;
+&lt;span class="c"&gt;## PLEASE READ BELOW ##&lt;/span&gt;
 1&lt;span class="o"&gt;)&lt;/span&gt; A workaround was applied to /usr/lib/python2.7/sysconfig.py.
    Please see: https://bugs.archlinux.org/task/30812 &lt;span class="k"&gt;for &lt;/span&gt;more information
 2&lt;span class="o"&gt;)&lt;/span&gt; Removing this package will reverse this workaround.
@@ -1325,7 +1402,7 @@ qué, no es mi caso. Revisando &lt;code&gt;/etc/cups/cupsd.conf&lt;/code&gt;:&lt
 &lt;span class="c"&gt;# Restrict access to configuration files...&lt;/span&gt;
 &amp;lt;Location /admin/conf&amp;gt;
   AuthType Default
-  Require user @&lt;span class="caps"&gt;SYSTEM&lt;/span&gt;
+  Require user @SYSTEM
   Order allow,deny
 &amp;lt;/Location&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1336,11 +1413,11 @@ qué, no es mi caso. Revisando &lt;code&gt;/etc/cups/cupsd.conf&lt;/code&gt;:&lt
 &lt;p&gt;para permitir el acceso desde la red local al servidor &lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt;. Editamos y guardamos.&lt;/p&gt;
 &lt;p&gt;Además, para permitir el acceso a las secciones que requieren permisos
 administrativos, en &lt;code&gt;/etc/cups/cups-files.conf&lt;/code&gt; buscamos la línea&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Administrator user group, used to match @&lt;span class="caps"&gt;SYSTEM&lt;/span&gt; in cupsd.conf policy rules...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...&lt;/span&gt;
 SystemGroup sys root
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;y la sustituimos por&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Administrator user group, used to match @&lt;span class="caps"&gt;SYSTEM&lt;/span&gt; in cupsd.conf policy rules...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...&lt;/span&gt;
 SystemGroup sys root lp
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Editamos y recargamos el servidor con:&lt;/p&gt;
@@ -1414,7 +1491,7 @@ la &lt;a class="reference external" href="http://www.sane-project.org/cgi-bin/dr
 seguramente se trate de un problema de configuración), etcétera.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="escanear-con-gimp"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Escanear con &lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Escanear con &lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Sin perjuicio de lo anterior, para un escaneado más avanzado yo prefiero usar
 &lt;a class="reference external" href="http://www.xsane.org/"&gt;Xsane&lt;/a&gt; desde &lt;a class="reference external" href="http://www.gimp.org/"&gt;&lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Instalamos todo lo necesario:&lt;/p&gt;
@@ -1504,7 +1581,7 @@ de personalización. Lo sabré seguro cuando me ponga a ello :p&lt;/p&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#idioma-localizacion" id="id33"&gt;Idioma &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; localización&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#escritorio-caracteristicas" id="id34"&gt;Escritorio &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; características&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#particionado-de-discos" id="id35"&gt;Particionado de discos&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#atencion-para-tablas-de-particiones-gpt" id="id36"&gt;ATENCIÓN: para tablas de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#atencion-para-tablas-de-particiones-gpt" id="id36"&gt;ATENCIÓN: para tablas de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#particionado-avanzado" id="id37"&gt;Particionado avanzado&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#revision-del-particionado-cargador-de-arranque" id="id38"&gt;Revisión del particionado &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; cargador de arranque&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1761,7 +1838,7 @@ configuración por defecto del cortafuegos (&lt;a class="reference external" hre
 &lt;p class="caption"&gt;Casi siempre interesa optar por el &lt;em&gt;modo avanzado&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="atencion-para-tablas-de-particiones-gpt"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id36"&gt;ATENCIÓN: para tablas de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id36"&gt;ATENCIÓN: para tablas de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Si no se escoge el &lt;em&gt;modo avanzado&lt;/em&gt;, &lt;em&gt;Cnchi&lt;/em&gt; cambia automáticamente el estilo de
 la partición a &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Si quieres usar un disco con tabla de particiones &lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id21" id="id8"&gt;[8]&lt;/a&gt;
@@ -1995,7 +2072,7 @@ la consola). Usando el comando &lt;code&gt;dd&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;Donde se ha de sustituir la &lt;strong&gt;x&lt;/strong&gt; de &lt;code&gt;/dev/sdx&lt;/code&gt; por la letra
 correspondiente a nuestra unidad &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;. Podemos averiguarla también desde la
 terminal con:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk -l &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;"Disk /"&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk -l | grep &lt;span class="s2"&gt;"Disk /"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto listará todos los dispositivos de almacenamiento (discos) conectados. Por
 ejemplo, en mi caso:&lt;/p&gt;
@@ -2012,7 +2089,7 @@ Tenemos que esperar pacientemente hasta que, al fin, nos aparecen unas líneas
 con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;1468416+0 registros leídos
 1468416+0 registros escritos
-751828992 bytes &lt;span class="o"&gt;(&lt;/span&gt;752 &lt;span class="caps"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; copiados, 257,767 s, 2,9 &lt;span class="caps"&gt;MB&lt;/span&gt;/s
+751828992 bytes &lt;span class="o"&gt;(&lt;/span&gt;752 MB&lt;span class="o"&gt;)&lt;/span&gt; copiados, 257,767 s, 2,9 MB/s
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Y ya estamos listos para arrancar la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt; vía &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
@@ -2337,7 +2414,7 @@ está realmente conectado con &lt;code&gt;adb devices&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;adb devices
 List of devices attached
 192.168.1.129:5555  device &lt;span class="c"&gt;# dará algo así si estamos conectados por WiFi&lt;/span&gt;
-c089070e02561ecd    device &lt;span class="c"&gt;# o algo parecido a esto si lo estamos por &lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/span&gt;
+c089070e02561ecd    device &lt;span class="c"&gt;# o algo parecido a esto si lo estamos por USB&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Y revisar los diversos ajustes en busca del problema.&lt;/p&gt;
 &lt;/div&gt;
@@ -2383,12 +2460,12 @@ Entre los muchos &lt;em&gt;módulos&lt;/em&gt; que trae el lenguaje por defecto,
 define &lt;em&gt;clases&lt;/em&gt; para implementar servidores web.&lt;/p&gt;
 &lt;p&gt;Así, con &lt;strong&gt;Python 2.x&lt;/strong&gt; podemos iniciar un servidor local desde consola con:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python2 -m SimpleHTTPServer 9999
-Serving &lt;span class="caps"&gt;HTTP&lt;/span&gt; on 0.0.0.0 port 9999 ...
+Serving HTTP on 0.0.0.0 port 9999 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;En &lt;strong&gt;Python 3.x&lt;/strong&gt; dicho &lt;em&gt;módulo&lt;/em&gt; ha pasado a ser &lt;code&gt;http.server&lt;/code&gt;, por lo
 que en su lugar:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python -m http.server 8000
-Serving &lt;span class="caps"&gt;HTTP&lt;/span&gt; on 0.0.0.0 port 8000 ...
+Serving HTTP on 0.0.0.0 port 8000 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
 desde la carpeta con los &lt;em&gt;&lt;span class="caps"&gt;HTML&lt;/span&gt;&lt;/em&gt; de mi blog, y accedo vía &lt;em&gt;Firefox&lt;/em&gt; a la
@@ -2399,14 +2476,14 @@ dirección indicada por &lt;em&gt;Python&lt;/em&gt; (0.0.0.0 → &lt;em&gt;local
 &lt;p&gt;Acceder desde nuestro &lt;em&gt;Android&lt;/em&gt; al servidor es igual de fácil.
 Aunque esta vez necesitamos conocer su &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en la red local. La averiguamos con:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ifconfig
-eth0: &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"nv"&lt;/span&gt;&amp;gt;flags&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;4163&amp;lt;&lt;span class="caps"&gt;UP&lt;/span&gt;,&lt;span class="caps"&gt;BROADCAST&lt;/span&gt;,&lt;span class="caps"&gt;RUNNING&lt;/span&gt;,&lt;span class="caps"&gt;MULTICAST&lt;/span&gt;&amp;gt;  mtu 1500
+eth0: &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"nv"&lt;/span&gt;&amp;gt;flags&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500
     inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
     inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20&amp;lt;link&amp;gt;
     ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;Ethernet&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    &lt;span class="caps"&gt;RX&lt;/span&gt; packets 598614  bytes 650747078 &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;620.6 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    &lt;span class="caps"&gt;RX&lt;/span&gt; errors 0  dropped 16  overruns 0  frame 0
-    &lt;span class="caps"&gt;TX&lt;/span&gt; packets 388523  bytes 69392562 &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;66.1 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    &lt;span class="caps"&gt;TX&lt;/span&gt; errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    RX packets 598614  bytes 650747078 &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;620.6 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    RX errors 0  dropped 16  overruns 0  frame 0
+    TX packets 388523  bytes 69392562 &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;66.1 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
@@ -2688,7 +2765,7 @@ satisfacer por línea), proveyéndonos así de una forma rápida y sencilla de
 especificar &lt;strong&gt;un entorno completo&lt;/strong&gt; a instalar.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;especificación de requisito&amp;gt; ...
 pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; -r &amp;lt;archivo de requisitos&amp;gt; ...
-pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-e&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;url proyecto &lt;span class="caps"&gt;VCS&lt;/span&gt;&amp;gt; ...
+pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-e&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;url proyecto VCS&amp;gt; ...
 pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;-e&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;ruta proyecto &lt;span class="nb"&gt;local&lt;/span&gt;&amp;gt; ...
 pip install &lt;span class="o"&gt;[&lt;/span&gt;opciones&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;url/ruta archivo&amp;gt; ...
 &lt;/pre&gt;&lt;/div&gt;
@@ -2817,9 +2894,9 @@ todos los archivos referentes a un paquete:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Si buscamos por &lt;code&gt;w3c&lt;/code&gt;, por ejemplo:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip search w3c
-pyprov                    - A Python implementation of &lt;span class="caps"&gt;W3C&lt;/span&gt; &lt;span class="caps"&gt;PROV&lt;/span&gt; data model
-py_w3c                    - Library &lt;span class="k"&gt;for &lt;/span&gt;&lt;span class="caps"&gt;W3C&lt;/span&gt; markup validation &lt;span class="caps"&gt;SOAP&lt;/span&gt; service
-w3c-validator             - &lt;span class="caps"&gt;W3C&lt;/span&gt; panel &lt;span class="k"&gt;for &lt;/span&gt;Django Debug Toolbar using requests.
+pyprov                    - A Python implementation of W3C PROV data model
+py_w3c                    - Library &lt;span class="k"&gt;for &lt;/span&gt;W3C markup validation SOAP service
+w3c-validator             - W3C panel &lt;span class="k"&gt;for &lt;/span&gt;Django Debug Toolbar using requests.
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;pip&lt;/em&gt; es mucho más que todo esto. &lt;a class="reference external" href="http://www.pip-installer.org/en/latest/"&gt;&lt;span class="caps"&gt;RTFM&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;

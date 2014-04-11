@@ -165,7 +165,7 @@ relegadas al último lugar." />
 <li><a class="reference internal" href="#impresoras" id="id34">Impresoras</a></li>
 <li><a class="reference internal" href="#escaneres" id="id35">Escáneres</a><ul>
 <li><a class="reference internal" href="#simple-scan" id="id36">Simple Scan</a></li>
-<li><a class="reference internal" href="#escanear-con-gimp" id="id37">Escanear con <span class="caps">GIMP</span></a></li>
+<li><a class="reference internal" href="#escanear-con-gimp" id="id37">Escanear con <span class="caps">GIMP</span></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#proxima-parte" id="id38">Próxima parte</a></li>
@@ -336,7 +336,7 @@ poquillo, no arranca. Si lo ejecuto desde consola me arroja un error. Es al
 reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:</p>
 <div class="highlight"><pre>Gufw needs DBUS service started to run correctly!
 /tmp/alpm_CftMsk/.INSTALL: línea 8: ptintf: no se encontró la orden
-<span class="c">## <span class="caps">PLEASE</span> <span class="caps">READ</span> <span class="caps">BELOW</span> ##</span>
+<span class="c">## PLEASE READ BELOW ##</span>
 1<span class="o">)</span> A workaround was applied to /usr/lib/python2.7/sysconfig.py.
    Please see: https://bugs.archlinux.org/task/30812 <span class="k">for </span>more information
 2<span class="o">)</span> Removing this package will reverse this workaround.
@@ -558,7 +558,7 @@ qué, no es mi caso. Revisando <code>/etc/cups/cupsd.conf</code>:</p>
 <span class="c"># Restrict access to configuration files...</span>
 &lt;Location /admin/conf&gt;
   AuthType Default
-  Require user @<span class="caps">SYSTEM</span>
+  Require user @SYSTEM
   Order allow,deny
 &lt;/Location&gt;
 </pre></div>
@@ -569,11 +569,11 @@ qué, no es mi caso. Revisando <code>/etc/cups/cupsd.conf</code>:</p>
 <p>para permitir el acceso desde la red local al servidor <em><span class="caps">CUPS</span></em>. Editamos y guardamos.</p>
 <p>Además, para permitir el acceso a las secciones que requieren permisos
 administrativos, en <code>/etc/cups/cups-files.conf</code> buscamos la línea</p>
-<div class="highlight"><pre><span class="c"># Administrator user group, used to match @<span class="caps">SYSTEM</span> in cupsd.conf policy rules...</span>
+<div class="highlight"><pre><span class="c"># Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...</span>
 SystemGroup sys root
 </pre></div>
 <p>y la sustituimos por</p>
-<div class="highlight"><pre><span class="c"># Administrator user group, used to match @<span class="caps">SYSTEM</span> in cupsd.conf policy rules...</span>
+<div class="highlight"><pre><span class="c"># Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...</span>
 SystemGroup sys root lp
 </pre></div>
 <p>Editamos y recargamos el servidor con:</p>
@@ -647,7 +647,7 @@ la <a class="reference external" href="http://www.sane-project.org/cgi-bin/drive
 seguramente se trate de un problema de configuración), etcétera.</p>
 </div>
 <div class="section" id="escanear-con-gimp">
-<h3><a class="toc-backref" href="#id37">Escanear con <span class="caps">GIMP</span></a></h3>
+<h3><a class="toc-backref" href="#id37">Escanear con <span class="caps">GIMP</span></a></h3>
 <p>Sin perjuicio de lo anterior, para un escaneado más avanzado yo prefiero usar
 <a class="reference external" href="http://www.xsane.org/">Xsane</a> desde <a class="reference external" href="http://www.gimp.org/"><span class="caps">GIMP</span></a>.</p>
 <p>Instalamos todo lo necesario:</p>

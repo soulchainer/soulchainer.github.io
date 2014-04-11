@@ -620,10 +620,10 @@ aplicaciones que arrancan con <em>Openbox</em>.</p>
 <p>Para ello, hemos de editar un archivo de texto. Fácil y rápido, además.</p>
 <p>Accedemos al archivo en cuestión (<code>~/.config/openbox/autostart</code>) desde el
 menú: <strong>Preferences → Openbox Config → Edit autostart</strong>. Y obtenemos algo así:</p>
-<div class="highlight"><pre>nitrogen --restore <span class="p">&amp;</span>
-volumeicon <span class="p">&amp;</span>
-compton -fC  <span class="p">&amp;</span>
-tint2 <span class="p">&amp;</span>
+<div class="highlight"><pre>nitrogen --restore &amp;
+volumeicon &amp;
+compton -fC  &amp;
+tint2 &amp;
 <span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc-workspace &amp;</span>
 <span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc &amp;</span>
 <span class="c">#/usr/lib/lxpolkit/lxpolkit &amp;</span>
@@ -639,7 +639,7 @@ de hacerlo y añadimos algún comando después, no se ejecutará.</p>
 de otro comando ejecutado anteriormente para su uso, debemos usar el comando
 <code>sleep</code> para añadir un tiempo de espera (en segundos) antes de su
 ejecución. Algo así:</p>
-<div class="highlight"><pre><span class="o">(</span>sleep 1s <span class="o">&amp;&amp;</span> tint2<span class="o">)</span> <span class="p">&amp;</span>
+<div class="highlight"><pre><span class="o">(</span>sleep 1s <span class="o">&amp;&amp;</span> tint2<span class="o">)</span> &amp;
 </pre></div>
 <p>En el ejemplo, esperamos 1 segundo antes de lanzar <em>tint2</em>.</p>
 </li>
@@ -650,7 +650,7 @@ tienen en cuenta.</p>
 <p>Y ya está :D</p>
 <p>Antes de editarlo, un repaso rápido a las líneas ejecutadas por el actual
 <code>autostart</code>:</p>
-<div class="highlight"><pre>nitrogen --restore <span class="p">&amp;</span>
+<div class="highlight"><pre>nitrogen --restore &amp;
 </pre></div>
 <p>Restaura el último fondo de pantalla utilizado. Utiliza la app <a class="reference external" href="http://projects.l3ib.org/nitrogen/">nitrogen</a>.
 Es un clásico y funciona genial.</p>
@@ -662,11 +662,11 @@ Podemos configurar nuestra propia carpeta de fondos con
 <strong>Preferences → Add</strong>. Después elegimos la miniatura de un fondo y
 <strong>Apply</strong>. Listo. Cerramos.</div>
 </div>
-<div class="highlight"><pre>volumeicon <span class="p">&amp;</span>
+<div class="highlight"><pre>volumeicon &amp;
 </pre></div>
 <p>El applet de control de volumen que aparece en la <em>bandeja del sistema</em>. Desde
 ahí podemos configurar el sonido.</p>
-<div class="highlight"><pre>compton -fC  <span class="p">&amp;</span>
+<div class="highlight"><pre>compton -fC  &amp;
 </pre></div>
 <p><a class="reference external" href="https://github.com/chjj/compton">Compton</a> es un compositor de ventanas (es lo que instalamos al marcar
 <strong>Efectos de escritorio</strong> en la instalación de <em>Antergos</em>). Es el encargado de
@@ -679,14 +679,14 @@ mucho más. Podría detallarlo, pero esto sería interminable. Y
 </pre></div>
 <p>Una vez sabido esto, y si así lo queremos, añadimos el <em>dock</em>
 (<strong>y alguna otra cosilla</strong>) al inicio:</p>
-<div class="highlight"><pre>numlockx <span class="p">&amp;</span>  <span class="c"># activa el bloqueo numérico al inicio</span>
-nitrogen --restore <span class="p">&amp;</span>
-volumeicon <span class="p">&amp;</span>
+<div class="highlight"><pre>numlockx &amp;  <span class="c"># activa el bloqueo numérico al inicio</span>
+nitrogen --restore &amp;
+volumeicon &amp;
 <span class="c"># regula la temperatura de color del monitor según la hora</span>
-xflux -z tu_codigo_postal <span class="p">&amp;</span>
+xflux -z tu_codigo_postal &amp;
 compton -fCGb
-tint2 <span class="p">&amp;</span>
-<span class="o">(</span>sleep 1s <span class="o">&amp;&amp;</span> plank<span class="o">)</span> <span class="p">&amp;</span>
+tint2 &amp;
+<span class="o">(</span>sleep 1s <span class="o">&amp;&amp;</span> plank<span class="o">)</span> &amp;
 <span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc-workspace &amp;</span>
 <span class="c">#sleep 1s &amp;&amp; conky -c ~/.config/conky/conkyrc &amp;</span>
 <span class="c">#/usr/lib/lxpolkit/lxpolkit &amp;</span>
