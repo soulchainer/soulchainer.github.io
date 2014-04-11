@@ -1,0 +1,119 @@
+Utilizar un dispositivo Android como micrófono
+##############################################
+:date: 2014-04-11 23:59
+:tags: android, sonido, micrófono, hangouts
+:category: CÓMOS, Android
+:slug: android-como-microfono
+:author: Soulchainer
+:twsummary: A principios de semana, un tal Ainus organizó una Hangout en
+            Google+, a la que tuvo a bien invitarme. Hasta ahí genial. Pero el
+            caso es que hace mucho, mucho, pero que MUCHO tiempo que no
+            dispongo de micrófono.
+
+            Antaño tenía unos cascos con micrófono incorporado, pero, como
+            todos los cascos de ese estilo que he tenido, el micro es lo
+            primero en fastidiarse. No falla. Además, está el detallito de que
+            no soy muy hablador y la gente tampoco es que me requiera
+            continuamente...
+:twimg: 2014-04-11_01.png
+
+.. figure:: {filename}/images/2014/04/2014-04-11_01.png
+    :alt: Micrófono RCA. Foto perteneciente al NFSA (National Film and Sound Archive
+          of Australia). Fotógrafo: Brooke Shannon.
+
+    Micrófono RCA.
+
+    Foto perteneciente al `archivo`_ del `NFSA`_ (
+    `The National Film and Sound Archive of Australia`_). `Foto original`_ obra
+    del fotógrafo **Brooke Shannon**.
+
+********
+Problema
+********
+
+A principios de semana, `un tal "Ainus"`_ organizó una `Hangout`_ en **Google+**,
+a la que tuvo a bien invitarme. Hasta ahí genial. Pero el caso es que hace
+mucho, mucho, pero que **MUCHO** tiempo que no dispongo de micrófono.
+
+Antaño tenía unos cascos con micrófono incorporado, pero, como todos los cascos
+de ese estilo que he tenido, el micro es lo primero en fastidiarse. No falla.
+Además, está el detallito de que no soy muy hablador y la gente tampoco es que
+me requiera continuamente...
+
+Así que: ¿para qué seguir renovando algo que siempre se estropea en un tris y
+que al final no uso? Por eso dejé de comprar cascos con micro. Y cuando tenía
+que hacer una conferencia, utilizaba `Skype`_ para **Android**. Hasta que,
+después de mucho tiempo sin utilizarlo, mi amiga `Garazi`_ necesitó de mi
+asistencia... y voy y me encuentro con que la gente de *Skype* ha roto la
+funcionalidad de su app para mi dispositivo. Vamos, que ya no funciona el
+micro. Y como uso una versión de *Android* que quieren dejar en el olvido
+(*Android 2.3.5*), no creo que vayan a solucionarlo. Total, que fue una faena
+tremenda y tuve que apañarme tomando prestado el portátil de mi padre (que
+tiene micro integrado, claro).
+
+Y al poco de esto, vino `el tal "Ainus"`_ ondeando la banderita de los
+*hangouts*. Y eso de participar en una videollamada sólo con la webcam y
+haciendo gestitos, como que no se lleva, ¿sabéis? xD
+
+Así que, con tiempo como tenía, me dije: "esto tiene que tener alguna
+solución para pobres (como yo), que me evite el gastarme el dinero en un
+micrófono...
+
+****************
+Qué necesitamos
+****************
+
+Y vaya sí la tiene: ¡podemos usar nuestro *Android* como un micrófono para el
+*PC*!
+
+Para ello, necesitamos:
+
+1. Un dispositivo con *Android* 1.5 o superior.
+2. Un cable con 2 conectores macho de audio 3.5mm.
+
+   .. figure:: {filename}/images/2014/04/2014-04-11_02.png
+       :alt: Cable de audio macho-macho 3.5 milímetros.
+
+       Algo así. Seguro que tienes alguno por casa o puedes hacer un apaño. De
+       hecho, yo estoy usando un alargador de audio + un minicable macho-macho.
+3. Una app de *Android* para hacer de puente entre el dispositivo y el *PC*. Hay
+   varias aplicaciones de este estilo. Yo utilizo `Micrófono`_. Es muy sencilla
+   de utilizar y me funciona bien, así que no probé más.
+
+***
+Uso
+***
+
+Una vez instalada la app de *Android*, su uso es muy sencillo:
+
+1. Conectamos un extremo del cable de audio a la toma de auriculares de nuestro
+   *Android* y el otro a la toma de micrófono de nuestros altavoces/tarjeta de
+   sonido.
+2. Iniciamos la aplicación *Micrófono* y pulsamos en el micrófono que aparece.
+
+   .. figure:: {filename}/images/2014/04/2014-04-11_03.png
+       :alt: Micrófono activado.
+
+       El micrófono se vuelve rojo cuando está activo.
+
+Y ya está. Ya podemos usar nuestro *Android* como un micrófono para nuestro
+*PC*. La aplicación no tiene más opciones. Más simple imposible.
+Para subir o bajar el volumen del micrófono podemos usar las teclas de volumen
+de nuestro dispositivo.
+
+**NOTA**: si activamos la aplicación sin conectarla previamente, emitirá un
+sonido un poco molesto.
+
+Obviamente, no da la misma calidad que un buen micrófono, pero para un uso
+normalito, a mí me vale.
+
+.. _archivo: https://www.flickr.com/photos/nfsa/
+.. _NFSA:
+.. _The National Film and Sound Archive of Australia: http://www.nfsa.gov.au/
+.. _Foto original: https://flic.kr/p/7YJ4vz
+.. _el tal "Ainus":
+.. _un tal "Ainus": https://plus.google.com/u/3/+AinusSolheim/
+.. _Hangout: https://plus.google.com/u/3/hangouts/
+.. _Skype: https://play.google.com/store/apps/details?id=com.skype.raider
+.. _Garazi: https://twitter.com/GaraziSastre/
+.. _Micrófono: https://play.google.com/store/apps/details?id=net.bitplane.android.microphone
