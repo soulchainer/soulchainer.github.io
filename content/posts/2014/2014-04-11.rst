@@ -57,7 +57,7 @@ haciendo gestitos, como que no se lleva, ¿sabéis? xD
 
 Así que, con tiempo como tenía, me dije: "esto tiene que tener alguna
 solución para pobres (como yo), que me evite el gastarme el dinero en un
-micrófono...
+micrófono...".
 
 ****************
 Qué necesitamos
@@ -98,7 +98,7 @@ Una vez instalada la app de *Android*, su uso es muy sencillo:
 
 Y ya está. Ya podemos usar nuestro *Android* como un micrófono para nuestro
 *PC*. La aplicación no tiene más opciones. Más simple imposible.
-Para subir o bajar el volumen del micrófono podemos usar las teclas de volumen
+Para subir o bajar el volumen del micrófono podemos usar los botones de volumen
 de nuestro dispositivo.
 
 **NOTA**: si activamos la aplicación sin conectarla previamente, emitirá un
