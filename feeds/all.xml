@@ -1,5 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-04-11T23:59:00+02:00</updated><entry><title>Utilizar un dispositivo Android como micrófono</title><link href="http://soulchainer.github.io/posts/2014/04/11/android-como-microfono/" rel="alternate"></link><updated>2014-04-11T23:59:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-04-11:posts/2014/04/11/android-como-microfono/</id><summary type="html">&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-06-04T18:20:00+02:00</updated><entry><title>Zeal, un navegador de documentación offline</title><link href="http://soulchainer.github.io/posts/2014/06/04/zeal-navegador-documentacion/" rel="alternate"></link><updated>2014-06-04T18:20:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-04:posts/2014/06/04/zeal-navegador-documentacion/</id><summary type="html">&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Zeal, un organizador de APIs libre" src="http://soulchainer.github.io/images/2014/06/2014-06-04_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.genbetadev.com/"&gt;&lt;span class="caps"&gt;GENBETA&lt;/span&gt;:dev&lt;/a&gt; publicaba la semana pasada &lt;a class="reference external" href="http://www.genbetadev.com/herramientas/que-es-un-organizador-de-apis/"&gt;un artículo&lt;/a&gt; sobre navegadores
+de documentación de &lt;em&gt;APIs&lt;/em&gt; offline (que ellos abrevian como
+&lt;strong&gt;organizadores de APIs&lt;/strong&gt;). Yo desconocía la existencia de este tipo de
+programas y me ha parecido algo tan sencillo y útil que necesitaba compartirlo.&lt;/p&gt;
+&lt;div class="section" id="la-idea"&gt;
+&lt;h2&gt;La idea&lt;/h2&gt;
+&lt;p&gt;Por poco que le demos al desarrollo, ya sea como profesionales o amateurs,
+hemos de tratar cada vez con más y más tecnologías, lenguajes de programación,
+frameworks… Y somos pocos los bendecidos con una memoria eidética &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt; . De
+hecho, yo me conformaría con tener buena memoria, sin más.&lt;/p&gt;
+&lt;p&gt;Y aquí es dónde entra un &lt;em&gt;organizador de APIs&lt;/em&gt;. Básicamente, es un navegador
+simplificado, centrado en poner a nuestra disposición la documentación de las
+tecnologías que utilizamos a menudo, de forma fácil y rápida.&lt;/p&gt;
+&lt;p&gt;Esto puede parecer una tontería, ya que si conocemos las páginas oficiales de
+dicha documentación, siempre podemos consultarla en nuestro navegador web, ¿no?&lt;/p&gt;
+&lt;p&gt;Sin embargo, yo le encuentro varias ventajas:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Disponible sin conexión&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;El programa descarga y guarda la documentación por nosotros, pudiendo
+acceder a ella en cualquier momento, estemos o no conectados.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Integración con editores de código&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cuenta con plugins para invocarlo desde nuestros editores favoritos cuando
+lo necesitemos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Menor consumo de recursos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Al ser un navegador especializado en leer documentación, tiene los
+componentes imprescindibles para ello. No está sobrecargado de opciones
+como un navegador web y eso influye en el consumo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Libre de distracciones&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="zeal"&gt;
+&lt;h2&gt;Zeal&lt;/h2&gt;
+&lt;p&gt;Desde &lt;em&gt;&lt;span class="caps"&gt;GENBETA&lt;/span&gt;:dev&lt;/em&gt; se centraban en &lt;a class="reference external" href="http://kapeli.com/dash/"&gt;Dash&lt;/a&gt; , que es un programa muy apañado y
+recomendable… si tienes un &lt;em&gt;Mac&lt;/em&gt; &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt; y no te importa que se trate de software propietario y de pago, claro.&lt;/p&gt;
+&lt;img alt="Dash, organizador de APIs exclusivo de Mac." class="image" src="http://soulchainer.github.io/images/2014/06/2014-06-04_02.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p&gt;No obstante, mencionaban de pasada la existencia de &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; , que es software
+libre y está &lt;a class="reference external" href="http://zealdocs.org/download.html/"&gt;disponible para otras plataformas&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Haciendo honor a la verdad, comparado con &lt;em&gt;Dash&lt;/em&gt;, &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; deja bastante que
+desear. Pero sigue proporcionándonos las ventajas básicas de un &lt;em&gt;organizador
+de APIs&lt;/em&gt;. Y, al usar el mismo formato de documentación que &lt;em&gt;Dash&lt;/em&gt;, podemos usar
+&lt;a class="reference external" href="http://kapeli.com/dash#docsets"&gt;toda la documentación disponible&lt;/a&gt; para este, así como generar nuestra
+propia documentación &lt;a class="reference external" href="http://kapeli.com/docsets/"&gt;siguiendo las mismas instrucciones&lt;/a&gt; .
+Además, si se le facilita el trabajo, el desarrollador de &lt;em&gt;Dash&lt;/em&gt; está bastante
+abierto a peticiones de incluir nueva documentación.&lt;/p&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h3&gt;Instalación&lt;/h3&gt;
+&lt;p&gt;Para &lt;em&gt;Arch Linux&lt;/em&gt; (y derivadas) está disponible un paquete en &lt;em&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/em&gt;, por lo
+que podemos instalarlo fácilmente con &lt;em&gt;yaourt&lt;/em&gt; o cualquier otro wrapper de
+&lt;em&gt;pacman&lt;/em&gt; de nuestro gusto.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S zeal-git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para otras distribuciones o sistemas podemos encontrar más información en su
+&lt;a class="reference external" href="http://zealdocs.org/download.html/"&gt;página de descarga&lt;/a&gt; .&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-y-uso"&gt;
+&lt;h3&gt;Configuración y uso&lt;/h3&gt;
+&lt;p&gt;Una vez instalado, utilizarlo es muy sencillo.&lt;/p&gt;
+&lt;p&gt;Primero de todo, hemos de descargar la documentación que queremos tener disponible.&lt;/p&gt;
+&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Descarga de documentación." src="http://soulchainer.github.io/images/2014/06/2014-06-04_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Descargamos la documentación desde
+&lt;strong&gt;Edit → Options → Docsets → Download…&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Tras esto, ya podemos usar el cuadro de búsqueda para buscar entre toda la
+documentación. Y, si queremos afinar más, podemos emplear filtros para
+restringir nuestra búsqueda a determinada documentación. Así,
+&lt;code&gt;doc:consulta&lt;/code&gt; buscará &lt;code&gt;consulta&lt;/code&gt; dentro de aquella documentación
+cuyo nombre se corresponda o contenga la palabra clave &lt;code&gt;doc&lt;/code&gt; .&lt;/p&gt;
+&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Búsqueda dentro de la documentación de CSS." src="http://soulchainer.github.io/images/2014/06/2014-06-04_04.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Búsqueda restringida a la documentación de &lt;em&gt;&lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="plugins-para-editores"&gt;
+&lt;h3&gt;Plugins para editores&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; es algo limitado en cuanto a plugins y sólo cuenta con tres por ahora:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/jinzhu/zeal-at-point/"&gt;Plugin para Emacs&lt;/a&gt; .&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/vaanwd/Zeal"&gt;Plugin para Sublime Text&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;El plugin está disponible en el &lt;a class="reference external" href="https://sublime.wbond.net/"&gt;gestor de paquetes de &lt;span class="caps"&gt;ST&lt;/span&gt;&lt;/a&gt; , por lo que su
+instalación es trivial. Una vez instalado, podemos invocarlo de dos formas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;F1&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Abre la documentación de &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; para la palabra seleccionada en el
+editor. Para esto &lt;a class="reference internal" href="#tenemos-que-emparejar-previamente-el-lenguaje"&gt;tenemos que emparejar previamente el lenguaje&lt;/a&gt;
+que estamos usando con su documentación en &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; , o no funcionará.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Shift + F1&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Despliega una barra para buscar en &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt;.&lt;/p&gt;
+&lt;img alt="Barra de búsqueda de Zeal en Sublime Text." class="image" src="http://soulchainer.github.io/images/2014/06/2014-06-04_05.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p id="tenemos-que-emparejar-previamente-el-lenguaje"&gt;Para emparejar un lenguaje con su correspondiente documentación hemos de
+editar la configuración de usuario del plugin en &lt;em&gt;&lt;span class="caps"&gt;ST&lt;/span&gt;&lt;/em&gt;
+(&lt;strong&gt;Preferences → Package Settings → Zeal → Settings - User&lt;/strong&gt;). Para ello,
+copiamos en dicho archivo la configuración por defecto del plugin
+(&lt;strong&gt;Preferences → Package Settings → Zeal → Settings - Default&lt;/strong&gt;) y
+añadimos una linea para nuestro lenguaje.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="o"&gt;/**&lt;/span&gt;
+   &lt;span class="o"&gt;*&lt;/span&gt;  &lt;span class="n"&gt;Zeal&lt;/span&gt; &lt;span class="n"&gt;executable&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+   &lt;span class="o"&gt;*&lt;/span&gt;  &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;zeal&lt;/span&gt;
+   &lt;span class="o"&gt;*&lt;/span&gt;  &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;Windows&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\\&lt;span class="n"&gt;Program&lt;/span&gt; &lt;span class="n"&gt;Files&lt;/span&gt;\\&lt;span class="n"&gt;Zeal&lt;/span&gt;\\&lt;span class="n"&gt;zeal&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exe&lt;/span&gt;
+   &lt;span class="o"&gt;*/&lt;/span&gt;
+  &lt;span class="s"&gt;"zeal_command"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"/usr/bin/zeal"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+  &lt;span class="o"&gt;/**&lt;/span&gt;
+   &lt;span class="o"&gt;*&lt;/span&gt;  &lt;span class="n"&gt;Sort&lt;/span&gt; &lt;span class="n"&gt;maaping&lt;/span&gt; &lt;span class="n"&gt;results&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+   &lt;span class="o"&gt;*/&lt;/span&gt;
+  &lt;span class="s"&gt;"mapping_sort"&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+  &lt;span class="o"&gt;/**&lt;/span&gt;
+   &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Language&lt;/span&gt; &lt;span class="n"&gt;mapping&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+   &lt;span class="o"&gt;*/&lt;/span&gt;
+  &lt;span class="s"&gt;"language_mapping"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;"HTML"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"html"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"zeal_lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"html"&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;"JavaScript"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"javascript"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"zeal_lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"javascript"&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;"CSS"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"css"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"zeal_lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"css"&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;"PHP"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"php"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"zeal_lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"php"&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;"Python"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"python"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"zeal_lang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"python"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/Keithbsmiley/investigate.vim/"&gt;Plugin para Vim&lt;/a&gt; .&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Deberíamos añadir a nuestro archivo &lt;code&gt;.vimrc&lt;/code&gt; algo como esto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;let &lt;/span&gt;g:investigate_command_for_python &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'/usr/bin/zeal --query ^s'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;No se puede decir que estos plugins ofrezcan mucha integración, ya que
+lo único que hacen es darnos una opción para lanzar &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; directamente con
+una determinada consulta, pero tienen su utilidad.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La memoria eidética, también llamada fotográfica, memoria absoluta, o eidetismo —técnicamente denominada hipermnesia—, es la capacidad de recordar cosas oídas y/o vistas con un nivel de detalle muy preciso. Es una habilidad muy de moda ahora en la pequeña pantalla: Spencer Reid (Criminal Minds), Carrie Wells (Unforgettable) o Sheldon Cooper (The Big Bang Theory) son sólo algunos ejemplos de personajes con este inusual don.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Según &lt;a class="reference external" href="http://blog.kapeli.com/dash-for-ios-android-windows-or-linux/"&gt;una entrada&lt;/a&gt; del blog del desarrollador, a lo largo de este año deberían aparecer versiones para otras plataformas, a cargo de terceros.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="zeal"></category><category term="linux"></category><category term="windows"></category><category term="api"></category><category term="documentación"></category></entry><entry><title>Utilizar un dispositivo Android como micrófono</title><link href="http://soulchainer.github.io/posts/2014/04/11/android-como-microfono/" rel="alternate"></link><updated>2014-04-11T23:59:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-04-11:posts/2014/04/11/android-como-microfono/</id><summary type="html">&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Micrófono RCA. Foto perteneciente al NFSA (National Film and Sound Archive of Australia). Fotógrafo: Brooke Shannon." src="http://soulchainer.github.io/images/2014/04/2014-04-11_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Micrófono &lt;span class="caps"&gt;RCA&lt;/span&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;

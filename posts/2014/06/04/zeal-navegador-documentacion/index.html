@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, api, documentación, linux, windows, zeal" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Zeal, un navegador de documentación offline">
+      <meta name="twitter:description" content="Por poco que le demos al desarrollo, ya sea como profesionales o
+amateurs, hemos de tratar cada vez con más y más tecnologías,
+lenguajes de programación, frameworks... Y somos pocos los
+bendecidos con una memoria eidética. De hecho, yo me conformaría con tener buena memoria, sin más.
+
+Y aquí es dónde entra un organizador de APIs. Básicamente, es...">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/06/2014-06-04_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Zeal, un navegador de documentación offline" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/06/04/zeal-navegador-documentacion/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/06/2014-06-04_01.png" />
+      <meta property="og:article:section" content="Herramientas" />
+      <meta property="og:article:tag" content="api" />
+      <meta property="og:article:tag" content="documentación" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="windows" />
+      <meta property="og:article:tag" content="zeal" />
+      <meta property="og:description" content="Por poco que le demos al desarrollo, ya sea como profesionales o
+amateurs, hemos de tratar cada vez con más y más tecnologías,
+lenguajes de programación, frameworks... Y somos pocos los
+bendecidos con una memoria eidética. De hecho, yo me conformaría con tener buena memoria, sin más.
+
+Y aquí es dónde entra un organizador de APIs. Básicamente, es..." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/06/04/zeal-navegador-documentacion/" rel="bookmark" title="Permalink to Zeal, un navegador de documentación offline">
+      Zeal, un navegador de documentación&nbsp;offline
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-06-04T18:20:00">
+      mié 04 junio 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;">
+<img alt="Zeal, un organizador de APIs libre" src="http://soulchainer.github.io/images/2014/06/2014-06-04_01.png" style="width: 640px; height: auto; max-width: 100%;"/>
+</div>
+<p><a class="reference external" href="http://www.genbetadev.com/"><span class="caps">GENBETA</span>:dev</a> publicaba la semana pasada <a class="reference external" href="http://www.genbetadev.com/herramientas/que-es-un-organizador-de-apis/">un artículo</a> sobre navegadores
+de documentación de <em>APIs</em> offline (que ellos abrevian como
+<strong>organizadores de APIs</strong>). Yo desconocía la existencia de este tipo de
+programas y me ha parecido algo tan sencillo y útil que necesitaba compartirlo.</p>
+<div class="section" id="la-idea">
+<h2>La idea</h2>
+<p>Por poco que le demos al desarrollo, ya sea como profesionales o amateurs,
+hemos de tratar cada vez con más y más tecnologías, lenguajes de programación,
+frameworks… Y somos pocos los bendecidos con una memoria eidética <a class="footnote-reference" href="#id4" id="id1">[1]</a> . De
+hecho, yo me conformaría con tener buena memoria, sin más.</p>
+<p>Y aquí es dónde entra un <em>organizador de APIs</em>. Básicamente, es un navegador
+simplificado, centrado en poner a nuestra disposición la documentación de las
+tecnologías que utilizamos a menudo, de forma fácil y rápida.</p>
+<p>Esto puede parecer una tontería, ya que si conocemos las páginas oficiales de
+dicha documentación, siempre podemos consultarla en nuestro navegador web, ¿no?</p>
+<p>Sin embargo, yo le encuentro varias ventajas:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Disponible sin conexión</strong>.</p>
+<p>El programa descarga y guarda la documentación por nosotros, pudiendo
+acceder a ella en cualquier momento, estemos o no conectados.</p>
+</li>
+<li><p class="first"><strong>Integración con editores de código</strong>.</p>
+<p>Cuenta con plugins para invocarlo desde nuestros editores favoritos cuando
+lo necesitemos.</p>
+</li>
+<li><p class="first"><strong>Menor consumo de recursos</strong>.</p>
+<p>Al ser un navegador especializado en leer documentación, tiene los
+componentes imprescindibles para ello. No está sobrecargado de opciones
+como un navegador web y eso influye en el consumo.</p>
+</li>
+<li><p class="first"><strong>Libre de distracciones</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="zeal">
+<h2>Zeal</h2>
+<p>Desde <em><span class="caps">GENBETA</span>:dev</em> se centraban en <a class="reference external" href="http://kapeli.com/dash/">Dash</a> , que es un programa muy apañado y
+recomendable… si tienes un <em>Mac</em> <a class="footnote-reference" href="#id5" id="id2">[2]</a> y no te importa que se trate de software propietario y de pago, claro.</p>
+<img alt="Dash, organizador de APIs exclusivo de Mac." class="image" src="http://soulchainer.github.io/images/2014/06/2014-06-04_02.png" style="width: 640px; height: auto; max-width: 100%;"/>
+<p>No obstante, mencionaban de pasada la existencia de <a class="reference external" href="http://zealdocs.org/">Zeal</a> , que es software
+libre y está <a class="reference external" href="http://zealdocs.org/download.html/">disponible para otras plataformas</a> .</p>
+<p>Haciendo honor a la verdad, comparado con <em>Dash</em>, <a class="reference external" href="http://zealdocs.org/">Zeal</a> deja bastante que
+desear. Pero sigue proporcionándonos las ventajas básicas de un <em>organizador
+de APIs</em>. Y, al usar el mismo formato de documentación que <em>Dash</em>, podemos usar
+<a class="reference external" href="http://kapeli.com/dash#docsets">toda la documentación disponible</a> para este, así como generar nuestra
+propia documentación <a class="reference external" href="http://kapeli.com/docsets/">siguiendo las mismas instrucciones</a> .
+Además, si se le facilita el trabajo, el desarrollador de <em>Dash</em> está bastante
+abierto a peticiones de incluir nueva documentación.</p>
+<div class="section" id="instalacion">
+<h3>Instalación</h3>
+<p>Para <em>Arch Linux</em> (y derivadas) está disponible un paquete en <em><span class="caps">AUR</span></em>, por lo
+que podemos instalarlo fácilmente con <em>yaourt</em> o cualquier otro wrapper de
+<em>pacman</em> de nuestro gusto.</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S zeal-git
+</pre></div>
+<p>Para otras distribuciones o sistemas podemos encontrar más información en su
+<a class="reference external" href="http://zealdocs.org/download.html/">página de descarga</a> .</p>
+</div>
+<div class="section" id="configuracion-y-uso">
+<h3>Configuración y uso</h3>
+<p>Una vez instalado, utilizarlo es muy sencillo.</p>
+<p>Primero de todo, hemos de descargar la documentación que queremos tener disponible.</p>
+<div class="figure" style="width: 640px; height: auto; max-width: 100%;">
+<img alt="Descarga de documentación." src="http://soulchainer.github.io/images/2014/06/2014-06-04_03.png" style="width: 640px; height: auto; max-width: 100%;"/>
+<p class="caption">Descargamos la documentación desde
+<strong>Edit → Options → Docsets → Download…</strong></p>
+</div>
+<p>Tras esto, ya podemos usar el cuadro de búsqueda para buscar entre toda la
+documentación. Y, si queremos afinar más, podemos emplear filtros para
+restringir nuestra búsqueda a determinada documentación. Así,
+<code>doc:consulta</code> buscará <code>consulta</code> dentro de aquella documentación
+cuyo nombre se corresponda o contenga la palabra clave <code>doc</code> .</p>
+<div class="figure" style="width: 640px; height: auto; max-width: 100%;">
+<img alt="Búsqueda dentro de la documentación de CSS." src="http://soulchainer.github.io/images/2014/06/2014-06-04_04.png" style="width: 640px; height: auto; max-width: 100%;"/>
+<p class="caption">Búsqueda restringida a la documentación de <em><span class="caps">CSS</span></em>.</p>
+</div>
+</div>
+<div class="section" id="plugins-para-editores">
+<h3>Plugins para editores</h3>
+<p><a class="reference external" href="http://zealdocs.org/">Zeal</a> es algo limitado en cuanto a plugins y sólo cuenta con tres por ahora:</p>
+<ol class="arabic">
+<li><p class="first"><a class="reference external" href="https://github.com/jinzhu/zeal-at-point/">Plugin para Emacs</a> .</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/vaanwd/Zeal">Plugin para Sublime Text</a> .</p>
+<p>El plugin está disponible en el <a class="reference external" href="https://sublime.wbond.net/">gestor de paquetes de <span class="caps">ST</span></a> , por lo que su
+instalación es trivial. Una vez instalado, podemos invocarlo de dos formas:</p>
+<ul>
+<li><p class="first"><strong>F1</strong>.</p>
+<blockquote>
+<p>Abre la documentación de <a class="reference external" href="http://zealdocs.org/">Zeal</a> para la palabra seleccionada en el
+editor. Para esto <a class="reference internal" href="#tenemos-que-emparejar-previamente-el-lenguaje">tenemos que emparejar previamente el lenguaje</a>
+que estamos usando con su documentación en <a class="reference external" href="http://zealdocs.org/">Zeal</a> , o no funcionará.</p>
+</blockquote>
+</li>
+<li><p class="first"><strong>Shift + F1</strong>.</p>
+<blockquote>
+<p>Despliega una barra para buscar en <a class="reference external" href="http://zealdocs.org/">Zeal</a>.</p>
+<img alt="Barra de búsqueda de Zeal en Sublime Text." class="image" src="http://soulchainer.github.io/images/2014/06/2014-06-04_05.png" style="width: 640px; height: auto; max-width: 100%;"/>
+</blockquote>
+</li>
+</ul>
+<p id="tenemos-que-emparejar-previamente-el-lenguaje">Para emparejar un lenguaje con su correspondiente documentación hemos de
+editar la configuración de usuario del plugin en <em><span class="caps">ST</span></em>
+(<strong>Preferences → Package Settings → Zeal → Settings - User</strong>). Para ello,
+copiamos en dicho archivo la configuración por defecto del plugin
+(<strong>Preferences → Package Settings → Zeal → Settings - Default</strong>) y
+añadimos una linea para nuestro lenguaje.</p>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="o">/**</span>
+   <span class="o">*</span>  <span class="n">Zeal</span> <span class="n">executable</span> <span class="n">path</span><span class="o">.</span>
+   <span class="o">*</span>  <span class="n">For</span> <span class="n">Linux</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">zeal</span>
+   <span class="o">*</span>  <span class="n">For</span> <span class="n">Windows</span><span class="p">:</span> <span class="n">c</span><span class="p">:</span>\\<span class="n">Program</span> <span class="n">Files</span>\\<span class="n">Zeal</span>\\<span class="n">zeal</span><span class="o">.</span><span class="n">exe</span>
+   <span class="o">*/</span>
+  <span class="s">"zeal_command"</span><span class="p">:</span> <span class="s">"/usr/bin/zeal"</span><span class="p">,</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span>  <span class="n">Sort</span> <span class="n">maaping</span> <span class="n">results</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="s">"mapping_sort"</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Language</span> <span class="n">mapping</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="s">"language_mapping"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">"HTML"</span><span class="p">:</span> <span class="p">{</span><span class="s">"lang"</span><span class="p">:</span> <span class="s">"html"</span><span class="p">,</span> <span class="s">"zeal_lang"</span><span class="p">:</span> <span class="s">"html"</span><span class="p">},</span>
+    <span class="s">"JavaScript"</span><span class="p">:</span> <span class="p">{</span><span class="s">"lang"</span><span class="p">:</span> <span class="s">"javascript"</span><span class="p">,</span> <span class="s">"zeal_lang"</span><span class="p">:</span> <span class="s">"javascript"</span><span class="p">},</span>
+    <span class="s">"CSS"</span><span class="p">:</span> <span class="p">{</span><span class="s">"lang"</span><span class="p">:</span> <span class="s">"css"</span><span class="p">,</span> <span class="s">"zeal_lang"</span><span class="p">:</span> <span class="s">"css"</span><span class="p">},</span>
+    <span class="s">"PHP"</span><span class="p">:</span> <span class="p">{</span><span class="s">"lang"</span><span class="p">:</span> <span class="s">"php"</span><span class="p">,</span> <span class="s">"zeal_lang"</span><span class="p">:</span> <span class="s">"php"</span><span class="p">},</span>
+    <span class="s">"Python"</span><span class="p">:</span> <span class="p">{</span><span class="s">"lang"</span><span class="p">:</span> <span class="s">"python"</span><span class="p">,</span> <span class="s">"zeal_lang"</span><span class="p">:</span> <span class="s">"python"</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/Keithbsmiley/investigate.vim/">Plugin para Vim</a> .</p>
+<blockquote>
+<p>Deberíamos añadir a nuestro archivo <code>.vimrc</code> algo como esto:</p>
+<div class="highlight"><pre><span class="nb">let </span>g:investigate_command_for_python <span class="o">=</span> <span class="s1">'/usr/bin/zeal --query ^s'</span>
+</pre></div>
+</blockquote>
+</li>
+</ol>
+<p>No se puede decir que estos plugins ofrezcan mucha integración, ya que
+lo único que hacen es darnos una opción para lanzar <a class="reference external" href="http://zealdocs.org/">Zeal</a> directamente con
+una determinada consulta, pero tienen su utilidad.</p>
+<hr class="docutils"/>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>La memoria eidética, también llamada fotográfica, memoria absoluta, o eidetismo —técnicamente denominada hipermnesia—, es la capacidad de recordar cosas oídas y/o vistas con un nivel de detalle muy preciso. Es una habilidad muy de moda ahora en la pequeña pantalla: Spencer Reid (Criminal Minds), Carrie Wells (Unforgettable) o Sheldon Cooper (The Big Bang Theory) son sólo algunos ejemplos de personajes con este inusual don.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Según <a class="reference external" href="http://blog.kapeli.com/dash-for-ios-android-windows-or-linux/">una entrada</a> del blog del desarrollador, a lo largo de este año deberían aparecer versiones para otras plataformas, a cargo de terceros.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/api/">api</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/documentacion/">documentación</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/windows/">windows</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/zeal/">zeal</a></li>
+    </ul>
+  </div>
+
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
