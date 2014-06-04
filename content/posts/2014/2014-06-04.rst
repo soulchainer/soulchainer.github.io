@@ -1,0 +1,220 @@
+Zeal, un navegador de documentación offline
+###########################################
+:date: 2014-06-04 18:20
+:tags: zeal, linux, windows, api, documentación
+:category: Herramientas
+:slug: zeal-navegador-documentacion
+:author: Soulchainer
+:twsummary: Por poco que le demos al desarrollo, ya sea como profesionales o
+            amateurs, hemos de tratar cada vez con más y más tecnologías,
+            lenguajes de programación, frameworks... Y somos pocos los
+            bendecidos con una memoria eidética. De hecho, yo me conformaría con tener buena memoria, sin más.
+
+            Y aquí es dónde entra un *organizador de APIs*. Básicamente, es...
+:twimg: 2014-06-04_01.png
+
+.. figure:: {filename}/images/2014/06/2014-06-04_01.png
+    :alt: Zeal, un organizador de APIs libre
+    :align: center
+
+`GENBETA:dev`_ publicaba la semana pasada `un artículo`_ sobre navegadores
+de documentación de *APIs* offline (que ellos abrevian como
+**organizadores de APIs**). Yo desconocía la existencia de este tipo de
+programas y me ha parecido algo tan sencillo y útil que necesitaba compartirlo.
+
+*******
+La idea
+*******
+
+Por poco que le demos al desarrollo, ya sea como profesionales o amateurs,
+hemos de tratar cada vez con más y más tecnologías, lenguajes de programación,
+frameworks... Y somos pocos los bendecidos con una memoria eidética [#]_ . De
+hecho, yo me conformaría con tener buena memoria, sin más.
+
+Y aquí es dónde entra un *organizador de APIs*. Básicamente, es un navegador
+simplificado, centrado en poner a nuestra disposición la documentación de las
+tecnologías que utilizamos a menudo, de forma fácil y rápida.
+
+Esto puede parecer una tontería, ya que si conocemos las páginas oficiales de
+dicha documentación, siempre podemos consultarla en nuestro navegador web, ¿no?
+
+Sin embargo, yo le encuentro varias ventajas:
+
+1. **Disponible sin conexión**.
+
+   El programa descarga y guarda la documentación por nosotros, pudiendo
+   acceder a ella en cualquier momento, estemos o no conectados.
+
+2. **Integración con editores de código**.
+
+   Cuenta con plugins para invocarlo desde nuestros editores favoritos cuando
+   lo necesitemos.
+
+3. **Menor consumo de recursos**.
+
+   Al ser un navegador especializado en leer documentación, tiene los
+   componentes imprescindibles para ello. No está sobrecargado de opciones
+   como un navegador web y eso influye en el consumo.
+
+4. **Libre de distracciones**.
+
+
+****
+Zeal
+****
+
+Desde *GENBETA:dev* se centraban en `Dash`_ , que es un programa muy apañado y
+recomendable... si tienes un *Mac* [#]_ y no te importa que se trate de software propietario y de pago, claro.
+
+.. image:: {filename}/images/2014/06/2014-06-04_02.png
+    :alt: Dash, organizador de APIs exclusivo de Mac.
+    :class: image
+
+No obstante, mencionaban de pasada la existencia de `Zeal`_ , que es software
+libre y está `disponible para otras plataformas`_ .
+
+Haciendo honor a la verdad, comparado con *Dash*, `Zeal`_ deja bastante que
+desear. Pero sigue proporcionándonos las ventajas básicas de un *organizador
+de APIs*. Y, al usar el mismo formato de documentación que *Dash*, podemos usar
+`toda la documentación disponible`_ para este, así como generar nuestra
+propia documentación `siguiendo las mismas instrucciones`_ .
+Además, si se le facilita el trabajo, el desarrollador de *Dash* está bastante
+abierto a peticiones de incluir nueva documentación.
+
+Instalación
+============
+
+Para *Arch Linux* (y derivadas) está disponible un paquete en *AUR*, por lo
+que podemos instalarlo fácilmente con *yaourt* o cualquier otro wrapper de
+*pacman* de nuestro gusto.
+
+.. code-block:: sh
+
+    $ yaourt -S zeal-git
+
+Para otras distribuciones o sistemas podemos encontrar más información en su
+`página de descarga`_ .
+
+Configuración y uso
+====================
+
+Una vez instalado, utilizarlo es muy sencillo.
+
+Primero de todo, hemos de descargar la documentación que queremos tener
+disponible.
+
+.. figure:: {filename}/images/2014/06/2014-06-04_03.png
+    :alt: Descarga de documentación.
+
+    Descargamos la documentación desde
+    **Edit → Options → Docsets → Download...**
+
+Tras esto, ya podemos usar el cuadro de búsqueda para buscar entre toda la
+documentación. Y, si queremos afinar más, podemos emplear filtros para
+restringir nuestra búsqueda a determinada documentación. Así,
+:code:`doc:consulta` buscará :code:`consulta` dentro de aquella documentación
+cuyo nombre se corresponda o contenga la palabra clave :code:`doc` .
+
+.. figure:: {filename}/images/2014/06/2014-06-04_04.png
+    :alt: Búsqueda dentro de la documentación de CSS.
+
+    Búsqueda restringida a la documentación de *CSS*.
+
+Plugins para editores
+=====================
+
+`Zeal`_ es algo limitado en cuanto a plugins y sólo cuenta con tres por ahora:
+
+1. `Plugin para Emacs`_ .
+2. `Plugin para Sublime Text`_ .
+
+   El plugin está disponible en el `gestor de paquetes de ST`_ , por lo que su
+   instalación es trivial. Una vez instalado, podemos invocarlo de dos formas:
+
+   - **F1**.
+
+      Abre la documentación de `Zeal`_ para la palabra seleccionada en el
+      editor. Para esto `tenemos que emparejar previamente el lenguaje`_
+      que estamos usando con su documentación en `Zeal`_ , o no funcionará.
+
+   - **Shift + F1**.
+
+      Despliega una barra para buscar en `Zeal`_.
+
+      .. image:: {filename}/images/2014/06/2014-06-04_05.png
+          :alt: Barra de búsqueda de Zeal en Sublime Text.
+          :class: image
+
+
+
+   .. _tenemos que emparejar previamente el lenguaje:
+
+   Para emparejar un lenguaje con su correspondiente documentación hemos de
+   editar la configuración de usuario del plugin en *ST*
+   (**Preferences → Package Settings → Zeal → Settings - User**). Para ello,
+   copiamos en dicho archivo la configuración por defecto del plugin
+   (**Preferences → Package Settings → Zeal → Settings - Default**) y
+   añadimos una linea para nuestro lenguaje.
+
+   .. code-block:: python
+
+       {
+         /**
+          *  Zeal executable path.
+          *  For Linux: /usr/bin/zeal
+          *  For Windows: c:\\Program Files\\Zeal\\zeal.exe
+          */
+         "zeal_command": "/usr/bin/zeal",
+
+         /**
+          *  Sort maaping results.
+          */
+         "mapping_sort" : true,
+
+         /**
+          * Language mapping.
+          */
+         "language_mapping": {
+           "HTML": {"lang": "html", "zeal_lang": "html"},
+           "JavaScript": {"lang": "javascript", "zeal_lang": "javascript"},
+           "CSS": {"lang": "css", "zeal_lang": "css"},
+           "PHP": {"lang": "php", "zeal_lang": "php"},
+           "Python": {"lang": "python", "zeal_lang": "python"}
+         }
+       }
+
+
+3. `Plugin para Vim`_ .
+
+    Deberíamos añadir a nuestro archivo :code:`.vimrc` algo como esto:
+
+    .. code-block:: sh
+
+        let g:investigate_command_for_python = '/usr/bin/zeal --query ^s'
+
+No se puede decir que estos plugins ofrezcan mucha integración, ya que
+lo único que hacen es darnos una opción para lanzar `Zeal`_ directamente con
+una determinada consulta, pero tienen su utilidad.
+
+-----
+
+.. _GENBETA:dev: http://www.genbetadev.com/
+.. _su artículo:
+.. _un artículo: http://www.genbetadev.com/herramientas/que-es-un-organizador-de-apis/
+.. _Dash: http://kapeli.com/dash/
+.. _una entrada: http://blog.kapeli.com/dash-for-ios-android-windows-or-linux/
+.. _Zeal: http://zealdocs.org/
+.. _página de descarga:
+.. _disponible para otras plataformas: http://zealdocs.org/download.html/
+.. _toda la documentación disponible: http://kapeli.com/dash#docsets
+.. _siguiendo las mismas instrucciones: http://kapeli.com/docsets/
+.. _Plugin para Emacs: https://github.com/jinzhu/zeal-at-point/
+.. _Plugin para Sublime Text: https://github.com/vaanwd/Zeal
+.. _gestor de paquetes de ST: https://sublime.wbond.net/
+.. _Plugin para Vim: https://github.com/Keithbsmiley/investigate.vim/
+
+.. [#] La memoria eidética, también llamada fotográfica, memoria absoluta, o eidetismo —técnicamente denominada hipermnesia—, es la capacidad de recordar cosas oídas y/o vistas con un nivel de detalle muy preciso. Es una habilidad muy de moda ahora en la pequeña pantalla: Spencer Reid (Criminal Minds), Carrie Wells (Unforgettable) o Sheldon Cooper (The Big Bang Theory) son sólo algunos ejemplos de personajes con este inusual don.
+.. [#] Según `una entrada`_ del blog del desarrollador, a lo largo de este año deberían aparecer versiones para otras plataformas, a cargo de terceros.
+
+
+
