@@ -1,5 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-06-04T18:20:00+02:00</updated><entry><title>Zeal, un navegador de documentación offline</title><link href="http://soulchainer.github.io/posts/2014/06/04/zeal-navegador-documentacion/" rel="alternate"></link><updated>2014-06-04T18:20:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-04:posts/2014/06/04/zeal-navegador-documentacion/</id><summary type="html">&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-06-11T23:59:00+02:00</updated><entry><title>Screen tearing en el navegador</title><link href="http://soulchainer.github.io/posts/2014/06/11/screen-tearing-navegador/" rel="alternate"></link><updated>2014-06-11T23:59:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-11:posts/2014/06/11/screen-tearing-navegador/</id><summary type="html">&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Un ejemplo típico (simulado) de tearing en una imagen." src="http://soulchainer.github.io/images/2014/06/2014-06-11_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Ejemplo de los errores gráficos característicos del &lt;em&gt;screen tearing&lt;/em&gt;: la
+imagen parece cortada y desplazada por varios sitios.&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;a class="reference external" href="http://commons.wikimedia.org/wiki/File:Tearing_%28simulated%29.jpg"&gt;Imagen original&lt;/a&gt; obra de &lt;a class="reference external" href="http://commons.wikimedia.org/wiki/User:Vanessaezekowitz"&gt;Vanessaezekowitz&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Como podéis apreciar en la imagen, el &lt;em&gt;screen tearing&lt;/em&gt; puede ser bastante
+molesto. Afortunadamente, no es demasiado común.
+Todo suele ir genial… hasta que te toca sufrirlo a ti, claro. Y mi hora llegó
+hace un par de días.&lt;/p&gt;
+&lt;div class="section" id="mi-caso"&gt;
+&lt;h2&gt;Mi caso&lt;/h2&gt;
+&lt;p&gt;Mi equipo corre con &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt; (distribución &lt;strong&gt;Linux&lt;/strong&gt; basada en
+&lt;strong&gt;Arch Linux&lt;/strong&gt;), tengo una tarjeta gráfica modesta (&lt;strong&gt;&lt;span class="caps"&gt;NVIDIA&lt;/span&gt; GeForce 9500 &lt;span class="caps"&gt;GT&lt;/span&gt;&lt;/strong&gt;,
+con el driver libre &lt;em&gt;nouveau&lt;/em&gt;), uso &lt;a class="reference external" href="http://awesome.naquadah.org/"&gt;awesome&lt;/a&gt; como &lt;em&gt;gestor de ventanas&lt;/em&gt; &lt;a class="footnote-reference" href="#id3" id="id1"&gt;[1]&lt;/a&gt; y
+&lt;a class="reference external" href="https://github.com/chjj/compton/"&gt;compton&lt;/a&gt; como &lt;em&gt;gestor de composición&lt;/em&gt; &lt;a class="footnote-reference" href="#id4" id="id2"&gt;[2]&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Pues anteayer, jugando con las transiciones &lt;em&gt;&lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/em&gt;, una de ellas me provocaba un
+&lt;em&gt;screen tearing&lt;/em&gt; terrible en &lt;a class="reference external" href="http://www.mozilla.org/es-ES/firefox/new/"&gt;Firefox&lt;/a&gt; y &lt;em&gt;Chrome&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Antes de ponerme a buscar una solución, creé &lt;a class="reference external" href="http://jsbin.com/yohel/4/edit?output"&gt;un jsbin&lt;/a&gt; y consulté con algunos
+compas linuxeros (gracias &lt;a class="reference external" href="https://www.google.com/+AinusSolheim"&gt;@AinusSolheim&lt;/a&gt; , &lt;a class="reference external" href="http://geekstorming.wordpress.com/"&gt;@Beelzenef&lt;/a&gt; y &lt;a class="reference external" href="http://doblejotablog.wordpress.com/"&gt;@FreakViking&lt;/a&gt; ),
+para cerciorarme de que no era cosa de la transición o un error puntual de los
+navegadores (improbable). Descartadas esas posibilidades, me pasé media tarde
+revisando configuraciones, buscando en la red, cribando foros, probando
+&lt;em&gt;soluciones&lt;/em&gt;…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solucion"&gt;
+&lt;h2&gt;Solución&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;&lt;/strong&gt;: Evidentemente, esta es la solución a mi caso concreto. Puede o no
+funcionar en configuraciones parecidas y es compartida únicamente con la
+esperanza de que a alguien le pueda servir de utilidad.&lt;/p&gt;
+&lt;p&gt;Después de un rato de búsqueda y pruebas infructuosas, llegué a la conclusión
+de que tenía que ver con el &lt;strong&gt;Vsync&lt;/strong&gt;, una opción del pintado de pantalla que
+se usa para evitar el &lt;em&gt;screen tearing&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Revisando las opciones de &lt;em&gt;compton&lt;/em&gt; desde consola, resulta que tiene varias
+opciones referentes tanto al &lt;em&gt;Vsync&lt;/em&gt; como al &lt;em&gt;tearing&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;compton -h
+compton &lt;span class="o"&gt;(&lt;/span&gt;v0.1_beta2&lt;span class="o"&gt;)&lt;/span&gt;
+usage: compton &lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;]&lt;/span&gt;
+Options:
+...
+--vsync vsync-method
+  Set VSync method. There are up to 4 VSync methods currently available.
+    &lt;span class="nv"&gt;none&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; No VSync
+    &lt;span class="nv"&gt;drm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; VSync with DRM_IOCTL_WAIT_VBLANK. May only work on some
+      drivers.
+    &lt;span class="nv"&gt;opengl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Try to VSync with SGI_video_sync OpenGL extension. Only
+      work on some drivers.
+    opengl-oml &lt;span class="o"&gt;=&lt;/span&gt; Try to VSync with OML_sync_control OpenGL extension.
+      Only work on some drivers. Experimental.
+    opengl-swc &lt;span class="o"&gt;=&lt;/span&gt; Try to VSync with SGI_swap_control OpenGL extension.
+      Only work on some drivers. Works only with GLX backend.
+      Does not actually control paint timing, only buffer swap is
+      affected, so it doesn&lt;span class="err"&gt;'&lt;/span&gt;t have the effect of --sw-opti unlike
+      other methods.
+    opengl-mswc &lt;span class="o"&gt;=&lt;/span&gt; Try to VSync with MESA_swap_control OpenGL
+      extension. Basically the same as opengl-swc above, except the
+      extension we use.
+--vsync-aggressive
+  Attempt to send painting request before VBlank and &lt;span class="k"&gt;do &lt;/span&gt;XFlush&lt;span class="o"&gt;()&lt;/span&gt;
+  during VBlank. This switch may be lifted out at any moment.
+...
+--dbe
+  Enable DBE painting mode, intended to use with VSync to
+  &lt;span class="o"&gt;(&lt;/span&gt;hopefully&lt;span class="o"&gt;)&lt;/span&gt; eliminate tearing.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pero aún aplicando las que parecían más lógicas, no conseguía resultados del
+todo satisfactorios. Vino a iluminarme definitivamente &lt;a class="reference external" href="http://crunchbang.org/forums/viewtopic.php?pid=305816#p305816"&gt;una entrada&lt;/a&gt; en los
+foros de &lt;a class="reference external" href="http://crunchbang.org/about/"&gt;Crunchbang&lt;/a&gt; (una distro basada en &lt;strong&gt;Debian&lt;/strong&gt; muy recomendable, dicho
+sea de paso).&lt;/p&gt;
+&lt;div class="section" id="solucion-usando-solo-compton"&gt;
+&lt;h3&gt;Solución usando sólo compton&lt;/h3&gt;
+&lt;p&gt;En dicha publicación recomiendan crear un archivo
+de configuración simple para &lt;em&gt;compton&lt;/em&gt; en &lt;code&gt;~/.config/compton.conf&lt;/code&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;shadow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;;
+no-dnd-shadow &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;;
+shadow-radius &lt;span class="o"&gt;=&lt;/span&gt; 10;
+shadow-offset-x &lt;span class="o"&gt;=&lt;/span&gt; -16;
+shadow-offset-y &lt;span class="o"&gt;=&lt;/span&gt; -16;
+shadow-opacity &lt;span class="o"&gt;=&lt;/span&gt; 0.6;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;y ejecutar &lt;strong&gt;compton&lt;/strong&gt; con esta línea:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;compton --opengl --vsync opengl-swc --paint-on-overlay -b
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto lo puedes hacer directamente desde consola, para probar que tal funciona.
+Y, si te da buenos resultados, como a mí, añadirlo a donde quiera que
+establezcas los programas a ejecutarse con el arranque del sistema (yo lo hago
+en &lt;code&gt;~/.xinitrc&lt;/code&gt; , porque inicio sesión a pelo, con &lt;code&gt;startx&lt;/code&gt; ).&lt;/p&gt;
+&lt;p&gt;Lo gracioso del asunto es que la opción &lt;code&gt;--opengl&lt;/code&gt; que véis ahí
+&lt;strong&gt;no aparece&lt;/strong&gt; en la ayuda mostrada en consola y cualquiera la adivina por
+ciencia infusa ¬_¬&lt;/p&gt;
+&lt;p&gt;De esta manera, corregimos el &lt;em&gt;tearing&lt;/em&gt; usando sólo &lt;em&gt;compton&lt;/em&gt;. Pero, siempre
+que se pueda (y funcione), es aconsejable hacerlo a través del driver de la gráfica.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solucion-compton-nouveau"&gt;
+&lt;h3&gt;Solución compton + nouveau&lt;/h3&gt;
+&lt;p&gt;Para el driver libre (&lt;em&gt;nouveau&lt;/em&gt;), que es el que yo uso, basta con añadir (o
+crearlo, si no existe) el siguiente contenido a la sección &lt;code&gt;Device&lt;/code&gt; del
+archivo &lt;code&gt;/etc/X11/xorg.conf.d/20-nouveau.conf&lt;/code&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Section &lt;span class="s2"&gt;"Device"&lt;/span&gt;
+    Identifier &lt;span class="s2"&gt;"nvidia card"&lt;/span&gt;
+    Driver &lt;span class="s2"&gt;"nouveau"&lt;/span&gt;
+    Option &lt;span class="s2"&gt;"GLXVBlank"&lt;/span&gt; &lt;span class="s2"&gt;"true"&lt;/span&gt;
+EndSection
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto, en conjunción con la siguiente línea para &lt;em&gt;compton&lt;/em&gt;, funcionó para mí
+(hay que reiniciar):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;compton --opengl --paint-on-overlay -b &amp;amp;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como veis, prescindo de la opción &lt;code&gt;--vsync opengl-swc&lt;/code&gt; y, de paso, añado
+&lt;code&gt;-b&lt;/code&gt; , para que &lt;em&gt;compton&lt;/em&gt; se ejecute como un demonio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solucion-compton-nvidia"&gt;
+&lt;h3&gt;Solución compton + nvidia&lt;/h3&gt;
+&lt;p&gt;Cuando usamos el driver propietario, &lt;em&gt;nvidia&lt;/em&gt;, podemos establecer esta opción
+gráficamente con la &lt;em&gt;&lt;span class="caps"&gt;GUI&lt;/span&gt;&lt;/em&gt; de configuración &lt;code&gt;nvidia-settings&lt;/code&gt; , marcando
+la opción &lt;strong&gt;sync to vblank&lt;/strong&gt;. Y hasta ahí puedo llegar, porque no uso el driver propietario.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="nota-adicional-sobre-chrome"&gt;
+&lt;h2&gt;Nota adicional sobre Chrome&lt;/h2&gt;
+&lt;p&gt;Con &lt;em&gt;Chrome&lt;/em&gt; no basta con todo esto. Además hay que acceder desde el
+navegador a la &lt;a class="reference external" href="chrome://flags/"&gt;página de funciones experimentales&lt;/a&gt;, chrome://flags/ y
+habilitar la primera opción:
+&lt;strong&gt;Ignorar la lista de renderización por software&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Página de funciones experimentales de Chrome." src="http://soulchainer.github.io/images/2014/06/2014-06-11_02.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Tras reiniciar &lt;em&gt;Chrome&lt;/em&gt;, se aplicará el cambio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Destacar que, en todo momento, el efecto del &lt;em&gt;screen tearing&lt;/em&gt; es algo más
+pronunciado aquí que en &lt;strong&gt;Firefox&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id3" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;em&gt;gestor de ventanas&lt;/em&gt; es el programa encargado de controlar la ubicación y apariencia de las ventanas.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;em&gt;gestor de composición&lt;/em&gt; permite añadir efectos a las ventanas, tales como transparencias, sombras, animaciones…&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="tearing"></category><category term="error gráfico"></category><category term="imagen"></category><category term="nouveau"></category><category term="nvidia"></category><category term="compton"></category><category term="vsync"></category><category term="linux"></category><category term="firefox"></category><category term="chrome"></category></entry><entry><title>Zeal, un navegador de documentación offline</title><link href="http://soulchainer.github.io/posts/2014/06/04/zeal-navegador-documentacion/" rel="alternate"></link><updated>2014-06-04T18:20:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-04:posts/2014/06/04/zeal-navegador-documentacion/</id><summary type="html">&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Zeal, un organizador de APIs libre" src="http://soulchainer.github.io/images/2014/06/2014-06-04_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.genbetadev.com/"&gt;&lt;span class="caps"&gt;GENBETA&lt;/span&gt;:dev&lt;/a&gt; publicaba la semana pasada &lt;a class="reference external" href="http://www.genbetadev.com/herramientas/que-es-un-organizador-de-apis/"&gt;un artículo&lt;/a&gt; sobre navegadores
@@ -64,7 +209,7 @@ que podemos instalarlo fácilmente con &lt;em&gt;yaourt&lt;/em&gt; o cualquier o
 &lt;h3&gt;Configuración y uso&lt;/h3&gt;
 &lt;p&gt;Una vez instalado, utilizarlo es muy sencillo.&lt;/p&gt;
 &lt;p&gt;Primero de todo, hemos de descargar la documentación que queremos tener disponible.&lt;/p&gt;
-&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Descarga de documentación." src="http://soulchainer.github.io/images/2014/06/2014-06-04_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Descargamos la documentación desde
 &lt;strong&gt;Edit → Options → Docsets → Download…&lt;/strong&gt;&lt;/p&gt;

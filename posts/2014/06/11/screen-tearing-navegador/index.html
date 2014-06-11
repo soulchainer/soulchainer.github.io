@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, chrome, compton, error gráfico, firefox, imagen, linux, nouveau, nvidia, tearing, vsync" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Screen tearing en el navegador">
+      <meta name="twitter:description" content="Como podéis apreciar en la imagen, el screen tearing no es un
+defecto gráfico especialmente agradable. El lado bueno es que
+tampoco es tan común. Todo va genial... hasta que te toca sufrirlo
+a ti. Y mi hora llegó hace un par de días.">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/06/2014-06-11_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Screen tearing en el navegador" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/06/11/screen-tearing-navegador/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/06/2014-06-11_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux" />
+      <meta property="og:article:tag" content="chrome" />
+      <meta property="og:article:tag" content="compton" />
+      <meta property="og:article:tag" content="error gráfico" />
+      <meta property="og:article:tag" content="firefox" />
+      <meta property="og:article:tag" content="imagen" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="nouveau" />
+      <meta property="og:article:tag" content="nvidia" />
+      <meta property="og:article:tag" content="tearing" />
+      <meta property="og:article:tag" content="vsync" />
+      <meta property="og:description" content="Como podéis apreciar en la imagen, el screen tearing no es un
+defecto gráfico especialmente agradable. El lado bueno es que
+tampoco es tan común. Todo va genial... hasta que te toca sufrirlo
+a ti. Y mi hora llegó hace un par de días." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/06/11/screen-tearing-navegador/" rel="bookmark" title="Permalink to Screen tearing en el navegador">
+      Screen tearing en el&nbsp;navegador
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-06-11T23:59:00">
+      mié 11 junio 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="figure" style="width: 800px; height: auto; max-width: 100%;">
+<img alt="Un ejemplo típico (simulado) de tearing en una imagen." src="http://soulchainer.github.io/images/2014/06/2014-06-11_01.png" style="width: 800px; height: auto; max-width: 100%;"/>
+<p class="caption">Ejemplo de los errores gráficos característicos del <em>screen tearing</em>: la
+imagen parece cortada y desplazada por varios sitios.</p>
+<div class="legend">
+<a class="reference external" href="http://commons.wikimedia.org/wiki/File:Tearing_%28simulated%29.jpg">Imagen original</a> obra de <a class="reference external" href="http://commons.wikimedia.org/wiki/User:Vanessaezekowitz">Vanessaezekowitz</a>.</div>
+</div>
+<p>Como podéis apreciar en la imagen, el <em>screen tearing</em> puede ser bastante
+molesto. Afortunadamente, no es demasiado común.
+Todo suele ir genial… hasta que te toca sufrirlo a ti, claro. Y mi hora llegó
+hace un par de días.</p>
+<div class="section" id="mi-caso">
+<h2>Mi caso</h2>
+<p>Mi equipo corre con <a class="reference external" href="http://antergos.com/">Antergos</a> (distribución <strong>Linux</strong> basada en
+<strong>Arch Linux</strong>), tengo una tarjeta gráfica modesta (<strong><span class="caps">NVIDIA</span> GeForce 9500 <span class="caps">GT</span></strong>,
+con el driver libre <em>nouveau</em>), uso <a class="reference external" href="http://awesome.naquadah.org/">awesome</a> como <em>gestor de ventanas</em> <a class="footnote-reference" href="#id3" id="id1">[1]</a> y
+<a class="reference external" href="https://github.com/chjj/compton/">compton</a> como <em>gestor de composición</em> <a class="footnote-reference" href="#id4" id="id2">[2]</a> .</p>
+<p>Pues anteayer, jugando con las transiciones <em><span class="caps">CSS</span></em>, una de ellas me provocaba un
+<em>screen tearing</em> terrible en <a class="reference external" href="http://www.mozilla.org/es-ES/firefox/new/">Firefox</a> y <em>Chrome</em>.</p>
+<p>Antes de ponerme a buscar una solución, creé <a class="reference external" href="http://jsbin.com/yohel/4/edit?output">un jsbin</a> y consulté con algunos
+compas linuxeros (gracias <a class="reference external" href="https://www.google.com/+AinusSolheim">@AinusSolheim</a> , <a class="reference external" href="http://geekstorming.wordpress.com/">@Beelzenef</a> y <a class="reference external" href="http://doblejotablog.wordpress.com/">@FreakViking</a> ),
+para cerciorarme de que no era cosa de la transición o un error puntual de los
+navegadores (improbable). Descartadas esas posibilidades, me pasé media tarde
+revisando configuraciones, buscando en la red, cribando foros, probando
+<em>soluciones</em>…</p>
+</div>
+<div class="section" id="solucion">
+<h2>Solución</h2>
+<p><strong><span class="caps">NOTA</span></strong>: Evidentemente, esta es la solución a mi caso concreto. Puede o no
+funcionar en configuraciones parecidas y es compartida únicamente con la
+esperanza de que a alguien le pueda servir de utilidad.</p>
+<p>Después de un rato de búsqueda y pruebas infructuosas, llegué a la conclusión
+de que tenía que ver con el <strong>Vsync</strong>, una opción del pintado de pantalla que
+se usa para evitar el <em>screen tearing</em>.</p>
+<p>Revisando las opciones de <em>compton</em> desde consola, resulta que tiene varias
+opciones referentes tanto al <em>Vsync</em> como al <em>tearing</em>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>compton -h
+compton <span class="o">(</span>v0.1_beta2<span class="o">)</span>
+usage: compton <span class="o">[</span>options<span class="o">]</span>
+Options:
+...
+--vsync vsync-method
+  Set VSync method. There are up to 4 VSync methods currently available.
+    <span class="nv">none</span> <span class="o">=</span> No VSync
+    <span class="nv">drm</span> <span class="o">=</span> VSync with DRM_IOCTL_WAIT_VBLANK. May only work on some
+      drivers.
+    <span class="nv">opengl</span> <span class="o">=</span> Try to VSync with SGI_video_sync OpenGL extension. Only
+      work on some drivers.
+    opengl-oml <span class="o">=</span> Try to VSync with OML_sync_control OpenGL extension.
+      Only work on some drivers. Experimental.
+    opengl-swc <span class="o">=</span> Try to VSync with SGI_swap_control OpenGL extension.
+      Only work on some drivers. Works only with GLX backend.
+      Does not actually control paint timing, only buffer swap is
+      affected, so it doesn<span class="err">'</span>t have the effect of --sw-opti unlike
+      other methods.
+    opengl-mswc <span class="o">=</span> Try to VSync with MESA_swap_control OpenGL
+      extension. Basically the same as opengl-swc above, except the
+      extension we use.
+--vsync-aggressive
+  Attempt to send painting request before VBlank and <span class="k">do </span>XFlush<span class="o">()</span>
+  during VBlank. This switch may be lifted out at any moment.
+...
+--dbe
+  Enable DBE painting mode, intended to use with VSync to
+  <span class="o">(</span>hopefully<span class="o">)</span> eliminate tearing.
+</pre></div>
+<p>Pero aún aplicando las que parecían más lógicas, no conseguía resultados del
+todo satisfactorios. Vino a iluminarme definitivamente <a class="reference external" href="http://crunchbang.org/forums/viewtopic.php?pid=305816#p305816">una entrada</a> en los
+foros de <a class="reference external" href="http://crunchbang.org/about/">Crunchbang</a> (una distro basada en <strong>Debian</strong> muy recomendable, dicho
+sea de paso).</p>
+<div class="section" id="solucion-usando-solo-compton">
+<h3>Solución usando sólo compton</h3>
+<p>En dicha publicación recomiendan crear un archivo
+de configuración simple para <em>compton</em> en <code>~/.config/compton.conf</code> :</p>
+<div class="highlight"><pre><span class="nv">shadow</span> <span class="o">=</span> <span class="nb">true</span>;
+no-dnd-shadow <span class="o">=</span> <span class="nb">true</span>;
+shadow-radius <span class="o">=</span> 10;
+shadow-offset-x <span class="o">=</span> -16;
+shadow-offset-y <span class="o">=</span> -16;
+shadow-opacity <span class="o">=</span> 0.6;
+</pre></div>
+<p>y ejecutar <strong>compton</strong> con esta línea:</p>
+<div class="highlight"><pre>compton --opengl --vsync opengl-swc --paint-on-overlay -b
+</pre></div>
+<p>Esto lo puedes hacer directamente desde consola, para probar que tal funciona.
+Y, si te da buenos resultados, como a mí, añadirlo a donde quiera que
+establezcas los programas a ejecutarse con el arranque del sistema (yo lo hago
+en <code>~/.xinitrc</code> , porque inicio sesión a pelo, con <code>startx</code> ).</p>
+<p>Lo gracioso del asunto es que la opción <code>--opengl</code> que véis ahí
+<strong>no aparece</strong> en la ayuda mostrada en consola y cualquiera la adivina por
+ciencia infusa ¬_¬</p>
+<p>De esta manera, corregimos el <em>tearing</em> usando sólo <em>compton</em>. Pero, siempre
+que se pueda (y funcione), es aconsejable hacerlo a través del driver de la gráfica.</p>
+</div>
+<div class="section" id="solucion-compton-nouveau">
+<h3>Solución compton + nouveau</h3>
+<p>Para el driver libre (<em>nouveau</em>), que es el que yo uso, basta con añadir (o
+crearlo, si no existe) el siguiente contenido a la sección <code>Device</code> del
+archivo <code>/etc/X11/xorg.conf.d/20-nouveau.conf</code> :</p>
+<div class="highlight"><pre>Section <span class="s2">"Device"</span>
+    Identifier <span class="s2">"nvidia card"</span>
+    Driver <span class="s2">"nouveau"</span>
+    Option <span class="s2">"GLXVBlank"</span> <span class="s2">"true"</span>
+EndSection
+</pre></div>
+<p>Esto, en conjunción con la siguiente línea para <em>compton</em>, funcionó para mí
+(hay que reiniciar):</p>
+<div class="highlight"><pre>compton --opengl --paint-on-overlay -b &amp;
+</pre></div>
+<p>Como veis, prescindo de la opción <code>--vsync opengl-swc</code> y, de paso, añado
+<code>-b</code> , para que <em>compton</em> se ejecute como un demonio.</p>
+</div>
+<div class="section" id="solucion-compton-nvidia">
+<h3>Solución compton + nvidia</h3>
+<p>Cuando usamos el driver propietario, <em>nvidia</em>, podemos establecer esta opción
+gráficamente con la <em><span class="caps">GUI</span></em> de configuración <code>nvidia-settings</code> , marcando
+la opción <strong>sync to vblank</strong>. Y hasta ahí puedo llegar, porque no uso el driver propietario.</p>
+</div>
+</div>
+<div class="section" id="nota-adicional-sobre-chrome">
+<h2>Nota adicional sobre Chrome</h2>
+<p>Con <em>Chrome</em> no basta con todo esto. Además hay que acceder desde el
+navegador a la <a class="reference external" href="chrome://flags/">página de funciones experimentales</a>, chrome://flags/ y
+habilitar la primera opción:
+<strong>Ignorar la lista de renderización por software</strong>.</p>
+<div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;">
+<img alt="Página de funciones experimentales de Chrome." src="http://soulchainer.github.io/images/2014/06/2014-06-11_02.png" style="width: 700px; height: auto; max-width: 100%;"/>
+<p class="caption">Tras reiniciar <em>Chrome</em>, se aplicará el cambio.</p>
+</div>
+<p>Destacar que, en todo momento, el efecto del <em>screen tearing</em> es algo más
+pronunciado aquí que en <strong>Firefox</strong>.</p>
+<hr class="docutils"/>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Un <em>gestor de ventanas</em> es el programa encargado de controlar la ubicación y apariencia de las ventanas.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Un <em>gestor de composición</em> permite añadir efectos a las ventanas, tales como transparencias, sombras, animaciones…</td></tr>
+</tbody>
+</table>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/chrome/">chrome</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/compton/">compton</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/error-grafico/">error gráfico</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/firefox/">firefox</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/imagen/">imagen</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/nouveau/">nouveau</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/nvidia/">nvidia</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/tearing/">tearing</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/vsync/">vsync</a></li>
+    </ul>
+  </div>
+
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
