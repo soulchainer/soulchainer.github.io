@@ -1,0 +1,202 @@
+Screen tearing en el navegador
+##############################
+:date: 2014-06-11 23:59
+:tags: tearing, error gráfico, imagen, nouveau, nvidia, compton, vsync, linux, firefox, chrome
+:category: CÓMOS, linux
+:slug: screen-tearing-navegador
+:author: Soulchainer
+:twsummary: Como podéis apreciar en la imagen, el screen tearing no es un
+            defecto gráfico especialmente agradable. El lado bueno es que
+            tampoco es tan común. Todo va genial... hasta que te toca sufrirlo
+            a ti. Y mi hora llegó hace un par de días.
+
+:twimg: 2014-06-11_01.png
+
+.. figure:: {filename}/images/2014/06/2014-06-11_01.png
+    :alt: Un ejemplo típico (simulado) de tearing en una imagen.
+
+    Ejemplo de los errores gráficos característicos del *screen tearing*: la
+    imagen parece cortada y desplazada por varios sitios.
+
+    `Imagen original`_ obra de `Vanessaezekowitz`_.
+
+Como podéis apreciar en la imagen, el *screen tearing* puede ser bastante
+molesto. Afortunadamente, no es demasiado común.
+Todo suele ir genial... hasta que te toca sufrirlo a ti, claro. Y mi hora llegó
+hace un par de días.
+
+********
+ Mi caso
+********
+
+Mi equipo corre con `Antergos`_ (distribución **Linux** basada en
+**Arch Linux**), tengo una tarjeta gráfica modesta (**NVIDIA GeForce 9500 GT**,
+con el driver libre *nouveau*), uso `awesome`_ como *gestor de ventanas* [#]_ y
+`compton`_ como *gestor de composición* [#]_ .
+
+Pues anteayer, jugando con las transiciones *CSS*, una de ellas me provocaba un
+*screen tearing* terrible en `Firefox`_ y *Chrome*.
+
+Antes de ponerme a buscar una solución, creé `un jsbin`_ y consulté con algunos
+compas linuxeros (gracias `@AinusSolheim`_ , `@Beelzenef`_ y `@FreakViking`_ ),
+para cerciorarme de que no era cosa de la transición o un error puntual de los
+navegadores (improbable). Descartadas esas posibilidades, me pasé media tarde
+revisando configuraciones, buscando en la red, cribando foros, probando
+*soluciones*...
+
+********
+Solución
+********
+
+**NOTA**: Evidentemente, esta es la solución a mi caso concreto. Puede o no
+funcionar en configuraciones parecidas y es compartida únicamente con la
+esperanza de que a alguien le pueda servir de utilidad.
+
+Después de un rato de búsqueda y pruebas infructuosas, llegué a la conclusión
+de que tenía que ver con el **Vsync**, una opción del pintado de pantalla que
+se usa para evitar el *screen tearing*.
+
+Revisando las opciones de *compton* desde consola, resulta que tiene varias
+opciones referentes tanto al *Vsync* como al *tearing*:
+
+.. code-block:: sh
+
+    $ compton -h
+    compton (v0.1_beta2)
+    usage: compton [options]
+    Options:
+    ...
+    --vsync vsync-method
+      Set VSync method. There are up to 4 VSync methods currently available.
+        none = No VSync
+        drm = VSync with DRM_IOCTL_WAIT_VBLANK. May only work on some
+          drivers.
+        opengl = Try to VSync with SGI_video_sync OpenGL extension. Only
+          work on some drivers.
+        opengl-oml = Try to VSync with OML_sync_control OpenGL extension.
+          Only work on some drivers. Experimental.
+        opengl-swc = Try to VSync with SGI_swap_control OpenGL extension.
+          Only work on some drivers. Works only with GLX backend.
+          Does not actually control paint timing, only buffer swap is
+          affected, so it doesn't have the effect of --sw-opti unlike
+          other methods.
+        opengl-mswc = Try to VSync with MESA_swap_control OpenGL
+          extension. Basically the same as opengl-swc above, except the
+          extension we use.
+    --vsync-aggressive
+      Attempt to send painting request before VBlank and do XFlush()
+      during VBlank. This switch may be lifted out at any moment.
+    ...
+    --dbe
+      Enable DBE painting mode, intended to use with VSync to
+      (hopefully) eliminate tearing.
+
+Pero aún aplicando las que parecían más lógicas, no conseguía resultados del
+todo satisfactorios. Vino a iluminarme definitivamente `una entrada`_ en los
+foros de `Crunchbang`_ (una distro basada en **Debian** muy recomendable, dicho
+sea de paso).
+
+Solución usando sólo compton
+==============================
+
+En dicha publicación recomiendan crear un archivo
+de configuración simple para *compton* en :code:`~/.config/compton.conf` :
+
+.. code-block:: sh
+
+    shadow = true;
+    no-dnd-shadow = true;
+    shadow-radius = 10;
+    shadow-offset-x = -16;
+    shadow-offset-y = -16;
+    shadow-opacity = 0.6;
+
+y ejecutar **compton** con esta línea:
+
+.. code-block:: sh
+
+    compton --opengl --vsync opengl-swc --paint-on-overlay -b
+
+Esto lo puedes hacer directamente desde consola, para probar que tal funciona.
+Y, si te da buenos resultados, como a mí, añadirlo a donde quiera que
+establezcas los programas a ejecutarse con el arranque del sistema (yo lo hago
+en :code:`~/.xinitrc` , porque inicio sesión a pelo, con :code:`startx` ).
+
+Lo gracioso del asunto es que la opción :code:`--opengl` que véis ahí
+**no aparece** en la ayuda mostrada en consola y cualquiera la adivina por
+ciencia infusa ¬_¬
+
+De esta manera, corregimos el *tearing* usando sólo *compton*. Pero, siempre
+que se pueda (y funcione), es aconsejable hacerlo a través del driver de la
+gráfica.
+
+Solución compton + nouveau
+==========================
+
+Para el driver libre (*nouveau*), que es el que yo uso, basta con añadir (o
+crearlo, si no existe) el siguiente contenido a la sección :code:`Device` del
+archivo :code:`/etc/X11/xorg.conf.d/20-nouveau.conf` :
+
+.. code-block:: sh
+
+    Section "Device"
+        Identifier "nvidia card"
+        Driver "nouveau"
+        Option "GLXVBlank" "true"
+    EndSection
+
+Esto, en conjunción con la siguiente línea para *compton*, funcionó para mí
+(hay que reiniciar):
+
+.. code-block:: sh
+
+    compton --opengl --paint-on-overlay -b &
+
+Como veis, prescindo de la opción :code:`--vsync opengl-swc` y, de paso, añado
+:code:`-b` , para que *compton* se ejecute como un demonio.
+
+Solución compton + nvidia
+=========================
+
+Cuando usamos el driver propietario, *nvidia*, podemos establecer esta opción
+gráficamente con la *GUI* de configuración :code:`nvidia-settings` , marcando
+la opción **sync to vblank**. Y hasta ahí puedo llegar, porque no uso el driver
+propietario.
+
+***************************
+Nota adicional sobre Chrome
+***************************
+
+Con *Chrome* no basta con todo esto. Además hay que acceder desde el
+navegador a la `página de funciones experimentales`_, chrome://flags/ y
+habilitar la primera opción:
+**Ignorar la lista de renderización por software**.
+
+.. figure:: {filename}/images/2014/06/2014-06-11_02.png
+    :alt: Página de funciones experimentales de Chrome.
+    :align: center
+
+    Tras reiniciar *Chrome*, se aplicará el cambio.
+
+Destacar que, en todo momento, el efecto del *screen tearing* es algo más
+pronunciado aquí que en **Firefox**.
+
+
+-----
+
+.. _Imagen original: http://commons.wikimedia.org/wiki/File:Tearing_%28simulated%29.jpg
+.. _Vanessaezekowitz: http://commons.wikimedia.org/wiki/User:Vanessaezekowitz
+.. _Antergos: http://antergos.com/
+.. _awesome: http://awesome.naquadah.org/
+.. _compton: https://github.com/chjj/compton/
+.. _Firefox: http://www.mozilla.org/es-ES/firefox/new/
+.. _un jsbin: http://jsbin.com/yohel/4/edit?output
+.. _@AinusSolheim: https://www.google.com/+AinusSolheim
+.. _@FreakViking: http://doblejotablog.wordpress.com/
+.. _@Beelzenef: http://geekstorming.wordpress.com/
+.. _una entrada: http://crunchbang.org/forums/viewtopic.php?pid=305816#p305816
+.. _Crunchbang: http://crunchbang.org/about/
+.. _página de funciones experimentales: chrome://flags/
+
+.. [#] Un *gestor de ventanas* es el programa encargado de controlar la ubicación y apariencia de las ventanas.
+.. [#] Un *gestor de composición* permite añadir efectos a las ventanas, tales como transparencias, sombras, animaciones...

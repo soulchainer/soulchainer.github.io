@@ -10,7 +10,7 @@ Zeal, un navegador de documentación offline
             lenguajes de programación, frameworks... Y somos pocos los
             bendecidos con una memoria eidética. De hecho, yo me conformaría con tener buena memoria, sin más.
 
-            Y aquí es dónde entra un *organizador de APIs*. Básicamente, es...
+            Y aquí es dónde entra un organizador de APIs. Básicamente, es...
 :twimg: 2014-06-04_01.png
 
 .. figure:: {filename}/images/2014/06/2014-06-04_01.png
@@ -105,6 +105,7 @@ disponible.
 
 .. figure:: {filename}/images/2014/06/2014-06-04_03.png
     :alt: Descarga de documentación.
+    :align: center
 
     Descargamos la documentación desde
     **Edit → Options → Docsets → Download...**
