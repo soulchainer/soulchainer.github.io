@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-06-11T23:59:00+02:00</updated><entry><title>Screen tearing en el navegador</title><link href="http://soulchainer.github.io/posts/2014/06/11/screen-tearing-navegador/" rel="alternate"></link><updated>2014-06-11T23:59:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-11:posts/2014/06/11/screen-tearing-navegador/</id><summary type="html">&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-06-17T18:40:00+02:00</updated><entry><title>Firefox y las fuentes externas en Tumblr (problemas con @font-face)</title><link href="http://soulchainer.github.io/posts/2014/06/17/firefox-fuentes-tumblr/" rel="alternate"></link><updated>2014-06-17T18:40:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-17:posts/2014/06/17/firefox-fuentes-tumblr/</id><summary type="html">&lt;p&gt;Estoy escribiendo un nuevo tema para &lt;a class="reference external" href="http://soulchainer.tumblr.com/"&gt;mi tumblr&lt;/a&gt; y ayer llegó el momento de
+trasladar lo que ya tengo escrito al editor de html de &lt;em&gt;Tumblr&lt;/em&gt;, para empezar a
+incorporar sus variables especiales y demás. Pues bien, subo dicho código,
+guardo y me encuentro con esto:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Captura de pantalla del tema, donde se aprecia que el navegador no carga las fuentes correctas." src="http://soulchainer.github.io/images/2014/06/2014-06-17_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;¿Adónde se han ido mis fuentes bonicas?&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Precioso, ¿verdad? Repaso todo lo que he hecho y no he cometido ningún error.
+Y lo más gracioso es que en local me funciona bien, en &lt;em&gt;Chrome&lt;/em&gt; también…
+&lt;strong&gt;¿Qué cojones pasa aquí?&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="section" id="origen-del-problema"&gt;
+&lt;h2&gt;Origen del problema&lt;/h2&gt;
+&lt;p&gt;Pues resulta que &lt;em&gt;Firefox&lt;/em&gt; y versiones recientes de &lt;em&gt;Internet Explorer&lt;/em&gt; cumplen
+el estándar de
+&lt;a class="reference external" href="http://www.w3.org/TR/2008/WD-access-control-20080912/"&gt;Control de Acceso para Peticiones en sitios cruzados (Access Control for Cross-Site Requests)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Centrándonos en nuestro problema, esto implica que si quieres usar en tu sitio
+unas fuentes alojadas fuera de &lt;em&gt;Tumblr&lt;/em&gt;, el servidor donde están alojadas ha
+de concederte permiso para ello. Esto lo hace enviando a tu navegador una
+cabecera http &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt; &lt;a class="reference external" href="http://www.w3.org/TR/2008/WD-access-control-20080912/#access-control-allow-origin"&gt;Access-Control-Allow-Origin&lt;/a&gt; con unos valores específicos.&lt;/p&gt;
+&lt;p&gt;Y da la casualidad de que &lt;em&gt;Tumblr&lt;/em&gt; no envía esa cabecera para los archivos que subes a &lt;a class="reference external" href="http://static.tumblr.com"&gt;static.tumblr.com&lt;/a&gt; &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt;. Genial, ¿verdad?&lt;/p&gt;
+&lt;div class="figure" style="width: 700px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Mensaje de error. No tenemos permisos para descargar la fuente." src="http://soulchainer.github.io/images/2014/06/2014-06-17_02.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Mensaje de error que recibimos en la consola de &lt;em&gt;Firefox&lt;/em&gt;, avisándonos de que no tenemos permisos para descargar las fuentes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solucion"&gt;
+&lt;h2&gt;Solución&lt;/h2&gt;
+&lt;p&gt;Lo ideal sería que al menos incluyera esa cabecera con permiso para el dominio
+de &lt;a class="reference external" href="http://tumblr.com"&gt;tumblr.com&lt;/a&gt; , pero dado que no es el caso, podemos
+optar por incluir la fuente embebida en el archivo &lt;em&gt;css&lt;/em&gt;, codificándola en
+&lt;em&gt;base64&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;De esta manera, pasaríamos de tener una regla &lt;code&gt;@font-face&lt;/code&gt; como esta &lt;a class="footnote-reference" href="#id6" id="id3"&gt;[3]&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;@font-face&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nt"&gt;font-family&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"RaphaelIcons"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+  &lt;span class="nt"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot#iefix"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"embedded-opentype"&lt;/span&gt;&lt;span class="o"&gt;),&lt;/span&gt;
+       &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.woff"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"woff"&lt;/span&gt;&lt;span class="o"&gt;),&lt;/span&gt;
+       &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.ttf"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"truetype"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+  &lt;span class="nt"&gt;font-weight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;normal&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;font-style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;normal&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A tener algo así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;@font-face&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nt"&gt;font-family&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"RaphaelIcons"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+  &lt;span class="nt"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot#iefix"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"embedded-opentype"&lt;/span&gt;&lt;span class="o"&gt;),&lt;/span&gt;
+       &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="nd"&gt;:application&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;x-font-woff&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="nt"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nt"&gt;utf-8&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="nt"&gt;base64&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;d09GRgABAAAAAHVIABAAAAAAuTwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABsAAAAcWEc5a0dERUYAAAGIAAAAHQAAACAAuAAET1MvMgAAAagAAABFAAAAVlY0gadjbWFwAAAB8AAAAPcAAAGKvvMX5GN2dCAAAALoAAAALgAAAC4GUAXAZnBnbQAAAxgAAAGxAAACZc&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nt"&gt;0L6dnYXNwAAAEzAAAAAwAAAAMAAMAB2dseWYAAATYAABrhQAAq9j8bvh1aGVhZAAAcGAAAAAwAAAANvaXTyNoaGVhAABwkAAAAB4AAAAkCaEGeGhtdHgAAHCwAAABIgAAAixXuQKIbG9jYQAAcdQAAAELAAABGCoLWdhtYXhwAABy4AAAACAAAAAgAb8FTW5hbWUAAHMAAAAA7wAAAdQnFEREcG9zdAAAc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;AAAAEWAAABwOvNzxVwcmVwAAB1CAAAAEAAAABAW8i7eXjaY2BgYGQAgmNX9GaC6BM7WzOgdCYATbkHQAB42mNgZGBg4ANiCQYQYGJgBMIuIGYB8xgACjgAvQAAAHjaY2BkWs34hYGVgYFpFtMZBgaGfgjN&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nt"&gt;IrBiJEDKMrAxswAAwgWEASkuaYwODAoKMQzG&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;83ZohhDmPgAwozguQAEhoKqgAAAHjaY2BgYGaAYBkGRgYQaAHyGMF8FoYMIC3GIAAUYWMIZ6hiWMCwkmEdwx0FLgVBBX2F&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nt"&gt;P&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nt"&gt;gfIKDNFg8bUMBxQYFAQg4v8f&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;wf&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;f&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;zf83&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;J&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nt"&gt;oOZB&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nt"&gt;YOoB9pQ87EARjYGuCQjE5BgQlcAdCILKxs7BycXNw8vH7&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nt"&gt;AoJCwiKiYuISklLSMrJy8gqKSsoqqmrqGppa2jq6evoGhkbGJqZm5haUVULe1ja2dvYOjk7OLq5u7h6eXt4&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nt"&gt;v&lt;/span&gt;&lt;span class="o"&gt;...)&lt;/span&gt; &lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"woff"&lt;/span&gt;&lt;span class="o"&gt;),&lt;/span&gt;
+       &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.ttf"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"truetype"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+  &lt;span class="nt"&gt;font-weight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;normal&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;font-style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;normal&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTA&lt;/span&gt;&lt;/strong&gt;: He acortado el valor en &lt;em&gt;base64&lt;/em&gt;. En realidad, el resultado es una
+línea bastante &lt;strong&gt;MÁS&lt;/strong&gt; larga.&lt;/p&gt;
+&lt;p&gt;Para convertir nuestra fuente a &lt;em&gt;base64&lt;/em&gt; podemos usar servicios web como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://base64online.org/encode/"&gt;Base64online&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Basta con seleccionar el fichero que deseemos (&lt;strong&gt;select the file&lt;/strong&gt;), pulsar
+&lt;strong&gt;Encode to Base64&lt;/strong&gt; y marcar la casilla &lt;strong&gt;Format as Data &lt;span class="caps"&gt;URL&lt;/span&gt;&lt;/strong&gt; antes de
+copiar el texto resultante.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://www.fontsquirrel.com/tools/webfont-generator/"&gt;FontSquirrel Webfont Generator&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Es un generador de fuentes para su uso en web, muy útil para optimizar las
+fuentes que deseamos usar.&lt;/p&gt;
+&lt;p&gt;Si escogemos el modo experto, podemos establecer la opción &lt;strong&gt;Base64 Encode&lt;/strong&gt;
+para que nos genere la fuente también en &lt;em&gt;base64&lt;/em&gt;, directamente en el &lt;em&gt;&lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Comando &lt;code&gt;base64&lt;/code&gt;.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;En entornos &lt;em&gt;Linux&lt;/em&gt;, si disponemos del mencionado comando, podemos obtener la&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first last"&gt;codificación por consola haciendo:&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;base64 archivo_a_codificar.extension
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="resultado"&gt;
+&lt;h2&gt;Resultado&lt;/h2&gt;
+&lt;p&gt;Una vez hecho esto, las fuentes nos cargan según lo esperado en &lt;em&gt;Firefox&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Firefox carga correctamente las fuentes deseadas." src="http://soulchainer.github.io/images/2014/06/2014-06-17_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Firefox carga correctamente las fuentes deseadas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Las cabeceras &lt;em&gt;&lt;span class="caps"&gt;HTTP&lt;/span&gt;&lt;/em&gt; son los parámetros que se envían en una petición o respuesta &lt;em&gt;&lt;span class="caps"&gt;HTTP&lt;/span&gt;&lt;/em&gt; al cliente (el navegador) o al servidor para proporcionar información esencial sobre la transacción en curso.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Dominio provisto por &lt;em&gt;Tumblr&lt;/em&gt; para los recursos asociados al tema.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Fuente usada en el ejemplo: &lt;a class="reference external" href="http://icons.marekventur.de/"&gt;Raphaël Icon-Set&lt;/a&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="firefox"></category><category term="css"></category><category term="fuentes"></category><category term="font-face"></category><category term="tumblr"></category><category term="base64"></category></entry><entry><title>Screen tearing en el navegador</title><link href="http://soulchainer.github.io/posts/2014/06/11/screen-tearing-navegador/" rel="alternate"></link><updated>2014-06-11T23:59:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-11:posts/2014/06/11/screen-tearing-navegador/</id><summary type="html">&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Un ejemplo típico (simulado) de tearing en una imagen." src="http://soulchainer.github.io/images/2014/06/2014-06-11_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Ejemplo de los errores gráficos característicos del &lt;em&gt;screen tearing&lt;/em&gt;: la
 imagen parece cortada y desplazada por varios sitios.&lt;/p&gt;

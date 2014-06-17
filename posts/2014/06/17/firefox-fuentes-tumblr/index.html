@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, base64, css, firefox, font-face, fuentes, tumblr" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Firefox y las fuentes externas en Tumblr (problemas con @font-face)">
+      <meta name="twitter:description" content="Firefox y versiones recientes de IE cumplen el estándar de Control
+de Acceso para Peticiones en sitios cruzados.
+Esto implica que si quieres usar en tu sitio una fuente alojada
+fuera de Tumblr, el servidor donde está alojada ha de concederte
+permiso para ello (con una cabecera http concreta).">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/06/2014-06-17_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Firefox y las fuentes externas en Tumblr (problemas con @font-face)" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/06/17/firefox-fuentes-tumblr/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/06/2014-06-17_01.png" />
+      <meta property="og:article:section" content="CÓMOS, desarrollo web" />
+      <meta property="og:article:tag" content="base64" />
+      <meta property="og:article:tag" content="css" />
+      <meta property="og:article:tag" content="firefox" />
+      <meta property="og:article:tag" content="font-face" />
+      <meta property="og:article:tag" content="fuentes" />
+      <meta property="og:article:tag" content="tumblr" />
+      <meta property="og:description" content="Firefox y versiones recientes de IE cumplen el estándar de Control
+de Acceso para Peticiones en sitios cruzados.
+Esto implica que si quieres usar en tu sitio una fuente alojada
+fuera de Tumblr, el servidor donde está alojada ha de concederte
+permiso para ello (con una cabecera http concreta)." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/06/17/firefox-fuentes-tumblr/" rel="bookmark" title="Permalink to Firefox y las fuentes externas en Tumblr (problemas con @font-face)">
+      Firefox y las fuentes externas en Tumblr (problemas con&nbsp;&#64;font-face)
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-06-17T18:40:00">
+      mar 17 junio 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <p>Estoy escribiendo un nuevo tema para <a class="reference external" href="http://soulchainer.tumblr.com/">mi tumblr</a> y ayer llegó el momento de
+trasladar lo que ya tengo escrito al editor de html de <em>Tumblr</em>, para empezar a
+incorporar sus variables especiales y demás. Pues bien, subo dicho código,
+guardo y me encuentro con esto:</p>
+<div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;">
+<img alt="Captura de pantalla del tema, donde se aprecia que el navegador no carga las fuentes correctas." src="http://soulchainer.github.io/images/2014/06/2014-06-17_01.png" style="width: 640px; height: auto; max-width: 100%;"/>
+<p class="caption">¿Adónde se han ido mis fuentes bonicas?</p>
+</div>
+<p>Precioso, ¿verdad? Repaso todo lo que he hecho y no he cometido ningún error.
+Y lo más gracioso es que en local me funciona bien, en <em>Chrome</em> también…
+<strong>¿Qué cojones pasa aquí?</strong></p>
+<div class="section" id="origen-del-problema">
+<h2>Origen del problema</h2>
+<p>Pues resulta que <em>Firefox</em> y versiones recientes de <em>Internet Explorer</em> cumplen
+el estándar de
+<a class="reference external" href="http://www.w3.org/TR/2008/WD-access-control-20080912/">Control de Acceso para Peticiones en sitios cruzados (Access Control for Cross-Site Requests)</a>.</p>
+<p>Centrándonos en nuestro problema, esto implica que si quieres usar en tu sitio
+unas fuentes alojadas fuera de <em>Tumblr</em>, el servidor donde están alojadas ha
+de concederte permiso para ello. Esto lo hace enviando a tu navegador una
+cabecera http <a class="footnote-reference" href="#id4" id="id1">[1]</a> <a class="reference external" href="http://www.w3.org/TR/2008/WD-access-control-20080912/#access-control-allow-origin">Access-Control-Allow-Origin</a> con unos valores específicos.</p>
+<p>Y da la casualidad de que <em>Tumblr</em> no envía esa cabecera para los archivos que subes a <a class="reference external" href="http://static.tumblr.com">static.tumblr.com</a> <a class="footnote-reference" href="#id5" id="id2">[2]</a>. Genial, ¿verdad?</p>
+<div class="figure" style="width: 700px; height: auto; max-width: 100%;">
+<img alt="Mensaje de error. No tenemos permisos para descargar la fuente." src="http://soulchainer.github.io/images/2014/06/2014-06-17_02.png" style="width: 700px; height: auto; max-width: 100%;"/>
+<p class="caption">Mensaje de error que recibimos en la consola de <em>Firefox</em>, avisándonos de que no tenemos permisos para descargar las fuentes.</p>
+</div>
+</div>
+<div class="section" id="solucion">
+<h2>Solución</h2>
+<p>Lo ideal sería que al menos incluyera esa cabecera con permiso para el dominio
+de <a class="reference external" href="http://tumblr.com">tumblr.com</a> , pero dado que no es el caso, podemos
+optar por incluir la fuente embebida en el archivo <em>css</em>, codificándola en
+<em>base64</em>.</p>
+<p>De esta manera, pasaríamos de tener una regla <code>@font-face</code> como esta <a class="footnote-reference" href="#id6" id="id3">[3]</a>:</p>
+<div class="highlight"><pre><span class="k">@font-face</span> <span class="p">{</span>
+  <span class="nt">font-family</span><span class="o">:</span> <span class="s2">"RaphaelIcons"</span><span class="o">;</span>
+  <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot"</span><span class="o">);</span>
+  <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot#iefix"</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"embedded-opentype"</span><span class="o">),</span>
+       <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.woff"</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"woff"</span><span class="o">),</span>
+       <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.ttf"</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"truetype"</span><span class="o">);</span>
+  <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+  <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>A tener algo así:</p>
+<div class="highlight"><pre><span class="k">@font-face</span> <span class="p">{</span>
+  <span class="nt">font-family</span><span class="o">:</span> <span class="s2">"RaphaelIcons"</span><span class="o">;</span>
+  <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot"</span><span class="o">);</span>
+  <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot#iefix"</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"embedded-opentype"</span><span class="o">),</span>
+       <span class="nt">url</span><span class="o">(</span><span class="nt">data</span><span class="nd">:application</span><span class="o">/</span><span class="nt">x-font-woff</span><span class="o">;</span><span class="nt">charset</span><span class="o">=</span><span class="nt">utf-8</span><span class="o">;</span><span class="nt">base64</span><span class="o">,</span><span class="nt">d09GRgABAAAAAHVIABAAAAAAuTwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABsAAAAcWEc5a0dERUYAAAGIAAAAHQAAACAAuAAET1MvMgAAAagAAABFAAAAVlY0gadjbWFwAAAB8AAAAPcAAAGKvvMX5GN2dCAAAALoAAAALgAAAC4GUAXAZnBnbQAAAxgAAAGxAAACZc</span><span class="o">+</span><span class="nt">0L6dnYXNwAAAEzAAAAAwAAAAMAAMAB2dseWYAAATYAABrhQAAq9j8bvh1aGVhZAAAcGAAAAAwAAAANvaXTyNoaGVhAABwkAAAAB4AAAAkCaEGeGhtdHgAAHCwAAABIgAAAixXuQKIbG9jYQAAcdQAAAELAAABGCoLWdhtYXhwAABy4AAAACAAAAAgAb8FTW5hbWUAAHMAAAAA7wAAAdQnFEREcG9zdAAAc</span><span class="o">/</span><span class="nt">AAAAEWAAABwOvNzxVwcmVwAAB1CAAAAEAAAABAW8i7eXjaY2BgYGQAgmNX9GaC6BM7WzOgdCYATbkHQAB42mNgZGBg4ANiCQYQYGJgBMIuIGYB8xgACjgAvQAAAHjaY2BkWs34hYGVgYFpFtMZBgaGfgjN</span><span class="o">+</span><span class="nt">IrBiJEDKMrAxswAAwgWEASkuaYwODAoKMQzG</span><span class="o">/</span><span class="nt">83ZohhDmPgAwozguQAEhoKqgAAAHjaY2BgYGaAYBkGRgYQaAHyGMF8FoYMIC3GIAAUYWMIZ6hiWMCwkmEdwx0FLgVBBX2F</span><span class="o">+</span><span class="nt">P</span><span class="o">//</span><span class="nt">gfIKDNFg8bUMBxQYFAQg4v8f</span><span class="o">/</span><span class="nt">3</span><span class="o">/</span><span class="nt">wf</span><span class="o">/</span><span class="nt">f</span><span class="o">/</span><span class="nt">zf83</span><span class="o">/</span><span class="nt">J</span><span class="o">//</span><span class="nt">oOZB</span><span class="o">+</span><span class="nt">YOoB9pQ87EARjYGuCQjE5BgQlcAdCILKxs7BycXNw8vH7</span><span class="o">+</span><span class="nt">AoJCwiKiYuISklLSMrJy8gqKSsoqqmrqGppa2jq6evoGhkbGJqZm5haUVULe1ja2dvYOjk7OLq5u7h6eXt4</span><span class="o">+</span><span class="nt">v</span><span class="o">...)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"woff"</span><span class="o">),</span>
+       <span class="nt">url</span><span class="o">(</span><span class="s2">"http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.ttf"</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"truetype"</span><span class="o">);</span>
+  <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+  <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+<p><strong><span class="caps">NOTA</span></strong>: He acortado el valor en <em>base64</em>. En realidad, el resultado es una
+línea bastante <strong>MÁS</strong> larga.</p>
+<p>Para convertir nuestra fuente a <em>base64</em> podemos usar servicios web como:</p>
+<ul>
+<li><p class="first"><a class="reference external" href="http://base64online.org/encode/">Base64online</a>.</p>
+<blockquote>
+<p>Basta con seleccionar el fichero que deseemos (<strong>select the file</strong>), pulsar
+<strong>Encode to Base64</strong> y marcar la casilla <strong>Format as Data <span class="caps">URL</span></strong> antes de
+copiar el texto resultante.</p>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://www.fontsquirrel.com/tools/webfont-generator/">FontSquirrel Webfont Generator</a>.</p>
+<p>Es un generador de fuentes para su uso en web, muy útil para optimizar las
+fuentes que deseamos usar.</p>
+<p>Si escogemos el modo experto, podemos establecer la opción <strong>Base64 Encode</strong>
+para que nos genere la fuente también en <em>base64</em>, directamente en el <em><span class="caps">CSS</span></em>.</p>
+</li>
+<li><p class="first">Comando <code>base64</code>.</p>
+<dl class="docutils">
+<dt>En entornos <em>Linux</em>, si disponemos del mencionado comando, podemos obtener la</dt>
+<dd><p class="first last">codificación por consola haciendo:</p>
+</dd>
+</dl>
+<div class="highlight"><pre><span class="nv">$ </span>base64 archivo_a_codificar.extension
+</pre></div>
+</li>
+</ul>
+</div>
+<div class="section" id="resultado">
+<h2>Resultado</h2>
+<p>Una vez hecho esto, las fuentes nos cargan según lo esperado en <em>Firefox</em>:</p>
+<div class="figure" style="width: 640px; height: auto; max-width: 100%;">
+<img alt="Firefox carga correctamente las fuentes deseadas." src="http://soulchainer.github.io/images/2014/06/2014-06-17_03.png" style="width: 640px; height: auto; max-width: 100%;"/>
+<p class="caption">Firefox carga correctamente las fuentes deseadas.</p>
+</div>
+<hr class="docutils"/>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Las cabeceras <em><span class="caps">HTTP</span></em> son los parámetros que se envían en una petición o respuesta <em><span class="caps">HTTP</span></em> al cliente (el navegador) o al servidor para proporcionar información esencial sobre la transacción en curso.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Dominio provisto por <em>Tumblr</em> para los recursos asociados al tema.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Fuente usada en el ejemplo: <a class="reference external" href="http://icons.marekventur.de/">Raphaël Icon-Set</a>.</td></tr>
+</tbody>
+</table>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/base64/">base64</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/css/">css</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/firefox/">firefox</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/font-face/">font-face</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/fuentes/">fuentes</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/tumblr/">tumblr</a></li>
+    </ul>
+  </div>
+
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
