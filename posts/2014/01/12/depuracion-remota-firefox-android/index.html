@@ -128,7 +128,7 @@
   </h3>
 
   <div class="postinfo">
-    <p class="published" title="2014-01-12T19:45:00">
+    <p class="published" title="2014-01-12T19:45:00+01:00">
       dom 12 enero 2014, por Soulchainer
     </p>
   </div><!-- .postinfo -->
@@ -321,12 +321,12 @@ Entre los muchos <em>módulos</em> que trae el lenguaje por defecto, hay uno que
 define <em>clases</em> para implementar servidores web.</p>
 <p>Así, con <strong>Python 2.x</strong> podemos iniciar un servidor local desde consola con:</p>
 <div class="highlight"><pre><span class="nv">$ </span>python2 -m SimpleHTTPServer 9999
-Serving HTTP on 0.0.0.0 port 9999 ...
+Serving HTTP on 0.0.0.0 port <span class="m">9999</span> ...
 </pre></div>
 <p>En <strong>Python 3.x</strong> dicho <em>módulo</em> ha pasado a ser <code>http.server</code>, por lo
 que en su lugar:</p>
 <div class="highlight"><pre><span class="nv">$ </span>python -m http.server 8000
-Serving HTTP on 0.0.0.0 port 8000 ...
+Serving HTTP on 0.0.0.0 port <span class="m">8000</span> ...
 </pre></div>
 <p>Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
 desde la carpeta con los <em><span class="caps">HTML</span></em> de mi blog, y accedo vía <em>Firefox</em> a la
@@ -339,12 +339,12 @@ Aunque esta vez necesitamos conocer su <em><span class="caps">IP</span></em> en 
 <div class="highlight"><pre><span class="nv">$ </span>ifconfig
 eth0: &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"nv"</span>&gt;flags&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
     inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
-    inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20&lt;link&gt;
-    ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>Ethernet&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
-    RX packets 598614  bytes 650747078 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>620.6 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
-    RX errors 0  dropped 16  overruns 0  frame 0
-    TX packets 388523  bytes 69392562 &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>66.1 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
-    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+    ether 00:1e:8c:1f:a7:d8  txqueuelen <span class="m">1000</span>  &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>Ethernet&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
+    RX packets <span class="m">598614</span>  bytes <span class="m">650747078</span> &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>620.6 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
+    RX errors <span class="m">0</span>  dropped <span class="m">16</span>  overruns <span class="m">0</span>  frame 0
+    TX packets <span class="m">388523</span>  bytes <span class="m">69392562</span> &lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">(</span>66.1 MiB&lt;span <span class="nv">class</span><span class="o">=</span><span class="s2">"o"</span>&gt;<span class="o">)</span>
+    TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions 0
 ...
 </pre></div>
 <p>Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el

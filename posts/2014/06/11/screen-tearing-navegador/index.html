@@ -134,7 +134,7 @@ a ti. Y mi hora llegó hace un par de días." />
   </h3>
 
   <div class="postinfo">
-    <p class="published" title="2014-06-11T23:59:00">
+    <p class="published" title="2014-06-11T23:59:00+02:00">
       mié 11 junio 2014, por Soulchainer
     </p>
   </div><!-- .postinfo -->
@@ -182,7 +182,7 @@ usage: compton <span class="o">[</span>options<span class="o">]</span>
 Options:
 ...
 --vsync vsync-method
-  Set VSync method. There are up to 4 VSync methods currently available.
+  Set VSync method. There are up to <span class="m">4</span> VSync methods currently available.
     <span class="nv">none</span> <span class="o">=</span> No VSync
     <span class="nv">drm</span> <span class="o">=</span> VSync with DRM_IOCTL_WAIT_VBLANK. May only work on some
       drivers.
@@ -199,7 +199,7 @@ Options:
       extension. Basically the same as opengl-swc above, except the
       extension we use.
 --vsync-aggressive
-  Attempt to send painting request before VBlank and <span class="k">do </span>XFlush<span class="o">()</span>
+  Attempt to send painting request before VBlank and <span class="k">do</span> XFlush<span class="o">()</span>
   during VBlank. This switch may be lifted out at any moment.
 ...
 --dbe
@@ -214,12 +214,12 @@ sea de paso).</p>
 <h3>Solución usando sólo compton</h3>
 <p>En dicha publicación recomiendan crear un archivo
 de configuración simple para <em>compton</em> en <code>~/.config/compton.conf</code> :</p>
-<div class="highlight"><pre><span class="nv">shadow</span> <span class="o">=</span> <span class="nb">true</span>;
-no-dnd-shadow <span class="o">=</span> <span class="nb">true</span>;
-shadow-radius <span class="o">=</span> 10;
-shadow-offset-x <span class="o">=</span> -16;
-shadow-offset-y <span class="o">=</span> -16;
-shadow-opacity <span class="o">=</span> 0.6;
+<div class="highlight"><pre><span class="nv">shadow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+no-dnd-shadow <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+shadow-radius <span class="o">=</span> 10<span class="p">;</span>
+shadow-offset-x <span class="o">=</span> -16<span class="p">;</span>
+shadow-offset-y <span class="o">=</span> -16<span class="p">;</span>
+shadow-opacity <span class="o">=</span> 0.6<span class="p">;</span>
 </pre></div>
 <p>y ejecutar <strong>compton</strong> con esta línea:</p>
 <div class="highlight"><pre>compton --opengl --vsync opengl-swc --paint-on-overlay -b
@@ -247,7 +247,7 @@ EndSection
 </pre></div>
 <p>Esto, en conjunción con la siguiente línea para <em>compton</em>, funcionó para mí
 (hay que reiniciar):</p>
-<div class="highlight"><pre>compton --opengl --paint-on-overlay -b &amp;
+<div class="highlight"><pre>compton --opengl --paint-on-overlay -b <span class="p">&amp;</span>
 </pre></div>
 <p>Como veis, prescindo de la opción <code>--vsync opengl-swc</code> y, de paso, añado
 <code>-b</code> , para que <em>compton</em> se ejecute como un demonio.</p>

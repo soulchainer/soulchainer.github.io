@@ -144,7 +144,7 @@ Así que buceé en DistroWatch..." />
   </h3>
 
   <div class="postinfo">
-    <p class="published" title="2014-01-21T10:00:00">
+    <p class="published" title="2014-01-21T10:00:00+01:00">
       mar 21 enero 2014, por Soulchainer
     </p>
   </div><!-- .postinfo -->
@@ -655,14 +655,14 @@ la consola). Usando el comando <code>dd</code>:</p>
 <p>Donde se ha de sustituir la <strong>x</strong> de <code>/dev/sdx</code> por la letra
 correspondiente a nuestra unidad <em><span class="caps">USB</span></em>. Podemos averiguarla también desde la
 terminal con:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo fdisk -l | grep <span class="s2">"Disk /"</span>
+<div class="highlight"><pre><span class="nv">$ </span>sudo fdisk -l <span class="p">|</span> grep <span class="s2">"Disk /"</span>
 </pre></div>
 <p>Esto listará todos los dispositivos de almacenamiento (discos) conectados. Por
 ejemplo, en mi caso:</p>
-<div class="highlight"><pre>Disk /dev/sda: 298,1 GiB, 320069031424 bytes, 625134827 sectors
-Disk /dev/sdb: 931,5 GiB, 1000204886016 bytes, 1953525168 sectors
-Disk /dev/sdc: 149,1 GiB, 160041885696 bytes, 312581808 sectors
-Disk /dev/sdd: 7,5 GiB, 8010194944 bytes, 15644912 sectors
+<div class="highlight"><pre>Disk /dev/sda: 298,1 GiB, <span class="m">320069031424</span> bytes, <span class="m">625134827</span> sectors
+Disk /dev/sdb: 931,5 GiB, <span class="m">1000204886016</span> bytes, <span class="m">1953525168</span> sectors
+Disk /dev/sdc: 149,1 GiB, <span class="m">160041885696</span> bytes, <span class="m">312581808</span> sectors
+Disk /dev/sdd: 7,5 GiB, <span class="m">8010194944</span> bytes, <span class="m">15644912</span> sectors
 </pre></div>
 <p>Por lo que, fijándome en las capacidades de cada disco, sé que la ruta de mi
 dispositivo es <code>/dev/sdd</code>, ya que se trata de una memoria de <em>8 <span class="caps">GB</span></em>.</p>
@@ -672,7 +672,7 @@ Tenemos que esperar pacientemente hasta que, al fin, nos aparecen unas líneas
 con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:</p>
 <div class="highlight"><pre>1468416+0 registros leídos
 1468416+0 registros escritos
-751828992 bytes <span class="o">(</span>752 MB<span class="o">)</span> copiados, 257,767 s, 2,9 MB/s
+<span class="m">751828992</span> bytes <span class="o">(</span><span class="m">752</span> MB<span class="o">)</span> copiados, 257,767 s, 2,9 MB/s
 </pre></div>
 <p>Y ya estamos listos para arrancar la <em><span class="caps">ISO</span></em> vía <em><span class="caps">USB</span></em>.</p>
 <hr class="docutils"/>
