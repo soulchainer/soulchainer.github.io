@@ -1,0 +1,427 @@
+Esto va como un tiro (I): Usando una SSD en Arch Linux
+######################################################
+:date: 2014-11-19 23:30
+:tags: ssd, unidad estado sólido, instalación, optimización, linux, antergos,
+       archlinux
+:category: CÓMOS, linux
+:slug: optimizacion-ssd-instalacion
+:author: Soulchainer
+:parts:  Esto_va_como_un_tiro
+:twsummary: Entre mis prioridades para cuando consiguiera algo de dinerito
+            estaba el pillarme una SSD. Pues bien, mi equipo lleva ya unas
+            semanitas trabajando con una en sus entrañas, así que toca artículo
+            sobre la configuración y optimización del sistema para maximizar el
+            rendimiento y alargar la vida útil de la unidad.
+:twimg: 2014-11-19_01.png
+
+
+.. contents:: **Índice de contenido**
+..
+   1  Antes de comprar
+   2  Modo AHCI
+   3  Particionado inteligente de discos
+   4  Swap
+   5  Montar las particiones con noatime
+   6  TRIM
+     6.1  Activando TRIM
+   7  Planificador de E/S
+   8  Limitar el número de chequeos de los sistemas de archivos
+   9  Velocidad
+   10  Próxima parte
+
+{BEGIN_SUMMARY}
+
+Entre mis prioridades para cuando consiguiera algo de dinerito estaba el
+pillarme una *SSD* [#]_. Pues bien, mi equipo lleva ya unas semanitas
+trabajando con una en sus entrañas, así que toca artículo sobre la
+configuración y optimización del sistema para maximizar el rendimiento y
+alargar la vida útil de la unidad.
+
+.. figure:: {filename}/images/2014/11/2014-11-19_01.png
+    :alt: SSD Crucial MX100 128GB SATA3.
+    :align: center
+
+    Crucial MX100 128GB SATA3. Mi elección. Por relación calidad/precio/espacio, más que nada.
+
+Aunque el artículo está enfocado a `Antergos`_ (`Arch Linux`_ con instalador
+para vaguetes), que es lo que yo uso, buena parte de él es fácil de aplicar a
+otras distribuciones **Linux**.
+
+{END_SUMMARY}
+Una vez dicho esto, vamos a ello.
+
+****************
+Antes de comprar
+****************
+
+Para un uso eficiente de la unidad por parte del kernel, el espacio ocupado
+no ha de superar el 75% del espacio total disponible. Por ello, hemos de
+tener especial cuidado a la hora de elegir la capacidad de nuestra futura
+*SSD*. Si sabemos que vamos a ocupar 64 GB, mejor será adquirir una de mayor
+capacidad.
+
+*********
+Modo AHCI
+*********
+
+Conviene establecer el **MODO** `AHCI`_ en la **BIOS**/**UEFI**.
+
+Este ajuste está relacionado con los dispositivos con interfaz *SATA*, por lo
+que seguramente podremos encontrarlo en el apartado de configuración de los
+mismos. En la **UEFI** de `mi placa base`_ se encuentra en
+**Advanced → Storage Configuration → Sata Mode**.
+
+El **MODO AHCI** permite al sistema acceder a capacidades avanzadas de *SATA*,
+a la vez que mejora el rendimiento de los dispositivos.
+
+**********************************
+Particionado inteligente de discos
+**********************************
+
+Para sistemas con *SSD* y discos magnéticos, es preferible montar los
+directorios :code:`/var` y :code:`/home` en particiones de estos últimos.
+En el caso de :code:`/var` para evitar un desgaste innecesario de la *SSD*, y
+en el de :code:`/home` porque uno de los inconvenientes de las *SSD* es que
+pierden velocidad de escritura conforme se va llenando el disco.
+
+La idea general es tener en la *SSD* aquellas particiones cuya lectura sea
+muy rápida (como la del sistema operativo) y evitar mantener particiones sobre
+las que se realicen operaciones de escritura muy frecuentes. Obviamente,
+podemos ignorar esto según nuestras necesidades (si queremos acelerar el
+acceso a determinados archivos), pero siempre teniendo presente que al hacerlo
+estamos reduciendo la vida útil de la unidad.
+
+En mi caso, en la *SSD* tengo las particiones :code:`/boot`, :code:`/` y
+:code:`/VMs` (para máquinas virtuales) y ubico en otros discos duros las
+particiones :code:`/home` y :code:`/var`.
+
+****
+Swap
+****
+
+Podemos crear nuestra partición swap en la *SSD*, pero esto conlleva muchas
+escrituras en disco, y eso es precisamente lo que estamos tratando de evitar.
+Si tenemos una cantidad de *RAM* decente es seguro prescindir de ella.
+
+Yo, con 8 GB de *RAM*, no empleo swap. Pero, en el caso de que dispongamos de
+muy poca *RAM* (<4 GB), podemos configurar el sistema para que la emplee lo
+mínimo indispensable.
+
+Para ello hemos de editar un archivo de configuración de :code:`sysctl` (puede
+que tengamos que crearlo):
+
+.. code-block:: sh
+
+    $ sudo nano /etc/sysctl.d/99-sysctl.conf
+    ----------------------------------------
+    vm.swappiness=1  # tendencia a usar la swap. 60 (de 100) por defecto
+    vm.vfs_cache_pressure=50  # tendencia del kernel a reclamar la memoría usada para cachear el sistema de archivos en lugar de otras cachés. Bajamos de 100 a 50, para que no se reclame con tanta urgencia.
+    vm.dirty_writeback_centisecs=1500  # frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para que limitar las escrituras
+
+**********************************
+Montar las particiones con noatime
+**********************************
+
+Linux lleva un registro de los tiempos de acceso a archivos y directorios.
+Esto hace que por cada archivo que leemos se genere paralelamente una
+operación de escritura para mantener actualizado dicho registro. Podemos
+desactivar esta opción sin mayores inconvenientes en entornos de escritorio,
+obteniendo una mejora en el rendimiento de nuestros dispositivos de
+almacenamiento.
+
+Para ello, añadiremos en :code:`/etc/fstab` la opción :code:`noatime` a las
+particiones deseadas. A modo de ejemplo, valga un extracto de mi :code:`fstab`:
+
+.. code-block:: sh
+
+    UUID=69f57eec-6f5b-4431-8315-2410f6ee9c8a / ext4 rw,defaults,noatime 0 1
+    UUID=f9f992cc-80df-4bb0-9b99-054a69ad5cd5 /boot ext4 rw,defaults,noatime 0 2
+    UUID=55cd251f-ecd6-46d9-bfb6-91a400c0e2a7 /VMs ext4 rw,defaults,noatime 0 2
+
+****
+TRIM
+****
+
+`TRIM`_ es una característica que prolonga la vida útil de la *SSD* y reduce,
+en lo posible, su ralentización a lo largo del tiempo.
+
+La mayoría de *SSD* modernas soportan el comando *ATA_TRIM*.
+
+Podemos comprobar si nuestra *SSD* lo soporta con el siguiente comando:
+
+.. code-block:: sh
+
+    $ sudo hdparm -I /dev/sdX | grep TRIM  # X es la letra de nuestra SSD
+         *  Data Set Management TRIM supported (limit 8 blocks)
+         *  Deterministic read ZEROs after TRIM
+
+Si el comando devuelve alguna línea similar a las precedidas por asterisco,
+soporta *TRIM*.
+
+A partir del kernel 3.7, los siguientes sistemas de archivos soportan *TRIM*:
+**Ext4**, **Btrfs**, **JFS**, **VFAT** y **XFS**.
+
+Entre ellos, **Ext4** es la opción ideal, por estabilidad y rendimiento.
+
+Activando TRIM
+==============
+
+En esencia, hay dos formas de activar y/o aplicar *TRIM*:
+
+1. Vía opciones de montaje en :code:`/etc/fstab`.
+
+   Con la opción :code:`discard` se habilita el uso de *TRIM*:
+
+   .. code-block:: sh
+
+       UUID=69f57eec-6f5b-4431-8315-2410f6ee9c8a / ext4 rw,defaults,noatime,discard 0 1
+
+   Antergos recien instalada viene con esta opción ya configurada.
+
+   El pero de este método es que se aplica *TRIM* en tiempo real, lo que
+   significa que cuando se borre un archivo nuestra *SSD* estará haciendo
+   trabajo extra, ejecutando *TRIM* cada vez. También significa que si
+   borramos un archivo por error, no tendremos oportunidad alguna de
+   recuperarlo.
+
+   Por estas razones, yo prefiero la otra alternativa.
+
+2.  Vía :code:`fstrim`.
+
+    Este comando viene proporcionado por el paquete :code:`util-linux`.
+    Podemos ejecutarlo manualmente sobre las particiones con:
+
+    .. code-block:: sh
+
+        $ sudo fstrim -v /punto/de/montaje
+
+    La partición sobre la que se aplica ha de estar montada.
+
+    Al ejecutarlo manualmente deberíamos repetir este comando cada vez que
+    deseáramos aplicar *TRIM* sobre alguna de las particiones de la *SSD*: un
+    fastidio. Por ello, es preferible ejecutarlo periódicamente vía
+    :code:`cron` o :code:`systemd`.
+
+    Junto a :code:`fstrim`, el paquete :code:`util-linux` proporciona las
+    unidades de :code:`systemd`: :code:`fstrim.service` y :code:`fstrim.timer`.
+    Activando :code:`fstrim.timer`
+
+    .. code-block:: sh
+
+        $ sudo systemctl enable fstrim.timer
+
+    se activará el servicio (:code:`fstrim.service`) una vez a la semana,
+    ejecutándo *TRIM* sobre todos los sistemas de archivos montados en
+    dispositivos que soporten la operación :code:`discard`.
+
+    Si no nos parece suficiente frecuencia, podemos editar el archivo para que
+    haga *TRIM* diariamente:
+
+    .. code-block:: sh
+
+        $ sudo nano /usr/lib/systemd/system/fstrim.timer
+        ------------------------------------------------
+        [Unit]
+        Description=Discard unused blocks daily
+        Documentation=man:fstrim
+
+        [Timer]
+        OnCalendar=daily
+        AccuracySec=1h
+        Persistent=true
+
+        [Install]
+        WantedBy=multi-user.target
+
+    **Nota:** revisar :code:`/etc/fstab` para asegurarnos de no estar usando la
+    opción :code:`discard` al mismo tiempo que :code:`fstrim`.
+
+*******************
+Planificador de E/S
+*******************
+
+Por defecto, *Arch* usa `CFQ`_ como *planificador de E/S* [#]_. Podemos cambiar
+este por `NOOP`_ o `Deadline`_. Ambos mejoran el rendimiento de las SSDs.
+Normalmente, *NOOP* es la opción más recomendable.
+
+Para averiguar el planificador en uso imprimimos el contenido de
+:code:`/sys/block/sdX/queue/scheduler`:
+
+.. code-block:: sh
+
+    $ cat /sys/block/sdX/queue/scheduler  # X es la letra de nuestra SSD
+    noop deadline [cfq]  # aparece entre corchetes
+
+En caso de querer cambiarlo, se puede hacer sin reiniciar con:
+
+.. code-block:: sh
+
+    $ sudo echo noop > /sys/block/sdX/queue/scheduler  # X → letra de la SSD
+
+Una vez confirmado el cambio:
+
+.. code-block:: sh
+
+    $ cat /sys/block/sdX/queue/scheduler  # X es la letra de nuestra SSD
+    [noop] deadline cfq
+
+y estando seguros de nuestra elección, hay que volverlo permanente (en caso
+contrario, se perderá al reiniciar). Con una simple regla de `udev`_ bastará.
+
+.. code-block:: sh
+
+    $ sudo nano /etc/udev/rules.d/60-schedulers.rules
+    -------------------------------------------------
+    # set deadline scheduler for non-rotating disks
+    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0",
+    ATTR{queue/scheduler}="noop"
+
+Esta regla asigna la planificación de E/S a :code:`noop` en todos los
+dispositivos sin partes móviles (*non-rotating*) que encuentre.
+
+*********************************************************
+Limitar el número de chequeos de los sistemas de archivos
+*********************************************************
+
+A fin de garantizar la integridad de los datos, el sistema operativo realiza
+un chequeo a todo sistema de archivos que acumula x número de montajes desde su
+última revisión. Por defecto suele ser a los treinta, pero dado que lo que
+queremos es minimizar el desgaste de la *SSD*, deberíamos ampliar este valor para estirar el tiempo entre prueba y prueba.
+
+:code:`tune2fs` (para particiones ext4) realiza el trabajo:
+
+.. code-block:: sh
+
+    $ sudo tune2fs -c 60 /dev/sda2  # 60 montajes
+    $ sudo tune2fs -i 2[d|w|m] /dev/sda2  # días|semanas|meses, 2d → 2 días
+    $ sudo tune2fs -l /dev/sda2  # ver registro del sistema de archivos
+    $ sudo tune2fs -l /dev/sda2 | grep "Last checked"  # fecha último chequeo
+    $ sudo tune2fs -l /dev/sda2 | grep "t count"  # nº de montajes máximo y
+    actual
+
+Es posible deshabilitar completamente este chequeo, pero
+**no es nada aconsejable**.
+
+*********
+Velocidad
+*********
+
+Con el comando
+
+.. code-block:: sh
+
+    $ sudo hdparm -Tt /dev/sdX  # X es la letra de nuestra unidad
+
+efectuamos un test de velocidad de lectura, donde:
+
+- **-T** mide el rendimiendo del procesador, la caché y la memoria del sistema.
+  Lo usamos más que nada como referencia, para comparar las velocidades de la
+  memoria del sistema y de la *SSD*.
+- **-t** mide la velocidad de lectura secuencial del dispositivo.
+
+**Ojo** con esto, porque he visto:
+
+1. Artículos explicando que estas son pruebas de escritura. **No**.
+
+2. Comentarios de usuarios asombrándose por la diferencia de velocidades entre *SSDs*. Por el primer valor. Porque les han dicho que son pruebas de la velocidad de la *SSD* y... **No**.
+
+   Esto, además de leyéndose el `man de hdparm`_, se hace patente en las pruebas a continuación.
+
+A modo de ejemplo, ahí van las pruebas que he realizado con mis dispositivos
+de almacenamiento. La *SSD* es :code:`/dev/sda`.
+
+- Test con mi PC viejo: placa `ASUS M2N-SLI`_, procesador
+  `AMD Athlon 64 X2 Dual Core 4200+`_ y *8 GB RAM DDR2 800*.
+
+  .. code-block:: sh
+
+      $ sudo hdparm -Tt /dev/sda /dev/sdb /dev/sdc
+
+      /dev/sda:
+       Timing cached reads:   2450 MB in  2.00 seconds = 1224.71 MB/sec
+       Timing buffered disk reads: 672 MB in  3.00 seconds = 223.81 MB/sec
+
+      /dev/sdb:
+       Timing cached reads:   2388 MB in  2.00 seconds = 1194.15 MB/sec
+       Timing buffered disk reads: 520 MB in  3.00 seconds = 173.23 MB/sec
+
+      /dev/sdc:
+       Timing cached reads:   2436 MB in  2.00 seconds = 1218.58 MB/sec
+       Timing buffered disk reads: 456 MB in  3.00 seconds = 151.76 MB/sec
+
+- Test con mi nuevo PC: placa `ASRock 970 Extreme 3 R2.0`_, procesador
+  `AMD FX 8-Core Black Edition FX-8350`_ y
+  `Kingston HyperX Fury Black DDR3 1866MHz 8GB`_.
+
+  .. code-block:: sh
+
+      $ sudo hdparm -Tt /dev/sda /dev/sdb /dev/sdc
+
+      /dev/sda:
+       Timing cached reads:   9832 MB in  2.00 seconds = 4919.25 MB/sec
+       Timing buffered disk reads: 1206 MB in  3.00 seconds = 401.43 MB/sec
+
+      /dev/sdb:
+       Timing cached reads:   9822 MB in  2.00 seconds = 4914.29 MB/sec
+       Timing buffered disk reads: 522 MB in  3.00 seconds = 173.74 MB/sec
+
+      /dev/sdc:
+       Timing cached reads:   9722 MB in  2.00 seconds = 4864.89 MB/sec
+       Timing buffered disk reads: 456 MB in  3.01 seconds = 151.52 MB/sec
+
+Como resulta obvio, hay que tener una placa razonablemente moderna para
+aprovechar al máximo la velocidad que nos brinda una *SSD*. En el equipo
+antiguo, se notaba la diferencia, pero tampoco era para tirar cohetes. En el
+nuevo, pues se nota, se nota bastante :) El salto que he dado de un dual core
+de hace 7 años a un octacore también tiene su cosilla. Vamos, que esto va como
+un tiro :D
+
+*************
+Próxima parte
+*************
+
+Esta iba a ser una entrada única sobre los ajustes que hice en mi equipo para
+sacarle partido a mi nueva *SSD*, pero acabé añadiendo diversas notas más
+relacionadas con `tmpfs`_ que con otra cosa, así que la he dividido en dos
+partes.
+
+Y, básicamente, ese será el contenido del próximo artículo: algunas
+configuraciones relacionadas con *tmpfs*.
+
+Como otros artículos, este texto nace de un *HOWTO* que voy escribiendo sobre
+la marcha para mi yo futuro [#]_ y que luego comparto con la esperanza de que
+le resulte útil a alguien más.
+
+-----
+
+.. _Antergos: http://antergos.com/
+.. _Arch Linux: https://www.archlinux.org/
+.. _TRIM: https://es.wikipedia.org/wiki/TRIM/
+.. _CFQ: http://en.wikipedia.org/wiki/CFQ/
+.. _NOOP: http://en.wikipedia.org/wiki/Noop_scheduler/
+.. _Deadline: http://en.wikipedia.org/wiki/Deadline_scheduler/
+.. _udev: http://es.wikipedia.org/wiki/Udev/
+.. _/run: https://wiki.archlinux.org/index.php/Arch_filesystem_hierarchy#.2Frun:_Ephemeral_runtime_data
+.. _ASUS M2N-SLI: http://www.asus.com/es/Motherboards/M2NSLI/specifications/
+.. _AMD Athlon 64 X2 Dual Core 4200+: http://www.cpu-world.com/CPUs/K8/AMD-Athlon%2064%20X2%204200%2B%20-%20ADA4200DAA5BV%20%28ADA4200BVBOX%29.html
+.. _mi placa base:
+.. _ASRock 970 Extreme 3 R2.0: http://www.asrock.com/mb/AMD/970%20Extreme3%20R2.0/index.la.asp
+.. _AMD FX 8-Core Black Edition FX-8350: http://www.amd.com/en-us/products/processors/desktop/fx/
+.. _Kingston HyperX Fury Black DDR3 1866MHz 8GB: http://www.kingston.com/es/hyperx/memory/fury/
+.. _AHCI: http://es.wikipedia.org/wiki/AHCI
+.. _man de hdparm: http://linux.die.net/man/8/hdparm
+.. _tmpfs: http://es.wikipedia.org/wiki/Tmpfs
+.. _Wiki Arch Linux: https://wiki.archlinux.org/index.php/Solid_State_Drives
+.. _neutrino: http://blog.neutrino.es/2013/howto-properly-activate-trim-for-your-ssd-on-linux-fstrim-lvm-and-dmcrypt/
+.. _PortalLinux: http://portallinux.es/recomendaciones-para-el-uso-de-un-ssd-en-gnulinux/
+.. _Rudd-O: https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that
+.. _Documentación Opensuse: http://doc.opensuse.org/products/draft/SLES/SLES-tuning_sd_draft/cha.tuning.memory.html
+
+.. [#] Una **unidad de estado sólido** (**SSD**, **solid-state drive**) es un dispositivo de almacenamiento de datos que usa una memoria no volátil, como la memoria flash, para almacenar datos. En comparación con los discos duros convencionales, las *SSD* son menos sensibles a los golpes, son prácticamente inaudibles, tienen un menor tiempo de acceso y de latencia, y se calientan y consumen menos energía.
+.. [#] Es el software encargado de decidir el orden por el cual se van a enviar las peticiones de lectura y escritura al subsistema de disco.
+.. [#] Me lo suele agradecer bastante. Es muy educado y buena gente.
+
+-----
+
+**Fuentes:** `Wiki Arch Linux`_, `neutrino`_, `PortalLinux`_, `Rudd-O`_,
+`Documentación Opensuse`_, **páginas man**.

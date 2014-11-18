@@ -1,0 +1,141 @@
+Firefox y las fuentes externas en Tumblr (problemas con @font-face)
+###################################################################
+:date: 2014-06-17 18:40
+:tags: firefox, css, fuentes, font-face, tumblr, base64
+:category: CÓMOS, desarrollo web
+:slug: firefox-fuentes-tumblr
+:author: Soulchainer
+:twsummary: Firefox y versiones recientes de IE cumplen el estándar de Control
+            de Acceso para Peticiones en sitios cruzados.
+            Esto implica que si quieres usar en tu sitio una fuente alojada
+            fuera de Tumblr, el servidor donde está alojada ha de concederte
+            permiso para ello (con una cabecera http concreta).
+:twimg: 2014-06-17_01.png
+
+Estoy escribiendo un nuevo tema para `mi tumblr`_ y ayer llegó el momento de
+trasladar lo que ya tengo escrito al editor de html de *Tumblr*, para empezar a
+incorporar sus variables especiales y demás. Pues bien, subo dicho código,
+guardo y me encuentro con esto:
+
+.. figure:: {filename}/images/2014/06/2014-06-17_01.png
+    :alt: Captura de pantalla del tema, donde se aprecia que el navegador no
+          carga las fuentes correctas.
+    :align: center
+
+    ¿Adónde se han ido mis fuentes bonicas?
+
+Precioso, ¿verdad? Repaso todo lo que he hecho y no he cometido ningún error.
+Y lo más gracioso es que en local me funciona bien, en *Chrome* también...
+**¿Qué cojones pasa aquí?**
+
+*******************
+Origen del problema
+*******************
+
+Pues resulta que *Firefox* y versiones recientes de *Internet Explorer* cumplen
+el estándar de
+`Control de Acceso para Peticiones en sitios cruzados (Access Control for Cross-Site Requests)`_.
+
+Centrándonos en nuestro problema, esto implica que si quieres usar en tu sitio
+unas fuentes alojadas fuera de *Tumblr*, el servidor donde están alojadas ha
+de concederte permiso para ello. Esto lo hace enviando a tu navegador una
+cabecera http [#]_ `Access-Control-Allow-Origin`_ con unos valores específicos.
+
+Y da la casualidad de que *Tumblr* no envía esa cabecera para los archivos que subes a `static.tumblr.com <http://static.tumblr.com>`_ [#]_. Genial, ¿verdad?
+
+.. figure:: {filename}/images/2014/06/2014-06-17_02.png
+    :alt: Mensaje de error. No tenemos permisos para descargar la fuente.
+
+    Mensaje de error que recibimos en la consola de *Firefox*, avisándonos de que no tenemos permisos para descargar las fuentes.
+
+
+*********
+Solución
+*********
+
+Lo ideal sería que al menos incluyera esa cabecera con permiso para el dominio
+de `tumblr.com <http://tumblr.com>`_ , pero dado que no es el caso, podemos
+optar por incluir la fuente embebida en el archivo *css*, codificándola en
+*base64*.
+
+De esta manera, pasaríamos de tener una regla :code:`@font-face` como esta [#]_:
+
+.. code-block:: css
+
+    @font-face {
+      font-family: "RaphaelIcons";
+      src: url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot");
+      src: url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot#iefix") format("embedded-opentype"),
+           url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.woff") format("woff"),
+           url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+A tener algo así:
+
+.. code-block:: css
+
+    @font-face {
+      font-family: "RaphaelIcons";
+      src: url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot");
+      src: url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.eot#iefix") format("embedded-opentype"),
+           url(data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAHVIABAAAAAAuTwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABsAAAAcWEc5a0dERUYAAAGIAAAAHQAAACAAuAAET1MvMgAAAagAAABFAAAAVlY0gadjbWFwAAAB8AAAAPcAAAGKvvMX5GN2dCAAAALoAAAALgAAAC4GUAXAZnBnbQAAAxgAAAGxAAACZc+0L6dnYXNwAAAEzAAAAAwAAAAMAAMAB2dseWYAAATYAABrhQAAq9j8bvh1aGVhZAAAcGAAAAAwAAAANvaXTyNoaGVhAABwkAAAAB4AAAAkCaEGeGhtdHgAAHCwAAABIgAAAixXuQKIbG9jYQAAcdQAAAELAAABGCoLWdhtYXhwAABy4AAAACAAAAAgAb8FTW5hbWUAAHMAAAAA7wAAAdQnFEREcG9zdAAAc/AAAAEWAAABwOvNzxVwcmVwAAB1CAAAAEAAAABAW8i7eXjaY2BgYGQAgmNX9GaC6BM7WzOgdCYATbkHQAB42mNgZGBg4ANiCQYQYGJgBMIuIGYB8xgACjgAvQAAAHjaY2BkWs34hYGVgYFpFtMZBgaGfgjN+IrBiJEDKMrAxswAAwgWEASkuaYwODAoKMQzG/83ZohhDmPgAwozguQAEhoKqgAAAHjaY2BgYGaAYBkGRgYQaAHyGMF8FoYMIC3GIAAUYWMIZ6hiWMCwkmEdwx0FLgVBBX2F+P//gfIKDNFg8bUMBxQYFAQg4v8f/3/wf/f/zf83/J//oOZB+YOoB9pQ87EARjYGuCQjE5BgQlcAdCILKxs7BycXNw8vH7+AoJCwiKiYuISklLSMrJy8gqKSsoqqmrqGppa2jq6evoGhkbGJqZm5haUVULe1ja2dvYOjk7OLq5u7h6eXt4+v...) format("woff"),
+           url("http://static.tumblr.com/zapmxb6/xFVn7v3j4/raphaelicons-webfont.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+**NOTA**: He acortado el valor en *base64*. En realidad, el resultado es una
+línea bastante **MÁS** larga.
+
+Para convertir nuestra fuente a *base64* podemos usar servicios web como:
+
+- `Base64online`_.
+
+   Basta con seleccionar el fichero que deseemos (**select the file**), pulsar
+   **Encode to Base64** y marcar la casilla **Format as Data URL** antes de
+   copiar el texto resultante.
+
+- `FontSquirrel Webfont Generator`_.
+
+  Es un generador de fuentes para su uso en web, muy útil para optimizar las
+  fuentes que deseamos usar.
+
+  Si escogemos el modo experto, podemos establecer la opción **Base64 Encode**
+  para que nos genere la fuente también en *base64*, directamente en el *CSS*.
+
+- Comando :code:`base64`.
+
+  En entornos *Linux*, si disponemos del mencionado comando, podemos obtener la
+   codificación por consola haciendo:
+
+  .. code-block:: sh
+
+      $ base64 archivo_a_codificar.extension
+
+*********
+Resultado
+*********
+
+Una vez hecho esto, las fuentes nos cargan según lo esperado en *Firefox*:
+
+.. figure:: {filename}/images/2014/06/2014-06-17_03.png
+    :alt: Firefox carga correctamente las fuentes deseadas.
+
+    Firefox carga correctamente las fuentes deseadas.
+
+
+
+-----
+
+.. _mi tumblr: http://soulchainer.tumblr.com/
+.. _Control de Acceso para Peticiones en sitios cruzados (Access Control for Cross-Site Requests): http://www.w3.org/TR/2008/WD-access-control-20080912/
+.. _Access-Control-Allow-Origin: http://www.w3.org/TR/2008/WD-access-control-20080912/#access-control-allow-origin
+.. _Base64online: http://base64online.org/encode/
+.. _FontSquirrel Webfont Generator: http://www.fontsquirrel.com/tools/webfont-generator/
+.. _Raphaël Icon-set: http://icons.marekventur.de/
+
+.. [#] Las cabeceras *HTTP* son los parámetros que se envían en una petición o respuesta *HTTP* al cliente (el navegador) o al servidor para proporcionar información esencial sobre la transacción en curso.
+.. [#] Dominio provisto por *Tumblr* para los recursos asociados al tema.
+.. [#] Fuente usada en el ejemplo: `Raphaël Icon-Set`_.

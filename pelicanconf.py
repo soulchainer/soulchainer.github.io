@@ -7,9 +7,9 @@ SITENAME = 'Soulbits'
 SITESUBTITLE = 'archlinux, software libre y apuntes varios'
 SITEURL = '.'
 PATH = 'content/'
-PAGE_DIR = 'pages'
-ARTICLE_DIR = 'posts'
-PLUGIN_PATH = 'plugins/'
+PAGE_PATHS = ['pages',]
+ARTICLE_PATHS = ['posts',]
+PLUGIN_PATHS = ['plugins/',]
 PLUGINS = ['better_figures_and_images', 'multi_part',
            'pelican_youtube', 'sitemap', 'pelican_vimeo', 'summary']
 SUMMARY_MAX_LENGTH = 70

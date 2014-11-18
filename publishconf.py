@@ -21,10 +21,10 @@ SITENAME = 'Soulbits'
 SITESUBTITLE = 'archlinux, software libre y apuntes varios'
 SITEURL = 'http://soulchainer.github.io'
 PATH = 'content/'
-PAGE_DIR = 'pages'
-ARTICLE_DIR = 'posts'
+PAGE_PATHS = ['pages',]
+ARTICLE_PATHS = ['posts',]
 OUTPUT_PATH = 'publish/'
-PLUGIN_PATH = 'plugins/'
+PLUGIN_PATHS = ['plugins/',]
 PLUGINS = ['better_figures_and_images', 'multi_part',
            'pelican_youtube', 'sitemap', 'pelican_vimeo', 'summary']
 SUMMARY_MAX_LENGTH = 70
