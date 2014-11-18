@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, antergos, archlinux, instalación, linux, optimización, ssd, unidad estado sólido" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Esto va como un tiro (I): Usando una SSD en Arch Linux">
+      <meta name="twitter:description" content="Entre mis prioridades para cuando consiguiera algo de dinerito
+estaba el pillarme una SSD. Pues bien, mi equipo lleva ya unas
+semanitas trabajando con una en sus entrañas, así que toca artículo
+sobre la configuración y optimización del sistema para maximizar el
+rendimiento y alargar la vida útil de la unidad.">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/11/2014-11-19_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Esto va como un tiro (I): Usando una SSD en Arch Linux" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/11/2014-11-19_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux" />
+      <meta property="og:article:tag" content="antergos" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="instalación" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="optimización" />
+      <meta property="og:article:tag" content="ssd" />
+      <meta property="og:article:tag" content="unidad estado sólido" />
+      <meta property="og:description" content="Entre mis prioridades para cuando consiguiera algo de dinerito
+estaba el pillarme una SSD. Pues bien, mi equipo lleva ya unas
+semanitas trabajando con una en sus entrañas, así que toca artículo
+sobre la configuración y optimización del sistema para maximizar el
+rendimiento y alargar la vida útil de la unidad." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/11/19/optimizacion-ssd-instalacion/" rel="bookmark" title="Permalink to Esto va como un tiro (I): Usando una SSD en Arch Linux">
+      Esto va como un tiro (I): Usando una <span class="caps">SSD</span> en Arch&nbsp;Linux
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-11-19T23:30:00+01:00">
+      mié 19 noviembre 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="contents topic" id="indice-de-contenido">
+<p class="topic-title first"><strong>Índice de contenido</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#antes-de-comprar" id="id8">Antes de comprar</a></li>
+<li><a class="reference internal" href="#modo-ahci" id="id9">Modo <span class="caps">AHCI</span></a></li>
+<li><a class="reference internal" href="#particionado-inteligente-de-discos" id="id10">Particionado inteligente de discos</a></li>
+<li><a class="reference internal" href="#swap" id="id11">Swap</a></li>
+<li><a class="reference internal" href="#montar-las-particiones-con-noatime" id="id12">Montar las particiones con noatime</a></li>
+<li><a class="reference internal" href="#trim" id="id13"><span class="caps">TRIM</span></a><ul>
+<li><a class="reference internal" href="#activando-trim" id="id14">Activando <span class="caps">TRIM</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#planificador-de-e-s" id="id15">Planificador de E/S</a></li>
+<li><a class="reference internal" href="#limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos" id="id16">Limitar el número de chequeos de los sistemas de archivos</a></li>
+<li><a class="reference internal" href="#velocidad" id="id17">Velocidad</a></li>
+<li><a class="reference internal" href="#proxima-parte" id="id18">Próxima parte</a></li>
+</ul>
+</div>
+<!-- 1  Antes de comprar
+2  Modo AHCI
+3  Particionado inteligente de discos
+4  Swap
+5  Montar las particiones con noatime
+6  TRIM
+  6.1  Activando TRIM
+7  Planificador de E/S
+8  Limitar el número de chequeos de los sistemas de archivos
+9  Velocidad
+10  Próxima parte -->
+<p></p>
+<p>Entre mis prioridades para cuando consiguiera algo de dinerito estaba el
+pillarme una <em><span class="caps">SSD</span></em> <a class="footnote-reference" href="#id5" id="id1">[1]</a>. Pues bien, mi equipo lleva ya unas semanitas
+trabajando con una en sus entrañas, así que toca artículo sobre la
+configuración y optimización del sistema para maximizar el rendimiento y
+alargar la vida útil de la unidad.</p>
+<div class="figure align-center" style="width: 766px; height: auto; max-width: 100%;">
+<img alt="SSD Crucial MX100 128GB SATA3." src="http://soulchainer.github.io/images/2014/11/2014-11-19_01.png" style="width: 766px; height: auto; max-width: 100%;"/>
+<p class="caption">Crucial <span class="caps">MX100</span> <span class="caps">128GB</span> <span class="caps">SATA3</span>. Mi elección. Por relación calidad/precio/espacio, más que nada.</p>
+</div>
+<p>Aunque el artículo está enfocado a <a class="reference external" href="http://antergos.com/">Antergos</a> (<a class="reference external" href="https://www.archlinux.org/">Arch Linux</a> con instalador
+para vaguetes), que es lo que yo uso, buena parte de él es fácil de aplicar a
+otras distribuciones <strong>Linux</strong>.</p>
+<p>
+Una vez dicho esto, vamos a ello.</p>
+<div class="section" id="antes-de-comprar">
+<h2><a class="toc-backref" href="#id8">Antes de comprar</a></h2>
+<p>Para un uso eficiente de la unidad por parte del kernel, el espacio ocupado
+no ha de superar el 75% del espacio total disponible. Por ello, hemos de
+tener especial cuidado a la hora de elegir la capacidad de nuestra futura
+<em><span class="caps">SSD</span></em>. Si sabemos que vamos a ocupar 64 <span class="caps">GB</span>, mejor será adquirir una de mayor capacidad.</p>
+</div>
+<div class="section" id="modo-ahci">
+<h2><a class="toc-backref" href="#id9">Modo <span class="caps">AHCI</span></a></h2>
+<p>Conviene establecer el <strong><span class="caps">MODO</span></strong> <a class="reference external" href="http://es.wikipedia.org/wiki/AHCI"><span class="caps">AHCI</span></a> en la <strong><span class="caps">BIOS</span></strong>/<strong><span class="caps">UEFI</span></strong>.</p>
+<p>Este ajuste está relacionado con los dispositivos con interfaz <em><span class="caps">SATA</span></em>, por lo
+que seguramente podremos encontrarlo en el apartado de configuración de los
+mismos. En la <strong><span class="caps">UEFI</span></strong> de <a class="reference external" href="http://www.asrock.com/mb/AMD/970%20Extreme3%20R2.0/index.la.asp">mi placa base</a> se encuentra en
+<strong>Advanced → Storage Configuration → Sata Mode</strong>.</p>
+<p>El <strong><span class="caps">MODO</span> <span class="caps">AHCI</span></strong> permite al sistema acceder a capacidades avanzadas de <em><span class="caps">SATA</span></em>,
+a la vez que mejora el rendimiento de los dispositivos.</p>
+</div>
+<div class="section" id="particionado-inteligente-de-discos">
+<h2><a class="toc-backref" href="#id10">Particionado inteligente de discos</a></h2>
+<p>Para sistemas con <em><span class="caps">SSD</span></em> y discos magnéticos, es preferible montar los
+directorios <code>/var</code> y <code>/home</code> en particiones de estos últimos.
+En el caso de <code>/var</code> para evitar un desgaste innecesario de la <em><span class="caps">SSD</span></em>, y
+en el de <code>/home</code> porque uno de los inconvenientes de las <em><span class="caps">SSD</span></em> es que
+pierden velocidad de escritura conforme se va llenando el disco.</p>
+<p>La idea general es tener en la <em><span class="caps">SSD</span></em> aquellas particiones cuya lectura sea
+muy rápida (como la del sistema operativo) y evitar mantener particiones sobre
+las que se realicen operaciones de escritura muy frecuentes. Obviamente,
+podemos ignorar esto según nuestras necesidades (si queremos acelerar el
+acceso a determinados archivos), pero siempre teniendo presente que al hacerlo
+estamos reduciendo la vida útil de la unidad.</p>
+<p>En mi caso, en la <em><span class="caps">SSD</span></em> tengo las particiones <code>/boot</code>, <code>/</code> y
+<code>/VMs</code> (para máquinas virtuales) y ubico en otros discos duros las
+particiones <code>/home</code> y <code>/var</code>.</p>
+</div>
+<div class="section" id="swap">
+<h2><a class="toc-backref" href="#id11">Swap</a></h2>
+<p>Podemos crear nuestra partición swap en la <em><span class="caps">SSD</span></em>, pero esto conlleva muchas
+escrituras en disco, y eso es precisamente lo que estamos tratando de evitar.
+Si tenemos una cantidad de <em><span class="caps">RAM</span></em> decente es seguro prescindir de ella.</p>
+<p>Yo, con 8 <span class="caps">GB</span> de <em><span class="caps">RAM</span></em>, no empleo swap. Pero, en el caso de que dispongamos de
+muy poca <em><span class="caps">RAM</span></em> (&lt;4 <span class="caps">GB</span>), podemos configurar el sistema para que la emplee lo
+mínimo indispensable.</p>
+<p>Para ello hemos de editar un archivo de configuración de <code>sysctl</code> (puede
+que tengamos que crearlo):</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/sysctl.d/99-sysctl.conf
+----------------------------------------
+vm.swappiness<span class="o">=</span><span class="m">1</span>  <span class="c"># tendencia a usar la swap. 60 (de 100) por defecto</span>
+vm.vfs_cache_pressure<span class="o">=</span><span class="m">50</span>  <span class="c"># tendencia del kernel a reclamar la memoría usada para cachear el sistema de archivos en lugar de otras cachés. Bajamos de 100 a 50, para que no se reclame con tanta urgencia.</span>
+vm.dirty_writeback_centisecs<span class="o">=</span><span class="m">1500</span>  <span class="c"># frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para que limitar las escrituras</span>
+</pre></div>
+</div>
+<div class="section" id="montar-las-particiones-con-noatime">
+<h2><a class="toc-backref" href="#id12">Montar las particiones con noatime</a></h2>
+<p>Linux lleva un registro de los tiempos de acceso a archivos y directorios.
+Esto hace que por cada archivo que leemos se genere paralelamente una
+operación de escritura para mantener actualizado dicho registro. Podemos
+desactivar esta opción sin mayores inconvenientes en entornos de escritorio,
+obteniendo una mejora en el rendimiento de nuestros dispositivos de almacenamiento.</p>
+<p>Para ello, añadiremos en <code>/etc/fstab</code> la opción <code>noatime</code> a las
+particiones deseadas. A modo de ejemplo, valga un extracto de mi <code>fstab</code>:</p>
+<div class="highlight"><pre><span class="nv">UUID</span><span class="o">=</span>69f57eec-6f5b-4431-8315-2410f6ee9c8a / ext4 rw,defaults,noatime <span class="m">0</span> 1
+<span class="nv">UUID</span><span class="o">=</span>f9f992cc-80df-4bb0-9b99-054a69ad5cd5 /boot ext4 rw,defaults,noatime <span class="m">0</span> 2
+<span class="nv">UUID</span><span class="o">=</span>55cd251f-ecd6-46d9-bfb6-91a400c0e2a7 /VMs ext4 rw,defaults,noatime <span class="m">0</span> 2
+</pre></div>
+</div>
+<div class="section" id="trim">
+<h2><a class="toc-backref" href="#id13"><span class="caps">TRIM</span></a></h2>
+<p><a class="reference external" href="https://es.wikipedia.org/wiki/TRIM/"><span class="caps">TRIM</span></a> es una característica que prolonga la vida útil de la <em><span class="caps">SSD</span></em> y reduce,
+en lo posible, su ralentización a lo largo del tiempo.</p>
+<p>La mayoría de <em><span class="caps">SSD</span></em> modernas soportan el comando <em>ATA_TRIM</em>.</p>
+<p>Podemos comprobar si nuestra <em><span class="caps">SSD</span></em> lo soporta con el siguiente comando:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -I /dev/sdX <span class="p">|</span> grep TRIM  <span class="c"># X es la letra de nuestra SSD</span>
+     *  Data Set Management TRIM supported <span class="o">(</span>limit <span class="m">8</span> blocks<span class="o">)</span>
+     *  Deterministic <span class="nb">read </span>ZEROs after TRIM
+</pre></div>
+<p>Si el comando devuelve alguna línea similar a las precedidas por asterisco,
+soporta <em><span class="caps">TRIM</span></em>.</p>
+<p>A partir del kernel 3.7, los siguientes sistemas de archivos soportan <em><span class="caps">TRIM</span></em>:
+<strong>Ext4</strong>, <strong>Btrfs</strong>, <strong><span class="caps">JFS</span></strong>, <strong><span class="caps">VFAT</span></strong> y <strong><span class="caps">XFS</span></strong>.</p>
+<p>Entre ellos, <strong>Ext4</strong> es la opción ideal, por estabilidad y rendimiento.</p>
+<div class="section" id="activando-trim">
+<h3><a class="toc-backref" href="#id14">Activando <span class="caps">TRIM</span></a></h3>
+<p>En esencia, hay dos formas de activar y/o aplicar <em><span class="caps">TRIM</span></em>:</p>
+<ol class="arabic">
+<li><p class="first">Vía opciones de montaje en <code>/etc/fstab</code>.</p>
+<p>Con la opción <code>discard</code> se habilita el uso de <em><span class="caps">TRIM</span></em>:</p>
+<div class="highlight"><pre><span class="nv">UUID</span><span class="o">=</span>69f57eec-6f5b-4431-8315-2410f6ee9c8a / ext4 rw,defaults,noatime,discard <span class="m">0</span> 1
+</pre></div>
+<p>Antergos recien instalada viene con esta opción ya configurada.</p>
+<p>El pero de este método es que se aplica <em><span class="caps">TRIM</span></em> en tiempo real, lo que
+significa que cuando se borre un archivo nuestra <em><span class="caps">SSD</span></em> estará haciendo
+trabajo extra, ejecutando <em><span class="caps">TRIM</span></em> cada vez. También significa que si
+borramos un archivo por error, no tendremos oportunidad alguna de recuperarlo.</p>
+<p>Por estas razones, yo prefiero la otra alternativa.</p>
+</li>
+<li><p class="first">Vía <code>fstrim</code>.</p>
+<p>Este comando viene proporcionado por el paquete <code>util-linux</code>.
+Podemos ejecutarlo manualmente sobre las particiones con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo fstrim -v /punto/de/montaje
+</pre></div>
+<p>La partición sobre la que se aplica ha de estar montada.</p>
+<p>Al ejecutarlo manualmente deberíamos repetir este comando cada vez que
+deseáramos aplicar <em><span class="caps">TRIM</span></em> sobre alguna de las particiones de la <em><span class="caps">SSD</span></em>: un
+fastidio. Por ello, es preferible ejecutarlo periódicamente vía
+<code>cron</code> o <code>systemd</code>.</p>
+<p>Junto a <code>fstrim</code>, el paquete <code>util-linux</code> proporciona las
+unidades de <code>systemd</code>: <code>fstrim.service</code> y <code>fstrim.timer</code>.
+Activando <code>fstrim.timer</code></p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>fstrim.timer
+</pre></div>
+<p>se activará el servicio (<code>fstrim.service</code>) una vez a la semana,
+ejecutándo <em><span class="caps">TRIM</span></em> sobre todos los sistemas de archivos montados en
+dispositivos que soporten la operación <code>discard</code>.</p>
+<p>Si no nos parece suficiente frecuencia, podemos editar el archivo para que
+haga <em><span class="caps">TRIM</span></em> diariamente:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /usr/lib/systemd/system/fstrim.timer
+------------------------------------------------
+<span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Discard unused blocks daily
+<span class="nv">Documentation</span><span class="o">=</span>man:fstrim
+
+<span class="o">[</span>Timer<span class="o">]</span>
+<span class="nv">OnCalendar</span><span class="o">=</span>daily
+<span class="nv">AccuracySec</span><span class="o">=</span>1h
+<span class="nv">Persistent</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+<p><strong>Nota:</strong> revisar <code>/etc/fstab</code> para asegurarnos de no estar usando la
+opción <code>discard</code> al mismo tiempo que <code>fstrim</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="planificador-de-e-s">
+<h2><a class="toc-backref" href="#id15">Planificador de E/S</a></h2>
+<p>Por defecto, <em>Arch</em> usa <a class="reference external" href="http://en.wikipedia.org/wiki/CFQ/"><span class="caps">CFQ</span></a> como <em>planificador de E/S</em> <a class="footnote-reference" href="#id6" id="id2">[2]</a>. Podemos cambiar
+este por <a class="reference external" href="http://en.wikipedia.org/wiki/Noop_scheduler/"><span class="caps">NOOP</span></a> o <a class="reference external" href="http://en.wikipedia.org/wiki/Deadline_scheduler/">Deadline</a>. Ambos mejoran el rendimiento de las SSDs.
+Normalmente, <em><span class="caps">NOOP</span></em> es la opción más recomendable.</p>
+<p>Para averiguar el planificador en uso imprimimos el contenido de
+<code>/sys/block/sdX/queue/scheduler</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>cat /sys/block/sdX/queue/scheduler  <span class="c"># X es la letra de nuestra SSD</span>
+noop deadline <span class="o">[</span>cfq<span class="o">]</span>  <span class="c"># aparece entre corchetes</span>
+</pre></div>
+<p>En caso de querer cambiarlo, se puede hacer sin reiniciar con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo <span class="nb">echo </span>noop &gt; /sys/block/sdX/queue/scheduler  <span class="c"># X → letra de la SSD</span>
+</pre></div>
+<p>Una vez confirmado el cambio:</p>
+<div class="highlight"><pre><span class="nv">$ </span>cat /sys/block/sdX/queue/scheduler  <span class="c"># X es la letra de nuestra SSD</span>
+<span class="o">[</span>noop<span class="o">]</span> deadline cfq
+</pre></div>
+<p>y estando seguros de nuestra elección, hay que volverlo permanente (en caso
+contrario, se perderá al reiniciar). Con una simple regla de <a class="reference external" href="http://es.wikipedia.org/wiki/Udev/">udev</a> bastará.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/udev/rules.d/60-schedulers.rules
+-------------------------------------------------
+<span class="c"># set deadline scheduler for non-rotating disks</span>
+<span class="nv">ACTION</span><span class="o">==</span><span class="s2">"add|change"</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">"sd[a-z]"</span>, ATTR<span class="o">{</span>queue/rotational<span class="o">}==</span><span class="s2">"0"</span>,
+ATTR<span class="o">{</span>queue/scheduler<span class="o">}=</span><span class="s2">"noop"</span>
+</pre></div>
+<p>Esta regla asigna la planificación de E/S a <code>noop</code> en todos los
+dispositivos sin partes móviles (<em>non-rotating</em>) que encuentre.</p>
+</div>
+<div class="section" id="limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos">
+<h2><a class="toc-backref" href="#id16">Limitar el número de chequeos de los sistemas de archivos</a></h2>
+<p>A fin de garantizar la integridad de los datos, el sistema operativo realiza
+un chequeo a todo sistema de archivos que acumula x número de montajes desde su
+última revisión. Por defecto suele ser a los treinta, pero dado que lo que
+queremos es minimizar el desgaste de la <em><span class="caps">SSD</span></em>, deberíamos ampliar este valor para estirar el tiempo entre prueba y prueba.</p>
+<p><code>tune2fs</code> (para particiones ext4) realiza el trabajo:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo tune2fs -c <span class="m">60</span> /dev/sda2  <span class="c"># 60 montajes</span>
+<span class="nv">$ </span>sudo tune2fs -i 2<span class="o">[</span>d<span class="p">|</span>w<span class="p">|</span>m<span class="o">]</span> /dev/sda2  <span class="c"># días|semanas|meses, 2d → 2 días</span>
+<span class="nv">$ </span>sudo tune2fs -l /dev/sda2  <span class="c"># ver registro del sistema de archivos</span>
+<span class="nv">$ </span>sudo tune2fs -l /dev/sda2 <span class="p">|</span> grep <span class="s2">"Last checked"</span>  <span class="c"># fecha último chequeo</span>
+<span class="nv">$ </span>sudo tune2fs -l /dev/sda2 <span class="p">|</span> grep <span class="s2">"t count"</span>  <span class="c"># nº de montajes máximo y</span>
+actual
+</pre></div>
+<p>Es posible deshabilitar completamente este chequeo, pero
+<strong>no es nada aconsejable</strong>.</p>
+</div>
+<div class="section" id="velocidad">
+<h2><a class="toc-backref" href="#id17">Velocidad</a></h2>
+<p>Con el comando</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -Tt /dev/sdX  <span class="c"># X es la letra de nuestra unidad</span>
+</pre></div>
+<p>efectuamos un test de velocidad de lectura, donde:</p>
+<ul class="simple">
+<li><strong>-T</strong> mide el rendimiendo del procesador, la caché y la memoria del sistema.
+Lo usamos más que nada como referencia, para comparar las velocidades de la
+memoria del sistema y de la <em><span class="caps">SSD</span></em>.</li>
+<li><strong>-t</strong> mide la velocidad de lectura secuencial del dispositivo.</li>
+</ul>
+<p><strong>Ojo</strong> con esto, porque he visto:</p>
+<ol class="arabic">
+<li><p class="first">Artículos explicando que estas son pruebas de escritura. <strong>No</strong>.</p>
+</li>
+<li><p class="first">Comentarios de usuarios asombrándose por la diferencia de velocidades entre <em>SSDs</em>. Por el primer valor. Porque les han dicho que son pruebas de la velocidad de la <em><span class="caps">SSD</span></em> y… <strong>No</strong>.</p>
+<p>Esto, además de leyéndose el <a class="reference external" href="http://linux.die.net/man/8/hdparm">man de hdparm</a>, se hace patente en las pruebas a continuación.</p>
+</li>
+</ol>
+<p>A modo de ejemplo, ahí van las pruebas que he realizado con mis dispositivos
+de almacenamiento. La <em><span class="caps">SSD</span></em> es <code>/dev/sda</code>.</p>
+<ul>
+<li><p class="first">Test con mi <span class="caps">PC</span> viejo: placa <a class="reference external" href="http://www.asus.com/es/Motherboards/M2NSLI/specifications/"><span class="caps">ASUS</span> <span class="caps">M2N</span>-<span class="caps">SLI</span></a>, procesador
+<a class="reference external" href="http://www.cpu-world.com/CPUs/K8/AMD-Athlon%2064%20X2%204200%2B%20-%20ADA4200DAA5BV%20%28ADA4200BVBOX%29.html"><span class="caps">AMD</span> Athlon 64 X2 Dual Core 4200+</a> y <em>8 <span class="caps">GB</span> <span class="caps">RAM</span> <span class="caps">DDR2</span> 800</em>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -Tt /dev/sda /dev/sdb /dev/sdc
+
+/dev/sda:
+ Timing cached reads:   <span class="m">2450</span> MB in  2.00 <span class="nv">seconds</span> <span class="o">=</span> 1224.71 MB/sec
+ Timing buffered disk reads: <span class="m">672</span> MB in  3.00 <span class="nv">seconds</span> <span class="o">=</span> 223.81 MB/sec
+
+/dev/sdb:
+ Timing cached reads:   <span class="m">2388</span> MB in  2.00 <span class="nv">seconds</span> <span class="o">=</span> 1194.15 MB/sec
+ Timing buffered disk reads: <span class="m">520</span> MB in  3.00 <span class="nv">seconds</span> <span class="o">=</span> 173.23 MB/sec
+
+/dev/sdc:
+ Timing cached reads:   <span class="m">2436</span> MB in  2.00 <span class="nv">seconds</span> <span class="o">=</span> 1218.58 MB/sec
+ Timing buffered disk reads: <span class="m">456</span> MB in  3.00 <span class="nv">seconds</span> <span class="o">=</span> 151.76 MB/sec
+</pre></div>
+</li>
+<li><p class="first">Test con mi nuevo <span class="caps">PC</span>: placa <a class="reference external" href="http://www.asrock.com/mb/AMD/970%20Extreme3%20R2.0/index.la.asp">ASRock 970 Extreme 3 R2.0</a>, procesador
+<a class="reference external" href="http://www.amd.com/en-us/products/processors/desktop/fx/"><span class="caps">AMD</span> <span class="caps">FX</span> 8-Core Black Edition <span class="caps">FX</span>-8350</a> y
+<a class="reference external" href="http://www.kingston.com/es/hyperx/memory/fury/">Kingston HyperX Fury Black <span class="caps">DDR3</span> 1866MHz <span class="caps">8GB</span></a>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -Tt /dev/sda /dev/sdb /dev/sdc
+
+/dev/sda:
+ Timing cached reads:   <span class="m">9832</span> MB in  2.00 <span class="nv">seconds</span> <span class="o">=</span> 4919.25 MB/sec
+ Timing buffered disk reads: <span class="m">1206</span> MB in  3.00 <span class="nv">seconds</span> <span class="o">=</span> 401.43 MB/sec
+
+/dev/sdb:
+ Timing cached reads:   <span class="m">9822</span> MB in  2.00 <span class="nv">seconds</span> <span class="o">=</span> 4914.29 MB/sec
+ Timing buffered disk reads: <span class="m">522</span> MB in  3.00 <span class="nv">seconds</span> <span class="o">=</span> 173.74 MB/sec
+
+/dev/sdc:
+ Timing cached reads:   <span class="m">9722</span> MB in  2.00 <span class="nv">seconds</span> <span class="o">=</span> 4864.89 MB/sec
+ Timing buffered disk reads: <span class="m">456</span> MB in  3.01 <span class="nv">seconds</span> <span class="o">=</span> 151.52 MB/sec
+</pre></div>
+</li>
+</ul>
+<p>Como resulta obvio, hay que tener una placa razonablemente moderna para
+aprovechar al máximo la velocidad que nos brinda una <em><span class="caps">SSD</span></em>. En el equipo
+antiguo, se notaba la diferencia, pero tampoco era para tirar cohetes. En el
+nuevo, pues se nota, se nota bastante :) El salto que he dado de un dual core
+de hace 7 años a un octacore también tiene su cosilla. Vamos, que esto va como
+un tiro :D</p>
+</div>
+<div class="section" id="proxima-parte">
+<h2><a class="toc-backref" href="#id18">Próxima parte</a></h2>
+<p>Esta iba a ser una entrada única sobre los ajustes que hice en mi equipo para
+sacarle partido a mi nueva <em><span class="caps">SSD</span></em>, pero acabé añadiendo diversas notas más
+relacionadas con <a class="reference external" href="http://es.wikipedia.org/wiki/Tmpfs">tmpfs</a> que con otra cosa, así que la he dividido en dos partes.</p>
+<p>Y, básicamente, ese será el contenido del próximo artículo: algunas
+configuraciones relacionadas con <em>tmpfs</em>.</p>
+<p>Como otros artículos, este texto nace de un <em><span class="caps">HOWTO</span></em> que voy escribiendo sobre
+la marcha para mi yo futuro <a class="footnote-reference" href="#id7" id="id3">[3]</a> y que luego comparto con la esperanza de que
+le resulte útil a alguien más.</p>
+<hr class="docutils"/>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Una <strong>unidad de estado sólido</strong> (<strong><span class="caps">SSD</span></strong>, <strong>solid-state drive</strong>) es un dispositivo de almacenamiento de datos que usa una memoria no volátil, como la memoria flash, para almacenar datos. En comparación con los discos duros convencionales, las <em><span class="caps">SSD</span></em> son menos sensibles a los golpes, son prácticamente inaudibles, tienen un menor tiempo de acceso y de latencia, y se calientan y consumen menos energía.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Es el software encargado de decidir el orden por el cual se van a enviar las peticiones de lectura y escritura al subsistema de disco.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Me lo suele agradecer bastante. Es muy educado y buena gente.</td></tr>
+</tbody>
+</table>
+<hr class="docutils"/>
+<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/index.php/Solid_State_Drives">Wiki Arch Linux</a>, <a class="reference external" href="http://blog.neutrino.es/2013/howto-properly-activate-trim-for-your-ssd-on-linux-fstrim-lvm-and-dmcrypt/">neutrino</a>, <a class="reference external" href="http://portallinux.es/recomendaciones-para-el-uso-de-un-ssd-en-gnulinux/">PortalLinux</a>, <a class="reference external" href="https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that">Rudd-O</a>,
+<a class="reference external" href="http://doc.opensuse.org/products/draft/SLES/SLES-tuning_sd_draft/cha.tuning.memory.html">Documentación Opensuse</a>, <strong>páginas man</strong>.</p>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/antergos/">antergos</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/archlinux/">archlinux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/instalacion/">instalación</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/optimizacion/">optimización</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/ssd/">ssd</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/unidad-estado-solido/">unidad estado sólido</a></li>
+    </ul>
+  </div>
+
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+              <li class="active">
+                  <a class="partlink" href='http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/'>Esto va como un tiro (I): Usando una <span class="caps">SSD</span> en Arch&nbsp;Linux</a>
+              </li>
+      </ul>
+    </aside>
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>

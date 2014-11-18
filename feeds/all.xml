@@ -1,5 +1,328 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-06-17T18:40:00+02:00</updated><entry><title>Firefox y las fuentes externas en Tumblr (problemas con @font-face)</title><link href="http://soulchainer.github.io/posts/2014/06/17/firefox-fuentes-tumblr/" rel="alternate"></link><updated>2014-06-17T18:40:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-17:posts/2014/06/17/firefox-fuentes-tumblr/</id><summary type="html">&lt;p&gt;Estoy escribiendo un nuevo tema para &lt;a class="reference external" href="http://soulchainer.tumblr.com/"&gt;mi tumblr&lt;/a&gt; y ayer llegó el momento de
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="http://soulchainer.github.io/" rel="alternate"></link><link href="http://soulchainer.github.io/feeds/all.xml" rel="self"></link><id>http://soulchainer.github.io/</id><updated>2014-11-19T23:30:00+01:00</updated><entry><title>Esto va como un tiro (I): Usando una SSD en Arch Linux</title><link href="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/" rel="alternate"></link><updated>2014-11-19T23:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-11-19:posts/2014/11/19/optimizacion-ssd-instalacion/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#antes-de-comprar" id="id8"&gt;Antes de comprar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#modo-ahci" id="id9"&gt;Modo &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#particionado-inteligente-de-discos" id="id10"&gt;Particionado inteligente de discos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#swap" id="id11"&gt;Swap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#montar-las-particiones-con-noatime" id="id12"&gt;Montar las particiones con noatime&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#trim" id="id13"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#activando-trim" id="id14"&gt;Activando &lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#planificador-de-e-s" id="id15"&gt;Planificador de E/S&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos" id="id16"&gt;Limitar el número de chequeos de los sistemas de archivos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#velocidad" id="id17"&gt;Velocidad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#proxima-parte" id="id18"&gt;Próxima parte&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 1  Antes de comprar
+2  Modo AHCI
+3  Particionado inteligente de discos
+4  Swap
+5  Montar las particiones con noatime
+6  TRIM
+  6.1  Activando TRIM
+7  Planificador de E/S
+8  Limitar el número de chequeos de los sistemas de archivos
+9  Velocidad
+10  Próxima parte --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Entre mis prioridades para cuando consiguiera algo de dinerito estaba el
+pillarme una &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt;. Pues bien, mi equipo lleva ya unas semanitas
+trabajando con una en sus entrañas, así que toca artículo sobre la
+configuración y optimización del sistema para maximizar el rendimiento y
+alargar la vida útil de la unidad.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 766px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="SSD Crucial MX100 128GB SATA3." src="http://soulchainer.github.io/images/2014/11/2014-11-19_01.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Crucial &lt;span class="caps"&gt;MX100&lt;/span&gt; &lt;span class="caps"&gt;128GB&lt;/span&gt; &lt;span class="caps"&gt;SATA3&lt;/span&gt;. Mi elección. Por relación calidad/precio/espacio, más que nada.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Aunque el artículo está enfocado a &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt; (&lt;a class="reference external" href="https://www.archlinux.org/"&gt;Arch Linux&lt;/a&gt; con instalador
+para vaguetes), que es lo que yo uso, buena parte de él es fácil de aplicar a
+otras distribuciones &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;
+Una vez dicho esto, vamos a ello.&lt;/p&gt;
+&lt;div class="section" id="antes-de-comprar"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;Antes de comprar&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Para un uso eficiente de la unidad por parte del kernel, el espacio ocupado
+no ha de superar el 75% del espacio total disponible. Por ello, hemos de
+tener especial cuidado a la hora de elegir la capacidad de nuestra futura
+&lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;. Si sabemos que vamos a ocupar 64 &lt;span class="caps"&gt;GB&lt;/span&gt;, mejor será adquirir una de mayor capacidad.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="modo-ahci"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Modo &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Conviene establecer el &lt;strong&gt;&lt;span class="caps"&gt;MODO&lt;/span&gt;&lt;/strong&gt; &lt;a class="reference external" href="http://es.wikipedia.org/wiki/AHCI"&gt;&lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt; en la &lt;strong&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Este ajuste está relacionado con los dispositivos con interfaz &lt;em&gt;&lt;span class="caps"&gt;SATA&lt;/span&gt;&lt;/em&gt;, por lo
+que seguramente podremos encontrarlo en el apartado de configuración de los
+mismos. En la &lt;strong&gt;&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt; de &lt;a class="reference external" href="http://www.asrock.com/mb/AMD/970%20Extreme3%20R2.0/index.la.asp"&gt;mi placa base&lt;/a&gt; se encuentra en
+&lt;strong&gt;Advanced → Storage Configuration → Sata Mode&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;El &lt;strong&gt;&lt;span class="caps"&gt;MODO&lt;/span&gt; &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/strong&gt; permite al sistema acceder a capacidades avanzadas de &lt;em&gt;&lt;span class="caps"&gt;SATA&lt;/span&gt;&lt;/em&gt;,
+a la vez que mejora el rendimiento de los dispositivos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="particionado-inteligente-de-discos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Particionado inteligente de discos&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Para sistemas con &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; y discos magnéticos, es preferible montar los
+directorios &lt;code&gt;/var&lt;/code&gt; y &lt;code&gt;/home&lt;/code&gt; en particiones de estos últimos.
+En el caso de &lt;code&gt;/var&lt;/code&gt; para evitar un desgaste innecesario de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, y
+en el de &lt;code&gt;/home&lt;/code&gt; porque uno de los inconvenientes de las &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; es que
+pierden velocidad de escritura conforme se va llenando el disco.&lt;/p&gt;
+&lt;p&gt;La idea general es tener en la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; aquellas particiones cuya lectura sea
+muy rápida (como la del sistema operativo) y evitar mantener particiones sobre
+las que se realicen operaciones de escritura muy frecuentes. Obviamente,
+podemos ignorar esto según nuestras necesidades (si queremos acelerar el
+acceso a determinados archivos), pero siempre teniendo presente que al hacerlo
+estamos reduciendo la vida útil de la unidad.&lt;/p&gt;
+&lt;p&gt;En mi caso, en la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; tengo las particiones &lt;code&gt;/boot&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt; y
+&lt;code&gt;/VMs&lt;/code&gt; (para máquinas virtuales) y ubico en otros discos duros las
+particiones &lt;code&gt;/home&lt;/code&gt; y &lt;code&gt;/var&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="swap"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Swap&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Podemos crear nuestra partición swap en la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, pero esto conlleva muchas
+escrituras en disco, y eso es precisamente lo que estamos tratando de evitar.
+Si tenemos una cantidad de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt; decente es seguro prescindir de ella.&lt;/p&gt;
+&lt;p&gt;Yo, con 8 &lt;span class="caps"&gt;GB&lt;/span&gt; de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt;, no empleo swap. Pero, en el caso de que dispongamos de
+muy poca &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt; (&amp;lt;4 &lt;span class="caps"&gt;GB&lt;/span&gt;), podemos configurar el sistema para que la emplee lo
+mínimo indispensable.&lt;/p&gt;
+&lt;p&gt;Para ello hemos de editar un archivo de configuración de &lt;code&gt;sysctl&lt;/code&gt; (puede
+que tengamos que crearlo):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/sysctl.d/99-sysctl.conf
+----------------------------------------
+vm.swappiness&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="c"&gt;# tendencia a usar la swap. 60 (de 100) por defecto&lt;/span&gt;
+vm.vfs_cache_pressure&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;  &lt;span class="c"&gt;# tendencia del kernel a reclamar la memoría usada para cachear el sistema de archivos en lugar de otras cachés. Bajamos de 100 a 50, para que no se reclame con tanta urgencia.&lt;/span&gt;
+vm.dirty_writeback_centisecs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1500&lt;/span&gt;  &lt;span class="c"&gt;# frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para que limitar las escrituras&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="montar-las-particiones-con-noatime"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Montar las particiones con noatime&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Linux lleva un registro de los tiempos de acceso a archivos y directorios.
+Esto hace que por cada archivo que leemos se genere paralelamente una
+operación de escritura para mantener actualizado dicho registro. Podemos
+desactivar esta opción sin mayores inconvenientes en entornos de escritorio,
+obteniendo una mejora en el rendimiento de nuestros dispositivos de almacenamiento.&lt;/p&gt;
+&lt;p&gt;Para ello, añadiremos en &lt;code&gt;/etc/fstab&lt;/code&gt; la opción &lt;code&gt;noatime&lt;/code&gt; a las
+particiones deseadas. A modo de ejemplo, valga un extracto de mi &lt;code&gt;fstab&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;UUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;69f57eec-6f5b-4431-8315-2410f6ee9c8a / ext4 rw,defaults,noatime &lt;span class="m"&gt;0&lt;/span&gt; 1
+&lt;span class="nv"&gt;UUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;f9f992cc-80df-4bb0-9b99-054a69ad5cd5 /boot ext4 rw,defaults,noatime &lt;span class="m"&gt;0&lt;/span&gt; 2
+&lt;span class="nv"&gt;UUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;55cd251f-ecd6-46d9-bfb6-91a400c0e2a7 /VMs ext4 rw,defaults,noatime &lt;span class="m"&gt;0&lt;/span&gt; 2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="trim"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://es.wikipedia.org/wiki/TRIM/"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt; es una característica que prolonga la vida útil de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; y reduce,
+en lo posible, su ralentización a lo largo del tiempo.&lt;/p&gt;
+&lt;p&gt;La mayoría de &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; modernas soportan el comando &lt;em&gt;ATA_TRIM&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Podemos comprobar si nuestra &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; lo soporta con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm -I /dev/sdX &lt;span class="p"&gt;|&lt;/span&gt; grep TRIM  &lt;span class="c"&gt;# X es la letra de nuestra SSD&lt;/span&gt;
+     *  Data Set Management TRIM supported &lt;span class="o"&gt;(&lt;/span&gt;limit &lt;span class="m"&gt;8&lt;/span&gt; blocks&lt;span class="o"&gt;)&lt;/span&gt;
+     *  Deterministic &lt;span class="nb"&gt;read &lt;/span&gt;ZEROs after TRIM
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si el comando devuelve alguna línea similar a las precedidas por asterisco,
+soporta &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A partir del kernel 3.7, los siguientes sistemas de archivos soportan &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt;:
+&lt;strong&gt;Ext4&lt;/strong&gt;, &lt;strong&gt;Btrfs&lt;/strong&gt;, &lt;strong&gt;&lt;span class="caps"&gt;JFS&lt;/span&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;span class="caps"&gt;VFAT&lt;/span&gt;&lt;/strong&gt; y &lt;strong&gt;&lt;span class="caps"&gt;XFS&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Entre ellos, &lt;strong&gt;Ext4&lt;/strong&gt; es la opción ideal, por estabilidad y rendimiento.&lt;/p&gt;
+&lt;div class="section" id="activando-trim"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;Activando &lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;En esencia, hay dos formas de activar y/o aplicar &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt;:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Vía opciones de montaje en &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Con la opción &lt;code&gt;discard&lt;/code&gt; se habilita el uso de &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;UUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;69f57eec-6f5b-4431-8315-2410f6ee9c8a / ext4 rw,defaults,noatime,discard &lt;span class="m"&gt;0&lt;/span&gt; 1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Antergos recien instalada viene con esta opción ya configurada.&lt;/p&gt;
+&lt;p&gt;El pero de este método es que se aplica &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt; en tiempo real, lo que
+significa que cuando se borre un archivo nuestra &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; estará haciendo
+trabajo extra, ejecutando &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt; cada vez. También significa que si
+borramos un archivo por error, no tendremos oportunidad alguna de recuperarlo.&lt;/p&gt;
+&lt;p&gt;Por estas razones, yo prefiero la otra alternativa.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Vía &lt;code&gt;fstrim&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Este comando viene proporcionado por el paquete &lt;code&gt;util-linux&lt;/code&gt;.
+Podemos ejecutarlo manualmente sobre las particiones con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fstrim -v /punto/de/montaje
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;La partición sobre la que se aplica ha de estar montada.&lt;/p&gt;
+&lt;p&gt;Al ejecutarlo manualmente deberíamos repetir este comando cada vez que
+deseáramos aplicar &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt; sobre alguna de las particiones de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;: un
+fastidio. Por ello, es preferible ejecutarlo periódicamente vía
+&lt;code&gt;cron&lt;/code&gt; o &lt;code&gt;systemd&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Junto a &lt;code&gt;fstrim&lt;/code&gt;, el paquete &lt;code&gt;util-linux&lt;/code&gt; proporciona las
+unidades de &lt;code&gt;systemd&lt;/code&gt;: &lt;code&gt;fstrim.service&lt;/code&gt; y &lt;code&gt;fstrim.timer&lt;/code&gt;.
+Activando &lt;code&gt;fstrim.timer&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl &lt;span class="nb"&gt;enable &lt;/span&gt;fstrim.timer
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;se activará el servicio (&lt;code&gt;fstrim.service&lt;/code&gt;) una vez a la semana,
+ejecutándo &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt; sobre todos los sistemas de archivos montados en
+dispositivos que soporten la operación &lt;code&gt;discard&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Si no nos parece suficiente frecuencia, podemos editar el archivo para que
+haga &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt; diariamente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /usr/lib/systemd/system/fstrim.timer
+------------------------------------------------
+&lt;span class="o"&gt;[&lt;/span&gt;Unit&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;Discard unused blocks daily
+&lt;span class="nv"&gt;Documentation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;man:fstrim
+
+&lt;span class="o"&gt;[&lt;/span&gt;Timer&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;OnCalendar&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;daily
+&lt;span class="nv"&gt;AccuracySec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1h
+&lt;span class="nv"&gt;Persistent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;Install&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;multi-user.target
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; revisar &lt;code&gt;/etc/fstab&lt;/code&gt; para asegurarnos de no estar usando la
+opción &lt;code&gt;discard&lt;/code&gt; al mismo tiempo que &lt;code&gt;fstrim&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="planificador-de-e-s"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Planificador de E/S&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Por defecto, &lt;em&gt;Arch&lt;/em&gt; usa &lt;a class="reference external" href="http://en.wikipedia.org/wiki/CFQ/"&gt;&lt;span class="caps"&gt;CFQ&lt;/span&gt;&lt;/a&gt; como &lt;em&gt;planificador de E/S&lt;/em&gt; &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;. Podemos cambiar
+este por &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Noop_scheduler/"&gt;&lt;span class="caps"&gt;NOOP&lt;/span&gt;&lt;/a&gt; o &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Deadline_scheduler/"&gt;Deadline&lt;/a&gt;. Ambos mejoran el rendimiento de las SSDs.
+Normalmente, &lt;em&gt;&lt;span class="caps"&gt;NOOP&lt;/span&gt;&lt;/em&gt; es la opción más recomendable.&lt;/p&gt;
+&lt;p&gt;Para averiguar el planificador en uso imprimimos el contenido de
+&lt;code&gt;/sys/block/sdX/queue/scheduler&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cat /sys/block/sdX/queue/scheduler  &lt;span class="c"&gt;# X es la letra de nuestra SSD&lt;/span&gt;
+noop deadline &lt;span class="o"&gt;[&lt;/span&gt;cfq&lt;span class="o"&gt;]&lt;/span&gt;  &lt;span class="c"&gt;# aparece entre corchetes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En caso de querer cambiarlo, se puede hacer sin reiniciar con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo &lt;span class="nb"&gt;echo &lt;/span&gt;noop &amp;gt; /sys/block/sdX/queue/scheduler  &lt;span class="c"&gt;# X → letra de la SSD&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Una vez confirmado el cambio:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cat /sys/block/sdX/queue/scheduler  &lt;span class="c"&gt;# X es la letra de nuestra SSD&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;noop&lt;span class="o"&gt;]&lt;/span&gt; deadline cfq
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;y estando seguros de nuestra elección, hay que volverlo permanente (en caso
+contrario, se perderá al reiniciar). Con una simple regla de &lt;a class="reference external" href="http://es.wikipedia.org/wiki/Udev/"&gt;udev&lt;/a&gt; bastará.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/udev/rules.d/60-schedulers.rules
+-------------------------------------------------
+&lt;span class="c"&gt;# set deadline scheduler for non-rotating disks&lt;/span&gt;
+&lt;span class="nv"&gt;ACTION&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;"add|change"&lt;/span&gt;, &lt;span class="nv"&gt;KERNEL&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;"sd[a-z]"&lt;/span&gt;, ATTR&lt;span class="o"&gt;{&lt;/span&gt;queue/rotational&lt;span class="o"&gt;}==&lt;/span&gt;&lt;span class="s2"&gt;"0"&lt;/span&gt;,
+ATTR&lt;span class="o"&gt;{&lt;/span&gt;queue/scheduler&lt;span class="o"&gt;}=&lt;/span&gt;&lt;span class="s2"&gt;"noop"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta regla asigna la planificación de E/S a &lt;code&gt;noop&lt;/code&gt; en todos los
+dispositivos sin partes móviles (&lt;em&gt;non-rotating&lt;/em&gt;) que encuentre.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Limitar el número de chequeos de los sistemas de archivos&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A fin de garantizar la integridad de los datos, el sistema operativo realiza
+un chequeo a todo sistema de archivos que acumula x número de montajes desde su
+última revisión. Por defecto suele ser a los treinta, pero dado que lo que
+queremos es minimizar el desgaste de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, deberíamos ampliar este valor para estirar el tiempo entre prueba y prueba.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tune2fs&lt;/code&gt; (para particiones ext4) realiza el trabajo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo tune2fs -c &lt;span class="m"&gt;60&lt;/span&gt; /dev/sda2  &lt;span class="c"&gt;# 60 montajes&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo tune2fs -i 2&lt;span class="o"&gt;[&lt;/span&gt;d&lt;span class="p"&gt;|&lt;/span&gt;w&lt;span class="p"&gt;|&lt;/span&gt;m&lt;span class="o"&gt;]&lt;/span&gt; /dev/sda2  &lt;span class="c"&gt;# días|semanas|meses, 2d → 2 días&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo tune2fs -l /dev/sda2  &lt;span class="c"&gt;# ver registro del sistema de archivos&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo tune2fs -l /dev/sda2 &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;"Last checked"&lt;/span&gt;  &lt;span class="c"&gt;# fecha último chequeo&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo tune2fs -l /dev/sda2 &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;"t count"&lt;/span&gt;  &lt;span class="c"&gt;# nº de montajes máximo y&lt;/span&gt;
+actual
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Es posible deshabilitar completamente este chequeo, pero
+&lt;strong&gt;no es nada aconsejable&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="velocidad"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Velocidad&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Con el comando&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm -Tt /dev/sdX  &lt;span class="c"&gt;# X es la letra de nuestra unidad&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;efectuamos un test de velocidad de lectura, donde:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;-T&lt;/strong&gt; mide el rendimiendo del procesador, la caché y la memoria del sistema.
+Lo usamos más que nada como referencia, para comparar las velocidades de la
+memoria del sistema y de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-t&lt;/strong&gt; mide la velocidad de lectura secuencial del dispositivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Ojo&lt;/strong&gt; con esto, porque he visto:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Artículos explicando que estas son pruebas de escritura. &lt;strong&gt;No&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Comentarios de usuarios asombrándose por la diferencia de velocidades entre &lt;em&gt;SSDs&lt;/em&gt;. Por el primer valor. Porque les han dicho que son pruebas de la velocidad de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; y… &lt;strong&gt;No&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Esto, además de leyéndose el &lt;a class="reference external" href="http://linux.die.net/man/8/hdparm"&gt;man de hdparm&lt;/a&gt;, se hace patente en las pruebas a continuación.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A modo de ejemplo, ahí van las pruebas que he realizado con mis dispositivos
+de almacenamiento. La &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; es &lt;code&gt;/dev/sda&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Test con mi &lt;span class="caps"&gt;PC&lt;/span&gt; viejo: placa &lt;a class="reference external" href="http://www.asus.com/es/Motherboards/M2NSLI/specifications/"&gt;&lt;span class="caps"&gt;ASUS&lt;/span&gt; &lt;span class="caps"&gt;M2N&lt;/span&gt;-&lt;span class="caps"&gt;SLI&lt;/span&gt;&lt;/a&gt;, procesador
+&lt;a class="reference external" href="http://www.cpu-world.com/CPUs/K8/AMD-Athlon%2064%20X2%204200%2B%20-%20ADA4200DAA5BV%20%28ADA4200BVBOX%29.html"&gt;&lt;span class="caps"&gt;AMD&lt;/span&gt; Athlon 64 X2 Dual Core 4200+&lt;/a&gt; y &lt;em&gt;8 &lt;span class="caps"&gt;GB&lt;/span&gt; &lt;span class="caps"&gt;RAM&lt;/span&gt; &lt;span class="caps"&gt;DDR2&lt;/span&gt; 800&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm -Tt /dev/sda /dev/sdb /dev/sdc
+
+/dev/sda:
+ Timing cached reads:   &lt;span class="m"&gt;2450&lt;/span&gt; MB in  2.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1224.71 MB/sec
+ Timing buffered disk reads: &lt;span class="m"&gt;672&lt;/span&gt; MB in  3.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 223.81 MB/sec
+
+/dev/sdb:
+ Timing cached reads:   &lt;span class="m"&gt;2388&lt;/span&gt; MB in  2.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1194.15 MB/sec
+ Timing buffered disk reads: &lt;span class="m"&gt;520&lt;/span&gt; MB in  3.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 173.23 MB/sec
+
+/dev/sdc:
+ Timing cached reads:   &lt;span class="m"&gt;2436&lt;/span&gt; MB in  2.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1218.58 MB/sec
+ Timing buffered disk reads: &lt;span class="m"&gt;456&lt;/span&gt; MB in  3.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 151.76 MB/sec
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Test con mi nuevo &lt;span class="caps"&gt;PC&lt;/span&gt;: placa &lt;a class="reference external" href="http://www.asrock.com/mb/AMD/970%20Extreme3%20R2.0/index.la.asp"&gt;ASRock 970 Extreme 3 R2.0&lt;/a&gt;, procesador
+&lt;a class="reference external" href="http://www.amd.com/en-us/products/processors/desktop/fx/"&gt;&lt;span class="caps"&gt;AMD&lt;/span&gt; &lt;span class="caps"&gt;FX&lt;/span&gt; 8-Core Black Edition &lt;span class="caps"&gt;FX&lt;/span&gt;-8350&lt;/a&gt; y
+&lt;a class="reference external" href="http://www.kingston.com/es/hyperx/memory/fury/"&gt;Kingston HyperX Fury Black &lt;span class="caps"&gt;DDR3&lt;/span&gt; 1866MHz &lt;span class="caps"&gt;8GB&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm -Tt /dev/sda /dev/sdb /dev/sdc
+
+/dev/sda:
+ Timing cached reads:   &lt;span class="m"&gt;9832&lt;/span&gt; MB in  2.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 4919.25 MB/sec
+ Timing buffered disk reads: &lt;span class="m"&gt;1206&lt;/span&gt; MB in  3.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 401.43 MB/sec
+
+/dev/sdb:
+ Timing cached reads:   &lt;span class="m"&gt;9822&lt;/span&gt; MB in  2.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 4914.29 MB/sec
+ Timing buffered disk reads: &lt;span class="m"&gt;522&lt;/span&gt; MB in  3.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 173.74 MB/sec
+
+/dev/sdc:
+ Timing cached reads:   &lt;span class="m"&gt;9722&lt;/span&gt; MB in  2.00 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 4864.89 MB/sec
+ Timing buffered disk reads: &lt;span class="m"&gt;456&lt;/span&gt; MB in  3.01 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 151.52 MB/sec
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Como resulta obvio, hay que tener una placa razonablemente moderna para
+aprovechar al máximo la velocidad que nos brinda una &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;. En el equipo
+antiguo, se notaba la diferencia, pero tampoco era para tirar cohetes. En el
+nuevo, pues se nota, se nota bastante :) El salto que he dado de un dual core
+de hace 7 años a un octacore también tiene su cosilla. Vamos, que esto va como
+un tiro :D&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="proxima-parte"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Próxima parte&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Esta iba a ser una entrada única sobre los ajustes que hice en mi equipo para
+sacarle partido a mi nueva &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, pero acabé añadiendo diversas notas más
+relacionadas con &lt;a class="reference external" href="http://es.wikipedia.org/wiki/Tmpfs"&gt;tmpfs&lt;/a&gt; que con otra cosa, así que la he dividido en dos partes.&lt;/p&gt;
+&lt;p&gt;Y, básicamente, ese será el contenido del próximo artículo: algunas
+configuraciones relacionadas con &lt;em&gt;tmpfs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Como otros artículos, este texto nace de un &lt;em&gt;&lt;span class="caps"&gt;HOWTO&lt;/span&gt;&lt;/em&gt; que voy escribiendo sobre
+la marcha para mi yo futuro &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt; y que luego comparto con la esperanza de que
+le resulte útil a alguien más.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Una &lt;strong&gt;unidad de estado sólido&lt;/strong&gt; (&lt;strong&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/strong&gt;, &lt;strong&gt;solid-state drive&lt;/strong&gt;) es un dispositivo de almacenamiento de datos que usa una memoria no volátil, como la memoria flash, para almacenar datos. En comparación con los discos duros convencionales, las &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; son menos sensibles a los golpes, son prácticamente inaudibles, tienen un menor tiempo de acceso y de latencia, y se calientan y consumen menos energía.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Es el software encargado de decidir el orden por el cual se van a enviar las peticiones de lectura y escritura al subsistema de disco.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Me lo suele agradecer bastante. Es muy educado y buena gente.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Solid_State_Drives"&gt;Wiki Arch Linux&lt;/a&gt;, &lt;a class="reference external" href="http://blog.neutrino.es/2013/howto-properly-activate-trim-for-your-ssd-on-linux-fstrim-lvm-and-dmcrypt/"&gt;neutrino&lt;/a&gt;, &lt;a class="reference external" href="http://portallinux.es/recomendaciones-para-el-uso-de-un-ssd-en-gnulinux/"&gt;PortalLinux&lt;/a&gt;, &lt;a class="reference external" href="https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that"&gt;Rudd-O&lt;/a&gt;,
+&lt;a class="reference external" href="http://doc.opensuse.org/products/draft/SLES/SLES-tuning_sd_draft/cha.tuning.memory.html"&gt;Documentación Opensuse&lt;/a&gt;, &lt;strong&gt;páginas man&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="ssd"></category><category term="unidad estado sólido"></category><category term="instalación"></category><category term="optimización"></category><category term="linux"></category><category term="antergos"></category><category term="archlinux"></category></entry><entry><title>Firefox y las fuentes externas en Tumblr (problemas con @font-face)</title><link href="http://soulchainer.github.io/posts/2014/06/17/firefox-fuentes-tumblr/" rel="alternate"></link><updated>2014-06-17T18:40:00+02:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-06-17:posts/2014/06/17/firefox-fuentes-tumblr/</id><summary type="html">&lt;p&gt;Estoy escribiendo un nuevo tema para &lt;a class="reference external" href="http://soulchainer.tumblr.com/"&gt;mi tumblr&lt;/a&gt; y ayer llegó el momento de
 trasladar lo que ya tengo escrito al editor de html de &lt;em&gt;Tumblr&lt;/em&gt;, para empezar a
 incorporar sus variables especiales y demás. Pues bien, subo dicho código,
 guardo y me encuentro con esto:&lt;/p&gt;
@@ -150,7 +473,7 @@ usage: compton &lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;
 Options:
 ...
 --vsync vsync-method
-  Set VSync method. There are up to 4 VSync methods currently available.
+  Set VSync method. There are up to &lt;span class="m"&gt;4&lt;/span&gt; VSync methods currently available.
     &lt;span class="nv"&gt;none&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; No VSync
     &lt;span class="nv"&gt;drm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; VSync with DRM_IOCTL_WAIT_VBLANK. May only work on some
       drivers.
@@ -167,7 +490,7 @@ Options:
       extension. Basically the same as opengl-swc above, except the
       extension we use.
 --vsync-aggressive
-  Attempt to send painting request before VBlank and &lt;span class="k"&gt;do &lt;/span&gt;XFlush&lt;span class="o"&gt;()&lt;/span&gt;
+  Attempt to send painting request before VBlank and &lt;span class="k"&gt;do&lt;/span&gt; XFlush&lt;span class="o"&gt;()&lt;/span&gt;
   during VBlank. This switch may be lifted out at any moment.
 ...
 --dbe
@@ -182,12 +505,12 @@ sea de paso).&lt;/p&gt;
 &lt;h3&gt;Solución usando sólo compton&lt;/h3&gt;
 &lt;p&gt;En dicha publicación recomiendan crear un archivo
 de configuración simple para &lt;em&gt;compton&lt;/em&gt; en &lt;code&gt;~/.config/compton.conf&lt;/code&gt; :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;shadow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;;
-no-dnd-shadow &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;;
-shadow-radius &lt;span class="o"&gt;=&lt;/span&gt; 10;
-shadow-offset-x &lt;span class="o"&gt;=&lt;/span&gt; -16;
-shadow-offset-y &lt;span class="o"&gt;=&lt;/span&gt; -16;
-shadow-opacity &lt;span class="o"&gt;=&lt;/span&gt; 0.6;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;shadow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+no-dnd-shadow &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+shadow-radius &lt;span class="o"&gt;=&lt;/span&gt; 10&lt;span class="p"&gt;;&lt;/span&gt;
+shadow-offset-x &lt;span class="o"&gt;=&lt;/span&gt; -16&lt;span class="p"&gt;;&lt;/span&gt;
+shadow-offset-y &lt;span class="o"&gt;=&lt;/span&gt; -16&lt;span class="p"&gt;;&lt;/span&gt;
+shadow-opacity &lt;span class="o"&gt;=&lt;/span&gt; 0.6&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;y ejecutar &lt;strong&gt;compton&lt;/strong&gt; con esta línea:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;compton --opengl --vsync opengl-swc --paint-on-overlay -b
@@ -215,7 +538,7 @@ EndSection
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto, en conjunción con la siguiente línea para &lt;em&gt;compton&lt;/em&gt;, funcionó para mí
 (hay que reiniciar):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;compton --opengl --paint-on-overlay -b &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;compton --opengl --paint-on-overlay -b &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como veis, prescindo de la opción &lt;code&gt;--vsync opengl-swc&lt;/code&gt; y, de paso, añado
 &lt;code&gt;-b&lt;/code&gt; , para que &lt;em&gt;compton&lt;/em&gt; se ejecute como un demonio.&lt;/p&gt;
@@ -1187,10 +1510,10 @@ aplicaciones que arrancan con &lt;em&gt;Openbox&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Para ello, hemos de editar un archivo de texto. Fácil y rápido, además.&lt;/p&gt;
 &lt;p&gt;Accedemos al archivo en cuestión (&lt;code&gt;~/.config/openbox/autostart&lt;/code&gt;) desde el
 menú: &lt;strong&gt;Preferences → Openbox Config → Edit autostart&lt;/strong&gt;. Y obtenemos algo así:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &amp;amp;
-volumeicon &amp;amp;
-compton -fC  &amp;amp;
-tint2 &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+compton -fC  &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+tint2 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc-workspace &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#/usr/lib/lxpolkit/lxpolkit &amp;amp;&lt;/span&gt;
@@ -1206,7 +1529,7 @@ de hacerlo y añadimos algún comando después, no se ejecutará.&lt;/p&gt;
 de otro comando ejecutado anteriormente para su uso, debemos usar el comando
 &lt;code&gt;sleep&lt;/code&gt; para añadir un tiempo de espera (en segundos) antes de su
 ejecución. Algo así:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tint2&lt;span class="o"&gt;)&lt;/span&gt; &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tint2&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;En el ejemplo, esperamos 1 segundo antes de lanzar &lt;em&gt;tint2&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
@@ -1217,7 +1540,7 @@ tienen en cuenta.&lt;/p&gt;
 &lt;p&gt;Y ya está :D&lt;/p&gt;
 &lt;p&gt;Antes de editarlo, un repaso rápido a las líneas ejecutadas por el actual
 &lt;code&gt;autostart&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Restaura el último fondo de pantalla utilizado. Utiliza la app &lt;a class="reference external" href="http://projects.l3ib.org/nitrogen/"&gt;nitrogen&lt;/a&gt;.
 Es un clásico y funciona genial.&lt;/p&gt;
@@ -1229,11 +1552,11 @@ Podemos configurar nuestra propia carpeta de fondos con
 &lt;strong&gt;Preferences → Add&lt;/strong&gt;. Después elegimos la miniatura de un fondo y
 &lt;strong&gt;Apply&lt;/strong&gt;. Listo. Cerramos.&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;volumeicon &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;El applet de control de volumen que aparece en la &lt;em&gt;bandeja del sistema&lt;/em&gt;. Desde
 ahí podemos configurar el sonido.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;compton -fC  &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;compton -fC  &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/chjj/compton"&gt;Compton&lt;/a&gt; es un compositor de ventanas (es lo que instalamos al marcar
 &lt;strong&gt;Efectos de escritorio&lt;/strong&gt; en la instalación de &lt;em&gt;Antergos&lt;/em&gt;). Es el encargado de
@@ -1246,14 +1569,14 @@ mucho más. Podría detallarlo, pero esto sería interminable. Y
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Una vez sabido esto, y si así lo queremos, añadimos el &lt;em&gt;dock&lt;/em&gt;
 (&lt;strong&gt;y alguna otra cosilla&lt;/strong&gt;) al inicio:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;numlockx &amp;amp;  &lt;span class="c"&gt;# activa el bloqueo numérico al inicio&lt;/span&gt;
-nitrogen --restore &amp;amp;
-volumeicon &amp;amp;
+&lt;div class="highlight"&gt;&lt;pre&gt;numlockx &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;  &lt;span class="c"&gt;# activa el bloqueo numérico al inicio&lt;/span&gt;
+nitrogen --restore &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+volumeicon &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;# regula la temperatura de color del monitor según la hora&lt;/span&gt;
-xflux -z tu_codigo_postal &amp;amp;
+xflux -z tu_codigo_postal &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 compton -fCGb
-tint2 &amp;amp;
-&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; plank&lt;span class="o"&gt;)&lt;/span&gt; &amp;amp;
+tint2 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="o"&gt;(&lt;/span&gt;sleep 1s &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; plank&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc-workspace &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#sleep 1s &amp;amp;&amp;amp; conky -c ~/.config/conky/conkyrc &amp;amp;&lt;/span&gt;
 &lt;span class="c"&gt;#/usr/lib/lxpolkit/lxpolkit &amp;amp;&lt;/span&gt;
@@ -1598,7 +1921,7 @@ reinstalar cuando me entero realmente de lo que ocurre. Me arroja este aviso:&l
 /tmp/alpm_CftMsk/.INSTALL: línea 8: ptintf: no se encontró la orden
 &lt;span class="c"&gt;## PLEASE READ BELOW ##&lt;/span&gt;
 1&lt;span class="o"&gt;)&lt;/span&gt; A workaround was applied to /usr/lib/python2.7/sysconfig.py.
-   Please see: https://bugs.archlinux.org/task/30812 &lt;span class="k"&gt;for &lt;/span&gt;more information
+   Please see: https://bugs.archlinux.org/task/30812 &lt;span class="k"&gt;for&lt;/span&gt; more information
 2&lt;span class="o"&gt;)&lt;/span&gt; Removing this package will reverse this workaround.
 3&lt;span class="o"&gt;)&lt;/span&gt; This workaround will be needed after every python2 update/install,
    simply re-install gufw package to re-apply the workaround.
@@ -2488,14 +2811,14 @@ la consola). Usando el comando &lt;code&gt;dd&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;Donde se ha de sustituir la &lt;strong&gt;x&lt;/strong&gt; de &lt;code&gt;/dev/sdx&lt;/code&gt; por la letra
 correspondiente a nuestra unidad &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;. Podemos averiguarla también desde la
 terminal con:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk -l | grep &lt;span class="s2"&gt;"Disk /"&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk -l &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;"Disk /"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto listará todos los dispositivos de almacenamiento (discos) conectados. Por
 ejemplo, en mi caso:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Disk /dev/sda: 298,1 GiB, 320069031424 bytes, 625134827 sectors
-Disk /dev/sdb: 931,5 GiB, 1000204886016 bytes, 1953525168 sectors
-Disk /dev/sdc: 149,1 GiB, 160041885696 bytes, 312581808 sectors
-Disk /dev/sdd: 7,5 GiB, 8010194944 bytes, 15644912 sectors
+&lt;div class="highlight"&gt;&lt;pre&gt;Disk /dev/sda: 298,1 GiB, &lt;span class="m"&gt;320069031424&lt;/span&gt; bytes, &lt;span class="m"&gt;625134827&lt;/span&gt; sectors
+Disk /dev/sdb: 931,5 GiB, &lt;span class="m"&gt;1000204886016&lt;/span&gt; bytes, &lt;span class="m"&gt;1953525168&lt;/span&gt; sectors
+Disk /dev/sdc: 149,1 GiB, &lt;span class="m"&gt;160041885696&lt;/span&gt; bytes, &lt;span class="m"&gt;312581808&lt;/span&gt; sectors
+Disk /dev/sdd: 7,5 GiB, &lt;span class="m"&gt;8010194944&lt;/span&gt; bytes, &lt;span class="m"&gt;15644912&lt;/span&gt; sectors
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Por lo que, fijándome en las capacidades de cada disco, sé que la ruta de mi
 dispositivo es &lt;code&gt;/dev/sdd&lt;/code&gt;, ya que se trata de una memoria de &lt;em&gt;8 &lt;span class="caps"&gt;GB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
@@ -2505,7 +2828,7 @@ Tenemos que esperar pacientemente hasta que, al fin, nos aparecen unas líneas
 con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;1468416+0 registros leídos
 1468416+0 registros escritos
-751828992 bytes &lt;span class="o"&gt;(&lt;/span&gt;752 MB&lt;span class="o"&gt;)&lt;/span&gt; copiados, 257,767 s, 2,9 MB/s
+&lt;span class="m"&gt;751828992&lt;/span&gt; bytes &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;752&lt;/span&gt; MB&lt;span class="o"&gt;)&lt;/span&gt; copiados, 257,767 s, 2,9 MB/s
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Y ya estamos listos para arrancar la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt; vía &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
@@ -2876,12 +3199,12 @@ Entre los muchos &lt;em&gt;módulos&lt;/em&gt; que trae el lenguaje por defecto,
 define &lt;em&gt;clases&lt;/em&gt; para implementar servidores web.&lt;/p&gt;
 &lt;p&gt;Así, con &lt;strong&gt;Python 2.x&lt;/strong&gt; podemos iniciar un servidor local desde consola con:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python2 -m SimpleHTTPServer 9999
-Serving HTTP on 0.0.0.0 port 9999 ...
+Serving HTTP on 0.0.0.0 port &lt;span class="m"&gt;9999&lt;/span&gt; ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;En &lt;strong&gt;Python 3.x&lt;/strong&gt; dicho &lt;em&gt;módulo&lt;/em&gt; ha pasado a ser &lt;code&gt;http.server&lt;/code&gt;, por lo
 que en su lugar:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python -m http.server 8000
-Serving HTTP on 0.0.0.0 port 8000 ...
+Serving HTTP on 0.0.0.0 port &lt;span class="m"&gt;8000&lt;/span&gt; ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto ejecuta un servidor en la ruta actual de consola. Así, si lo ejecuto
 desde la carpeta con los &lt;em&gt;&lt;span class="caps"&gt;HTML&lt;/span&gt;&lt;/em&gt; de mi blog, y accedo vía &lt;em&gt;Firefox&lt;/em&gt; a la
@@ -2894,12 +3217,12 @@ Aunque esta vez necesitamos conocer su &lt;em&gt;&lt;span class="caps"&gt;IP&lt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ifconfig
 eth0: &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"nv"&lt;/span&gt;&amp;gt;flags&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500
     inet 192.168.1.128  netmask 255.255.255.0  broadcast 192.168.1.255
-    inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen 64  scopeid 0x20&amp;lt;link&amp;gt;
-    ether 00:1e:8c:1f:a7:d8  txqueuelen 1000  &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;Ethernet&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    RX packets 598614  bytes 650747078 &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;620.6 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    RX errors 0  dropped 16  overruns 0  frame 0
-    TX packets 388523  bytes 69392562 &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;66.1 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    inet6 fe80::21e:8cff:fe1f:a7d8  prefixlen &lt;span class="m"&gt;64&lt;/span&gt;  scopeid 0x20&amp;lt;link&amp;gt;
+    ether 00:1e:8c:1f:a7:d8  txqueuelen &lt;span class="m"&gt;1000&lt;/span&gt;  &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;Ethernet&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    RX packets &lt;span class="m"&gt;598614&lt;/span&gt;  bytes &lt;span class="m"&gt;650747078&lt;/span&gt; &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;620.6 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    RX errors &lt;span class="m"&gt;0&lt;/span&gt;  dropped &lt;span class="m"&gt;16&lt;/span&gt;  overruns &lt;span class="m"&gt;0&lt;/span&gt;  frame 0
+    TX packets &lt;span class="m"&gt;388523&lt;/span&gt;  bytes &lt;span class="m"&gt;69392562&lt;/span&gt; &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;(&lt;/span&gt;66.1 MiB&amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&amp;gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    TX errors &lt;span class="m"&gt;0&lt;/span&gt;  dropped &lt;span class="m"&gt;0&lt;/span&gt; overruns &lt;span class="m"&gt;0&lt;/span&gt;  carrier &lt;span class="m"&gt;0&lt;/span&gt;  collisions 0
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
@@ -3311,8 +3634,8 @@ todos los archivos referentes a un paquete:&lt;/p&gt;
 &lt;p&gt;Si buscamos por &lt;code&gt;w3c&lt;/code&gt;, por ejemplo:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip search w3c
 pyprov                    - A Python implementation of W3C PROV data model
-py_w3c                    - Library &lt;span class="k"&gt;for &lt;/span&gt;W3C markup validation SOAP service
-w3c-validator             - W3C panel &lt;span class="k"&gt;for &lt;/span&gt;Django Debug Toolbar using requests.
+py_w3c                    - Library &lt;span class="k"&gt;for&lt;/span&gt; W3C markup validation SOAP service
+w3c-validator             - W3C panel &lt;span class="k"&gt;for&lt;/span&gt; Django Debug Toolbar using requests.
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;pip&lt;/em&gt; es mucho más que todo esto. &lt;a class="reference external" href="http://www.pip-installer.org/en/latest/"&gt;&lt;span class="caps"&gt;RTFM&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
