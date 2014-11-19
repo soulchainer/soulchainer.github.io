@@ -142,22 +142,28 @@ rendimiento y alargar la vida útil de la unidad." />
     <div class="contents topic" id="indice-de-contenido">
 <p class="topic-title first"><strong>Índice de contenido</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="#antes-de-comprar" id="id8">Antes de comprar</a></li>
-<li><a class="reference internal" href="#modo-ahci" id="id9">Modo <span class="caps">AHCI</span></a></li>
-<li><a class="reference internal" href="#particionado-inteligente-de-discos" id="id10">Particionado inteligente de discos</a></li>
-<li><a class="reference internal" href="#swap" id="id11">Swap</a></li>
-<li><a class="reference internal" href="#montar-las-particiones-con-noatime" id="id12">Montar las particiones con noatime</a></li>
-<li><a class="reference internal" href="#trim" id="id13"><span class="caps">TRIM</span></a><ul>
-<li><a class="reference internal" href="#activando-trim" id="id14">Activando <span class="caps">TRIM</span></a></li>
+<li><a class="reference internal" href="#antes-de-comprar" id="id8">Antes de comprar</a><ul>
+<li><a class="reference internal" href="#el-tamano-si-importa" id="id9">El tamaño sí importa</a></li>
+<li><a class="reference internal" href="#decisiones-decisiones" id="id10">Decisiones, decisiones</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#planificador-de-e-s" id="id15">Planificador de E/S</a></li>
-<li><a class="reference internal" href="#limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos" id="id16">Limitar el número de chequeos de los sistemas de archivos</a></li>
-<li><a class="reference internal" href="#velocidad" id="id17">Velocidad</a></li>
-<li><a class="reference internal" href="#proxima-parte" id="id18">Próxima parte</a></li>
+<li><a class="reference internal" href="#modo-ahci" id="id11">Modo <span class="caps">AHCI</span></a></li>
+<li><a class="reference internal" href="#particionado-inteligente-de-discos" id="id12">Particionado inteligente de discos</a></li>
+<li><a class="reference internal" href="#swap" id="id13">Swap</a></li>
+<li><a class="reference internal" href="#montar-las-particiones-con-noatime" id="id14">Montar las particiones con noatime</a></li>
+<li><a class="reference internal" href="#trim" id="id15"><span class="caps">TRIM</span></a><ul>
+<li><a class="reference internal" href="#activando-trim" id="id16">Activando <span class="caps">TRIM</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#planificador-de-e-s" id="id17">Planificador de E/S</a></li>
+<li><a class="reference internal" href="#limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos" id="id18">Limitar el número de chequeos de los sistemas de archivos</a></li>
+<li><a class="reference internal" href="#velocidad" id="id19">Velocidad</a></li>
+<li><a class="reference internal" href="#proxima-parte" id="id20">Próxima parte</a></li>
 </ul>
 </div>
 <!-- 1  Antes de comprar
+  1.1  El tamaño sí importa
+  1.2  Decisiones, decisiones
 2  Modo AHCI
 3  Particionado inteligente de discos
 4  Swap
@@ -176,7 +182,7 @@ configuración y optimización del sistema para maximizar el rendimiento y
 alargar la vida útil de la unidad.</p>
 <div class="figure align-center" style="width: 766px; height: auto; max-width: 100%;">
 <img alt="SSD Crucial MX100 128GB SATA3." src="http://soulchainer.github.io/images/2014/11/2014-11-19_01.png" style="width: 766px; height: auto; max-width: 100%;"/>
-<p class="caption">Crucial <span class="caps">MX100</span> <span class="caps">128GB</span> <span class="caps">SATA3</span>. Mi elección. Por relación calidad/precio/espacio, más que nada.</p>
+<p class="caption">Crucial <span class="caps">MX100</span> <span class="caps">128GB</span> <span class="caps">SATA3</span>. Mi elección. Por relación calidad/precio/espacio.</p>
 </div>
 <p>Aunque el artículo está enfocado a <a class="reference external" href="http://antergos.com/">Antergos</a> (<a class="reference external" href="https://www.archlinux.org/">Arch Linux</a> con instalador
 para vaguetes), que es lo que yo uso, buena parte de él es fácil de aplicar a
@@ -185,13 +191,27 @@ otras distribuciones <strong>Linux</strong>.</p>
 Una vez dicho esto, vamos a ello.</p>
 <div class="section" id="antes-de-comprar">
 <h2><a class="toc-backref" href="#id8">Antes de comprar</a></h2>
+<div class="section" id="el-tamano-si-importa">
+<h3><a class="toc-backref" href="#id9">El tamaño sí importa</a></h3>
 <p>Para un uso eficiente de la unidad por parte del kernel, el espacio ocupado
 no ha de superar el 75% del espacio total disponible. Por ello, hemos de
 tener especial cuidado a la hora de elegir la capacidad de nuestra futura
 <em><span class="caps">SSD</span></em>. Si sabemos que vamos a ocupar 64 <span class="caps">GB</span>, mejor será adquirir una de mayor capacidad.</p>
+<p>También hemos de tener en cuenta que en el mundo de las <em><span class="caps">SSD</span></em> el rendimiento
+mejora conforme aumenta la capacidad: una unidad de 128 <span class="caps">GB</span> va a ir mejor que
+otra de 64 <span class="caps">GB</span> de la misma gama.</p>
+</div>
+<div class="section" id="decisiones-decisiones">
+<h3><a class="toc-backref" href="#id10">Decisiones, decisiones</a></h3>
+<p>Si te cuesta decidirte entre una <em><span class="caps">SSD</span></em> u otra, <a class="reference external" href="http://ssdboss.com/">ssdboss</a> puede serte de mucha
+utilidad. Es una página de comparativas especializada en <em><span class="caps">SSD</span></em>: le indicas un
+par de modelos y te detalla las ventajas de una frente a la otra, te puntua
+ambas y te señala la ganadora, según sus tests.</p>
+<p>La verdad, ojalá hubiera sabido de su existencia antes de adquirir la mía :p</p>
+</div>
 </div>
 <div class="section" id="modo-ahci">
-<h2><a class="toc-backref" href="#id9">Modo <span class="caps">AHCI</span></a></h2>
+<h2><a class="toc-backref" href="#id11">Modo <span class="caps">AHCI</span></a></h2>
 <p>Conviene establecer el <strong><span class="caps">MODO</span></strong> <a class="reference external" href="http://es.wikipedia.org/wiki/AHCI"><span class="caps">AHCI</span></a> en la <strong><span class="caps">BIOS</span></strong>/<strong><span class="caps">UEFI</span></strong>.</p>
 <p>Este ajuste está relacionado con los dispositivos con interfaz <em><span class="caps">SATA</span></em>, por lo
 que seguramente podremos encontrarlo en el apartado de configuración de los
@@ -201,24 +221,24 @@ mismos. En la <strong><span class="caps">UEFI</span></strong> de <a class="refer
 a la vez que mejora el rendimiento de los dispositivos.</p>
 </div>
 <div class="section" id="particionado-inteligente-de-discos">
-<h2><a class="toc-backref" href="#id10">Particionado inteligente de discos</a></h2>
+<h2><a class="toc-backref" href="#id12">Particionado inteligente de discos</a></h2>
 <p>Para sistemas con <em><span class="caps">SSD</span></em> y discos magnéticos, es preferible montar los
 directorios <code>/var</code> y <code>/home</code> en particiones de estos últimos.
 En el caso de <code>/var</code> para evitar un desgaste innecesario de la <em><span class="caps">SSD</span></em>, y
 en el de <code>/home</code> porque uno de los inconvenientes de las <em><span class="caps">SSD</span></em> es que
 pierden velocidad de escritura conforme se va llenando el disco.</p>
-<p>La idea general es tener en la <em><span class="caps">SSD</span></em> aquellas particiones cuya lectura sea
-muy rápida (como la del sistema operativo) y evitar mantener particiones sobre
-las que se realicen operaciones de escritura muy frecuentes. Obviamente,
-podemos ignorar esto según nuestras necesidades (si queremos acelerar el
-acceso a determinados archivos), pero siempre teniendo presente que al hacerlo
-estamos reduciendo la vida útil de la unidad.</p>
+<p>La idea general es tener en la <em><span class="caps">SSD</span></em> aquellas particiones cuya lectura queremos
+que sea muy rápida (como la del sistema operativo) y evitar mantener
+particiones sobre las que se realicen operaciones de escritura muy frecuentes.
+Obviamente, podemos ignorar esto según nuestras necesidades (si queremos
+acelerar el acceso a determinados archivos), pero siempre teniendo presente que
+al hacerlo estamos reduciendo la vida útil de la unidad.</p>
 <p>En mi caso, en la <em><span class="caps">SSD</span></em> tengo las particiones <code>/boot</code>, <code>/</code> y
 <code>/VMs</code> (para máquinas virtuales) y ubico en otros discos duros las
 particiones <code>/home</code> y <code>/var</code>.</p>
 </div>
 <div class="section" id="swap">
-<h2><a class="toc-backref" href="#id11">Swap</a></h2>
+<h2><a class="toc-backref" href="#id13">Swap</a></h2>
 <p>Podemos crear nuestra partición swap en la <em><span class="caps">SSD</span></em>, pero esto conlleva muchas
 escrituras en disco, y eso es precisamente lo que estamos tratando de evitar.
 Si tenemos una cantidad de <em><span class="caps">RAM</span></em> decente es seguro prescindir de ella.</p>
@@ -235,7 +255,7 @@ vm.dirty_writeback_centisecs<span class="o">=</span><span class="m">1500</span> 
 </pre></div>
 </div>
 <div class="section" id="montar-las-particiones-con-noatime">
-<h2><a class="toc-backref" href="#id12">Montar las particiones con noatime</a></h2>
+<h2><a class="toc-backref" href="#id14">Montar las particiones con noatime</a></h2>
 <p>Linux lleva un registro de los tiempos de acceso a archivos y directorios.
 Esto hace que por cada archivo que leemos se genere paralelamente una
 operación de escritura para mantener actualizado dicho registro. Podemos
@@ -249,7 +269,7 @@ particiones deseadas. A modo de ejemplo, valga un extracto de mi <code>fstab</co
 </pre></div>
 </div>
 <div class="section" id="trim">
-<h2><a class="toc-backref" href="#id13"><span class="caps">TRIM</span></a></h2>
+<h2><a class="toc-backref" href="#id15"><span class="caps">TRIM</span></a></h2>
 <p><a class="reference external" href="https://es.wikipedia.org/wiki/TRIM/"><span class="caps">TRIM</span></a> es una característica que prolonga la vida útil de la <em><span class="caps">SSD</span></em> y reduce,
 en lo posible, su ralentización a lo largo del tiempo.</p>
 <p>La mayoría de <em><span class="caps">SSD</span></em> modernas soportan el comando <em>ATA_TRIM</em>.</p>
@@ -264,7 +284,7 @@ soporta <em><span class="caps">TRIM</span></em>.</p>
 <strong>Ext4</strong>, <strong>Btrfs</strong>, <strong><span class="caps">JFS</span></strong>, <strong><span class="caps">VFAT</span></strong> y <strong><span class="caps">XFS</span></strong>.</p>
 <p>Entre ellos, <strong>Ext4</strong> es la opción ideal, por estabilidad y rendimiento.</p>
 <div class="section" id="activando-trim">
-<h3><a class="toc-backref" href="#id14">Activando <span class="caps">TRIM</span></a></h3>
+<h3><a class="toc-backref" href="#id16">Activando <span class="caps">TRIM</span></a></h3>
 <p>En esencia, hay dos formas de activar y/o aplicar <em><span class="caps">TRIM</span></em>:</p>
 <ol class="arabic">
 <li><p class="first">Vía opciones de montaje en <code>/etc/fstab</code>.</p>
@@ -319,7 +339,7 @@ opción <code>discard</code> al mismo tiempo que <code>fstrim</code>.</p>
 </div>
 </div>
 <div class="section" id="planificador-de-e-s">
-<h2><a class="toc-backref" href="#id15">Planificador de E/S</a></h2>
+<h2><a class="toc-backref" href="#id17">Planificador de E/S</a></h2>
 <p>Por defecto, <em>Arch</em> usa <a class="reference external" href="http://en.wikipedia.org/wiki/CFQ/"><span class="caps">CFQ</span></a> como <em>planificador de E/S</em> <a class="footnote-reference" href="#id6" id="id2">[2]</a>. Podemos cambiar
 este por <a class="reference external" href="http://en.wikipedia.org/wiki/Noop_scheduler/"><span class="caps">NOOP</span></a> o <a class="reference external" href="http://en.wikipedia.org/wiki/Deadline_scheduler/">Deadline</a>. Ambos mejoran el rendimiento de las SSDs.
 Normalmente, <em><span class="caps">NOOP</span></em> es la opción más recomendable.</p>
@@ -347,7 +367,7 @@ ATTR<span class="o">{</span>queue/scheduler<span class="o">}=</span><span class=
 dispositivos sin partes móviles (<em>non-rotating</em>) que encuentre.</p>
 </div>
 <div class="section" id="limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos">
-<h2><a class="toc-backref" href="#id16">Limitar el número de chequeos de los sistemas de archivos</a></h2>
+<h2><a class="toc-backref" href="#id18">Limitar el número de chequeos de los sistemas de archivos</a></h2>
 <p>A fin de garantizar la integridad de los datos, el sistema operativo realiza
 un chequeo a todo sistema de archivos que acumula x número de montajes desde su
 última revisión. Por defecto suele ser a los treinta, pero dado que lo que
@@ -364,7 +384,7 @@ actual
 <strong>no es nada aconsejable</strong>.</p>
 </div>
 <div class="section" id="velocidad">
-<h2><a class="toc-backref" href="#id17">Velocidad</a></h2>
+<h2><a class="toc-backref" href="#id19">Velocidad</a></h2>
 <p>Con el comando</p>
 <div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -Tt /dev/sdX  <span class="c"># X es la letra de nuestra unidad</span>
 </pre></div>
@@ -430,7 +450,7 @@ de hace 7 años a un octacore también tiene su cosilla. Vamos, que esto va como
 un tiro :D</p>
 </div>
 <div class="section" id="proxima-parte">
-<h2><a class="toc-backref" href="#id18">Próxima parte</a></h2>
+<h2><a class="toc-backref" href="#id20">Próxima parte</a></h2>
 <p>Esta iba a ser una entrada única sobre los ajustes que hice en mi equipo para
 sacarle partido a mi nueva <em><span class="caps">SSD</span></em>, pero acabé añadiendo diversas notas más
 relacionadas con <a class="reference external" href="http://es.wikipedia.org/wiki/Tmpfs">tmpfs</a> que con otra cosa, así que la he dividido en dos partes.</p>
