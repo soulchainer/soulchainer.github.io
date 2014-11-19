@@ -18,6 +18,8 @@ Esto va como un tiro (I): Usando una SSD en Arch Linux
 .. contents:: **Índice de contenido**
 ..
    1  Antes de comprar
+     1.1  El tamaño sí importa
+     1.2  Decisiones, decisiones
    2  Modo AHCI
    3  Particionado inteligente de discos
    4  Swap
@@ -41,7 +43,7 @@ alargar la vida útil de la unidad.
     :alt: SSD Crucial MX100 128GB SATA3.
     :align: center
 
-    Crucial MX100 128GB SATA3. Mi elección. Por relación calidad/precio/espacio, más que nada.
+    Crucial MX100 128GB SATA3. Mi elección. Por relación calidad/precio/espacio.
 
 Aunque el artículo está enfocado a `Antergos`_ (`Arch Linux`_ con instalador
 para vaguetes), que es lo que yo uso, buena parte de él es fácil de aplicar a
@@ -54,11 +56,28 @@ Una vez dicho esto, vamos a ello.
 Antes de comprar
 ****************
 
+El tamaño sí importa
+====================
+
 Para un uso eficiente de la unidad por parte del kernel, el espacio ocupado
 no ha de superar el 75% del espacio total disponible. Por ello, hemos de
 tener especial cuidado a la hora de elegir la capacidad de nuestra futura
 *SSD*. Si sabemos que vamos a ocupar 64 GB, mejor será adquirir una de mayor
 capacidad.
+
+También hemos de tener en cuenta que en el mundo de las *SSD* el rendimiento
+mejora conforme aumenta la capacidad: una unidad de 128 GB va a ir mejor que
+otra de 64 GB de la misma gama.
+
+Decisiones, decisiones
+======================
+
+Si te cuesta decidirte entre una *SSD* u otra, `ssdboss`_ puede serte de mucha
+utilidad. Es una página de comparativas especializada en *SSD*: le indicas un
+par de modelos y te detalla las ventajas de una frente a la otra, te puntua
+ambas y te señala la ganadora, según sus tests.
+
+La verdad, ojalá hubiera sabido de su existencia antes de adquirir la mía :p
 
 *********
 Modo AHCI
@@ -84,12 +103,12 @@ En el caso de :code:`/var` para evitar un desgaste innecesario de la *SSD*, y
 en el de :code:`/home` porque uno de los inconvenientes de las *SSD* es que
 pierden velocidad de escritura conforme se va llenando el disco.
 
-La idea general es tener en la *SSD* aquellas particiones cuya lectura sea
-muy rápida (como la del sistema operativo) y evitar mantener particiones sobre
-las que se realicen operaciones de escritura muy frecuentes. Obviamente,
-podemos ignorar esto según nuestras necesidades (si queremos acelerar el
-acceso a determinados archivos), pero siempre teniendo presente que al hacerlo
-estamos reduciendo la vida útil de la unidad.
+La idea general es tener en la *SSD* aquellas particiones cuya lectura queremos
+que sea muy rápida (como la del sistema operativo) y evitar mantener
+particiones sobre las que se realicen operaciones de escritura muy frecuentes.
+Obviamente, podemos ignorar esto según nuestras necesidades (si queremos
+acelerar el acceso a determinados archivos), pero siempre teniendo presente que
+al hacerlo estamos reduciendo la vida útil de la unidad.
 
 En mi caso, en la *SSD* tengo las particiones :code:`/boot`, :code:`/` y
 :code:`/VMs` (para máquinas virtuales) y ubico en otros discos duros las
@@ -409,6 +428,7 @@ le resulte útil a alguien más.
 .. _AMD FX 8-Core Black Edition FX-8350: http://www.amd.com/en-us/products/processors/desktop/fx/
 .. _Kingston HyperX Fury Black DDR3 1866MHz 8GB: http://www.kingston.com/es/hyperx/memory/fury/
 .. _AHCI: http://es.wikipedia.org/wiki/AHCI
+.. _ssdboss: http://ssdboss.com/
 .. _man de hdparm: http://linux.die.net/man/8/hdparm
 .. _tmpfs: http://es.wikipedia.org/wiki/Tmpfs
 .. _Wiki Arch Linux: https://wiki.archlinux.org/index.php/Solid_State_Drives
