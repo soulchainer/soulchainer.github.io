@@ -1,0 +1,63 @@
+Revertir Firefox Developer Edition
+##################################
+:date: 2014-11-20 18:20
+:tags: firefox, aurora, developer edition, actualizacion, tema, perfil
+:category: CÓMOS, Web
+:slug: revertir-firefox-developer
+:author: Soulchainer
+:twsummary: Ayer actualicé Firefox Aurora, vía yaourt, pero no reinicié
+            el navegador. Y al iniciarlo ahora, lo que se carga es
+            Firefox Developer Edition pelado, sin mi perfil de siempre. ¿Dónde
+            están mis plugins, pestañas abiertas, contraseñas, historial...?
+
+            Resulta que Firefox Developer...
+:twimg: 2014-11-20_01.png
+
+Hoy me he levantado, he encendido el ordenador y... me han dado un disgusto.
+
+Me explico. Ayer actualicé `Firefox Aurora`_, vía `yaourt`_, pero no reinicié
+el navegador. Y al iniciarlo ahora, lo que se carga es
+`Firefox Developer Edition`_ pelado, sin mi perfil de siempre. ¿Dónde están mis
+plugins, pestañas abiertas, contraseñas, historial...?
+
+.. figure:: {filename}/images/2014/11/2014-11-20_01.png
+    :alt: Logo de Firefox Developer Edition.
+    :align: left
+    :target: https://www.mozilla.org/es-ES/firefox/developer/
+
+Resulta que *Firefox Developer Edition* utiliza un perfil separado del de otras
+versiones de *Firefox* instaladas en el equipo. Esto está muy bien si usas la
+versión estable o la beta, y sólo quieres usar la *Developer* de forma puntual.
+Así tienes cada cosa por un lado y no se entremezclan. El problema viene cuando
+*Firefox Aurora* era tu versión de Firefox preferida, porque
+*Firefox Developer Edition* la reemplaza y te fastidias.
+
+Para solucionarlo, abrimos **Preferencias** y desmarcamos la opción
+**Permitir a Firefox Developer Edition y Firefox ejecutarse al mismo tiempo**.
+
+.. figure:: {filename}/images/2014/11/2014-11-20_02.png
+    :alt: Página de Preferencias.
+    :align: center
+
+Tras reiniciar el navegador, tal y como nos solicita, se restaurará nuestro
+perfil y datos de sesión previos a la actualización. Justo lo que queríamos.
+
+Al restaurar nuestro perfil, también se restaura el tema que teníamos antes.
+En el caso de que nos gustara el tema de *Firefox Developer Edition*, siempre
+podemos establecerlo abriendo el panel **Personalizar** y haciendo clic en el
+botón **Usar el tema Firefox Developer Edition**.
+
+.. figure:: {filename}/images/2014/11/2014-11-20_03.png
+    :alt: Panel de Personalizar.
+    :align: center
+
+Y, ya que estaba por la labor, `he traducido`_ la `página de MDN`_ que he
+consultado para esto.
+
+----
+
+.. _Firefox Aurora: https://www.mozilla.org/en-US/firefox/channel/#aurora
+.. _yaourt: http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/#yaourt
+.. _Firefox Developer Edition: https://www.mozilla.org/es-ES/firefox/developer/
+.. _he traducido: https://developer.mozilla.org/es/Firefox/Edici%C3%B3n_de_Desarrollador/Revertir/
+.. _página de MDN: https://developer.mozilla.org/en-US/Firefox/Developer_Edition/Reverting/
