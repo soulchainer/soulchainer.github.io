@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soulbits</title><link>http://soulchainer.github.io/</link><description>archlinux, software libre y apuntes varios</description><atom:link href="http://soulchainer.github.io/feeds/soulchainer.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 19 Nov 2014 23:30:00 +0100</lastBuildDate><item><title>Esto va como un tiro (I): Usando una SSD en Arch Linux</title><link>http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soulbits</title><link>http://soulchainer.github.io/</link><description>archlinux, software libre y apuntes varios</description><atom:link href="http://soulchainer.github.io/feeds/soulchainer.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 20 Nov 2014 18:20:00 +0100</lastBuildDate><item><title>Revertir Firefox Developer Edition</title><link>http://soulchainer.github.io/posts/2014/11/20/revertir-firefox-developer/</link><description>&lt;p&gt;Hoy me he levantado, he encendido el ordenador y… me han dado un disgusto.&lt;/p&gt;
+&lt;p&gt;Me explico. Ayer actualicé &lt;a class="reference external" href="https://www.mozilla.org/en-US/firefox/channel/#aurora"&gt;Firefox Aurora&lt;/a&gt;, vía &lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/#yaourt"&gt;yaourt&lt;/a&gt;, pero no reinicié
+el navegador. Y al iniciarlo ahora, lo que se carga es
+&lt;a class="reference external" href="https://www.mozilla.org/es-ES/firefox/developer/"&gt;Firefox Developer Edition&lt;/a&gt; pelado, sin mi perfil de siempre. ¿Dónde están mis
+plugins, pestañas abiertas, contraseñas, historial…?&lt;/p&gt;
+&lt;div class="figure align-left" style="width: 350px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="https://www.mozilla.org/es-ES/firefox/developer/"&gt;&lt;img alt="Logo de Firefox Developer Edition." src="http://soulchainer.github.io/images/2014/11/2014-11-20_01.png" style="width: 350px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Resulta que &lt;em&gt;Firefox Developer Edition&lt;/em&gt; utiliza un perfil separado del de otras
+versiones de &lt;em&gt;Firefox&lt;/em&gt; instaladas en el equipo. Esto está muy bien si usas la
+versión estable o la beta, y sólo quieres usar la &lt;em&gt;Developer&lt;/em&gt; de forma puntual.
+Así tienes cada cosa por un lado y no se entremezclan. El problema viene cuando
+&lt;em&gt;Firefox Aurora&lt;/em&gt; era tu versión de Firefox preferida, porque
+&lt;em&gt;Firefox Developer Edition&lt;/em&gt; la reemplaza y te fastidias.&lt;/p&gt;
+&lt;p&gt;Para solucionarlo, abrimos &lt;strong&gt;Preferencias&lt;/strong&gt; y desmarcamos la opción
+&lt;strong&gt;Permitir a Firefox Developer Edition y Firefox ejecutarse al mismo tiempo&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 900px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Página de Preferencias." src="http://soulchainer.github.io/images/2014/11/2014-11-20_02.png" style="width: 900px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Tras reiniciar el navegador, tal y como nos solicita, se restaurará nuestro
+perfil y datos de sesión previos a la actualización. Justo lo que queríamos.&lt;/p&gt;
+&lt;p&gt;Al restaurar nuestro perfil, también se restaura el tema que teníamos antes.
+En el caso de que nos gustara el tema de &lt;em&gt;Firefox Developer Edition&lt;/em&gt;, siempre
+podemos establecerlo abriendo el panel &lt;strong&gt;Personalizar&lt;/strong&gt; y haciendo clic en el
+botón &lt;strong&gt;Usar el tema Firefox Developer Edition&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 900px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Panel de Personalizar." src="http://soulchainer.github.io/images/2014/11/2014-11-20_03.png" style="width: 900px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Y, ya que estaba por la labor, &lt;a class="reference external" href="https://developer.mozilla.org/es/Firefox/Edici%C3%B3n_de_Desarrollador/Revertir/"&gt;he traducido&lt;/a&gt; la &lt;a class="reference external" href="https://developer.mozilla.org/en-US/Firefox/Developer_Edition/Reverting/"&gt;página de &lt;span class="caps"&gt;MDN&lt;/span&gt;&lt;/a&gt; que he
+consultado para esto.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Thu, 20 Nov 2014 18:20:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-11-20:posts/2014/11/20/revertir-firefox-developer/</guid><category>firefox</category><category>aurora</category><category>developer edition</category><category>actualizacion</category><category>tema</category><category>perfil</category></item><item><title>Esto va como un tiro (I): Usando una SSD en Arch Linux</title><link>http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#antes-de-comprar" id="id8"&gt;Antes de comprar&lt;/a&gt;&lt;ul&gt;
