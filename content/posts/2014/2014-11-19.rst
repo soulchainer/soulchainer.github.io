@@ -118,11 +118,11 @@ particiones :code:`/home` y :code:`/var`.
 Swap
 ****
 
-Podemos crear nuestra partición swap en la *SSD*, pero esto conlleva muchas
+Podemos crear nuestra partición *swap* en la *SSD*, pero esto conlleva muchas
 escrituras en disco, y eso es precisamente lo que estamos tratando de evitar.
-Si tenemos una cantidad de *RAM* decente es seguro prescindir de ella.
+Si tenemos una cantidad de *RAM* decente es seguro prescindir de ella [#]_.
 
-Yo, con 8 GB de *RAM*, no empleo swap. Pero, en el caso de que dispongamos de
+Yo, con 8 GB de *RAM*, no empleo *swap*. Pero, en el caso de que dispongamos de
 muy poca *RAM* (<4 GB), podemos configurar el sistema para que la emplee lo
 mínimo indispensable.
 
@@ -438,6 +438,7 @@ le resulte útil a alguien más.
 .. _Documentación Opensuse: http://doc.opensuse.org/products/draft/SLES/SLES-tuning_sd_draft/cha.tuning.memory.html
 
 .. [#] Una **unidad de estado sólido** (**SSD**, **solid-state drive**) es un dispositivo de almacenamiento de datos que usa una memoria no volátil, como la memoria flash, para almacenar datos. En comparación con los discos duros convencionales, las *SSD* son menos sensibles a los golpes, son prácticamente inaudibles, tienen un menor tiempo de acceso y de latencia, y se calientan y consumen menos energía.
+.. [#] Salvo que queramos emplear la función de hibernar, en cuyo caso es necesaria bien una partición o bien un archivo *swap*.
 .. [#] Es el software encargado de decidir el orden por el cual se van a enviar las peticiones de lectura y escritura al subsistema de disco.
 .. [#] Me lo suele agradecer bastante. Es muy educado y buena gente.
 
