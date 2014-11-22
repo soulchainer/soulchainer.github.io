@@ -33,23 +33,23 @@ consultado para esto.&lt;/p&gt;
 </summary><category term="firefox"></category><category term="aurora"></category><category term="developer edition"></category><category term="actualizacion"></category><category term="tema"></category><category term="perfil"></category></entry><entry><title>Esto va como un tiro (I): Usando una SSD en Arch Linux</title><link href="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/" rel="alternate"></link><updated>2014-11-19T23:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-11-19:posts/2014/11/19/optimizacion-ssd-instalacion/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#antes-de-comprar" id="id8"&gt;Antes de comprar&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#el-tamano-si-importa" id="id9"&gt;El tamaño sí importa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#decisiones-decisiones" id="id10"&gt;Decisiones, decisiones&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#antes-de-comprar" id="id10"&gt;Antes de comprar&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#el-tamano-si-importa" id="id11"&gt;El tamaño sí importa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#decisiones-decisiones" id="id12"&gt;Decisiones, decisiones&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#modo-ahci" id="id11"&gt;Modo &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#particionado-inteligente-de-discos" id="id12"&gt;Particionado inteligente de discos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#swap" id="id13"&gt;Swap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#montar-las-particiones-con-noatime" id="id14"&gt;Montar las particiones con noatime&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#trim" id="id15"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#activando-trim" id="id16"&gt;Activando &lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#modo-ahci" id="id13"&gt;Modo &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#particionado-inteligente-de-discos" id="id14"&gt;Particionado inteligente de discos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#swap" id="id15"&gt;Swap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#montar-las-particiones-con-noatime" id="id16"&gt;Montar las particiones con noatime&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#trim" id="id17"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#activando-trim" id="id18"&gt;Activando &lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#planificador-de-e-s" id="id17"&gt;Planificador de E/S&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos" id="id18"&gt;Limitar el número de chequeos de los sistemas de archivos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#velocidad" id="id19"&gt;Velocidad&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#proxima-parte" id="id20"&gt;Próxima parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#planificador-de-e-s" id="id19"&gt;Planificador de E/S&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos" id="id20"&gt;Limitar el número de chequeos de los sistemas de archivos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#velocidad" id="id21"&gt;Velocidad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#proxima-parte" id="id22"&gt;Próxima parte&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!-- 1  Antes de comprar
@@ -67,7 +67,7 @@ consultado para esto.&lt;/p&gt;
 10  Próxima parte --&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;p&gt;Entre mis prioridades para cuando consiguiera algo de dinerito estaba el
-pillarme una &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt;. Pues bien, mi equipo lleva ya unas semanitas
+pillarme una &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; &lt;a class="footnote-reference" href="#id6" id="id1"&gt;[1]&lt;/a&gt;. Pues bien, mi equipo lleva ya unas semanitas
 trabajando con una en sus entrañas, así que toca artículo sobre la
 configuración y optimización del sistema para maximizar el rendimiento y
 alargar la vida útil de la unidad.&lt;/p&gt;
@@ -81,9 +81,9 @@ otras distribuciones &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;
 Una vez dicho esto, vamos a ello.&lt;/p&gt;
 &lt;div class="section" id="antes-de-comprar"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;Antes de comprar&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Antes de comprar&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="el-tamano-si-importa"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;El tamaño sí importa&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;El tamaño sí importa&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Para un uso eficiente de la unidad por parte del kernel, el espacio ocupado
 no ha de superar el 75% del espacio total disponible. Por ello, hemos de
 tener especial cuidado a la hora de elegir la capacidad de nuestra futura
@@ -93,7 +93,7 @@ mejora conforme aumenta la capacidad: una unidad de 128 &lt;span class="caps"&gt
 otra de 64 &lt;span class="caps"&gt;GB&lt;/span&gt; de la misma gama.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="decisiones-decisiones"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Decisiones, decisiones&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Decisiones, decisiones&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Si te cuesta decidirte entre una &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; u otra, &lt;a class="reference external" href="http://ssdboss.com/"&gt;ssdboss&lt;/a&gt; puede serte de mucha
 utilidad. Es una página de comparativas especializada en &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;: le indicas un
 par de modelos y te detalla las ventajas de una frente a la otra, te puntua
@@ -102,7 +102,7 @@ ambas y te señala la ganadora, según sus tests.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="modo-ahci"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Modo &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Modo &lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Conviene establecer el &lt;strong&gt;&lt;span class="caps"&gt;MODO&lt;/span&gt;&lt;/strong&gt; &lt;a class="reference external" href="http://es.wikipedia.org/wiki/AHCI"&gt;&lt;span class="caps"&gt;AHCI&lt;/span&gt;&lt;/a&gt; en la &lt;strong&gt;&lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/strong&gt;/&lt;strong&gt;&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Este ajuste está relacionado con los dispositivos con interfaz &lt;em&gt;&lt;span class="caps"&gt;SATA&lt;/span&gt;&lt;/em&gt;, por lo
 que seguramente podremos encontrarlo en el apartado de configuración de los
@@ -112,7 +112,7 @@ mismos. En la &lt;strong&gt;&lt;span class="caps"&gt;UEFI&lt;/span&gt;&lt;/stron
 a la vez que mejora el rendimiento de los dispositivos.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="particionado-inteligente-de-discos"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Particionado inteligente de discos&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Particionado inteligente de discos&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Para sistemas con &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; y discos magnéticos, es preferible montar los
 directorios &lt;code&gt;/var&lt;/code&gt; y &lt;code&gt;/home&lt;/code&gt; en particiones de estos últimos.
 En el caso de &lt;code&gt;/var&lt;/code&gt; para evitar un desgaste innecesario de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, y
@@ -129,11 +129,11 @@ al hacerlo estamos reduciendo la vida útil de la unidad.&lt;/p&gt;
 particiones &lt;code&gt;/home&lt;/code&gt; y &lt;code&gt;/var&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="swap"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Swap&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Podemos crear nuestra partición swap en la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, pero esto conlleva muchas
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Swap&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Podemos crear nuestra partición &lt;em&gt;swap&lt;/em&gt; en la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, pero esto conlleva muchas
 escrituras en disco, y eso es precisamente lo que estamos tratando de evitar.
-Si tenemos una cantidad de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt; decente es seguro prescindir de ella.&lt;/p&gt;
-&lt;p&gt;Yo, con 8 &lt;span class="caps"&gt;GB&lt;/span&gt; de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt;, no empleo swap. Pero, en el caso de que dispongamos de
+Si tenemos una cantidad de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt; decente es seguro prescindir de ella &lt;a class="footnote-reference" href="#id7" id="id2"&gt;[2]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Yo, con 8 &lt;span class="caps"&gt;GB&lt;/span&gt; de &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt;, no empleo &lt;em&gt;swap&lt;/em&gt;. Pero, en el caso de que dispongamos de
 muy poca &lt;em&gt;&lt;span class="caps"&gt;RAM&lt;/span&gt;&lt;/em&gt; (&amp;lt;4 &lt;span class="caps"&gt;GB&lt;/span&gt;), podemos configurar el sistema para que la emplee lo
 mínimo indispensable.&lt;/p&gt;
 &lt;p&gt;Para ello hemos de editar un archivo de configuración de &lt;code&gt;sysctl&lt;/code&gt; (puede
@@ -146,7 +146,7 @@ vm.dirty_writeback_centisecs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="montar-las-particiones-con-noatime"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Montar las particiones con noatime&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Montar las particiones con noatime&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Linux lleva un registro de los tiempos de acceso a archivos y directorios.
 Esto hace que por cada archivo que leemos se genere paralelamente una
 operación de escritura para mantener actualizado dicho registro. Podemos
@@ -160,7 +160,7 @@ particiones deseadas. A modo de ejemplo, valga un extracto de mi &lt;code&gt;fst
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="trim"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://es.wikipedia.org/wiki/TRIM/"&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt; es una característica que prolonga la vida útil de la &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; y reduce,
 en lo posible, su ralentización a lo largo del tiempo.&lt;/p&gt;
 &lt;p&gt;La mayoría de &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; modernas soportan el comando &lt;em&gt;ATA_TRIM&lt;/em&gt;.&lt;/p&gt;
@@ -175,7 +175,7 @@ soporta &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt;.&lt;/p&g
 &lt;strong&gt;Ext4&lt;/strong&gt;, &lt;strong&gt;Btrfs&lt;/strong&gt;, &lt;strong&gt;&lt;span class="caps"&gt;JFS&lt;/span&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;span class="caps"&gt;VFAT&lt;/span&gt;&lt;/strong&gt; y &lt;strong&gt;&lt;span class="caps"&gt;XFS&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Entre ellos, &lt;strong&gt;Ext4&lt;/strong&gt; es la opción ideal, por estabilidad y rendimiento.&lt;/p&gt;
 &lt;div class="section" id="activando-trim"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Activando &lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Activando &lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;En esencia, hay dos formas de activar y/o aplicar &lt;em&gt;&lt;span class="caps"&gt;TRIM&lt;/span&gt;&lt;/em&gt;:&lt;/p&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;Vía opciones de montaje en &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/p&gt;
@@ -230,8 +230,8 @@ opción &lt;code&gt;discard&lt;/code&gt; al mismo tiempo que &lt;code&gt;fstrim&
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="planificador-de-e-s"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Planificador de E/S&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Por defecto, &lt;em&gt;Arch&lt;/em&gt; usa &lt;a class="reference external" href="http://en.wikipedia.org/wiki/CFQ/"&gt;&lt;span class="caps"&gt;CFQ&lt;/span&gt;&lt;/a&gt; como &lt;em&gt;planificador de E/S&lt;/em&gt; &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;. Podemos cambiar
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;Planificador de E/S&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Por defecto, &lt;em&gt;Arch&lt;/em&gt; usa &lt;a class="reference external" href="http://en.wikipedia.org/wiki/CFQ/"&gt;&lt;span class="caps"&gt;CFQ&lt;/span&gt;&lt;/a&gt; como &lt;em&gt;planificador de E/S&lt;/em&gt; &lt;a class="footnote-reference" href="#id8" id="id3"&gt;[3]&lt;/a&gt;. Podemos cambiar
 este por &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Noop_scheduler/"&gt;&lt;span class="caps"&gt;NOOP&lt;/span&gt;&lt;/a&gt; o &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Deadline_scheduler/"&gt;Deadline&lt;/a&gt;. Ambos mejoran el rendimiento de las SSDs.
 Normalmente, &lt;em&gt;&lt;span class="caps"&gt;NOOP&lt;/span&gt;&lt;/em&gt; es la opción más recomendable.&lt;/p&gt;
 &lt;p&gt;Para averiguar el planificador en uso imprimimos el contenido de
@@ -258,7 +258,7 @@ ATTR&lt;span class="o"&gt;{&lt;/span&gt;queue/scheduler&lt;span class="o"&gt;}=&
 dispositivos sin partes móviles (&lt;em&gt;non-rotating&lt;/em&gt;) que encuentre.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="limitar-el-numero-de-chequeos-de-los-sistemas-de-archivos"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Limitar el número de chequeos de los sistemas de archivos&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;Limitar el número de chequeos de los sistemas de archivos&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A fin de garantizar la integridad de los datos, el sistema operativo realiza
 un chequeo a todo sistema de archivos que acumula x número de montajes desde su
 última revisión. Por defecto suele ser a los treinta, pero dado que lo que
@@ -275,7 +275,7 @@ actual
 &lt;strong&gt;no es nada aconsejable&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="velocidad"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;Velocidad&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;Velocidad&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Con el comando&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm -Tt /dev/sdX  &lt;span class="c"&gt;# X es la letra de nuestra unidad&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -341,32 +341,38 @@ de hace 7 años a un octacore también tiene su cosilla. Vamos, que esto va como
 un tiro :D&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="proxima-parte"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;Próxima parte&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;Próxima parte&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Esta iba a ser una entrada única sobre los ajustes que hice en mi equipo para
 sacarle partido a mi nueva &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt;, pero acabé añadiendo diversas notas más
 relacionadas con &lt;a class="reference external" href="http://es.wikipedia.org/wiki/Tmpfs"&gt;tmpfs&lt;/a&gt; que con otra cosa, así que la he dividido en dos partes.&lt;/p&gt;
 &lt;p&gt;Y, básicamente, ese será el contenido del próximo artículo: algunas
 configuraciones relacionadas con &lt;em&gt;tmpfs&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Como otros artículos, este texto nace de un &lt;em&gt;&lt;span class="caps"&gt;HOWTO&lt;/span&gt;&lt;/em&gt; que voy escribiendo sobre
-la marcha para mi yo futuro &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt; y que luego comparto con la esperanza de que
+la marcha para mi yo futuro &lt;a class="footnote-reference" href="#id9" id="id4"&gt;[4]&lt;/a&gt; y que luego comparto con la esperanza de que
 le resulte útil a alguien más.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
-&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Una &lt;strong&gt;unidad de estado sólido&lt;/strong&gt; (&lt;strong&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/strong&gt;, &lt;strong&gt;solid-state drive&lt;/strong&gt;) es un dispositivo de almacenamiento de datos que usa una memoria no volátil, como la memoria flash, para almacenar datos. En comparación con los discos duros convencionales, las &lt;em&gt;&lt;span class="caps"&gt;SSD&lt;/span&gt;&lt;/em&gt; son menos sensibles a los golpes, son prácticamente inaudibles, tienen un menor tiempo de acceso y de latencia, y se calientan y consumen menos energía.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Es el software encargado de decidir el orden por el cual se van a enviar las peticiones de lectura y escritura al subsistema de disco.&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Me lo suele agradecer bastante. Es muy educado y buena gente.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Salvo que queramos emplear la función de hibernar, en cuyo caso es necesaria bien una partición o bien un archivo &lt;em&gt;swap&lt;/em&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Es el software encargado de decidir el orden por el cual se van a enviar las peticiones de lectura y escritura al subsistema de disco.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id9" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Me lo suele agradecer bastante. Es muy educado y buena gente.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr class="docutils"/&gt;
