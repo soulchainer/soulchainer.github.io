@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, antergos, archlinux, compilación, linux, memoria, navegador, optimización, perfil, ram, sincronización, tmpfs" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="http://soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="http://soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="http://soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="http://soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="http://soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="http://soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Esto va como un tiro (II): exprimiendo tmpfs">
+      <meta name="twitter:description" content="tmpfs es un sistema de archivos temporal, que reside en RAM (
+aunque si excedemos el espacio máximo continua en swap). Montando
+directorios como tmpfs se puede acelerar drásticamente el acceso a
+los ficheros que contienen.">
+      <meta name="twitter:image:src" content="http://soulchainer.github.io/images/2014/12/2014-12-20_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Esto va como un tiro (II): exprimiendo tmpfs" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://soulchainer.github.io/posts/2014/12/20/exprimiendo-tmpfs/" />
+      <meta property="og:image" content="http://soulchainer.github.io/images/2014/12/2014-12-20_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux" />
+      <meta property="og:article:tag" content="antergos" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="compilación" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="memoria" />
+      <meta property="og:article:tag" content="navegador" />
+      <meta property="og:article:tag" content="optimización" />
+      <meta property="og:article:tag" content="perfil" />
+      <meta property="og:article:tag" content="ram" />
+      <meta property="og:article:tag" content="sincronización" />
+      <meta property="og:article:tag" content="tmpfs" />
+      <meta property="og:description" content="tmpfs es un sistema de archivos temporal, que reside en RAM (
+aunque si excedemos el espacio máximo continua en swap). Montando
+directorios como tmpfs se puede acelerar drásticamente el acceso a
+los ficheros que contienen." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="http://soulchainer.github.io/theme/css/style.min.css">
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="http://soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2014/12/20/exprimiendo-tmpfs/" rel="bookmark" title="Permalink to Esto va como un tiro (II): exprimiendo tmpfs">
+      Esto va como un tiro (<span class="caps">II</span>): exprimiendo&nbsp;tmpfs
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2014-12-20T17:00:00+01:00">
+      sáb 20 diciembre 2014, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="contents topic" id="indice-de-contenido">
+<p class="topic-title first"><strong>Índice de contenido</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#directorios-temporales-del-sistema" id="id2">Directorios temporales del sistema</a></li>
+<li><a class="reference internal" href="#montar-perfiles-de-navegadores-en-ram" id="id3">Montar perfiles de navegadores en <span class="caps">RAM</span></a><ul>
+<li><a class="reference internal" href="#instalacion-de-profile-sync-daemon" id="id4">Instalación de profile-sync-daemon</a></li>
+<li><a class="reference internal" href="#configuracion" id="id5">Configuración</a><ul>
+<li><a class="reference internal" href="#revisar-la-configuracion" id="id6">Revisar la configuración</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#re-iniciar-psd-para-administrar-los-perfiles" id="id7">(Re)Iniciar psd para administrar los perfiles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#montar-cache-de-navegadores-y-cualquier-otro-directorio-en-ram" id="id8">Montar caché de navegadores (y cualquier otro directorio) en <span class="caps">RAM</span></a><ul>
+<li><a class="reference internal" href="#instalacion-de-anything-sync-daemon" id="id9">Instalación de anything-sync-daemon</a></li>
+<li><a class="reference internal" href="#id1" id="id10">Configuración</a></li>
+<li><a class="reference internal" href="#revisar-configuracion-y-re-iniciar-asd" id="id11">Revisar configuración y (re)iniciar asd</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compilar-en-tmpfs" id="id12">Compilar en tmpfs</a></li>
+<li><a class="reference internal" href="#nota-final-uso-de-ram" id="id13">Nota final: uso de <span class="caps">RAM</span></a></li>
+</ul>
+</div>
+<!-- 1  Antes de comprar
+  1.1  El tamaño sí importa
+  1.2  Decisiones, decisiones
+2  Modo AHCI
+3  Particionado inteligente de discos
+4  Swap
+5  Montar las particiones con noatime
+6  TRIM
+  6.1  Activando TRIM
+7  Planificador de E/S
+8  Limitar el número de chequeos de los sistemas de archivos
+9  Velocidad
+10  Próxima parte -->
+<p></p>
+<div class="figure align-center" style="width: 800px; height: auto; max-width: 100%;">
+<img alt="Fast Lights" src="http://soulchainer.github.io/images/2014/12/2014-12-20_01.png" style="width: 800px; height: auto; max-width: 100%;"/>
+<p class="caption">"Fast Lights". Foto obra de <a class="reference external" href="https://www.flickr.com/photos/alwarrete/">Álvaro Campo</a>, con
+<a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/2.0/">licencia Creative Commons</a>. <a class="reference external" href="https://flic.kr/p/9BpPGX">Original</a>.</p>
+</div>
+<p><em>tmpfs</em> es un sistema de archivos temporal, que reside en <em><span class="caps">RAM</span></em> (aunque si
+excedemos el espacio máximo continua en <em>swap</em>). Montando directorios como
+<em>tmpfs</em> se puede acelerar drásticamente el acceso a los ficheros que contienen.</p>
+<p></p>
+<div class="section" id="directorios-temporales-del-sistema">
+<h2><a class="toc-backref" href="#id2">Directorios temporales del sistema</a></h2>
+<p><em>tmpfs</em> se usa habitualmente para montar los directorios <code>/tmp</code>,
+<code>/var/lock</code> y <code>/var/run</code>.</p>
+<p>He observado que en númerosos artículos se recomienda montar también como
+<em>tmpfs</em> <code>/var/tmp</code>. Pues bien: desaconsejado queda. Este directorio
+contiene archivos temporales, sí, pero estos se conservan entre reinicios del
+sistema. Si lo montamos en <em><span class="caps">RAM</span></em>, bueno… podemos encontrarnos con resultados inesperados.</p>
+<p>En cuanto a los directorios <code>/var/lock</code> y <code>/var/run</code>, en <em>Arch</em>
+sólo existen por cuestiones de compatibilidad. En su lugar se usa el
+directorio <code>/run</code>, que ya se monta como un sistema de archivos temporal.</p>
+<p>La configuración predeterminada de <em>systemd</em> mantiene <code>/dev/shm</code> y
+<code>/tmp</code> como <em>tmpfs</em>, por lo que no es necesaria una entrada para ello en
+<code>/etc/fstab</code>, salvo que <code>/tmp</code> necesite una configuración
+específica. Así, por ejemplo, <a class="reference external" href="http://antergos.com/">Antergos</a> la crea automáticamente. Yo la tengo
+personalizada como sigue:</p>
+<div class="highlight"><pre>tmpfs /tmp tmpfs defaults,noatime,nodev,nosuid,mode<span class="o">=</span><span class="m">1777</span> <span class="m">0</span> 0
+</pre></div>
+<p>De partida, un directorio <em>tmpfs</em> fija su tamaño máximo a la mitad de nuestra
+<em><span class="caps">RAM</span></em>. Podemos modificar este valor con la opción <code>size</code>:</p>
+<div class="highlight"><pre>tmpfs /tmp tmpfs defaults,noatime,nodev,nosuid,mode<span class="o">=</span>1777,size<span class="o">=</span>2G <span class="m">0</span> 0
+</pre></div>
+<p>En la línea anterior establecemos un tamaño máximo de <em>2 <span class="caps">GB</span></em>. También es
+posible indicar el espacio como porcentaje de la <em><span class="caps">RAM</span></em> total:</p>
+<div class="highlight"><pre>tmpfs /tmp tmpfs defaults,noatime,nodev,nosuid,mode<span class="o">=</span>1777,size<span class="o">=</span>25% <span class="m">0</span> 0
+</pre></div>
+<p>Si los archivos temporales llenan toda la memoria <em><span class="caps">RAM</span></em> asignada, intentarán
+usar <em>swap</em>. Así que, si esto ocurre y no hay <em>swap</em> … pues seguro que no
+sucede nada bueno.</p>
+<p><strong>Nota</strong>: esta memoria no es asignada en régimen de exclusividad. <em>tmpfs</em> sólo
+toma la memoria que necesita en el momento, quedando el resto disponible para
+otras tareas.</p>
+</div>
+<div class="section" id="montar-perfiles-de-navegadores-en-ram">
+<h2><a class="toc-backref" href="#id3">Montar perfiles de navegadores en <span class="caps">RAM</span></a></h2>
+<p>Podemos montar los perfiles de nuestros navegadores en <em><span class="caps">RAM</span></em>, vía <em>tmpfs</em>,
+y mantener una copia de seguridad sincronizada en el disco con <code>rsync</code>.
+De esta forma, además de una mejora evidente en cuanto a velocidad,
+conseguimos reducir el número de lecturas/escrituras en disco, cuestión
+importante si montamos <code>/home</code> en una <em><span class="caps">SSD</span></em>.</p>
+<p><strong><span class="caps">AUR</span></strong> cuenta con varios paquetes para automatizar este proceso, como es el
+caso de <a class="reference external" href="https://aur.archlinux.org/packages/profile-sync-daemon/">profile-sync-daemon</a>.</p>
+<div class="section" id="instalacion-de-profile-sync-daemon">
+<h3><a class="toc-backref" href="#id4">Instalación de profile-sync-daemon</a></h3>
+<p>Como cualquier otro paquete de <strong><span class="caps">AUR</span></strong>, podemos instalarlo con <code>yaourt</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S profile-sync-daemon
+</pre></div>
+</div>
+<div class="section" id="configuracion">
+<h3><a class="toc-backref" href="#id5">Configuración</a></h3>
+<p><code>/etc/psd.conf</code> contiene la configuración de <code>profile-sync-daemon</code>.</p>
+<p>Una vez abierto el fichero:</p>
+<ul>
+<li><p class="first">Definimos la lista de usuarios cuyos perfiles queremos que gestione
+<code>psd</code>. Para ello, editamos la variable <code>USERS</code> con sus nombres.</p>
+<div class="highlight"><pre><span class="c"># Example</span>
+<span class="c"># USERS="facade debbie"</span>
+<span class="nv">USERS</span><span class="o">=</span><span class="s2">"mi_usuario otro_usuario"</span>
+</pre></div>
+<p>Donde <code>mi_usuario</code> y <code>otro_usuario</code> son los usuarios elegidos.
+Hemos de apuntar al menos un nombre.</p>
+</li>
+<li><p class="first">Opcionalmente, podemos descomentar <code>BROWSERS</code> y detallar los
+navegadores que queremos que <code>psd</code> maneje. En mi caso:</p>
+<div class="highlight"><pre><span class="c"># Uncomment and select which browsers to manage if you wish</span>
+<span class="c"># Otherwise all available/supported browsers will be managed</span>
+<span class="c"># which is NOT recommended if users have many browser profiles</span>
+<span class="nv">BROWSERS</span><span class="o">=</span><span class="s2">"chromium firefox"</span>
+</pre></div>
+<p>Si no editamos esto, <code>psd</code> buscará e intentará llevar todos los
+navegadores que soporta (la lista se encuentra en la configuración): trabajo
+extra inútil.</p>
+</li>
+<li><p class="first">En <code>VOLATILE</code> se puede indicar a <code>psd</code> una ruta de destino
+distinta para los perfiles.</p>
+<div class="highlight"><pre><span class="c"># Suggested locations based on distro defaults:</span>
+<span class="c">#   Arch Linux/Chakra, Fedora, and Gentoo leave this commented out</span>
+<span class="c">#   Debian 6 and below use a setting of "/dev/shm"</span>
+<span class="c">#   Debian 7+  use a setting of "/run/shm"</span>
+<span class="nv">VOLATILE</span><span class="o">=</span><span class="s2">"/dev/shm"</span>
+</pre></div>
+<p>Sea como sea, el directorio indicado ha de montarse como <em>tmpfs</em> y ser
+escribible y ejecutable por el usuario.</p>
+</li>
+<li><p class="first">Además, si tenemos una versión del <em>kernel</em> <strong>Linux</strong> igual o superior a la
+<em>3.18.0</em>, podemos descomentar la variable <code>USE_OVERLAYFS</code> para usar
+<strong>overlayfs</strong>, lo que supone un nuevo incremento en la velocidad de
+sincronización y un menor consumo de <em><span class="caps">RAM</span></em>.</p>
+<div class="highlight"><pre><span class="c"># Uncomment to use overlayfs instead of a full copy to reduce the memory costs</span>
+<span class="c"># and to improve sync/unsync operations. This feature requires a Linux kernel</span>
+<span class="c"># version &gt;=3.18.0 to work. For more, see the overlayfs kernel docs.</span>
+<span class="nv">USE_OVERLAYFS</span><span class="o">=</span><span class="s2">"yes"</span>
+</pre></div>
+<p>Si no sabemos qué versión del <em>kernel</em> tenemos, la averiguamos con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>uname -r
+</pre></div>
+</li>
+</ul>
+<div class="section" id="revisar-la-configuracion">
+<h4><a class="toc-backref" href="#id6">Revisar la configuración</a></h4>
+<p>Antes de iniciar <code>psd</code> por primera vez/modificar su configuración,
+podemos usar la opción <code>parse</code> para revisar qué hará exactamente cuando
+se ejecute.</p>
+<div class="highlight"><pre><span class="nv">$ </span>profile-sync-daemon parse
+<span class="c"># o bien</span>
+<span class="nv">$ </span>psd p
+----------------------------------------
+Profile-sync-daemon v5.54 on Arch Linux.
+
+ Systemd service is currently inactive.
+ Systemd resync service is currently inactive.
+ Overlayfs technology is currently inactive.
+
+Psd will manage the following per /run/psd.conf settings:
+
+ browser/psname:  chromium/chromium
+ owner/group id:  mi_usuario/100
+ sync target:     /home/mi_usuario/.config/chromium
+ tmpfs dir:       /tmp/mi_usuario-chromium
+ profile size:    40M
+
+ browser/psname:  firefox/firefox
+ owner/group id:  mi_usuario/100
+ sync target:     /home/mi_usuario/.mozilla/firefox/wd241k8.default
+ tmpfs dir:       /tmp/mi_usuario-firefox-wd2z41k8.default
+ profile size:    141M
+
+ browser/psname:  firefox/firefox
+ owner/group id:  mi_usuario/100
+ sync target:     /home/mi_usuario/.mozilla/firefox/tn67x7vd.dev-edition-default
+ tmpfs dir:       /tmp/mi_usuario-firefox-tn67x7vd.dev-edition-default
+ profile size:    63M
+</pre></div>
+<p>Como podemos ver en el informe anterior, revisa si los servicios de
+<code>systemd</code> asociados (<code>psd.service</code> y <code>psd-resync.service</code>)
+están activos, y si hemos activado la opción <code>overlayfs</code> (desactivada en
+el ejemplo, al correr sobre un sistema con <em>kernel 3.17.6-1</em>). Seguidamente,
+enumera los perfiles a administrar, detallando:</p>
+<ul class="simple">
+<li>Navegador</li>
+<li>Usuario</li>
+<li>Ruta del perfil en disco</li>
+<li>Ruta del perfil en <em>tmfs</em></li>
+<li>Tamaño del perfil</li>
+</ul>
+</div>
+</div>
+<div class="section" id="re-iniciar-psd-para-administrar-los-perfiles">
+<h3><a class="toc-backref" href="#id7">(Re)Iniciar psd para administrar los perfiles</a></h3>
+<p><code>profile-sync-daemon</code> proporciona un archivo de servicio y un
+temporizador (<code>.timer</code>) para <code>systemd</code>, a través de los cuales
+interactuaremos con <code>psd</code>.</p>
+<p>El temporizador, que se inicia con el servicio, se encarga de actualizar una
+vez por hora las copias de los perfiles en el disco.</p>
+<p>Arrancamos <code>psd</code> con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl start psd.service
+</pre></div>
+<p>Para comprobar que todo funciona con normalidad podemos usar de nuevo la opción
+<code>parse</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>psd p
+----------------------------------------
+Profile-sync-daemon v5.54 on Arch Linux.
+
+ Systemd service is currently active.
+ Systemd resync service is currently active.
+ Overlayfs technology is currently inactive.
+</pre></div>
+<p>Activamos la carga de los servicios al arranque:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>psd.service psd-resync.service
+</pre></div>
+<p>Podemos ver los archivos de <code>systemd</code> activados con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>systemctl list-unit-files<span class="p">|</span>grep ^psd
+
+psd-resync.service                          enabled
+psd.service                                 enabled
+psd-resync.timer                            static
+</pre></div>
+<p><strong>Importante:</strong> cualquier cambio que hagamos a <code>/etc/psd.conf</code> mientras
+<code>psd</code> esté ejecutándose no se aplicará hasta que reiniciemos el
+servicio. Una vez realizados los cambios pertinentes, previo cierre de los
+navegadores, podemos reiniciar el servicio con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl restart psd.service
+</pre></div>
+</div>
+</div>
+<div class="section" id="montar-cache-de-navegadores-y-cualquier-otro-directorio-en-ram">
+<h2><a class="toc-backref" href="#id8">Montar caché de navegadores (y cualquier otro directorio) en <span class="caps">RAM</span></a></h2>
+<p>Como ya hemos visto, con <code>profile-sync-daemon</code> podemos montar los
+perfiles de nuestros navegadores en <em><span class="caps">RAM</span></em>. Pero, a pesar de ello, algunos
+navegadores mantienen su caché fuera del perfil. Es el caso, por ejemplo, de
+<a class="reference external" href="https://www.mozilla.org/es-ES/firefox/new/">Firefox</a>, <em>Chromium</em>, <em>Chrome</em> y <a class="reference external" href="http://midori-browser.org/">Midori</a>. Estos suelen guardar sus cachés
+en algún directorio dentro de <code>/home/usuario/.cache/navegador/</code>
+(<code>mozilla</code> en el caso de <code>firefox</code>).</p>
+<p>Hay varias alternativas para asegurarnos su carga en <em><span class="caps">RAM</span></em>. Yo recurro a
+<a class="reference external" href="https://aur.archlinux.org/packages/Anything-sync-daemon/">anything-sync-daemon</a>, porque no requiere mantener una configuración
+específica por usuario, y conserva el contenido de la caché cuando el
+navegador sufre un cierre inesperado o se reinicia.</p>
+<p>Básicamente, <code>asd</code> es un <code>psd</code> de <strong>propósito general</strong>: permite
+cargar cualquier directorio en <em><span class="caps">RAM</span></em>, vía <em>tmpfs</em>, sincronizándolo de forma
+periódica con una copia en el disco. Nosotros vamos a usarlo para la caché de
+los navegadores.</p>
+<div class="section" id="instalacion-de-anything-sync-daemon">
+<h3><a class="toc-backref" href="#id9">Instalación de anything-sync-daemon</a></h3>
+<p><code>asd</code> se encuentra en <strong><span class="caps">AUR</span></strong>, por lo que lo instalamos con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S anything-sync-daemon
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id10">Configuración</a></h3>
+<p>De forma similar a <code>psd</code>, las opciones de <code>asd</code> se encuentran
+definidas en el archivo <code>/etc/asd.conf</code>. Su configuración es aún más
+sencilla: basta con asignar a la variable <code>WHATTOSYNC</code> una lista con los
+directorios deseados.</p>
+<p>Así, si queremos sincronizar las cachés de <a class="reference external" href="https://www.mozilla.org/es-ES/firefox/new/">Firefox</a> y <em>Chromium</em>:</p>
+<div class="highlight"><pre><span class="c"># Below is an example to whet your appetite</span>
+<span class="c">#WHATTOSYNC=('/srv/http' '/var/lib/monitorix' '/foo/bar')</span>
+<span class="nv">WHATTOSYNC</span><span class="o">=(</span><span class="s1">'/home/usuario/.cache/mozilla'</span> <span class="s1">'/home/usuario/.cache/chromium'</span><span class="o">)</span>
+</pre></div>
+<p>Donde <code>usuario</code> es nuestro usuario. Si queremos que esto funcione para
+más usuarios, deberemos añadir las rutas de sus cachés a la lista.</p>
+</div>
+<div class="section" id="revisar-configuracion-y-re-iniciar-asd">
+<h3><a class="toc-backref" href="#id11">Revisar configuración y (re)iniciar asd</a></h3>
+<p>También es posible revisar los efectos que tendrá la configuración de
+<code>asd</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>anything-sync-daemon preview
+<span class="c"># o bien</span>
+<span class="nv">$ </span>asd p
+</pre></div>
+<p>Con los navegadores cerrados, iniciar y activar la carga de los servicios al
+arranque del sistema es tan sencillo como siempre:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl start asd.service
+<span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>asd.service
+</pre></div>
+<p><strong>Nota:</strong> el comando para iniciar el servicio tarda un poco en liberar la
+terminal, porque realiza la copia de seguridad de los archivos de caché en ese
+preciso momento.</p>
+</div>
+</div>
+<div class="section" id="compilar-en-tmpfs">
+<h2><a class="toc-backref" href="#id12">Compilar en tmpfs</a></h2>
+<p>Compilar requiere tratar con muchos archivos de pequeño tamaño e implica
+muchas operaciones de <em>E/S</em>, por lo que mover el directorio en el que se
+lleva a cabo a una ubicación montada como <em>tmpfs</em> puede acelerar el proceso.</p>
+<p>Tal vez pensemos: "Eh, si yo no soy programador y/o no uso lenguajes
+compilados, esto no me sirve de nada…". Pues nos equivocamos. Si solemos
+instalar cosas del repositorio <strong><span class="caps">AUR</span></strong> es muy probable que estemos compilando
+programas a menudo, aún sin saberlo.</p>
+<p>Ajustar el sistema para compilar en <em>tmpfs</em> es muy sencillo, sólo tenemos
+que editar <code>/etc/makepkg.conf</code> y descomentar la línea con la variable
+<code>BUILDDIR</code>, quedando así:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/makepkg.conf
+-----------------------------
+...
+<span class="c">#-- Specify a directory for package building.</span>
+<span class="nv">BUILDDIR</span><span class="o">=</span>/tmp/makepkg
+...
+</pre></div>
+<p>Esto hará que se use el directorio <code>/tmp/makepkg</code> (u otro que definamos
+en su lugar) para realizar la compilación.</p>
+</div>
+<div class="section" id="nota-final-uso-de-ram">
+<h2><a class="toc-backref" href="#id13">Nota final: uso de <span class="caps">RAM</span></a></h2>
+<p>Ya comentamos anteriormente que <em>tmpfs</em> monta directorios en <em><span class="caps">RAM</span></em>. Hay que
+tener pues mucho cuidado con lo que se monta y ser consciente del espacio que
+ocupa: si "adjudicamos" a <em>tmpfs</em> un espacio de <em>4G</em>, mejor será no cargar
+directorios que excedan esa capacidad. Si cargamos un directorio en constante
+crecimiento, tendremos que vigilar su evolución.</p>
+<p>Podemos ver el espacio asignado y ocupado en nuestro directorio <em>tmpfs</em> con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>df -ha <span class="p">|</span> grep /dev/shm
+tmpfs                           3,9G   795M  3,3G  16% /dev/shm
+</pre></div>
+<p>Aquí vemos una "partición" <em>tmpfs</em> de <em>3.9G</em>, con <em>795M</em> ocupados y <em>3.1G</em>
+disponibles. Estamos usando un <em>21%</em> de la misma y está montada en
+<code>/dev/shm</code> (<strong>shm → shared memory</strong>), que es la ubicación habitual de
+este sistema de archivos.</p>
+<p>Si sumamos el tamaño de los archivos sincronizados por <code>asd</code> y
+<code>psd</code> (que consultábamos con <code>asd p</code> y <code>psd p</code>), nos dará un
+tamaño parecido a esos <em>795M</em> usados. En el caso de realizar compilaciones con
+el navegador abierto, tendremos esos <em>3.3G</em> de espacio libres para la
+compilación, lo que debería de bastar en la mayoría de los casos. Si nos
+encontramos con alguno que no (lo cual no es imposible, ya que algunos
+paquetes requieren una cantidad respetable de archivos), tendremos que
+desactivar el compilado en <em>tmpfs</em> para poder compilar.</p>
+<hr class="docutils"/>
+<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/">Wiki Arch Linux</a>, <strong>páginas man</strong>.</p>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/antergos/">antergos</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/archlinux/">archlinux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/compilacion/">compilación</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/memoria/">memoria</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/navegador/">navegador</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/optimizacion/">optimización</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/perfil/">perfil</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/ram/">ram</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/sincronizacion/">sincronización</a></li>
+    <li class="tag"><a class="taglink notransition" href="http://soulchainer.github.io/tags/tmpfs/">tmpfs</a></li>
+    </ul>
+  </div>
+
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+              <li >
+                  <a class="partlink" href='http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/'>Esto va como un tiro (I): usando una <span class="caps">SSD</span> en Arch&nbsp;Linux</a>
+              </li>
+              <li class="active">
+                  <a class="partlink" href='http://soulchainer.github.io/posts/2014/12/20/exprimiendo-tmpfs/'>Esto va como un tiro (<span class="caps">II</span>): exprimiendo&nbsp;tmpfs</a>
+              </li>
+      </ul>
+    </aside>
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="http://soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="http://soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="http://soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
