@@ -1,0 +1,428 @@
+Esto va como un tiro (II): exprimiendo tmpfs
+############################################
+:date: 2014-12-20 17:00
+:tags: tmpfs, ram, memoria, optimización, navegador, perfil, sincronización,
+       compilación, linux, antergos, archlinux
+:category: CÓMOS, linux
+:slug: exprimiendo-tmpfs
+:author: Soulchainer
+:parts:  Esto_va_como_un_tiro
+:twsummary: tmpfs es un sistema de archivos temporal, que reside en RAM (
+            aunque si excedemos el espacio máximo continua en swap). Montando
+            directorios como tmpfs se puede acelerar drásticamente el acceso a
+            los ficheros que contienen.
+:twimg: 2014-12-20_01.png
+
+
+.. contents:: **Índice de contenido**
+..
+   1  Antes de comprar
+     1.1  El tamaño sí importa
+     1.2  Decisiones, decisiones
+   2  Modo AHCI
+   3  Particionado inteligente de discos
+   4  Swap
+   5  Montar las particiones con noatime
+   6  TRIM
+     6.1  Activando TRIM
+   7  Planificador de E/S
+   8  Limitar el número de chequeos de los sistemas de archivos
+   9  Velocidad
+   10  Próxima parte
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2014/12/2014-12-20_01.png
+    :alt: Fast Lights
+    :align: center
+
+    "Fast Lights". Foto obra de `Álvaro Campo`_, con
+    `licencia Creative Commons`_. `Original`_.
+
+*tmpfs* es un sistema de archivos temporal, que reside en *RAM* (aunque si
+excedemos el espacio máximo continua en *swap*). Montando directorios como
+*tmpfs* se puede acelerar drásticamente el acceso a los ficheros que contienen.
+
+{END_SUMMARY}
+
+Directorios temporales del sistema
+==================================
+
+*tmpfs* se usa habitualmente para montar los directorios :code:`/tmp`,
+:code:`/var/lock` y :code:`/var/run`.
+
+He observado que en númerosos artículos se recomienda montar también como
+*tmpfs* :code:`/var/tmp`. Pues bien: desaconsejado queda. Este directorio
+contiene archivos temporales, sí, pero estos se conservan entre reinicios del
+sistema. Si lo montamos en *RAM*, bueno... podemos encontrarnos con resultados
+inesperados.
+
+En cuanto a los directorios :code:`/var/lock` y :code:`/var/run`, en *Arch*
+sólo existen por cuestiones de compatibilidad. En su lugar se usa el
+directorio :code:`/run`, que ya se monta como un sistema de archivos temporal.
+
+La configuración predeterminada de *systemd* mantiene :code:`/dev/shm` y
+:code:`/tmp` como *tmpfs*, por lo que no es necesaria una entrada para ello en
+:code:`/etc/fstab`, salvo que :code:`/tmp` necesite una configuración
+específica. Así, por ejemplo, `Antergos`_ la crea automáticamente. Yo la tengo
+personalizada como sigue:
+
+.. code-block:: sh
+
+    tmpfs /tmp tmpfs defaults,noatime,nodev,nosuid,mode=1777 0 0
+
+De partida, un directorio *tmpfs* fija su tamaño máximo a la mitad de nuestra
+*RAM*. Podemos modificar este valor con la opción :code:`size`:
+
+.. code-block:: sh
+
+    tmpfs /tmp tmpfs defaults,noatime,nodev,nosuid,mode=1777,size=2G 0 0
+
+En la línea anterior establecemos un tamaño máximo de *2 GB*. También es
+posible indicar el espacio como porcentaje de la *RAM* total:
+
+.. code-block:: sh
+
+    tmpfs /tmp tmpfs defaults,noatime,nodev,nosuid,mode=1777,size=25% 0 0
+
+Si los archivos temporales llenan toda la memoria *RAM* asignada, intentarán
+usar *swap*. Así que, si esto ocurre y no hay *swap* ... pues seguro que no
+sucede nada bueno.
+
+**Nota**: esta memoria no es asignada en régimen de exclusividad. *tmpfs* sólo
+toma la memoria que necesita en el momento, quedando el resto disponible para
+otras tareas.
+
+Montar perfiles de navegadores en RAM
+=====================================
+
+Podemos montar los perfiles de nuestros navegadores en *RAM*, vía *tmpfs*,
+y mantener una copia de seguridad sincronizada en el disco con :code:`rsync`.
+De esta forma, además de una mejora evidente en cuanto a velocidad,
+conseguimos reducir el número de lecturas/escrituras en disco, cuestión
+importante si montamos :code:`/home` en una *SSD*.
+
+**AUR** cuenta con varios paquetes para automatizar este proceso, como es el
+caso de `profile-sync-daemon`_.
+
+Instalación de profile-sync-daemon
+----------------------------------
+
+Como cualquier otro paquete de **AUR**, podemos instalarlo con :code:`yaourt`:
+
+.. code-block:: sh
+
+    $ yaourt -S profile-sync-daemon
+
+Configuración
+-------------
+
+:code:`/etc/psd.conf` contiene la configuración de :code:`profile-sync-daemon`.
+
+Una vez abierto el fichero:
+
+- Definimos la lista de usuarios cuyos perfiles queremos que gestione
+  :code:`psd`. Para ello, editamos la variable :code:`USERS` con sus nombres.
+
+  .. code-block:: sh
+
+      # Example
+      # USERS="facade debbie"
+      USERS="mi_usuario otro_usuario"
+
+  Donde :code:`mi_usuario` y :code:`otro_usuario` son los usuarios elegidos.
+  Hemos de apuntar al menos un nombre.
+- Opcionalmente, podemos descomentar :code:`BROWSERS` y detallar los
+  navegadores que queremos que :code:`psd` maneje. En mi caso:
+
+  .. code-block:: sh
+
+      # Uncomment and select which browsers to manage if you wish
+      # Otherwise all available/supported browsers will be managed
+      # which is NOT recommended if users have many browser profiles
+      BROWSERS="chromium firefox"
+
+  Si no editamos esto, :code:`psd` buscará e intentará llevar todos los
+  navegadores que soporta (la lista se encuentra en la configuración): trabajo
+  extra inútil.
+- En :code:`VOLATILE` se puede indicar a :code:`psd` una ruta de destino
+  distinta para los perfiles.
+
+  .. code-block:: sh
+
+
+      # Suggested locations based on distro defaults:
+      #   Arch Linux/Chakra, Fedora, and Gentoo leave this commented out
+      #   Debian 6 and below use a setting of "/dev/shm"
+      #   Debian 7+  use a setting of "/run/shm"
+      VOLATILE="/dev/shm"
+
+  Sea como sea, el directorio indicado ha de montarse como *tmpfs* y ser
+  escribible y ejecutable por el usuario.
+- Además, si tenemos una versión del *kernel* **Linux** igual o superior a la
+  *3.18.0*, podemos descomentar la variable :code:`USE_OVERLAYFS` para usar
+  **overlayfs**, lo que supone un nuevo incremento en la velocidad de
+  sincronización y un menor consumo de *RAM*.
+
+  .. code-block:: sh
+
+      # Uncomment to use overlayfs instead of a full copy to reduce the memory costs
+      # and to improve sync/unsync operations. This feature requires a Linux kernel
+      # version >=3.18.0 to work. For more, see the overlayfs kernel docs.
+      USE_OVERLAYFS="yes"
+
+
+  Si no sabemos qué versión del *kernel* tenemos, la averiguamos con:
+
+  .. code-block:: sh
+
+      $ uname -r
+
+Revisar la configuración
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Antes de iniciar :code:`psd` por primera vez/modificar su configuración,
+podemos usar la opción :code:`parse` para revisar qué hará exactamente cuando
+se ejecute.
+
+.. code-block:: sh
+
+    $ profile-sync-daemon parse
+    # o bien
+    $ psd p
+    ----------------------------------------
+    Profile-sync-daemon v5.54 on Arch Linux.
+
+     Systemd service is currently inactive.
+     Systemd resync service is currently inactive.
+     Overlayfs technology is currently inactive.
+
+    Psd will manage the following per /run/psd.conf settings:
+
+     browser/psname:  chromium/chromium
+     owner/group id:  mi_usuario/100
+     sync target:     /home/mi_usuario/.config/chromium
+     tmpfs dir:       /tmp/mi_usuario-chromium
+     profile size:    40M
+
+     browser/psname:  firefox/firefox
+     owner/group id:  mi_usuario/100
+     sync target:     /home/mi_usuario/.mozilla/firefox/wd241k8.default
+     tmpfs dir:       /tmp/mi_usuario-firefox-wd2z41k8.default
+     profile size:    141M
+
+     browser/psname:  firefox/firefox
+     owner/group id:  mi_usuario/100
+     sync target:     /home/mi_usuario/.mozilla/firefox/tn67x7vd.dev-edition-default
+     tmpfs dir:       /tmp/mi_usuario-firefox-tn67x7vd.dev-edition-default
+     profile size:    63M
+
+Como podemos ver en el informe anterior, revisa si los servicios de
+:code:`systemd` asociados (:code:`psd.service` y :code:`psd-resync.service`)
+están activos, y si hemos activado la opción :code:`overlayfs` (desactivada en
+el ejemplo, al correr sobre un sistema con *kernel 3.17.6-1*). Seguidamente,
+enumera los perfiles a administrar, detallando:
+
+- Navegador
+- Usuario
+- Ruta del perfil en disco
+- Ruta del perfil en *tmfs*
+- Tamaño del perfil
+
+(Re)Iniciar psd para administrar los perfiles
+---------------------------------------------
+
+:code:`profile-sync-daemon` proporciona un archivo de servicio y un
+temporizador (:code:`.timer`) para :code:`systemd`, a través de los cuales
+interactuaremos con :code:`psd`.
+
+El temporizador, que se inicia con el servicio, se encarga de actualizar una
+vez por hora las copias de los perfiles en el disco.
+
+Arrancamos :code:`psd` con:
+
+.. code-block:: sh
+
+    $ sudo systemctl start psd.service
+
+Para comprobar que todo funciona con normalidad podemos usar de nuevo la opción
+:code:`parse`:
+
+.. code-block:: sh
+
+    $ psd p
+    ----------------------------------------
+    Profile-sync-daemon v5.54 on Arch Linux.
+
+     Systemd service is currently active.
+     Systemd resync service is currently active.
+     Overlayfs technology is currently inactive.
+
+Activamos la carga de los servicios al arranque:
+
+.. code-block:: sh
+
+    $ sudo systemctl enable psd.service psd-resync.service
+
+Podemos ver los archivos de :code:`systemd` activados con:
+
+.. code-block:: sh
+
+    $ systemctl list-unit-files|grep ^psd
+
+    psd-resync.service                          enabled
+    psd.service                                 enabled
+    psd-resync.timer                            static
+
+**Importante:** cualquier cambio que hagamos a :code:`/etc/psd.conf` mientras
+:code:`psd` esté ejecutándose no se aplicará hasta que reiniciemos el
+servicio. Una vez realizados los cambios pertinentes, previo cierre de los
+navegadores, podemos reiniciar el servicio con:
+
+.. code-block:: sh
+
+    $ sudo systemctl restart psd.service
+
+Montar caché de navegadores (y cualquier otro directorio) en RAM
+================================================================
+
+Como ya hemos visto, con :code:`profile-sync-daemon` podemos montar los
+perfiles de nuestros navegadores en *RAM*. Pero, a pesar de ello, algunos
+navegadores mantienen su caché fuera del perfil. Es el caso, por ejemplo, de
+`Firefox`_, *Chromium*, *Chrome* y `Midori`_. Estos suelen guardar sus cachés
+en algún directorio dentro de :code:`/home/usuario/.cache/navegador/`
+(:code:`mozilla` en el caso de :code:`firefox`).
+
+Hay varias alternativas para asegurarnos su carga en *RAM*. Yo recurro a
+`anything-sync-daemon`_, porque no requiere mantener una configuración
+específica por usuario, y conserva el contenido de la caché cuando el
+navegador sufre un cierre inesperado o se reinicia.
+
+Básicamente, :code:`asd` es un :code:`psd` de **propósito general**: permite
+cargar cualquier directorio en *RAM*, vía *tmpfs*, sincronizándolo de forma
+periódica con una copia en el disco. Nosotros vamos a usarlo para la caché de
+los navegadores.
+
+Instalación de anything-sync-daemon
+-----------------------------------
+
+:code:`asd` se encuentra en **AUR**, por lo que lo instalamos con:
+
+.. code-block:: sh
+
+    $ yaourt -S anything-sync-daemon
+
+Configuración
+-------------
+
+De forma similar a :code:`psd`, las opciones de :code:`asd` se encuentran
+definidas en el archivo :code:`/etc/asd.conf`. Su configuración es aún más
+sencilla: basta con asignar a la variable :code:`WHATTOSYNC` una lista con los
+directorios deseados.
+
+Así, si queremos sincronizar las cachés de `Firefox`_ y *Chromium*:
+
+.. code-block:: sh
+
+    # Below is an example to whet your appetite
+    #WHATTOSYNC=('/srv/http' '/var/lib/monitorix' '/foo/bar')
+    WHATTOSYNC=('/home/usuario/.cache/mozilla' '/home/usuario/.cache/chromium')
+
+Donde :code:`usuario` es nuestro usuario. Si queremos que esto funcione para
+más usuarios, deberemos añadir las rutas de sus cachés a la lista.
+
+Revisar configuración y (re)iniciar asd
+---------------------------------------
+
+También es posible revisar los efectos que tendrá la configuración de
+:code:`asd`:
+
+.. code-block:: sh
+
+    $ anything-sync-daemon preview
+    # o bien
+    $ asd p
+
+Con los navegadores cerrados, iniciar y activar la carga de los servicios al
+arranque del sistema es tan sencillo como siempre:
+
+.. code-block:: sh
+
+    $ sudo systemctl start asd.service
+    $ sudo systemctl enable asd.service
+
+**Nota:** el comando para iniciar el servicio tarda un poco en liberar la
+terminal, porque realiza la copia de seguridad de los archivos de caché en ese
+preciso momento.
+
+Compilar en tmpfs
+=================
+
+Compilar requiere tratar con muchos archivos de pequeño tamaño e implica
+muchas operaciones de *E/S*, por lo que mover el directorio en el que se
+lleva a cabo a una ubicación montada como *tmpfs* puede acelerar el proceso.
+
+Tal vez pensemos: "Eh, si yo no soy programador y/o no uso lenguajes
+compilados, esto no me sirve de nada...". Pues nos equivocamos. Si solemos
+instalar cosas del repositorio **AUR** es muy probable que estemos compilando
+programas a menudo, aún sin saberlo.
+
+Ajustar el sistema para compilar en *tmpfs* es muy sencillo, sólo tenemos
+que editar :code:`/etc/makepkg.conf` y descomentar la línea con la variable
+:code:`BUILDDIR`, quedando así:
+
+.. code-block:: sh
+
+    $ sudo nano /etc/makepkg.conf
+    -----------------------------
+    ...
+    #-- Specify a directory for package building.
+    BUILDDIR=/tmp/makepkg
+    ...
+
+Esto hará que se use el directorio :code:`/tmp/makepkg` (u otro que definamos
+en su lugar) para realizar la compilación.
+
+Nota final: uso de RAM
+======================
+
+Ya comentamos anteriormente que *tmpfs* monta directorios en *RAM*. Hay que
+tener pues mucho cuidado con lo que se monta y ser consciente del espacio que
+ocupa: si "adjudicamos" a *tmpfs* un espacio de *4G*, mejor será no cargar
+directorios que excedan esa capacidad. Si cargamos un directorio en constante
+crecimiento, tendremos que vigilar su evolución.
+
+Podemos ver el espacio asignado y ocupado en nuestro directorio *tmpfs* con:
+
+.. code-block:: sh
+
+    $ df -ha | grep /dev/shm
+    tmpfs                           3,9G   795M  3,3G  16% /dev/shm
+
+Aquí vemos una "partición" *tmpfs* de *3.9G*, con *795M* ocupados y *3.1G*
+disponibles. Estamos usando un *21%* de la misma y está montada en
+:code:`/dev/shm` (**shm → shared memory**), que es la ubicación habitual de
+este sistema de archivos.
+
+Si sumamos el tamaño de los archivos sincronizados por :code:`asd` y
+:code:`psd` (que consultábamos con :code:`asd p` y :code:`psd p`), nos dará un
+tamaño parecido a esos *795M* usados. En el caso de realizar compilaciones con
+el navegador abierto, tendremos esos *3.3G* de espacio libres para la
+compilación, lo que debería de bastar en la mayoría de los casos. Si nos
+encontramos con alguno que no (lo cual no es imposible, ya que algunos
+paquetes requieren una cantidad respetable de archivos), tendremos que
+desactivar el compilado en *tmpfs* para poder compilar.
+
+---------------
+
+**Fuentes:** `Wiki Arch Linux`_, **páginas man**.
+
+.. _Antergos: http://antergos.com/
+.. _Álvaro Campo: https://www.flickr.com/photos/alwarrete/
+.. _licencia Creative Commons: https://creativecommons.org/licenses/by-nc-nd/2.0/
+.. _Original: https://flic.kr/p/9BpPGX
+.. _profile-sync-daemon: https://aur.archlinux.org/packages/profile-sync-daemon/
+.. _Firefox: https://www.mozilla.org/es-ES/firefox/new/
+.. _Midori: http://midori-browser.org/
+.. _anything-sync-daemon: https://aur.archlinux.org/packages/Anything-sync-daemon/
+.. _Wiki Arch Linux: https://wiki.archlinux.org/

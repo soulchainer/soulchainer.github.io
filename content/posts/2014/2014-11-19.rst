@@ -1,4 +1,4 @@
-Esto va como un tiro (I): Usando una SSD en Arch Linux
+Esto va como un tiro (I): usando una SSD en Arch Linux
 ######################################################
 :date: 2014-11-19 23:30
 :tags: ssd, unidad estado sólido, instalación, optimización, linux, antergos,
