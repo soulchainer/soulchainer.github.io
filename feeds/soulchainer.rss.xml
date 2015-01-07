@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soulbits</title><link>http://soulchainer.github.io/</link><description>archlinux, software libre y apuntes varios</description><atom:link href="http://soulchainer.github.io/feeds/soulchainer.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 20 Dec 2014 17:00:00 +0100</lastBuildDate><item><title>Esto va como un tiro (II): exprimiendo tmpfs</title><link>http://soulchainer.github.io/posts/2014/12/20/exprimiendo-tmpfs/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soulbits</title><link>//soulchainer.github.io/</link><description>archlinux, software libre y apuntes varios</description><atom:link href="//soulchainer.github.io/feeds/soulchainer.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 20 Dec 2014 17:00:00 +0100</lastBuildDate><item><title>Esto va como un tiro (II): exprimiendo tmpfs</title><link>//soulchainer.github.io/posts/2014/12/20/exprimiendo-tmpfs/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#directorios-temporales-del-sistema" id="id2"&gt;Directorios temporales del sistema&lt;/a&gt;&lt;/li&gt;
@@ -37,7 +37,7 @@
 10  Próxima parte --&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Fast Lights" src="http://soulchainer.github.io/images/2014/12/2014-12-20_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Fast Lights" src="//soulchainer.github.io/images/2014/12/2014-12-20_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;"Fast Lights". Foto obra de &lt;a class="reference external" href="https://www.flickr.com/photos/alwarrete/"&gt;Álvaro Campo&lt;/a&gt;, con
 &lt;a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/2.0/"&gt;licencia Creative Commons&lt;/a&gt;. &lt;a class="reference external" href="https://flic.kr/p/9BpPGX"&gt;Original&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -332,13 +332,13 @@ desactivar el compilado en &lt;em&gt;tmpfs&lt;/em&gt; para poder compilar.&lt;/
 &lt;hr class="docutils"/&gt;
 &lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;Wiki Arch Linux&lt;/a&gt;, &lt;strong&gt;páginas man&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Sat, 20 Dec 2014 17:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-12-20:posts/2014/12/20/exprimiendo-tmpfs/</guid><category>tmpfs</category><category>ram</category><category>memoria</category><category>optimización</category><category>navegador</category><category>perfil</category><category>sincronización</category><category>compilación</category><category>linux</category><category>antergos</category><category>archlinux</category></item><item><title>Revertir Firefox Developer Edition</title><link>http://soulchainer.github.io/posts/2014/11/20/revertir-firefox-developer/</link><description>&lt;p&gt;Hoy me he levantado, he encendido el ordenador y… me han dado un disgusto.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Sat, 20 Dec 2014 17:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-12-20:posts/2014/12/20/exprimiendo-tmpfs/</guid><category>tmpfs</category><category>ram</category><category>memoria</category><category>optimización</category><category>navegador</category><category>perfil</category><category>sincronización</category><category>compilación</category><category>linux</category><category>antergos</category><category>archlinux</category></item><item><title>Revertir Firefox Developer Edition</title><link>//soulchainer.github.io/posts/2014/11/20/revertir-firefox-developer/</link><description>&lt;p&gt;Hoy me he levantado, he encendido el ordenador y… me han dado un disgusto.&lt;/p&gt;
 &lt;p&gt;Me explico. Ayer actualicé &lt;a class="reference external" href="https://www.mozilla.org/en-US/firefox/channel/#aurora"&gt;Firefox Aurora&lt;/a&gt;, vía &lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/#yaourt"&gt;yaourt&lt;/a&gt;, pero no reinicié
 el navegador. Y al iniciarlo ahora, lo que se carga es
 &lt;a class="reference external" href="https://www.mozilla.org/es-ES/firefox/developer/"&gt;Firefox Developer Edition&lt;/a&gt; pelado, sin mi perfil de siempre. ¿Dónde están mis
 plugins, pestañas abiertas, contraseñas, historial…?&lt;/p&gt;
 &lt;div class="figure align-left" style="width: 350px; height: auto; max-width: 100%;"&gt;
-&lt;a class="reference external image-reference" href="https://www.mozilla.org/es-ES/firefox/developer/"&gt;&lt;img alt="Logo de Firefox Developer Edition." src="http://soulchainer.github.io/images/2014/11/2014-11-20_01.png" style="width: 350px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="https://www.mozilla.org/es-ES/firefox/developer/"&gt;&lt;img alt="Logo de Firefox Developer Edition." src="//soulchainer.github.io/images/2014/11/2014-11-20_01.png" style="width: 350px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;p&gt;Resulta que &lt;em&gt;Firefox Developer Edition&lt;/em&gt; utiliza un perfil separado del de otras
 versiones de &lt;em&gt;Firefox&lt;/em&gt; instaladas en el equipo. Esto está muy bien si usas la
@@ -349,7 +349,7 @@ Así tienes cada cosa por un lado y no se entremezclan. El problema viene cuando
 &lt;p&gt;Para solucionarlo, abrimos &lt;strong&gt;Preferencias&lt;/strong&gt; y desmarcamos la opción
 &lt;strong&gt;Permitir a Firefox Developer Edition y Firefox ejecutarse al mismo tiempo&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 900px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página de Preferencias." src="http://soulchainer.github.io/images/2014/11/2014-11-20_02.png" style="width: 900px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página de Preferencias." src="//soulchainer.github.io/images/2014/11/2014-11-20_02.png" style="width: 900px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Tras reiniciar el navegador, tal y como nos solicita, se restaurará nuestro
 perfil y datos de sesión previos a la actualización. Justo lo que queríamos.&lt;/p&gt;
@@ -358,12 +358,12 @@ En el caso de que nos gustara el tema de &lt;em&gt;Firefox Developer Edition&lt;
 podemos establecerlo abriendo el panel &lt;strong&gt;Personalizar&lt;/strong&gt; y haciendo clic en el
 botón &lt;strong&gt;Usar el tema Firefox Developer Edition&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 900px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Panel de Personalizar." src="http://soulchainer.github.io/images/2014/11/2014-11-20_03.png" style="width: 900px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Panel de Personalizar." src="//soulchainer.github.io/images/2014/11/2014-11-20_03.png" style="width: 900px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Y, ya que estaba por la labor, &lt;a class="reference external" href="https://developer.mozilla.org/es/Firefox/Edici%C3%B3n_de_Desarrollador/Revertir/"&gt;he traducido&lt;/a&gt; la &lt;a class="reference external" href="https://developer.mozilla.org/en-US/Firefox/Developer_Edition/Reverting/"&gt;página de &lt;span class="caps"&gt;MDN&lt;/span&gt;&lt;/a&gt; que he
 consultado para esto.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Thu, 20 Nov 2014 18:20:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-11-20:posts/2014/11/20/revertir-firefox-developer/</guid><category>firefox</category><category>aurora</category><category>developer edition</category><category>actualizacion</category><category>tema</category><category>perfil</category></item><item><title>Esto va como un tiro (I): usando una SSD en Arch Linux</title><link>http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Thu, 20 Nov 2014 18:20:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-11-20:posts/2014/11/20/revertir-firefox-developer/</guid><category>firefox</category><category>aurora</category><category>developer edition</category><category>actualizacion</category><category>tema</category><category>perfil</category></item><item><title>Esto va como un tiro (I): usando una SSD en Arch Linux</title><link>//soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#antes-de-comprar" id="id10"&gt;Antes de comprar&lt;/a&gt;&lt;ul&gt;
@@ -405,7 +405,7 @@ trabajando con una en sus entrañas, así que toca artículo sobre la
 configuración y optimización del sistema para maximizar el rendimiento y
 alargar la vida útil de la unidad.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 766px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="SSD Crucial MX100 128GB SATA3." src="http://soulchainer.github.io/images/2014/11/2014-11-19_01.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="SSD Crucial MX100 128GB SATA3." src="//soulchainer.github.io/images/2014/11/2014-11-19_01.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Crucial &lt;span class="caps"&gt;MX100&lt;/span&gt; &lt;span class="caps"&gt;128GB&lt;/span&gt; &lt;span class="caps"&gt;SATA3&lt;/span&gt;. Mi elección. Por relación calidad/precio/espacio.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Aunque el artículo está enfocado a &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt; (&lt;a class="reference external" href="https://www.archlinux.org/"&gt;Arch Linux&lt;/a&gt; con instalador
@@ -712,12 +712,12 @@ le resulte útil a alguien más.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Solid_State_Drives"&gt;Wiki Arch Linux&lt;/a&gt;, &lt;a class="reference external" href="http://blog.neutrino.es/2013/howto-properly-activate-trim-for-your-ssd-on-linux-fstrim-lvm-and-dmcrypt/"&gt;neutrino&lt;/a&gt;, &lt;a class="reference external" href="http://portallinux.es/recomendaciones-para-el-uso-de-un-ssd-en-gnulinux/"&gt;PortalLinux&lt;/a&gt;, &lt;a class="reference external" href="https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that"&gt;Rudd-O&lt;/a&gt;,
 &lt;a class="reference external" href="http://doc.opensuse.org/products/draft/SLES/SLES-tuning_sd_draft/cha.tuning.memory.html"&gt;Documentación Opensuse&lt;/a&gt;, &lt;strong&gt;páginas man&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 19 Nov 2014 23:30:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-11-19:posts/2014/11/19/optimizacion-ssd-instalacion/</guid><category>ssd</category><category>unidad estado sólido</category><category>instalación</category><category>optimización</category><category>linux</category><category>antergos</category><category>archlinux</category></item><item><title>Firefox y las fuentes externas en Tumblr (problemas con @font-face)</title><link>http://soulchainer.github.io/posts/2014/06/17/firefox-fuentes-tumblr/</link><description>&lt;p&gt;Estoy escribiendo un nuevo tema para &lt;a class="reference external" href="http://soulchainer.tumblr.com/"&gt;mi tumblr&lt;/a&gt; y ayer llegó el momento de
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 19 Nov 2014 23:30:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-11-19:posts/2014/11/19/optimizacion-ssd-instalacion/</guid><category>ssd</category><category>unidad estado sólido</category><category>instalación</category><category>optimización</category><category>linux</category><category>antergos</category><category>archlinux</category></item><item><title>Firefox y las fuentes externas en Tumblr (problemas con @font-face)</title><link>//soulchainer.github.io/posts/2014/06/17/firefox-fuentes-tumblr/</link><description>&lt;p&gt;Estoy escribiendo un nuevo tema para &lt;a class="reference external" href="http://soulchainer.tumblr.com/"&gt;mi tumblr&lt;/a&gt; y ayer llegó el momento de
 trasladar lo que ya tengo escrito al editor de html de &lt;em&gt;Tumblr&lt;/em&gt;, para empezar a
 incorporar sus variables especiales y demás. Pues bien, subo dicho código,
 guardo y me encuentro con esto:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Captura de pantalla del tema, donde se aprecia que el navegador no carga las fuentes correctas." src="http://soulchainer.github.io/images/2014/06/2014-06-17_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Captura de pantalla del tema, donde se aprecia que el navegador no carga las fuentes correctas." src="//soulchainer.github.io/images/2014/06/2014-06-17_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;¿Adónde se han ido mis fuentes bonicas?&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Precioso, ¿verdad? Repaso todo lo que he hecho y no he cometido ningún error.
@@ -734,7 +734,7 @@ de concederte permiso para ello. Esto lo hace enviando a tu navegador una
 cabecera http &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt; &lt;a class="reference external" href="http://www.w3.org/TR/2008/WD-access-control-20080912/#access-control-allow-origin"&gt;Access-Control-Allow-Origin&lt;/a&gt; con unos valores específicos.&lt;/p&gt;
 &lt;p&gt;Y da la casualidad de que &lt;em&gt;Tumblr&lt;/em&gt; no envía esa cabecera para los archivos que subes a &lt;a class="reference external" href="http://static.tumblr.com"&gt;static.tumblr.com&lt;/a&gt; &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt;. Genial, ¿verdad?&lt;/p&gt;
 &lt;div class="figure" style="width: 700px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Mensaje de error. No tenemos permisos para descargar la fuente." src="http://soulchainer.github.io/images/2014/06/2014-06-17_02.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Mensaje de error. No tenemos permisos para descargar la fuente." src="//soulchainer.github.io/images/2014/06/2014-06-17_02.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Mensaje de error que recibimos en la consola de &lt;em&gt;Firefox&lt;/em&gt;, avisándonos de que no tenemos permisos para descargar las fuentes.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -798,7 +798,7 @@ para que nos genere la fuente también en &lt;em&gt;base64&lt;/em&gt;, directame
 &lt;h2&gt;Resultado&lt;/h2&gt;
 &lt;p&gt;Una vez hecho esto, las fuentes nos cargan según lo esperado en &lt;em&gt;Firefox&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Firefox carga correctamente las fuentes deseadas." src="http://soulchainer.github.io/images/2014/06/2014-06-17_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Firefox carga correctamente las fuentes deseadas." src="//soulchainer.github.io/images/2014/06/2014-06-17_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Firefox carga correctamente las fuentes deseadas.&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils"/&gt;
@@ -821,8 +821,8 @@ para que nos genere la fuente también en &lt;em&gt;base64&lt;/em&gt;, directame
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Tue, 17 Jun 2014 18:40:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-06-17:posts/2014/06/17/firefox-fuentes-tumblr/</guid><category>firefox</category><category>css</category><category>fuentes</category><category>font-face</category><category>tumblr</category><category>base64</category></item><item><title>Screen tearing en el navegador</title><link>http://soulchainer.github.io/posts/2014/06/11/screen-tearing-navegador/</link><description>&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Un ejemplo típico (simulado) de tearing en una imagen." src="http://soulchainer.github.io/images/2014/06/2014-06-11_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Tue, 17 Jun 2014 18:40:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-06-17:posts/2014/06/17/firefox-fuentes-tumblr/</guid><category>firefox</category><category>css</category><category>fuentes</category><category>font-face</category><category>tumblr</category><category>base64</category></item><item><title>Screen tearing en el navegador</title><link>//soulchainer.github.io/posts/2014/06/11/screen-tearing-navegador/</link><description>&lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Un ejemplo típico (simulado) de tearing en una imagen." src="//soulchainer.github.io/images/2014/06/2014-06-11_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Ejemplo de los errores gráficos característicos del &lt;em&gt;screen tearing&lt;/em&gt;: la
 imagen parece cortada y desplazada por varios sitios.&lt;/p&gt;
 &lt;div class="legend"&gt;
@@ -947,7 +947,7 @@ navegador a la &lt;a class="reference external" href="chrome://flags/"&gt;págin
 habilitar la primera opción:
 &lt;strong&gt;Ignorar la lista de renderización por software&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página de funciones experimentales de Chrome." src="http://soulchainer.github.io/images/2014/06/2014-06-11_02.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página de funciones experimentales de Chrome." src="//soulchainer.github.io/images/2014/06/2014-06-11_02.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Tras reiniciar &lt;em&gt;Chrome&lt;/em&gt;, se aplicará el cambio.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Destacar que, en todo momento, el efecto del &lt;em&gt;screen tearing&lt;/em&gt; es algo más
@@ -966,8 +966,8 @@ pronunciado aquí que en &lt;strong&gt;Firefox&lt;/strong&gt;.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 11 Jun 2014 23:59:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-06-11:posts/2014/06/11/screen-tearing-navegador/</guid><category>tearing</category><category>error gráfico</category><category>imagen</category><category>nouveau</category><category>nvidia</category><category>compton</category><category>vsync</category><category>linux</category><category>firefox</category><category>chrome</category></item><item><title>Zeal, un navegador de documentación offline</title><link>http://soulchainer.github.io/posts/2014/06/04/zeal-navegador-documentacion/</link><description>&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Zeal, un organizador de APIs libre" src="http://soulchainer.github.io/images/2014/06/2014-06-04_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 11 Jun 2014 23:59:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-06-11:posts/2014/06/11/screen-tearing-navegador/</guid><category>tearing</category><category>error gráfico</category><category>imagen</category><category>nouveau</category><category>nvidia</category><category>compton</category><category>vsync</category><category>linux</category><category>firefox</category><category>chrome</category></item><item><title>Zeal, un navegador de documentación offline</title><link>//soulchainer.github.io/posts/2014/06/04/zeal-navegador-documentacion/</link><description>&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Zeal, un organizador de APIs libre" src="//soulchainer.github.io/images/2014/06/2014-06-04_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.genbetadev.com/"&gt;&lt;span class="caps"&gt;GENBETA&lt;/span&gt;:dev&lt;/a&gt; publicaba la semana pasada &lt;a class="reference external" href="http://www.genbetadev.com/herramientas/que-es-un-organizador-de-apis/"&gt;un artículo&lt;/a&gt; sobre navegadores
 de documentación de &lt;em&gt;APIs&lt;/em&gt; offline (que ellos abrevian como
@@ -1007,7 +1007,7 @@ como un navegador web y eso influye en el consumo.&lt;/p&gt;
 &lt;h2&gt;Zeal&lt;/h2&gt;
 &lt;p&gt;Desde &lt;em&gt;&lt;span class="caps"&gt;GENBETA&lt;/span&gt;:dev&lt;/em&gt; se centraban en &lt;a class="reference external" href="http://kapeli.com/dash/"&gt;Dash&lt;/a&gt; , que es un programa muy apañado y
 recomendable… si tienes un &lt;em&gt;Mac&lt;/em&gt; &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt; y no te importa que se trate de software propietario y de pago, claro.&lt;/p&gt;
-&lt;img alt="Dash, organizador de APIs exclusivo de Mac." class="image" src="http://soulchainer.github.io/images/2014/06/2014-06-04_02.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Dash, organizador de APIs exclusivo de Mac." class="image" src="//soulchainer.github.io/images/2014/06/2014-06-04_02.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p&gt;No obstante, mencionaban de pasada la existencia de &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; , que es software
 libre y está &lt;a class="reference external" href="http://zealdocs.org/download.html/"&gt;disponible para otras plataformas&lt;/a&gt; .&lt;/p&gt;
 &lt;p&gt;Haciendo honor a la verdad, comparado con &lt;em&gt;Dash&lt;/em&gt;, &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt; deja bastante que
@@ -1032,7 +1032,7 @@ que podemos instalarlo fácilmente con &lt;em&gt;yaourt&lt;/em&gt; o cualquier o
 &lt;p&gt;Una vez instalado, utilizarlo es muy sencillo.&lt;/p&gt;
 &lt;p&gt;Primero de todo, hemos de descargar la documentación que queremos tener disponible.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Descarga de documentación." src="http://soulchainer.github.io/images/2014/06/2014-06-04_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Descarga de documentación." src="//soulchainer.github.io/images/2014/06/2014-06-04_03.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Descargamos la documentación desde
 &lt;strong&gt;Edit → Options → Docsets → Download…&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1042,7 +1042,7 @@ restringir nuestra búsqueda a determinada documentación. Así,
 &lt;code&gt;doc:consulta&lt;/code&gt; buscará &lt;code&gt;consulta&lt;/code&gt; dentro de aquella documentación
 cuyo nombre se corresponda o contenga la palabra clave &lt;code&gt;doc&lt;/code&gt; .&lt;/p&gt;
 &lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Búsqueda dentro de la documentación de CSS." src="http://soulchainer.github.io/images/2014/06/2014-06-04_04.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Búsqueda dentro de la documentación de CSS." src="//soulchainer.github.io/images/2014/06/2014-06-04_04.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Búsqueda restringida a la documentación de &lt;em&gt;&lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1066,7 +1066,7 @@ que estamos usando con su documentación en &lt;a class="reference external" hre
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Shift + F1&lt;/strong&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Despliega una barra para buscar en &lt;a class="reference external" href="http://zealdocs.org/"&gt;Zeal&lt;/a&gt;.&lt;/p&gt;
-&lt;img alt="Barra de búsqueda de Zeal en Sublime Text." class="image" src="http://soulchainer.github.io/images/2014/06/2014-06-04_05.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Barra de búsqueda de Zeal en Sublime Text." class="image" src="//soulchainer.github.io/images/2014/06/2014-06-04_05.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1128,8 +1128,8 @@ una determinada consulta, pero tienen su utilidad.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 04 Jun 2014 18:20:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-06-04:posts/2014/06/04/zeal-navegador-documentacion/</guid><category>zeal</category><category>linux</category><category>windows</category><category>api</category><category>documentación</category></item><item><title>Utilizar un dispositivo Android como micrófono</title><link>http://soulchainer.github.io/posts/2014/04/11/android-como-microfono/</link><description>&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Micrófono RCA. Foto perteneciente al NFSA (National Film and Sound Archive of Australia). Fotógrafo: Brooke Shannon." src="http://soulchainer.github.io/images/2014/04/2014-04-11_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 04 Jun 2014 18:20:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-06-04:posts/2014/06/04/zeal-navegador-documentacion/</guid><category>zeal</category><category>linux</category><category>windows</category><category>api</category><category>documentación</category></item><item><title>Utilizar un dispositivo Android como micrófono</title><link>//soulchainer.github.io/posts/2014/04/11/android-como-microfono/</link><description>&lt;div class="figure" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Micrófono RCA. Foto perteneciente al NFSA (National Film and Sound Archive of Australia). Fotógrafo: Brooke Shannon." src="//soulchainer.github.io/images/2014/04/2014-04-11_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Micrófono &lt;span class="caps"&gt;RCA&lt;/span&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Foto perteneciente al &lt;a class="reference external" href="https://www.flickr.com/photos/nfsa/"&gt;archivo&lt;/a&gt; del &lt;a class="reference external" href="http://www.nfsa.gov.au/"&gt;&lt;span class="caps"&gt;NFSA&lt;/span&gt;&lt;/a&gt; (
@@ -1171,7 +1171,7 @@ solución para pobres (como yo), que me evite el gastarme el dinero en un micr�
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Un cable con 2 conectores macho de audio 3.5mm.&lt;/p&gt;
 &lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Cable de audio macho-macho 3.5 milímetros." src="http://soulchainer.github.io/images/2014/04/2014-04-11_02.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Cable de audio macho-macho 3.5 milímetros." src="//soulchainer.github.io/images/2014/04/2014-04-11_02.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Algo así. Seguro que tienes alguno por casa o puedes hacer un apaño. De
 hecho, yo estoy usando un alargador de audio + un minicable macho-macho.&lt;/p&gt;
 &lt;/div&gt;
@@ -1191,7 +1191,7 @@ de utilizar y me funciona bien, así que no probé más.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Iniciamos la aplicación &lt;em&gt;Micrófono&lt;/em&gt; y pulsamos en el micrófono que aparece.&lt;/p&gt;
 &lt;div class="figure" style="width: 480px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Micrófono activado." src="http://soulchainer.github.io/images/2014/04/2014-04-11_03.png" style="width: 480px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Micrófono activado." src="//soulchainer.github.io/images/2014/04/2014-04-11_03.png" style="width: 480px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;El micrófono se vuelve rojo cuando está activo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -1205,14 +1205,14 @@ sonido un poco molesto.&lt;/p&gt;
 &lt;p&gt;Obviamente, no da la misma calidad que un buen micrófono, pero para un uso
 normalito, a mí me vale.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Fri, 11 Apr 2014 23:59:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-04-11:posts/2014/04/11/android-como-microfono/</guid><category>android</category><category>sonido</category><category>micrófono</category><category>hangouts</category></item><item><title>Mi MOOC ideal</title><link>http://soulchainer.github.io/posts/2014/02/24/mi-mooc-ideal/</link><description>&lt;div class="section" id="introduccion"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Fri, 11 Apr 2014 23:59:00 +0200</pubDate><guid>tag:soulchainer.github.io,2014-04-11:posts/2014/04/11/android-como-microfono/</guid><category>android</category><category>sonido</category><category>micrófono</category><category>hangouts</category></item><item><title>Mi MOOC ideal</title><link>//soulchainer.github.io/posts/2014/02/24/mi-mooc-ideal/</link><description>&lt;div class="section" id="introduccion"&gt;
 &lt;h2&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;Esta misma mañana he recibido un correo de &lt;a class="reference external" href="https://www.futurelearn.com"&gt;FutureLearn&lt;/a&gt; avisándome de que hoy
 comienza &lt;a class="reference external" href="https://www.futurelearn.com/courses/begin-programming-2014/"&gt;un nuevo &lt;span class="caps"&gt;MOOC&lt;/span&gt; al que estoy apuntado&lt;/a&gt;, y, como tengo aún pendiente de
 escribir la entrada de rigor de la semana pasada (mal, muy mal ò_ó), se me ha
 ocurrido contaros como creo yo que debería ser un &lt;strong&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/strong&gt; &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt;. Parte de las
 ideas aquí expuestas ya las traté en
-&lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/"&gt;un artículo a principio del mes pasado&lt;/a&gt;,
+&lt;a class="reference external" href="//soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/"&gt;un artículo a principio del mes pasado&lt;/a&gt;,
 pero aquí amplío y trato un poco más abiertamente el tema.&lt;/p&gt;
 &lt;p&gt;La verdad, esto no debería ser necesario: sé que alguna de estas ideas pueden
 ser difíciles de aceptar o poner en práctica, al depender de factores externos,
@@ -1224,7 +1224,7 @@ el simple hecho de que &lt;strong&gt;está de moda, es trending topic, es requet
 no demuestran tener &lt;strong&gt;un compromiso real para con la Educación&lt;/strong&gt;. Eso, o lo
 disimulan bastante bien.&lt;/p&gt;
 &lt;div class="figure" style="width: 600px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Para relajar tensiones, antes de amuermaros un poquito... ¡La vacuna del humor!" src="http://soulchainer.github.io/images/2014/02/2014-02-24_01.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Para relajar tensiones, antes de amuermaros un poquito... ¡La vacuna del humor!" src="//soulchainer.github.io/images/2014/02/2014-02-24_01.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Para relajar tensiones, antes de amuermaros un poquito… ¡La vacuna del humor!&lt;/p&gt;
 &lt;div class="legend"&gt;
 &lt;a class="reference external" href="http://www.flickr.com/photos/ajc1/7566869868/"&gt;Foto original&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/ajc1/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt; Cann&lt;/a&gt;.&lt;/div&gt;
@@ -1339,12 +1339,12 @@ tangencialmente. Igual que me tocó la patata con el párrafo que lo cierra :)&
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Mon, 24 Feb 2014 19:05:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-02-24:posts/2014/02/24/mi-mooc-ideal/</guid><category>mooc</category><category>cursos</category><category>educación</category></item><item><title>Telegram, Line, WhatsApp y pollas en vinagre</title><link>http://soulchainer.github.io/posts/2014/02/14/telegram-line-wa-pollas-vinagre/</link><description>&lt;a class="reference external image-reference" href="http://ilovefs.org"&gt;&lt;img alt="I love Free Software!" class="image" src="http://soulchainer.github.io/images/2014/02/2014-02-14_01.png" style="width: 627px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Mon, 24 Feb 2014 19:05:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-02-24:posts/2014/02/24/mi-mooc-ideal/</guid><category>mooc</category><category>cursos</category><category>educación</category></item><item><title>Telegram, Line, WhatsApp y pollas en vinagre</title><link>//soulchainer.github.io/posts/2014/02/14/telegram-line-wa-pollas-vinagre/</link><description>&lt;a class="reference external image-reference" href="http://ilovefs.org"&gt;&lt;img alt="I love Free Software!" class="image" src="//soulchainer.github.io/images/2014/02/2014-02-14_01.png" style="width: 627px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
 &lt;p&gt;Tras esta imagen tan &lt;em&gt;Flower Power&lt;/em&gt;, influenciada por el día en el que estamos,
 y para suavizar un poco el titular, vamos al tema en cuestión.&lt;/p&gt;
 &lt;p&gt;Y este no es otro sino &lt;strong&gt;la última moda&lt;/strong&gt; en mensajería:  &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Logo y eslogan de Telegram" src="http://soulchainer.github.io/images/2014/02/2014-02-14_02.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Logo y eslogan de Telegram" src="//soulchainer.github.io/images/2014/02/2014-02-14_02.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Logo y eslogan de &lt;em&gt;Telegram&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 &lt;em&gt;Recuperando nuestro derecho a la privacidad&lt;/em&gt;&lt;/div&gt;
@@ -1360,7 +1360,7 @@ a pesar de que aún no tengo a nadie (me comunico más por redes sociales). El
 caso es que &lt;em&gt;Telegram&lt;/em&gt; parece un buen software: es bonito, seguro, rápido,
 gratis, protege tu privacidad, es &lt;em&gt;software libre&lt;/em&gt;…&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Algunas de las virtudes de Telegram" src="http://soulchainer.github.io/images/2014/02/2014-02-14_03.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Algunas de las virtudes de Telegram" src="//soulchainer.github.io/images/2014/02/2014-02-14_03.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Algunas de las virtudes atribuidas a &lt;em&gt;Telegram&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Espera un segundo: ¿es libre?&lt;/p&gt;
@@ -1421,7 +1421,7 @@ compartirla o no :p&lt;/p&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Instant Messaging&lt;/strong&gt; (Mensajería Instantánea).&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Fri, 14 Feb 2014 14:25:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-02-14:posts/2014/02/14/telegram-line-wa-pollas-vinagre/</guid><category>telegram</category><category>line</category><category>whatsapp</category><category>mensajería</category><category>im</category><category>xmpp</category><category>software libre</category><category>opinión</category></item><item><title>Antergos paso a paso (III): puesta a punto de Openbox</title><link>http://soulchainer.github.io/posts/2014/02/08/antergos-tutorial-parte3/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Fri, 14 Feb 2014 14:25:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-02-14:posts/2014/02/14/telegram-line-wa-pollas-vinagre/</guid><category>telegram</category><category>line</category><category>whatsapp</category><category>mensajería</category><category>im</category><category>xmpp</category><category>software libre</category><category>opinión</category></item><item><title>Antergos paso a paso (III): puesta a punto de Openbox</title><link>//soulchainer.github.io/posts/2014/02/08/antergos-tutorial-parte3/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#introduccion" id="id12"&gt;Introducción&lt;/a&gt;&lt;/li&gt;
@@ -1457,7 +1457,7 @@ compartirla o no :p&lt;/p&gt;
 &lt;!-- --&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Logo y eslogan de Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Logo y eslogan de &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="introduccion"&gt;
@@ -1477,7 +1477,7 @@ incomoda, o bien queremos añadir alguna entrada personalizada, podemos utilizar
 &lt;a class="reference external" href="http://obmenu.sourceforge.net/"&gt;obmenu&lt;/a&gt; para editarlo.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 560px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Obmenu, editor gráfico del menú de Openbox." src="http://soulchainer.github.io/images/2014/02/2014-02-07_01.png" style="width: 560px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Obmenu, editor gráfico del menú de Openbox." src="//soulchainer.github.io/images/2014/02/2014-02-07_01.png" style="width: 560px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Preferences → Openbox Config → &lt;span class="caps"&gt;GUI&lt;/span&gt; Menu Editor&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 El menú se guarda en &lt;code&gt;~/.config/openbox/menu.xml&lt;/code&gt;.&lt;/div&gt;
@@ -1505,7 +1505,7 @@ en ejecución, la lista de ventanas…&lt;/p&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Editor de configuración&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Podemos personalizar el comportamiento de &lt;em&gt;tint2&lt;/em&gt; con &lt;code&gt;tintwizard.py&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 661px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Tint Wizard, editor de configuración de tint2" src="http://soulchainer.github.io/images/2014/02/2014-02-07_02.png" style="width: 661px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Tint Wizard, editor de configuración de tint2" src="//soulchainer.github.io/images/2014/02/2014-02-07_02.png" style="width: 661px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Preferences → tint2 config → Tint Wizard&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="legend"&gt;
 La configuración de &lt;em&gt;tint2&lt;/em&gt; se guarda por defecto en
@@ -1778,7 +1778,7 @@ del panel. Acepta como valores &lt;em&gt;"never"&lt;/em&gt; y enteros del 1 al 
 &lt;p&gt;A modo de ejemplo, dejo aquí la configuración que he realizado escribiendo esta
 entrada: &lt;a class="reference external" href="https://gist.github.com/soulchainer/a26a16611bd1401f04c5"&gt;https://gist.github.com/soulchainer/a26a16611bd1401f04c5&lt;/a&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ejemplo de configuración de tint2" src="http://soulchainer.github.io/images/2014/02/2014-02-07_03.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ejemplo de configuración de tint2" src="//soulchainer.github.io/images/2014/02/2014-02-07_03.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Uso: guardad en &lt;code&gt;~/.config/tint2/tint2rc&lt;/code&gt; o abrid y aplicad cambios
 con &lt;code&gt;tintwizard&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -1793,7 +1793,7 @@ encontrarlo en &lt;strong&gt;Preferences → Openbox Config → &lt;span class="
 &lt;div class="section" id="tema-apariencia"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Tema &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; apariencia&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Herramienta de configuración de Openbox. Configuración de Tema." src="http://soulchainer.github.io/images/2014/02/2014-02-07_04.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración de Tema." src="//soulchainer.github.io/images/2014/02/2014-02-07_04.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Elección de tema. &lt;em&gt;Antergos&lt;/em&gt; viene con &lt;em&gt;Zukitwo&lt;/em&gt; por defecto. Y me gusta.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Fuentes para obtener nuevos temas: &lt;a class="reference external" href="http://box-look.org/index.php?xcontentmode=7402"&gt;Box-look&lt;/a&gt;, &lt;a class="reference external" href="http://customize.org/browse/tags/openbox"&gt;Customize.org&lt;/a&gt; o
@@ -1813,7 +1813,7 @@ adjuntará un &lt;strong&gt;&lt;span class="caps"&gt;README&lt;/span&gt;&lt;/str
 puede usar también &lt;em&gt;LXAppearance&lt;/em&gt; (&lt;code&gt;lxappearance&lt;/code&gt; o
 &lt;strong&gt;Preferences → User Interface Settings&lt;/strong&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 686px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Lxappearance. Configuración extra de Tema." src="http://soulchainer.github.io/images/2014/02/2014-02-07_07.gif" style="width: 686px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Lxappearance. Configuración extra de Tema." src="//soulchainer.github.io/images/2014/02/2014-02-07_07.gif" style="width: 686px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Aunque duplica funciones de &lt;em&gt;ObConf&lt;/em&gt;, incluye opciones extra, como la
 gestión de temas de iconos y cursores de ratón.&lt;/p&gt;
 &lt;div class="legend"&gt;
@@ -1823,7 +1823,7 @@ gestión de temas de iconos y cursores de ratón.&lt;/p&gt;
 &lt;div class="section" id="manipulacion-de-las-ventanas"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Manipulación de las ventanas&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 816px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Herramienta de configuración de Openbox. Configuración de manejo de las ventanas." src="http://soulchainer.github.io/images/2014/02/2014-02-07_05.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración de manejo de las ventanas." src="//soulchainer.github.io/images/2014/02/2014-02-07_05.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;La resistencia es el impedimento que suponen ciertos bordes al avance de
 una ventana. A mayor resistencia, más duro el avance.&lt;/p&gt;
 &lt;div class="legend"&gt;
@@ -1835,7 +1835,7 @@ considerar el cambio.&lt;/div&gt;
 &lt;div class="section" id="raton"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Ratón&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 816px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Herramienta de configuración de Openbox. Configuración del ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_06.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración del ratón." src="//soulchainer.github.io/images/2014/02/2014-02-07_06.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Establecer el enfoque de ventanas con el ratón (la ventana bajo el puntero
 pasa a ser la ventana activa) es tentador. Suena práctico, pero para mí
 termina siendo un inconveniente.&lt;/p&gt;
@@ -1844,13 +1844,13 @@ termina siendo un inconveniente.&lt;/p&gt;
 ratón, con &lt;code&gt;lxinput&lt;/code&gt; (&lt;strong&gt;Preferences → Input Device Preferences&lt;/strong&gt;).
 Sobre todo si somos zurdos.&lt;/p&gt;
 &lt;div class="figure" style="width: 575px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Lxinput. Configuración del comportamiento del ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_08.png" style="width: 575px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Lxinput. Configuración del comportamiento del ratón." src="//soulchainer.github.io/images/2014/02/2014-02-07_08.png" style="width: 575px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="escritorios-virtuales"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Escritorios virtuales&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 816px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Herramienta de configuración de Openbox. Configuración de escritorios virtuales." src="http://soulchainer.github.io/images/2014/02/2014-02-07_09.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Herramienta de configuración de Openbox. Configuración de escritorios virtuales." src="//soulchainer.github.io/images/2014/02/2014-02-07_09.png" style="width: 816px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;La notificación anuncia en el centro de la pantalla el cambio de escritorio.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Yo suelo nombrar los escritorios (doble clic para editar), dividiéndolos
@@ -1885,7 +1885,7 @@ unos &lt;em&gt;25 &lt;span class="caps"&gt;MB&lt;/span&gt;&lt;/em&gt; sin ningun
 que dicen por ahí (a saber de dónde salen esos números…), pero no está mal.
 Aunque abriendo un programa o dos la cosa sube, claro.&lt;/p&gt;
 &lt;div class="figure" style="width: 474px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Plank: el dock ligero predeterminado en Antergos." src="http://soulchainer.github.io/images/2014/02/2014-02-07_10.png" style="width: 474px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Plank: el dock ligero predeterminado en Antergos." src="//soulchainer.github.io/images/2014/02/2014-02-07_10.png" style="width: 474px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Lo mejor es que no necesita configuración alguna: instalado y a correr.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Cuando ejecutemos una aplicación y queramos mantenerla en el dock:
@@ -1935,7 +1935,7 @@ tienen en cuenta.&lt;/p&gt;
 &lt;p&gt;Restaura el último fondo de pantalla utilizado. Utiliza la app &lt;a class="reference external" href="http://projects.l3ib.org/nitrogen/"&gt;nitrogen&lt;/a&gt;.
 Es un clásico y funciona genial.&lt;/p&gt;
 &lt;div class="figure" style="width: 502px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Nitrogen. Aplicación para establecer el fondo de pantalla." src="http://soulchainer.github.io/images/2014/02/2014-02-07_11.png" style="width: 502px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Nitrogen. Aplicación para establecer el fondo de pantalla." src="//soulchainer.github.io/images/2014/02/2014-02-07_11.png" style="width: 502px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;code&gt;nitrogen&lt;/code&gt; o &lt;strong&gt;Preferences → Wallpaper&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Podemos configurar nuestra propia carpeta de fondos con
@@ -1994,7 +1994,7 @@ complicado (yo lo tengo con lat. y long.).&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Y lo ejecutamos desde &lt;strong&gt;Preferences → Openbox Config → Key Editor&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 685px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Obkey, editor de atajos de teclado de Openbox." src="http://soulchainer.github.io/images/2014/02/2014-02-07_12.png" style="width: 685px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Obkey, editor de atajos de teclado de Openbox." src="//soulchainer.github.io/images/2014/02/2014-02-07_12.png" style="width: 685px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Iconos panel principal, de izda. a dcha.: &lt;strong&gt;guardar config&lt;/strong&gt;,
 &lt;strong&gt;añadir atajo&lt;/strong&gt;, &lt;strong&gt;añadir atajo hijo&lt;/strong&gt;, &lt;strong&gt;borrar atajo&lt;/strong&gt;, &lt;strong&gt;cerrar&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
@@ -2053,7 +2053,7 @@ lanzador simple de aplicaciones (&lt;strong&gt;Alt + F2&lt;/strong&gt;) o el de 
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;xev
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="figure align-center" style="width: 1002px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="xev, capturador de eventos de teclado/ratón." src="http://soulchainer.github.io/images/2014/02/2014-02-07_13.png" style="width: 1002px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="xev, capturador de eventos de teclado/ratón." src="//soulchainer.github.io/images/2014/02/2014-02-07_13.png" style="width: 1002px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;code&gt;xev&lt;/code&gt; captura &lt;strong&gt;&lt;span class="caps"&gt;TODO&lt;/span&gt;&lt;/strong&gt; lo que hagamos con el teclado/ratón.&lt;/p&gt;
 &lt;div class="legend"&gt;
 En verde, la zona donde aparecerá el nombre de la tecla o botón pulsado.&lt;/div&gt;
@@ -2113,7 +2113,7 @@ descansito y hacer alguno que otro algo más cortito.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Sat, 08 Feb 2014 18:15:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-02-08:posts/2014/02/08/antergos-tutorial-parte3/</guid><category>antergos</category><category>archlinux</category><category>linux</category><category>como</category><category>tutorial</category><category>configuración</category><category>openbox</category></item><item><title>Antergos paso a paso (II): configuración esencial</title><link>http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Sat, 08 Feb 2014 18:15:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-02-08:posts/2014/02/08/antergos-tutorial-parte3/</guid><category>antergos</category><category>archlinux</category><category>linux</category><category>como</category><category>tutorial</category><category>configuración</category><category>openbox</category></item><item><title>Antergos paso a paso (II): configuración esencial</title><link>//soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#introduccion" id="id21"&gt;Introducción&lt;/a&gt;&lt;/li&gt;
@@ -2164,7 +2164,7 @@ descansito y hacer alguno que otro algo más cortito.&lt;/p&gt;
 8  Próxima parte --&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Logo y eslogan de Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Logo y eslogan de &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Bueno, ya tenemos instalada &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;. Y ahora, ¿qué?&lt;/p&gt;
@@ -2179,7 +2179,7 @@ considero debe estar funcionando desde &lt;strong&gt;&lt;span class="caps"&gt;YA
 &lt;div class="section" id="la-terminal-una-herramienta-para-gobernarlas-a-todas"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;La terminal: una herramienta para gobernarlas a todas&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Como ya comenté en
-&lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/"&gt;la primera parte del tutorial&lt;/a&gt;:&lt;/p&gt;
+&lt;a class="reference external" href="//soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/"&gt;la primera parte del tutorial&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 … hay que perderle el miedo a la consola.&lt;/blockquote&gt;
 &lt;p&gt;
@@ -2189,7 +2189,7 @@ interfaces gráficas, pero conocer bien la terminal es fundamental: nos hará
 más productivos. Además de que nos puede sacar de un apuro en más de una ocasión.&lt;/p&gt;
 &lt;p&gt;Podemos lanzarla desde el menú contextual de &lt;a class="reference external" href="http://openbox.org/"&gt;Openbox&lt;/a&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 534px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Menú contextual de Openbox, con foco en la entrada para el emulador de terminal." src="http://soulchainer.github.io/images/2014/01/2014-01-27_02.png" style="width: 534px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Menú contextual de Openbox, con foco en la entrada para el emulador de terminal." src="//soulchainer.github.io/images/2014/01/2014-01-27_02.png" style="width: 534px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;El menú contextual aparece haciendo clic derecho en el escritorio o en el
 panel (útil en caso de tener una ventana maximizada).&lt;/p&gt;
 &lt;/div&gt;
@@ -2197,7 +2197,7 @@ panel (útil en caso de tener una ventana maximizada).&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.pleyades.net/david/projects/sakura/"&gt;Sakura&lt;/a&gt;, emulador de terminal por defecto en &lt;em&gt;Antergos&lt;/em&gt;, sustituye la
 típica barra de menús con un completo menú contextual.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 736px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Sakura, emulador de terminal por defecto en Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-27_03.png" style="width: 736px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Sakura, emulador de terminal por defecto en Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-27_03.png" style="width: 736px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;a class="reference external" href="http://www.pleyades.net/david/projects/sakura/"&gt;Sakura&lt;/a&gt; tras una leve personalización.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Si necesitamos ahondar más en la configuración, podemos revisar el archivo
@@ -2237,14 +2237,14 @@ y funciona nada más encender el equipo.&lt;/p&gt;
 &lt;p&gt;En ese caso, podemos acudir al &lt;em&gt;applet&lt;/em&gt; de &lt;a class="reference external" href="https://wiki.gnome.org/Projects/NetworkManager/"&gt;Network Manager&lt;/a&gt; para conectarnos
 a la red inalámbrica.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 353px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="nm-applet, applet de Network Manager, en la bandeja del sistema." src="http://soulchainer.github.io/images/2014/01/2014-01-27_14.png" style="width: 353px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="nm-applet, applet de Network Manager, en la bandeja del sistema." src="//soulchainer.github.io/images/2014/01/2014-01-27_14.png" style="width: 353px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;code&gt;nm-applet&lt;/code&gt;, applet de Network Manager, en la bandeja del sistema.&lt;/p&gt;
 &lt;div class="legend"&gt;
 &lt;strong&gt;Editar las conexiones…&lt;/strong&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;O bien, de forma más directa, lanzando &lt;code&gt;nm-connection-editor&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 537px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Elección de la conexión de red que queremos añadir, en nuestro caso, una inalámbrica." src="http://soulchainer.github.io/images/2014/01/2014-01-27_15.png" style="width: 537px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Elección de la conexión de red que queremos añadir, en nuestro caso, una inalámbrica." src="//soulchainer.github.io/images/2014/01/2014-01-27_15.png" style="width: 537px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Añadir → Inalámbrica → Crear…&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Su configuración es muy simple:&lt;/p&gt;
@@ -2256,7 +2256,7 @@ campo &lt;strong&gt;&lt;span class="caps"&gt;SSID&lt;/span&gt;&lt;/strong&gt; de
 deseada, así como su usuario/contraseña, de ser necesario.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="figure" style="width: 537px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Configuración de la conexión inalámbrica." src="http://soulchainer.github.io/images/2014/01/2014-01-27_16.gif" style="width: 537px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Configuración de la conexión inalámbrica." src="//soulchainer.github.io/images/2014/01/2014-01-27_16.gif" style="width: 537px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Configuración de la conexión inalámbrica.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2266,7 +2266,7 @@ deseada, así como su usuario/contraseña, de ser necesario.&lt;/li&gt;
 &lt;span class="caps"&gt;GUI&lt;/span&gt; &lt;a class="footnote-reference" href="#id15" id="id3"&gt;[3]&lt;/a&gt; para &lt;a class="reference external" href="https://launchpad.net/ufw"&gt;ufw&lt;/a&gt;
 (&lt;strong&gt;Uncomplicated FireWall, un cortafuegos sin complicaciones&lt;/strong&gt;).&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 373px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Gufw activado, con el perfil Casa." src="http://soulchainer.github.io/images/2014/01/2014-01-27_17.png" style="width: 373px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Gufw activado, con el perfil Casa." src="//soulchainer.github.io/images/2014/01/2014-01-27_17.png" style="width: 373px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;em&gt;gufw&lt;/em&gt; está desactivado por defecto. ¿El motivo? Su configuración inicial
 bloquea todas las conexiones entrantes.&lt;/p&gt;
 &lt;/div&gt;
@@ -2284,7 +2284,7 @@ entrantes y salientes.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Creamos las reglas necesarias (&lt;strong&gt;Reglas → +&lt;/strong&gt;).&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 603px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Visor de reglas e informes de escucha." src="http://soulchainer.github.io/images/2014/01/2014-01-27_18.png" style="width: 603px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Visor de reglas e informes de escucha." src="//soulchainer.github.io/images/2014/01/2014-01-27_18.png" style="width: 603px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;También podemos crear una regla directamente desde un informe de escucha,
 seleccionándolo y pulsando &lt;strong&gt;+&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -2292,7 +2292,7 @@ seleccionándolo y pulsando &lt;strong&gt;+&lt;/strong&gt;.&lt;/p&gt;
 programas de descarga &lt;strong&gt;&lt;span class="caps"&gt;P2P&lt;/span&gt;&lt;/strong&gt;), necesitamos establecer estos permisos. &lt;em&gt;Gufw&lt;/em&gt;
 cuenta con un apartado de &lt;strong&gt;reglas preconfiguradas&lt;/strong&gt; muy claro.&lt;/p&gt;
 &lt;div class="figure" style="width: 618px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Configuración de reglas para el cortafuegos." src="http://soulchainer.github.io/images/2014/01/2014-01-27_19.gif" style="width: 618px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Configuración de reglas para el cortafuegos." src="//soulchainer.github.io/images/2014/01/2014-01-27_19.gif" style="width: 618px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Avanzada&lt;/strong&gt;: Damos nombre a la regla, indicamos el número de regla
 preferido (por si queremos sobreescribir una anterior), la política
 (&lt;strong&gt;Permitir/Denegar/Rechazar&lt;/strong&gt;), la interfaz (si queremos que se aplique
@@ -2328,7 +2328,7 @@ encuentre una solución definitiva,
 &lt;div class="section" id="pacman"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Pacman&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure align-center" style="width: 443px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Pac-man © Namco." src="http://soulchainer.github.io/images/2014/01/2014-01-27_04.png" style="width: 443px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Pac-man © Namco." src="//soulchainer.github.io/images/2014/01/2014-01-27_04.png" style="width: 443px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Pac-Man (パックマン Pakku Man)&lt;/strong&gt; © &lt;a class="reference external" href="http://www.namco.co.jp/"&gt;Namco&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 No: no hablamos de este Pac-Man.&lt;/div&gt;
@@ -2346,7 +2346,7 @@ actualizar, configurar y eliminar software de nuestro ordenador.
 &lt;div class="section" id="yaourt"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Yaourt&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 333px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Yogurt. Fotografía de Sodanie Chea." src="http://soulchainer.github.io/images/2014/01/2014-01-27_05.png" style="width: 333px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Yogurt. Fotografía de Sodanie Chea." src="//soulchainer.github.io/images/2014/01/2014-01-27_05.png" style="width: 333px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Yogurt. &lt;a class="reference external" href="http://www.flickr.com/photos/sodaniechea/7218919986/"&gt;Fotografía&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/sodaniechea/7218919986/"&gt;Sodanie Chea&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 ¡No! ¡Tampoco hablo de esto!&lt;/div&gt;
@@ -2555,7 +2555,7 @@ SystemGroup sys root lp
 &lt;p&gt;Y ya podemos acceder con normalidad a &lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt; usando &lt;a class="reference external" href="http://www.chromium.org/Home/"&gt;Chromium&lt;/a&gt;
 (&lt;strong&gt;Alt + F2 → chromium&lt;/strong&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Pantalla de inicio de la interfaz web de CUPS." src="http://soulchainer.github.io/images/2014/01/2014-01-27_06.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Pantalla de inicio de la interfaz web de CUPS." src="//soulchainer.github.io/images/2014/01/2014-01-27_06.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Para agregar una impresora nueva nos dirigimos a la pestaña de
 &lt;strong&gt;Administración&lt;/strong&gt; y pulsamos en &lt;strong&gt;Añadir impresora&lt;/strong&gt; &lt;a class="footnote-reference" href="#id19" id="id7"&gt;[7]&lt;/a&gt;. En ese momento,
@@ -2563,11 +2563,11 @@ SystemGroup sys root lp
 (anteriormente añadimos el grupo &lt;em&gt;lp&lt;/em&gt; en el archivo
 &lt;code&gt;/etc/cups/cups-files.conf&lt;/code&gt; y nuestro usuario pertenece a ese grupo):&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Pantalla de solicitud de usuario y contraseña para añadir impresora." src="http://soulchainer.github.io/images/2014/01/2014-01-27_07.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Pantalla de solicitud de usuario y contraseña para añadir impresora." src="//soulchainer.github.io/images/2014/01/2014-01-27_07.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Tras loguearnos, procedemos a añadir nuestra impresora:&lt;/p&gt;
 &lt;div class="figure" style="width: 778px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Pantalla de añadir impresora en CUPS." src="http://soulchainer.github.io/images/2014/01/2014-01-27_08.png" style="width: 778px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Pantalla de añadir impresora en CUPS." src="//soulchainer.github.io/images/2014/01/2014-01-27_08.png" style="width: 778px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Y podría seguir guiándoos paso a paso, pero entonces esta guía sería
 interminable. Hay muchas configuraciones posibles, ajustes varios necesarios en
@@ -2580,7 +2580,7 @@ aquí estoy (aunque actualmente no cuento con ninguna impresora instalada vía
 &lt;p&gt;Aparte de &lt;em&gt;&lt;span class="caps"&gt;CUPS&lt;/span&gt;&lt;/em&gt;, &lt;em&gt;Antergos&lt;/em&gt; trae instaladas las &lt;a class="reference external" href="http://hplipopensource.com/hplip-web/index.html"&gt;herramientas de &lt;span class="caps"&gt;HP&lt;/span&gt;&lt;/a&gt; para
 sus impresoras y escáneres &lt;a class="footnote-reference" href="#id20" id="id8"&gt;[8]&lt;/a&gt;. Peroooo… no sucede lo mismo con el soporte gráfico.&lt;/p&gt;
 &lt;div class="figure" style="width: 794px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Mensaje de error de las herramientas de HP." src="http://soulchainer.github.io/images/2014/01/2014-01-27_09.png" style="width: 794px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Mensaje de error de las herramientas de HP." src="//soulchainer.github.io/images/2014/01/2014-01-27_09.png" style="width: 794px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Por consola, &lt;code&gt;hp-toolbox&lt;/code&gt; nos advierte de que el soporte gráfico no
 está disponible.&lt;/p&gt;
 &lt;/div&gt;
@@ -2591,7 +2591,7 @@ está disponible.&lt;/p&gt;
 &lt;em&gt;lanzador de aplicaciones&lt;/em&gt; o desde el &lt;em&gt;menú contextual de Openbox&lt;/em&gt;, en
 &lt;strong&gt;Applications → Accesorios → &lt;span class="caps"&gt;HP&lt;/span&gt; Device Manager&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 702px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Herramientas de HP para administrar impresoras y escáneres." src="http://soulchainer.github.io/images/2014/01/2014-01-27_10.png" style="width: 702px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Herramientas de HP para administrar impresoras y escáneres." src="//soulchainer.github.io/images/2014/01/2014-01-27_10.png" style="width: 702px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;A poco que dominemos el inglés (o un buen diccionario), la configuración de
 nuestro dispositivo &lt;em&gt;&lt;span class="caps"&gt;HP&lt;/span&gt;&lt;/em&gt; se facilita bastante.&lt;/p&gt;
 &lt;/div&gt;
@@ -2610,7 +2610,7 @@ manejar el escáner.&lt;/p&gt;
 &lt;em&gt;complejo&lt;/em&gt; funcionamiento de &lt;code&gt;simple-scan&lt;/code&gt; se reduce a pulsar
 &lt;strong&gt;Escanear&lt;/strong&gt;. En cambio, si nos encontramos algo como esto&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 711px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Simple Scan no detecta ningún escáner." src="http://soulchainer.github.io/images/2014/01/2014-01-27_11.png" style="width: 711px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Simple Scan no detecta ningún escáner." src="//soulchainer.github.io/images/2014/01/2014-01-27_11.png" style="width: 711px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;¡Houston! ¡Tenemos un problema!&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;y hemos sido lo bastante hábiles como para conectar y encender el escáner
@@ -2628,13 +2628,13 @@ seguramente se trate de un problema de configuración), etcétera.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Ejecutamos &lt;em&gt;&lt;span class="caps"&gt;GIMP&lt;/span&gt;&lt;/em&gt; (el programa de manipulación de imágenes libre por excelencia)&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 929px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="GIMP, ejecutado por primera vez." src="http://soulchainer.github.io/images/2014/01/2014-01-27_12.png" style="width: 929px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="GIMP, ejecutado por primera vez." src="//soulchainer.github.io/images/2014/01/2014-01-27_12.png" style="width: 929px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Quizás queramos activar el modo &lt;em&gt;Ventana de ventana única&lt;/em&gt;:
 &lt;strong&gt;Ventanas → Modo de ventana única&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Y lanzamos &lt;em&gt;Xsane&lt;/em&gt; desde &lt;strong&gt;Archivo → Crear → Xsane…&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="figure" style="width: 637px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Interfaz de Xsane." src="http://soulchainer.github.io/images/2014/01/2014-01-27_13.png" style="width: 637px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Interfaz de Xsane." src="//soulchainer.github.io/images/2014/01/2014-01-27_13.png" style="width: 637px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Ventana principal de &lt;em&gt;Xsane&lt;/em&gt; e histograma.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ya queda en vuestras manos el juguetear con el programa.&lt;/p&gt;
@@ -2696,7 +2696,7 @@ de personalización. Lo sabré seguro cuando me ponga a ello :p&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 29 Jan 2014 21:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-29:posts/2014/01/29/antergos-tutorial-parte2/</guid><category>antergos</category><category>archlinux</category><category>linux</category><category>como</category><category>tutorial</category><category>configuración</category></item><item><title>Antergos paso a paso (I): instalación básica</title><link>http://soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 29 Jan 2014 21:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-29:posts/2014/01/29/antergos-tutorial-parte2/</guid><category>antergos</category><category>archlinux</category><category>linux</category><category>como</category><category>tutorial</category><category>configuración</category></item><item><title>Antergos paso a paso (I): instalación básica</title><link>//soulchainer.github.io/posts/2014/01/21/antergos-tutorial-parte1/</link><description>&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#descarga" id="id27"&gt;Descarga&lt;/a&gt;&lt;/li&gt;
@@ -2752,7 +2752,7 @@ de personalización. Lo sabré seguro cuando me ponga a ello :p&lt;/p&gt;
     5.2.2  Desde la línea de comandos (sólo Linux) --&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Logo y eslogan de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Logo y eslogan de Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-21_00.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Logo y eslogan de &lt;a class="reference external" href="http://antergos.com/"&gt;Antergos&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hace poco &lt;em&gt;"convencí"&lt;/em&gt; a mí padre para que me dejara meter la mano en su
@@ -2826,14 +2826,14 @@ opciones similares.&lt;/p&gt;
 &lt;div class="section" id="del-instalador"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;Del instalador&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Menú de arranque de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Menú de arranque de Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-21_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;em&gt;F2&lt;/em&gt; para elegir idioma. &lt;em&gt;F3&lt;/em&gt; para elegir resolución de pantalla.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Indicamos que queremos &lt;em&gt;Iniciar Antergos Live&lt;/em&gt; y, tras una breve espera,
 aterrizaremos en un escritorio &lt;a class="reference external" href="https://www.gnome.org/gnome-3/"&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt; 3&lt;/a&gt; con la atención centrada en el
 asistente de instalación, &lt;strong&gt;Cnchi&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Cnchi, el amigable asistente de instalación de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_02.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Cnchi, el amigable asistente de instalación de Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-21_02.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Me recuerda a la tita Conchi, oye xD&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;En este punto, se nos plantean tres opciones:&lt;/p&gt;
@@ -2844,7 +2844,7 @@ en nuestro sistema.&lt;/p&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Instalador &lt;span class="caps"&gt;CLI&lt;/span&gt;&lt;/strong&gt;. Instalar desde un terminal, como los hombres y mujeres
 (&lt;strong&gt;¡Aupa esas linuxeras! :3&lt;/strong&gt;) de verdad ò_ó&lt;/p&gt;
 &lt;div class="figure" style="width: 782px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Pantalla de presentación del instalador de Antergos desde terminal." src="http://soulchainer.github.io/images/2014/01/2014-01-21_03.png" style="width: 782px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Pantalla de presentación del instalador de Antergos desde terminal." src="//soulchainer.github.io/images/2014/01/2014-01-21_03.png" style="width: 782px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Realmente instalar desde terminal no es tan difícil. Aparte del
 aspecto visual, la mayor diferencia suele ser que usas más el teclado y
 menos el ratón.&lt;/p&gt;
@@ -2893,11 +2893,11 @@ restricciones y de que el usuario ha hecho los deberes ñ_ñ&lt;/p&gt;
 &lt;p&gt;Si establecimos el lenguaje al inicio de &lt;em&gt;Antergos&lt;/em&gt;, tendremos ya marcado por
 defecto nuestro idioma. En caso contrario, lo seleccionamos.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Selección del idioma." src="http://soulchainer.github.io/images/2014/01/2014-01-21_04.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Selección del idioma." src="//soulchainer.github.io/images/2014/01/2014-01-21_04.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;A continuación, hacemos lo propio con la localización, eligiendo nuestro país:&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Selección de localización" src="http://soulchainer.github.io/images/2014/01/2014-01-21_05.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Selección de localización" src="//soulchainer.github.io/images/2014/01/2014-01-21_05.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;En mi caso, escojo España.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2905,11 +2905,11 @@ defecto nuestro idioma. En caso contrario, lo seleccionamos.&lt;/p&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;Escritorio &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; características&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Tras una breve comprobación del sistema,&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Comprobación del sistema" src="http://soulchainer.github.io/images/2014/01/2014-01-21_06.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Comprobación del sistema" src="//soulchainer.github.io/images/2014/01/2014-01-21_06.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;es hora de escoger cuál será nuestro entorno de escritorio.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Elección del entorno de escritorio" src="http://soulchainer.github.io/images/2014/01/2014-01-21_07.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Elección del entorno de escritorio" src="//soulchainer.github.io/images/2014/01/2014-01-21_07.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;¡Te elijo a ti, &lt;strong&gt;Openbox&lt;/strong&gt;! &lt;em&gt;*lanza su pokeball*&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Esta opción es bastante personal. Tenemos varias opciones:&lt;/p&gt;
@@ -2947,7 +2947,7 @@ aquellos que querían obtener la funcionalidad de &lt;em&gt;Gnome 2&lt;/em&gt; s
 &lt;/ul&gt;
 &lt;p&gt;Hecha nuestra elección, seleccionamos algunas características:&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Selección de algunas características básicas del entorno." src="http://soulchainer.github.io/images/2014/01/2014-01-21_08.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Selección de algunas características básicas del entorno." src="//soulchainer.github.io/images/2014/01/2014-01-21_08.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Activa el soporte bluetooth sólo si piensas usarlo.&lt;/p&gt;
 &lt;div class="legend"&gt;
 A no ser que tengas un equipo &lt;strong&gt;&lt;span class="caps"&gt;MUY&lt;/span&gt; antiguo&lt;/strong&gt;, puedes activar los efectos
@@ -2956,14 +2956,14 @@ visuales sin miedo: consumen poco.&lt;/div&gt;
 &lt;p&gt;Antes de darnos paso a la siguiente pantalla, &lt;em&gt;Cnchi&lt;/em&gt; nos anuncia la
 configuración por defecto del cortafuegos (&lt;a class="reference external" href="http://gufw.org/"&gt;Uncomplicated Firewall&lt;/a&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 491px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Aviso de la configuración por defecto del cortafuegos" src="http://soulchainer.github.io/images/2014/01/2014-01-21_09.png" style="width: 491px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Aviso de la configuración por defecto del cortafuegos" src="//soulchainer.github.io/images/2014/01/2014-01-21_09.png" style="width: 491px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="particionado-de-discos"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;Particionado de discos&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Llegamos a &lt;strong&gt;un punto clave&lt;/strong&gt; de la instalación: el &lt;em&gt;particionado de discos&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Elección de modo de tipo de instalación: borrado completo del disco o modo avanzado(manual)." src="http://soulchainer.github.io/images/2014/01/2014-01-21_10.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Elección de modo de tipo de instalación: borrado completo del disco o modo avanzado(manual)." src="//soulchainer.github.io/images/2014/01/2014-01-21_10.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Casi siempre interesa optar por el &lt;em&gt;modo avanzado&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="atencion-para-tablas-de-particiones-gpt"&gt;
@@ -2979,7 +2979,7 @@ la partición a &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&
 &lt;p&gt;&lt;a class="reference external" href="http://gparted.sourceforge.net/"&gt;GParted&lt;/a&gt; está incluido en la &lt;em&gt;versión Live&lt;/em&gt; de &lt;em&gt;Antergos&lt;/em&gt;. Sin cerrar
 &lt;em&gt;Cnchi&lt;/em&gt;, abrimos &lt;em&gt;GParted&lt;/em&gt;&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 659px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Búsqueda de GParted en el menú Actividades de Antergos." src="http://soulchainer.github.io/images/2014/01/2014-01-21_11.png" style="width: 659px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Búsqueda de GParted en el menú Actividades de Antergos." src="//soulchainer.github.io/images/2014/01/2014-01-21_11.png" style="width: 659px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Pulsamos en &lt;em&gt;Actividades&lt;/em&gt; (esquina superior izquierda) y buscamos
 &lt;em&gt;"gparted"&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -2989,7 +2989,7 @@ la partición a &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Partimos de un disco duro virgen&lt;/strong&gt;: hemos de crear primero la tabla &lt;em&gt;&lt;span class="caps"&gt;GPT&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="figure" style="width: 783px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Creación de la tabla de particiones GPT con GParted." src="http://soulchainer.github.io/images/2014/01/2014-01-21_12.png" style="width: 783px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Creación de la tabla de particiones GPT con GParted." src="//soulchainer.github.io/images/2014/01/2014-01-21_12.png" style="width: 783px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Dispositivo → Crear tabla de particiones…&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -2997,7 +2997,7 @@ la partición a &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/em&gt;.&
 redimensionar alguna de las particiones existentes. De ser posible, la
 primera, colocando la nueva partición delante.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 560px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Redimensionando una particion para hacer espacio a la partición de arranque de la BIOS." src="http://soulchainer.github.io/images/2014/01/2014-01-21_13.png" style="width: 560px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Redimensionando una particion para hacer espacio a la partición de arranque de la BIOS." src="//soulchainer.github.io/images/2014/01/2014-01-21_13.png" style="width: 560px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en partición → Redimensionar/mover&lt;/strong&gt; y declaramos el
 &lt;strong&gt;Espacio libre precedente&lt;/strong&gt; correspondiente.&lt;/p&gt;
 &lt;/div&gt;
@@ -3005,7 +3005,7 @@ primera, colocando la nueva partición delante.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;Una vez tenemos el espacio libre, podemos crear la partición.&lt;/p&gt;
 &lt;div class="figure" style="width: 712px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Creando la partición para el arranque de la BIOS." src="http://soulchainer.github.io/images/2014/01/2014-01-21_14.png" style="width: 712px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Creando la partición para el arranque de la BIOS." src="//soulchainer.github.io/images/2014/01/2014-01-21_14.png" style="width: 712px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en espacio sin asignar → Nueva&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="legend"&gt;
 En la captura estamos tratando con un &lt;em&gt;disco duro virgen&lt;/em&gt;.&lt;/div&gt;
@@ -3013,7 +3013,7 @@ En la captura estamos tratando con un &lt;em&gt;disco duro virgen&lt;/em&gt;.&lt
 &lt;p&gt;Terminamos de preparar la &lt;em&gt;partición para el arranque de la &lt;span class="caps"&gt;BIOS&lt;/span&gt;&lt;/em&gt;, marcándola
 como &lt;code&gt;bios_grub&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="figure" style="width: 312px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Seleccionamos la opción bios_grub para la partición creada." src="http://soulchainer.github.io/images/2014/01/2014-01-21_15.png" style="width: 312px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Seleccionamos la opción bios_grub para la partición creada." src="//soulchainer.github.io/images/2014/01/2014-01-21_15.png" style="width: 312px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Botón derecho en partición → Gestionar opciones&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Tras esto, aplicamos los cambios (&lt;strong&gt;Editar → Aplicar todas las operaciones&lt;/strong&gt;)
@@ -3030,7 +3030,7 @@ idéntico con una tabla &lt;em&gt;&lt;span class="caps"&gt;MBR&lt;/span&gt;&lt;/
 &lt;p&gt;Vamos seleccionando el &lt;em&gt;espacio libre&lt;/em&gt; restante y pulsando en &lt;em&gt;Añadir&lt;/em&gt; para ir
 agregando las sucesivas particiones.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 352px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Creación de partición swap, root y home (básicas) con Cnchi." src="http://soulchainer.github.io/images/2014/01/2014-01-21_16.gif" style="width: 352px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Creación de partición swap, root y home (básicas) con Cnchi." src="//soulchainer.github.io/images/2014/01/2014-01-21_16.gif" style="width: 352px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Creación de particiones &lt;em&gt;swap&lt;/em&gt;, &lt;em&gt;root&lt;/em&gt; y &lt;em&gt;home&lt;/em&gt; con &lt;em&gt;Cnchi&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Ejemplo de particionado para un disco de &lt;span class="caps"&gt;8GB&lt;/span&gt;.&lt;/div&gt;
@@ -3069,7 +3069,7 @@ o en &lt;strong&gt;/mnt/NombreParticion&lt;/strong&gt;.&lt;/p&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id38"&gt;Revisión del particionado &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; cargador de arranque&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Una vez realizadas las particiones convenientes, nos encontramos con algo como esto:&lt;/p&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Esquema final de particionado de los discos" src="http://soulchainer.github.io/images/2014/01/2014-01-21_17.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Esquema final de particionado de los discos" src="//soulchainer.github.io/images/2014/01/2014-01-21_17.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Si alguno de nuestros discos es &lt;span class="caps"&gt;SSD&lt;/span&gt; &lt;a class="footnote-reference" href="#id25" id="id12"&gt;[12]&lt;/a&gt;, marcamos la casilla correspondiente.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Está todo en orden y el desplegable referido a la instalación del
@@ -3081,16 +3081,16 @@ o en &lt;strong&gt;/mnt/NombreParticion&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="section" id="ajustes-finales"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id39"&gt;Ajustes finales&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Selección de la franja horaria." src="http://soulchainer.github.io/images/2014/01/2014-01-21_18.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Selección de la franja horaria." src="//soulchainer.github.io/images/2014/01/2014-01-21_18.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Seleccionamos nuestra franja horaria y permitimos la sincronización de
 la hora con servidores de internet.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="figure" style="width: 863px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Selección de la distribución de teclado." src="http://soulchainer.github.io/images/2014/01/2014-01-21_19.png" style="width: 863px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Selección de la distribución de teclado." src="//soulchainer.github.io/images/2014/01/2014-01-21_19.png" style="width: 863px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Seleccionamos la distribución de teclado (puede modificarse después).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Creación de cuenta de usuario" src="http://soulchainer.github.io/images/2014/01/2014-01-21_20.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Creación de cuenta de usuario" src="//soulchainer.github.io/images/2014/01/2014-01-21_20.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Creamos nuestra cuenta de usuario.&lt;/p&gt;
 &lt;div class="legend"&gt;
 Aunque se puede establecer la opción de
@@ -3106,7 +3106,7 @@ demasiado &lt;em&gt;curiosas&lt;/em&gt; o &lt;em&gt;graciosas&lt;/em&gt;.&lt;/di
 proceso de instalación en sí, en el que &lt;em&gt;Antergos&lt;/em&gt; se copia al disco duro.
 Esperamos pacientemente hasta que termine, lo cual puede llevar varios minutos.&lt;/p&gt;
 &lt;div class="figure" style="width: 802px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Tras unos minutos de espera, Antergos termina de instalarse." src="http://soulchainer.github.io/images/2014/01/2014-01-21_21.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Tras unos minutos de espera, Antergos termina de instalarse." src="//soulchainer.github.io/images/2014/01/2014-01-21_21.png" style="width: 802px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;Yatta!!&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Aceptamos, sin olvidarnos de extraer el medio con &lt;em&gt;Antergos&lt;/em&gt; antes de que se
@@ -3120,7 +3120,7 @@ menú de inicio de &lt;em&gt;Antergos&lt;/em&gt; para que arranque desde disco d
 extraeremos el medio después.&lt;/p&gt;
 &lt;p&gt;Por fin, podemos arrancar nuestro sistema :D&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Cargador de arranque, con las entradas de los SO disponibles." src="http://soulchainer.github.io/images/2014/01/2014-01-21_22.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Cargador de arranque, con las entradas de los SO disponibles." src="//soulchainer.github.io/images/2014/01/2014-01-21_22.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Tanto la 1ª como la 3ª entrada arrancan nuestro &lt;em&gt;&lt;span class="caps"&gt;SO&lt;/span&gt;&lt;/em&gt;, ya veremos más
 adelante como editar esto.&lt;/p&gt;
 &lt;div class="legend"&gt;
@@ -3129,7 +3129,7 @@ también.&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Introducimos nuestro usuario y contraseña y…&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Escritorio de Antergos, recién instalado, con Openbox." src="http://soulchainer.github.io/images/2014/01/2014-01-21_23.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Escritorio de Antergos, recién instalado, con Openbox." src="//soulchainer.github.io/images/2014/01/2014-01-21_23.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;strong&gt;"Estoy dentro"&lt;/strong&gt; - Trinity dixit.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Y eso es todo por ahora. En la &lt;strong&gt;segunda parte&lt;/strong&gt; del artículo trataré la
@@ -3178,7 +3178,7 @@ arrastramos y soltamos el archivo en la ventana.&lt;/p&gt;
 &lt;li&gt;&lt;p class="first"&gt;En el desplegable de la parte inferior elegimos el dispositio &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt; en el
 que queremos escribir la &lt;em&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;div class="figure" style="width: 600px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Suse Image Writer, preparado para escribir la ISO en la memoria USB." src="http://soulchainer.github.io/images/2014/01/2014-01-21_24.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Suse Image Writer, preparado para escribir la ISO en la memoria USB." src="//soulchainer.github.io/images/2014/01/2014-01-21_24.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Pulsamos &lt;em&gt;Write&lt;/em&gt;.&lt;/p&gt;
@@ -3303,7 +3303,7 @@ con el resumen de la acción, síntoma de que esta se ha realizado. Algo como:&
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Tue, 21 Jan 2014 10:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-21:posts/2014/01/21/antergos-tutorial-parte1/</guid><category>antergos</category><category>archlinux</category><category>linux</category><category>como</category><category>tutorial</category><category>instalación</category></item><item><title>Activar el puñetero H.264 en Firefox</title><link>http://soulchainer.github.io/posts/2014/01/13/activar-video-h264-firefox/</link><description>&lt;div align="center" class="vimeo"&gt;&lt;iframe frameborder="0" height="315" src="https://player.vimeo.com/video/76979871" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Tue, 21 Jan 2014 10:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-21:posts/2014/01/21/antergos-tutorial-parte1/</guid><category>antergos</category><category>archlinux</category><category>linux</category><category>como</category><category>tutorial</category><category>instalación</category></item><item><title>Activar el puñetero H.264 en Firefox</title><link>//soulchainer.github.io/posts/2014/01/13/activar-video-h264-firefox/</link><description>&lt;div align="center" class="vimeo"&gt;&lt;iframe frameborder="0" height="315" src="https://player.vimeo.com/video/76979871" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Hay ciertos problemas pequeños, molestos, pero con los que puedes vivir. Y por
 ello, los postergas. Buscas como solucionarlos, sí, pero realmente no buscas
 &lt;strong&gt;de verdad&lt;/strong&gt;. Y ese es mi caso con &lt;a class="reference external" href="https://www.mozilla.org/es-ES/firefox/new/"&gt;Firefox&lt;/a&gt; y la reproducción de vídeo con
 &lt;em&gt;&lt;span class="caps"&gt;HTML5&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
@@ -3356,7 +3356,7 @@ la red, no recibimos una alerta que nos avise de nuestro problema y de como sol
 &lt;code&gt;about:config&lt;/code&gt;. Aunque en las últimas versiones de &lt;em&gt;Firefox&lt;/em&gt; ya no sea
 necesario, al venir activada por defecto, no está de más saberlo.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 555px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="http://soulchainer.github.io/images/2014/01/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página about:config de Firefox, con el valor de la preferencia media.gstreamer.enabled ajustado a true." src="//soulchainer.github.io/images/2014/01/2014-01-13_2.png" style="width: 555px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Doble click para cambiar el valor de &lt;em&gt;false&lt;/em&gt; a &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -3380,7 +3380,7 @@ todos esos flamantes reproductores "&lt;em&gt;&lt;span class="caps"&gt;HTML5&lt;
 cito porque, además de ser una opción interesante, nos sirve para comprobar
 que realmente tenemos activado el soporte.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 695px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="http://soulchainer.github.io/images/2014/01/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Chequeo por parte de Youtube de los formatos de vídeo HTML5 con los que es compatible nuestro navegador" src="//soulchainer.github.io/images/2014/01/2014-01-13_3.png" style="width: 695px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Si no estuviera disponible esta opción de &lt;em&gt;Youtube&lt;/em&gt;, siempre podemos comprobar
 que nuestro navegador cumple en el apartado de vídeo con el utilísimo
@@ -3402,14 +3402,14 @@ no puedo disfrutar de uno. Buenas tardes.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Mon, 13 Jan 2014 17:15:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-13:posts/2014/01/13/activar-video-h264-firefox/</guid><category>firefox</category><category>html5</category><category>h.264</category><category>vídeo</category><category>youtube</category><category>vimeo</category></item><item><title>Depuración remota &amp; testeo en Firefox para Android</title><link>http://soulchainer.github.io/posts/2014/01/12/depuracion-remota-firefox-android/</link><description>&lt;div class="section" id="id1"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Mon, 13 Jan 2014 17:15:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-13:posts/2014/01/13/activar-video-h264-firefox/</guid><category>firefox</category><category>html5</category><category>h.264</category><category>vídeo</category><category>youtube</category><category>vimeo</category></item><item><title>Depuración remota &amp; testeo en Firefox para Android</title><link>//soulchainer.github.io/posts/2014/01/12/depuracion-remota-firefox-android/</link><description>&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;Depuración remota &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; testeo en Firefox para Android&lt;/h2&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha Chu (http://www.flickr.com/photos/shashachu/)." src="http://soulchainer.github.io/images/2014/01/2014-01-12_1.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Fire fox (Panda Rojo, Ailurus fulgens). Fotografía obra de Sha Sha Chu (http://www.flickr.com/photos/shashachu/)." src="//soulchainer.github.io/images/2014/01/2014-01-12_1.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Fire fox (Panda Rojo, &lt;em&gt;Ailurus fulgens&lt;/em&gt;). ¿No son adorables estos animales?
 &lt;a class="reference external" href='href="http://www.flickr.com/photos/shashachu/258240635/'&gt;Fotografía&lt;/a&gt; obra de &lt;a class="reference external" href="http://www.flickr.com/photos/shashachu/"&gt;Sha Sha Chu&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Como ya comenté  &lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/"&gt;anteriormente&lt;/a&gt;, estoy
+&lt;p&gt;Como ya comenté  &lt;a class="reference external" href="//soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/"&gt;anteriormente&lt;/a&gt;, estoy
 siguiendo un &lt;em&gt;&lt;span class="caps"&gt;MOOC&lt;/span&gt;&lt;/em&gt; sobre &lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;desarrollo web orientado a dispositivos móviles&lt;/a&gt;
 en &lt;a class="reference external" href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt;. La cuestión es que en el curso se usa de forma intensiva
 &lt;em&gt;Google Chrome&lt;/em&gt; y sus &lt;em&gt;herramientas de desarrollo&lt;/em&gt;. Y todos tan contentos…
@@ -3459,7 +3459,7 @@ lista de preferencias con la cadena &lt;code&gt;debugger&lt;/code&gt;.
 Localizada entre los resultados &lt;code&gt;devtools.debugger.remote-enabled&lt;/code&gt;,
 cambiamos su valor a &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Búsqueda de la cadena 'debugger' en about:config." src="http://soulchainer.github.io/images/2014/01/2014-01-12_2.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Búsqueda de la cadena 'debugger' en about:config." src="//soulchainer.github.io/images/2014/01/2014-01-12_2.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Después, reiniciamos el navegador.&lt;/p&gt;
 &lt;/div&gt;
@@ -3470,7 +3470,7 @@ cambiamos su valor a &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
 aplicación. En mi terminal la ruta es:
 &lt;strong&gt;Más → Configuración → Herramientas de desarrolladores → Depuración remota&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/01/2014-01-12_3.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Activación de la opción de 'Depuración remota'." src="//soulchainer.github.io/images/2014/01/2014-01-12_3.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Al activarla nos recuerda que hemos de configurar el &lt;a class="reference internal" href="#desvio-de-puertos"&gt;desvío de puertos&lt;/a&gt; para
 conectar las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; al dispositivo. Lo haremos
@@ -3484,7 +3484,7 @@ conectar las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; al dispositivo. Lo 
 &lt;strong&gt;marcar la casilla Toggle Tools&lt;/strong&gt;) y, en la pestaña de opciones, marcar
 &lt;em&gt;Enable remote debugging&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="figure" style="width: 800px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Activación de la opción de 'Depuración remota'." src="http://soulchainer.github.io/images/2014/01/2014-01-12_4.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Activación de la opción de 'Depuración remota'." src="//soulchainer.github.io/images/2014/01/2014-01-12_4.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Si usamos &lt;strong&gt;Firefox &amp;lt; 27&lt;/strong&gt; tendremos que reiniciar el navegador para que se
 apliquen los cambios.&lt;/p&gt;
@@ -3498,7 +3498,7 @@ apliquen los cambios.&lt;/p&gt;
 cosas, y es clave para la &lt;a class="reference internal" href="#conectividad-wifi"&gt;conectividad WiFi&lt;/a&gt;), ajustamos a &lt;code&gt;false&lt;/code&gt; la
 preferencia &lt;code&gt;devtools.debugger.force-local&lt;/code&gt; (en &lt;code&gt;about:config&lt;/code&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Preferencia devtools.debbuger.force-local establecida a false." src="http://soulchainer.github.io/images/2014/01/2014-01-12_5.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Preferencia devtools.debbuger.force-local establecida a false." src="//soulchainer.github.io/images/2014/01/2014-01-12_5.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3513,7 +3513,7 @@ preferencia &lt;code&gt;devtools.debugger.force-local&lt;/code&gt; (en &lt;code&
 la que nos encontramos conectados. Aparece entonces una ventana emergente con
 información sobre la conexión.&lt;/p&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ventana emergente con información sobre la conexión wireless en el dispositivo Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_6.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ventana emergente con información sobre la conexión wireless en el dispositivo Android." src="//soulchainer.github.io/images/2014/01/2014-01-12_6.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;En versiones más recientes de &lt;em&gt;Android&lt;/em&gt; se puede encontrar en
 &lt;strong&gt;Ajustes → Acerca del teléfono → Estado&lt;/strong&gt;.&lt;/p&gt;
@@ -3523,7 +3523,7 @@ información sobre la conexión.&lt;/p&gt;
 &lt;p&gt;Una vez tenemos la &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt;, seleccionamos la opción de &lt;em&gt;Conectar&lt;/em&gt; en el escritorio
 (&lt;strong&gt;Firefox/Tools → Web Developer → Connect…&lt;/strong&gt;).&lt;/p&gt;
 &lt;div class="figure" style="width: 650px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página de conexión de las herramientas de desarrollo al dispositivo Android (red local)." src="http://soulchainer.github.io/images/2014/01/2014-01-12_7.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página de conexión de las herramientas de desarrollo al dispositivo Android (red local)." src="//soulchainer.github.io/images/2014/01/2014-01-12_7.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Introducimos nuestra &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en el campo &lt;code&gt;Host&lt;/code&gt;, dejamos el campo del puerto
 tal cual (salvo que lo hayamos cambiado, es el puerto por defecto) y
@@ -3531,12 +3531,12 @@ presionamos &lt;em&gt;Connect&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Al hacerlo, salta una ventana en nuestro dispositivo informando del intento de
 conexión y dándonos a elegir qué hacer:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ventana emergente solicitando confirmación de conexión en Firefox para Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_8.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ventana emergente solicitando confirmación de conexión en Firefox para Android." src="//soulchainer.github.io/images/2014/01/2014-01-12_8.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;El icono insectoide de la barra de estado es de &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.ttxapps.wifiadb"&gt;WiFi &lt;span class="caps"&gt;ADB&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Una vez aceptamos, conectamos al fin:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 650px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página con la conexión al dispositivo Android realizada, mostrando las pestañas y los procesos remotos disponibles." src="http://soulchainer.github.io/images/2014/01/2014-01-12_9.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página con la conexión al dispositivo Android realizada, mostrando las pestañas y los procesos remotos disponibles." src="//soulchainer.github.io/images/2014/01/2014-01-12_9.png" style="width: 650px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Si no se efectua la conexión o esta falla, podemos comprobar si el dispositivo
 está realmente conectado con &lt;code&gt;adb devices&lt;/code&gt;:&lt;/p&gt;
@@ -3573,7 +3573,7 @@ excepto que en el campo &lt;code&gt;Host&lt;/code&gt; de la página de conexión
 entre todas las pestañas remotas disponibles. Una vez escogida, recibimos
 una nueva ventana con las &lt;em&gt;herramientas de desarrollo&lt;/em&gt; asociadas al código de la misma.&lt;/p&gt;
 &lt;div class="figure" style="width: 700px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Ventana en nuestro escritorio con las herramientas de desarrollo de Firefox mostrando parte del código de una página abierta en nuestro Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_10.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Ventana en nuestro escritorio con las herramientas de desarrollo de Firefox mostrando parte del código de una página abierta en nuestro Android." src="//soulchainer.github.io/images/2014/01/2014-01-12_10.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3600,7 +3600,7 @@ Serving HTTP on 0.0.0.0 port &lt;span class="m"&gt;8000&lt;/span&gt; ...
 desde la carpeta con los &lt;em&gt;&lt;span class="caps"&gt;HTML&lt;/span&gt;&lt;/em&gt; de mi blog, y accedo vía &lt;em&gt;Firefox&lt;/em&gt; a la
 dirección indicada por &lt;em&gt;Python&lt;/em&gt; (0.0.0.0 → &lt;em&gt;localhost&lt;/em&gt; ← 127.0.0.1):&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para escritorio." src="http://soulchainer.github.io/images/2014/01/2014-01-12_15.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para escritorio." src="//soulchainer.github.io/images/2014/01/2014-01-12_15.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Acceder desde nuestro &lt;em&gt;Android&lt;/em&gt; al servidor es igual de fácil.
 Aunque esta vez necesitamos conocer su &lt;em&gt;&lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/em&gt; en la red local. La averiguamos con:&lt;/p&gt;
@@ -3618,7 +3618,7 @@ eth0: &amp;lt;span &lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&g
 &lt;p&gt;Sabiéndola (192.168.1.128 en el caso anterior), nos conectamos desde el
 &lt;em&gt;androide&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_16.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Página principal del blog, alojada en servidor local, vista desde Firefox para Android." src="//soulchainer.github.io/images/2014/01/2014-01-12_16.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Y a trastear con el sitio.&lt;/p&gt;
 &lt;/div&gt;
@@ -3649,7 +3649,7 @@ puede encontrarse en la &lt;a class="reference external" href="https://developer
 &lt;p&gt;Y me dejé un último pero, muy visual, para el final: la ausencia de una
 alternativa nativa a la función &lt;em&gt;screencast&lt;/em&gt; de &lt;em&gt;Google Chrome&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 700px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Captura de la opción screencast de las herramientas de desarrollo de Google Chrome. Muestra en tiempo real la pantalla de nuestro dispositivo Android en el navegador y permite interactuar con ella." src="http://soulchainer.github.io/images/2014/01/2014-01-12_11.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Captura de la opción screencast de las herramientas de desarrollo de Google Chrome. Muestra en tiempo real la pantalla de nuestro dispositivo Android en el navegador y permite interactuar con ella." src="//soulchainer.github.io/images/2014/01/2014-01-12_11.png" style="width: 700px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Con &lt;em&gt;screencast&lt;/em&gt; visualizamos e interactuamos con la pantalla del
 dispositivo en el navegador.&lt;/p&gt;
 &lt;/div&gt;
@@ -3675,13 +3675,13 @@ mozos, aparentemente también lo será en otros dispositivos que tienen
 permiso de &lt;strong&gt;superusuario&lt;/strong&gt;, pulsamos el inmenso botón &lt;strong&gt;&lt;span class="caps"&gt;START&lt;/span&gt;&lt;/strong&gt; y ya está:
 servidor corriendo (si no ocurre ninguna hecatombe &lt;a class="footnote-reference" href="#id13" id="id8"&gt;[5]&lt;/a&gt;).&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 600px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Capturas de Odroid VNC server detenido y en ejecución." src="http://soulchainer.github.io/images/2014/01/2014-01-12_12.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Capturas de Odroid VNC server detenido y en ejecución." src="//soulchainer.github.io/images/2014/01/2014-01-12_12.png" style="width: 600px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;A la izquierda, el servidor detenido. A la derecha, en ejecución.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Dispone de un &lt;em&gt;menú de ajustes&lt;/em&gt; (&lt;em&gt;settings&lt;/em&gt;), donde podemos establecer algunas
 preferencias sobre el servidor, la pantalla y otros detalles.&lt;/p&gt;
 &lt;div class="figure" style="width: 400px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Captura del menú de preferencias del servidor vnc." src="http://soulchainer.github.io/images/2014/01/2014-01-12_13.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Captura del menú de preferencias del servidor vnc." src="//soulchainer.github.io/images/2014/01/2014-01-12_13.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalar-usar-el-cliente"&gt;
@@ -3698,7 +3698,7 @@ a él desde el escritorio, no sirve de nada.&lt;/p&gt;
 &lt;p&gt;Ahora sí podemos acceder al servidor. Desde el navegador, con la url que nos
 proporcionó &lt;em&gt;Odroid&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 422px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Applet Java que proporciona Odroid, mostrando la pantalla de nuestro Android." src="http://soulchainer.github.io/images/2014/01/2014-01-12_14.png" style="width: 422px; height: auto; max-width: 100%;"/&gt;
+&lt;img alt="Applet Java que proporciona Odroid, mostrando la pantalla de nuestro Android." src="//soulchainer.github.io/images/2014/01/2014-01-12_14.png" style="width: 422px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;&lt;em&gt;Applet Java&lt;/em&gt; proporcionado por &lt;em&gt;Odroid&lt;/em&gt;, mostrando la pantalla de nuestro
 &lt;em&gt;Android&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -3752,15 +3752,15 @@ escritorio, no sólo nuestro navegador.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Sun, 12 Jan 2014 19:45:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-12:posts/2014/01/12/depuracion-remota-firefox-android/</guid><category>android</category><category>control remoto</category><category>depuración remota</category><category>desarrollo web</category><category>firefox</category><category>local</category><category>python</category><category>servidor web</category><category>testeo</category><category>vnc</category></item><item><title>Geekcalendar: calendario geek ligerito de ropa</title><link>http://soulchainer.github.io/posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</link><description>&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="http://soulchainer.github.io/images/2014/01/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Sun, 12 Jan 2014 19:45:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-12:posts/2014/01/12/depuracion-remota-firefox-android/</guid><category>android</category><category>control remoto</category><category>depuración remota</category><category>desarrollo web</category><category>firefox</category><category>local</category><category>python</category><category>servidor web</category><category>testeo</category><category>vnc</category></item><item><title>Geekcalendar: calendario geek ligerito de ropa</title><link>//soulchainer.github.io/posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</link><description>&lt;div class="figure" style="width: 500px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Foto del calendario Geekcalendar, de Exey Panteleev. Modelo ligera de ropa." src="//soulchainer.github.io/images/2014/01/2014-01-08_1.png" style="width: 500px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;ATENCIÓN&lt;/strong&gt;: Contenido &lt;span class="caps"&gt;NSFW&lt;/span&gt; &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Estaba yo buscando en &lt;a class="reference external" href="http://www.flickr.com/"&gt;Flickr&lt;/a&gt; una imagen de una &lt;em&gt;pitón&lt;/em&gt; (ya sabéis, la
 serpiente, esa que hace eso de la lengua y da unos abrazos muy cariñosos) para
 complementar mi vieja entrada sobre
-&lt;a class="reference external" href="http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/"&gt;pip &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; entornos virtuales Python&lt;/a&gt;
+&lt;a class="reference external" href="//soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/"&gt;pip &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; entornos virtuales Python&lt;/a&gt;
 cuando, me he topado con &lt;a class="reference external" href="http://www.flickr.com/photos/exey/9686764667/"&gt;cierta foto&lt;/a&gt; de &lt;a class="reference external" href="http://www.flickr.com/photos/exey/"&gt;Exey Panteleev&lt;/a&gt; que no era una
 pitón, pero que también posee
 &lt;a class="reference external" href="https://twitter.com/FreakViking/"&gt;ciertos efectos hipnóticos en determinados individuos&lt;/a&gt;. Y no he podido evitar
@@ -3777,8 +3777,8 @@ que podéis encontrar &lt;a class="reference external" href="http://exeypantelee
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Not Safe/Suitable For Work&lt;/em&gt; (No es apropiado/seguro para el trabajo). Que no te pille tu jefe viendo esto cuando se supone que estás trabajando ò_ó&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 08 Jan 2014 14:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-08:posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</guid><category>calendario</category><category>geek</category><category>fotografía</category><category>desnudo</category><category>lenguajes</category><category>programación</category><category>NSFW</category></item><item><title>Mobile Web Development, nuevo MOOC de Udacity</title><link>http://soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/</link><description>&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Logo y Slogan de Udacity." src="http://soulchainer.github.io/images/2014/01/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Wed, 08 Jan 2014 14:00:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-08:posts/2014/01/08/geekcalendar-calendario-programacion-desnudo/</guid><category>calendario</category><category>geek</category><category>fotografía</category><category>desnudo</category><category>lenguajes</category><category>programación</category><category>NSFW</category></item><item><title>Mobile Web Development, nuevo MOOC de Udacity</title><link>//soulchainer.github.io/posts/2014/01/07/curso-udacity-desarrollo-web/</link><description>&lt;div class="figure" style="width: 784px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Logo y Slogan de Udacity." src="//soulchainer.github.io/images/2014/01/2014-01-07_1.png" style="width: 784px; height: auto; max-width: 100%;"/&gt;
 &lt;/div&gt;
 &lt;p&gt;Ayer mismo me llegó un correo de &lt;a class="reference external" href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt; avisándome del inicio de su curso
 &lt;a class="reference external" href="https://www.udacity.com/course/cs256"&gt;"Mobile Web Development"&lt;/a&gt; , al que llevo un tiempo pre-inscrito. Así que
@@ -3833,8 +3833,8 @@ estas líneas el vídeo de presentación del curso, para que hable por sí mism
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Y a pesar de toda esta publicidad gratuita, yo no veo un duro de ellos, oye… xD&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Tue, 07 Jan 2014 20:45:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</guid><category>curso</category><category>mooc</category><category>udacity</category><category>desarrollo web</category><category>móvil</category><category>html5</category><category>educación</category></item><item><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link>http://soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/</link><description>&lt;div class="figure" style="width: 766px; height: auto; max-width: 100%;"&gt;
-&lt;img alt="Python verde (Morelia Viridis)." src="http://soulchainer.github.io/images/2013/12/2013-12-28_1.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Tue, 07 Jan 2014 20:45:00 +0100</pubDate><guid>tag:soulchainer.github.io,2014-01-07:posts/2014/01/07/curso-udacity-desarrollo-web/</guid><category>curso</category><category>mooc</category><category>udacity</category><category>desarrollo web</category><category>móvil</category><category>html5</category><category>educación</category></item><item><title>Gestión de paquetes &amp; entornos virtuales Python con pip, virtualenv &amp; virtualenvwrapper</title><link>//soulchainer.github.io/posts/2013/12/30/python-paquetes-entornos-virtuales/</link><description>&lt;div class="figure" style="width: 766px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Python verde (Morelia Viridis)." src="//soulchainer.github.io/images/2013/12/2013-12-28_1.png" style="width: 766px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Pitón arborícola verde (Morelia Viridis). Foto de &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/"&gt;Marie&lt;/a&gt;, con unos toquecitos. &lt;a class="reference external" href="http://www.flickr.com/photos/lesmontsdore/5513104816/"&gt;Original&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="problematica"&gt;
@@ -4210,8 +4210,8 @@ un poco más fácil:&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Mon, 30 Dec 2013 18:30:00 +0100</pubDate><guid>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</guid><category>python</category><category>pip</category><category>virtualenv</category><category>virtualenvwrapper</category><category>linux</category><category>archlinux</category></item><item><title>Hello, blog!</title><link>http://soulchainer.github.io/posts/2013/12/18/hello-blog/</link><description>&lt;div class="figure" style="width: 563px; height: auto; max-width: 100%;"&gt;
-&lt;img alt='Ascii Art "Hello blog", generado con el programa de consola toilet' src="http://soulchainer.github.io/images/2013/12/2013-12-18_1.png" style="width: 563px; height: auto; max-width: 100%;"/&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Soulchainer</dc:creator><pubDate>Mon, 30 Dec 2013 18:30:00 +0100</pubDate><guid>tag:soulchainer.github.io,2013-12-30:posts/2013/12/30/python-paquetes-entornos-virtuales/</guid><category>python</category><category>pip</category><category>virtualenv</category><category>virtualenvwrapper</category><category>linux</category><category>archlinux</category></item><item><title>Hello, blog!</title><link>//soulchainer.github.io/posts/2013/12/18/hello-blog/</link><description>&lt;div class="figure" style="width: 563px; height: auto; max-width: 100%;"&gt;
+&lt;img alt='Ascii Art "Hello blog", generado con el programa de consola toilet' src="//soulchainer.github.io/images/2013/12/2013-12-18_1.png" style="width: 563px; height: auto; max-width: 100%;"/&gt;
 &lt;p class="caption"&gt;Ascii Art generado por consola con &lt;code&gt;toilet Hello blog --gay&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="verborrea"&gt;
