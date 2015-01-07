@@ -19,7 +19,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Soulchainer'
 SITENAME = 'Soulbits'
 SITESUBTITLE = 'archlinux, software libre y apuntes varios'
-SITEURL = 'http://soulchainer.github.io'
+SITEURL = '//soulchainer.github.io'
 PATH = 'content/'
 PAGE_PATHS = ['pages',]
 ARTICLE_PATHS = ['posts',]
