@@ -462,7 +462,7 @@ citados cambios, queda como sigue:&lt;/p&gt;
 &lt;span class="nv"&gt;gpu_mem_256&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;64
 
 &lt;span class="c"&gt;# licencia MPG2&lt;/span&gt;
-&lt;span class="nv"&gt;decode_MPG2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;CODIGO &lt;span class="o"&gt;(&lt;/span&gt;en mi caso 0x22df87b&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;decode_MPG2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;CODIGO
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como podemos apreciar, el archivo se llama &lt;code&gt;config.txt.pacnew&lt;/code&gt;. Esto
 ocurre siempre que actualizamos un fichero de configuración y ya tenemos uno
