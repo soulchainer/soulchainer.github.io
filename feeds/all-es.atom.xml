@@ -1,5 +1,556 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2014-12-20T17:00:00+01:00</updated><entry><title>Esto va como un tiro (II): exprimiendo tmpfs</title><link href="//soulchainer.github.io/posts/2014/12/20/exprimiendo-tmpfs/" rel="alternate"></link><updated>2014-12-20T17:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-12-20:posts/2014/12/20/exprimiendo-tmpfs/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-02-02T14:00:00+01:00</updated><entry><title>Mi Raspberry Pi (I): primer inicio del sistema</title><link href="//soulchainer.github.io/posts/2015/02/02/mi-raspberry/" rel="alternate"></link><updated>2015-02-02T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-02:posts/2015/02/02/mi-raspberry/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#componentes" id="id7"&gt;Componentes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion-hibrida" id="id8"&gt;Instalación híbrida&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#preparacion-de-los-medios" id="id9"&gt;Preparación de los medios&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#particionado-de-la-memoria-usb" id="id10"&gt;Particionado de la memoria &lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#particionado-de-la-tarjeta-micro-sd" id="id11"&gt;Particionado de la tarjeta micro &lt;span class="caps"&gt;SD&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#montaje-y-volcado-del-sistema" id="id12"&gt;Montaje y volcado del sistema&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-del-arranque-del-sistema" id="id13"&gt;Configuración del arranque del sistema&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-general-de-la-raspberry-pi" id="id14"&gt;Configuración general de la Raspberry Pi&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#actualizacion" id="id15"&gt;Actualización&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#montaje-automatico-de-sistemas-de-archivos" id="id16"&gt;Montaje automático de sistemas de archivos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#primer-inicio-de-sesion" id="id17"&gt;Primer inicio de sesión&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 1  Componentes
+2  Instalación híbrida
+3  Preparación de los medios
+  3.1  Particionado de la memoria USB
+  3.2  Particionado de la tarjeta micro SD
+4  Montaje y volcado del sistema
+5  Configuración del arranque del sistema
+6  Configuración general de la Raspberry Pi
+  6.1  Actualización
+7  Montaje automático de sistemas de archivos
+8  Primer inicio de sesión --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://www.raspberrypi.org/"&gt;&lt;img alt="Caja de Raspberry Pi B+" src="//soulchainer.github.io/images/2015/02/2015-02-02_01.png" style="width: 400px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;La cajita en la que &lt;a class="reference external" href="http://www.element14.com/"&gt;element14&lt;/a&gt; distribuye la Raspberry es una cucada :D&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hace ya unos cuantos meses que soy el afortunado poseedor de uno de estos cacharrines.&lt;/p&gt;
+&lt;p&gt;Cuando me llegó, movido por la urgencia, le instalé &lt;a class="reference external" href="http://www.raspbian.org/"&gt;Raspbian&lt;/a&gt; (&lt;a class="reference external" href="https://www.debian.org/index.es.html"&gt;Debian&lt;/a&gt;
+para &lt;em&gt;Raspberry&lt;/em&gt;); pero, al fin, esta semana hice ánimos y me puse a preparla
+con &lt;a class="reference external" href="http://archlinuxarm.org/platforms/armv6/raspberry-pi"&gt;Arch Linux &lt;span class="caps"&gt;ARM&lt;/span&gt;&lt;/a&gt;. Así, con este empiezo una serie de artículos en los que
+documentaré todo el proceso de instalación de mi &lt;em&gt;Raspberry&lt;/em&gt;, dejándola a mi gusto.&lt;/p&gt;
+&lt;p&gt;Avanzo que el uso principal que le doy ahora mismo es el de centro
+multimedia/&lt;a class="reference external" href="http://es.wikipedia.org/wiki/Network-attached_storage"&gt;&lt;span class="caps"&gt;NAS&lt;/span&gt;&lt;/a&gt;. Este primer artículo abarca hasta el primer inicio de
+sesión en el sistema (vía consola).&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="section" id="componentes"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;Componentes&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Para sacar provecho a la &lt;em&gt;Raspberry Pi&lt;/em&gt; &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt; necesitamos una serie de
+componentes, que varían según el uso que le vayamos a dar. Yo utilizo lo siguiente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Raspberry Pi&lt;/strong&gt;, &lt;a class="reference external" href="http://www.raspberrypi.org/products/model-b-plus/"&gt;modelo B+&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Tarjeta micro &lt;span class="caps"&gt;SDHC&lt;/span&gt;&lt;/strong&gt; de 8 &lt;span class="caps"&gt;GB&lt;/span&gt;, modelo &lt;em&gt;Transcend &lt;span class="caps"&gt;TS8GUSDHC10&lt;/span&gt;&lt;/em&gt; (Clase 10).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Cable Ultra &lt;span class="caps"&gt;HD&lt;/span&gt; &lt;span class="caps"&gt;HDMI&lt;/span&gt;&lt;/strong&gt; 1.4a (compatible con &lt;span class="caps"&gt;HDMI&lt;/span&gt; 2.0), con &lt;em&gt;ethernet&lt;/em&gt; y
+soporte 3D.&lt;/p&gt;
+&lt;p&gt;De la marca &lt;em&gt;&lt;span class="caps"&gt;CSL&lt;/span&gt;-Computer&lt;/em&gt;. Con un metro me basta. Bueno, bonito y barato :D.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Memoria &lt;span class="caps"&gt;USB&lt;/span&gt; 3.0&lt;/strong&gt; de 16 &lt;span class="caps"&gt;GB&lt;/span&gt;, &lt;em&gt;Transcend JetFlash 700&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Cajita&lt;/strong&gt; transparente para la &lt;em&gt;Raspberry&lt;/em&gt;, de &lt;em&gt;OneNineDesign&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Teclado inalámbrico&lt;/strong&gt; &lt;em&gt;K400&lt;/em&gt;, de &lt;em&gt;Logitech&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Viene con panel táctil (te ahorras el ratón), tiene bastante alcance y las
+pilas duran lo suyo (tiene interruptor de encendido/apagado).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Disco Duro Externo&lt;/strong&gt; de 2.5" &lt;em&gt;Canvio Basics&lt;/em&gt;, de &lt;em&gt;Toshiba&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Un &lt;span class="caps"&gt;TB&lt;/span&gt; de capacidad. &lt;span class="caps"&gt;USB&lt;/span&gt; 3.0.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Repetidor wifi&lt;/strong&gt; 11n &lt;em&gt;&lt;span class="caps"&gt;TL&lt;/span&gt;-&lt;span class="caps"&gt;WA850RE&lt;/span&gt;&lt;/em&gt;, de &lt;em&gt;&lt;span class="caps"&gt;TP&lt;/span&gt;-&lt;span class="caps"&gt;LINK&lt;/span&gt;&lt;/em&gt;. Con puerto &lt;em&gt;ethernet&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Hub &lt;span class="caps"&gt;USB&lt;/span&gt; alimentado&lt;/strong&gt; de &lt;em&gt;Conceptronic&lt;/em&gt;, con siete puertos.&lt;/p&gt;
+&lt;p&gt;Aquí hago todas las conexiones &lt;em&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El capricho me salió por 171.8 € puesto en casa.&lt;/p&gt;
+&lt;p&gt;¿Que no es tan barato? Pues sí, pero es que depende de si ya tienes en casa o
+no esos accesorios. Y de si sólo los vas a emplear para esto. Lo que más
+encarece es el disco duro externo, el repetidor wifi y el teclado (94.09 €).
+Si los tienes, te ahorras un pico. Si no, no es como si sólo pudieras usarlos
+para la &lt;em&gt;Raspberry&lt;/em&gt;. Además: algunas cosas aproveché para comprarlas porque
+hacía tiempo que las necesitaba (como el extensor de señal wifi).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalacion-hibrida"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;Instalación híbrida&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Normalmente se instala el sistema operativo completo en la tarjeta micro &lt;span class="caps"&gt;SD&lt;/span&gt;,
+pero yo siempre he optado por hacer una instalación híbrida: arranque del
+sistema en la micro &lt;span class="caps"&gt;SD&lt;/span&gt; (no hay más narices, la &lt;em&gt;Raspberry&lt;/em&gt; lo requiere) y el
+resto en una memoria &lt;span class="caps"&gt;USB&lt;/span&gt; 3.0 (sí: a pesar de que los puertos de la &lt;em&gt;Raspberry&lt;/em&gt;
+son 2.0).&lt;/p&gt;
+&lt;p&gt;¿Por qué? Pues porque la memoria &lt;span class="caps"&gt;USB&lt;/span&gt; es más rápida que
+la tarjeta micro &lt;span class="caps"&gt;SDHC&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="preparacion-de-los-medios"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Preparación de los medios&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="particionado-de-la-memoria-usb"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Particionado de la memoria &lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Borramos todas las particiones de la memoria &lt;span class="caps"&gt;USB&lt;/span&gt; y creamos una partición ext4,
+con todo el espacio disponible. Desde consola:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk /dev/sdX
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donde &lt;code&gt;X&lt;/code&gt; es la letra correspondiente a nuestra memoria usb &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Escribimos &lt;code&gt;o&lt;/code&gt;, creando una tabla de particiones vacía.&lt;/li&gt;
+&lt;li&gt;Con &lt;code&gt;p&lt;/code&gt; imprimimos la lista de particiones de la memoria, que debería
+de estar vacía.&lt;/li&gt;
+&lt;li&gt;Escribimos &lt;code&gt;n&lt;/code&gt; y después &lt;code&gt;p&lt;/code&gt;, para crear una partición primaria,
+seguido de &lt;code&gt;1&lt;/code&gt; para indicar que será la primera partición del dispositivo.&lt;/li&gt;
+&lt;li&gt;Pulsamos entonces &lt;code&gt;ENTER&lt;/code&gt; para aceptar el valor predeterminado del
+primer sector. Y otra vez para aceptar el valor predeterminado del último.
+Con esto, la partición ocupará todo el tamaño útil.&lt;/li&gt;
+&lt;li&gt;Escribimos la tabla de particiones y salimos pulsando &lt;code&gt;w&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y ya tenemos la memoria lista.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="particionado-de-la-tarjeta-micro-sd"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Particionado de la tarjeta micro &lt;span class="caps"&gt;SD&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;De forma similar, borramos todas las particiones de la tarjeta micro &lt;span class="caps"&gt;SD&lt;/span&gt;,
+creando en este caso dos particiones, una &lt;span class="caps"&gt;FAT&lt;/span&gt; de 100 MiB y otra ext4 con el
+espacio restante, que podremos usar para guardar alguna cosilla.
+Desde consola, de nuevo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fdisk /dev/sdX
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donde &lt;code&gt;X&lt;/code&gt; corresponde en este caso a nuestra tarjeta.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Escribimos &lt;code&gt;o&lt;/code&gt;, creando una tabla de particiones vacía y borrando todo lo anterior.&lt;/li&gt;
+&lt;li&gt;Con &lt;code&gt;p&lt;/code&gt; imprimimos la lista de particiones de la tarjeta, que deberá de estar vacía.&lt;/li&gt;
+&lt;li&gt;Escribimos &lt;code&gt;n&lt;/code&gt; y después &lt;code&gt;p&lt;/code&gt;, para crear una partición primaria, seguido de &lt;code&gt;1&lt;/code&gt; para indicar que será la primera partición del pendrive.&lt;/li&gt;
+&lt;li&gt;Pulsamos entonces &lt;code&gt;ENTER&lt;/code&gt; para aceptar el valor predeterminado del primer sector. Y escribimos &lt;code&gt;+100M&lt;/code&gt; para el último sector.&lt;/li&gt;
+&lt;li&gt;Entonces, escribimos &lt;code&gt;t&lt;/code&gt; y después &lt;code&gt;c&lt;/code&gt; para establecer la primera partición de tipo &lt;em&gt;W95 &lt;span class="caps"&gt;FAT32&lt;/span&gt; (&lt;span class="caps"&gt;LBA&lt;/span&gt;)&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Volvemos a crear otra partición primaria, que será la segunda partición de la tarjeta, y le damos el resto del espacio disponible. Esta será una partición ext4. Escribimos &lt;code&gt;n&lt;/code&gt;, después &lt;code&gt;p&lt;/code&gt;, seguido de &lt;code&gt;2&lt;/code&gt; y pulsamos &lt;code&gt;ENTER&lt;/code&gt; un par de veces para aceptar los valores de los sectores.&lt;/li&gt;
+&lt;li&gt;Tras esto, escribimos la tabla de particiones y salimos pulsando &lt;code&gt;w&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="montaje-y-volcado-del-sistema"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Montaje y volcado del sistema&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Una vez creadas las particiones necesarias, tenemos que montarlas y volcar los
+datos para instalar el sistema.&lt;/p&gt;
+&lt;p&gt;Creamos y montamos el sistema de archivos &lt;span class="caps"&gt;FAT&lt;/span&gt;, , que contendrá el arranque, en
+la tarjeta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mkfs.vfat /dev/sdX1
+&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir boot
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mount /dev/sdX1 boot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lo montamos en una carpeta &lt;code&gt;boot&lt;/code&gt;, que creamos a tal efecto.&lt;/p&gt;
+&lt;p&gt;Creamos también el sistema de archivos ext4 de la tarjeta. No lo montamos,
+porque no lo necesitamos para la instalación.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mkfs.ext4 /dev/sdX2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por último, creamos y montamos el sistema de archivos ext4, que contendrá el
+sistema operativo, en la memoria:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mkfs.ext4 /dev/sdX1
+&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir root
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mount /dev/sdX1 root
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Una vez montadas ambas particiones, descargamos y descomprimimos el sistema de
+archivos root:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo bash
+&lt;span class="c"&gt;# wget http://archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz&lt;/span&gt;
+&lt;span class="c"&gt;# bsdtar -xpf ArchLinuxARM-rpi-latest.tar.gz -C root&lt;/span&gt;
+&lt;span class="c"&gt;# sync&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y movemos los archivos de arranque a la primera partición de la tarjeta
+micro &lt;span class="caps"&gt;SD&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# mv root/boot/* boot&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tras esto, mejor salir del modo root:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# exit&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-del-arranque-del-sistema"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Configuración del arranque del sistema&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Una vez volcados los datos, hemos de editar el archivo &lt;code&gt;cmdline.txt&lt;/code&gt; en
+la partición &lt;span class="caps"&gt;FAT&lt;/span&gt; de la micro &lt;span class="caps"&gt;SD&lt;/span&gt;. Originalmente es algo así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano boot/cmdline.txt
+----------------------------
+
+&lt;span class="nv"&gt;selinux&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; plymouth.enable&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; smsc95xx.turbo_mode&lt;span class="o"&gt;=&lt;/span&gt;N dwc_otg.lpm_enable&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ttyAMA0,115200 &lt;span class="nv"&gt;kgdboc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ttyAMA0,115200 &lt;span class="nv"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;tty1 &lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0p2 &lt;span class="nv"&gt;rootfstype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ext4 &lt;span class="nv"&gt;elevator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;noop rootwait
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y ha de quedar de esta forma:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;selinux&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; plymouth.enable&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; smsc95xx.turbo_mode&lt;span class="o"&gt;=&lt;/span&gt;N dwc_otg.lpm_enable&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ttyAMA0,115200 &lt;span class="nv"&gt;kgdboc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ttyAMA0,115200 &lt;span class="nv"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;tty1 &lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sda1 &lt;span class="nv"&gt;rootfstype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ext4 &lt;span class="nv"&gt;elevator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;noop rootwait &lt;span class="nv"&gt;rootdelay&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;5
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl + O&lt;/strong&gt; para guardar y &lt;strong&gt;Ctrl + X&lt;/strong&gt; para salir.&lt;/p&gt;
+&lt;p&gt;Explicación: la &lt;em&gt;Raspberry Pi&lt;/em&gt; necesita una tarjeta micro &lt;span class="caps"&gt;SD&lt;/span&gt; para arrancar.
+Buscará ahí el arranque, pero debemos indicarle que después de eso tiene que
+buscar el sistema operativo en la memoria &lt;span class="caps"&gt;USB&lt;/span&gt; (&lt;code&gt;/dev/sda1&lt;/code&gt;), en lugar de
+en la segunda partición de la tarjeta (&lt;code&gt;mmcblk0p2&lt;/code&gt;), donde acostumbra a mirar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-general-de-la-raspberry-pi"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Configuración general de la Raspberry Pi&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;La configuración original es algo así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano boot/config.txt
+---------------------------
+
+&lt;span class="c"&gt;# uncomment if you get no picture on HDMI for a default "safe" mode&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_safe=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment this if your display has a black border of unused pixels visible&lt;/span&gt;
+&lt;span class="c"&gt;# and your display can output without overscan&lt;/span&gt;
+&lt;span class="c"&gt;#disable_overscan=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment the following to adjust overscan. Use positive numbers if console&lt;/span&gt;
+&lt;span class="c"&gt;# goes off screen, and negative if there is too much border&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_left=16&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_right=16&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_top=16&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_bottom=16&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment to force a console size. By default it will be display's size minus&lt;/span&gt;
+&lt;span class="c"&gt;# overscan.&lt;/span&gt;
+&lt;span class="c"&gt;#framebuffer_width=1280&lt;/span&gt;
+&lt;span class="c"&gt;#framebuffer_height=720&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment if hdmi display is not detected and composite is being output&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_force_hotplug=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment to force a specific HDMI mode (this will force VGA)&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_group=1&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_mode=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment to force a HDMI mode rather than DVI. This can make audio work in&lt;/span&gt;
+&lt;span class="c"&gt;# DMT (computer monitor) modes&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_drive=2&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment to increase signal to HDMI, if you have interference, blanking, or&lt;/span&gt;
+&lt;span class="c"&gt;# no display&lt;/span&gt;
+&lt;span class="c"&gt;#config_hdmi_boost=4&lt;/span&gt;
+
+&lt;span class="c"&gt;# uncomment for composite PAL&lt;/span&gt;
+&lt;span class="c"&gt;#sdtv_mode=2&lt;/span&gt;
+
+&lt;span class="c"&gt;#uncomment to overclock the arm. 700 MHz is the default.&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=800&lt;/span&gt;
+
+&lt;span class="c"&gt;# for more options see http://elinux.org/RPi_config.txt&lt;/span&gt;
+
+&lt;span class="c"&gt;## Some over clocking settings, governor already set to ondemand&lt;/span&gt;
+
+&lt;span class="c"&gt;##None&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=700&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=250&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=400&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=0&lt;/span&gt;
+
+&lt;span class="c"&gt;##Modest&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=800&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=300&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=400&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=0&lt;/span&gt;
+
+&lt;span class="c"&gt;##Medium&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=900&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=333&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=450&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=2&lt;/span&gt;
+
+&lt;span class="c"&gt;##High&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=950&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=450&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=450&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=6&lt;/span&gt;
+
+&lt;span class="c"&gt;##Turbo&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=1000&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=500&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=500&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=6&lt;/span&gt;
+
+&lt;span class="nv"&gt;gpu_mem_512&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;64
+&lt;span class="nv"&gt;gpu_mem_256&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;64
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos a modificar algunos aspectos de esta, que citamos a continuación:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;...
+&lt;span class="c"&gt;# uncomment to force a HDMI mode rather than DVI. This can make audio work in&lt;/span&gt;
+&lt;span class="c"&gt;# DMT (computer monitor) modes&lt;/span&gt;
+&lt;span class="nv"&gt;hdmi_drive&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2
+...
+&lt;span class="c"&gt;##Medium&lt;/span&gt;
+&lt;span class="nv"&gt;arm_freq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;900
+&lt;span class="nv"&gt;core_freq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;333
+&lt;span class="nv"&gt;sdram_freq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;450
+&lt;span class="nv"&gt;over_voltage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2
+
+&lt;span class="nv"&gt;gpu_mem_512&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;128
+&lt;span class="nv"&gt;gpu_mem_256&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;64
+
+&lt;span class="c"&gt;# licencia MPG2&lt;/span&gt;
+&lt;span class="nv"&gt;decode_MPG2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;CÓDIGO
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Aquí, primero, forzamos el modo &lt;span class="caps"&gt;HDMI&lt;/span&gt;, en lugar del &lt;span class="caps"&gt;DVI&lt;/span&gt;. No debería ser
+necesario, pero por si acaso. Después incrementamos la velocidad del reloj de
+la &lt;em&gt;Raspberry&lt;/em&gt;, eligiendo uno de los ajustes predefinidos. Esto mejora el
+rendimiento. Y, a este nivel, es seguro.
+Tras esto, ampliamos la memoria asignada a la gráfica a 128, ya que la
+Raspberry funcionará sobre todo como centro multimedia. Como podemos observar,
+hay dos opciones para este mismo ajuste: &lt;code&gt;gpu_mem_512&lt;/code&gt; y
+&lt;code&gt;gpu_mem_256&lt;/code&gt;. La primera se aplica a las &lt;em&gt;Raspberry&lt;/em&gt; con 512 &lt;span class="caps"&gt;MB&lt;/span&gt; de &lt;span class="caps"&gt;RAM&lt;/span&gt;
+(el caso que nos ocupa), mientras que la segunda corresponde a las versiones
+de 256 &lt;span class="caps"&gt;MB&lt;/span&gt;.
+Por último, de forma totalmente opcional, añadimos la licencia para reproducir
+vídeo &lt;span class="caps"&gt;MPG2&lt;/span&gt; &lt;a class="footnote-reference" href="#id6" id="id3"&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="actualizacion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Actualización&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;En el transcurso de la realización de esta guía, actualicé el sistema:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pacman -Syu
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y se actualizó el firmware de la &lt;em&gt;Raspberry&lt;/em&gt;, generando un nuevo archivo de
+configuración, con muchos cambios. Este nuevo archivo, una vez integrados los
+citados cambios, queda como sigue:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /boot/config.txt.pacnew
+-----------------------------------
+
+&lt;span class="c"&gt;# Uncomment some or all of these to enable the optional hardware interfaces&lt;/span&gt;
+&lt;span class="c"&gt;# Params:&lt;/span&gt;
+&lt;span class="c"&gt;#         i2c0 (default "off")  Set to "on" to enable the i2c0 interface&lt;/span&gt;
+&lt;span class="c"&gt;#         i2c1 (default "off")  Set to "on" to enable the i2c1 interface&lt;/span&gt;
+&lt;span class="c"&gt;#         i2s (default "off")   Set to "on" to enable the i2s interface&lt;/span&gt;
+&lt;span class="c"&gt;#         spi (default "off")   Set to "on" to enable the spi interfaces&lt;/span&gt;
+&lt;span class="c"&gt;#         act_led_trigger (default "mmc")&lt;/span&gt;
+&lt;span class="c"&gt;#                               Choose which activity the LED tracks.&lt;/span&gt;
+&lt;span class="c"&gt;#                               Use "heartbeat" for a nice load indicator.&lt;/span&gt;
+&lt;span class="c"&gt;#         act_led_activelow (default "off")&lt;/span&gt;
+&lt;span class="c"&gt;#                               Set to "on" to invert the sense of the LED&lt;/span&gt;
+&lt;span class="c"&gt;#         act_led_gpio (default "16" on a non-Plus board, "47" on a Plus)&lt;/span&gt;
+&lt;span class="c"&gt;#                               Set which GPIO pin to use for the activity LED&lt;/span&gt;
+&lt;span class="c"&gt;#                               (in case you want to connect it to an external&lt;/span&gt;
+&lt;span class="c"&gt;#                               device).&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;#         N.B. It is recommended to only enable those interfaces that are needed.&lt;/span&gt;
+&lt;span class="c"&gt;#         Leaving all interfaces enabled can lead to unwanted behaviour (I2C&lt;/span&gt;
+&lt;span class="c"&gt;#         interfering with Pi Camera, I2S and SPI hogging GPIO pins, etc.)&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=i2c0=on&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=i2c1=on&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=i2s=on&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=spi=on&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=act_led_trigger=mmc&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment one of these lines to enable an audio interface&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=hifiberry-dac&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=hifiberry-dacplus&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=hifiberry-digi&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=hifiberry-amp&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=iqaudio-dac&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=iqaudio-dacplus&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to enable the lirc-rpi module&lt;/span&gt;
+&lt;span class="c"&gt;# Params: gpio_out_pin (default "17")   GPIO pin for output&lt;/span&gt;
+&lt;span class="c"&gt;#         gpio_in_pin (default "18")    GPIO pin for input&lt;/span&gt;
+&lt;span class="c"&gt;#         gpio_in_pull (default "down") Pull up/down/off on the input pin&lt;/span&gt;
+&lt;span class="c"&gt;#         sense (defaults to "-1")      Override the IR receive auto-detection&lt;/span&gt;
+&lt;span class="c"&gt;#                                       logic:&lt;/span&gt;
+&lt;span class="c"&gt;#                                       "1" = force active high&lt;/span&gt;
+&lt;span class="c"&gt;#                                       "0" = force active low&lt;/span&gt;
+&lt;span class="c"&gt;#                                       "-1" = use auto-detection&lt;/span&gt;
+&lt;span class="c"&gt;#         softcarrier (default "on")    Turn the software carrier "on" or "off".&lt;/span&gt;
+&lt;span class="c"&gt;#         invert (default "off")        "on" = invert the output pin.&lt;/span&gt;
+&lt;span class="c"&gt;#         debug (default "off")         "on" = enable additional debug messages.&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=lirc-rpi&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=gpio_out_pin=17&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=gpio_in_pin=18&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=gpio_in_pull=down&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to enable the w1-gpio Onewire interface module&lt;/span&gt;
+&lt;span class="c"&gt;# Use this overlay if you *don't* need a pin to drive an external pullup&lt;/span&gt;
+&lt;span class="c"&gt;# Params: gpiopin (default "4")         GPIO pin for I/O&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=w1-gpio&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=gpiopin=4&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to enable the w1-gpio Onewire interface module&lt;/span&gt;
+&lt;span class="c"&gt;# Use this overlay if you *do* need a pin to drive an external pullup&lt;/span&gt;
+&lt;span class="c"&gt;# Params: gpiopin (default "4")         GPIO pin for I/O&lt;/span&gt;
+&lt;span class="c"&gt;#         pullup  (default "5")         GPIO pin for external pullup&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=w1-gpio&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=gpiopin=4&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=pullup=5&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to enable pps-gpio (pulse-per-second time signal via GPIO)&lt;/span&gt;
+&lt;span class="c"&gt;# Params: gpiopin (default "18")        GPIO input pin&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_overlay=pps-gpio&lt;/span&gt;
+&lt;span class="c"&gt;#device_tree_param=gpiopin=18&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment if you get no picture on HDMI for a default "safe" mode&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_safe=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment this if your display has a black border of unused pixels visible&lt;/span&gt;
+&lt;span class="c"&gt;# and your display can output without overscan&lt;/span&gt;
+&lt;span class="c"&gt;#disable_overscan=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment the following to adjust overscan. Use positive numbers if console&lt;/span&gt;
+&lt;span class="c"&gt;# goes off screen, and negative if there is too much border&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_left=16&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_right=16&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_top=16&lt;/span&gt;
+&lt;span class="c"&gt;#overscan_bottom=16&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to force a console size. By default it will be display's size minus&lt;/span&gt;
+&lt;span class="c"&gt;# overscan.&lt;/span&gt;
+&lt;span class="c"&gt;#framebuffer_width=1280&lt;/span&gt;
+&lt;span class="c"&gt;#framebuffer_height=720&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment if hdmi display is not detected and composite is being output&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_force_hotplug=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to force a specific HDMI mode (this will force VGA)&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_group=1&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_mode=1&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to force a HDMI mode rather than DVI. This can make audio work in&lt;/span&gt;
+&lt;span class="c"&gt;# DMT (computer monitor) modes&lt;/span&gt;
+&lt;span class="nv"&gt;hdmi_drive&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2
+
+&lt;span class="c"&gt;# Uncomment to set monitor mode to DMT&lt;/span&gt;
+&lt;span class="c"&gt;#hdmi_group=2&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to increase signal to HDMI, if you have interference, blanking, or&lt;/span&gt;
+&lt;span class="c"&gt;# no display&lt;/span&gt;
+&lt;span class="c"&gt;#config_hdmi_boost=4&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment for composite PAL&lt;/span&gt;
+&lt;span class="c"&gt;#sdtv_mode=2&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment to overclock the ARM core. 700 MHz is the default.&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=800&lt;/span&gt;
+
+&lt;span class="c"&gt;# for more options see http://elinux.org/RPi_config.txt&lt;/span&gt;
+
+&lt;span class="c"&gt;## Some over clocking settings, governor already set to ondemand&lt;/span&gt;
+
+&lt;span class="c"&gt;##None&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=700&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=250&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=400&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=0&lt;/span&gt;
+
+&lt;span class="c"&gt;##Modest&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=800&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=300&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=400&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=0&lt;/span&gt;
+
+&lt;span class="c"&gt;##Medium&lt;/span&gt;
+&lt;span class="nv"&gt;arm_freq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;900
+&lt;span class="nv"&gt;core_freq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;333
+&lt;span class="nv"&gt;sdram_freq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;450
+&lt;span class="nv"&gt;over_voltage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2
+
+&lt;span class="c"&gt;##High&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=950&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=450&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=450&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=6&lt;/span&gt;
+
+&lt;span class="c"&gt;##Turbo&lt;/span&gt;
+&lt;span class="c"&gt;#arm_freq=1000&lt;/span&gt;
+&lt;span class="c"&gt;#core_freq=500&lt;/span&gt;
+&lt;span class="c"&gt;#sdram_freq=500&lt;/span&gt;
+&lt;span class="c"&gt;#over_voltage=6&lt;/span&gt;
+
+&lt;span class="nv"&gt;gpu_mem_512&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;128
+&lt;span class="nv"&gt;gpu_mem_256&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;64
+
+&lt;span class="c"&gt;# licencia MPG2&lt;/span&gt;
+&lt;span class="nv"&gt;decode_MPG2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;CODIGO
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como podemos apreciar, el archivo se llama &lt;code&gt;config.txt.pacnew&lt;/code&gt;. Esto
+ocurre siempre que actualizamos un fichero de configuración y ya tenemos uno
+anterior modificado, para no sobrescribir nuestras configuraciones. Una vez
+editemos el nuevo archivo a nuestro gusto, tendremos que renombrarlo
+adecuadamente para empezar a usarlo. Para ello, aconsejo hacer:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mv /boot/config.txt /boot/config.txt.backup
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mv /boot/config.txt.pacnew /boot/config.txt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Con la primera línea, guardamos la configuración actual en
+&lt;code&gt;/boot/config.txt.backup&lt;/code&gt;, por si acaso la nueva configuración no llega
+a funcionar, o por si debieramos revertir o comprobar algo en ella después.
+Con la segunda línea, dejamos la configuración nueva lista para su uso. Se
+aplicará cuando reiniciemos la &lt;em&gt;Raspberry&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Cuando estemos listos, podemos reiniciarla con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo reboot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="montaje-automatico-de-sistemas-de-archivos"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Montaje automático de sistemas de archivos&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Tambien hemos de cambiar el fichero &lt;code&gt;/etc/fstab&lt;/code&gt; en la partición de la
+memoria &lt;span class="caps"&gt;USB&lt;/span&gt;.
+En un principio este se ve algo así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano root/etc/fstab
+--------------------------
+
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# /etc/fstab: static file system information&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# &amp;lt;file system&amp;gt; &amp;lt;dir&amp;gt;   &amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;/span&gt;
+/dev/mmcblk0p1  /boot   vfat    defaults        &lt;span class="m"&gt;0&lt;/span&gt;       0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y vamos a dejarlo como sigue:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/dev/mmcblk0p1  /boot           vfat    defaults          &lt;span class="m"&gt;0&lt;/span&gt;       2
+/dev/sda1    /   ext4    defaults,noatime  &lt;span class="m"&gt;0&lt;/span&gt;       1
+&lt;span class="c"&gt;#PARTUUID=    /   ext4    defaults,noatime  0       1&lt;/span&gt;
+&lt;span class="c"&gt;#PARTUUID=    /mnt/Pandorica    ext4 defaults,noatime  0       2&lt;/span&gt;
+&lt;span class="c"&gt;# a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En &lt;code&gt;fstab&lt;/code&gt; se detallan los sistemas de archivos a montar automáticamente
+al inicio y, como puedes ver, añadimos una línea (comentada) para la
+partición de la memoria &lt;span class="caps"&gt;USB&lt;/span&gt;, detallada con su &lt;em&gt;&lt;span class="caps"&gt;PARTUUID&lt;/span&gt;&lt;/em&gt;. Para la micro &lt;span class="caps"&gt;SD&lt;/span&gt;
+esto no es necesario, ya que no usaremos más de un lector &lt;span class="caps"&gt;SD&lt;/span&gt;, pero podemos
+usar varios dispositivos &lt;span class="caps"&gt;USB&lt;/span&gt; y sería un problema que estos llegaran a
+confundirse.
+También reservo la tercera línea, comentada, para el que será mi disco duro
+externo (para almacenar archivos pesados), y que montaré en la ruta
+&lt;code&gt;/mnt/Pandorica&lt;/code&gt;.
+En la última línea, dejo un comentario sobre los archivos &lt;em&gt;swap&lt;/em&gt; (de
+intercambio), que (creo) se genera automáticamente al instalar &lt;em&gt;raspbian&lt;/em&gt;
+(reutilizo este archivo de mi configuración anterior :p), cuestión de la que
+hablaremos más adelante.&lt;/p&gt;
+&lt;p&gt;Tras esto, desmontamos ambas particiones y borramos las carpetas creadas a tal efecto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo umount boot root
+&lt;span class="nv"&gt;$ &lt;/span&gt;rmdir boot root
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="primer-inicio-de-sesion"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Primer inicio de sesión&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ya podemos insertar la micro &lt;span class="caps"&gt;SD&lt;/span&gt; en la &lt;em&gt;Raspberry Pi&lt;/em&gt;, conectarla a la red
+cableada y a la corriente. En mi caso la alimento vía hub &lt;span class="caps"&gt;USB&lt;/span&gt;, que es donde
+conecto también la memoria &lt;span class="caps"&gt;USB&lt;/span&gt; con el sistema operativo y el disco duro para multimedia.&lt;/p&gt;
+&lt;p&gt;Por ahora no conectamos el disco duro externo. Lo haremos más adelante.&lt;/p&gt;
+&lt;p&gt;Una vez conectado todo, podemos empezar ya a trabajar con el sistema operativo.&lt;/p&gt;
+&lt;p&gt;La contraseña por defecto para el usuario &lt;em&gt;root&lt;/em&gt; es &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="http://archlinuxarm.org/platforms/armv6/raspberry-pi"&gt;Arch Linux &lt;span class="caps"&gt;ARM&lt;/span&gt;&lt;/a&gt;, &lt;a class="reference external" href="http://www.ultimateraspbian.com/instalando-raspbian/"&gt;Ultimate Raspbian&lt;/a&gt;.&lt;/p&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Raspberry Pi y el logo de Raspberry Pi son marcas registradas de la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;. El presente blog no tiene conexión alguna con la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Podemos averiguar los sistemas de archivos montados en nuestro equipo con los comandos &lt;code&gt;df&lt;/code&gt; y &lt;code&gt;blkid&lt;/code&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Esta licencia &lt;a class="reference external" href="http://www.raspberrypi.com/license-keys/"&gt;se adquiere por separado&lt;/a&gt;. Sirve para reproducir &lt;span class="caps"&gt;DVD&lt;/span&gt; de vídeo (ficheros &lt;code&gt;.vob&lt;/code&gt;). Y sí: la compré por error, ¿vale? xD.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="raspberry pi"></category><category term="instalación"></category><category term="híbrida"></category><category term="linux"></category><category term="archlinux"></category></entry><entry><title>Esto va como un tiro (II): exprimiendo tmpfs</title><link href="//soulchainer.github.io/posts/2014/12/20/exprimiendo-tmpfs/" rel="alternate"></link><updated>2014-12-20T17:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2014-12-20:posts/2014/12/20/exprimiendo-tmpfs/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#directorios-temporales-del-sistema" id="id2"&gt;Directorios temporales del sistema&lt;/a&gt;&lt;/li&gt;
