@@ -1,0 +1,638 @@
+Mi Raspberry Pi (I): primer inicio del sistema
+##############################################
+:date: 2015-02-02 14:00
+:tags: raspberry pi, instalación, híbrida, linux, archlinux
+:category: CÓMOS, linux, Raspberry
+:slug: mi-raspberry
+:author: Soulchainer
+:parts:  Mi_Raspberry
+:twsummary:  Desde hace unos cuantos meses soy el afortunado poseedor de uno
+             de estos cacharrines.
+             Cuando me llegó, movido por la urgencia, le instalé Raspbian
+             (Debian para Raspberry); pero, al fin, esta semana hice ánimos y
+             me puse a preparla con Arch Linux ARM. Así, con este empiezo una
+             serie de artículos en los que documentaré todo el proceso de
+             instalación de mi Raspberry. Avanzo que el uso principal que le
+             doy ahora mismo es el de centro multimedia/NAS. Este primer
+             artículo abarca hasta el primer inicio de sesión en el sistema
+             (vía consola).
+:twimg: 2015-02-02_01.png
+
+
+.. contents:: **Índice de contenido**
+..
+   1  Componentes
+   2  Instalación híbrida
+   3  Preparación de los medios
+     3.1  Particionado de la memoria USB
+     3.2  Particionado de la tarjeta micro SD
+   4  Montaje y volcado del sistema
+   5  Configuración del arranque del sistema
+   6  Configuración general de la Raspberry Pi
+     6.1  Actualización
+   7  Montaje automático de sistemas de archivos
+   8  Primer inicio de sesión
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2015/02/2015-02-02_01.png
+    :alt: Caja de Raspberry Pi B+
+    :target: http://www.raspberrypi.org/
+    :align: center
+
+    La cajita en la que `element14`_ distribuye la Raspberry es una cucada :D
+
+
+Hace ya unos cuantos meses que soy el afortunado poseedor de uno de estos
+cacharrines.
+
+Cuando me llegó, movido por la urgencia, le instalé `Raspbian`_ (`Debian`_
+para *Raspberry*); pero, al fin, esta semana hice ánimos y me puse a preparla
+con `Arch Linux ARM`_. Así, con este empiezo una serie de artículos en los que
+documentaré todo el proceso de instalación de mi *Raspberry*, dejándola a mi
+gusto.
+
+Avanzo que el uso principal que le doy ahora mismo es el de centro
+multimedia/`NAS`_. Este primer artículo abarca hasta el primer inicio de
+sesión en el sistema (vía consola).
+
+{END_SUMMARY}
+
+Componentes
+===========
+
+Para sacar provecho a la *Raspberry Pi* [#]_ necesitamos una serie de
+componentes, que varían según el uso que le vayamos a dar. Yo utilizo lo
+siguiente:
+
+- **Raspberry Pi**, `modelo B+`_.
+- **Tarjeta micro SDHC** de 8 GB, modelo *Transcend TS8GUSDHC10* (Clase 10).
+- **Cable Ultra HD HDMI** 1.4a (compatible con HDMI 2.0), con *ethernet* y
+  soporte 3D.
+
+  De la marca *CSL-Computer*. Con un metro me basta. Bueno, bonito y barato :D.
+- **Memoria USB 3.0** de 16 GB, *Transcend JetFlash 700*.
+- **Cajita** transparente para la *Raspberry*, de *OneNineDesign*.
+- **Teclado inalámbrico** *K400*, de *Logitech*.
+
+  Viene con panel táctil (te ahorras el ratón), tiene bastante alcance y las
+  pilas duran lo suyo (tiene interruptor de encendido/apagado).
+- **Disco Duro Externo** de 2.5" *Canvio Basics*, de *Toshiba*.
+
+  Un TB de capacidad. USB 3.0.
+- **Repetidor wifi** 11n *TL-WA850RE*, de *TP-LINK*. Con puerto *ethernet*.
+- **Hub USB alimentado** de *Conceptronic*, con siete puertos.
+
+  Aquí hago todas las conexiones *USB*.
+
+El capricho me salió por 171.8 € puesto en casa.
+
+¿Que no es tan barato? Pues sí, pero es que depende de si ya tienes en casa o
+no esos accesorios. Y de si sólo los vas a emplear para esto. Lo que más
+encarece es el disco duro externo, el repetidor wifi y el teclado (94.09 €).
+Si los tienes, te ahorras un pico. Si no, no es como si sólo pudieras usarlos
+para la *Raspberry*. Además: algunas cosas aproveché para comprarlas porque
+hacía tiempo que las necesitaba (como el extensor de señal wifi).
+
+Instalación híbrida
+===================
+
+Normalmente se instala el sistema operativo completo en la tarjeta micro SD,
+pero yo siempre he optado por hacer una instalación híbrida: arranque del
+sistema en la micro SD (no hay más narices, la *Raspberry* lo requiere) y el
+resto en una memoria USB 3.0 (sí: a pesar de que los puertos de la *Raspberry*
+son 2.0).
+
+¿Por qué? Pues porque la memoria USB es más rápida que
+la tarjeta micro SDHC.
+
+Preparación de los medios
+=========================
+
+Particionado de la memoria USB
+------------------------------
+
+Borramos todas las particiones de la memoria USB y creamos una partición ext4,
+con todo el espacio disponible. Desde consola:
+
+.. code-block:: sh
+
+    $ sudo fdisk /dev/sdX
+
+Donde :code:`X` es la letra correspondiente a nuestra memoria usb [#]_.
+
+- Escribimos :code:`o`, creando una tabla de particiones vacía.
+- Con :code:`p` imprimimos la lista de particiones de la memoria, que debería
+  de estar vacía.
+- Escribimos :code:`n` y después :code:`p`, para crear una partición primaria,
+  seguido de :code:`1` para indicar que será la primera partición del
+  dispositivo.
+- Pulsamos entonces :code:`ENTER` para aceptar el valor predeterminado del
+  primer sector. Y otra vez para aceptar el valor predeterminado del último.
+  Con esto, la partición ocupará todo el tamaño útil.
+- Escribimos la tabla de particiones y salimos pulsando :code:`w`.
+
+Y ya tenemos la memoria lista.
+
+Particionado de la tarjeta micro SD
+-----------------------------------
+
+De forma similar, borramos todas las particiones de la tarjeta micro SD,
+creando en este caso dos particiones, una FAT de 100 MiB y otra ext4 con el
+espacio restante, que podremos usar para guardar alguna cosilla.
+Desde consola, de nuevo:
+
+.. code-block:: sh
+
+    $ sudo fdisk /dev/sdX
+
+Donde :code:`X` corresponde en este caso a nuestra tarjeta.
+
+- Escribimos :code:`o`, creando una tabla de particiones vacía y borrando todo lo anterior.
+- Con :code:`p` imprimimos la lista de particiones de la tarjeta, que deberá de estar vacía.
+- Escribimos :code:`n` y después :code:`p`, para crear una partición primaria, seguido de :code:`1` para indicar que será la primera partición del pendrive.
+- Pulsamos entonces :code:`ENTER` para aceptar el valor predeterminado del primer sector. Y escribimos :code:`+100M` para el último sector.
+- Entonces, escribimos :code:`t` y después :code:`c` para establecer la primera partición de tipo *W95 FAT32 (LBA)*.
+- Volvemos a crear otra partición primaria, que será la segunda partición de la tarjeta, y le damos el resto del espacio disponible. Esta será una partición ext4. Escribimos :code:`n`, después :code:`p`, seguido de :code:`2` y pulsamos :code:`ENTER` un par de veces para aceptar los valores de los sectores.
+- Tras esto, escribimos la tabla de particiones y salimos pulsando :code:`w`.
+
+Montaje y volcado del sistema
+=============================
+
+Una vez creadas las particiones necesarias, tenemos que montarlas y volcar los
+datos para instalar el sistema.
+
+Creamos y montamos el sistema de archivos FAT, , que contendrá el arranque, en
+la tarjeta:
+
+.. code-block:: sh
+
+    $ sudo mkfs.vfat /dev/sdX1
+    $ mkdir boot
+    $ sudo mount /dev/sdX1 boot
+
+Lo montamos en una carpeta :code:`boot`, que creamos a tal efecto.
+
+Creamos también el sistema de archivos ext4 de la tarjeta. No lo montamos,
+porque no lo necesitamos para la instalación.
+
+.. code-block:: sh
+
+    $ sudo mkfs.ext4 /dev/sdX2
+
+Por último, creamos y montamos el sistema de archivos ext4, que contendrá el
+sistema operativo, en la memoria:
+
+.. code-block:: sh
+
+    $ sudo mkfs.ext4 /dev/sdX1
+    $ mkdir root
+    $ sudo mount /dev/sdX1 root
+
+Una vez montadas ambas particiones, descargamos y descomprimimos el sistema de
+archivos root:
+
+.. code-block:: sh
+
+    $ sudo bash
+    # wget http://archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz
+    # bsdtar -xpf ArchLinuxARM-rpi-latest.tar.gz -C root
+    # sync
+
+Y movemos los archivos de arranque a la primera partición de la tarjeta
+micro SD:
+
+.. code-block:: sh
+
+    # mv root/boot/* boot
+
+
+Tras esto, mejor salir del modo root:
+
+.. code-block:: sh
+
+    # exit
+
+Configuración del arranque del sistema
+======================================
+
+Una vez volcados los datos, hemos de editar el archivo :code:`cmdline.txt` en
+la partición FAT de la micro SD. Originalmente es algo así:
+
+.. code-block:: sh
+
+    $ sudo nano boot/cmdline.txt
+    ----------------------------
+
+    selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=noop rootwait
+
+Y ha de quedar de esta forma:
+
+.. code-block:: sh
+
+    selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/sda1 rootfstype=ext4 elevator=noop rootwait rootdelay=5
+
+**Ctrl + O** para guardar y **Ctrl + X** para salir.
+
+Explicación: la *Raspberry Pi* necesita una tarjeta micro SD para arrancar.
+Buscará ahí el arranque, pero debemos indicarle que después de eso tiene que
+buscar el sistema operativo en la memoria USB (:code:`/dev/sda1`), en lugar de
+en la segunda partición de la tarjeta (:code:`mmcblk0p2`), donde acostumbra a
+mirar.
+
+Configuración general de la Raspberry Pi
+========================================
+
+La configuración original es algo así:
+
+.. code-block:: sh
+
+    $ sudo nano boot/config.txt
+    ---------------------------
+
+    # uncomment if you get no picture on HDMI for a default "safe" mode
+    #hdmi_safe=1
+
+    # uncomment this if your display has a black border of unused pixels visible
+    # and your display can output without overscan
+    #disable_overscan=1
+
+    # uncomment the following to adjust overscan. Use positive numbers if console
+    # goes off screen, and negative if there is too much border
+    #overscan_left=16
+    #overscan_right=16
+    #overscan_top=16
+    #overscan_bottom=16
+
+    # uncomment to force a console size. By default it will be display's size minus
+    # overscan.
+    #framebuffer_width=1280
+    #framebuffer_height=720
+
+    # uncomment if hdmi display is not detected and composite is being output
+    #hdmi_force_hotplug=1
+
+    # uncomment to force a specific HDMI mode (this will force VGA)
+    #hdmi_group=1
+    #hdmi_mode=1
+
+    # uncomment to force a HDMI mode rather than DVI. This can make audio work in
+    # DMT (computer monitor) modes
+    #hdmi_drive=2
+
+    # uncomment to increase signal to HDMI, if you have interference, blanking, or
+    # no display
+    #config_hdmi_boost=4
+
+    # uncomment for composite PAL
+    #sdtv_mode=2
+
+    #uncomment to overclock the arm. 700 MHz is the default.
+    #arm_freq=800
+
+    # for more options see http://elinux.org/RPi_config.txt
+
+    ## Some over clocking settings, governor already set to ondemand
+
+    ##None
+    #arm_freq=700
+    #core_freq=250
+    #sdram_freq=400
+    #over_voltage=0
+
+    ##Modest
+    #arm_freq=800
+    #core_freq=300
+    #sdram_freq=400
+    #over_voltage=0
+
+    ##Medium
+    #arm_freq=900
+    #core_freq=333
+    #sdram_freq=450
+    #over_voltage=2
+
+    ##High
+    #arm_freq=950
+    #core_freq=450
+    #sdram_freq=450
+    #over_voltage=6
+
+    ##Turbo
+    #arm_freq=1000
+    #core_freq=500
+    #sdram_freq=500
+    #over_voltage=6
+
+    gpu_mem_512=64
+    gpu_mem_256=64
+
+Vamos a modificar algunos aspectos de esta, que citamos a continuación:
+
+.. code-block:: sh
+
+    ...
+    # uncomment to force a HDMI mode rather than DVI. This can make audio work in
+    # DMT (computer monitor) modes
+    hdmi_drive=2
+    ...
+    ##Medium
+    arm_freq=900
+    core_freq=333
+    sdram_freq=450
+    over_voltage=2
+
+    gpu_mem_512=128
+    gpu_mem_256=64
+
+    # licencia MPG2
+    decode_MPG2=CÓDIGO
+
+Aquí, primero, forzamos el modo HDMI, en lugar del DVI. No debería ser
+necesario, pero por si acaso. Después incrementamos la velocidad del reloj de
+la *Raspberry*, eligiendo uno de los ajustes predefinidos. Esto mejora el
+rendimiento. Y, a este nivel, es seguro.
+Tras esto, ampliamos la memoria asignada a la gráfica a 128, ya que la
+Raspberry funcionará sobre todo como centro multimedia. Como podemos observar,
+hay dos opciones para este mismo ajuste: :code:`gpu_mem_512` y
+:code:`gpu_mem_256`. La primera se aplica a las *Raspberry* con 512 MB de RAM
+(el caso que nos ocupa), mientras que la segunda corresponde a las versiones
+de 256 MB.
+Por último, de forma totalmente opcional, añadimos la licencia para reproducir
+vídeo MPG2 [#]_.
+
+Actualización
+-------------
+
+En el transcurso de la realización de esta guía, actualicé el sistema:
+
+.. code-block:: sh
+
+    $ sudo pacman -Syu
+
+Y se actualizó el firmware de la *Raspberry*, generando un nuevo archivo de
+configuración, con muchos cambios. Este nuevo archivo, una vez integrados los
+citados cambios, queda como sigue:
+
+.. code-block:: sh
+
+    $ sudo nano /boot/config.txt.pacnew
+    -----------------------------------
+
+    # Uncomment some or all of these to enable the optional hardware interfaces
+    # Params:
+    #         i2c0 (default "off")  Set to "on" to enable the i2c0 interface
+    #         i2c1 (default "off")  Set to "on" to enable the i2c1 interface
+    #         i2s (default "off")   Set to "on" to enable the i2s interface
+    #         spi (default "off")   Set to "on" to enable the spi interfaces
+    #         act_led_trigger (default "mmc")
+    #                               Choose which activity the LED tracks.
+    #                               Use "heartbeat" for a nice load indicator.
+    #         act_led_activelow (default "off")
+    #                               Set to "on" to invert the sense of the LED
+    #         act_led_gpio (default "16" on a non-Plus board, "47" on a Plus)
+    #                               Set which GPIO pin to use for the activity LED
+    #                               (in case you want to connect it to an external
+    #                               device).
+    #
+    #         N.B. It is recommended to only enable those interfaces that are needed.
+    #         Leaving all interfaces enabled can lead to unwanted behaviour (I2C
+    #         interfering with Pi Camera, I2S and SPI hogging GPIO pins, etc.)
+    #device_tree_param=i2c0=on
+    #device_tree_param=i2c1=on
+    #device_tree_param=i2s=on
+    #device_tree_param=spi=on
+    #device_tree_param=act_led_trigger=mmc
+
+    # Uncomment one of these lines to enable an audio interface
+    #device_tree_overlay=hifiberry-dac
+    #device_tree_overlay=hifiberry-dacplus
+    #device_tree_overlay=hifiberry-digi
+    #device_tree_overlay=hifiberry-amp
+    #device_tree_overlay=iqaudio-dac
+    #device_tree_overlay=iqaudio-dacplus
+
+    # Uncomment to enable the lirc-rpi module
+    # Params: gpio_out_pin (default "17")   GPIO pin for output
+    #         gpio_in_pin (default "18")    GPIO pin for input
+    #         gpio_in_pull (default "down") Pull up/down/off on the input pin
+    #         sense (defaults to "-1")      Override the IR receive auto-detection
+    #                                       logic:
+    #                                       "1" = force active high
+    #                                       "0" = force active low
+    #                                       "-1" = use auto-detection
+    #         softcarrier (default "on")    Turn the software carrier "on" or "off".
+    #         invert (default "off")        "on" = invert the output pin.
+    #         debug (default "off")         "on" = enable additional debug messages.
+    #device_tree_overlay=lirc-rpi
+    #device_tree_param=gpio_out_pin=17
+    #device_tree_param=gpio_in_pin=18
+    #device_tree_param=gpio_in_pull=down
+
+    # Uncomment to enable the w1-gpio Onewire interface module
+    # Use this overlay if you *don't* need a pin to drive an external pullup
+    # Params: gpiopin (default "4")         GPIO pin for I/O
+    #device_tree_overlay=w1-gpio
+    #device_tree_param=gpiopin=4
+
+    # Uncomment to enable the w1-gpio Onewire interface module
+    # Use this overlay if you *do* need a pin to drive an external pullup
+    # Params: gpiopin (default "4")         GPIO pin for I/O
+    #         pullup  (default "5")         GPIO pin for external pullup
+    #device_tree_overlay=w1-gpio
+    #device_tree_param=gpiopin=4
+    #device_tree_param=pullup=5
+
+    # Uncomment to enable pps-gpio (pulse-per-second time signal via GPIO)
+    # Params: gpiopin (default "18")        GPIO input pin
+    #device_tree_overlay=pps-gpio
+    #device_tree_param=gpiopin=18
+
+    # Uncomment if you get no picture on HDMI for a default "safe" mode
+    #hdmi_safe=1
+
+    # Uncomment this if your display has a black border of unused pixels visible
+    # and your display can output without overscan
+    #disable_overscan=1
+
+    # Uncomment the following to adjust overscan. Use positive numbers if console
+    # goes off screen, and negative if there is too much border
+    #overscan_left=16
+    #overscan_right=16
+    #overscan_top=16
+    #overscan_bottom=16
+
+    # Uncomment to force a console size. By default it will be display's size minus
+    # overscan.
+    #framebuffer_width=1280
+    #framebuffer_height=720
+
+    # Uncomment if hdmi display is not detected and composite is being output
+    #hdmi_force_hotplug=1
+
+    # Uncomment to force a specific HDMI mode (this will force VGA)
+    #hdmi_group=1
+    #hdmi_mode=1
+
+    # Uncomment to force a HDMI mode rather than DVI. This can make audio work in
+    # DMT (computer monitor) modes
+    hdmi_drive=2
+
+    # Uncomment to set monitor mode to DMT
+    #hdmi_group=2
+
+    # Uncomment to increase signal to HDMI, if you have interference, blanking, or
+    # no display
+    #config_hdmi_boost=4
+
+    # Uncomment for composite PAL
+    #sdtv_mode=2
+
+    # Uncomment to overclock the ARM core. 700 MHz is the default.
+    #arm_freq=800
+
+    # for more options see http://elinux.org/RPi_config.txt
+
+    ## Some over clocking settings, governor already set to ondemand
+
+    ##None
+    #arm_freq=700
+    #core_freq=250
+    #sdram_freq=400
+    #over_voltage=0
+
+    ##Modest
+    #arm_freq=800
+    #core_freq=300
+    #sdram_freq=400
+    #over_voltage=0
+
+    ##Medium
+    arm_freq=900
+    core_freq=333
+    sdram_freq=450
+    over_voltage=2
+
+    ##High
+    #arm_freq=950
+    #core_freq=450
+    #sdram_freq=450
+    #over_voltage=6
+
+    ##Turbo
+    #arm_freq=1000
+    #core_freq=500
+    #sdram_freq=500
+    #over_voltage=6
+
+    gpu_mem_512=128
+    gpu_mem_256=64
+
+    # licencia MPG2
+    decode_MPG2=CODIGO
+
+Como podemos apreciar, el archivo se llama :code:`config.txt.pacnew`. Esto
+ocurre siempre que actualizamos un fichero de configuración y ya tenemos uno
+anterior modificado, para no sobrescribir nuestras configuraciones. Una vez
+editemos el nuevo archivo a nuestro gusto, tendremos que renombrarlo
+adecuadamente para empezar a usarlo. Para ello, aconsejo hacer:
+
+.. code-block:: sh
+
+    $ sudo mv /boot/config.txt /boot/config.txt.backup
+    $ sudo mv /boot/config.txt.pacnew /boot/config.txt
+
+Con la primera línea, guardamos la configuración actual en
+:code:`/boot/config.txt.backup`, por si acaso la nueva configuración no llega
+a funcionar, o por si debieramos revertir o comprobar algo en ella después.
+Con la segunda línea, dejamos la configuración nueva lista para su uso. Se
+aplicará cuando reiniciemos la *Raspberry*.
+
+Cuando estemos listos, podemos reiniciarla con:
+
+.. code-block:: sh
+
+    $ sudo reboot
+
+Montaje automático de sistemas de archivos
+==========================================
+
+Tambien hemos de cambiar el fichero :code:`/etc/fstab` en la partición de la
+memoria USB.
+En un principio este se ve algo así:
+
+.. code-block:: sh
+
+    $ sudo nano root/etc/fstab
+    --------------------------
+
+    #
+    # /etc/fstab: static file system information
+    #
+    # <file system> <dir>   <type>  <options>       <dump>  <pass>
+    /dev/mmcblk0p1  /boot   vfat    defaults        0       0
+
+Y vamos a dejarlo como sigue:
+
+.. code-block:: sh
+
+    /dev/mmcblk0p1  /boot           vfat    defaults          0       2
+    /dev/sda1    /   ext4    defaults,noatime  0       1
+    #PARTUUID=    /   ext4    defaults,noatime  0       1
+    #PARTUUID=    /mnt/Pandorica    ext4 defaults,noatime  0       2
+    # a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that
+
+En :code:`fstab` se detallan los sistemas de archivos a montar automáticamente
+al inicio y, como puedes ver, añadimos una línea (comentada) para la
+partición de la memoria USB, detallada con su *PARTUUID*. Para la micro SD
+esto no es necesario, ya que no usaremos más de un lector SD, pero podemos
+usar varios dispositivos USB y sería un problema que estos llegaran a
+confundirse.
+También reservo la tercera línea, comentada, para el que será mi disco duro
+externo (para almacenar archivos pesados), y que montaré en la ruta
+:code:`/mnt/Pandorica`.
+En la última línea, dejo un comentario sobre los archivos *swap* (de
+intercambio), que (creo) se genera automáticamente al instalar *raspbian*
+(reutilizo este archivo de mi configuración anterior :p), cuestión de la que
+hablaremos más adelante.
+
+Tras esto, desmontamos ambas particiones y borramos las carpetas creadas a tal
+efecto:
+
+.. code-block:: sh
+
+    $ sudo umount boot root
+    $ rmdir boot root
+
+Primer inicio de sesión
+=======================
+
+Ya podemos insertar la micro SD en la *Raspberry Pi*, conectarla a la red
+cableada y a la corriente. En mi caso la alimento vía hub USB, que es donde
+conecto también la memoria USB con el sistema operativo y el disco duro para
+multimedia.
+
+Por ahora no conectamos el disco duro externo. Lo haremos más adelante.
+
+Una vez conectado todo, podemos empezar ya a trabajar con el sistema
+operativo.
+
+La contraseña por defecto para el usuario *root* es :code:`root`.
+
+---------------
+
+**Fuentes:** `Arch Linux ARM`_, `Ultimate Raspbian`_.
+
+.. [#] Raspberry Pi y el logo de Raspberry Pi son marcas registradas de la `Raspberry Pi Foundation`_. El presente blog no tiene conexión alguna con la `Raspberry Pi Foundation`_.
+.. [#] Podemos averiguar los sistemas de archivos montados en nuestro equipo con los comandos :code:`df` y :code:`blkid`.
+.. [#] Esta licencia `se adquiere por separado`_. Sirve para reproducir DVD de vídeo (ficheros :code:`.vob`). Y sí: la compré por error, ¿vale? xD.
+
+.. _element14: http://www.element14.com/
+.. _modelo B+: http://www.raspberrypi.org/products/model-b-plus/
+.. _Raspbian: http://www.raspbian.org/
+.. _Debian: https://www.debian.org/index.es.html
+.. _Arch Linux ARM: http://archlinuxarm.org/platforms/armv6/raspberry-pi
+.. _NAS: http://es.wikipedia.org/wiki/Network-attached_storage
+.. _Ultimate Raspbian: http://www.ultimateraspbian.com/instalando-raspbian/
+.. _se adquiere por separado: http://www.raspberrypi.com/license-keys/
+.. _Raspberry Pi Foundation: http://www.raspberrypi.org/
