@@ -7,3 +7,4 @@ develop_server.sh
 Gruntfile.js
 package.json
 soulbits.sublime*
+cache/
