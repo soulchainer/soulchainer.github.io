@@ -527,9 +527,8 @@ hablaremos más adelante.&lt;/p&gt;
 cableada y a la corriente. En mi caso la alimento vía hub &lt;span class="caps"&gt;USB&lt;/span&gt;, que es donde
 conecto también la memoria &lt;span class="caps"&gt;USB&lt;/span&gt; con el sistema operativo y el disco duro para multimedia.&lt;/p&gt;
 &lt;p&gt;Por ahora no conectamos el disco duro externo. Lo haremos más adelante.&lt;/p&gt;
-&lt;p&gt;Una vez conectado todo, podemos empezar ya a trabajar con el sistema
-operativo, bien directamente, o bien vía &lt;span class="caps"&gt;SSH&lt;/span&gt;, usando la &lt;span class="caps"&gt;IP&lt;/span&gt; que el router le haya dado a nuestra &lt;em&gt;Raspberry&lt;/em&gt;.
-La contraseña por defecto para el usuario &lt;em&gt;root&lt;/em&gt; es &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Una vez conectado todo, podemos empezar ya a trabajar con el sistema operativo.&lt;/p&gt;
+&lt;p&gt;La contraseña por defecto para el usuario &lt;em&gt;root&lt;/em&gt; es &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
 &lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="http://archlinuxarm.org/platforms/armv6/raspberry-pi"&gt;Arch Linux &lt;span class="caps"&gt;ARM&lt;/span&gt;&lt;/a&gt;, &lt;a class="reference external" href="http://www.ultimateraspbian.com/instalando-raspbian/"&gt;Ultimate Raspbian&lt;/a&gt;.&lt;/p&gt;
 &lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
