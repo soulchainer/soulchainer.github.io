@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, archlinux, avahi, conexión, configuración, consola, fuentes, instalación, linux, raspberry pi, red, zeroconf" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="//soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="//soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="//soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="//soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="//soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Mi Raspberry Pi (II): configuración local">
+      <meta name="twitter:description" content="Ya hemos preparado el sistema operativo, que inicia con
+normalidad, y nos hemos identificado como usuario root.
+Como hay que configurar bastantes cosas, en este artículo nos
+concentraremos en lo que yo hago localmente sobre la Raspberry
+(antes de conectarme por SSH). Ya en el próximo artículo nos
+conectaremos remotamente y realizaremos el resto de
+configuraciones importantes.">
+      <meta name="twitter:image:src" content="//soulchainer.github.io/images/2015/02/2015-02-05_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Mi Raspberry Pi (II): configuración local" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/" />
+      <meta property="og:image" content="//soulchainer.github.io/images/2015/02/2015-02-05_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux, Raspberry" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="avahi" />
+      <meta property="og:article:tag" content="conexión" />
+      <meta property="og:article:tag" content="configuración" />
+      <meta property="og:article:tag" content="consola" />
+      <meta property="og:article:tag" content="fuentes" />
+      <meta property="og:article:tag" content="instalación" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="raspberry pi" />
+      <meta property="og:article:tag" content="red" />
+      <meta property="og:article:tag" content="zeroconf" />
+      <meta property="og:description" content="Ya hemos preparado el sistema operativo, que inicia con
+normalidad, y nos hemos identificado como usuario root.
+Como hay que configurar bastantes cosas, en este artículo nos
+concentraremos en lo que yo hago localmente sobre la Raspberry
+(antes de conectarme por SSH). Ya en el próximo artículo nos
+conectaremos remotamente y realizaremos el resto de
+configuraciones importantes." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="//soulchainer.github.io/theme/css/style.min.css">
+<script type="text/javascript" src="http://127.0.0.1:35729/livereload.js"></script><!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="//soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2015/02/05/mi-raspberry-configuracion-local/" rel="bookmark" title="Permalink to Mi Raspberry Pi (II): configuración local">
+      Mi Raspberry Pi (<span class="caps">II</span>): configuración&nbsp;local
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2015-02-05T23:59:00+01:00">
+      jue 05 febrero 2015, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="contents topic" id="indice-de-contenido">
+<p class="topic-title first"><strong>Índice de contenido</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#mapa-de-teclado" id="id6">Mapa de teclado</a><ul>
+<li><a class="reference internal" href="#configuracion-temporal" id="id7">Configuración temporal</a></li>
+<li><a class="reference internal" href="#configuracion-persistente" id="id8">Configuración persistente</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fuentes-para-consola" id="id9">Fuentes para consola</a><ul>
+<li><a class="reference internal" href="#id3" id="id10">Configuración temporal</a></li>
+<li><a class="reference internal" href="#id4" id="id11">Configuración persistente</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#idioma-del-sistema" id="id12">Idioma del sistema</a></li>
+<li><a class="reference internal" href="#cambiar-contrasena-de-usuario-root" id="id13">Cambiar contraseña de usuario root</a></li>
+<li><a class="reference internal" href="#zona-horaria" id="id14">Zona horaria</a></li>
+<li><a class="reference internal" href="#configuracion-de-red" id="id15">Configuración de red</a><ul>
+<li><a class="reference internal" href="#conexion" id="id16">Conexión</a></li>
+<li><a class="reference internal" href="#comprobacion-de-la-conexion" id="id17">Comprobación de la conexión</a></li>
+<li><a class="reference internal" href="#establecer-un-nombre-de-host" id="id18">Establecer un nombre de host</a></li>
+<li><a class="reference internal" href="#configuracion-de-ip" id="id19">Configuración de <span class="caps">IP</span></a></li>
+<li><a class="reference internal" href="#resolucion-de-nombres-en-la-red-local-con-zeroconf" id="id20">Resolución de nombres en la red local con Zeroconf</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- -->
+<p></p>
+<div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="https://flic.kr/p/gTUK3"><img alt="«Raspberry head». Muestra un muñeco de LEGO con una frambuesa como sombrero." src="//soulchainer.github.io/images/2015/02/2015-02-05_01.png" style="width: 640px; height: auto; max-width: 100%;"/></a>
+<p class="caption"><em>Raspberry head</em>. Foto obra de <a class="reference external" href="https://www.flickr.com/photos/dorkomatic/">Howard Dickins</a>, con <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/2.0/">licencia Creative Commons</a>. <a class="reference external" href="https://flic.kr/p/gTUK3">Original</a>. Algunos ajustes de color y limpiado del fondo.</p>
+</div>
+<p>Ya hemos preparado el sistema operativo, que inicia con normalidad, y nos
+hemos identificado como usuario <em>root</em>.</p>
+<p>Como hay que configurar bastantes cosas, en este artículo nos concentraremos
+en lo que yo hago localmente sobre la <em>Raspberry Pi</em> <a class="footnote-reference" href="#id5" id="id1">[1]</a> (antes de conectarme
+por <span class="caps">SSH</span>). Ya en el próximo artículo nos conectaremos remotamente y
+realizaremos el resto de configuraciones importantes.</p>
+<p>Dicho esto, vamos a ello.</p>
+<p></p>
+<div class="section" id="mapa-de-teclado">
+<h2><a class="toc-backref" href="#id6">Mapa de teclado</a></h2>
+<p>Por defecto, el mapa de teclado establecido es el estadounidense (<em>us</em>).</p>
+<p>¿Qué quiere decir esto? Pues que si tenemos, por ejemplo, un teclado español,
+algunas teclas tienen asignados caracteres distintos a lo que estamos
+acostumbrados, dificultándonos la escritura.</p>
+<hr class="docutils"/>
+<p>Unos <strong>briconsejos</strong> para apañarnos mientras no atinamos con el mapa correcto:</p>
+<ul class="simple">
+<li>Si tenemos un teclado español, la <em>barra</em> (/) aparece pulsando la tecla del <em>guión</em> (-).</li>
+<li>Podemos ayudarnos del autocompletado de la terminal, pulsando el tabulador [Tab ↹] una o dos veces para completar comandos/rutas o recibir sugerencias.</li>
+</ul>
+<hr class="docutils"/>
+<p>Así que lo primero que tenemos que hacer es cargar nuestro mapa de teclado
+preferido. Los mapas se encuentran en <code>/usr/share/kbd/keymaps/</code>.</p>
+<div class="highlight"><pre><span class="c"># cd /usr/share/kbd/keymaps/i386 &amp;&amp; ls</span>
+--------------------------------------
+
+azerty/  bepo/  colemak/  dvorak/  fgGIod/  include/  olpc/  qwerty/  qwertz/
+</pre></div>
+<p>Están organizados según la distribución del teclado (el orden físico de sus
+teclas). En España usamos <span class="caps">QWERTY</span>; si no es tu caso, consulta el artículo
+<a class="reference external" href="http://es.wikipedia.org/wiki/Distribuci%C3%B3n_del_teclado">«Distribución del teclado»</a>.</p>
+<p>Conocida la distribución, exploramos el contenido de la carpeta homónima:</p>
+<div class="highlight"><pre><span class="c"># cd qwerty/ &amp;&amp; ls</span>
+-------------------
+...
+es.map.gz              nl2.map.gz      ruwin_ctrl-CP1251.map.gz   uk.map.gz
+et.map.gz           nl.map.gz  ruwin_ctrl-KOI8-R.map.gz   us-acentos.map.gz
+et-nodeadkeys.map.gz   no-latin1.doc   ruwin_ctrl-UTF-8.map.gz    us.map.gz
+...
+</pre></div>
+<div class="section" id="configuracion-temporal">
+<span id="id2"></span><h3><a class="toc-backref" href="#id7">Configuración temporal</a></h3>
+<p>Suponiendo que queremos cargar el mapa de teclado <code>uk.map.gz</code>, hacemos:</p>
+<div class="highlight"><pre><span class="c"># loadkeys uk</span>
+</pre></div>
+<p>Esto cargará el mapa de teclado británico (<em>United Kingdom</em> [Reino Unido]).</p>
+<p>Cargaremos el mapa español con:</p>
+<div class="highlight"><pre><span class="c"># loadkeys es</span>
+</pre></div>
+<p><strong>Este ajuste es temporal</strong>, perdiéndose al reiniciar (o invocar de nuevo
+<code>loadkeys</code>). Aún así, conviene hacerlo primero, para tener un teclado
+responsivo lo antes posible.</p>
+</div>
+<div class="section" id="configuracion-persistente">
+<h3><a class="toc-backref" href="#id8">Configuración persistente</a></h3>
+<p>Una vez probado, lo fijamos en <code>/etc/vconsole.conf</code>:</p>
+<div class="highlight"><pre><span class="c"># nano /etc/vconsole.conf</span>
+-------------------------
+
+<span class="nv">KEYMAP</span><span class="o">=</span>es
+</pre></div>
+<p>O, más cómodamente, vía</p>
+<div class="highlight"><pre><span class="c"># localectl set-keymap --no-convert keymap</span>
+</pre></div>
+<p>Donde sustituiremos el <code>keymap</code> final por nuestro mapa de teclado.</p>
+<p>Al reiniciar, <code>initd</code> cargará este mapa de teclado.</p>
+</div>
+</div>
+<div class="section" id="fuentes-para-consola">
+<h2><a class="toc-backref" href="#id9">Fuentes para consola</a></h2>
+<p>La consola Linux emplea codificación <span class="caps">UTF</span>-8 por defecto, y las fuentes que
+puede utilizar están compuestas de 256 o 512 glifos (carácteres).</p>
+<p>Las fuentes disponibles (de forma predeterminada) para consola se encuentran
+en <code>/usr/share/kbd/consolefonts/</code>.</p>
+<div class="highlight"><pre><span class="c"># cd /usr/share/kbd/consolefonts/ &amp;&amp; ls</span>
+---------------------------------------
+...
+cp850-8x16.psfu.gz      iso01.16.gz                lat2-16.psfu.gz
+cp850-8x8.psfu.gz       iso02.08.gz                lat2a-16.psfu.gz
+cp857.08.gz             iso02-12x22.psfu.gz        Lat2-Terminus16.psfu.gz
+...
+</pre></div>
+<p>Los números al final del nombre de las fuentes hacen referencia a su tamaño.
+Cada archivo de fuente de consola tiene un tamaño fijo, por lo que antes de
+cambiarlo tendremos que comprobar si contamos con el archivo adecuado.</p>
+<p>Para una vista previa rápida, podemos consultar
+<a class="reference external" href="http://alexandre.deverteuil.net/pages/consolefonts/">Linux console fonts screenshots</a>, un índice bien organizado de la mayoría de
+estas fuentes, con capturas de pantalla.</p>
+<p><strong>Nota:</strong> Si escogemos una fuente de más de 256 glifos, el número de colores
+que se podrá mostrar por consola se reduce de 16 a 8.</p>
+<p>Como ya ocurriera con la configuración del <a class="reference internal" href="#id2">mapa de teclado</a>, disponemos de
+una opción para configurar temporalmente las fuentes, para su previsualización y prueba; y otra para fijarlas una vez hayamos hecho nuestra elección.</p>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id10">Configuración temporal</a></h3>
+<p>Podemos establecer temporalmente la fuente a usar con <code>setfont</code>:</p>
+<div class="highlight"><pre><span class="c"># setfont Lat2-Terminus16</span>
+</pre></div>
+<p>Establece la fuente <code>Lat2-Terminus16.psfu.gz</code>. Como anteriormente,
+prescindimos de las extensiones de archivo.</p>
+<p>Una vez establecida, podemos visualizar de manera rápida todos sus glifos con</p>
+<div class="highlight"><pre><span class="c"># showconsolefont</span>
+</pre></div>
+<p>En el caso de que la fuente que hayamos establecido no sea apropiada, podemos
+volver a la fuente por defecto ejecutando:</p>
+<div class="highlight"><pre><span class="c"># setfont</span>
+</pre></div>
+<p>Esto funciona incluso aunque la fuente establecida «rompa» la escritura y sólo
+veamos un galimatías: introducimos «a ciegas» el comando y pulsamos <strong>Enter</strong>.</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id11">Configuración persistente</a></h3>
+<p>Para que la fuente elegida perdure entre sesiones, tenemos que establecer la
+variable <code>FONT</code> en <code>/etc/vconsole.conf</code>:</p>
+<div class="highlight"><pre><span class="c"># nano /etc/vconsole.conf</span>
+-------------------------
+...
+<span class="nv">FONT</span><span class="o">=</span>Lat2-Terminus16
+</pre></div>
+<p>Yo uso la <code>sun12x22</code>. Es la que me resulta más usable por el tamaño de
+mi <span class="caps">TV</span>, para no dejarme las retinas :).</p>
+</div>
+</div>
+<div class="section" id="idioma-del-sistema">
+<h2><a class="toc-backref" href="#id12">Idioma del sistema</a></h2>
+<p>En Linux se utilizan unos archivos llamados <em>locale</em> para definir el idioma
+que queremos utilizar en el sistema. Es importante hacerlo, para que los
+programas muestren texto sin problemas, sobre todo si nuestro lenguaje
+contiene caracteres especiales.</p>
+<p>Descomentamos los locales necesarios del archivo <code>/etc/locale.gen</code>:</p>
+<div class="highlight"><pre><span class="c"># nano /etc/locale.gen</span>
+----------------------
+
+es_ES.UTF-8 UTF8
+es_ES@euro ISO-8859-15
+en_US.UTF-8 UTF-8
+</pre></div>
+<p>Y los generamos con el comando:</p>
+<div class="highlight"><pre><span class="c"># locale-gen</span>
+</pre></div>
+<p>Tras esto, establecemos nuestras preferencias globales en
+<code>/etc/locale.conf</code> y, de ser necesario, a nivel de usuario en
+<code>$HOME/.config/locale.conf</code>. Como no compartiré la <em>Raspberry</em>, con las
+globales será suficiente:</p>
+<div class="highlight"><pre><span class="c"># echo LANG=es_ES.UTF-8 &gt; /etc/locale.conf</span>
+</pre></div>
+</div>
+<div class="section" id="cambiar-contrasena-de-usuario-root">
+<h2><a class="toc-backref" href="#id13">Cambiar contraseña de usuario root</a></h2>
+<p>A estas alturas, ya no deberíamos tener ningún problema con el teclado, así
+que vamos a cambiar la contraseña de <em>root</em> por una menos evidente:</p>
+<div class="highlight"><pre><span class="c"># passwd</span>
+</pre></div>
+<p>Indicamos la contraseña elegida, y la reintroducimos para confirmarla.</p>
+</div>
+<div class="section" id="zona-horaria">
+<h2><a class="toc-backref" href="#id14">Zona horaria</a></h2>
+<p>Para ajustar la zona horaria haremos:</p>
+<div class="highlight"><pre><span class="c"># ln -sf /usr/share/zoneinfo/zona/subzona /etc/localtime</span>
+</pre></div>
+<p>Por lo que, siendo de España:</p>
+<div class="highlight"><pre><span class="c"># ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime</span>
+</pre></div>
+</div>
+<div class="section" id="configuracion-de-red">
+<h2><a class="toc-backref" href="#id15">Configuración de red</a></h2>
+<div class="section" id="conexion">
+<h3><a class="toc-backref" href="#id16">Conexión</a></h3>
+<p>Tengo la <em>Raspberry</em> conectada a un extensor de rango wifi, con puerto Ethernet, por lo que cree estar (y lo está, a fin de cuentas) conectada por
+cable, y se conecta automáticamente a internet.</p>
+</div>
+<div class="section" id="comprobacion-de-la-conexion">
+<h3><a class="toc-backref" href="#id17">Comprobación de la conexión</a></h3>
+<p>Podemos comprobar que tenemos conexión a internet haciendo ping, por ejemplo,
+a la <span class="caps">IP</span> <code>8.8.8.8</code> (uno de los <a class="reference external" href="https://developers.google.com/speed/public-dns/">servidores <span class="caps">DNS</span> públicos de Google</a>):</p>
+<div class="highlight"><pre><span class="c"># ping -c 3 8.8.8.8</span>
+-------------------
+PING 8.8.8.8 <span class="o">(</span>8.8.8.8<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+<span class="m">64</span> bytes from 8.8.8.8: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">55</span> <span class="nb">time</span><span class="o">=</span>52.8 ms
+<span class="m">64</span> bytes from 8.8.8.8: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">55</span> <span class="nb">time</span><span class="o">=</span>53.3 ms
+<span class="m">64</span> bytes from 8.8.8.8: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">55</span> <span class="nb">time</span><span class="o">=</span>52.5 ms
+
+--- 8.8.8.8 ping statistics ---
+<span class="m">3</span> packets transmitted, <span class="m">3</span> received, 0% packet loss, <span class="nb">time </span>2003ms
+rtt min/avg/max/mdev <span class="o">=</span> 52.567/52.924/53.312/0.304 ms
+</pre></div>
+<p>Repitiendo la misma operación, pero con un nombre de dominio, comprobamos que
+también funciona la resolución de nombres (<span class="caps">DNS</span>):</p>
+<div class="highlight"><pre><span class="c"># ping -c 3 google.es</span>
+
+PING google.es <span class="o">(</span>216.58.210.131<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+<span class="m">64</span> bytes from mad06s09-in-f3.1e100.net <span class="o">(</span>216.58.210.131<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">55</span> <span class="nb">time</span><span class="o">=</span>55.4 ms
+<span class="m">64</span> bytes from mad06s09-in-f3.1e100.net <span class="o">(</span>216.58.210.131<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">55</span> <span class="nb">time</span><span class="o">=</span>59.2 ms
+<span class="m">64</span> bytes from mad06s09-in-f3.1e100.net <span class="o">(</span>216.58.210.131<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">55</span> <span class="nb">time</span><span class="o">=</span>52.7 ms
+
+--- google.es ping statistics ---
+<span class="m">3</span> packets transmitted, <span class="m">3</span> received, 0% packet loss, <span class="nb">time </span>2002ms
+rtt min/avg/max/mdev <span class="o">=</span> 52.783/55.811/59.250/2.669 ms
+</pre></div>
+</div>
+<div class="section" id="establecer-un-nombre-de-host">
+<h3><a class="toc-backref" href="#id18">Establecer un nombre de host</a></h3>
+<p>El nombre de host es un valor único con el que se identifica a la máquina en
+la red (en este caso, local). Se configura en <code>/etc/hostname</code>:</p>
+<div class="highlight"><pre><span class="c"># nano /etc/hostname</span>
+--------------------
+
+mihostname
+</pre></div>
+<p>Editamos también <code>/etc/hosts</code>:</p>
+<div class="highlight"><pre><span class="c"># nano /etc/hosts</span>
+-------------------------------------------------
+<span class="c">#</span>
+<span class="c"># /etc/hosts: static lookup table for host names</span>
+<span class="c">#</span>
+
+<span class="c">#&lt;ip-address&gt;   &lt;hostname.domain.org&gt;   &lt;hostname&gt;</span>
+127.0.0.1       localhost.localdomain   mihostname
+::1             localhost.localdomain   mihostname
+</pre></div>
+<p>Una vez establecido el nombre de host, la resolución de nombres funciona
+localmente (en nuestro dispositivo):</p>
+<div class="highlight"><pre><span class="nv">$ </span>ping mihostname
+PING localhost.localdomain <span class="o">(</span>127.0.0.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+<span class="m">64</span> bytes from localhost.localdomain <span class="o">(</span>127.0.0.1<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nb">time</span><span class="o">=</span>0.024 ms
+</pre></div>
+</div>
+<div class="section" id="configuracion-de-ip">
+<h3><a class="toc-backref" href="#id19">Configuración de <span class="caps">IP</span></a></h3>
+<p>Podemos comprobar qué <span class="caps">IP</span> local nos ha asignado el <em>router</em> con el comando
+<code>ifconfig</code> (muestra una lista de las interfaces de red activas):</p>
+<div class="highlight"><pre><span class="c"># ifconfig</span>
+----------
+
+eth0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+    inet 192.168.1.11  netmask 255.255.255.0  broadcast 192.168.1.255
+    inet6 fe80::ba27:ebff:fe2c:fc1  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+    ether b8:27:eb:2c:0f:c1  txqueuelen <span class="m">1000</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+    RX packets <span class="m">3167870</span>  bytes <span class="m">179413466</span> <span class="o">(</span>171.1 MiB<span class="o">)</span>
+    RX errors <span class="m">0</span>  dropped <span class="m">1</span>  overruns <span class="m">0</span>  frame 0
+    TX packets <span class="m">4429905</span>  bytes <span class="m">1688715263</span> <span class="o">(</span>1.5 GiB<span class="o">)</span>
+    TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions 0
+
+lo: <span class="nv">flags</span><span class="o">=</span>73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen <span class="m">128</span>  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen <span class="m">0</span>  <span class="o">(</span>Local Loopback<span class="o">)</span>
+        RX packets <span class="m">16</span>  bytes <span class="m">1328</span> <span class="o">(</span>1.2 KiB<span class="o">)</span>
+        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame 0
+        TX packets <span class="m">16</span>  bytes <span class="m">1328</span> <span class="o">(</span>1.2 KiB<span class="o">)</span>
+        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions 0
+</pre></div>
+<p>En este caso (varía), <code>eth0</code> es nuestra interfaz de red. En la segunda y
+tercera línea localizamos nuestra IPv4 e IPv6, además de nuestra máscara de
+subred (<em>netmask</em>) y nuestra dirección de difusión (<em>broadcast</em>).</p>
+<p>En la tercera línea, <code>ether ...</code>, se nos proporciona la dirección física
+(<span class="caps">MAC</span>) de la <em>Raspberry</em>. La anotamos para decirle a nuestro router, desde
+otro equipo, que nos reserve una <span class="caps">IP</span> para el aparato.</p>
+<div class="figure align-center" style="width: 822px; height: auto; max-width: 100%;">
+<img alt="Concesión de IP fija" src="//soulchainer.github.io/images/2015/02/2015-02-05_02.png" style="width: 822px; height: auto; max-width: 100%;"/>
+<p class="caption">Lo que nos interesa es la <em>Static <span class="caps">IP</span> Lease List</em> (Lista de Concesiones de <span class="caps">IP</span> Estática). Hacemos clic en <strong>Add entries</strong> e indicamos la <span class="caps">MAC</span> de la <em>Raspberry</em> y la <span class="caps">IP</span> que queremos fijar.</p>
+<div class="legend">
+Cada router es un mundo: ancho y vasto es Internet.</div>
+</div>
+<p>Como el router ya nos asignó una <span class="caps">IP</span> de forma automática, será esta la que le
+pediremos que reserve para el aparato.</p>
+<p>También podemos hacer esto editando ciertos archivos del sistema, pero es más
+pesado. Y como no es algo que haga a menudo (no lo necesito), no entraré en ello.</p>
+</div>
+<div class="section" id="resolucion-de-nombres-en-la-red-local-con-zeroconf">
+<h3><a class="toc-backref" href="#id20">Resolución de nombres en la red local con Zeroconf</a></h3>
+<p>Este punto es totalmente opcional: simplemente me apetecía hacerlo.</p>
+<p>Una vez establecido el nombre de host, podemos usar <a class="reference external" href="http://es.wikipedia.org/wiki/Zeroconf">Zeroconf</a> para ubicar
+nuestras máquinas locales por nombre, en lugar de por <span class="caps">IP</span>.</p>
+<p>Lo instalamos en nuestros equipos <strong>Arch Linux</strong> con:</p>
+<div class="highlight"><pre><span class="c"># pacman -S avahi nss-mdns</span>
+</pre></div>
+<p>Supongamos que todas nuestras máquinas, que se llaman <em>nami</em>, <em>robin</em> y
+<em>chopper</em>, están ejecutando <em>Avahi</em> (una implementación libre de <em>Zeroconf</em>).
+Pues <em>Avahi</em> puede configurarse para evitarnos la gestión del archivo
+<code>/etc/hosts</code> en cada máquina (para resolver los nombres del resto). En
+vez de eso, usaremos <code>nami.local</code> para acceder a los servicios ofrecidos
+por <em>nami</em>.</p>
+<p>Sin embargo, la consulta a <code>.local</code> está restringida de forma
+predeterminada en <em>Arch Linux</em>. Para permitirla, hay que editar el archivo
+<code>/etc/nsswitch.conf</code>, sustituyendo la línea</p>
+<div class="highlight"><pre>hosts: files dns mihostname
+</pre></div>
+<p>por esta otra:</p>
+<div class="highlight"><pre>hosts: files mdns_minimal <span class="o">[</span><span class="nv">NOTFOUND</span><span class="o">=</span><span class="k">return</span><span class="o">]</span> dns mihostname
+</pre></div>
+<p>Del mismo modo, <em>Avahi</em> viene con el soporte para IPv6 deshabilitado. Tenemos
+que modificar la opción <code>use-ipv6</code> en
+<code>/etc/avahi/avahi-daemon.conf</code>:</p>
+<div class="highlight"><pre><span class="c"># nano /etc/avahi/avahi-daemon.conf</span>
+-----------------------------------
+...
+use-ipv6<span class="o">=</span>yes
+...
+</pre></div>
+<p>Tras hacer esto en todas las máquinas, activamos e iniciamos el servicio con:</p>
+<div class="highlight"><pre><span class="c"># systemctl enable avahi-daemon.service</span>
+<span class="c"># systemctl start avahi-daemon.service</span>
+</pre></div>
+<p>Hemos de tener en cuenta que <em>Avahi</em> sólo nos sirve para equipos que soporten
+una implementación de <em>Zeroconf</em> (en nuestro caso, Avahi) y estén
+correctamente configurados.</p>
+<p>Una vez configurado todo, suponiendo que <em>nami</em> es el nombre de host de
+nuestra <em>Raspberry</em>, podemos referirnos a ella por <code>nami.local</code>, sin
+necesidad de conocer su <span class="caps">IP</span>.</p>
+<hr class="docutils"/>
+<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/">ArchWiki</a>.</p>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Raspberry Pi es una marca registrada de la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>. El presente blog no tiene conexión alguna con la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/archlinux/">archlinux</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/avahi/">avahi</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/conexion/">conexión</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/configuracion/">configuración</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/consola/">consola</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/fuentes/">fuentes</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/instalacion/">instalación</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/raspberry-pi/">raspberry pi</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/red/">red</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/zeroconf/">zeroconf</a></li>
+    </ul>
+  </div>
+
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+              <li >
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/02/mi-raspberry/'>Mi Raspberry Pi (I): primer inicio del&nbsp;sistema</a>
+              </li>
+              <li class="active">
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/'>Mi Raspberry Pi (<span class="caps">II</span>): configuración&nbsp;local</a>
+              </li>
+      </ul>
+    </aside>
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="//soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="//soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="//soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
