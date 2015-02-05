@@ -1,0 +1,480 @@
+Mi Raspberry Pi (II): configuración local
+#########################################
+:date: 2015-02-05 23:59
+:tags: raspberry pi, instalación, configuración, linux, archlinux, avahi, zeroconf, red, conexión, fuentes, consola
+:category: CÓMOS, linux, Raspberry
+:slug: mi-raspberry-configuracion-local
+:author: Soulchainer
+:parts:  Mi_Raspberry
+:twsummary:  Ya hemos preparado el sistema operativo, que inicia con
+             normalidad, y nos hemos identificado como usuario root.
+             Como hay que configurar bastantes cosas, en este artículo nos
+             concentraremos en lo que yo hago localmente sobre la Raspberry
+             (antes de conectarme por SSH). Ya en el próximo artículo nos
+             conectaremos remotamente y realizaremos el resto de
+             configuraciones importantes.
+:twimg: 2015-02-05_01.png
+
+
+.. contents:: **Índice de contenido**
+..
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2015/02/2015-02-05_01.png
+    :alt: «Raspberry head». Muestra un muñeco de LEGO con una frambuesa como sombrero.
+    :target: https://flic.kr/p/gTUK3
+    :align: center
+
+    *Raspberry head*. Foto obra de `Howard Dickins`_, con `licencia Creative Commons`_. `Original`_. Algunos ajustes de color y limpiado del fondo.
+
+Ya hemos preparado el sistema operativo, que inicia con normalidad, y nos
+hemos identificado como usuario *root*.
+
+Como hay que configurar bastantes cosas, en este artículo nos concentraremos
+en lo que yo hago localmente sobre la *Raspberry Pi* [#]_ (antes de conectarme
+por SSH). Ya en el próximo artículo nos conectaremos remotamente y
+realizaremos el resto de configuraciones importantes.
+
+Dicho esto, vamos a ello.
+
+{END_SUMMARY}
+
+Mapa de teclado
+===============
+
+Por defecto, el mapa de teclado establecido es el estadounidense (*us*).
+
+¿Qué quiere decir esto? Pues que si tenemos, por ejemplo, un teclado español,
+algunas teclas tienen asignados caracteres distintos a lo que estamos
+acostumbrados, dificultándonos la escritura.
+
+--------------
+
+Unos **briconsejos** para apañarnos mientras no atinamos con el mapa correcto:
+
+- Si tenemos un teclado español, la *barra* (/) aparece pulsando la tecla del *guión* (-).
+- Podemos ayudarnos del autocompletado de la terminal, pulsando el tabulador [Tab ↹] una o dos veces para completar comandos/rutas o recibir sugerencias.
+
+-------------
+
+Así que lo primero que tenemos que hacer es cargar nuestro mapa de teclado
+preferido. Los mapas se encuentran en :code:`/usr/share/kbd/keymaps/`.
+
+.. code-block:: sh
+
+    # cd /usr/share/kbd/keymaps/i386 && ls
+    --------------------------------------
+
+    azerty/  bepo/  colemak/  dvorak/  fgGIod/  include/  olpc/  qwerty/  qwertz/
+
+Están organizados según la distribución del teclado (el orden físico de sus
+teclas). En España usamos QWERTY; si no es tu caso, consulta el artículo
+`«Distribución del teclado»`_.
+
+Conocida la distribución, exploramos el contenido de la carpeta homónima:
+
+.. code-block:: sh
+
+    # cd qwerty/ && ls
+    -------------------
+    ...
+    es.map.gz              nl2.map.gz      ruwin_ctrl-CP1251.map.gz   uk.map.gz
+    et.map.gz           nl.map.gz  ruwin_ctrl-KOI8-R.map.gz   us-acentos.map.gz
+    et-nodeadkeys.map.gz   no-latin1.doc   ruwin_ctrl-UTF-8.map.gz    us.map.gz
+    ...
+
+.. _mapa de teclado:
+
+Configuración temporal
+----------------------
+
+Suponiendo que queremos cargar el mapa de teclado :code:`uk.map.gz`, hacemos:
+
+.. code-block:: sh
+
+    # loadkeys uk
+
+Esto cargará el mapa de teclado británico (*United Kingdom* [Reino Unido]).
+
+Cargaremos el mapa español con:
+
+.. code-block:: sh
+
+  # loadkeys es
+
+**Este ajuste es temporal**, perdiéndose al reiniciar (o invocar de nuevo
+:code:`loadkeys`). Aún así, conviene hacerlo primero, para tener un teclado
+responsivo lo antes posible.
+
+Configuración persistente
+-------------------------
+
+Una vez probado, lo fijamos en :code:`/etc/vconsole.conf`:
+
+.. code-block:: sh
+
+    # nano /etc/vconsole.conf
+    -------------------------
+
+    KEYMAP=es
+
+O, más cómodamente, vía
+
+.. code-block:: sh
+
+    # localectl set-keymap --no-convert keymap
+
+Donde sustituiremos el :code:`keymap` final por nuestro mapa de teclado.
+
+Al reiniciar, :code:`initd` cargará este mapa de teclado.
+
+Fuentes para consola
+====================
+
+La consola Linux emplea codificación UTF-8 por defecto, y las fuentes que
+puede utilizar están compuestas de 256 o 512 glifos (carácteres).
+
+Las fuentes disponibles (de forma predeterminada) para consola se encuentran
+en :code:`/usr/share/kbd/consolefonts/`.
+
+.. code-block:: sh
+
+    # cd /usr/share/kbd/consolefonts/ && ls
+    ---------------------------------------
+    ...
+    cp850-8x16.psfu.gz      iso01.16.gz                lat2-16.psfu.gz
+    cp850-8x8.psfu.gz       iso02.08.gz                lat2a-16.psfu.gz
+    cp857.08.gz             iso02-12x22.psfu.gz        Lat2-Terminus16.psfu.gz
+    ...
+
+Los números al final del nombre de las fuentes hacen referencia a su tamaño.
+Cada archivo de fuente de consola tiene un tamaño fijo, por lo que antes de
+cambiarlo tendremos que comprobar si contamos con el archivo adecuado.
+
+Para una vista previa rápida, podemos consultar
+`Linux console fonts screenshots`_, un índice bien organizado de la mayoría de
+estas fuentes, con capturas de pantalla.
+
+**Nota:** Si escogemos una fuente de más de 256 glifos, el número de colores
+que se podrá mostrar por consola se reduce de 16 a 8.
+
+Como ya ocurriera con la configuración del `mapa de teclado`_, disponemos de
+una opción para configurar temporalmente las fuentes, para su previsualización y prueba; y otra para fijarlas una vez hayamos hecho nuestra elección.
+
+Configuración temporal
+----------------------
+
+Podemos establecer temporalmente la fuente a usar con :code:`setfont`:
+
+.. code-block:: sh
+
+    # setfont Lat2-Terminus16
+
+Establece la fuente :code:`Lat2-Terminus16.psfu.gz`. Como anteriormente,
+prescindimos de las extensiones de archivo.
+
+Una vez establecida, podemos visualizar de manera rápida todos sus glifos con
+
+.. code-block:: sh
+
+    # showconsolefont
+
+En el caso de que la fuente que hayamos establecido no sea apropiada, podemos
+volver a la fuente por defecto ejecutando:
+
+.. code-block:: sh
+
+    # setfont
+
+Esto funciona incluso aunque la fuente establecida «rompa» la escritura y sólo
+veamos un galimatías: introducimos «a ciegas» el comando y pulsamos **Enter**.
+
+Configuración persistente
+-------------------------
+
+Para que la fuente elegida perdure entre sesiones, tenemos que establecer la
+variable :code:`FONT` en :code:`/etc/vconsole.conf`:
+
+.. code-block:: sh
+
+    # nano /etc/vconsole.conf
+    -------------------------
+    ...
+    FONT=Lat2-Terminus16
+
+Yo uso la :code:`sun12x22`. Es la que me resulta más usable por el tamaño de
+mi TV, para no dejarme las retinas :).
+
+Idioma del sistema
+==================
+
+En Linux se utilizan unos archivos llamados *locale* para definir el idioma
+que queremos utilizar en el sistema. Es importante hacerlo, para que los
+programas muestren texto sin problemas, sobre todo si nuestro lenguaje
+contiene caracteres especiales.
+
+Descomentamos los locales necesarios del archivo :code:`/etc/locale.gen`:
+
+.. code-block:: sh
+
+  # nano /etc/locale.gen
+  ----------------------
+
+  es_ES.UTF-8 UTF8
+  es_ES@euro ISO-8859-15
+  en_US.UTF-8 UTF-8
+
+Y los generamos con el comando:
+
+.. code-block:: sh
+
+  # locale-gen
+
+Tras esto, establecemos nuestras preferencias globales en
+:code:`/etc/locale.conf` y, de ser necesario, a nivel de usuario en
+:code:`$HOME/.config/locale.conf`. Como no compartiré la *Raspberry*, con las
+globales será suficiente:
+
+.. code-block:: sh
+
+  # echo LANG=es_ES.UTF-8 > /etc/locale.conf
+
+Cambiar contraseña de usuario root
+==================================
+
+A estas alturas, ya no deberíamos tener ningún problema con el teclado, así
+que vamos a cambiar la contraseña de *root* por una menos evidente:
+
+.. code-block:: sh
+
+    # passwd
+
+Indicamos la contraseña elegida, y la reintroducimos para confirmarla.
+
+Zona horaria
+============
+
+Para ajustar la zona horaria haremos:
+
+.. code-block:: sh
+
+  # ln -sf /usr/share/zoneinfo/zona/subzona /etc/localtime
+
+Por lo que, siendo de España:
+
+.. code-block:: sh
+
+  # ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+
+Configuración de red
+====================
+
+Conexión
+--------
+
+Tengo la *Raspberry* conectada a un extensor de rango wifi, con puerto Ethernet, por lo que cree estar (y lo está, a fin de cuentas) conectada por
+cable, y se conecta automáticamente a internet.
+
+Comprobación de la conexión
+---------------------------
+
+Podemos comprobar que tenemos conexión a internet haciendo ping, por ejemplo,
+a la IP :code:`8.8.8.8` (uno de los `servidores DNS públicos de Google`_):
+
+.. code-block:: sh
+
+    # ping -c 3 8.8.8.8
+    -------------------
+    PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=55 time=52.8 ms
+    64 bytes from 8.8.8.8: icmp_seq=2 ttl=55 time=53.3 ms
+    64 bytes from 8.8.8.8: icmp_seq=3 ttl=55 time=52.5 ms
+
+    --- 8.8.8.8 ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+    rtt min/avg/max/mdev = 52.567/52.924/53.312/0.304 ms
+
+Repitiendo la misma operación, pero con un nombre de dominio, comprobamos que
+también funciona la resolución de nombres (DNS):
+
+.. code-block:: sh
+
+    # ping -c 3 google.es
+
+    PING google.es (216.58.210.131) 56(84) bytes of data.
+    64 bytes from mad06s09-in-f3.1e100.net (216.58.210.131): icmp_seq=1 ttl=55 time=55.4 ms
+    64 bytes from mad06s09-in-f3.1e100.net (216.58.210.131): icmp_seq=2 ttl=55 time=59.2 ms
+    64 bytes from mad06s09-in-f3.1e100.net (216.58.210.131): icmp_seq=3 ttl=55 time=52.7 ms
+
+    --- google.es ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+    rtt min/avg/max/mdev = 52.783/55.811/59.250/2.669 ms
+
+Establecer un nombre de host
+----------------------------
+
+El nombre de host es un valor único con el que se identifica a la máquina en
+la red (en este caso, local). Se configura en :code:`/etc/hostname`:
+
+.. code-block:: sh
+
+    # nano /etc/hostname
+    --------------------
+
+    mihostname
+
+Editamos también :code:`/etc/hosts`:
+
+.. code-block:: sh
+
+    # nano /etc/hosts
+    -------------------------------------------------
+    #
+    # /etc/hosts: static lookup table for host names
+    #
+
+    #<ip-address>   <hostname.domain.org>   <hostname>
+    127.0.0.1       localhost.localdomain   mihostname
+    ::1             localhost.localdomain   mihostname
+
+Una vez establecido el nombre de host, la resolución de nombres funciona
+localmente (en nuestro dispositivo):
+
+.. code-block:: sh
+
+    $ ping mihostname
+    PING localhost.localdomain (127.0.0.1) 56(84) bytes of data.
+    64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=1 ttl=64 time=0.024 ms
+
+Configuración de IP
+-------------------
+
+Podemos comprobar qué IP local nos ha asignado el *router* con el comando
+:code:`ifconfig` (muestra una lista de las interfaces de red activas):
+
+.. code-block:: sh
+
+    # ifconfig
+    ----------
+
+    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.11  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::ba27:ebff:fe2c:fc1  prefixlen 64  scopeid 0x20<link>
+        ether b8:27:eb:2c:0f:c1  txqueuelen 1000  (Ethernet)
+        RX packets 3167870  bytes 179413466 (171.1 MiB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 4429905  bytes 1688715263 (1.5 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+    lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+            inet 127.0.0.1  netmask 255.0.0.0
+            inet6 ::1  prefixlen 128  scopeid 0x10<host>
+            loop  txqueuelen 0  (Local Loopback)
+            RX packets 16  bytes 1328 (1.2 KiB)
+            RX errors 0  dropped 0  overruns 0  frame 0
+            TX packets 16  bytes 1328 (1.2 KiB)
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+En este caso (varía), :code:`eth0` es nuestra interfaz de red. En la segunda y
+tercera línea localizamos nuestra IPv4 e IPv6, además de nuestra máscara de
+subred (*netmask*) y nuestra dirección de difusión (*broadcast*).
+
+En la tercera línea, :code:`ether ...`, se nos proporciona la dirección física
+(MAC) de la *Raspberry*. La anotamos para decirle a nuestro router, desde
+otro equipo, que nos reserve una IP para el aparato.
+
+.. figure:: {filename}/images/2015/02/2015-02-05_02.png
+    :alt: Concesión de IP fija
+    :align: center
+
+    Lo que nos interesa es la *Static IP Lease List* (Lista de Concesiones de IP Estática). Hacemos clic en **Add entries** e indicamos la MAC de la *Raspberry* y la IP que queremos fijar.
+
+    Cada router es un mundo: ancho y vasto es Internet.
+
+Como el router ya nos asignó una IP de forma automática, será esta la que le
+pediremos que reserve para el aparato.
+
+También podemos hacer esto editando ciertos archivos del sistema, pero es más
+pesado. Y como no es algo que haga a menudo (no lo necesito), no entraré en
+ello.
+
+Resolución de nombres en la red local con Zeroconf
+--------------------------------------------------
+
+Este punto es totalmente opcional: simplemente me apetecía hacerlo.
+
+Una vez establecido el nombre de host, podemos usar `Zeroconf`_ para ubicar
+nuestras máquinas locales por nombre, en lugar de por IP.
+
+Lo instalamos en nuestros equipos **Arch Linux** con:
+
+.. code-block:: sh
+
+    # pacman -S avahi nss-mdns
+
+Supongamos que todas nuestras máquinas, que se llaman *nami*, *robin* y
+*chopper*, están ejecutando *Avahi* (una implementación libre de *Zeroconf*).
+Pues *Avahi* puede configurarse para evitarnos la gestión del archivo
+:code:`/etc/hosts` en cada máquina (para resolver los nombres del resto). En
+vez de eso, usaremos :code:`nami.local` para acceder a los servicios ofrecidos
+por *nami*.
+
+Sin embargo, la consulta a :code:`.local` está restringida de forma
+predeterminada en *Arch Linux*. Para permitirla, hay que editar el archivo
+:code:`/etc/nsswitch.conf`, sustituyendo la línea
+
+.. code-block:: sh
+
+    hosts: files dns mihostname
+
+por esta otra:
+
+.. code-block:: sh
+
+    hosts: files mdns_minimal [NOTFOUND=return] dns mihostname
+
+Del mismo modo, *Avahi* viene con el soporte para IPv6 deshabilitado. Tenemos
+que modificar la opción :code:`use-ipv6` en
+:code:`/etc/avahi/avahi-daemon.conf`:
+
+.. code-block:: sh
+
+    # nano /etc/avahi/avahi-daemon.conf
+    -----------------------------------
+    ...
+    use-ipv6=yes
+    ...
+
+Tras hacer esto en todas las máquinas, activamos e iniciamos el servicio con:
+
+.. code-block:: sh
+
+    # systemctl enable avahi-daemon.service
+    # systemctl start avahi-daemon.service
+
+Hemos de tener en cuenta que *Avahi* sólo nos sirve para equipos que soporten
+una implementación de *Zeroconf* (en nuestro caso, Avahi) y estén
+correctamente configurados.
+
+Una vez configurado todo, suponiendo que *nami* es el nombre de host de
+nuestra *Raspberry*, podemos referirnos a ella por :code:`nami.local`, sin
+necesidad de conocer su IP.
+
+---------------
+
+**Fuentes:** `ArchWiki`_.
+
+.. [#] Raspberry Pi es una marca registrada de la `Raspberry Pi Foundation`_. El presente blog no tiene conexión alguna con la `Raspberry Pi Foundation`_.
+
+.. _Howard Dickins: https://www.flickr.com/photos/dorkomatic/
+.. _licencia Creative Commons: https://creativecommons.org/licenses/by-nc-sa/2.0/
+.. _Original: https://flic.kr/p/gTUK3
+.. _«Distribución del teclado»: http://es.wikipedia.org/wiki/Distribuci%C3%B3n_del_teclado
+.. _Linux console fonts screenshots: http://alexandre.deverteuil.net/pages/consolefonts/
+.. _Profont: http://tobiasjung.name/profont/
+.. _Dina Programming Font: http://www.donationcoder.com/Software/Jibz/Dina/index.html
+.. _servidores DNS públicos de Google: https://developers.google.com/speed/public-dns/
+.. _Zeroconf: http://es.wikipedia.org/wiki/Zeroconf
+.. _ArchWiki: https://wiki.archlinux.org/
+.. _Raspberry Pi Foundation: http://www.raspberrypi.org/
