@@ -1,0 +1,251 @@
+Alejaos de la tarjeta prepago de Paypal mientras la gestione YoUniqueMoney
+##########################################################################
+:date: 2015-02-09 18:55
+:tags: tarjeta, crédito, prepago, paypal, yum, mastercard, YoUniqueMoney, consumo, atención, problema
+:category: consumo, denuncia
+:slug: no-tocar-tarjeta-prepago-paypal
+:author: Soulchainer
+:twsummary: Antes de empezar, por si cabe la más mínima duda, quiero subrayar
+            y dejar bien claro que mi problema no es con Paypal. Sólo me he
+            visto en la necesidad de contactar con ellos en un par de
+            ocasiones, y el trato ha sido siempre el mismo: excelente. Tienen
+            un equipo muy eficaz, hablan tu idioma y da gusto hablar con cada
+            uno de ellos.
+            Este artículo de opinión (y denuncia) es sobre YoUniqueMoney. Esta
+            «empresa» es la que gestiona la tarjeta prepago de Paypal.
+:twimg: 2015-02-09_01.png
+
+.. figure:: {filename}/images/2015/02/2015-02-09_01.png
+    :alt: Tarjeta de prepago de Paypal, gestionada por YoUniqueMoney
+    :align: left
+
+    El objeto de la discordia.
+
+Hoy vengo con un tema que se sale de la temática general de este blog. Esto es
+un aviso para todos vosotros, navegantes. Quien avisa no es traidor y si no
+nos ayudamos nosotros, ¿quién lo va a hacer?
+
+Antes de empezar, por si cabe la más mínima duda, quiero subrayar y dejar
+bien claro que **mi problema no es con** `Paypal`_. Sólo me he visto en la
+necesidad de contactar con ellos en un par de ocasiones y el trato ha sido
+siempre el mismo: **excelente**. Tienen un equipo muy eficaz, hablan tu idioma
+y da gusto hablar con cada uno de ellos. Este artículo de opinión (y denuncia)
+es sobre `YoUniqueMoney`_. Esta «empresa» es la que gestiona la
+`tarjeta prepago`_ de Paypal.
+
+Os pongo en antecedentes.
+
+Tal día como hoy, el 16 de octubre de 2013, me pongo en contacto con
+YoUniqueMoney, a través de su buzón de contacto.
+`Mi consulta <{filename}/images/2015/02/2015-02-09_02.png>`_, que es mía y
+sólo mía, puedo
+`reproducirla aquí <{filename}/images/2015/02/2015-02-09_02.png>`_, supongo:
+
+    Asunto: Sobre el concepto de "actividad"
+
+    Duda o consulta:
+
+    "Cuota de mantenimiento o uso, gratis para siempre mientras realice
+    actividad. Si no tiene un movimiento en 12 meses se le cargará una cuota
+    de no uso de 5 €". Quisiera saber que se entiende por "actividad". ¿Sólo
+    realizar pagos? ¿O tb realizar ingresos? Vamos, lo que quiero saber es: si
+    un año sólo ingreso 5€, ¿eso cuenta como actividad? ¿O me cobrarían 5 €
+    por ingresar en todo el año sólo 5€? Porque solo tendría la tarjeta para
+    usarla en los sitios que no admiten paypal. Y apenas compro ahí.
+
+Observad que he enlazado captura de pantalla del correo original en los
+anteriores enlaces.
+
+En cuanto a la respuesta de la «compañía», no puedo reproducirla, porque
+adjuntan a sus correos (a calidad lamentable, como su servicio, mira) una
+imagen donde se puede leer (con lupa o buena vista) que te prohiben
+reproducir, sin previa autorización escrita por su parte, lo que sea que te
+contesten, bla bla bla.
+
+Todo esto con su oportuna dosis de faltas de ortografía: «coreo» y «direción».
+¡Bravo!
+
+En fin, que te prohiben divulgar lo que te responden. Esto abona el terreno a
+la falacia y la mentira (dos mismas cosas son, son dos cosas mismas), ¿eh?
+Puedes preguntar sobre sus condiciones, y ellos responderte algo totalmente
+falso, que luego tú no puedes divulgarlo para ponerlos de hoja a perejil con todas las de la ley. ¡Genial! ¡Superpráctico! :D.
+
+No sé cuán legal será esta práctica, teniendo en cuenta que es una mera
+consulta y yo soy la parte afectada. Eso y que lo consultado
+**debería de estar indicado expresamente en sus Preguntas Frecuentes/Terminos del servicio**.
+Al menos si quieres hacer como que eres una empresa seria y digna de confianza.
+Como, por ejemplo, `Pepephone`_ (otra empresa que presta un servicio con una
+calidad poco habitual).
+
+Si alguno de los presentes está puesto en leyes y puede arrojar algo de luz
+sobre la legalidad de esta práctica, bienvenido sea.
+
+En cualquier caso, yo no voy a «divulgar» el contenido de dicha comunicación.
+Baste decir que me convencen de que, cumpliendo ciertas condiciones, no voy a
+tener que pagar comisiones, tal y como prometen.
+
+Esa garantía es un factor determinante en mi decisión de solicitar la tarjeta.
+
+Y, brevemente, se cumple. Pero llega un momento, meses después, en el que en
+tu panel personal te aparece este aviso:
+
+    Les comunicamos que el próximo 1 de septiembre entrará en vigor la
+    **comisión de servicio** operativo de la tarjeta prepago PayPal, el
+    importe será de **5 euros** al año el cual se devengará, en base a las condiciones operativas de la tarjeta, a partir del 1 de Julio del 2015
+
+¿Eh? ¿Comisión? ¿5 euros? ¿Perdona? ¿Pero esto no era sin comisiones?
+
+Esto es una vulneración de los términos del contrato. Contrato del que, ahora
+que lo menciono, en ningún momento se te da copia del mismo. Esto es otra
+irregularidad, ¿no? Una tarjeta sin contrato: wiiiiii.
+
+Vale. Dejemos de lado la cuestión de si esto es o no inmoral. Digamos que
+«todos los bancos lo hacen», ¿vale? O que «igual luego se han visto forzados
+por la ley» (esa ley que los bancos fuerzan a que se cambie para «verse
+obligados a cobrar nuevas comisiones a sus clientes, aún contra su voluntad»).
+Pongámonos ahí, ¿vale? Han cumplido unos meses sin cobrarte comisión, ¿no?
+Y la comisión aún no te la han cobrado, hombre: es para 2015 el primer
+cobro. «Tranqui, tron», que esto a ti no te llega, hombre. Ya la cancelarás
+antes.
+
+Por cierto, ¿`qué dirá la sección de preguntas frecuentes sobre esto  <{filename}/images/2015/02/2015-02-09_03.png>`_? [#]_
+
+    ¿Tengo que pagar alguna comisión anual o mensual por el mantenimiento de la tarjeta?
+
+    No, no es necesario pagar ninguna comisión por el mantenimiento de la tarjeta siempre y cuando realice algún movimiento de recarga o de gasto en los últimos 12 meses. De no hacerlo, se le deducirán 5 € de su saldo.
+
+¡Anda! Pues no avisa de que **te van a cobrar comisión SÍ O SÍ**. Ji ji ji.
+¡Un «gazapo»!
+
+Pero sigamos, sigamos. Es 31 de diciembre de 2014. Se acaba este año de
+mierda, ¡VIVA!
+
+Estoooooo... ¿QUÉ?
+
+.. figure:: {filename}/images/2015/02/2015-02-09_04.png
+    :alt: Comisión de 15 euros por la patilla
+    :align: center
+
+    Comisión de 15 euros por la patilla. No hay información ni registro de a cuento de qué viene esto en ningún sitio.
+
+
+
+¿15 euros de «**COMISIÓN SERVICIO WEB: ALTA Y MANTENIMIENTO**»? ¿Pero qué
+mierda es esta? Quince euros, ¿eh? No cinco. Y además, a no ser que me haya
+despistado, aún no estamos a julio, ¿no? En Murcia es febrero, ¿a qué mes
+andáis por ahí, navegantes?
+
+Después, ven que me han hecho un feo dejándome el saldo negativo... y me lo
+igualan. Qué majos. «Sólo» me han cobrado 7.47 euros sin razón alguna.
+
+Tras tamaño sablazo, voy, y unos días después (cuando me doy cuenta, porque es
+importante señalar que **YoUniqueMoney no te informa de los movimientos** de
+la tarjeta por correo),
+`les escribo de nuevo  <{filename}/images/2015/02/2015-02-09_05.png>`_.
+
+El tono en esta ocasión peca de descortés, dada la situación:
+
+    Asunto:¿¿Comisión de mantenimiento??
+
+    Duda o consulta:
+
+    Hola. Me gustaría que me explicaran esto, para saber si tengo que dar de baja mi tarjeta YA o qué. Desde hace tiempo está este aviso: "Les comunicamos que el próximo 1-09 entrará en vigor la comisión de servicio operativo blabla el importe será de 5€/año el cual se devengará a partir del 1-07-2015". Y voy y me encuentro con que váis y me cargáis 15€. 15€ por "comisión servicio web". Y luego, como os coméis todo lo que tenía en cuenta, lo ponéis a 0. Total: os chupáis 7.53€. ¿Qué es esto?
+
+Y, como ya os imaginaréis, estamos ante el primer correo que no me contestan.
+Se hacen los suecos y los noruegos, no habiendo fallado hasta ahora nunca este
+canal de comunicación. Como si no lo hubieran recibido.
+
+Y espero, espero... y me olvido un poco del tema. Lo voy dejando.
+Hasta que viene hoy mi hermana de visita a casa. Y, de pasada, me cuenta que
+se ha hecho esta tarjeta (en su día le hablé sobre ella, igual que le conté lo
+del cobro... «irregular»). Y esto me anima (además de a matarla a pescozones)
+a zanjar el problema de una vez. Sí, lo habéis adivinado: me dispongo a
+**cancelar la tarjeta**.
+
+Aquí, de nuevo, nos llega un ligero tufillo procedente del sitio web de la
+«empresa»:
+**no hay instrucciones en ningún sitio de como cancelar la cuenta**.
+Esto ha de ser ilegal, fijo.
+
+Puesto que no me queda otra, y dado que el correo no funciona y es muy lento,
+llamo. El teléfono de (des)atención al cliente (que podemos encontrar en su
+sección `Contacto`_) es el **902 006 321**.
+
+¿Notáis algo raro? ¡Exacto! Es un **902**. No es gratuito. Vaaaaaale.
+
+Marco.
+
+    — Bla bla bla bla —llamada en espera—, usted es la llamada número 23.
+    El tiempo de espera estimado es de **2 minutos**. Gracias por su paciencia.
+
+Corren los minutos, con actualizaciones periódicas de mi lugar en la cola y
+del tiempo estimado de espera. Conforme pasa el tiempo, avanzo
+(trabajosamente) en la cola.
+Al mismo tiempo, fijaos qué curioso, mi tiempo estimado de espera se
+incrementa escandalosamente: de dos minutos, a uno y luego in crescendo hasta
+los **25 minutos** cuando ya llevo **28:56 minutos de espera**.
+
+En ese punto ya me he atascado el séptimo en la cola, y veo que no me van a
+mover de ahí: hay que recaudar bastante con las llamadas. Todo apunta a que
+es otra forma de «cobrar de forma irregular» sus «servicios», así que opto por
+colgar. Me da rabia, porque ya me sospechaba la estrategia desde antes de
+llamar, pero necesitaba hacer esa llamada. Pensaba que al menos lo cogerían.
+Y, tras un rato al teléfono, colgar implicaba haber tirado todo ese dinero
+para nada (como al final ha sido).
+
+Si hacemos una rápida búsqueda en `DuckDuckGo`_, podemos comprobar que
+`tienen a la gente muy contenta con su «servicio»`_.
+
+He hablado con mi padre y mañana pienso acercarme a la
+`Oficina de atención al consumidor`_, llevando toda la documentación que
+pueda. A ver lo que se puede hacer.
+
+Vale que son sólo 7.47 euros, pero **son mis 7.47 euros**. Y unos euros de
+aquí y otros de allá son una fortuna para esta gente.
+
+Después de decidir esto, también he llamado a Paypal, para poner una queja
+sobre YoUniqueMoney. Me ha atendido *Rocío* (un saludo desde aquí para ella,
+un trato excelente, como siempre: amabilísima) y más o menos me ha venido a
+confirmar lo que ya supondréis: tienen **bastantes** quejas sobre esta
+«empresa» y la tarjeta prepago. Me ha informado además de que YoUniqueMoney ha
+devuelto el dinero a algunos «afectados» y me ha asegurado de que me
+informarán en cuanto se sepa algo o se revise mi caso, comentándome que
+entiende perfectamente mi postura y que sí, que esto no quita para que vaya a
+la *Oficina de atención al consumidor*, que estoy en mi derecho.
+
+Así que nada: a ello. Y avisados quedáis: si estabais pensando en haceros una
+de estas tarjetas, yo de vosotros me lo pensaba dos veces.
+
+Un saludo a todos (menos a YoUniqueMoney) ;)
+
+**Nota:** actualizaré en cuando tenga nuevas noticias del tema, por si a
+alguien le interesa.
+
+**Actualización:** conforme redactaba el artículo, ha habido
+`una actualización en la página de mi tarjeta  <{filename}/images/2015/02/2015-02-09_06.png>`_:
+
+    Usted no dispone de una cuenta PayPal asociada a la dirección de correo electrónico que ha proporcionado. Le recomendamos que active su cuenta PayPal para comprar en internet y desde el móvil de un modo aún más fácil y seguro.
+
+    - Más información y ventajas de las cuentas PayPal
+    - Pulse el botón "Activar" para activar su nueva cuenta PayPal y crear la contraseña.
+
+Lo que implica que el equipo de Paypal me la ha desactivado. Esta gente
+trabaja rápido. O lo ha hecho la gente de Paypal, o se han puesto en contacto
+con YoUniqueMoney y me la han deshabilitado ellos. Yo no sabía exactamente
+como debía proceder. Total: más dinero no me pueden quitar.
+
+A ver en qué queda la cosa. Quedo a la espera de noticias por parte de Paypal
+y de mi visita mañana a la *Oficina de atención al consumidor*.
+
+------------------------
+
+.. [#] La única sección de preguntas frecuentes que tienen actualmente es esta: http://www.youniquemoney.es/home/preguntasFrecuentes. Arriba hay un enlace a lo que dice en el momento en el que se publica este blog, muchos meses después del susodicho aviso de comisión en ciernes.
+
+.. _Paypal: https://www.paypal.com/es
+.. _YoUniqueMoney: http://www.youniquemoney.es/
+.. _tarjeta prepago: https://www.paypal-prepago.es
+.. _Pepephone: http://www.pepephone.com/
+.. _Contacto: http://www.youniquemoney.es/home/contactar
+.. _DuckDuckGo: https://duckduckgo.com/
+.. _tienen a la gente muy contenta con su «servicio»: http://www.tarjetapaypal.com/opiniones-tarjeta-paypal-mastercard/
+.. _Oficina de atención al consumidor: http://www.carm.es/web/pagina?IDCONTENIDO=6452&IDTIPO=221&RASTRO=c244$m9185
