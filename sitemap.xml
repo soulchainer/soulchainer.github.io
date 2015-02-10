@@ -327,7 +327,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>//soulchainer.github.io/tags/imagen/</loc>
->>>>>>> working
 <lastmod>2014-06-11T23:59:00-00:15</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -355,8 +354,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>//soulchainer.github.io/tags/atencion/</loc>
-<lastmod>2015-02-10T17:25:00-00:15</lastmod>
+<loc>//soulchainer.github.io/tags/html5/</loc>
+<lastmod>2014-01-13T17:15:00-00:15</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -392,7 +391,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>//soulchainer.github.io/tags/compilacion/</loc>
 <lastmod>2014-12-20T17:00:00-00:15</lastmod>
->>>>>>> working
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
