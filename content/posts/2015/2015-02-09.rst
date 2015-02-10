@@ -1,6 +1,7 @@
 Alejaos de la tarjeta prepago de Paypal mientras la gestione YoUniqueMoney
 ##########################################################################
 :date: 2015-02-09 18:55
+:modified: 2015-02-10 17:25
 :tags: tarjeta, crédito, prepago, paypal, yum, mastercard, YoUniqueMoney, consumo, atención, problema
 :category: consumo, denuncia
 :slug: no-tocar-tarjeta-prepago-paypal
@@ -15,9 +16,15 @@ Alejaos de la tarjeta prepago de Paypal mientras la gestione YoUniqueMoney
             «empresa» es la que gestiona la tarjeta prepago de Paypal.
 :twimg: 2015-02-09_01.png
 
+
+.. contents:: **Índice de contenido**
+..
+
+{BEGIN_SUMMARY}
+
 .. figure:: {filename}/images/2015/02/2015-02-09_01.png
     :alt: Tarjeta de prepago de Paypal, gestionada por YoUniqueMoney
-    :align: left
+    :align: center
 
     El objeto de la discordia.
 
@@ -34,6 +41,8 @@ es sobre `YoUniqueMoney`_. Esta «empresa» es la que gestiona la
 `tarjeta prepago`_ de Paypal.
 
 Os pongo en antecedentes.
+
+{END_SUMMARY}
 
 Tal día como hoy, el 16 de octubre de 2013, me pongo en contacto con
 YoUniqueMoney, a través de su buzón de contacto.
@@ -221,7 +230,10 @@ Un saludo a todos (menos a YoUniqueMoney) ;)
 **Nota:** actualizaré en cuando tenga nuevas noticias del tema, por si a
 alguien le interesa.
 
-**Actualización:** conforme redactaba el artículo, ha habido
+Actualización (2015-02-09)
+==========================
+
+Conforme redactaba el artículo, ha habido
 `una actualización en la página de mi tarjeta  <{filename}/images/2015/02/2015-02-09_06.png>`_:
 
     Usted no dispone de una cuenta PayPal asociada a la dirección de correo electrónico que ha proporcionado. Le recomendamos que active su cuenta PayPal para comprar en internet y desde el móvil de un modo aún más fácil y seguro.
@@ -237,6 +249,134 @@ como debía proceder. Total: más dinero no me pueden quitar.
 A ver en qué queda la cosa. Quedo a la espera de noticias por parte de Paypal
 y de mi visita mañana a la *Oficina de atención al consumidor*.
 
+Actualización (2015-02-10)
+==========================
+
+Anoche mismo, aconsejado por mi padre, volví a escribir a YoUniqueMoney, vía
+su formulario de contacto. Si se podía evitar tener que ir a la
+*Oficina de atención al consumidor*, eso que nos ahorrábamos.
+
+Les escribí lo siguiente:
+
+    Asunto:Devolución de comisión injustificada +cancelación tarjeta
+
+    Duda o consulta:
+
+    El 19-01 mandé un correo solicitando explicaciones sobre cargo de comisiones injustificadas,15€.Se ignoró.No espero q este correo se atienda,pero me han recomendado q de otra oportunidad antes de ir a la oficina de atención al consumidor.Me gustaría recuperar los 7.47 € q se me cobraron injustificadamente el 31-12,como a otros clientes,poder retirarlos de la tarjeta por algún medio,y cancelar después mi tarjeta prepago,sin llamadas interminables a 902 con fin recaudatorio. En 3-4 días. Gracias.
+
+El tono puede parecer en extremo exigente, dada la brevedad que me imponen los
+500 caracteres de dicho formulario.
+
+Al caso: acabo de revisar el correo y me ha sorprendido ver que esta vez me
+han contestado increíblemente rápido. Como para esta comunicación no hay
+avisito en plan «te prohibimos que hables de lo que te comentamos», como era
+el caso de las anteriores comunicaciones, y como la comunicación es para mí,
+pues paso a reproducirla.
+
+    Buenos días.
+
+
+    La tarjeta prepago de PAYPAL ha quedado inoperativa.
+
+
+    Puede reclamar los importes que crea oportunos en el PDF y en el e-mail que podrá encontrar en http://www.youniquemoney.es/.
+
+
+    Puede consultar toda la información en la página web de la tarjeta ww.paypal-prepago.es marcando cualquier opción menos el de acceso a la oficina virtual; o directamente en la página web de nuestra empresa en http://www.youniquemoney.es/.
+
+
+    Siga las instrucciones del comunicado oficial para que podamos a abonarle el saldo en la cuenta que nos indique.
+
+
+    Lamentamos las molestias.
+
+    Atentamente,
+
+    Dpto. Operaciones
+    www.paypal-prepago.es
+
+Parece que les han apretado bien las tuercas y nos devuelven el dinero, gente
+;). Además de chapar el servicio, porque
+**4B ha suspendido la autorización de todas las tarjetas emitidas por ellos**.
+
+Leyendo `el aviso que han publicado en su página web`_, parece que tan sólo
+tenemos que descargar `este PDF`_, rellenarlo, y enviarlo, adjuntando
+justificante de titularidad de la cuenta corriente (donde queremos que nos
+ingresen el dinero) y copia del DNI del titular de la tarjeta, al correo
+administracion@youniquemoney.es.
+
+Ah, y dicen que:
+
+    LO SENTIMOS MUCHO
+
+Por habernos sustraído nuestro dinero. No diréis que no es un detallazo, ¿eh?
+
+Voy a bajar el PDF y a rellenarlo ya mismo. Aunque sólo sea un euro, ya estáis
+poniéndoos a ello ;) (ese guiño va para ti el primero, `@imojito`_ xD).
+
+Actualización (2015-02-10, II)
+==============================
+
+Justo ahora estoy releyendo el correo que cité en la actualización anterior,
+así como el comunicado de la web de YoUniqueMoney... y esto me huele a
+triquiñuela de nuevo. A pesar de enviarlo, voy a resaltar aquí los puntos que
+me hacen desconfiar de una «empresa» que, ya de por sí, se ha ganado la
+desconfianza a pulso.
+
+- «*Puede reclamar los importes que crea oportunos en el PDF y en el e-mail que podrá encontrar en http://www.youniquemoney.es/*».
+
+    En el PDF no hay un campo para especificar el importe que se reclama.
+    Podría comentarlo (y así lo haré) en el correo electrónico al que tengo
+    que adjuntar el documento, pero no sé si lo leerán siquiera o si le darán
+    validez a esto. Lo escribiré por mi cuenta también en el PDF que dan para
+    rellenar.
+
+- En el PDF que hemos de usar para reclamar, llama especialmente la atención
+  lo siguiente:
+
+    *Por el presente documento solicito me sea reintegrado el saldo disponible de mi tarjeta...*
+
+  El **saldo disponible**. No «el saldo deducido irregularmente», ni «el saldo
+  retirado por error», sino **el saldo disponible**. Esto quiere decir que
+  este documento, realmente es para devolverte el saldo que te quedaba en tu
+  cuenta, porque les han cancelado las tarjetas desde 4B.
+  **No es para devolver el saldo que han sustraído de forma irregular**, según
+  estas palabras. Estamos en el mismo problema. Mi saldo es **0.00**, porque
+  me sustrajeron todo el saldo que tenía en la cuenta con una comisión,
+  diciéndolo suavemente como hasta ahora, «irregular».
+
+  Yo les aclaro en el PDF suministrado, para que no se confundan sobre lo
+  reclamado en mi caso:
+
+  .. figure:: {filename}/images/2015/02/2015-02-09_07.png
+    :alt: Reclamación del saldo SUSTRAÍDO de mi tarjeta
+    :align: center
+
+    Las cosas, por su nombre.
+
+- Además, ya nos resulta imposible entrar en nuestra sección personal en la
+  web, por lo que quienes no hubieran descargado los documentos con los saldos
+  o hecho las correspondientes capturas de pantalla, tampoco pueden saber a
+  ciencia cierta cual fue la cantidad concreta de saldo que les sustrajeron.
+  Ni el saldo que les quedaba, en caso de sobrarles saldo después de la
+  sustracción «irregular» de esos 15 euros «extras» de Nochevieja.
+
+  .. figure:: {filename}/images/2015/02/2015-02-09_08.png
+    :alt: Es imposible acceder a la cuenta de la tarjeta prepago
+    :align: center
+
+    ¿Cómo van a consultar los afectados lo que se les debe devolver, o
+    comprobar si la cantidad devuelta es la correcta, si se les cierra el
+    acceso a su área personal?
+
+Visto esto, y a pesar de mandar esta documentación por si acaso, me toca
+contactar con ellos de nuevo por su formulario de contacto. A ver con qué me
+salen ahora. La visita a la *Oficina de atención al cliente*, por tanto, no
+está aún descartada. Me gustaría que me devolvieran lo sustraído.
+
+Seguiré actualizando conforme al desarrollo de los acontecimientos.
+
+
 ------------------------
 
 .. [#] La única sección de preguntas frecuentes que tienen actualmente es esta: http://www.youniquemoney.es/home/preguntasFrecuentes. Arriba hay un enlace a lo que dice en el momento en el que se publica este blog, muchos meses después del susodicho aviso de comisión en ciernes.
@@ -249,3 +389,6 @@ y de mi visita mañana a la *Oficina de atención al consumidor*.
 .. _DuckDuckGo: https://duckduckgo.com/
 .. _tienen a la gente muy contenta con su «servicio»: http://www.tarjetapaypal.com/opiniones-tarjeta-paypal-mastercard/
 .. _Oficina de atención al consumidor: http://www.carm.es/web/pagina?IDCONTENIDO=6452&IDTIPO=221&RASTRO=c244$m9185
+.. _el aviso que han publicado en su página web: http://www.youniquemoney.es/
+.. _este PDF: http://www.youniquemoney.es/images/Solicitud_devolucion_YUM.pdf
+.. _@imojito: https://quitter.no/imojito
