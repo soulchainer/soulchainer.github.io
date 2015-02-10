@@ -1,5 +1,591 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/soulchainer.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-02-02T14:00:00+01:00</updated><entry><title>Mi Raspberry Pi (I): primer inicio del sistema</title><link href="//soulchainer.github.io/posts/2015/02/02/mi-raspberry/" rel="alternate"></link><updated>2015-02-02T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-02:posts/2015/02/02/mi-raspberry/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/soulchainer.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-02-10T17:25:00+01:00</updated><entry><title>Alejaos de la tarjeta prepago de Paypal mientras la gestione YoUniqueMoney</title><link href="//soulchainer.github.io/posts/2015/02/09/no-tocar-tarjeta-prepago-paypal/" rel="alternate"></link><updated>2015-02-10T17:25:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-09:posts/2015/02/09/no-tocar-tarjeta-prepago-paypal/</id><summary type="html">&lt;div class="figure align-center" style="width: 284px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Tarjeta de prepago de Paypal, gestionada por YoUniqueMoney" src="//soulchainer.github.io/images/2015/02/2015-02-09_01.png" style="width: 284px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;El objeto de la discordia.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#actualizacion-2015-02-09" id="id3"&gt;Actualización (2015-02-09)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#actualizacion-2015-02-10" id="id4"&gt;Actualización (2015-02-10)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Hoy vengo con un tema que se sale de la temática general de este blog. Esto es
+un aviso para todos vosotros, navegantes. Quien avisa no es traidor y si no
+nos ayudamos nosotros, ¿quién lo va a hacer?&lt;/p&gt;
+&lt;p&gt;Antes de empezar, por si cabe la más mínima duda, quiero subrayar y dejar
+bien claro que &lt;strong&gt;mi problema no es con&lt;/strong&gt; &lt;a class="reference external" href="https://www.paypal.com/es"&gt;Paypal&lt;/a&gt;. Sólo me he visto en la
+necesidad de contactar con ellos en un par de ocasiones y el trato ha sido
+siempre el mismo: &lt;strong&gt;excelente&lt;/strong&gt;. Tienen un equipo muy eficaz, hablan tu idioma
+y da gusto hablar con cada uno de ellos. Este artículo de opinión (y denuncia)
+es sobre &lt;a class="reference external" href="http://www.youniquemoney.es/"&gt;YoUniqueMoney&lt;/a&gt;. Esta «empresa» es la que gestiona la
+&lt;a class="reference external" href="https://www.paypal-prepago.es"&gt;tarjeta prepago&lt;/a&gt; de Paypal.&lt;/p&gt;
+&lt;p&gt;Os pongo en antecedentes.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Tal día como hoy, el 16 de octubre de 2013, me pongo en contacto con
+YoUniqueMoney, a través de su buzón de contacto.
+&lt;a class="reference external" href="//soulchainer.github.io/images/2015/02/2015-02-09_02.png"&gt;Mi consulta&lt;/a&gt;, que es mía y
+sólo mía, puedo
+&lt;a class="reference external" href="//soulchainer.github.io/images/2015/02/2015-02-09_02.png"&gt;reproducirla aquí&lt;/a&gt;, supongo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Asunto: Sobre el concepto de "actividad"&lt;/p&gt;
+&lt;p&gt;Duda o consulta:&lt;/p&gt;
+&lt;p&gt;"Cuota de mantenimiento o uso, gratis para siempre mientras realice
+actividad. Si no tiene un movimiento en 12 meses se le cargará una cuota
+de no uso de 5 €". Quisiera saber que se entiende por "actividad". ¿Sólo
+realizar pagos? ¿O tb realizar ingresos? Vamos, lo que quiero saber es: si
+un año sólo ingreso 5€, ¿eso cuenta como actividad? ¿O me cobrarían 5 €
+por ingresar en todo el año sólo 5€? Porque solo tendría la tarjeta para
+usarla en los sitios que no admiten paypal. Y apenas compro ahí.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Observad que he enlazado captura de pantalla del correo original en los
+anteriores enlaces.&lt;/p&gt;
+&lt;p&gt;En cuanto a la respuesta de la «compañía», no puedo reproducirla, porque
+adjuntan a sus correos (a calidad lamentable, como su servicio, mira) una
+imagen donde se puede leer (con lupa o buena vista) que te prohiben
+reproducir, sin previa autorización escrita por su parte, lo que sea que te
+contesten, bla bla bla.&lt;/p&gt;
+&lt;p&gt;Todo esto con su oportuna dosis de faltas de ortografía: «coreo» y «direción». ¡Bravo!&lt;/p&gt;
+&lt;p&gt;En fin, que te prohiben divulgar lo que te responden. Esto abona el terreno a
+la falacia y la mentira (dos mismas cosas son, son dos cosas mismas), ¿eh?
+Puedes preguntar sobre sus condiciones, y ellos responderte algo totalmente
+falso, que luego tú no puedes divulgarlo para ponerlos de hoja a perejil con todas las de la ley. ¡Genial! ¡Superpráctico! :D.&lt;/p&gt;
+&lt;p&gt;No sé cuán legal será esta práctica, teniendo en cuenta que es una mera
+consulta y yo soy la parte afectada. Eso y que lo consultado
+&lt;strong&gt;debería de estar indicado expresamente en sus Preguntas Frecuentes/Terminos del servicio&lt;/strong&gt;.
+Al menos si quieres hacer como que eres una empresa seria y digna de confianza.
+Como, por ejemplo, &lt;a class="reference external" href="http://www.pepephone.com/"&gt;Pepephone&lt;/a&gt; (otra empresa que presta un servicio con una
+calidad poco habitual).&lt;/p&gt;
+&lt;p&gt;Si alguno de los presentes está puesto en leyes y puede arrojar algo de luz
+sobre la legalidad de esta práctica, bienvenido sea.&lt;/p&gt;
+&lt;p&gt;En cualquier caso, yo no voy a «divulgar» el contenido de dicha comunicación.
+Baste decir que me convencen de que, cumpliendo ciertas condiciones, no voy a
+tener que pagar comisiones, tal y como prometen.&lt;/p&gt;
+&lt;p&gt;Esa garantía es un factor determinante en mi decisión de solicitar la tarjeta.&lt;/p&gt;
+&lt;p&gt;Y, brevemente, se cumple. Pero llega un momento, meses después, en el que en
+tu panel personal te aparece este aviso:&lt;/p&gt;
+&lt;blockquote&gt;
+Les comunicamos que el próximo 1 de septiembre entrará en vigor la
+&lt;strong&gt;comisión de servicio&lt;/strong&gt; operativo de la tarjeta prepago PayPal, el
+importe será de &lt;strong&gt;5 euros&lt;/strong&gt; al año el cual se devengará, en base a las condiciones operativas de la tarjeta, a partir del 1 de Julio del 2015&lt;/blockquote&gt;
+&lt;p&gt;¿Eh? ¿Comisión? ¿5 euros? ¿Perdona? ¿Pero esto no era sin comisiones?&lt;/p&gt;
+&lt;p&gt;Esto es una vulneración de los términos del contrato. Contrato del que, ahora
+que lo menciono, en ningún momento se te da copia del mismo. Esto es otra
+irregularidad, ¿no? Una tarjeta sin contrato: wiiiiii.&lt;/p&gt;
+&lt;p&gt;Vale. Dejemos de lado la cuestión de si esto es o no inmoral. Digamos que
+«todos los bancos lo hacen», ¿vale? O que «igual luego se han visto forzados
+por la ley» (esa ley que los bancos fuerzan a que se cambie para «verse
+obligados a cobrar nuevas comisiones a sus clientes, aún contra su voluntad»).
+Pongámonos ahí, ¿vale? Han cumplido unos meses sin cobrarte comisión, ¿no?
+Y la comisión aún no te la han cobrado, hombre: es para 2015 el primer
+cobro. «Tranqui, tron», que esto a ti no te llega, hombre. Ya la cancelarás antes.&lt;/p&gt;
+&lt;p&gt;Por cierto, ¿&lt;a class="reference external" href="//soulchainer.github.io/images/2015/02/2015-02-09_03.png"&gt;qué dirá la sección de preguntas frecuentes sobre esto&lt;/a&gt;? &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;¿Tengo que pagar alguna comisión anual o mensual por el mantenimiento de la tarjeta?&lt;/p&gt;
+&lt;p&gt;No, no es necesario pagar ninguna comisión por el mantenimiento de la tarjeta siempre y cuando realice algún movimiento de recarga o de gasto en los últimos 12 meses. De no hacerlo, se le deducirán 5 € de su saldo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;¡Anda! Pues no avisa de que &lt;strong&gt;te van a cobrar comisión SÍ O SÍ&lt;/strong&gt;. Ji ji ji.
+¡Un «gazapo»!&lt;/p&gt;
+&lt;p&gt;Pero sigamos, sigamos. Es 31 de diciembre de 2014. Se acaba este año de
+mierda, ¡&lt;span class="caps"&gt;VIVA&lt;/span&gt;!&lt;/p&gt;
+&lt;p&gt;Estoooooo… ¿QUÉ?&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 690px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Comisión de 15 euros por la patilla" src="//soulchainer.github.io/images/2015/02/2015-02-09_04.png" style="width: 690px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Comisión de 15 euros por la patilla. No hay información ni registro de a cuento de qué viene esto en ningún sitio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;¿15 euros de «&lt;strong&gt;COMISIÓN &lt;span class="caps"&gt;SERVICIO&lt;/span&gt; &lt;span class="caps"&gt;WEB&lt;/span&gt;: &lt;span class="caps"&gt;ALTA&lt;/span&gt; Y &lt;span class="caps"&gt;MANTENIMIENTO&lt;/span&gt;&lt;/strong&gt;»? ¿Pero qué
+mierda es esta? Quince euros, ¿eh? No cinco. Y además, a no ser que me haya
+despistado, aún no estamos a julio, ¿no? En Murcia es febrero, ¿a qué mes
+andáis por ahí, navegantes?&lt;/p&gt;
+&lt;p&gt;Después, ven que me han hecho un feo dejándome el saldo negativo… y me lo
+igualan. Qué majos. «Sólo» me han cobrado 7.47 euros sin razón alguna.&lt;/p&gt;
+&lt;p&gt;Tras tamaño sablazo, voy, y unos días después (cuando me doy cuenta, porque es
+importante señalar que &lt;strong&gt;YoUniqueMoney no te informa de los movimientos&lt;/strong&gt; de
+la tarjeta por correo),
+&lt;a class="reference external" href="//soulchainer.github.io/images/2015/02/2015-02-09_05.png"&gt;les escribo de nuevo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;El tono en esta ocasión peca de descortés, dada la situación:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Asunto:¿¿Comisión de mantenimiento??&lt;/p&gt;
+&lt;p&gt;Duda o consulta:&lt;/p&gt;
+&lt;p&gt;Hola. Me gustaría que me explicaran esto, para saber si tengo que dar de baja mi tarjeta &lt;span class="caps"&gt;YA&lt;/span&gt; o qué. Desde hace tiempo está este aviso: "Les comunicamos que el próximo 1-09 entrará en vigor la comisión de servicio operativo blabla el importe será de 5€/año el cual se devengará a partir del 1-07-2015". Y voy y me encuentro con que váis y me cargáis 15€. 15€ por "comisión servicio web". Y luego, como os coméis todo lo que tenía en cuenta, lo ponéis a 0. Total: os chupáis 7.53€. ¿Qué es esto?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Y, como ya os imaginaréis, estamos ante el primer correo que no me contestan.
+Se hacen los suecos y los noruegos, no habiendo fallado hasta ahora nunca este
+canal de comunicación. Como si no lo hubieran recibido.&lt;/p&gt;
+&lt;p&gt;Y espero, espero… y me olvido un poco del tema. Lo voy dejando.
+Hasta que viene hoy mi hermana de visita a casa. Y, de pasada, me cuenta que
+se ha hecho esta tarjeta (en su día le hablé sobre ella, igual que le conté lo
+del cobro… «irregular»). Y esto me anima (además de a matarla a pescozones)
+a zanjar el problema de una vez. Sí, lo habéis adivinado: me dispongo a
+&lt;strong&gt;cancelar la tarjeta&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Aquí, de nuevo, nos llega un ligero tufillo procedente del sitio web de la
+«empresa»:
+&lt;strong&gt;no hay instrucciones en ningún sitio de como cancelar la cuenta&lt;/strong&gt;.
+Esto ha de ser ilegal, fijo.&lt;/p&gt;
+&lt;p&gt;Puesto que no me queda otra, y dado que el correo no funciona y es muy lento,
+llamo. El teléfono de (des)atención al cliente (que podemos encontrar en su
+sección &lt;a class="reference external" href="http://www.youniquemoney.es/home/contactar"&gt;Contacto&lt;/a&gt;) es el &lt;strong&gt;902 006 321&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;¿Notáis algo raro? ¡Exacto! Es un &lt;strong&gt;902&lt;/strong&gt;. No es gratuito. Vaaaaaale.&lt;/p&gt;
+&lt;p&gt;Marco.&lt;/p&gt;
+&lt;blockquote&gt;
+— Bla bla bla bla —llamada en espera—, usted es la llamada número 23.
+El tiempo de espera estimado es de &lt;strong&gt;2 minutos&lt;/strong&gt;. Gracias por su paciencia.&lt;/blockquote&gt;
+&lt;p&gt;Corren los minutos, con actualizaciones periódicas de mi lugar en la cola y
+del tiempo estimado de espera. Conforme pasa el tiempo, avanzo
+(trabajosamente) en la cola.
+Al mismo tiempo, fijaos qué curioso, mi tiempo estimado de espera se
+incrementa escandalosamente: de dos minutos, a uno y luego in crescendo hasta
+los &lt;strong&gt;25 minutos&lt;/strong&gt; cuando ya llevo &lt;strong&gt;28:56 minutos de espera&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En ese punto ya me he atascado el séptimo en la cola, y veo que no me van a
+mover de ahí: hay que recaudar bastante con las llamadas. Todo apunta a que
+es otra forma de «cobrar de forma irregular» sus «servicios», así que opto por
+colgar. Me da rabia, porque ya me sospechaba la estrategia desde antes de
+llamar, pero necesitaba hacer esa llamada. Pensaba que al menos lo cogerían.
+Y, tras un rato al teléfono, colgar implicaba haber tirado todo ese dinero
+para nada (como al final ha sido).&lt;/p&gt;
+&lt;p&gt;Si hacemos una rápida búsqueda en &lt;a class="reference external" href="https://duckduckgo.com/"&gt;DuckDuckGo&lt;/a&gt;, podemos comprobar que
+&lt;a class="reference external" href="http://www.tarjetapaypal.com/opiniones-tarjeta-paypal-mastercard/"&gt;tienen a la gente muy contenta con su «servicio»&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;He hablado con mi padre y mañana pienso acercarme a la
+&lt;a class="reference external" href="http://www.carm.es/web/pagina?IDCONTENIDO=6452&amp;amp;IDTIPO=221&amp;amp;RASTRO=c244$m9185"&gt;Oficina de atención al consumidor&lt;/a&gt;, llevando toda la documentación que
+pueda. A ver lo que se puede hacer.&lt;/p&gt;
+&lt;p&gt;Vale que son sólo 7.47 euros, pero &lt;strong&gt;son mis 7.47 euros&lt;/strong&gt;. Y unos euros de
+aquí y otros de allá son una fortuna para esta gente.&lt;/p&gt;
+&lt;p&gt;Después de decidir esto, también he llamado a Paypal, para poner una queja
+sobre YoUniqueMoney. Me ha atendido &lt;em&gt;Rocío&lt;/em&gt; (un saludo desde aquí para ella,
+un trato excelente, como siempre: amabilísima) y más o menos me ha venido a
+confirmar lo que ya supondréis: tienen &lt;strong&gt;bastantes&lt;/strong&gt; quejas sobre esta
+«empresa» y la tarjeta prepago. Me ha informado además de que YoUniqueMoney ha
+devuelto el dinero a algunos «afectados» y me ha asegurado de que me
+informarán en cuanto se sepa algo o se revise mi caso, comentándome que
+entiende perfectamente mi postura y que sí, que esto no quita para que vaya a
+la &lt;em&gt;Oficina de atención al consumidor&lt;/em&gt;, que estoy en mi derecho.&lt;/p&gt;
+&lt;p&gt;Así que nada: a ello. Y avisados quedáis: si estabais pensando en haceros una
+de estas tarjetas, yo de vosotros me lo pensaba dos veces.&lt;/p&gt;
+&lt;p&gt;Un saludo a todos (menos a YoUniqueMoney) ;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; actualizaré en cuando tenga nuevas noticias del tema, por si a
+alguien le interesa.&lt;/p&gt;
+&lt;div class="section" id="actualizacion-2015-02-09"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Actualización (2015-02-09)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Conforme redactaba el artículo, ha habido
+&lt;a class="reference external" href="//soulchainer.github.io/images/2015/02/2015-02-09_06.png"&gt;una actualización en la página de mi tarjeta&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Usted no dispone de una cuenta PayPal asociada a la dirección de correo electrónico que ha proporcionado. Le recomendamos que active su cuenta PayPal para comprar en internet y desde el móvil de un modo aún más fácil y seguro.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Más información y ventajas de las cuentas PayPal&lt;/li&gt;
+&lt;li&gt;Pulse el botón "Activar" para activar su nueva cuenta PayPal y crear la contraseña.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Lo que implica que el equipo de Paypal me la ha desactivado. Esta gente
+trabaja rápido. O lo ha hecho la gente de Paypal, o se han puesto en contacto
+con YoUniqueMoney y me la han deshabilitado ellos. Yo no sabía exactamente
+como debía proceder. Total: más dinero no me pueden quitar.&lt;/p&gt;
+&lt;p&gt;A ver en qué queda la cosa. Quedo a la espera de noticias por parte de Paypal
+y de mi visita mañana a la &lt;em&gt;Oficina de atención al consumidor&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="actualizacion-2015-02-10"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Actualización (2015-02-10)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Anoche mismo, aconsejado por mi padre, volví a escribir a YoUniqueMoney, vía
+su formulario de contacto. Si se podía evitar tener que ir a la
+&lt;em&gt;Oficina de atención al consumidor&lt;/em&gt;, eso que nos ahorrábamos.&lt;/p&gt;
+&lt;p&gt;Les escribí lo siguiente:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Asunto:Devolución de comisión injustificada +cancelación tarjeta&lt;/p&gt;
+&lt;p&gt;Duda o consulta:&lt;/p&gt;
+&lt;p&gt;El 19-01 mandé un correo solicitando explicaciones sobre cargo de comisiones injustificadas,15€.Se ignoró.No espero q este correo se atienda,pero me han recomendado q de otra oportunidad antes de ir a la oficina de atención al consumidor.Me gustaría recuperar los 7.47 € q se me cobraron injustificadamente el 31-12,como a otros clientes,poder retirarlos de la tarjeta por algún medio,y cancelar después mi tarjeta prepago,sin llamadas interminables a 902 con fin recaudatorio. En 3-4 días. Gracias.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;El tono puede parecer en extremo exigente, dada la brevedad que me imponen los
+500 caracteres de dicho formulario.&lt;/p&gt;
+&lt;p&gt;Al caso: acabo de revisar el correo y me ha sorprendido ver que esta vez me
+han contestado increíblemente rápido. Como para esta comunicación no hay
+avisito en plan «te prohibimos que hables de lo que te comentamos», como era
+el caso de las anteriores comunicaciones, y como la comunicación es para mí,
+pues paso a reproducirla.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Buenos días.&lt;/p&gt;
+&lt;p&gt;La tarjeta prepago de &lt;span class="caps"&gt;PAYPAL&lt;/span&gt; ha quedado inoperativa.&lt;/p&gt;
+&lt;p&gt;Puede reclamar los importes que crea oportunos en el &lt;span class="caps"&gt;PDF&lt;/span&gt; y en el e-mail que podrá encontrar en &lt;a class="reference external" href="http://www.youniquemoney.es/"&gt;http://www.youniquemoney.es/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Puede consultar toda la información en la página web de la tarjeta ww.paypal-prepago.es marcando cualquier opción menos el de acceso a la oficina virtual; o directamente en la página web de nuestra empresa en &lt;a class="reference external" href="http://www.youniquemoney.es/"&gt;http://www.youniquemoney.es/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Siga las instrucciones del comunicado oficial para que podamos a abonarle el saldo en la cuenta que nos indique.&lt;/p&gt;
+&lt;p&gt;Lamentamos las molestias.&lt;/p&gt;
+&lt;p&gt;Atentamente,&lt;/p&gt;
+&lt;p&gt;Dpto. Operaciones www.paypal-prepago.es&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Parece que les han apretado bien las tuercas y nos devuelven el dinero, gente
+;). Además de chapar el servicio, porque
+&lt;strong&gt;4B ha suspendido la autorización de todas las tarjetas emitidas por ellos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Leyendo &lt;a class="reference external" href="http://www.youniquemoney.es/"&gt;el aviso que han publicado en su página web&lt;/a&gt;, parece que tan sólo
+tenemos que descargar &lt;a class="reference external" href="http://www.youniquemoney.es/images/Solicitud_devolucion_YUM.pdf"&gt;este pdf&lt;/a&gt;, rellenarlo, y enviarlo, adjuntando
+justificante de titularidad de la cuenta corriente (donde queremos que nos
+ingresen el dinero) y copia del &lt;span class="caps"&gt;DNI&lt;/span&gt; del titular de la tarjeta, al correo
+&lt;a class="reference external" href="mailto:administracion@youniquemoney.es"&gt;administracion@youniquemoney.es&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ah, y dicen que:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;span class="caps"&gt;LO&lt;/span&gt; &lt;span class="caps"&gt;SENTIMOS&lt;/span&gt; &lt;span class="caps"&gt;MUCHO&lt;/span&gt;&lt;/blockquote&gt;
+&lt;p&gt;Por habernos sustraído nuestro dinero. No diréis que no es un detallazo, ¿eh?&lt;/p&gt;
+&lt;p&gt;Voy a bajar el pdf y a rellenarlo ya mismo. Aunque sólo sea un euro, ya estáis
+poniéndoos a ello ;) (ese guiño va para ti el primero, &lt;a class="reference external" href="https://quitter.no/imojito"&gt;@imojito&lt;/a&gt; xD).&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La única sección de preguntas frecuentes que tienen actualmente es esta: &lt;a class="reference external" href="http://www.youniquemoney.es/home/preguntasFrecuentes"&gt;http://www.youniquemoney.es/home/preguntasFrecuentes&lt;/a&gt;. Arriba hay un enlace a lo que dice en el momento en el que se publica este blog, muchos meses después del susodicho aviso de comisión en ciernes.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="tarjeta"></category><category term="crédito"></category><category term="prepago"></category><category term="paypal"></category><category term="yum"></category><category term="mastercard"></category><category term="YoUniqueMoney"></category><category term="consumo"></category><category term="atención"></category><category term="problema"></category></entry><entry><title>Mi Raspberry Pi (II): configuración local</title><link href="//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/" rel="alternate"></link><updated>2015-02-05T23:59:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-05:posts/2015/02/05/mi-raspberry-configuracion-local/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#mapa-de-teclado" id="id6"&gt;Mapa de teclado&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-temporal" id="id7"&gt;Configuración temporal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-persistente" id="id8"&gt;Configuración persistente&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#fuentes-para-consola" id="id9"&gt;Fuentes para consola&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id10"&gt;Configuración temporal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id11"&gt;Configuración persistente&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#idioma-del-sistema" id="id12"&gt;Idioma del sistema&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cambiar-contrasena-de-usuario-root" id="id13"&gt;Cambiar contraseña de usuario root&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#zona-horaria" id="id14"&gt;Zona horaria&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-de-red" id="id15"&gt;Configuración de red&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#conexion" id="id16"&gt;Conexión&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#comprobacion-de-la-conexion" id="id17"&gt;Comprobación de la conexión&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#establecer-un-nombre-de-host" id="id18"&gt;Establecer un nombre de host&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-de-ip" id="id19"&gt;Configuración de &lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#resolucion-de-nombres-en-la-red-local-con-zeroconf" id="id20"&gt;Resolución de nombres en la red local con Zeroconf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 640px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="https://flic.kr/p/gTUK3"&gt;&lt;img alt="«Raspberry head». Muestra un muñeco de LEGO con una frambuesa como sombrero." src="//soulchainer.github.io/images/2015/02/2015-02-05_01.png" style="width: 640px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;em&gt;Raspberry head&lt;/em&gt;. Foto obra de &lt;a class="reference external" href="https://www.flickr.com/photos/dorkomatic/"&gt;Howard Dickins&lt;/a&gt;, con &lt;a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/2.0/"&gt;licencia Creative Commons&lt;/a&gt;. &lt;a class="reference external" href="https://flic.kr/p/gTUK3"&gt;Original&lt;/a&gt;. Algunos ajustes de color y limpiado del fondo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ya hemos preparado el sistema operativo, que inicia con normalidad, y nos
+hemos identificado como usuario &lt;em&gt;root&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Como hay que configurar bastantes cosas, en este artículo nos concentraremos
+en lo que yo hago localmente sobre la &lt;em&gt;Raspberry Pi&lt;/em&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; (antes de conectarme
+por &lt;span class="caps"&gt;SSH&lt;/span&gt;). Ya en el próximo artículo nos conectaremos remotamente y
+realizaremos el resto de configuraciones importantes.&lt;/p&gt;
+&lt;p&gt;Dicho esto, vamos a ello.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="section" id="mapa-de-teclado"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;Mapa de teclado&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Por defecto, el mapa de teclado establecido es el estadounidense (&lt;em&gt;us&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;¿Qué quiere decir esto? Pues que si tenemos, por ejemplo, un teclado español,
+algunas teclas tienen asignados caracteres distintos a lo que estamos
+acostumbrados, dificultándonos la escritura.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;Unos &lt;strong&gt;briconsejos&lt;/strong&gt; para apañarnos mientras no atinamos con el mapa correcto:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Si tenemos un teclado español, la &lt;em&gt;barra&lt;/em&gt; (/) aparece pulsando la tecla del &lt;em&gt;guión&lt;/em&gt; (-).&lt;/li&gt;
+&lt;li&gt;Podemos ayudarnos del autocompletado de la terminal, pulsando el tabulador [Tab ↹] una o dos veces para completar comandos/rutas o recibir sugerencias.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;Así que lo primero que tenemos que hacer es cargar nuestro mapa de teclado
+preferido. Los mapas se encuentran en &lt;code&gt;/usr/share/kbd/keymaps/&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cd /usr/share/kbd/keymaps/i386 &amp;amp;&amp;amp; ls&lt;/span&gt;
+--------------------------------------
+
+azerty/  bepo/  colemak/  dvorak/  fgGIod/  include/  olpc/  qwerty/  qwertz/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Están organizados según la distribución del teclado (el orden físico de sus
+teclas). En España usamos &lt;span class="caps"&gt;QWERTY&lt;/span&gt;; si no es tu caso, consulta el artículo
+&lt;a class="reference external" href="http://es.wikipedia.org/wiki/Distribuci%C3%B3n_del_teclado"&gt;«Distribución del teclado»&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Conocida la distribución, exploramos el contenido de la carpeta homónima:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cd qwerty/ &amp;amp;&amp;amp; ls&lt;/span&gt;
+-------------------
+...
+es.map.gz              nl2.map.gz      ruwin_ctrl-CP1251.map.gz   uk.map.gz
+et.map.gz           nl.map.gz  ruwin_ctrl-KOI8-R.map.gz   us-acentos.map.gz
+et-nodeadkeys.map.gz   no-latin1.doc   ruwin_ctrl-UTF-8.map.gz    us.map.gz
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="configuracion-temporal"&gt;
+&lt;span id="id2"&gt;&lt;/span&gt;&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;Configuración temporal&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Suponiendo que queremos cargar el mapa de teclado &lt;code&gt;uk.map.gz&lt;/code&gt;, hacemos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# loadkeys uk&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto cargará el mapa de teclado británico (&lt;em&gt;United Kingdom&lt;/em&gt; [Reino Unido]).&lt;/p&gt;
+&lt;p&gt;Cargaremos el mapa español con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# loadkeys es&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Este ajuste es temporal&lt;/strong&gt;, perdiéndose al reiniciar (o invocar de nuevo
+&lt;code&gt;loadkeys&lt;/code&gt;). Aún así, conviene hacerlo primero, para tener un teclado
+responsivo lo antes posible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-persistente"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Configuración persistente&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Una vez probado, lo fijamos en &lt;code&gt;/etc/vconsole.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# nano /etc/vconsole.conf&lt;/span&gt;
+-------------------------
+
+&lt;span class="nv"&gt;KEYMAP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;es
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O, más cómodamente, vía&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# localectl set-keymap --no-convert keymap&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donde sustituiremos el &lt;code&gt;keymap&lt;/code&gt; final por nuestro mapa de teclado.&lt;/p&gt;
+&lt;p&gt;Al reiniciar, &lt;code&gt;initd&lt;/code&gt; cargará este mapa de teclado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fuentes-para-consola"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Fuentes para consola&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;La consola Linux emplea codificación &lt;span class="caps"&gt;UTF&lt;/span&gt;-8 por defecto, y las fuentes que
+puede utilizar están compuestas de 256 o 512 glifos (carácteres).&lt;/p&gt;
+&lt;p&gt;Las fuentes disponibles (de forma predeterminada) para consola se encuentran
+en &lt;code&gt;/usr/share/kbd/consolefonts/&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cd /usr/share/kbd/consolefonts/ &amp;amp;&amp;amp; ls&lt;/span&gt;
+---------------------------------------
+...
+cp850-8x16.psfu.gz      iso01.16.gz                lat2-16.psfu.gz
+cp850-8x8.psfu.gz       iso02.08.gz                lat2a-16.psfu.gz
+cp857.08.gz             iso02-12x22.psfu.gz        Lat2-Terminus16.psfu.gz
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Los números al final del nombre de las fuentes hacen referencia a su tamaño.
+Cada archivo de fuente de consola tiene un tamaño fijo, por lo que antes de
+cambiarlo tendremos que comprobar si contamos con el archivo adecuado.&lt;/p&gt;
+&lt;p&gt;Para una vista previa rápida, podemos consultar
+&lt;a class="reference external" href="http://alexandre.deverteuil.net/pages/consolefonts/"&gt;Linux console fonts screenshots&lt;/a&gt;, un índice bien organizado de la mayoría de
+estas fuentes, con capturas de pantalla.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Si escogemos una fuente de más de 256 glifos, el número de colores
+que se podrá mostrar por consola se reduce de 16 a 8.&lt;/p&gt;
+&lt;p&gt;Como ya ocurriera con la configuración del &lt;a class="reference internal" href="#id2"&gt;mapa de teclado&lt;/a&gt;, disponemos de
+una opción para configurar temporalmente las fuentes, para su previsualización y prueba; y otra para fijarlas una vez hayamos hecho nuestra elección.&lt;/p&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Configuración temporal&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Podemos establecer temporalmente la fuente a usar con &lt;code&gt;setfont&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# setfont Lat2-Terminus16&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Establece la fuente &lt;code&gt;Lat2-Terminus16.psfu.gz&lt;/code&gt;. Como anteriormente,
+prescindimos de las extensiones de archivo.&lt;/p&gt;
+&lt;p&gt;Una vez establecida, podemos visualizar de manera rápida todos sus glifos con&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# showconsolefont&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En el caso de que la fuente que hayamos establecido no sea apropiada, podemos
+volver a la fuente por defecto ejecutando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# setfont&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto funciona incluso aunque la fuente establecida «rompa» la escritura y sólo
+veamos un galimatías: introducimos «a ciegas» el comando y pulsamos &lt;strong&gt;Enter&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Configuración persistente&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Para que la fuente elegida perdure entre sesiones, tenemos que establecer la
+variable &lt;code&gt;FONT&lt;/code&gt; en &lt;code&gt;/etc/vconsole.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# nano /etc/vconsole.conf&lt;/span&gt;
+-------------------------
+...
+&lt;span class="nv"&gt;FONT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;Lat2-Terminus16
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Yo uso la &lt;code&gt;sun12x22&lt;/code&gt;. Es la que me resulta más usable por el tamaño de
+mi &lt;span class="caps"&gt;TV&lt;/span&gt;, para no dejarme las retinas :).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="idioma-del-sistema"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Idioma del sistema&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;En Linux se utilizan unos archivos llamados &lt;em&gt;locale&lt;/em&gt; para definir el idioma
+que queremos utilizar en el sistema. Es importante hacerlo, para que los
+programas muestren texto sin problemas, sobre todo si nuestro lenguaje
+contiene caracteres especiales.&lt;/p&gt;
+&lt;p&gt;Descomentamos los locales necesarios del archivo &lt;code&gt;/etc/locale.gen&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# nano /etc/locale.gen&lt;/span&gt;
+----------------------
+
+es_ES.UTF-8 UTF8
+es_ES@euro ISO-8859-15
+en_US.UTF-8 UTF-8
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y los generamos con el comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# locale-gen&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tras esto, establecemos nuestras preferencias globales en
+&lt;code&gt;/etc/locale.conf&lt;/code&gt; y, de ser necesario, a nivel de usuario en
+&lt;code&gt;$HOME/.config/locale.conf&lt;/code&gt;. Como no compartiré la &lt;em&gt;Raspberry&lt;/em&gt;, con las
+globales será suficiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# echo LANG=es_ES.UTF-8 &amp;gt; /etc/locale.conf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cambiar-contrasena-de-usuario-root"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Cambiar contraseña de usuario root&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A estas alturas, ya no deberíamos tener ningún problema con el teclado, así
+que vamos a cambiar la contraseña de &lt;em&gt;root&lt;/em&gt; por una menos evidente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# passwd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Indicamos la contraseña elegida, y la reintroducimos para confirmarla.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="zona-horaria"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Zona horaria&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Para ajustar la zona horaria haremos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# ln -sf /usr/share/zoneinfo/zona/subzona /etc/localtime&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por lo que, siendo de España:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-de-red"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Configuración de red&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="conexion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Conexión&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Tengo la &lt;em&gt;Raspberry&lt;/em&gt; conectada a un extensor de rango wifi, con puerto Ethernet, por lo que cree estar (y lo está, a fin de cuentas) conectada por
+cable, y se conecta automáticamente a internet.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="comprobacion-de-la-conexion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Comprobación de la conexión&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Podemos comprobar que tenemos conexión a internet haciendo ping, por ejemplo,
+a la &lt;span class="caps"&gt;IP&lt;/span&gt; &lt;code&gt;8.8.8.8&lt;/code&gt; (uno de los &lt;a class="reference external" href="https://developers.google.com/speed/public-dns/"&gt;servidores &lt;span class="caps"&gt;DNS&lt;/span&gt; públicos de Google&lt;/a&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# ping -c 3 8.8.8.8&lt;/span&gt;
+-------------------
+PING 8.8.8.8 &lt;span class="o"&gt;(&lt;/span&gt;8.8.8.8&lt;span class="o"&gt;)&lt;/span&gt; 56&lt;span class="o"&gt;(&lt;/span&gt;84&lt;span class="o"&gt;)&lt;/span&gt; bytes of data.
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from 8.8.8.8: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;55&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;52.8 ms
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from 8.8.8.8: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;55&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;53.3 ms
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from 8.8.8.8: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;55&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;52.5 ms
+
+--- 8.8.8.8 ping statistics ---
+&lt;span class="m"&gt;3&lt;/span&gt; packets transmitted, &lt;span class="m"&gt;3&lt;/span&gt; received, 0% packet loss, &lt;span class="nb"&gt;time &lt;/span&gt;2003ms
+rtt min/avg/max/mdev &lt;span class="o"&gt;=&lt;/span&gt; 52.567/52.924/53.312/0.304 ms
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Repitiendo la misma operación, pero con un nombre de dominio, comprobamos que
+también funciona la resolución de nombres (&lt;span class="caps"&gt;DNS&lt;/span&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# ping -c 3 google.es&lt;/span&gt;
+
+PING google.es &lt;span class="o"&gt;(&lt;/span&gt;216.58.210.131&lt;span class="o"&gt;)&lt;/span&gt; 56&lt;span class="o"&gt;(&lt;/span&gt;84&lt;span class="o"&gt;)&lt;/span&gt; bytes of data.
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from mad06s09-in-f3.1e100.net &lt;span class="o"&gt;(&lt;/span&gt;216.58.210.131&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;55&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;55.4 ms
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from mad06s09-in-f3.1e100.net &lt;span class="o"&gt;(&lt;/span&gt;216.58.210.131&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;55&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;59.2 ms
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from mad06s09-in-f3.1e100.net &lt;span class="o"&gt;(&lt;/span&gt;216.58.210.131&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;55&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;52.7 ms
+
+--- google.es ping statistics ---
+&lt;span class="m"&gt;3&lt;/span&gt; packets transmitted, &lt;span class="m"&gt;3&lt;/span&gt; received, 0% packet loss, &lt;span class="nb"&gt;time &lt;/span&gt;2002ms
+rtt min/avg/max/mdev &lt;span class="o"&gt;=&lt;/span&gt; 52.783/55.811/59.250/2.669 ms
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="establecer-un-nombre-de-host"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Establecer un nombre de host&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;El nombre de host es un valor único con el que se identifica a la máquina en
+la red (en este caso, local). Se configura en &lt;code&gt;/etc/hostname&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# nano /etc/hostname&lt;/span&gt;
+--------------------
+
+mihostname
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Editamos también &lt;code&gt;/etc/hosts&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# nano /etc/hosts&lt;/span&gt;
+-------------------------------------------------
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# /etc/hosts: static lookup table for host names&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+
+&lt;span class="c"&gt;#&amp;lt;ip-address&amp;gt;   &amp;lt;hostname.domain.org&amp;gt;   &amp;lt;hostname&amp;gt;&lt;/span&gt;
+127.0.0.1       localhost.localdomain   mihostname
+::1             localhost.localdomain   mihostname
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Una vez establecido el nombre de host, la resolución de nombres funciona
+localmente (en nuestro dispositivo):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ping mihostname
+PING localhost.localdomain &lt;span class="o"&gt;(&lt;/span&gt;127.0.0.1&lt;span class="o"&gt;)&lt;/span&gt; 56&lt;span class="o"&gt;(&lt;/span&gt;84&lt;span class="o"&gt;)&lt;/span&gt; bytes of data.
+&lt;span class="m"&gt;64&lt;/span&gt; bytes from localhost.localdomain &lt;span class="o"&gt;(&lt;/span&gt;127.0.0.1&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="nv"&gt;icmp_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;ttl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;64&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0.024 ms
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="configuracion-de-ip"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Configuración de &lt;span class="caps"&gt;IP&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Podemos comprobar qué &lt;span class="caps"&gt;IP&lt;/span&gt; local nos ha asignado el &lt;em&gt;router&lt;/em&gt; con el comando
+&lt;code&gt;ifconfig&lt;/code&gt; (muestra una lista de las interfaces de red activas):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# ifconfig&lt;/span&gt;
+----------
+
+eth0: &lt;span class="nv"&gt;flags&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500
+    inet 192.168.1.11  netmask 255.255.255.0  broadcast 192.168.1.255
+    inet6 fe80::ba27:ebff:fe2c:fc1  prefixlen &lt;span class="m"&gt;64&lt;/span&gt;  scopeid 0x20&amp;lt;link&amp;gt;
+    ether b8:27:eb:2c:0f:c1  txqueuelen &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="o"&gt;(&lt;/span&gt;Ethernet&lt;span class="o"&gt;)&lt;/span&gt;
+    RX packets &lt;span class="m"&gt;3167870&lt;/span&gt;  bytes &lt;span class="m"&gt;179413466&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;171.1 MiB&lt;span class="o"&gt;)&lt;/span&gt;
+    RX errors &lt;span class="m"&gt;0&lt;/span&gt;  dropped &lt;span class="m"&gt;1&lt;/span&gt;  overruns &lt;span class="m"&gt;0&lt;/span&gt;  frame 0
+    TX packets &lt;span class="m"&gt;4429905&lt;/span&gt;  bytes &lt;span class="m"&gt;1688715263&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;1.5 GiB&lt;span class="o"&gt;)&lt;/span&gt;
+    TX errors &lt;span class="m"&gt;0&lt;/span&gt;  dropped &lt;span class="m"&gt;0&lt;/span&gt; overruns &lt;span class="m"&gt;0&lt;/span&gt;  carrier &lt;span class="m"&gt;0&lt;/span&gt;  collisions 0
+
+lo: &lt;span class="nv"&gt;flags&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen &lt;span class="m"&gt;128&lt;/span&gt;  scopeid 0x10&amp;lt;host&amp;gt;
+        loop  txqueuelen &lt;span class="m"&gt;0&lt;/span&gt;  &lt;span class="o"&gt;(&lt;/span&gt;Local Loopback&lt;span class="o"&gt;)&lt;/span&gt;
+        RX packets &lt;span class="m"&gt;16&lt;/span&gt;  bytes &lt;span class="m"&gt;1328&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;1.2 KiB&lt;span class="o"&gt;)&lt;/span&gt;
+        RX errors &lt;span class="m"&gt;0&lt;/span&gt;  dropped &lt;span class="m"&gt;0&lt;/span&gt;  overruns &lt;span class="m"&gt;0&lt;/span&gt;  frame 0
+        TX packets &lt;span class="m"&gt;16&lt;/span&gt;  bytes &lt;span class="m"&gt;1328&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;1.2 KiB&lt;span class="o"&gt;)&lt;/span&gt;
+        TX errors &lt;span class="m"&gt;0&lt;/span&gt;  dropped &lt;span class="m"&gt;0&lt;/span&gt; overruns &lt;span class="m"&gt;0&lt;/span&gt;  carrier &lt;span class="m"&gt;0&lt;/span&gt;  collisions 0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En este caso (varía), &lt;code&gt;eth0&lt;/code&gt; es nuestra interfaz de red. En la segunda y
+tercera línea localizamos nuestra IPv4 e IPv6, además de nuestra máscara de
+subred (&lt;em&gt;netmask&lt;/em&gt;) y nuestra dirección de difusión (&lt;em&gt;broadcast&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;En la tercera línea, &lt;code&gt;ether ...&lt;/code&gt;, se nos proporciona la dirección física
+(&lt;span class="caps"&gt;MAC&lt;/span&gt;) de la &lt;em&gt;Raspberry&lt;/em&gt;. La anotamos para decirle a nuestro router, desde
+otro equipo, que nos reserve una &lt;span class="caps"&gt;IP&lt;/span&gt; para el aparato.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 822px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Concesión de IP fija" src="//soulchainer.github.io/images/2015/02/2015-02-05_02.png" style="width: 822px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;Lo que nos interesa es la &lt;em&gt;Static &lt;span class="caps"&gt;IP&lt;/span&gt; Lease List&lt;/em&gt; (Lista de Concesiones de &lt;span class="caps"&gt;IP&lt;/span&gt; Estática). Hacemos clic en &lt;strong&gt;Add entries&lt;/strong&gt; e indicamos la &lt;span class="caps"&gt;MAC&lt;/span&gt; de la &lt;em&gt;Raspberry&lt;/em&gt; y la &lt;span class="caps"&gt;IP&lt;/span&gt; que queremos fijar.&lt;/p&gt;
+&lt;div class="legend"&gt;
+Cada router es un mundo: ancho y vasto es Internet.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Como el router ya nos asignó una &lt;span class="caps"&gt;IP&lt;/span&gt; de forma automática, será esta la que le
+pediremos que reserve para el aparato.&lt;/p&gt;
+&lt;p&gt;También podemos hacer esto editando ciertos archivos del sistema, pero es más
+pesado. Y como no es algo que haga a menudo (no lo necesito), no entraré en ello.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="resolucion-de-nombres-en-la-red-local-con-zeroconf"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;Resolución de nombres en la red local con Zeroconf&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Este punto es totalmente opcional: simplemente me apetecía hacerlo.&lt;/p&gt;
+&lt;p&gt;Una vez establecido el nombre de host, podemos usar &lt;a class="reference external" href="http://es.wikipedia.org/wiki/Zeroconf"&gt;Zeroconf&lt;/a&gt; para ubicar
+nuestras máquinas locales por nombre, en lugar de por &lt;span class="caps"&gt;IP&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Lo instalamos en nuestros equipos &lt;strong&gt;Arch Linux&lt;/strong&gt; con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pacman -S avahi nss-mdns&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Supongamos que todas nuestras máquinas, que se llaman &lt;em&gt;nami&lt;/em&gt;, &lt;em&gt;robin&lt;/em&gt; y
+&lt;em&gt;chopper&lt;/em&gt;, están ejecutando &lt;em&gt;Avahi&lt;/em&gt; (una implementación libre de &lt;em&gt;Zeroconf&lt;/em&gt;).
+Pues &lt;em&gt;Avahi&lt;/em&gt; puede configurarse para evitarnos la gestión del archivo
+&lt;code&gt;/etc/hosts&lt;/code&gt; en cada máquina (para resolver los nombres del resto). En
+vez de eso, usaremos &lt;code&gt;nami.local&lt;/code&gt; para acceder a los servicios ofrecidos
+por &lt;em&gt;nami&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Sin embargo, la consulta a &lt;code&gt;.local&lt;/code&gt; está restringida de forma
+predeterminada en &lt;em&gt;Arch Linux&lt;/em&gt;. Para permitirla, hay que editar el archivo
+&lt;code&gt;/etc/nsswitch.conf&lt;/code&gt;, sustituyendo la línea&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;hosts: files dns mihostname
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;por esta otra:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;hosts: files mdns_minimal &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;NOTFOUND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; dns mihostname
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Del mismo modo, &lt;em&gt;Avahi&lt;/em&gt; viene con el soporte para IPv6 deshabilitado. Tenemos
+que modificar la opción &lt;code&gt;use-ipv6&lt;/code&gt; en
+&lt;code&gt;/etc/avahi/avahi-daemon.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# nano /etc/avahi/avahi-daemon.conf&lt;/span&gt;
+-----------------------------------
+...
+use-ipv6&lt;span class="o"&gt;=&lt;/span&gt;yes
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tras hacer esto en todas las máquinas, activamos e iniciamos el servicio con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# systemctl enable avahi-daemon.service&lt;/span&gt;
+&lt;span class="c"&gt;# systemctl start avahi-daemon.service&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hemos de tener en cuenta que &lt;em&gt;Avahi&lt;/em&gt; sólo nos sirve para equipos que soporten
+una implementación de &lt;em&gt;Zeroconf&lt;/em&gt; (en nuestro caso, Avahi) y estén
+correctamente configurados.&lt;/p&gt;
+&lt;p&gt;Una vez configurado todo, suponiendo que &lt;em&gt;nami&lt;/em&gt; es el nombre de host de
+nuestra &lt;em&gt;Raspberry&lt;/em&gt;, podemos referirnos a ella por &lt;code&gt;nami.local&lt;/code&gt;, sin
+necesidad de conocer su &lt;span class="caps"&gt;IP&lt;/span&gt;.&lt;/p&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;ArchWiki&lt;/a&gt;.&lt;/p&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Raspberry Pi es una marca registrada de la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;. El presente blog no tiene conexión alguna con la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="raspberry pi"></category><category term="instalación"></category><category term="configuración"></category><category term="linux"></category><category term="archlinux"></category><category term="avahi"></category><category term="zeroconf"></category><category term="red"></category><category term="conexión"></category><category term="fuentes"></category><category term="consola"></category></entry><entry><title>Mi Raspberry Pi (I): primer inicio del sistema</title><link href="//soulchainer.github.io/posts/2015/02/02/mi-raspberry/" rel="alternate"></link><updated>2015-02-02T14:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-02:posts/2015/02/02/mi-raspberry/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#componentes" id="id7"&gt;Componentes&lt;/a&gt;&lt;/li&gt;
