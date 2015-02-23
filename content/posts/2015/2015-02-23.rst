@@ -1,0 +1,677 @@
+Mi Raspberry Pi (III): configuración remota
+###########################################
+:date: 2015-02-23 17:40
+:tags: raspberry pi, instalación, configuración, linux, archlinux, consola,
+       ssh, fstab, swap, memoria, partuuid, yaourt, aur, claves, root,
+       contraseña, seguridad
+:category: CÓMOS, linux, Raspberry
+:slug: mi-raspberry-configuracion-remota
+:author: Soulchainer
+:parts:  Mi_Raspberry
+:twsummary: Seguimos con la instalación y configuración de nuestra Raspberry
+            Pi.
+            Vamos a acceder ya por SSH y a realizar una serie de ajustes para
+            su uso.
+:twimg: 2015-02-23_01.png
+
+
+.. contents:: **Índice de contenido**
+..
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2015/02/2015-02-23_01.png
+    :alt: Captura de consola, con el logo de Raspberry confeccionado con caracteres ASCII.
+    :align: center
+
+Seguimos con la instalación y configuración de nuestra *Raspberry Pi* [#]_.
+Vamos a acceder ya por SSH y a realizar una serie de ajustes para su uso.
+
+Al lío.
+
+{END_SUMMARY}
+
+Acceso por SSH
+==============
+
+Para establecer conexiones por SSH a otras máquinas, tenemos que tener
+instalado un cliente SSH en nuestro equipo. En el caso de que no lo
+tuvieramos (raro, ya que está incluido en el metapaquete :code:`core`), en
+*Arch Linux* se instala con:
+
+.. code-block:: sh
+
+    $ yaourt -S openssh
+
+Si pasamos de `configurar Zeroconf`_, tendremos que conectarnos a nuestra
+Raspberry usando su IP:
+
+.. code-block:: sh
+
+    $ ssh root@192.168.1.11  # nos conectamos como usuario «root»
+
+Si configuramos *Zeroconf*, podremos conectarnos usando el nombre de host de
+nuestra Raspberry:
+
+.. code-block:: sh
+
+    $ ssh root@nami.local  # «nami» es el nombre de host de nuestra Raspberry
+
+Cuando intentamos conectarmos por primera vez, se nos pregunta si realmente
+queremos fiarnos y conectar con la máquina:
+
+.. code-block:: s
+
+    The authenticity of host '192.168.1.11 (192.168.1.11)' can't be established.
+    ECDSA key fingerprint is 78:2f:fc:ed:6c:26:a0:e5:64:6f:c4:79:79:d7:30:4b.
+    Are you sure you want to continue connecting (yes/no)? yes
+
+Si aceptamos (*«yes»*), se añade su identidad a nuestra lista de máquinas
+conocidas. Mientras no se borre (esta información se encuentra en el archivo
+:code:`~/.ssh/known_hosts`), no se nos volverá a preguntar de nuevo sobre esto.
+
+.. code-block:: sh
+
+    Warning: Permanently added '192.168.1.11' (ECDSA) to the list of known hosts.
+
+Introducimos la contraseña del usuario de la Raspberry con el que nos vamos a
+conectar:
+
+.. code-block:: sh
+
+    root@192.168.1.11's password:
+
+Y, previo mensaje de bienvenida, ya estamos dentro:
+
+.. code-block:: sh
+
+    Welcome to Arch Linux ARM
+
+         Website: http://archlinuxarm.org
+           Forum: http://archlinuxarm.org/forum
+             IRC: #archlinux-arm on irc.Freenode.net
+    Last login: Wed Dec 10 23:19:32 2014
+    [root@nami ~]#
+
+
+Crear un usuario ordinario
+==========================
+
+Lo primero que vamos a hacer ahora es crearnos un usuario sin privilegios
+(no es nada recomendable ir haciéndolo todo como *root*):
+
+.. code-block:: sh
+
+    # useradd -mU -G wheel pi
+
+- con :code:`m` ordenamos que se cree la carpeta :code:`home` del usuario;
+- con :code:`U` se creará un grupo para el usuario, con el que compartirá
+  nombre;
+- con :code:`-G wheel` también se añadirá al usuario al grupo opcional *wheel*;
+- *pi* será el nombre de nuestro usuario ordinario (se recomienda crear un
+  usuario un poco menos evidente).
+
+El recién creado, contraseña quiere.
+
+.. code-block:: sh
+
+    # passwd pi
+
+Sudo
+====
+
+Mucho en verano (xD). Además, el comando :code:`sudo` nos permite adquirir, cuando lo necesitemos y de forma temporal, privilegios de usuario *root*.
+:code:`sudo` no viene por defecto en *Arch Linux*, así que toca instalarlo y,
+ya que estamos, actualizar el sistema.
+
+Editamos el archivo :code:`/etc/pacman.d/mirrorlist`, descomentando algún
+servidor cercano a nuestra ubicación. En mi caso, descomento (borrando el
+carácter :code:`#` precedente) unos pocos de Europa.
+
+E instalamos :code:`sudo` y actualizamos con :code:`pacman`.
+
+.. code-block:: sh
+
+    # pacman -Syu sudo
+
+Para poder usar :code:`sudo` siendo un usuario con privilegios limitados
+tenemos que concedernos primero los permisos adecuados. Esto se logra editando
+el archivo de configuración :code:`/etc/sudoers`.
+
+**IMPORTANTE:** este archivo hay que editarlo **SIEMPRE** con :code:`visudo`.
+
+Lo editamos, descomentando la siguiente línea:
+
+.. code-block:: sh
+
+    # visudo
+    --------
+    ...
+    %wheel ALL=(ALL) ALL
+    ...
+
+De esta forma, todos los usuarios en el grupo *wheel* podrán lanzar cualquier
+comando con privilegios *root*, vía :code:`sudo`.
+
+Como estaba previsto (fue añadido a este grupo durante su creación), nuestro
+usuario (*pi*) ya es miembro del selecto grupo de *sudoers*.
+
+Desactivar el login como root
+=============================
+
+Sin posibilidad de identificarse como *root*, un atacante tiene que
+deducir el nombre de un usuario configurado como sudoer antes siquiera de
+intentar obtener su contraseña.
+
+**Mucho cuidado con esto**: si no concedimos correctamente a nuestro usuario
+permiso para usar :code:`sudo`, nos quedaremos fuera de nuestro propio
+sistema. Conviene comprobar primero que podemos «sudar» con normalidad
+(incluso en invierno ò_ó).
+
+Dicho esto, la cuenta *root* puede bloquearse vía :code:`passwd`:
+
+.. code-block:: sh
+
+    # passwd -l root
+
+Si lo deseamos, podremos desbloquearla más adelante con:
+
+.. code-block:: sh
+
+    $ sudo passwd -u root
+
+Segurizar el acceso SSH
+=======================
+
+.. code-block:: sh
+
+    $ sudo groupadd -r grupossh
+    $ sudo gpasswd -a pi grupossh
+    $ sudo bash
+    # echo 'AllowUsers pi@192.168.1.25' >> /etc/ssh/sshd_config
+    # echo 'AllowGroups grupossh' >> /etc/ssh/sshd_config
+    # echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
+    # exit
+    $ sudo reboot
+
+Con esto:
+
+- creamos el grupo *grupossh*;
+- añadimos a nuestro usuario (*pi*) al grupo;
+- sólo podrá acceder por SSH nuestro usuario, desde la IP :code:`192.168.1.25`;
+- sólo podrán acceder usuarios miembros del grupo *grupossh*;
+- se prohibe explícitamente el acceso como *root*;
+- finalmente, se reinicia la *Raspberry* para aplicar los cambios.
+
+La parte de la IP, :code:`@192.168.1.25`, es opcional, pero aporta más seguridad. Obviamente, tenemos que tener una IP fija en el equipo con el que
+accedemos por SSH. En el
+`artículo anterior <{filename}/posts/2015/2015-02-05.rst>`_ ya mencionamos
+como podemos `configurar nuestro router para que nos de una IP fija`_.
+
+Si todo esto no nos parece síntoma claro de neurosis, una vez reiniciada la
+*Raspberry* e identificados como usuario normal, podemos continuar.
+
+Cambiar el puerto por defecto
+-----------------------------
+
+Por defecto, el demonio SSH escucha conexiones en el puerto 22. Para una mayor
+seguridad podemos cambiar este puerto por uno en desuso, fuera de los
+*puertos bien conocidos* (del 0 al 1023).
+
+Para ayudarnos a elegir un puerto, tenemos un listado con la relación de
+puertos/servicios más comunes en el archivo :code:`/etc/services`. Y con el
+comando :code:`netstat` podemos ver los puertos actualmente en uso en nuestra
+*Raspberry*:
+
+.. code-block:: sh
+
+    $ netstat -tu  # lista las conexiones activas a puertos TCP/UDP
+
+Una vez escogido el puerto, editamos el fichero de configuración del servidor
+SSH, añadiendo al final una línea para indicar el nuevo puerto:
+
+.. code-block:: sh
+
+    $ sudo nano /etc/ssh/sshd_config
+    --------------------------------
+    ...
+    Port 7788
+
+Nos aseguramos de que la línea con el puerto por defecto esté comentada (si no
+lo está, escuchará en los dos puertos):
+
+.. code-block:: sh
+
+    # Port 22
+
+Después de guardar, reiniciamos la *Raspberry* una vez más, para que se
+apliquen los cambios.
+
+Dejamos pasar un tiempo y probamos a conectarnos de nuevo.
+
+.. code-block:: sh
+
+    $ ssh pi@nami.local
+    ssh: connect to host nami.local port 22: Invalid argument
+
+Como podemos ver, si intentamos conectarnos como hasta ahora, nos resulta
+imposible. Tenemos que indicar el nuevo puerto:
+
+.. code-block:: sh
+
+    $ ssh -p 7788 pi@nami.local
+
+Consejo: conexión fácil a máquinas conocidas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tener que escribir cada vez el comando de conexión completo, recordando además
+en qué puerto tenemos configurado el servidor, puede ser cargante.
+
+Para solucionar este «problema», la `wiki de Arch Linux`_ nos propone
+`un método para ahorrarnos escribir de más`_: crear un archivo de
+configuración en :code:`~/.ssh/config`, donde describiremos con varias líneas
+cada uno de los servidores que usamos habitualmente. La verdad es que
+`el método`_ no está mal, pero ya que estamos optimizando el esfuerzo, vamos a
+mantenernos fieles a la filosofía :abbr:`KISS (Keep It Simple, Stupid)`, ¿no?:
+¿para qué vamos a crear un archivo nuevo y con cuatro «largas» líneas por
+servidor, cuando nos sobra con una línea por servidor en nuestro flamante
+(y ya existente) :code:`~/.bashrc`?
+
+.. code-block:: sh
+
+    $ echo "alias pissh='ssh -p 7788 pi@nami.local'" >> ~/.bashrc
+
+Ya está. Esto añade el alias :code:`pissh` al final de nuestro
+:code:`~/.bashrc`. Cuando queramos conectarnos a nuestra *Raspberry*, tecleamos
+esto en consola y pa'lante.
+
+Desactivar el acceso con contraseña
+-----------------------------------
+
+Podemos generar un par de claves SSH (una pública y una privada) y desactivar
+la identificación por contraseña. Le daremos una copia de la llave pública al
+servidor SSH (nuestra *Raspberry*) y este nos identificará inequívocamente por
+esta, rechazando cualquier otro intento o método de conexión.
+
+Generar las claves
+^^^^^^^^^^^^^^^^^^
+
+Las generamos con :code:`ssh-keygen`:
+
+.. code-block:: sh
+
+    $ ssh-keygen -t rsa -b 4096 -C "$(whoami)@$(hostname)-$(date -I)"
+    -----------------------------------------------------------------
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/home/username/.ssh/id_rsa):
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /home/username/.ssh/id_rsa.
+    Your public key has been saved in /home/username/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    dd:15:ee:24:20:14:11:01:b8:72:a2:0f:99:4c:79:7f username@localhost-2014-11-22
+    The key's randomart image is:
+    +--[RSA  4096]---+
+    |     ..oB=.   .  |
+    |    .    . . . . |
+    |  .  .      . +  |
+    | oo.o    . . =   |
+    |o+.+.   S . . .  |
+    |=.   . E         |
+    | o    .          |
+    |  .              |
+    |                 |
+    +-----------------+
+
+En
+
+.. code-block:: sh
+
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+
+introducimos la frase de paso que queramos y luego volvemos a introducirla
+(para comprobar que no nos hemos equivocado). No os confundáis con esto: no se
+trata de una contraseña con la que nos identificaremos por SSH. Esta
+*frase de paso* es una especie de clave, sí, pero se usa sólo *localmente*,
+para descifrar nuestra clave privada, porque se guarda cifrada. **Nunca**
+se transmite por red. **NO** debéis proporcionársela **NUNCA** a **NADIE**.
+
+Aún así, estableced una *frase de paso* decente: nada del nombre de nuestra
+mascota, nuestro DNI y similares. Y que sea **LARGA** (el tamaño sí importa).
+
+**IMPORTANTE**: podemos generar igualmente las claves
+**sin una frase de paso**, pero entonces nuestra **clave privada** será
+almacenada **sin cifrar**, por lo que cualquiera que gane acceso a nuestra
+clave privada podrá verla problemas, con el riesgo que esto conlleva.
+
+El resto de campos podemos dejarlos en blanco.
+
+
+Yo no voy a hacer esto de nuevo: ya tengo una y no me apetece crear otra por
+un ejemplo.
+
+Copiar la clave pública en la Raspberry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Podemos copiar la clave pública en la Raspberry con :code:`scp`:
+
+.. code-block:: sh
+
+    $ scp -P 7788 ~/.ssh/id_rsa.pub pi@nami.local:
+    pi@nami.local's password:
+    id_rsa.pub               100%  403     0.4KB/s   00:00
+
+**Importante**: esto lo hacemos desde nuestro equipo local, no desde una
+conexión SSH a la *Raspberry*. :code:`-P 7788` indica el puerto no estándar en
+el que escucha el demonio SSH.
+
+Se copia así nuestra clave pública al directorio :code:`home` del usuario
+(*pi*) de la *Raspberry*.
+
+Tras esto, tenemos que acceder por SSH a la *Raspberry* y añadir nuestra clave
+pública a la lista de claves autorizadas por el servidor
+(:code:`~/.ssh/authorized_keys`):
+
+.. code-block:: sh
+
+    $ ssh -p 7788 pi@nami.local
+    $ mkdir ~/.ssh
+    $ chmod 700 ~/.ssh
+    $ cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
+    $ rm ~/id_rsa.pub
+    $ chmod 600 ~/.ssh/authorized_keys
+    $ sudo chattr +i ~/.ssh
+    $ sudo chattr +i ~/.ssh/authorized_keys
+
+Una vez añadida la clave pública a dicha lista, los tres últimos comandos
+borran la clave del directorio :code:`home` del usuario y protegen el archivo
+de claves, para que sólo sea editable por el usuario (y sólo si la desprotege
+previamente, repitiendo los dos últimos comandos con el signo cambiado
+[:code:`-i`]).
+
+Comprobar la autentificación
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Antes de lanzarnos a lo loco y desactivar el acceso con contraseña, que menos
+que comprobar si la identificación con las claves funciona. Para ello,
+cerramos sesión SSH e intentamos entrar de nuevo:
+
+.. code-block:: sh
+
+    $ exit
+    logout
+    Connection to nami.local closed.
+
+    $ ssh -p 7776 pi@nami.local
+    Enter passphrase for key '/home/miusuariolocal/.ssh/id_rsa':
+    Welcome to Arch Linux ARM
+
+         Website: http://archlinuxarm.org
+           Forum: http://archlinuxarm.org/forum
+             IRC: #archlinux-arm on irc.Freenode.net
+    Last login: Sun Feb 22 20:36:15 2015 from 192.168.1.25
+
+Efectivamente. Cuando intentamos entrar, nos pide la frase de paso (para
+descifrar nuestra clave privada) y nos identifica con normalidad.
+
+Contraseñas fuera
+^^^^^^^^^^^^^^^^^
+
+Editamos de nuevo el archivo de configuración del demonio SSH, editando las
+líneas siguientes (ya existentes):
+
+.. code-block:: sh
+
+    $ sudo nano /etc/ssh/sshd_config
+    ---------------------------------
+    ...
+    PasswordAuthentication no
+    ChallengeResponseAuthentication no
+    ...
+
+Cuando reiniciemos, se aplicarán los cambios.
+
+Fstab con PARTUUID y LABEL
+==========================
+
+Tanto los *PARTUUID* (identificadores únicos definidos en las
+`entradas de una tabla GUID`_), como las *LABEL* ('etiquetas', asignadas por
+el usuario), son métodos de identificación de dispositivos más fiables que los
+nombres designados por el *kernel* (:code:`/dev/sdx1`, :code:`/dev/sdx2`...):
+no cambian mientras una partición exista (salvo cambio intencionado).
+
+Podemos consultar los *PARTUUIDs* y las etiquetas de todas nuestras
+particiones con:
+
+.. code-block:: sh
+
+    $ lsblk -o NAME,MOUNTPOINT,LABEL,FSTYPE,SIZE,PARTUUID
+
+    NAME        MOUNTPOINT     LABEL       FSTYPE   SIZE PARTUUID
+    sda                                            14,7G
+    └─sda1      /                          ext4    14,7G 096f9dc0-01
+    mmcblk0                                         7,4G
+    ├─mmcblk0p1 /boot                      vfat     100M 3e89e238-01
+    └─mmcblk0p2                            ext4     7,3G 3e89e238-02
+
+Usamos pues el *PARTUUID* de :code:`/` para modificar en :code:`/etc/fstab` y
+:code:`/boot/cmdline.txt` el identificador de la partición :code:`root`:
+
+.. code-block:: sh
+
+    $ sudo nano /boot/cmdline.txt
+    -----------------------------
+    selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=PARTUUID=096f9dc0-01 rootfstype=ext4 elevator=noop rootwait rootdelay=5
+
+.. code-block:: sh
+
+    $ sudo nano /etc/fstab
+    ----------------------
+    #
+    # /etc/fstab: static file system information
+    #
+    # <file system> <dir>   <type>  <options>       <dump>  <pass>
+    /dev/mmcblk0p1  /boot   vfat    defaults        0       2
+    #/dev/sda1       /       ext4    defaults,noatime  0     1
+    PARTUUID=096f9dc0-01    /   ext4    defaults,noatime  0       1
+    #PARTUUID=   /mnt/Pandorica    ext4 defaults,noatime  0       2
+    # a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that
+
+Montamos todos los dispositivos declarados en el archivo:
+
+.. code-block:: sh
+
+    $ sudo mount -a
+
+Si no encontramos ningún problema, enchufamos entonces el disco duro [#]_ y
+repetimos el proceso.
+
+.. code-block:: sh
+
+    $ lsblk -o NAME,MOUNTPOINT,LABEL,FSTYPE,SIZE,PARTUUID
+
+    NAME        MOUNTPOINT     LABEL       FSTYPE   SIZE PARTUUID
+    ...
+    sdb                                           931,5G
+    └─sdb1      /mnt/Pandorica mediacenter ext4   931,5G cbee6a55-01
+    ...
+
+Editaríamos entonces de nuevo el :code:`fstab`, con su *PARTUUID*, pero, como
+ya sé que en mi caso no funciona, usaré en su lugar la *LABEL*, quedando así:
+
+.. code-block:: sh
+
+    $ sudo nano /etc/fstab
+    ----------------------
+    #
+    # /etc/fstab: static file system information
+    #
+    # <file system> <dir>   <type>  <options>       <dump>  <pass>
+    /dev/mmcblk0p1  /boot   vfat    defaults        0       2
+    PARTUUID=096f9dc0-01    /   ext4    defaults,noatime  0       1
+    LABEL=mediacenter   /mnt/Pandorica    ext4 defaults,noatime  0       2
+    # a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that
+
+Hemos definido :code:`/mnt/Pandorica` como el directorio de montaje del disco
+duro, pero aún no existe. Lo creamos:
+
+.. code-block:: sh
+
+    $ sudo mkdir /mnt/Pandorica
+
+Montamos de nuevo todo con :code:`mount -a` y, si no hubo ningún problema, ya
+tendremos el disco duro montado en :code:`/mnt/Pandorica`.
+
+Una vez hecho esto, hay que concederle los permisos adecuados a la carpeta.
+En mi caso (a gusto del consumidor) he hecho:
+
+.. code-block:: sh
+
+    $ sudo chown miusuariopi /mnt/Pandorica
+
+Me limito a hacer a mi usuario propietario de la carpeta. En cuanto a
+permisos, por ahora me bastan los establecidos por defecto (*755*: lectura,
+escritura y ejecución para el propietario; lectura y ejecución para el resto).
+
+Crear un archivo swap
+=====================
+
+Uno de los «problemas» de la *Raspberry* es su limitada memoria. Aunque la
+nueva versión cuenta con 1 GB, mi modelo sólo tiene 512 MB de memoria. Y
+realmente, de estos 512 MB, sólo tenemos 369 MB disponibles, porque hay que
+restar la parte dedicada a vídeo:
+
+.. code-block:: sh
+
+    $ free -h
+
+           total    used    free   shared  buff/cache  available
+    Mem:    369M     30M    263M     392K         75M       320M
+    Swap:     0B      0B      0B
+
+Estaría bien disponer de un espacio extra de intercambio (*swap*), para poder seguir trabajando si se llega a ocupar toda esa memoria.
+
+En el antes mencionado :code:`fstab` se comenta que:
+
+.. code-block:: sh
+
+    # a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that
+
+Estoy casi convencido de que esto tuvo que ser generado por mi anterior
+instalación de `Raspbian`_, ya que me he documentado (es la primera vez que
+creo un archivo *swap*) y no entiendo qué necesidad hay de utilizar
+`dphys-swapfile`_: es un programa obsoleto, poco mantenido y, para colmo, es
+sencillísimo crear un fichero *swap* con las utilidades que vienen en la
+instalación base.
+
+Para crear un archivo *swap* de 512 MB:
+
+.. code-block:: sh
+
+    $ sudo fallocate -l 512M /mnt/Pandorica/swap
+    $ sudo chmod 600 /mnt/Pandorica/swap
+    $ sudo mkswap /mnt/Pandorica/swap
+
+Donde :code:`/mnt/Pandorica/swap` es la ruta que he elegido para guardar el
+archivo. Esta elección es importante. Lo almaceno en el disco duro: es más
+rápido que el lápiz de memoria o la microSD. Además, estos últimos tienen un
+ciclo de escrituras limitado, por lo que su vida útil se reduciría
+sustancialmente.
+
+Conviene `optimizar el uso de la swap`_. Siguiendo el principio
+:abbr:`DRY (Don't Repeat Yourself)`, mejor miráis
+`el apartado sobre esto que escribí no hace tanto`_.
+
+Acto seguido, podemos activarla con:
+
+.. code-block:: sh
+
+    $ sudo swapon /mnt/Pandorica/swap
+
+Y comprobar que está activada con :code:`free`:
+
+.. code-block:: sh
+
+    $ free
+            total    used   free  shared  buff/cache  available
+    Mem:      369      30    253       0          84        320
+    Swap:     511       0    511
+
+Finalmente, editamos :code:`/etc/fstab` para montar la *swap* automáticamente
+al inicio. Añadimos al final:
+
+.. code-block:: sh
+
+    /mnt/Pandorica/swap none swap defaults 0 0
+
+Usar repositorios AUR con yaourt
+================================
+
+Por último, y ya acabamos por ahora, vamos a instalar `yaourt`_. Lo usamos
+para gestionar los paquetes de la *Raspberry*, sobre todo para facilitarnos la
+instalación de aquellos disponibles en `AUR`_.
+
+Podemos instalar :code:`yaourt` haciendo:
+
+.. code-block:: sh
+
+    $ curl -Ok https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+    $ tar zxvf package-query.tar.gz
+    $ cd package-query
+    $ makepkg -si
+    $ cd ..
+    $ curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+    $ tar zxvf yaourt.tar.gz
+    $ cd yaourt
+    $ makepkg -si
+    $ cd ..
+    $ rm -R package-query* yaourt*
+
+Tras esto, instalamos :code:`base-devel` (no es estrictamente necesario, pero
+seguramente lo necesitemos más adelante para construir diversos paquetes):
+
+.. code-block:: sh
+
+    $ yaourt -Sy base-devel
+
+Cuando :code:`pacman` proceda a instalar :code:`base-devel` nos dirá que hay
+muchas alternativas del «Repositorio core» para instalar. Le damos a *enter*,
+para que las instale todas, por omisión.
+
+Su modo de uso es muy similar al de :code:`pacman`.
+
+.. code-block:: sh
+
+    $ yaourt -Syua  # actualiza la lista de paquetes, incluidos los de AUR
+    $ yaourt -S un_paquete otro_paquete  # instala los paquetes indicados
+    $ yaourt -Rs nombre_paquete  # desinstala el paquete dado
+    $ yaourt nombre_paquete/patrón  # busca el paquete dado
+
+Para más información, conviene leer la `wiki de yaourt`_ o su archivo *man*
+
+.. code-block:: sh
+
+    $ man yaourt
+
+---------------
+
+**Fuentes:** `Wiki de Arch Linux`_.
+
+.. [#] *Raspberry Pi* es una marca registrada de la `Raspberry Pi Foundation`_. El presente blog no tiene conexión alguna con la `Raspberry Pi Foundation`_.
+.. [#] Podríamos haber comenzado la instalación con el disco duro conectado, sí, pero no lo necesitaba entonces, así que...
+
+.. _Wiki de Arch Linux: https://wiki.archlinux.org/
+.. _Raspberry Pi Foundation: http://www.raspberrypi.org/
+.. _configurar Zeroconf: http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#resolucion-de-nombres-en-la-red-local-con-zeroconf
+.. _configurar nuestro router para que nos de una IP fija: http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#configuracion-de-ip
+.. _el método:
+.. _un método para ahorrarnos escribir de más: https://wiki.archlinux.org/index.php/Secure_Shell#Saving_connection_data_in_ssh_config
+.. _entradas de una tabla GUID: http://es.wikipedia.org/wiki/Tabla_de_particiones_GUID#Entradas_de_partici.C3.B3n_.28LBAs_2_al_33.29
+.. _Raspbian: http://www.raspbian.org
+.. _dphys-swapfile: https://github.com/isgphys/dphys-swapfile
+.. _optimizar el uso de la swap:
+.. _el apartado sobre esto que escribí no hace tanto: http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/#swap
+.. _AUR: https://aur.archlinux.org/
+.. _wiki de yaourt: https://wiki.archlinux.fr/Yaourt
+.. _yaourt: https://archlinux.fr/yaourt-en
