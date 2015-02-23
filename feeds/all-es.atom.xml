@@ -1,5 +1,509 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-02-10T17:25:00+01:00</updated><entry><title>Alejaos de la tarjeta prepago de Paypal mientras la gestione YoUniqueMoney</title><link href="//soulchainer.github.io/posts/2015/02/09/no-tocar-tarjeta-prepago-paypal/" rel="alternate"></link><updated>2015-02-10T17:25:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-09:posts/2015/02/09/no-tocar-tarjeta-prepago-paypal/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-02-23T17:40:00+01:00</updated><entry><title>Mi Raspberry Pi (III): configuración remota</title><link href="//soulchainer.github.io/posts/2015/02/23/mi-raspberry-configuracion-remota/" rel="alternate"></link><updated>2015-02-23T17:40:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-23:posts/2015/02/23/mi-raspberry-configuracion-remota/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#acceso-por-ssh" id="id5"&gt;Acceso por &lt;span class="caps"&gt;SSH&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#crear-un-usuario-ordinario" id="id6"&gt;Crear un usuario ordinario&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#sudo" id="id7"&gt;Sudo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#desactivar-el-login-como-root" id="id8"&gt;Desactivar el login como root&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#segurizar-el-acceso-ssh" id="id9"&gt;Segurizar el acceso &lt;span class="caps"&gt;SSH&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cambiar-el-puerto-por-defecto" id="id10"&gt;Cambiar el puerto por defecto&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#consejo-conexion-facil-a-maquinas-conocidas" id="id11"&gt;Consejo: conexión fácil a máquinas conocidas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#desactivar-el-acceso-con-contrasena" id="id12"&gt;Desactivar el acceso con contraseña&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#generar-las-claves" id="id13"&gt;Generar las claves&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#copiar-la-clave-publica-en-la-raspberry" id="id14"&gt;Copiar la clave pública en la Raspberry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#comprobar-la-autentificacion" id="id15"&gt;Comprobar la autentificación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#contrasenas-fuera" id="id16"&gt;Contraseñas fuera&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#fstab-con-partuuid-y-label" id="id17"&gt;Fstab con &lt;span class="caps"&gt;PARTUUID&lt;/span&gt; y &lt;span class="caps"&gt;LABEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#crear-un-archivo-swap" id="id18"&gt;Crear un archivo swap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#usar-repositorios-aur-con-yaourt" id="id19"&gt;Usar repositorios &lt;span class="caps"&gt;AUR&lt;/span&gt; con yaourt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Captura de consola, con el logo de Raspberry confeccionado con caracteres ASCII." src="//soulchainer.github.io/images/2015/02/2015-02-23_01.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Seguimos con la instalación y configuración de nuestra &lt;em&gt;Raspberry Pi&lt;/em&gt; &lt;a class="footnote-reference" href="#id3" id="id1"&gt;[1]&lt;/a&gt;.
+Vamos a acceder ya por &lt;span class="caps"&gt;SSH&lt;/span&gt; y a realizar una serie de ajustes para su uso.&lt;/p&gt;
+&lt;p&gt;Al lío.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="section" id="acceso-por-ssh"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Acceso por &lt;span class="caps"&gt;SSH&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Para establecer conexiones por &lt;span class="caps"&gt;SSH&lt;/span&gt; a otras máquinas, tenemos que tener
+instalado un cliente &lt;span class="caps"&gt;SSH&lt;/span&gt; en nuestro equipo. En el caso de que no lo
+tuvieramos (raro, ya que está incluido en el metapaquete &lt;code&gt;core&lt;/code&gt;), en
+&lt;em&gt;Arch Linux&lt;/em&gt; se instala con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S openssh
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si pasamos de &lt;a class="reference external" href="http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#resolucion-de-nombres-en-la-red-local-con-zeroconf"&gt;configurar Zeroconf&lt;/a&gt;, tendremos que conectarnos a nuestra
+Raspberry usando su &lt;span class="caps"&gt;IP&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh root@192.168.1.11  &lt;span class="c"&gt;# nos conectamos como usuario «root»&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si configuramos &lt;em&gt;Zeroconf&lt;/em&gt;, podremos conectarnos usando el nombre de host de
+nuestra Raspberry:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh root@nami.local  &lt;span class="c"&gt;# «nami» es el nombre de host de nuestra Raspberry&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cuando intentamos conectarmos por primera vez, se nos pregunta si realmente
+queremos fiarnos y conectar con la máquina:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;The authenticity of host &lt;span class="s"&gt;'192.168.1.11 (192.168.1.11)'&lt;/span&gt; can&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="err"&gt;t be established.&lt;/span&gt;
+ECDSA key fingerprint is &lt;span class="m"&gt;78&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;f&lt;span class="o"&gt;:&lt;/span&gt;fc&lt;span class="o"&gt;:&lt;/span&gt;ed&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="kt"&gt;c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;26&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;a0&lt;span class="o"&gt;:&lt;/span&gt;e5&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;64&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;f&lt;span class="o"&gt;:&lt;/span&gt;c4&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;79&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;79&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;d7&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;b.
+Are you sure you want to continue connecting &lt;span class="p"&gt;(&lt;/span&gt;yes&lt;span class="o"&gt;/&lt;/span&gt;no&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; yes
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si aceptamos (&lt;em&gt;«yes»&lt;/em&gt;), se añade su identidad a nuestra lista de máquinas
+conocidas. Mientras no se borre (esta información se encuentra en el archivo
+&lt;code&gt;~/.ssh/known_hosts&lt;/code&gt;), no se nos volverá a preguntar de nuevo sobre esto.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Warning: Permanently added &lt;span class="s1"&gt;'192.168.1.11'&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;ECDSA&lt;span class="o"&gt;)&lt;/span&gt; to the list of known hosts.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Introducimos la contraseña del usuario de la Raspberry con el que nos vamos a conectar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;root@192.168.1.11&lt;span class="err"&gt;'&lt;/span&gt;s password:
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y, previo mensaje de bienvenida, ya estamos dentro:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Welcome to Arch Linux ARM
+
+     Website: http://archlinuxarm.org
+       Forum: http://archlinuxarm.org/forum
+         IRC: &lt;span class="c"&gt;#archlinux-arm on irc.Freenode.net&lt;/span&gt;
+Last login: Wed Dec &lt;span class="m"&gt;10&lt;/span&gt; 23:19:32 2014
+&lt;span class="o"&gt;[&lt;/span&gt;root@nami ~&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="crear-un-usuario-ordinario"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;Crear un usuario ordinario&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Lo primero que vamos a hacer ahora es crearnos un usuario sin privilegios
+(no es nada recomendable ir haciéndolo todo como &lt;em&gt;root&lt;/em&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# useradd -mU -G wheel pi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;con &lt;code&gt;m&lt;/code&gt; ordenamos que se cree la carpeta &lt;code&gt;home&lt;/code&gt; del usuario;&lt;/li&gt;
+&lt;li&gt;con &lt;code&gt;U&lt;/code&gt; se creará un grupo para el usuario, con el que compartirá nombre;&lt;/li&gt;
+&lt;li&gt;con &lt;code&gt;-G wheel&lt;/code&gt; también se añadirá al usuario al grupo opcional &lt;em&gt;wheel&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;pi&lt;/em&gt; será el nombre de nuestro usuario ordinario (se recomienda crear un
+usuario un poco menos evidente).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El recién creado, contraseña quiere.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# passwd pi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sudo"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;Sudo&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Mucho en verano (xD). Además, el comando &lt;code&gt;sudo&lt;/code&gt; nos permite adquirir, cuando lo necesitemos y de forma temporal, privilegios de usuario &lt;em&gt;root&lt;/em&gt;.
+&lt;code&gt;sudo&lt;/code&gt; no viene por defecto en &lt;em&gt;Arch Linux&lt;/em&gt;, así que toca instalarlo y,
+ya que estamos, actualizar el sistema.&lt;/p&gt;
+&lt;p&gt;Editamos el archivo &lt;code&gt;/etc/pacman.d/mirrorlist&lt;/code&gt;, descomentando algún
+servidor cercano a nuestra ubicación. En mi caso, descomento (borrando el
+carácter &lt;code&gt;#&lt;/code&gt; precedente) unos pocos de Europa.&lt;/p&gt;
+&lt;p&gt;E instalamos &lt;code&gt;sudo&lt;/code&gt; y actualizamos con &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pacman -Syu sudo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para poder usar &lt;code&gt;sudo&lt;/code&gt; siendo un usuario con privilegios limitados
+tenemos que concedernos primero los permisos adecuados. Esto se logra editando
+el archivo de configuración &lt;code&gt;/etc/sudoers&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;IMPORTANTE&lt;/span&gt;:&lt;/strong&gt; este archivo hay que editarlo &lt;strong&gt;&lt;span class="caps"&gt;SIEMPRE&lt;/span&gt;&lt;/strong&gt; con &lt;code&gt;visudo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Lo editamos, descomentando la siguiente línea:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# visudo&lt;/span&gt;
+--------
+...
+%wheel &lt;span class="nv"&gt;ALL&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ALL&lt;span class="o"&gt;)&lt;/span&gt; ALL
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;De esta forma, todos los usuarios en el grupo &lt;em&gt;wheel&lt;/em&gt; podrán lanzar cualquier
+comando con privilegios &lt;em&gt;root&lt;/em&gt;, vía &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Como estaba previsto (fue añadido a este grupo durante su creación), nuestro
+usuario (&lt;em&gt;pi&lt;/em&gt;) ya es miembro del selecto grupo de &lt;em&gt;sudoers&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="desactivar-el-login-como-root"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;Desactivar el login como root&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Sin posibilidad de identificarse como &lt;em&gt;root&lt;/em&gt;, un atacante tiene que
+deducir el nombre de un usuario configurado como sudoer antes siquiera de
+intentar obtener su contraseña.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mucho cuidado con esto&lt;/strong&gt;: si no concedimos correctamente a nuestro usuario
+permiso para usar &lt;code&gt;sudo&lt;/code&gt;, nos quedaremos fuera de nuestro propio
+sistema. Conviene comprobar primero que podemos «sudar» con normalidad
+(incluso en invierno ò_ó).&lt;/p&gt;
+&lt;p&gt;Dicho esto, la cuenta &lt;em&gt;root&lt;/em&gt; puede bloquearse vía &lt;code&gt;passwd&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# passwd -l root&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si lo deseamos, podremos desbloquearla más adelante con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo passwd -u root
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="segurizar-el-acceso-ssh"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Segurizar el acceso &lt;span class="caps"&gt;SSH&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo groupadd -r grupossh
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo gpasswd -a pi grupossh
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo bash
+&lt;span class="c"&gt;# echo 'AllowUsers pi@192.168.1.25' &amp;gt;&amp;gt; /etc/ssh/sshd_config&lt;/span&gt;
+&lt;span class="c"&gt;# echo 'AllowGroups grupossh' &amp;gt;&amp;gt; /etc/ssh/sshd_config&lt;/span&gt;
+&lt;span class="c"&gt;# echo 'PermitRootLogin no' &amp;gt;&amp;gt; /etc/ssh/sshd_config&lt;/span&gt;
+&lt;span class="c"&gt;# exit&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo reboot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Con esto:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;creamos el grupo &lt;em&gt;grupossh&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;añadimos a nuestro usuario (&lt;em&gt;pi&lt;/em&gt;) al grupo;&lt;/li&gt;
+&lt;li&gt;sólo podrá acceder por &lt;span class="caps"&gt;SSH&lt;/span&gt; nuestro usuario, desde la &lt;span class="caps"&gt;IP&lt;/span&gt; &lt;code&gt;192.168.1.25&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;sólo podrán acceder usuarios miembros del grupo &lt;em&gt;grupossh&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;se prohibe explícitamente el acceso como &lt;em&gt;root&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;finalmente, se reinicia la &lt;em&gt;Raspberry&lt;/em&gt; para aplicar los cambios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La parte de la &lt;span class="caps"&gt;IP&lt;/span&gt;, &lt;code&gt;@192.168.1.25&lt;/code&gt;, es opcional, pero aporta más seguridad. Obviamente, tenemos que tener una &lt;span class="caps"&gt;IP&lt;/span&gt; fija en el equipo con el que
+accedemos por &lt;span class="caps"&gt;SSH&lt;/span&gt;. En el
+&lt;a class="reference external" href="//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/"&gt;artículo anterior&lt;/a&gt; ya mencionamos
+como podemos &lt;a class="reference external" href="http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#configuracion-de-ip"&gt;configurar nuestro router para que nos de una &lt;span class="caps"&gt;IP&lt;/span&gt; fija&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Si todo esto no nos parece síntoma claro de neurosis, una vez reiniciada la
+&lt;em&gt;Raspberry&lt;/em&gt; e identificados como usuario normal, podemos continuar.&lt;/p&gt;
+&lt;div class="section" id="cambiar-el-puerto-por-defecto"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Cambiar el puerto por defecto&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Por defecto, el demonio &lt;span class="caps"&gt;SSH&lt;/span&gt; escucha conexiones en el puerto 22. Para una mayor
+seguridad podemos cambiar este puerto por uno en desuso, fuera de los
+&lt;em&gt;puertos bien conocidos&lt;/em&gt; (del 0 al 1023).&lt;/p&gt;
+&lt;p&gt;Para ayudarnos a elegir un puerto, tenemos un listado con la relación de
+puertos/servicios más comunes en el archivo &lt;code&gt;/etc/services&lt;/code&gt;. Y con el
+comando &lt;code&gt;netstat&lt;/code&gt; podemos ver los puertos actualmente en uso en nuestra
+&lt;em&gt;Raspberry&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;netstat -tu  &lt;span class="c"&gt;# lista las conexiones activas a puertos TCP/UDP&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Una vez escogido el puerto, editamos el fichero de configuración del servidor
+&lt;span class="caps"&gt;SSH&lt;/span&gt;, añadiendo al final una línea para indicar el nuevo puerto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/ssh/sshd_config
+--------------------------------
+...
+Port 7788
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nos aseguramos de que la línea con el puerto por defecto esté comentada (si no
+lo está, escuchará en los dos puertos):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Port 22&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Después de guardar, reiniciamos la &lt;em&gt;Raspberry&lt;/em&gt; una vez más, para que se
+apliquen los cambios.&lt;/p&gt;
+&lt;p&gt;Dejamos pasar un tiempo y probamos a conectarnos de nuevo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh pi@nami.local
+ssh: connect to host nami.local port 22: Invalid argument
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como podemos ver, si intentamos conectarnos como hasta ahora, nos resulta
+imposible. Tenemos que indicar el nuevo puerto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh -p &lt;span class="m"&gt;7788&lt;/span&gt; pi@nami.local
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="consejo-conexion-facil-a-maquinas-conocidas"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Consejo: conexión fácil a máquinas conocidas&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Tener que escribir cada vez el comando de conexión completo, recordando además
+en qué puerto tenemos configurado el servidor, puede ser cargante.&lt;/p&gt;
+&lt;p&gt;Para solucionar este «problema», la &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;wiki de Arch Linux&lt;/a&gt; nos propone
+&lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Secure_Shell#Saving_connection_data_in_ssh_config"&gt;un método para ahorrarnos escribir de más&lt;/a&gt;: crear un archivo de
+configuración en &lt;code&gt;~/.ssh/config&lt;/code&gt;, donde describiremos con varias líneas
+cada uno de los servidores que usamos habitualmente. La verdad es que
+&lt;a class="reference external" href="https://wiki.archlinux.org/index.php/Secure_Shell#Saving_connection_data_in_ssh_config"&gt;el método&lt;/a&gt; no está mal, pero ya que estamos optimizando el esfuerzo, vamos a
+mantenernos fieles a la filosofía &lt;abbr title="Keep It Simple, Stupid"&gt;&lt;span class="caps"&gt;KISS&lt;/span&gt;&lt;/abbr&gt;, ¿no?:
+¿para qué vamos a crear un archivo nuevo y con cuatro «largas» líneas por
+servidor, cuando nos sobra con una línea por servidor en nuestro flamante
+(y ya existente) &lt;code&gt;~/.bashrc&lt;/code&gt;?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"alias pissh='ssh -p 7788 pi@nami.local'"&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ya está. Esto añade el alias &lt;code&gt;pissh&lt;/code&gt; al final de nuestro
+&lt;code&gt;~/.bashrc&lt;/code&gt;. Cuando queramos conectarnos a nuestra &lt;em&gt;Raspberry&lt;/em&gt;, tecleamos
+esto en consola y pa’lante.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="desactivar-el-acceso-con-contrasena"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Desactivar el acceso con contraseña&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Podemos generar un par de claves &lt;span class="caps"&gt;SSH&lt;/span&gt; (una pública y una privada) y desactivar
+la identificación por contraseña. Le daremos una copia de la llave pública al
+servidor &lt;span class="caps"&gt;SSH&lt;/span&gt; (nuestra &lt;em&gt;Raspberry&lt;/em&gt;) y este nos identificará inequívocamente por
+esta, rechazando cualquier otro intento o método de conexión.&lt;/p&gt;
+&lt;div class="section" id="generar-las-claves"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Generar las claves&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Las generamos con &lt;code&gt;ssh-keygen&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh-keygen -t rsa -b &lt;span class="m"&gt;4096&lt;/span&gt; -C &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;whoami&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;@&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;hostname&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;-&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date -I&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+-----------------------------------------------------------------
+Generating public/private rsa key pair.
+Enter file in which to save the key &lt;span class="o"&gt;(&lt;/span&gt;/home/username/.ssh/id_rsa&lt;span class="o"&gt;)&lt;/span&gt;:
+Enter passphrase &lt;span class="o"&gt;(&lt;/span&gt;empty &lt;span class="k"&gt;for&lt;/span&gt; no passphrase&lt;span class="o"&gt;)&lt;/span&gt;:
+Enter same passphrase again:
+Your identification has been saved in /home/username/.ssh/id_rsa.
+Your public key has been saved in /home/username/.ssh/id_rsa.pub.
+The key fingerprint is:
+dd:15:ee:24:20:14:11:01:b8:72:a2:0f:99:4c:79:7f username@localhost-2014-11-22
+The key&lt;span class="err"&gt;'&lt;/span&gt;s randomart image is:
++--&lt;span class="o"&gt;[&lt;/span&gt;RSA  4096&lt;span class="o"&gt;]&lt;/span&gt;---+
+&lt;span class="p"&gt;|&lt;/span&gt;     ..oB&lt;span class="o"&gt;=&lt;/span&gt;.   .  &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;    .    . . . . &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;  .  .      . +  &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt; oo.o    . . &lt;span class="o"&gt;=&lt;/span&gt;   &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;o+.+.   S . . .  &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.   . E         &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt; o    .          &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;  .              &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;                 &lt;span class="p"&gt;|&lt;/span&gt;
++-----------------+
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;En&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Enter passphrase &lt;span class="o"&gt;(&lt;/span&gt;empty &lt;span class="k"&gt;for&lt;/span&gt; no passphrase&lt;span class="o"&gt;)&lt;/span&gt;:
+Enter same passphrase again:
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;introducimos la frase de paso que queramos y luego volvemos a introducirla
+(para comprobar que no nos hemos equivocado). No os confundáis con esto: no se
+trata de una contraseña con la que nos identificaremos por &lt;span class="caps"&gt;SSH&lt;/span&gt;. Esta
+&lt;em&gt;frase de paso&lt;/em&gt; es una especie de clave, sí, pero se usa sólo &lt;em&gt;localmente&lt;/em&gt;,
+para descifrar nuestra clave privada, porque se guarda cifrada. &lt;strong&gt;Nunca&lt;/strong&gt;
+se transmite por red. &lt;strong&gt;&lt;span class="caps"&gt;NO&lt;/span&gt;&lt;/strong&gt; debéis proporcionársela &lt;strong&gt;&lt;span class="caps"&gt;NUNCA&lt;/span&gt;&lt;/strong&gt; a &lt;strong&gt;&lt;span class="caps"&gt;NADIE&lt;/span&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Aún así, estableced una &lt;em&gt;frase de paso&lt;/em&gt; decente: nada del nombre de nuestra
+mascota, nuestro &lt;span class="caps"&gt;DNI&lt;/span&gt; y similares. Y que sea &lt;strong&gt;&lt;span class="caps"&gt;LARGA&lt;/span&gt;&lt;/strong&gt; (el tamaño sí importa).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;IMPORTANTE&lt;/span&gt;&lt;/strong&gt;: podemos generar igualmente las claves
+&lt;strong&gt;sin una frase de paso&lt;/strong&gt;, pero entonces nuestra &lt;strong&gt;clave privada&lt;/strong&gt; será
+almacenada &lt;strong&gt;sin cifrar&lt;/strong&gt;, por lo que cualquiera que gane acceso a nuestra
+clave privada podrá verla problemas, con el riesgo que esto conlleva.&lt;/p&gt;
+&lt;p&gt;El resto de campos podemos dejarlos en blanco.&lt;/p&gt;
+&lt;p&gt;Yo no voy a hacer esto de nuevo: ya tengo una y no me apetece crear otra por
+un ejemplo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="copiar-la-clave-publica-en-la-raspberry"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Copiar la clave pública en la Raspberry&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Podemos copiar la clave pública en la Raspberry con &lt;code&gt;scp&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;scp -P &lt;span class="m"&gt;7788&lt;/span&gt; ~/.ssh/id_rsa.pub pi@nami.local:
+pi@nami.local&lt;span class="err"&gt;'&lt;/span&gt;s password:
+id_rsa.pub               100%  &lt;span class="m"&gt;403&lt;/span&gt;     0.4KB/s   00:00
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Importante&lt;/strong&gt;: esto lo hacemos desde nuestro equipo local, no desde una
+conexión &lt;span class="caps"&gt;SSH&lt;/span&gt; a la &lt;em&gt;Raspberry&lt;/em&gt;. &lt;code&gt;-P 7788&lt;/code&gt; indica el puerto no estándar en
+el que escucha el demonio &lt;span class="caps"&gt;SSH&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Se copia así nuestra clave pública al directorio &lt;code&gt;home&lt;/code&gt; del usuario
+(&lt;em&gt;pi&lt;/em&gt;) de la &lt;em&gt;Raspberry&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Tras esto, tenemos que acceder por &lt;span class="caps"&gt;SSH&lt;/span&gt; a la &lt;em&gt;Raspberry&lt;/em&gt; y añadir nuestra clave
+pública a la lista de claves autorizadas por el servidor
+(&lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh -p &lt;span class="m"&gt;7788&lt;/span&gt; pi@nami.local
+&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir ~/.ssh
+&lt;span class="nv"&gt;$ &lt;/span&gt;chmod &lt;span class="m"&gt;700&lt;/span&gt; ~/.ssh
+&lt;span class="nv"&gt;$ &lt;/span&gt;cat ~/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys
+&lt;span class="nv"&gt;$ &lt;/span&gt;rm ~/id_rsa.pub
+&lt;span class="nv"&gt;$ &lt;/span&gt;chmod &lt;span class="m"&gt;600&lt;/span&gt; ~/.ssh/authorized_keys
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo chattr +i ~/.ssh
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo chattr +i ~/.ssh/authorized_keys
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Una vez añadida la clave pública a dicha lista, los tres últimos comandos
+borran la clave del directorio &lt;code&gt;home&lt;/code&gt; del usuario y protegen el archivo
+de claves, para que sólo sea editable por el usuario (y sólo si la desprotege
+previamente, repitiendo los dos últimos comandos con el signo cambiado
+[&lt;code&gt;-i&lt;/code&gt;]).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="comprobar-la-autentificacion"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Comprobar la autentificación&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Antes de lanzarnos a lo loco y desactivar el acceso con contraseña, que menos
+que comprobar si la identificación con las claves funciona. Para ello,
+cerramos sesión &lt;span class="caps"&gt;SSH&lt;/span&gt; e intentamos entrar de nuevo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;
+&lt;span class="nb"&gt;logout&lt;/span&gt;
+Connection to nami.local closed.
+
+&lt;span class="nv"&gt;$ &lt;/span&gt;ssh -p &lt;span class="m"&gt;7776&lt;/span&gt; pi@nami.local
+Enter passphrase &lt;span class="k"&gt;for&lt;/span&gt; key &lt;span class="s1"&gt;'/home/miusuariolocal/.ssh/id_rsa'&lt;/span&gt;:
+Welcome to Arch Linux ARM
+
+     Website: http://archlinuxarm.org
+       Forum: http://archlinuxarm.org/forum
+         IRC: &lt;span class="c"&gt;#archlinux-arm on irc.Freenode.net&lt;/span&gt;
+Last login: Sun Feb &lt;span class="m"&gt;22&lt;/span&gt; 20:36:15 &lt;span class="m"&gt;2015&lt;/span&gt; from 192.168.1.25
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Efectivamente. Cuando intentamos entrar, nos pide la frase de paso (para
+descifrar nuestra clave privada) y nos identifica con normalidad.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="contrasenas-fuera"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Contraseñas fuera&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Editamos de nuevo el archivo de configuración del demonio &lt;span class="caps"&gt;SSH&lt;/span&gt;, editando las
+líneas siguientes (ya existentes):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/ssh/sshd_config
+---------------------------------
+...
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cuando reiniciemos, se aplicarán los cambios.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fstab-con-partuuid-y-label"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Fstab con &lt;span class="caps"&gt;PARTUUID&lt;/span&gt; y &lt;span class="caps"&gt;LABEL&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Tanto los &lt;em&gt;&lt;span class="caps"&gt;PARTUUID&lt;/span&gt;&lt;/em&gt; (identificadores únicos definidos en las
+&lt;a class="reference external" href="http://es.wikipedia.org/wiki/Tabla_de_particiones_GUID#Entradas_de_partici.C3.B3n_.28LBAs_2_al_33.29"&gt;entradas de una tabla &lt;span class="caps"&gt;GUID&lt;/span&gt;&lt;/a&gt;), como las &lt;em&gt;&lt;span class="caps"&gt;LABEL&lt;/span&gt;&lt;/em&gt; (‘etiquetas’, asignadas por
+el usuario), son métodos de identificación de dispositivos más fiables que los
+nombres designados por el &lt;em&gt;kernel&lt;/em&gt; (&lt;code&gt;/dev/sdx1&lt;/code&gt;, &lt;code&gt;/dev/sdx2&lt;/code&gt;…):
+no cambian mientras una partición exista (salvo cambio intencionado).&lt;/p&gt;
+&lt;p&gt;Podemos consultar los &lt;em&gt;PARTUUIDs&lt;/em&gt; y las etiquetas de todas nuestras
+particiones con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;lsblk -o NAME,MOUNTPOINT,LABEL,FSTYPE,SIZE,PARTUUID
+
+NAME        MOUNTPOINT     LABEL       FSTYPE   SIZE PARTUUID
+sda                                            14,7G
+└─sda1      /                          ext4    14,7G 096f9dc0-01
+mmcblk0                                         7,4G
+├─mmcblk0p1 /boot                      vfat     100M 3e89e238-01
+└─mmcblk0p2                            ext4     7,3G 3e89e238-02
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Usamos pues el &lt;em&gt;&lt;span class="caps"&gt;PARTUUID&lt;/span&gt;&lt;/em&gt; de &lt;code&gt;/&lt;/code&gt; para modificar en &lt;code&gt;/etc/fstab&lt;/code&gt; y
+&lt;code&gt;/boot/cmdline.txt&lt;/code&gt; el identificador de la partición &lt;code&gt;root&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /boot/cmdline.txt
+-----------------------------
+&lt;span class="nv"&gt;selinux&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; plymouth.enable&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; smsc95xx.turbo_mode&lt;span class="o"&gt;=&lt;/span&gt;N dwc_otg.lpm_enable&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ttyAMA0,115200 &lt;span class="nv"&gt;kgdboc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ttyAMA0,115200 &lt;span class="nv"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;tty1 &lt;span class="nv"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;PARTUUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;096f9dc0-01 &lt;span class="nv"&gt;rootfstype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ext4 &lt;span class="nv"&gt;elevator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;noop rootwait &lt;span class="nv"&gt;rootdelay&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;5
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/fstab
+----------------------
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# /etc/fstab: static file system information&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# &amp;lt;file system&amp;gt; &amp;lt;dir&amp;gt;   &amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;/span&gt;
+/dev/mmcblk0p1  /boot   vfat    defaults        &lt;span class="m"&gt;0&lt;/span&gt;       2
+&lt;span class="c"&gt;#/dev/sda1       /       ext4    defaults,noatime  0     1&lt;/span&gt;
+&lt;span class="nv"&gt;PARTUUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;096f9dc0-01    /   ext4    defaults,noatime  &lt;span class="m"&gt;0&lt;/span&gt;       1
+&lt;span class="c"&gt;#PARTUUID=   /mnt/Pandorica    ext4 defaults,noatime  0       2&lt;/span&gt;
+&lt;span class="c"&gt;# a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Montamos todos los dispositivos declarados en el archivo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mount -a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si no encontramos ningún problema, enchufamos entonces el disco duro &lt;a class="footnote-reference" href="#id4" id="id2"&gt;[2]&lt;/a&gt; y
+repetimos el proceso.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;lsblk -o NAME,MOUNTPOINT,LABEL,FSTYPE,SIZE,PARTUUID
+
+NAME        MOUNTPOINT     LABEL       FSTYPE   SIZE PARTUUID
+...
+sdb                                           931,5G
+└─sdb1      /mnt/Pandorica mediacenter ext4   931,5G cbee6a55-01
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Editaríamos entonces de nuevo el &lt;code&gt;fstab&lt;/code&gt;, con su &lt;em&gt;&lt;span class="caps"&gt;PARTUUID&lt;/span&gt;&lt;/em&gt;, pero, como
+ya sé que en mi caso no funciona, usaré en su lugar la &lt;em&gt;&lt;span class="caps"&gt;LABEL&lt;/span&gt;&lt;/em&gt;, quedando así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/fstab
+----------------------
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# /etc/fstab: static file system information&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# &amp;lt;file system&amp;gt; &amp;lt;dir&amp;gt;   &amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;/span&gt;
+/dev/mmcblk0p1  /boot   vfat    defaults        &lt;span class="m"&gt;0&lt;/span&gt;       2
+&lt;span class="nv"&gt;PARTUUID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;096f9dc0-01    /   ext4    defaults,noatime  &lt;span class="m"&gt;0&lt;/span&gt;       1
+&lt;span class="nv"&gt;LABEL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mediacenter   /mnt/Pandorica    ext4 defaults,noatime  &lt;span class="m"&gt;0&lt;/span&gt;       2
+&lt;span class="c"&gt;# a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hemos definido &lt;code&gt;/mnt/Pandorica&lt;/code&gt; como el directorio de montaje del disco
+duro, pero aún no existe. Lo creamos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mkdir /mnt/Pandorica
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Montamos de nuevo todo con &lt;code&gt;mount -a&lt;/code&gt; y, si no hubo ningún problema, ya
+tendremos el disco duro montado en &lt;code&gt;/mnt/Pandorica&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Una vez hecho esto, hay que concederle los permisos adecuados a la carpeta.
+En mi caso (a gusto del consumidor) he hecho:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo chown miusuariopi /mnt/Pandorica
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Me limito a hacer a mi usuario propietario de la carpeta. En cuanto a
+permisos, por ahora me bastan los establecidos por defecto (&lt;em&gt;755&lt;/em&gt;: lectura,
+escritura y ejecución para el propietario; lectura y ejecución para el resto).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="crear-un-archivo-swap"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Crear un archivo swap&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Uno de los «problemas» de la &lt;em&gt;Raspberry&lt;/em&gt; es su limitada memoria. Aunque la
+nueva versión cuenta con 1 &lt;span class="caps"&gt;GB&lt;/span&gt;, mi modelo sólo tiene 512 &lt;span class="caps"&gt;MB&lt;/span&gt; de memoria. Y
+realmente, de estos 512 &lt;span class="caps"&gt;MB&lt;/span&gt;, sólo tenemos 369 &lt;span class="caps"&gt;MB&lt;/span&gt; disponibles, porque hay que
+restar la parte dedicada a vídeo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;free -h
+
+       total    used    free   shared  buff/cache  available
+Mem:    369M     30M    263M     392K         75M       320M
+Swap:     0B      0B      0B
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Estaría bien disponer de un espacio extra de intercambio (&lt;em&gt;swap&lt;/em&gt;), para poder seguir trabajando si se llega a ocupar toda esa memoria.&lt;/p&gt;
+&lt;p&gt;En el antes mencionado &lt;code&gt;fstab&lt;/code&gt; se comenta que:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Estoy casi convencido de que esto tuvo que ser generado por mi anterior
+instalación de &lt;a class="reference external" href="http://www.raspbian.org"&gt;Raspbian&lt;/a&gt;, ya que me he documentado (es la primera vez que
+creo un archivo &lt;em&gt;swap&lt;/em&gt;) y no entiendo qué necesidad hay de utilizar
+&lt;a class="reference external" href="https://github.com/isgphys/dphys-swapfile"&gt;dphys-swapfile&lt;/a&gt;: es un programa obsoleto, poco mantenido y, para colmo, es
+sencillísimo crear un fichero &lt;em&gt;swap&lt;/em&gt; con las utilidades que vienen en la
+instalación base.&lt;/p&gt;
+&lt;p&gt;Para crear un archivo &lt;em&gt;swap&lt;/em&gt; de 512 &lt;span class="caps"&gt;MB&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo fallocate -l 512M /mnt/Pandorica/swap
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo chmod &lt;span class="m"&gt;600&lt;/span&gt; /mnt/Pandorica/swap
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mkswap /mnt/Pandorica/swap
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donde &lt;code&gt;/mnt/Pandorica/swap&lt;/code&gt; es la ruta que he elegido para guardar el
+archivo. Esta elección es importante. Lo almaceno en el disco duro: es más
+rápido que el lápiz de memoria o la microSD. Además, estos últimos tienen un
+ciclo de escrituras limitado, por lo que su vida útil se reduciría sustancialmente.&lt;/p&gt;
+&lt;p&gt;Conviene &lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/#swap"&gt;optimizar el uso de la swap&lt;/a&gt;. Siguiendo el principio
+&lt;abbr title="Don't Repeat Yourself"&gt;&lt;span class="caps"&gt;DRY&lt;/span&gt;&lt;/abbr&gt;, mejor miráis
+&lt;a class="reference external" href="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/#swap"&gt;el apartado sobre esto que escribí no hace tanto&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Acto seguido, podemos activarla con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo swapon /mnt/Pandorica/swap
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Y comprobar que está activada con &lt;code&gt;free&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;free
+        total    used   free  shared  buff/cache  available
+Mem:      &lt;span class="m"&gt;369&lt;/span&gt;      &lt;span class="m"&gt;30&lt;/span&gt;    &lt;span class="m"&gt;253&lt;/span&gt;       &lt;span class="m"&gt;0&lt;/span&gt;          &lt;span class="m"&gt;84&lt;/span&gt;        320
+Swap:     &lt;span class="m"&gt;511&lt;/span&gt;       &lt;span class="m"&gt;0&lt;/span&gt;    511
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finalmente, editamos &lt;code&gt;/etc/fstab&lt;/code&gt; para montar la &lt;em&gt;swap&lt;/em&gt; automáticamente
+al inicio. Añadimos al final:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/mnt/Pandorica/swap none swap defaults &lt;span class="m"&gt;0&lt;/span&gt; 0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="usar-repositorios-aur-con-yaourt"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;Usar repositorios &lt;span class="caps"&gt;AUR&lt;/span&gt; con yaourt&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Por último, y ya acabamos por ahora, vamos a instalar &lt;a class="reference external" href="https://archlinux.fr/yaourt-en"&gt;yaourt&lt;/a&gt;. Lo usamos
+para gestionar los paquetes de la &lt;em&gt;Raspberry&lt;/em&gt;, sobre todo para facilitarnos la
+instalación de aquellos disponibles en &lt;a class="reference external" href="https://aur.archlinux.org/"&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Podemos instalar &lt;code&gt;yaourt&lt;/code&gt; haciendo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl -Ok https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+&lt;span class="nv"&gt;$ &lt;/span&gt;tar zxvf package-query.tar.gz
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;package-query
+&lt;span class="nv"&gt;$ &lt;/span&gt;makepkg -si
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ..
+&lt;span class="nv"&gt;$ &lt;/span&gt;curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+&lt;span class="nv"&gt;$ &lt;/span&gt;tar zxvf yaourt.tar.gz
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;yaourt
+&lt;span class="nv"&gt;$ &lt;/span&gt;makepkg -si
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ..
+&lt;span class="nv"&gt;$ &lt;/span&gt;rm -R package-query* yaourt*
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tras esto, instalamos &lt;code&gt;base-devel&lt;/code&gt; (no es estrictamente necesario, pero
+seguramente lo necesitemos más adelante para construir diversos paquetes):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Sy base-devel
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cuando &lt;code&gt;pacman&lt;/code&gt; proceda a instalar &lt;code&gt;base-devel&lt;/code&gt; nos dirá que hay
+muchas alternativas del «Repositorio core» para instalar. Le damos a &lt;em&gt;enter&lt;/em&gt;,
+para que las instale todas, por omisión.&lt;/p&gt;
+&lt;p&gt;Su modo de uso es muy similar al de &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Syua  &lt;span class="c"&gt;# actualiza la lista de paquetes, incluidos los de AUR&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S un_paquete otro_paquete  &lt;span class="c"&gt;# instala los paquetes indicados&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Rs nombre_paquete  &lt;span class="c"&gt;# desinstala el paquete dado&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt nombre_paquete/patrón  &lt;span class="c"&gt;# busca el paquete dado&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para más información, conviene leer la &lt;a class="reference external" href="https://wiki.archlinux.fr/Yaourt"&gt;wiki de yaourt&lt;/a&gt; o su archivo &lt;em&gt;man&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;man yaourt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;hr class="docutils"/&gt;
+&lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;Wiki de Arch Linux&lt;/a&gt;.&lt;/p&gt;
+&lt;table class="docutils footnote" frame="void" id="id3" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Raspberry Pi&lt;/em&gt; es una marca registrada de la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;. El presente blog no tiene conexión alguna con la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Podríamos haber comenzado la instalación con el disco duro conectado, sí, pero no lo necesitaba entonces, así que…&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</summary><category term="raspberry pi"></category><category term="instalación"></category><category term="configuración"></category><category term="linux"></category><category term="archlinux"></category><category term="consola"></category><category term="ssh"></category><category term="fstab"></category><category term="swap"></category><category term="memoria"></category><category term="partuuid"></category><category term="yaourt"></category><category term="aur"></category><category term="claves"></category><category term="root"></category><category term="contraseña"></category><category term="seguridad"></category></entry><entry><title>Alejaos de la tarjeta prepago de Paypal mientras la gestione YoUniqueMoney</title><link href="//soulchainer.github.io/posts/2015/02/09/no-tocar-tarjeta-prepago-paypal/" rel="alternate"></link><updated>2015-02-10T17:25:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-02-09:posts/2015/02/09/no-tocar-tarjeta-prepago-paypal/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#actualizacion-2015-02-09" id="id3"&gt;Actualización (2015-02-09)&lt;/a&gt;&lt;/li&gt;

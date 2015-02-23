@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, archlinux, aur, claves, configuración, consola, contraseña, fstab, instalación, linux, memoria, partuuid, raspberry pi, root, seguridad, ssh, swap, yaourt" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="//soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="//soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="//soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="//soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="//soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Mi Raspberry Pi (III): configuración remota">
+      <meta name="twitter:description" content="Seguimos con la instalación y configuración de nuestra Raspberry
+Pi.
+Vamos a acceder ya por SSH y a realizar una serie de ajustes para
+su uso.">
+      <meta name="twitter:image:src" content="//soulchainer.github.io/images/2015/02/2015-02-23_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Mi Raspberry Pi (III): configuración remota" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="//soulchainer.github.io/posts/2015/02/23/mi-raspberry-configuracion-remota/" />
+      <meta property="og:image" content="//soulchainer.github.io/images/2015/02/2015-02-23_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux, Raspberry" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="aur" />
+      <meta property="og:article:tag" content="claves" />
+      <meta property="og:article:tag" content="configuración" />
+      <meta property="og:article:tag" content="consola" />
+      <meta property="og:article:tag" content="contraseña" />
+      <meta property="og:article:tag" content="fstab" />
+      <meta property="og:article:tag" content="instalación" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="memoria" />
+      <meta property="og:article:tag" content="partuuid" />
+      <meta property="og:article:tag" content="raspberry pi" />
+      <meta property="og:article:tag" content="root" />
+      <meta property="og:article:tag" content="seguridad" />
+      <meta property="og:article:tag" content="ssh" />
+      <meta property="og:article:tag" content="swap" />
+      <meta property="og:article:tag" content="yaourt" />
+      <meta property="og:description" content="Seguimos con la instalación y configuración de nuestra Raspberry
+Pi.
+Vamos a acceder ya por SSH y a realizar una serie de ajustes para
+su uso." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="//soulchainer.github.io/theme/css/style.min.css">
+<script type="text/javascript" src="http://127.0.0.1:35729/livereload.js"></script><!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="//soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2015/02/23/mi-raspberry-configuracion-remota/" rel="bookmark" title="Permalink to Mi Raspberry Pi (III): configuración remota">
+      Mi Raspberry Pi (<span class="caps">III</span>): configuración&nbsp;remota
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2015-02-23T17:40:00+01:00">
+      lun 23 febrero 2015, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="contents topic" id="indice-de-contenido">
+<p class="topic-title first"><strong>Índice de contenido</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#acceso-por-ssh" id="id5">Acceso por <span class="caps">SSH</span></a></li>
+<li><a class="reference internal" href="#crear-un-usuario-ordinario" id="id6">Crear un usuario ordinario</a></li>
+<li><a class="reference internal" href="#sudo" id="id7">Sudo</a></li>
+<li><a class="reference internal" href="#desactivar-el-login-como-root" id="id8">Desactivar el login como root</a></li>
+<li><a class="reference internal" href="#segurizar-el-acceso-ssh" id="id9">Segurizar el acceso <span class="caps">SSH</span></a><ul>
+<li><a class="reference internal" href="#cambiar-el-puerto-por-defecto" id="id10">Cambiar el puerto por defecto</a><ul>
+<li><a class="reference internal" href="#consejo-conexion-facil-a-maquinas-conocidas" id="id11">Consejo: conexión fácil a máquinas conocidas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#desactivar-el-acceso-con-contrasena" id="id12">Desactivar el acceso con contraseña</a><ul>
+<li><a class="reference internal" href="#generar-las-claves" id="id13">Generar las claves</a></li>
+<li><a class="reference internal" href="#copiar-la-clave-publica-en-la-raspberry" id="id14">Copiar la clave pública en la Raspberry</a></li>
+<li><a class="reference internal" href="#comprobar-la-autentificacion" id="id15">Comprobar la autentificación</a></li>
+<li><a class="reference internal" href="#contrasenas-fuera" id="id16">Contraseñas fuera</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fstab-con-partuuid-y-label" id="id17">Fstab con <span class="caps">PARTUUID</span> y <span class="caps">LABEL</span></a></li>
+<li><a class="reference internal" href="#crear-un-archivo-swap" id="id18">Crear un archivo swap</a></li>
+<li><a class="reference internal" href="#usar-repositorios-aur-con-yaourt" id="id19">Usar repositorios <span class="caps">AUR</span> con yaourt</a></li>
+</ul>
+</div>
+<!-- -->
+<p></p>
+<div class="figure align-center" style="width: 800px; height: auto; max-width: 100%;">
+<img alt="Captura de consola, con el logo de Raspberry confeccionado con caracteres ASCII." src="//soulchainer.github.io/images/2015/02/2015-02-23_01.png" style="width: 800px; height: auto; max-width: 100%;"/>
+</div>
+<p>Seguimos con la instalación y configuración de nuestra <em>Raspberry Pi</em> <a class="footnote-reference" href="#id3" id="id1">[1]</a>.
+Vamos a acceder ya por <span class="caps">SSH</span> y a realizar una serie de ajustes para su uso.</p>
+<p>Al lío.</p>
+<p></p>
+<div class="section" id="acceso-por-ssh">
+<h2><a class="toc-backref" href="#id5">Acceso por <span class="caps">SSH</span></a></h2>
+<p>Para establecer conexiones por <span class="caps">SSH</span> a otras máquinas, tenemos que tener
+instalado un cliente <span class="caps">SSH</span> en nuestro equipo. En el caso de que no lo
+tuvieramos (raro, ya que está incluido en el metapaquete <code>core</code>), en
+<em>Arch Linux</em> se instala con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S openssh
+</pre></div>
+<p>Si pasamos de <a class="reference external" href="http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#resolucion-de-nombres-en-la-red-local-con-zeroconf">configurar Zeroconf</a>, tendremos que conectarnos a nuestra
+Raspberry usando su <span class="caps">IP</span>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>ssh root@192.168.1.11  <span class="c"># nos conectamos como usuario «root»</span>
+</pre></div>
+<p>Si configuramos <em>Zeroconf</em>, podremos conectarnos usando el nombre de host de
+nuestra Raspberry:</p>
+<div class="highlight"><pre><span class="nv">$ </span>ssh root@nami.local  <span class="c"># «nami» es el nombre de host de nuestra Raspberry</span>
+</pre></div>
+<p>Cuando intentamos conectarmos por primera vez, se nos pregunta si realmente
+queremos fiarnos y conectar con la máquina:</p>
+<div class="highlight"><pre>The authenticity of host <span class="s">'192.168.1.11 (192.168.1.11)'</span> can<span class="s">'</span><span class="err">t be established.</span>
+ECDSA key fingerprint is <span class="m">78</span><span class="o">:</span><span class="m">2</span>f<span class="o">:</span>fc<span class="o">:</span>ed<span class="o">:</span><span class="m">6</span><span class="kt">c</span><span class="o">:</span><span class="m">26</span><span class="o">:</span>a0<span class="o">:</span>e5<span class="o">:</span><span class="m">64</span><span class="o">:</span><span class="m">6</span>f<span class="o">:</span>c4<span class="o">:</span><span class="m">79</span><span class="o">:</span><span class="m">79</span><span class="o">:</span>d7<span class="o">:</span><span class="m">30</span><span class="o">:</span><span class="m">4</span>b.
+Are you sure you want to continue connecting <span class="p">(</span>yes<span class="o">/</span>no<span class="p">)</span><span class="o">?</span> yes
+</pre></div>
+<p>Si aceptamos (<em>«yes»</em>), se añade su identidad a nuestra lista de máquinas
+conocidas. Mientras no se borre (esta información se encuentra en el archivo
+<code>~/.ssh/known_hosts</code>), no se nos volverá a preguntar de nuevo sobre esto.</p>
+<div class="highlight"><pre>Warning: Permanently added <span class="s1">'192.168.1.11'</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
+</pre></div>
+<p>Introducimos la contraseña del usuario de la Raspberry con el que nos vamos a conectar:</p>
+<div class="highlight"><pre>root@192.168.1.11<span class="err">'</span>s password:
+</pre></div>
+<p>Y, previo mensaje de bienvenida, ya estamos dentro:</p>
+<div class="highlight"><pre>Welcome to Arch Linux ARM
+
+     Website: http://archlinuxarm.org
+       Forum: http://archlinuxarm.org/forum
+         IRC: <span class="c">#archlinux-arm on irc.Freenode.net</span>
+Last login: Wed Dec <span class="m">10</span> 23:19:32 2014
+<span class="o">[</span>root@nami ~<span class="o">]</span><span class="c">#</span>
+</pre></div>
+</div>
+<div class="section" id="crear-un-usuario-ordinario">
+<h2><a class="toc-backref" href="#id6">Crear un usuario ordinario</a></h2>
+<p>Lo primero que vamos a hacer ahora es crearnos un usuario sin privilegios
+(no es nada recomendable ir haciéndolo todo como <em>root</em>):</p>
+<div class="highlight"><pre><span class="c"># useradd -mU -G wheel pi</span>
+</pre></div>
+<ul class="simple">
+<li>con <code>m</code> ordenamos que se cree la carpeta <code>home</code> del usuario;</li>
+<li>con <code>U</code> se creará un grupo para el usuario, con el que compartirá nombre;</li>
+<li>con <code>-G wheel</code> también se añadirá al usuario al grupo opcional <em>wheel</em>;</li>
+<li><em>pi</em> será el nombre de nuestro usuario ordinario (se recomienda crear un
+usuario un poco menos evidente).</li>
+</ul>
+<p>El recién creado, contraseña quiere.</p>
+<div class="highlight"><pre><span class="c"># passwd pi</span>
+</pre></div>
+</div>
+<div class="section" id="sudo">
+<h2><a class="toc-backref" href="#id7">Sudo</a></h2>
+<p>Mucho en verano (xD). Además, el comando <code>sudo</code> nos permite adquirir, cuando lo necesitemos y de forma temporal, privilegios de usuario <em>root</em>.
+<code>sudo</code> no viene por defecto en <em>Arch Linux</em>, así que toca instalarlo y,
+ya que estamos, actualizar el sistema.</p>
+<p>Editamos el archivo <code>/etc/pacman.d/mirrorlist</code>, descomentando algún
+servidor cercano a nuestra ubicación. En mi caso, descomento (borrando el
+carácter <code>#</code> precedente) unos pocos de Europa.</p>
+<p>E instalamos <code>sudo</code> y actualizamos con <code>pacman</code>.</p>
+<div class="highlight"><pre><span class="c"># pacman -Syu sudo</span>
+</pre></div>
+<p>Para poder usar <code>sudo</code> siendo un usuario con privilegios limitados
+tenemos que concedernos primero los permisos adecuados. Esto se logra editando
+el archivo de configuración <code>/etc/sudoers</code>.</p>
+<p><strong><span class="caps">IMPORTANTE</span>:</strong> este archivo hay que editarlo <strong><span class="caps">SIEMPRE</span></strong> con <code>visudo</code>.</p>
+<p>Lo editamos, descomentando la siguiente línea:</p>
+<div class="highlight"><pre><span class="c"># visudo</span>
+--------
+...
+%wheel <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> ALL
+...
+</pre></div>
+<p>De esta forma, todos los usuarios en el grupo <em>wheel</em> podrán lanzar cualquier
+comando con privilegios <em>root</em>, vía <code>sudo</code>.</p>
+<p>Como estaba previsto (fue añadido a este grupo durante su creación), nuestro
+usuario (<em>pi</em>) ya es miembro del selecto grupo de <em>sudoers</em>.</p>
+</div>
+<div class="section" id="desactivar-el-login-como-root">
+<h2><a class="toc-backref" href="#id8">Desactivar el login como root</a></h2>
+<p>Sin posibilidad de identificarse como <em>root</em>, un atacante tiene que
+deducir el nombre de un usuario configurado como sudoer antes siquiera de
+intentar obtener su contraseña.</p>
+<p><strong>Mucho cuidado con esto</strong>: si no concedimos correctamente a nuestro usuario
+permiso para usar <code>sudo</code>, nos quedaremos fuera de nuestro propio
+sistema. Conviene comprobar primero que podemos «sudar» con normalidad
+(incluso en invierno ò_ó).</p>
+<p>Dicho esto, la cuenta <em>root</em> puede bloquearse vía <code>passwd</code>:</p>
+<div class="highlight"><pre><span class="c"># passwd -l root</span>
+</pre></div>
+<p>Si lo deseamos, podremos desbloquearla más adelante con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo passwd -u root
+</pre></div>
+</div>
+<div class="section" id="segurizar-el-acceso-ssh">
+<h2><a class="toc-backref" href="#id9">Segurizar el acceso <span class="caps">SSH</span></a></h2>
+<div class="highlight"><pre><span class="nv">$ </span>sudo groupadd -r grupossh
+<span class="nv">$ </span>sudo gpasswd -a pi grupossh
+<span class="nv">$ </span>sudo bash
+<span class="c"># echo 'AllowUsers pi@192.168.1.25' &gt;&gt; /etc/ssh/sshd_config</span>
+<span class="c"># echo 'AllowGroups grupossh' &gt;&gt; /etc/ssh/sshd_config</span>
+<span class="c"># echo 'PermitRootLogin no' &gt;&gt; /etc/ssh/sshd_config</span>
+<span class="c"># exit</span>
+<span class="nv">$ </span>sudo reboot
+</pre></div>
+<p>Con esto:</p>
+<ul class="simple">
+<li>creamos el grupo <em>grupossh</em>;</li>
+<li>añadimos a nuestro usuario (<em>pi</em>) al grupo;</li>
+<li>sólo podrá acceder por <span class="caps">SSH</span> nuestro usuario, desde la <span class="caps">IP</span> <code>192.168.1.25</code>;</li>
+<li>sólo podrán acceder usuarios miembros del grupo <em>grupossh</em>;</li>
+<li>se prohibe explícitamente el acceso como <em>root</em>;</li>
+<li>finalmente, se reinicia la <em>Raspberry</em> para aplicar los cambios.</li>
+</ul>
+<p>La parte de la <span class="caps">IP</span>, <code>@192.168.1.25</code>, es opcional, pero aporta más seguridad. Obviamente, tenemos que tener una <span class="caps">IP</span> fija en el equipo con el que
+accedemos por <span class="caps">SSH</span>. En el
+<a class="reference external" href="//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/">artículo anterior</a> ya mencionamos
+como podemos <a class="reference external" href="http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#configuracion-de-ip">configurar nuestro router para que nos de una <span class="caps">IP</span> fija</a>.</p>
+<p>Si todo esto no nos parece síntoma claro de neurosis, una vez reiniciada la
+<em>Raspberry</em> e identificados como usuario normal, podemos continuar.</p>
+<div class="section" id="cambiar-el-puerto-por-defecto">
+<h3><a class="toc-backref" href="#id10">Cambiar el puerto por defecto</a></h3>
+<p>Por defecto, el demonio <span class="caps">SSH</span> escucha conexiones en el puerto 22. Para una mayor
+seguridad podemos cambiar este puerto por uno en desuso, fuera de los
+<em>puertos bien conocidos</em> (del 0 al 1023).</p>
+<p>Para ayudarnos a elegir un puerto, tenemos un listado con la relación de
+puertos/servicios más comunes en el archivo <code>/etc/services</code>. Y con el
+comando <code>netstat</code> podemos ver los puertos actualmente en uso en nuestra
+<em>Raspberry</em>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>netstat -tu  <span class="c"># lista las conexiones activas a puertos TCP/UDP</span>
+</pre></div>
+<p>Una vez escogido el puerto, editamos el fichero de configuración del servidor
+<span class="caps">SSH</span>, añadiendo al final una línea para indicar el nuevo puerto:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/ssh/sshd_config
+--------------------------------
+...
+Port 7788
+</pre></div>
+<p>Nos aseguramos de que la línea con el puerto por defecto esté comentada (si no
+lo está, escuchará en los dos puertos):</p>
+<div class="highlight"><pre><span class="c"># Port 22</span>
+</pre></div>
+<p>Después de guardar, reiniciamos la <em>Raspberry</em> una vez más, para que se
+apliquen los cambios.</p>
+<p>Dejamos pasar un tiempo y probamos a conectarnos de nuevo.</p>
+<div class="highlight"><pre><span class="nv">$ </span>ssh pi@nami.local
+ssh: connect to host nami.local port 22: Invalid argument
+</pre></div>
+<p>Como podemos ver, si intentamos conectarnos como hasta ahora, nos resulta
+imposible. Tenemos que indicar el nuevo puerto:</p>
+<div class="highlight"><pre><span class="nv">$ </span>ssh -p <span class="m">7788</span> pi@nami.local
+</pre></div>
+<div class="section" id="consejo-conexion-facil-a-maquinas-conocidas">
+<h4><a class="toc-backref" href="#id11">Consejo: conexión fácil a máquinas conocidas</a></h4>
+<p>Tener que escribir cada vez el comando de conexión completo, recordando además
+en qué puerto tenemos configurado el servidor, puede ser cargante.</p>
+<p>Para solucionar este «problema», la <a class="reference external" href="https://wiki.archlinux.org/">wiki de Arch Linux</a> nos propone
+<a class="reference external" href="https://wiki.archlinux.org/index.php/Secure_Shell#Saving_connection_data_in_ssh_config">un método para ahorrarnos escribir de más</a>: crear un archivo de
+configuración en <code>~/.ssh/config</code>, donde describiremos con varias líneas
+cada uno de los servidores que usamos habitualmente. La verdad es que
+<a class="reference external" href="https://wiki.archlinux.org/index.php/Secure_Shell#Saving_connection_data_in_ssh_config">el método</a> no está mal, pero ya que estamos optimizando el esfuerzo, vamos a
+mantenernos fieles a la filosofía <abbr title="Keep It Simple, Stupid"><span class="caps">KISS</span></abbr>, ¿no?:
+¿para qué vamos a crear un archivo nuevo y con cuatro «largas» líneas por
+servidor, cuando nos sobra con una línea por servidor en nuestro flamante
+(y ya existente) <code>~/.bashrc</code>?</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"alias pissh='ssh -p 7788 pi@nami.local'"</span> &gt;&gt; ~/.bashrc
+</pre></div>
+<p>Ya está. Esto añade el alias <code>pissh</code> al final de nuestro
+<code>~/.bashrc</code>. Cuando queramos conectarnos a nuestra <em>Raspberry</em>, tecleamos
+esto en consola y pa’lante.</p>
+</div>
+</div>
+<div class="section" id="desactivar-el-acceso-con-contrasena">
+<h3><a class="toc-backref" href="#id12">Desactivar el acceso con contraseña</a></h3>
+<p>Podemos generar un par de claves <span class="caps">SSH</span> (una pública y una privada) y desactivar
+la identificación por contraseña. Le daremos una copia de la llave pública al
+servidor <span class="caps">SSH</span> (nuestra <em>Raspberry</em>) y este nos identificará inequívocamente por
+esta, rechazando cualquier otro intento o método de conexión.</p>
+<div class="section" id="generar-las-claves">
+<h4><a class="toc-backref" href="#id13">Generar las claves</a></h4>
+<p>Las generamos con <code>ssh-keygen</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">@</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>date -I<span class="k">)</span><span class="s2">"</span>
+-----------------------------------------------------------------
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>/home/username/.ssh/id_rsa<span class="o">)</span>:
+Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+Enter same passphrase again:
+Your identification has been saved in /home/username/.ssh/id_rsa.
+Your public key has been saved in /home/username/.ssh/id_rsa.pub.
+The key fingerprint is:
+dd:15:ee:24:20:14:11:01:b8:72:a2:0f:99:4c:79:7f username@localhost-2014-11-22
+The key<span class="err">'</span>s randomart image is:
++--<span class="o">[</span>RSA  4096<span class="o">]</span>---+
+<span class="p">|</span>     ..oB<span class="o">=</span>.   .  <span class="p">|</span>
+<span class="p">|</span>    .    . . . . <span class="p">|</span>
+<span class="p">|</span>  .  .      . +  <span class="p">|</span>
+<span class="p">|</span> oo.o    . . <span class="o">=</span>   <span class="p">|</span>
+<span class="p">|</span>o+.+.   S . . .  <span class="p">|</span>
+<span class="p">|</span><span class="o">=</span>.   . E         <span class="p">|</span>
+<span class="p">|</span> o    .          <span class="p">|</span>
+<span class="p">|</span>  .              <span class="p">|</span>
+<span class="p">|</span>                 <span class="p">|</span>
++-----------------+
+</pre></div>
+<p>En</p>
+<div class="highlight"><pre>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+Enter same passphrase again:
+</pre></div>
+<p>introducimos la frase de paso que queramos y luego volvemos a introducirla
+(para comprobar que no nos hemos equivocado). No os confundáis con esto: no se
+trata de una contraseña con la que nos identificaremos por <span class="caps">SSH</span>. Esta
+<em>frase de paso</em> es una especie de clave, sí, pero se usa sólo <em>localmente</em>,
+para descifrar nuestra clave privada, porque se guarda cifrada. <strong>Nunca</strong>
+se transmite por red. <strong><span class="caps">NO</span></strong> debéis proporcionársela <strong><span class="caps">NUNCA</span></strong> a <strong><span class="caps">NADIE</span></strong>.</p>
+<p>Aún así, estableced una <em>frase de paso</em> decente: nada del nombre de nuestra
+mascota, nuestro <span class="caps">DNI</span> y similares. Y que sea <strong><span class="caps">LARGA</span></strong> (el tamaño sí importa).</p>
+<p><strong><span class="caps">IMPORTANTE</span></strong>: podemos generar igualmente las claves
+<strong>sin una frase de paso</strong>, pero entonces nuestra <strong>clave privada</strong> será
+almacenada <strong>sin cifrar</strong>, por lo que cualquiera que gane acceso a nuestra
+clave privada podrá verla problemas, con el riesgo que esto conlleva.</p>
+<p>El resto de campos podemos dejarlos en blanco.</p>
+<p>Yo no voy a hacer esto de nuevo: ya tengo una y no me apetece crear otra por
+un ejemplo.</p>
+</div>
+<div class="section" id="copiar-la-clave-publica-en-la-raspberry">
+<h4><a class="toc-backref" href="#id14">Copiar la clave pública en la Raspberry</a></h4>
+<p>Podemos copiar la clave pública en la Raspberry con <code>scp</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>scp -P <span class="m">7788</span> ~/.ssh/id_rsa.pub pi@nami.local:
+pi@nami.local<span class="err">'</span>s password:
+id_rsa.pub               100%  <span class="m">403</span>     0.4KB/s   00:00
+</pre></div>
+<p><strong>Importante</strong>: esto lo hacemos desde nuestro equipo local, no desde una
+conexión <span class="caps">SSH</span> a la <em>Raspberry</em>. <code>-P 7788</code> indica el puerto no estándar en
+el que escucha el demonio <span class="caps">SSH</span>.</p>
+<p>Se copia así nuestra clave pública al directorio <code>home</code> del usuario
+(<em>pi</em>) de la <em>Raspberry</em>.</p>
+<p>Tras esto, tenemos que acceder por <span class="caps">SSH</span> a la <em>Raspberry</em> y añadir nuestra clave
+pública a la lista de claves autorizadas por el servidor
+(<code>~/.ssh/authorized_keys</code>):</p>
+<div class="highlight"><pre><span class="nv">$ </span>ssh -p <span class="m">7788</span> pi@nami.local
+<span class="nv">$ </span>mkdir ~/.ssh
+<span class="nv">$ </span>chmod <span class="m">700</span> ~/.ssh
+<span class="nv">$ </span>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+<span class="nv">$ </span>rm ~/id_rsa.pub
+<span class="nv">$ </span>chmod <span class="m">600</span> ~/.ssh/authorized_keys
+<span class="nv">$ </span>sudo chattr +i ~/.ssh
+<span class="nv">$ </span>sudo chattr +i ~/.ssh/authorized_keys
+</pre></div>
+<p>Una vez añadida la clave pública a dicha lista, los tres últimos comandos
+borran la clave del directorio <code>home</code> del usuario y protegen el archivo
+de claves, para que sólo sea editable por el usuario (y sólo si la desprotege
+previamente, repitiendo los dos últimos comandos con el signo cambiado
+[<code>-i</code>]).</p>
+</div>
+<div class="section" id="comprobar-la-autentificacion">
+<h4><a class="toc-backref" href="#id15">Comprobar la autentificación</a></h4>
+<p>Antes de lanzarnos a lo loco y desactivar el acceso con contraseña, que menos
+que comprobar si la identificación con las claves funciona. Para ello,
+cerramos sesión <span class="caps">SSH</span> e intentamos entrar de nuevo:</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">exit</span>
+<span class="nb">logout</span>
+Connection to nami.local closed.
+
+<span class="nv">$ </span>ssh -p <span class="m">7776</span> pi@nami.local
+Enter passphrase <span class="k">for</span> key <span class="s1">'/home/miusuariolocal/.ssh/id_rsa'</span>:
+Welcome to Arch Linux ARM
+
+     Website: http://archlinuxarm.org
+       Forum: http://archlinuxarm.org/forum
+         IRC: <span class="c">#archlinux-arm on irc.Freenode.net</span>
+Last login: Sun Feb <span class="m">22</span> 20:36:15 <span class="m">2015</span> from 192.168.1.25
+</pre></div>
+<p>Efectivamente. Cuando intentamos entrar, nos pide la frase de paso (para
+descifrar nuestra clave privada) y nos identifica con normalidad.</p>
+</div>
+<div class="section" id="contrasenas-fuera">
+<h4><a class="toc-backref" href="#id16">Contraseñas fuera</a></h4>
+<p>Editamos de nuevo el archivo de configuración del demonio <span class="caps">SSH</span>, editando las
+líneas siguientes (ya existentes):</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/ssh/sshd_config
+---------------------------------
+...
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+...
+</pre></div>
+<p>Cuando reiniciemos, se aplicarán los cambios.</p>
+</div>
+</div>
+</div>
+<div class="section" id="fstab-con-partuuid-y-label">
+<h2><a class="toc-backref" href="#id17">Fstab con <span class="caps">PARTUUID</span> y <span class="caps">LABEL</span></a></h2>
+<p>Tanto los <em><span class="caps">PARTUUID</span></em> (identificadores únicos definidos en las
+<a class="reference external" href="http://es.wikipedia.org/wiki/Tabla_de_particiones_GUID#Entradas_de_partici.C3.B3n_.28LBAs_2_al_33.29">entradas de una tabla <span class="caps">GUID</span></a>), como las <em><span class="caps">LABEL</span></em> (‘etiquetas’, asignadas por
+el usuario), son métodos de identificación de dispositivos más fiables que los
+nombres designados por el <em>kernel</em> (<code>/dev/sdx1</code>, <code>/dev/sdx2</code>…):
+no cambian mientras una partición exista (salvo cambio intencionado).</p>
+<p>Podemos consultar los <em>PARTUUIDs</em> y las etiquetas de todas nuestras
+particiones con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>lsblk -o NAME,MOUNTPOINT,LABEL,FSTYPE,SIZE,PARTUUID
+
+NAME        MOUNTPOINT     LABEL       FSTYPE   SIZE PARTUUID
+sda                                            14,7G
+└─sda1      /                          ext4    14,7G 096f9dc0-01
+mmcblk0                                         7,4G
+├─mmcblk0p1 /boot                      vfat     100M 3e89e238-01
+└─mmcblk0p2                            ext4     7,3G 3e89e238-02
+</pre></div>
+<p>Usamos pues el <em><span class="caps">PARTUUID</span></em> de <code>/</code> para modificar en <code>/etc/fstab</code> y
+<code>/boot/cmdline.txt</code> el identificador de la partición <code>root</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /boot/cmdline.txt
+-----------------------------
+<span class="nv">selinux</span><span class="o">=</span><span class="m">0</span> plymouth.enable<span class="o">=</span><span class="m">0</span> smsc95xx.turbo_mode<span class="o">=</span>N dwc_otg.lpm_enable<span class="o">=</span><span class="m">0</span> <span class="nv">console</span><span class="o">=</span>ttyAMA0,115200 <span class="nv">kgdboc</span><span class="o">=</span>ttyAMA0,115200 <span class="nv">console</span><span class="o">=</span>tty1 <span class="nv">root</span><span class="o">=</span><span class="nv">PARTUUID</span><span class="o">=</span>096f9dc0-01 <span class="nv">rootfstype</span><span class="o">=</span>ext4 <span class="nv">elevator</span><span class="o">=</span>noop rootwait <span class="nv">rootdelay</span><span class="o">=</span>5
+</pre></div>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/fstab
+----------------------
+<span class="c">#</span>
+<span class="c"># /etc/fstab: static file system information</span>
+<span class="c">#</span>
+<span class="c"># &lt;file system&gt; &lt;dir&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span>
+/dev/mmcblk0p1  /boot   vfat    defaults        <span class="m">0</span>       2
+<span class="c">#/dev/sda1       /       ext4    defaults,noatime  0     1</span>
+<span class="nv">PARTUUID</span><span class="o">=</span>096f9dc0-01    /   ext4    defaults,noatime  <span class="m">0</span>       1
+<span class="c">#PARTUUID=   /mnt/Pandorica    ext4 defaults,noatime  0       2</span>
+<span class="c"># a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that</span>
+</pre></div>
+<p>Montamos todos los dispositivos declarados en el archivo:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo mount -a
+</pre></div>
+<p>Si no encontramos ningún problema, enchufamos entonces el disco duro <a class="footnote-reference" href="#id4" id="id2">[2]</a> y
+repetimos el proceso.</p>
+<div class="highlight"><pre><span class="nv">$ </span>lsblk -o NAME,MOUNTPOINT,LABEL,FSTYPE,SIZE,PARTUUID
+
+NAME        MOUNTPOINT     LABEL       FSTYPE   SIZE PARTUUID
+...
+sdb                                           931,5G
+└─sdb1      /mnt/Pandorica mediacenter ext4   931,5G cbee6a55-01
+...
+</pre></div>
+<p>Editaríamos entonces de nuevo el <code>fstab</code>, con su <em><span class="caps">PARTUUID</span></em>, pero, como
+ya sé que en mi caso no funciona, usaré en su lugar la <em><span class="caps">LABEL</span></em>, quedando así:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/fstab
+----------------------
+<span class="c">#</span>
+<span class="c"># /etc/fstab: static file system information</span>
+<span class="c">#</span>
+<span class="c"># &lt;file system&gt; &lt;dir&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span>
+/dev/mmcblk0p1  /boot   vfat    defaults        <span class="m">0</span>       2
+<span class="nv">PARTUUID</span><span class="o">=</span>096f9dc0-01    /   ext4    defaults,noatime  <span class="m">0</span>       1
+<span class="nv">LABEL</span><span class="o">=</span>mediacenter   /mnt/Pandorica    ext4 defaults,noatime  <span class="m">0</span>       2
+<span class="c"># a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that</span>
+</pre></div>
+<p>Hemos definido <code>/mnt/Pandorica</code> como el directorio de montaje del disco
+duro, pero aún no existe. Lo creamos:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo mkdir /mnt/Pandorica
+</pre></div>
+<p>Montamos de nuevo todo con <code>mount -a</code> y, si no hubo ningún problema, ya
+tendremos el disco duro montado en <code>/mnt/Pandorica</code>.</p>
+<p>Una vez hecho esto, hay que concederle los permisos adecuados a la carpeta.
+En mi caso (a gusto del consumidor) he hecho:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo chown miusuariopi /mnt/Pandorica
+</pre></div>
+<p>Me limito a hacer a mi usuario propietario de la carpeta. En cuanto a
+permisos, por ahora me bastan los establecidos por defecto (<em>755</em>: lectura,
+escritura y ejecución para el propietario; lectura y ejecución para el resto).</p>
+</div>
+<div class="section" id="crear-un-archivo-swap">
+<h2><a class="toc-backref" href="#id18">Crear un archivo swap</a></h2>
+<p>Uno de los «problemas» de la <em>Raspberry</em> es su limitada memoria. Aunque la
+nueva versión cuenta con 1 <span class="caps">GB</span>, mi modelo sólo tiene 512 <span class="caps">MB</span> de memoria. Y
+realmente, de estos 512 <span class="caps">MB</span>, sólo tenemos 369 <span class="caps">MB</span> disponibles, porque hay que
+restar la parte dedicada a vídeo:</p>
+<div class="highlight"><pre><span class="nv">$ </span>free -h
+
+       total    used    free   shared  buff/cache  available
+Mem:    369M     30M    263M     392K         75M       320M
+Swap:     0B      0B      0B
+</pre></div>
+<p>Estaría bien disponer de un espacio extra de intercambio (<em>swap</em>), para poder seguir trabajando si se llega a ocupar toda esa memoria.</p>
+<p>En el antes mencionado <code>fstab</code> se comenta que:</p>
+<div class="highlight"><pre><span class="c"># a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that</span>
+</pre></div>
+<p>Estoy casi convencido de que esto tuvo que ser generado por mi anterior
+instalación de <a class="reference external" href="http://www.raspbian.org">Raspbian</a>, ya que me he documentado (es la primera vez que
+creo un archivo <em>swap</em>) y no entiendo qué necesidad hay de utilizar
+<a class="reference external" href="https://github.com/isgphys/dphys-swapfile">dphys-swapfile</a>: es un programa obsoleto, poco mantenido y, para colmo, es
+sencillísimo crear un fichero <em>swap</em> con las utilidades que vienen en la
+instalación base.</p>
+<p>Para crear un archivo <em>swap</em> de 512 <span class="caps">MB</span>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo fallocate -l 512M /mnt/Pandorica/swap
+<span class="nv">$ </span>sudo chmod <span class="m">600</span> /mnt/Pandorica/swap
+<span class="nv">$ </span>sudo mkswap /mnt/Pandorica/swap
+</pre></div>
+<p>Donde <code>/mnt/Pandorica/swap</code> es la ruta que he elegido para guardar el
+archivo. Esta elección es importante. Lo almaceno en el disco duro: es más
+rápido que el lápiz de memoria o la microSD. Además, estos últimos tienen un
+ciclo de escrituras limitado, por lo que su vida útil se reduciría sustancialmente.</p>
+<p>Conviene <a class="reference external" href="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/#swap">optimizar el uso de la swap</a>. Siguiendo el principio
+<abbr title="Don't Repeat Yourself"><span class="caps">DRY</span></abbr>, mejor miráis
+<a class="reference external" href="http://soulchainer.github.io/posts/2014/11/19/optimizacion-ssd-instalacion/#swap">el apartado sobre esto que escribí no hace tanto</a>.</p>
+<p>Acto seguido, podemos activarla con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo swapon /mnt/Pandorica/swap
+</pre></div>
+<p>Y comprobar que está activada con <code>free</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>free
+        total    used   free  shared  buff/cache  available
+Mem:      <span class="m">369</span>      <span class="m">30</span>    <span class="m">253</span>       <span class="m">0</span>          <span class="m">84</span>        320
+Swap:     <span class="m">511</span>       <span class="m">0</span>    511
+</pre></div>
+<p>Finalmente, editamos <code>/etc/fstab</code> para montar la <em>swap</em> automáticamente
+al inicio. Añadimos al final:</p>
+<div class="highlight"><pre>/mnt/Pandorica/swap none swap defaults <span class="m">0</span> 0
+</pre></div>
+</div>
+<div class="section" id="usar-repositorios-aur-con-yaourt">
+<h2><a class="toc-backref" href="#id19">Usar repositorios <span class="caps">AUR</span> con yaourt</a></h2>
+<p>Por último, y ya acabamos por ahora, vamos a instalar <a class="reference external" href="https://archlinux.fr/yaourt-en">yaourt</a>. Lo usamos
+para gestionar los paquetes de la <em>Raspberry</em>, sobre todo para facilitarnos la
+instalación de aquellos disponibles en <a class="reference external" href="https://aur.archlinux.org/"><span class="caps">AUR</span></a>.</p>
+<p>Podemos instalar <code>yaourt</code> haciendo:</p>
+<div class="highlight"><pre><span class="nv">$ </span>curl -Ok https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+<span class="nv">$ </span>tar zxvf package-query.tar.gz
+<span class="nv">$ </span><span class="nb">cd </span>package-query
+<span class="nv">$ </span>makepkg -si
+<span class="nv">$ </span><span class="nb">cd</span> ..
+<span class="nv">$ </span>curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+<span class="nv">$ </span>tar zxvf yaourt.tar.gz
+<span class="nv">$ </span><span class="nb">cd </span>yaourt
+<span class="nv">$ </span>makepkg -si
+<span class="nv">$ </span><span class="nb">cd</span> ..
+<span class="nv">$ </span>rm -R package-query* yaourt*
+</pre></div>
+<p>Tras esto, instalamos <code>base-devel</code> (no es estrictamente necesario, pero
+seguramente lo necesitemos más adelante para construir diversos paquetes):</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -Sy base-devel
+</pre></div>
+<p>Cuando <code>pacman</code> proceda a instalar <code>base-devel</code> nos dirá que hay
+muchas alternativas del «Repositorio core» para instalar. Le damos a <em>enter</em>,
+para que las instale todas, por omisión.</p>
+<p>Su modo de uso es muy similar al de <code>pacman</code>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -Syua  <span class="c"># actualiza la lista de paquetes, incluidos los de AUR</span>
+<span class="nv">$ </span>yaourt -S un_paquete otro_paquete  <span class="c"># instala los paquetes indicados</span>
+<span class="nv">$ </span>yaourt -Rs nombre_paquete  <span class="c"># desinstala el paquete dado</span>
+<span class="nv">$ </span>yaourt nombre_paquete/patrón  <span class="c"># busca el paquete dado</span>
+</pre></div>
+<p>Para más información, conviene leer la <a class="reference external" href="https://wiki.archlinux.fr/Yaourt">wiki de yaourt</a> o su archivo <em>man</em></p>
+<div class="highlight"><pre><span class="nv">$ </span>man yaourt
+</pre></div>
+<hr class="docutils"/>
+<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/">Wiki de Arch Linux</a>.</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><em>Raspberry Pi</em> es una marca registrada de la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>. El presente blog no tiene conexión alguna con la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Podríamos haber comenzado la instalación con el disco duro conectado, sí, pero no lo necesitaba entonces, así que…</td></tr>
+</tbody>
+</table>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/archlinux/">archlinux</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/aur/">aur</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/claves/">claves</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/configuracion/">configuración</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/consola/">consola</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/contrasena/">contraseña</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/fstab/">fstab</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/instalacion/">instalación</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/memoria/">memoria</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/partuuid/">partuuid</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/raspberry-pi/">raspberry pi</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/root/">root</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/seguridad/">seguridad</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/ssh/">ssh</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/swap/">swap</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/yaourt/">yaourt</a></li>
+    </ul>
+  </div>
+
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+              <li >
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/02/mi-raspberry/'>Mi Raspberry Pi (I): primer inicio del&nbsp;sistema</a>
+              </li>
+              <li >
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/'>Mi Raspberry Pi (<span class="caps">II</span>): configuración&nbsp;local</a>
+              </li>
+              <li class="active">
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/23/mi-raspberry-configuracion-remota/'>Mi Raspberry Pi (<span class="caps">III</span>): configuración&nbsp;remota</a>
+              </li>
+      </ul>
+    </aside>
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="//soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="//soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="//soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
