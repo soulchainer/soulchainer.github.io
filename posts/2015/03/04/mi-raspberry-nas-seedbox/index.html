@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Juan Riquelme (soulchainer)" />
+      <meta name="description" content="Blog personal de Juan Riquelme (soulchainer)." />
+      <meta name="keywords" content="soulchainer, juan riquelme, blog, soul, soulbits, archlinux, bittorrent, configuración, instalación, linux, NAS, NFS, raspberry pi, seedbox, torrent, transdroid, transmission" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+      <title>Soulbits</title>
+      <!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lusitana&text=Soulbits' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+      <!-- favicons -->
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon16.png" sizes="16x16">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon32.png" sizes="32x32">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon64.png" sizes="64x64">
+      <link rel="icon" href="//soulchainer.github.io/theme/favicons/favicon128.png" sizes="128x128">
+      <!-- for rounded corners and reflective shine in Apple devices -->
+      <link rel="apple-touch-icon" href="//soulchainer.github.io/theme/favicons/favicon_touch57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="//soulchainer.github.io/theme/favicons/favicon_touch72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="//soulchainer.github.io/theme/favicons/favicon_touch114.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="//soulchainer.github.io/theme/favicons/favicon_touch144.png" />
+      <!-- Windows 8 tile -->
+      <meta name="application-name" content="Soulbits" />
+      <meta name="msapplication-TileColor" content="#D9E2F8">
+      <meta name="msapplication-TileImage" content="//soulchainer.github.io/theme/favicons/tileicon.png">
+      <!-- Summary twitter card-->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@soulchainer">
+      <meta name="twitter:title" content="Mi Raspberry Pi (IV): NAS y seedbox">
+      <meta name="twitter:description" content="Aún me faltan por documentar unos cuantos ajustes de mi entorno de
+consola, pero démonos un pequeño respiro y abordemos algo con un
+uso práctico más «inmediato»: vamos a apañar nuestra Raspberry Pi
+para que haga las veces de NAS y de seedbox (a pequeña escala).">
+      <meta name="twitter:image:src" content="//soulchainer.github.io/images/2015/03/2015-03-04_01.png">
+      <meta property="og:site_name" content="Soulbits" />
+      <meta property="og:title" content="Mi Raspberry Pi (IV): NAS y seedbox" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="//soulchainer.github.io/posts/2015/03/04/mi-raspberry-nas-seedbox/" />
+      <meta property="og:image" content="//soulchainer.github.io/images/2015/03/2015-03-04_01.png" />
+      <meta property="og:article:section" content="CÓMOS, linux, Raspberry" />
+      <meta property="og:article:tag" content="archlinux" />
+      <meta property="og:article:tag" content="bittorrent" />
+      <meta property="og:article:tag" content="configuración" />
+      <meta property="og:article:tag" content="instalación" />
+      <meta property="og:article:tag" content="linux" />
+      <meta property="og:article:tag" content="NAS" />
+      <meta property="og:article:tag" content="NFS" />
+      <meta property="og:article:tag" content="raspberry pi" />
+      <meta property="og:article:tag" content="seedbox" />
+      <meta property="og:article:tag" content="torrent" />
+      <meta property="og:article:tag" content="transdroid" />
+      <meta property="og:article:tag" content="transmission" />
+      <meta property="og:description" content="Aún me faltan por documentar unos cuantos ajustes de mi entorno de
+consola, pero démonos un pequeño respiro y abordemos algo con un
+uso práctico más «inmediato»: vamos a apañar nuestra Raspberry Pi
+para que haga las veces de NAS y de seedbox (a pequeña escala)." />
+      <meta property="og:locale" content="es_ES" />
+      <link type="text/plain" rel="author" href="humans.txt" />
+      <link rel="stylesheet" href="//soulchainer.github.io/theme/css/style.min.css">
+<script type="text/javascript" src="http://127.0.0.1:35729/livereload.js"></script><!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52de615c5dc9ffe4"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'services' : 'twitter,google_plusone_share,facebook,linkedin,pinterest,buffer,more'
+    },
+    'whatsnext' : {},
+    'recommended' : {
+      'title': 'Recomendado para ti:'
+    }
+
+  });
+</script>
+<!-- AddThis Smart Layers END -->  </head>
+
+  <body id="index">
+    <nav class="sitemenu">
+      <ul class="sitemenu">
+        <!-- site items-->
+          <li class="siteitem"><a class="sitelink" href="/tags/">tags</a></li>
+          <li class="siteitem"><a class="sitelink" href="/archives/">archivo</a></li>
+          <li class="siteitem"><a class="sitelink" href="/feeds/all.xml">rss</a></li>
+        <!--pages-->
+        <!-- search -->
+        <li class="siteitem"><form method="get" id="search" action="http://duckduckgo.com/">
+  <input type="hidden" name="sites" value="soulchainer.github.io" />
+  <input type="hidden" name="kab" value="r" />
+  <input type="hidden" name="ka" value="Source Sans Pro" />
+  <input type="hidden" name="kb" value="e" />
+  <input type="hidden" name="k7" value="#D9E2F8" />
+  <input type="hidden" name="k8" value="#2E2E2E" />
+  <input type="hidden" name="kj" value="p" />
+  <input type="hidden" name="ky" value="#fafafa" />
+  <input type="hidden" name="kx" value="b" />
+  <input type="hidden" name="kt" value="Helvetica" />
+  <input type="hidden" name="ku" value="-1" />
+  <input id="searchtxt" type="search" name="q" maxlength="255" placeholder="Buscar" />
+  <input id="query" type="submit" value="DuckDuckGo Search" />
+</form></li>
+      </ul>
+    </nav>
+    <div id="container">
+      <!-- header -->
+      <header class="siteheader">
+        <div class = "sitebanner">
+          <h1><a class="maintitle nodec" href="//soulchainer.github.io">Soulbits</a></h1>
+          <h3 class ="sitesubtitle">archlinux, software libre y apuntes varios</h3>
+          <!-- nav -->
+          <nav class="socialmenu">
+            <ul>
+              <!-- social icons -->
+                <li class="socialitem"><a class="icon github" href="https://github.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon twitter" href="https://twitter.com/soulchainer"></a></li>
+                <li class="socialitem"><a class="icon gplus" href="https://www.google.com/+JuanRiquelmeSoul"></a></li>
+                <li class="socialitem"><a class="icon tumblr" href="http://soulchainer.tumblr.com"></a></li>
+                <li class="socialitem"><a class="icon flickr" href="http://flickr.com/photos/soulchainer"></a></li>
+            </ul>
+          </nav>
+        </div> <!-- sitebanner -->
+      </header>
+      <!-- content -->
+
+<section class="content">
+
+  <h3>
+    <a class="posttitle notransition" href="/posts/2015/03/04/mi-raspberry-nas-seedbox/" rel="bookmark" title="Permalink to Mi Raspberry Pi (IV): NAS y seedbox">
+      Mi Raspberry Pi (<span class="caps">IV</span>): <span class="caps">NAS</span> y&nbsp;seedbox
+    </a>
+  </h3>
+
+  <div class="postinfo">
+    <p class="published" title="2015-03-04T19:00:00+01:00">
+      mié 04 marzo 2015, por Soulchainer
+    </p>
+  </div><!-- .postinfo -->
+
+  <div class="article">
+    <div class="contents topic" id="indice-de-contenido">
+<p class="topic-title first"><strong>Índice de contenido</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#nfs" id="id10"><span class="caps">NFS</span></a><ul>
+<li><a class="reference internal" href="#instalacion" id="id11">Instalación</a><ul>
+<li><a class="reference internal" href="#sincronizacion-horaria" id="id12">Sincronización horaria</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuracion-del-servidor-nfs" id="id13">Configuración del servidor <span class="caps">NFS</span></a><ul>
+<li><a class="reference internal" href="#sistema-de-archivos" id="id14">Sistema de archivos</a></li>
+<li><a class="reference internal" href="#exports" id="id15">Exports</a></li>
+<li><a class="reference internal" href="#iniciar-el-servidor" id="id16">Iniciar el servidor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuracion-del-cliente" id="id17">Configuración del cliente</a><ul>
+<li><a class="reference internal" href="#apunte-error-parejo-a-la-instalacion-de-nfs" id="id18">Apunte: error parejo a la instalación de <span class="caps">NFS</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uso-habitual" id="id19">Uso habitual</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transmission" id="id20">Transmission</a><ul>
+<li><a class="reference internal" href="#instalacion-en-la-raspberry" id="id21">Instalación en la Raspberry</a></li>
+<li><a class="reference internal" href="#instalacion-en-el-equipo" id="id22">Instalación en el equipo</a><ul>
+<li><a class="reference internal" href="#ajuste-del-cortafuegos" id="id23">Ajuste del cortafuegos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#abrir-puertos-en-el-router" id="id24">Abrir puertos en el router</a></li>
+<li><a class="reference internal" href="#instalacion-en-android" id="id25">Instalación en Android</a><ul>
+<li><a class="reference internal" href="#configuracion" id="id26">Configuración</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#esto-es-un-seedbox" id="id27">Esto es un seedbox</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- -->
+<p></p>
+<div class="figure align-center" style="width: 900px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="https://flic.kr/p/62pmaf"><img alt="Bram Cohen, creador del protocolo BitTorrent." src="//soulchainer.github.io/images/2015/03/2015-03-04_01.png" style="width: 900px; height: auto; max-width: 100%;"/></a>
+<p class="caption"><a class="reference external" href="https://flic.kr/p/62pmaf">Foto original</a> de <a class="reference external" href="https://www.flickr.com/photos/thomashawk/">Thomas Hawk</a>, con <a class="reference external" href="https://creativecommons.org/licenses/by-nc/2.0/">licencia Creative Commons</a>.
+Reducida a dos colores por mí, usando <a class="reference external" href="http://optimizilla.com/">Optimizilla</a>.</p>
+<div class="legend">
+No: no soy yo. Es <strong>Bram Cohen</strong>, padre del protocolo <a class="reference external" href="http://es.wikipedia.org/wiki/BitTorrent">BitTorrent</a>.
+Belldandy le bendiga por nuestras descargas de cada día:).</div>
+</div>
+<p>Aún me faltan por documentar unos cuantos ajustes de mi entorno de consola,
+pero démonos un pequeño respiro y abordemos algo con un uso práctico más
+«inmediato»: vamos a apañar nuestra <em>Raspberry Pi</em> <a class="footnote-reference" href="#id5" id="id1">[1]</a> para que haga las
+veces de <abbr title="Network Attached Storage"><span class="caps">NAS</span></abbr> <a class="footnote-reference" href="#id6" id="id2">[2]</a> y de <em>seedbox</em> <a class="footnote-reference" href="#id7" id="id3">[3]</a>
+(a pequeña escala).</p>
+<p></p>
+<div class="section" id="nfs">
+<h2><a class="toc-backref" href="#id10"><span class="caps">NFS</span></a></h2>
+<p><abbr title="Network File System"><span class="caps">NFS</span></abbr> es un protocolo de sistema de archivos en
+red: nos permite acceder a los archivos almacenados en un equipo remoto como
+si estuvieran almacenados localmente.</p>
+<p>Lo usaremos para acceder y trabajar cómodamente con nuestro disco externo.</p>
+<div class="section" id="instalacion">
+<h3><a class="toc-backref" href="#id11">Instalación</a></h3>
+<p>Tanto el cliente como el servidor <em><span class="caps">NFS</span></em> requieren únicamente la instalación
+del paquete <code>nfs-utils</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S nfs-utils
+</pre></div>
+<div class="section" id="sincronizacion-horaria">
+<h4><a class="toc-backref" href="#id12">Sincronización horaria</a></h4>
+<p>Además, se recomienda ejecutar un servicio de sincronización horaria en todos
+los nodos, para mantener los relojes sincronizados. De no hacerlo, <em><span class="caps">NFS</span></em>
+podría introducir tiempos de espera no deseados.</p>
+<p>Instalamos pues <code>ntp</code>, que sincronizará el tiempo con los servidores
+<em><span class="caps">NTP</span></em> disponibles en Internet:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S ntp
+</pre></div>
+<p>Por defecto, el servicio acepta:</p>
+<ul class="simple">
+<li>todas las peticiones locales;</li>
+<li>peticiones externas de tiempo, con límite de frecuencia de peticiones y <abbr title="Kiss-of-Death">KoD</abbr> <a class="footnote-reference" href="#id8" id="id4">[4]</a> (a fin de evitar abusos).</li>
+</ul>
+<p>Para mayor seguridad, podemos denegar directamente esas peticiones externas:
+no tenemos ningún interés en hacer de servidor, tan sólo nos interesa la
+faceta de cliente del programa.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/ntp.conf
+-------------------------
+...
+<span class="c"># cambiamos la cadena «limited» por «ignore»</span>
+restrict default kod ignore nomodify nopeer noquery notrap
+...
+</pre></div>
+<p>Ya podemos iniciar (y activar) el servicio con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>ntpd
+<span class="nv">$ </span>sudo systemctl start ntpd
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuracion-del-servidor-nfs">
+<h3><a class="toc-backref" href="#id13">Configuración del servidor <span class="caps">NFS</span></a></h3>
+<p>Es decir, la parte de la configuración de la <em>Raspberry</em>.</p>
+<div class="section" id="sistema-de-archivos">
+<h4><a class="toc-backref" href="#id14">Sistema de archivos</a></h4>
+<p>Conviene crear un directorio <em>root</em> específico (<em>chroot</em>) para el contenido
+que compartiremos con <em><span class="caps">NFS</span></em>: así, el acceso de los usuarios se limitará a este.</p>
+<p>Para ello, definiremos en <code>/etc/exports</code> los directorios que deseamos
+compartir, con una ruta relativa al directorio <em>chroot</em>. En mi caso, el
+directorio raíz de <em><span class="caps">NFS</span></em> será <code>/srv/nfs</code>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo mkdir -p /srv/nfs/media  <span class="c"># creamos el directorio de montaje chroot</span>
+</pre></div>
+<p>Ahora montamos el directorio real que compartiremos,
+<code>/mnt/Pandorica/Multimedia</code>, en el directorio recién creado para <em><span class="caps">NFS</span></em>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo mount --bind /mnt/Pandorica/Multimedia /srv/nfs/media
+</pre></div>
+<p>Añadimos una línea a <code>/ect/fstab</code>, para que se monte automáticamente al inicio:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/fstab
+------------------------
+...
+/mnt/Pandorica/Multimedia /srv/nfs/media  none   <span class="nb">bind   </span><span class="m">0</span>   0
+</pre></div>
+<p>Permisos de acceso a mi <code>/mnt/Pandorica/Multimedia</code>:</p>
+<ul class="simple">
+<li>lectura, escritura y ejecución, para el propietario y los miembros del grupo
+<em>users</em>;</li>
+<li>lectura y ejecución, para el resto de usuarios.</li>
+</ul>
+<p>Del grupo <em>users</em> podrán ser miembros, por ejemplo, un cliente de
+<em>BitTorrent</em>, o mi usuario, una vez montado el directorio remoto en mi equipo.
+Y ambos necesitan escribir, para descargar, borrar o copiar archivos. Este
+directorio contendrá archivos multimedia y es el que <a class="reference external" href="http://kodi.tv/about/">Kodi</a> revisará para
+mantener actualizada su colección.</p>
+</div>
+<div class="section" id="exports">
+<h4><a class="toc-backref" href="#id15">Exports</a></h4>
+<p>Una vez establecidos los puntos de montaje, tenemos que indicar en
+<code>/etc/exports</code> los directorios compartidos y los clientes (con su <span class="caps">IP</span> o
+nombre de máquina) autorizados.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/exports
+-------------------------------------
+/srv/nfs/ 192.168.1.0/24<span class="o">(</span>rw,fsid<span class="o">=</span>root,no_subtree_check<span class="o">)</span>
+/srv/nfs/media 192.168.1.0/24<span class="o">(</span>rw,insecure,no_subtree_check,nohide<span class="o">)</span>
+</pre></div>
+<p>Garantizamos a todos los equipos en nuestra red local (<span class="caps">IP</span> en
+<code>192.168.1.0/24</code>) el acceso a <code>/srv/nfs/media</code>, pudiendo leer y
+escribir (<code>rw</code>), si tienen permiso previo, desde un puerto no reservado
+(<code>insecure</code>, 1024 en adelante). Dado que el disco compartido sufrirá
+escrituras frecuentes, se activa también la opción <code>no_subtree_check</code>.</p>
+<p>Podemos ver todas las opciones disponibles para este fichero ejecutando:</p>
+<div class="highlight"><pre><span class="nv">$ </span>man <span class="m">5</span> exports
+</pre></div>
+</div>
+<div class="section" id="iniciar-el-servidor">
+<h4><a class="toc-backref" href="#id16">Iniciar el servidor</a></h4>
+<p>Hecho esto, ya podemos activar e iniciar el servidor <em><span class="caps">NFS</span></em>.</p>
+<div class="highlight"><pre>sudo systemctl <span class="nb">enable </span>rpcbind nfs-server
+sudo systemctl start rpcbind nfs-server
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuracion-del-cliente">
+<h3><a class="toc-backref" href="#id17">Configuración del cliente</a></h3>
+<p>En cuanto al cliente se refiere, lo que a mí me interesa es que se monte el
+directorio sólo y no tener que preocuparme de montarlo, desmontarlo, subir o
+bajar el servicio cada vez que quiera hacer uso de él. Así que eso es lo que
+me voy a limitar a documentar ;).</p>
+<p>Antes de nada, creamos el directorio donde queremos montar las carpetas
+compartidas por <em><span class="caps">NFS</span></em>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>mkdir /mnt/nfs/mediacenter
+</pre></div>
+<p>Después, activamos e iniciamos <code>rpcbind.service</code> y
+<code>nfs-client.target</code> usando <em>systemd</em>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>rpcbind nfs-client
+<span class="nv">$ </span>sudo systemctl start rpcbind nfs-client
+</pre></div>
+<p>Y ya podemos montarlo con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo mount nami.local:/media /mnt/nfs/mediacenter
+</pre></div>
+<p>Se pueden comprobar los dispositivos montados con <code>df</code>:</p>
+<div class="highlight"><pre>S.ficheros          Tamaño Usados  Disp Uso% Montado en
+/dev/sda3              60G   6,5G   53G  11% /
+...
+nami.local:/media   917G    67G  804G   8% /mnt/nfs/mediacenter
+...
+</pre></div>
+<p>O, para más detalles, con <code>mount</code>:</p>
+<div class="highlight"><pre>...
+/dev/sdb5 on /home <span class="nb">type </span>ext4 <span class="o">(</span>rw,noatime,data<span class="o">=</span>ordered<span class="o">)</span>
+...
+nami.local:/media on /mnt/nfs/mediacenter <span class="nb">type </span>nfs4 <span class="o">(</span>rw,relatime,vers<span class="o">=</span>4.0,rsize<span class="o">=</span>65536,wsize<span class="o">=</span>65536,namlen<span class="o">=</span>255,hard,proto<span class="o">=</span>tcp,port<span class="o">=</span>0,timeo<span class="o">=</span>600,retrans<span class="o">=</span>2,sec<span class="o">=</span>sys,clientaddr<span class="o">=</span>192.168.1.5,local_lock<span class="o">=</span>none,addr<span class="o">=</span>192.168.1.11<span class="o">)</span>
+</pre></div>
+<p>Comprobado que no hay ningún problema, añadimos a <code>/etc/fstab</code> una línea
+con la información necesaria para su automontaje.</p>
+<p>Al parecer, la mejor manera de hacerlo es usando el servicio
+<code>automount</code>, de <em>systemd</em>. Este método remonta el dispositivo
+rápidamente en caso de altibajos en la conexión.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/fstab
+---------------------------------------
+nombre_servidor:/home   /punto/de/montaje/en/cliente  nfs  users,noauto,x-systemd.automount,x-systemd.device-timeout<span class="o">=</span>10,timeo<span class="o">=</span>14,noatime <span class="m">0</span> 0
+</pre></div>
+<p><strong>Nota</strong>: la opción <code>noauto</code> no monta la carpeta compartida hasta que se
+intenta acceder a ella. Para que se monte de forma inmediata tenemos que usar
+la opción <code>auto</code>.</p>
+<p>Si tenemos problemas con el montaje de las carpetas, por la indisponibilidad
+puntual de la red, podemos activar el servicio
+<code>NetworkManager-wait-online</code>: se asegura de que la <em>unit</em>
+<code>network.target</code> tiene todos los enlaces disponibles antes de intentarlo.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>NetworkManager-wait-online
+<span class="nv">$ </span>sudo systemctl start NetworkManager-wait-online
+</pre></div>
+<div class="section" id="apunte-error-parejo-a-la-instalacion-de-nfs">
+<h4><a class="toc-backref" href="#id18">Apunte: error parejo a la instalación de <span class="caps">NFS</span></a></h4>
+<p>Una vez instalado <em><span class="caps">NFS</span></em>, sufro un error muy molesto durante la secuencia de arranque:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo journalctl
+-------------------------------------
+ene <span class="m">28</span> 22:52:09 serenity kernel: EXT4-fs <span class="o">(</span>sda3<span class="o">)</span>: mounted filesystem with ordered data mode. Opts: <span class="o">(</span>null<span class="o">)</span>
+ene <span class="m">28</span> 22:52:09 serenity systemd<span class="o">[</span>1<span class="o">]</span>: Cannot add dependency job <span class="k">for</span> unit display-manager.service, ignoring: Unit display-manager.service failed to load: No such file or directory.
+ene <span class="m">28</span> 22:52:09 serenity systemd<span class="o">[</span>1<span class="o">]</span>: Dependency failed <span class="k">for</span> pNFS block layout mapping daemon.
+ene <span class="m">28</span> 22:52:09 serenity systemd<span class="o">[</span>1<span class="o">]</span>: Job nfs-blkmap.service/start failed with result <span class="s1">'dependency'</span>.
+ene <span class="m">28</span> 22:52:09 serenity kernel: FS-Cache: Loaded
+ene <span class="m">28</span> 22:52:09 serenity kernel: EXT4-fs <span class="o">(</span>sda3<span class="o">)</span>: re-mounted. Opts: <span class="o">(</span>null<span class="o">)</span>
+</pre></div>
+<p>Un mensaje amarillo que ataca a la vista, ralentiza el arranque y aparece
+resaltado en rojo en los registros.</p>
+<p>Después de mucho buscar, doy con <a class="reference external" href="https://bugs.archlinux.org/task/41012">un reporte de error sobre este tema</a>:
+resulta que esto «no es un error» de <em>systemd</em> y lo que pasa es que
+«falla porque no lo necesitas». ¡Toma castaña!</p>
+<p>Pues bien, la «solución» que nos proponen es el <em>enmascaramiento del servicio</em>:
+se reemplaza el servicio (<code>/etc/systemd/system/nombreservicio.service</code>)
+con un enlace simbólico a <code>/dev/null</code> y así <em>systemd</em> no puede
+invocarlo. Si sólo lo desactiváramos, aún podría reactivarlo si lo considerara oportuno.</p>
+<p>Procedemos pues a enmascarar el servicio problemático,
+<code>nfs-blkmap.service</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl mask nfs-blkmap.service
+</pre></div>
+<p>Si en algún momento necesitamos desenmascararlo, lo haremos con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl unmask nfs-blkmap.service
+</pre></div>
+<p>Una vez hecho esto, reiniciamos y comprobamos que, efectivamente, ya no
+molesta más este «no error».</p>
+</div>
+</div>
+<div class="section" id="uso-habitual">
+<h3><a class="toc-backref" href="#id19">Uso habitual</a></h3>
+<p>Ya sabéis lo que es una carpeta compartida: podéis acceder a ella como si
+estuviera en vuestro equipo.</p>
+<p>Puede usarse para el intercambio de archivos, pero para lo que más la uso yo
+es para reproducir archivos desde mi equipo. Y no noto diferencia alguna con
+respecto a la reproducción de archivos locales.
+Va muy bien :). Y eso que mi <em>Raspberry</em> está conectada por wifi, ¿eh?</p>
+</div>
+</div>
+<div class="section" id="transmission">
+<h2><a class="toc-backref" href="#id20">Transmission</a></h2>
+<p>Vamos a ver ahora como instalar y configurar un cliente de <em>BitTorrent</em> en
+nuestra <em>Raspberry</em>, de forma que lo podamos controlar remotamente desde
+nuestro equipo (ordenador o <em>Android</em>) y que no sea necesario mantener el <span class="caps">PC</span>
+encendido sólo por las descargas.</p>
+<p>He sopesado diversas alternativas disponibles, y me quedo con <a class="reference external" href="https://www.transmissionbt.com/">Transmission</a>.
+Un motivo de mucho peso es que es el cliente que uso a diario y, quieras que
+no, eso tira.</p>
+<div class="figure align-center" style="width: 256px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="https://trac.transmissionbt.com/ticket/4088"><img alt="Icono de Transmission, mi cliente bittorrent favorito." src="//soulchainer.github.io/images/2015/03/2015-03-04_02.png" style="width: 256px; height: auto; max-width: 100%;"/></a>
+<p class="caption">Icono oficial de <em>Transmission</em>. <a class="reference external" href="https://trac.transmissionbt.com/ticket/4088">Creación original</a> de <a class="reference external" href="https://wiki.gnome.org/AndreasNilsson">Andreas Nilsson</a>.</p>
+</div>
+<div class="section" id="instalacion-en-la-raspberry">
+<h3><a class="toc-backref" href="#id21">Instalación en la Raspberry</a></h3>
+<p>Instalamos el <em>daemon</em> (‘servicio’) de <em>Transmission</em> en la <em>Raspberry</em>.</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S transmission-cli
+</pre></div>
+<p>Este paquete contiene el <em>daemon</em> de <em>Transmission</em>, así como herramientas de
+consola y un cliente web. Nosotros sólo vamos a usar el <em>daemon</em>.</p>
+<p>Por defecto, <em>Transmission</em> crea el usuario <em>transmission</em> y ubica su archivo
+de configuración en
+<code>/var/lib/transmission/.config/transmission-daemon/settings.json</code>.</p>
+<p>La configuración se genera con la primera ejecución del programa:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>transmission  <span class="c"># y, de paso, que arranque al inicio</span>
+<span class="nv">$ </span>sudo systemctl start transmission
+<span class="nv">$ </span>sudo systemctl stop transmission
+</pre></div>
+<p>Como se puede apreciar arriba, justo tras iniciar el servicio, lo detengo: es
+porque prefiero editar manualmente la configuración (se podría editar a través
+de un cliente). La editamos con:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo nano /var/lib/transmission/.config/transmission-daemon/settings.json
+</pre></div>
+<p>En la <a class="reference external" href="https://trac.transmissionbt.com/wiki/EditConfigFiles">wiki de Transmission</a> se puede encontrar la explicación de todas las
+opciones de configuración. Yo cambio lo siguiente:</p>
+<div class="highlight"><pre>...
+<span class="c"># lista de hosts a bloquear (por seguridad)</span>
+<span class="s2">"blocklist-enabled"</span>: <span class="nb">true</span>,
+<span class="s2">"blocklist-url"</span>: <span class="s2">"http://list.iblocklist.com/?list=bt_level1&amp;fileformat=p2p&amp;archiveformat=gz"</span>,
+<span class="c"># desactivo dht</span>
+<span class="s2">"dht-enabled"</span>: <span class="nb">false</span>,
+<span class="c"># establezco el directorio donde se guardarán los archivos descargados</span>
+<span class="s2">"download-dir"</span>: <span class="s2">"/srv/nfs/media/torrents/terminados"</span>,
+<span class="c"># establezco que sólo acepte conexiones cifradas</span>
+<span class="s2">"encryption"</span>: 2,
+<span class="c"># establezco el directorio donde se guardarán los archivos descargándose</span>
+<span class="s2">"incomplete-dir"</span>: <span class="s2">"/srv/nfs/media/torrents/descargando"</span>,
+<span class="s2">"incomplete-dir-enabled"</span>: <span class="nb">true</span>,
+<span class="c"># cambio el puerto de conexiones entrantes (hay que configurar en el</span>
+<span class="c"># router un virtual server)</span>
+<span class="s2">"peer-port"</span>: 51416,
+<span class="c"># activar lista blanca (sólo se pueden conectar las IPs citadas)</span>
+<span class="c"># doy permiso únicamente para mi red local</span>
+<span class="s2">"rpc-whitelist"</span>: <span class="s2">"127.0.0.1,192.168.1.*"</span>,
+<span class="c"># limitar velocidad de subida y bajada, en KB/s.</span>
+<span class="c"># puedes probar tu velocidad con, p. ej., http://www.testdevelocidad.es/</span>
+<span class="c"># es importante si vas a ofrecer algún servicio de red en la raspberry</span>
+<span class="s2">"speed-limit-down"</span>: 1750,
+<span class="s2">"speed-limit-down-enabled"</span>: <span class="nb">true</span>,
+<span class="s2">"speed-limit-up"</span>: 175,
+<span class="s2">"speed-limit-up-enabled"</span>: <span class="nb">true</span>,
+<span class="c"># máscara de permisos. json sólo acepta números en base 10, por lo que</span>
+<span class="c"># hemos de convertir de octal a decimal. Por defecto se establece a 18,</span>
+<span class="c"># que es 022 (755). Yo establezco 2, que corresponde a 002 (775)</span>
+<span class="s2">"umask"</span>: 2,
+...
+</pre></div>
+<p>Tras esto, sólo nos queda crear los directorios de descarga de <em>torrents</em> y
+darles los permisos adecuados:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo mkdir -p /srv/nfs/media/torrents/descargando /srv/nfs/media/torrents/terminados
+<span class="nv">$ </span>sudo chown -R miusuario.transmission /srv/nfs/media/torrents
+<span class="nv">$ </span>sudo chmod -R <span class="m">775</span> /srv/nfs/media/torrents
+</pre></div>
+<p>Volvemos a lanzar el <em>daemon</em> de <em>Transmission</em>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl start transmission
+</pre></div>
+<p>Y ya hemos terminado la configuración en la <em>Raspberry</em>.</p>
+</div>
+<div class="section" id="instalacion-en-el-equipo">
+<h3><a class="toc-backref" href="#id22">Instalación en el equipo</a></h3>
+<p>El cliente <em><span class="caps">GTK</span></em> de <em>Transmission</em> no puede conectarse al <em>daemon</em>, por lo que
+instalo el cliente <em>Qt</em>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>yaourt -S transmission-qt
+</pre></div>
+<p id="mismo-puerto-de-conexiones-entrantes-que-en-la-raspberry">Lanzamos el programa y conectamos con el <em>daemon</em> corriendo en la <em>Raspberry</em>.</p>
+<div class="figure align-center" style="width: 560px; height: auto; max-width: 100%;">
+<img alt="Capturas mostrando como conectar a una sesión remota de Transmission." src="//soulchainer.github.io/images/2015/03/2015-03-04_03.png" style="width: 560px; height: auto; max-width: 100%;"/>
+<p class="caption"><strong>Edit → Change Session… → Connect to Remote Session</strong></p>
+<div class="legend">
+Damos la <span class="caps">IP</span>, o nombre de máquina de la <em>Raspberry</em> (<code>nami.local</code>) si
+<a class="reference external" href="http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#resolucion-de-nombres-en-la-red-local-con-zeroconf">configuramos anteriormente Avahi</a>, para conectarnos.</div>
+</div>
+<p>Si revisamos las preferencias de <code>transmission-qt</code>, comprobamos que,
+en efecto, son las que establecimos en el servicio.
+Podemos cambiarlas desde aquí siempre que queramos. Además, es recomendable
+pasarnos por la pestaña de privacidad y actualizar la lista negra de <span class="caps">IP</span>.</p>
+<div class="figure align-center" style="width: 532px; height: auto; max-width: 100%;">
+<img alt="Captura mostrando el proceso de actualización de la lista negra de Transmission." src="//soulchainer.github.io/images/2015/03/2015-03-04_04.png" style="width: 532px; height: auto; max-width: 100%;"/>
+<p class="caption"><strong>Edit → Preferences → Privacy → Update</strong></p>
+<div class="legend">
+Tenemos que esperar a que el título del diálogo muestre
+<strong>Update succeeded!</strong> (‘Actualización realizada correctamente’).</div>
+</div>
+<p>Si se marca <strong>Enable automatic updates</strong>, las próximas actualizaciones se
+aplicarán automáticamente.</p>
+<p>Hemos de realizar también unos ajustes en el apartado de configuración de red.</p>
+<div class="figure align-center" style="width: 532px; height: auto; max-width: 100%;">
+<img alt="Captura mostrando la configuración de red de Transmission." src="//soulchainer.github.io/images/2015/03/2015-03-04_05.png" style="width: 532px; height: auto; max-width: 100%;"/>
+<p class="caption"><strong>Network → Use UPnP or <span class="caps">NAT</span>-<span class="caps">PMP</span> port forwarding from my router</strong></p>
+<div class="legend">
+Comprobamos, con <strong>Test port</strong>, que el puerto está abierto (Port is
+<strong>open</strong>). En caso contrario, ver <a class="reference internal" href="#configuracion-del-router">configuración del router</a> más abajo.</div>
+</div>
+<p>Ya podemos iniciar torrents en nuestra <em>Raspberry</em> a través de
+<code>transmission-qt</code> y cerrar el programa sin miedo después, ya que la
+descarga se realiza desde la <em>Raspberry</em>.</p>
+<p>Para poder manejar cómodamente los archivos descargados, agrego a mi usuario
+local al grupo <code>transmission</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo gpasswd -a mi_usuario transmission
+</pre></div>
+<div class="section" id="ajuste-del-cortafuegos">
+<h4><a class="toc-backref" href="#id23">Ajuste del cortafuegos</a></h4>
+<p>Si aún queremos usar <em>transmission-qt</em> para descargar cosillas en el equipo,
+es <strong>importante</strong> no fijar el
+<a class="reference internal" href="#mismo-puerto-de-conexiones-entrantes-que-en-la-raspberry">mismo puerto de conexiones entrantes que en la Raspberry</a> (5146 en este
+caso), ya que <a class="reference internal" href="#las-conexiones-a-este-puerto-se-dirigiran-a-la-raspberry">las conexiones a este puerto se dirigirán a la Raspberry</a>.
+Tenemos que <a class="reference internal" href="#definir-otro-puerto-para-el-equipo">definir otro puerto para el equipo</a> y permitirle el paso en
+nuestro cortafuegos, de tener uno configurado (recomendable).</p>
+<div class="figure align-center" style="width: 576px; height: auto; max-width: 100%;">
+<img alt="Captura mostrando las reglas definidas en gufw (interfaz gráfica de cortafuegos), para el cliente Transmission local." src="//soulchainer.github.io/images/2015/03/2015-03-04_06.png" style="width: 576px; height: auto; max-width: 100%;"/>
+<p class="caption">Reglas definidas en gufw para el cliente <em>Transmission</em> local.</p>
+</div>
+<p>Como podemos ver, hemos establecido el puerto 5143 como el puerto de
+conexiones bittorrent entrantes para nuestro equipo.
+Ya <a class="reference external" href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/#configurar-el-cortafuegos-ufw">hablé antes</a> sobre sobre <a class="reference external" href="http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/#configurar-el-cortafuegos-ufw">cómo configurar el cortafuegos</a>.</p>
+</div>
+</div>
+<div class="section" id="abrir-puertos-en-el-router">
+<span id="definir-otro-puerto-para-el-equipo"></span><span id="las-conexiones-a-este-puerto-se-dirigiran-a-la-raspberry"></span><span id="configuracion-del-router"></span><h3><a class="toc-backref" href="#id24">Abrir puertos en el router</a></h3>
+<p>Definimos un par de reglas <em>Virtual Server</em> en nuestro <em>router</em>, una
+para el <em>daemon</em> en la <em>Raspberry</em> y otra para la sesión local de
+<em>Transmission</em> en nuestro equipo. Esto es necesario para que el <em>router</em> sepa
+a qué máquina debe dirigir las peticiones realizadas a cada puerto.</p>
+<div class="figure align-center" style="width: 814px; height: auto; max-width: 100%;">
+<img alt="Captura de la creación de un Virtual Server para el daemon de Transmission en la Raspberry." src="//soulchainer.github.io/images/2015/03/2015-03-04_07.png" style="width: 814px; height: auto; max-width: 100%;"/>
+<p class="caption">Abrimos el puerto 51416 y dirigimos las peticiones a la <em>Raspberry</em>,
+indicando su <span class="caps">IP</span>.</p>
+<div class="legend">
+El procedimiento para abrir el puerto para el <em>Transmission</em> local es
+idéntico, tan sólo hemos de cambiar el nombre del servicio e indicar la <span class="caps">IP</span>
+y puerto correspondientes.</div>
+</div>
+<div class="figure align-center" style="width: 964px; height: auto; max-width: 100%;">
+<img alt="Captura mostrando los puertos abiertos para las instancias de Transmission." src="//soulchainer.github.io/images/2015/03/2015-03-04_08.png" style="width: 964px; height: auto; max-width: 100%;"/>
+<p class="caption">Reglas <em>Virtual Server</em> para <em>Transmission</em> ya aplicadas.</p>
+</div>
+<p><strong><span class="caps">NOTA</span>:</strong> este procedimiento puede ser distinto en tu <em>router</em>. Si no lo
+tienes claro, consulta la documentación.</p>
+</div>
+<div class="section" id="instalacion-en-android">
+<h3><a class="toc-backref" href="#id25">Instalación en Android</a></h3>
+<p>Añadir torrents, revisar su estado, pausarlos… suelo hacer todas estas
+tareas desde mi <em>android</em>.</p>
+<p>Para ello, uso la aplicación <a class="reference external" href="https://github.com/erickok/transdroid/releases">Transdroid</a>. Yo tengo una versión de <em>Android</em>
+muy desfasada (2.3.5), pero la última versión compatible con ella
+(<a class="reference external" href="https://github.com/erickok/transdroid/releases/tag/v2.1.4">Transdroid 2.14</a>) funciona estupendamente. Aparte de esto, la mayor ventaja
+de <em>Transdroid</em> sobre otras alternativas es su complemento para búsquedas,
+<a class="reference external" href="https://github.com/erickok/transdroid-search/releases">Transdroid Torrent Search</a>, que se actualiza periódicamente con más sitios
+de torrents.</p>
+<p>Para la instalación de ambos, basta acceder a los enlaces anteriores desde
+nuestro <em>Android</em> y descargar el archivo <code>.apk</code> correspondiente.</p>
+<div class="section" id="configuracion">
+<h4><a class="toc-backref" href="#id26">Configuración</a></h4>
+<p>Su configuración es lo más sencillo que puedas echarte a la cara.</p>
+<div class="figure align-center" style="width: 480px; height: auto; max-width: 100%;">
+<img alt="Animación GIF con el proceso de instalación básico de Transdroid." src="//soulchainer.github.io/images/2015/03/2015-03-04_09.gif" style="width: 480px; height: auto; max-width: 100%;"/>
+<p class="caption"><strong>Botón menú → Preferencias → Añadir nuevo servidor</strong>.</p>
+<div class="legend">
+Damos un nombre a nuestro servidor, indicamos su tipo (<em>Transmission</em>)
+e <span class="caps">IP</span> (192.168.1.11 en los ejemplos). En <strong>Preferencias avanzadas</strong>,
+indicamos el puerto <em>rpc</em> (9091, en <strong>Número de puerto</strong> y
+<strong>Local port number</strong>), el nombre de nuestra red wifi (<em><span class="caps">SSID</span></em>) y
+desactivamos la autentificación (<strong>Disable authentification</strong>).</div>
+</div>
+<p>Una vez configurada, pulsamos el botón <strong>Atrás</strong> de <em>Android</em> hasta volver a
+la pantalla principal de la aplicación. Debería avisar entonces de que intenta
+conectarse al servidor y, pasados unos instantes, listar los torrents en el
+servidor o bien mostrar un mensaje informando de que no hay ningún torrent
+activo (similar al que se muestra en el <em><span class="caps">GIF</span></em> anterior, ya que tomé las
+capturas con una conexión ya establecida).</p>
+<p>Volviendo a las <strong>Preferencias</strong>, conviene <strong>Establecer sitio predeterminado</strong>
+en el apartado <strong>Sitios de búsqueda</strong> (sólo disponible si se instaló el
+complemento <em>Transdroid Torrent Search</em>).</p>
+<div class="figure align-center" style="width: 480px; height: auto; max-width: 100%;">
+<img alt="Pantalla de elección de motor de búsqueda de torrents." src="//soulchainer.github.io/images/2015/03/2015-03-04_10.png" style="width: 480px; height: auto; max-width: 100%;"/>
+</div>
+<p>En cada búsqueda se consultará primero el sitio predeterminado, pero después,
+desde la pantalla de resultados, se podrá escoger repetirla en otro sitio.</p>
+<div class="figure align-center" style="width: 480px; height: auto; max-width: 100%;">
+<img alt="Pantalla principal de Transdroid, descargando la película de animación libre «Big Buck Bunny»." src="//soulchainer.github.io/images/2015/03/2015-03-04_11.png" style="width: 480px; height: auto; max-width: 100%;"/>
+<p class="caption">Pantalla principal de Transdroid, descargando la película libre de
+animación <a class="reference external" href="https://peach.blender.org/">Big Buck Bunny</a>, realizada enteramente con <a class="reference external" href="http://www.blender.org/">Blender</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="esto-es-un-seedbox">
+<h3><a class="toc-backref" href="#id27">Esto es un seedbox</a></h3>
+<p>Y ya tenéis un pequeño <em>seedbox</em> instalado.</p>
+<p>¿Que ya he dicho esto antes? Ya lo sé.</p>
+<p>¿Que por qué lo repito entonces? Pues para dejar claro que el objetivo del
+protocolo <em>BitTorrent</em> es <strong>compartir</strong> archivos, no sólo <em>descargar archivos</em>.
+La <em>Raspberry</em> consume poquísimo y está enchufada todo el día: no pasa nada si
+dejáis los torrents compartiendo varios días ;).</p>
+<p>La red no se mantiene sola: son las personas quienes la alimentan.</p>
+<hr class="docutils"/>
+<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/">Wiki de Arch Linux</a>, <a class="reference external" href="http://doc.ntp.org/4.1.0/accopt.htm">Documentación oficial de <span class="caps">NTP</span></a>,
+<a class="reference external" href="http://support.ntp.org/">Documentación colaborativa de <span class="caps">NTP</span></a>, <a class="reference external" href="http://www.transdroid.org/">Transdroid.org</a>.</p>
+<p><strong>Anotaciones:</strong></p>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><em>Raspberry Pi</em> es una marca registrada de la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>. El presente blog no tiene conexión alguna con la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Un <abbr title="Network Attached Storage"><span class="caps">NAS</span></abbr> es un dispositivo dedicado a compartir su capacidad de almacenamiento a través de la red.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Un <em>seedbox</em> es un servidor privado dedicado a la subida y descarga de archivos, normalmente de redes <em><span class="caps">P2P</span></em> (como <em>BitTorrent</em>).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><abbr title="Kiss-of-Death">KoD</abbr> es un tipo de paquete especial que el servidor envía al cliente cuando recibe un paquete no permitido (bien porque no está autorizado o bien porque ha excedido su cuota), instándole a cesar de envíar paquetes (en lugar de limitarse a ignorarlo, que es lo que haría sin esta opción) y dejando un aviso al administrador.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  </div><!-- .content -->
+
+  <div class="tags">
+    <ul>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/archlinux/">archlinux</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/bittorrent/">bittorrent</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/configuracion/">configuración</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/instalacion/">instalación</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/linux/">linux</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/nas/">NAS</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/nfs/">NFS</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/raspberry-pi/">raspberry pi</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/seedbox/">seedbox</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/torrent/">torrent</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/transdroid/">transdroid</a></li>
+    <li class="tag"><a class="taglink notransition" href="//soulchainer.github.io/tags/transmission/">transmission</a></li>
+    </ul>
+  </div>
+
+    <aside id="parts">
+      <p>Esta entrada es parte de una serie:</p>
+      <ul id="partslist">
+              <li >
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/02/mi-raspberry/'>Mi Raspberry Pi (I): primer inicio del&nbsp;sistema</a>
+              </li>
+              <li >
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/'>Mi Raspberry Pi (<span class="caps">II</span>): configuración&nbsp;local</a>
+              </li>
+              <li >
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/02/23/mi-raspberry-configuracion-remota/'>Mi Raspberry Pi (<span class="caps">III</span>): configuración&nbsp;remota</a>
+              </li>
+              <li class="active">
+                  <a class="partlink" href='//soulchainer.github.io/posts/2015/03/04/mi-raspberry-nas-seedbox/'>Mi Raspberry Pi (<span class="caps">IV</span>): <span class="caps">NAS</span> y&nbsp;seedbox</a>
+              </li>
+      </ul>
+    </aside>
+
+  <section>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'soulbits';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Por favor, activa JavaScript para ver los <a href="http://disqus.com/?ref_noscript">comentarios proporcionados por Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comentarios vía <span class="logo-disqus">Disqus</span></a>
+  </section>
+
+</section>
+<script src="//soulchainer.github.io/theme/js/toc.js" type="text/javascript" charset="utf-8"></script>
+      <div class="push"></div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+      <p id="credits">
+        © Soulchainer. Contenido bajo licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons 4.0</a>.
+        Sitio generado con <a href="http://docs.getpelican.com/">Pelican</a> <a href="//soulchainer.github.io/humans.txt"><img alt="humanstxt logo" title="Créditos y agradecimientos" src="//soulchainer.github.io/theme/images/humanstxt.png"></a>
+      </p>
+    </footer>
+  </body>
+</html>
