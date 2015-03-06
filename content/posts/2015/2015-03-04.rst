@@ -1,0 +1,646 @@
+Mi Raspberry Pi (IV): NAS y seedbox
+###################################
+:date: 2015-03-04 19:00
+:tags: raspberry pi, instalación, configuración, linux, archlinux, NAS,
+       seedbox, bittorrent, torrent, NFS, transmission, transdroid
+:category: CÓMOS, linux, Raspberry
+:slug: mi-raspberry-nas-seedbox
+:author: Soulchainer
+:parts: Mi_Raspberry
+:twsummary: Aún me faltan por documentar unos cuantos ajustes de mi entorno de
+            consola, pero démonos un pequeño respiro y abordemos algo con un
+            uso práctico más «inmediato»: vamos a apañar nuestra Raspberry Pi
+            para que haga las veces de NAS y de seedbox (a pequeña escala).
+:twimg: 2015-03-04_01.png
+
+
+.. contents:: **Índice de contenido**
+..
+
+{BEGIN_SUMMARY}
+
+.. figure:: {filename}/images/2015/03/2015-03-04_01.png
+    :alt: Bram Cohen, creador del protocolo BitTorrent.
+    :target: https://flic.kr/p/62pmaf
+    :align: center
+
+    `Foto original`_ de `Thomas Hawk`_, con `licencia Creative Commons`_.
+    Reducida a dos colores por mí, usando `Optimizilla`_.
+
+    No: no soy yo. Es **Bram Cohen**, padre del protocolo `BitTorrent`_.
+    Belldandy le bendiga por nuestras descargas de cada día:).
+
+Aún me faltan por documentar unos cuantos ajustes de mi entorno de consola,
+pero démonos un pequeño respiro y abordemos algo con un uso práctico más
+«inmediato»: vamos a apañar nuestra *Raspberry Pi* [#]_ para que haga las
+veces de :abbr:`NAS (Network Attached Storage)` [#]_ y de *seedbox* [#]_
+(a pequeña escala).
+
+{END_SUMMARY}
+
+NFS
+===
+
+:abbr:`NFS (Network File System)` es un protocolo de sistema de archivos en
+red: nos permite acceder a los archivos almacenados en un equipo remoto como
+si estuvieran almacenados localmente.
+
+Lo usaremos para acceder y trabajar cómodamente con nuestro disco externo.
+
+Instalación
+-----------
+
+Tanto el cliente como el servidor *NFS* requieren únicamente la instalación
+del paquete :code:`nfs-utils`:
+
+.. code-block:: sh
+
+    $ yaourt -S nfs-utils
+
+Sincronización horaria
+^^^^^^^^^^^^^^^^^^^^^^
+
+Además, se recomienda ejecutar un servicio de sincronización horaria en todos
+los nodos, para mantener los relojes sincronizados. De no hacerlo, *NFS*
+podría introducir tiempos de espera no deseados.
+
+Instalamos pues :code:`ntp`, que sincronizará el tiempo con los servidores
+*NTP* disponibles en Internet:
+
+.. code-block:: sh
+
+    $ yaourt -S ntp
+
+Por defecto, el servicio acepta:
+
+- todas las peticiones locales;
+- peticiones externas de tiempo, con límite de frecuencia de peticiones y :abbr:`KoD (Kiss-of-Death)` [#]_ (a fin de evitar abusos).
+
+Para mayor seguridad, podemos denegar directamente esas peticiones externas:
+no tenemos ningún interés en hacer de servidor, tan sólo nos interesa la
+faceta de cliente del programa.
+
+.. code-block:: sh
+
+    $ sudo nano /etc/ntp.conf
+    -------------------------
+    ...
+    # cambiamos la cadena «limited» por «ignore»
+    restrict default kod ignore nomodify nopeer noquery notrap
+    ...
+
+Ya podemos iniciar (y activar) el servicio con:
+
+.. code-block:: sh
+
+    $ sudo systemctl enable ntpd
+    $ sudo systemctl start ntpd
+
+Configuración del servidor NFS
+------------------------------
+
+Es decir, la parte de la configuración de la *Raspberry*.
+
+Sistema de archivos
+^^^^^^^^^^^^^^^^^^^
+
+Conviene crear un directorio *root* específico (*chroot*) para el contenido
+que compartiremos con *NFS*: así, el acceso de los usuarios se limitará a este.
+
+Para ello, definiremos en :code:`/etc/exports` los directorios que deseamos
+compartir, con una ruta relativa al directorio *chroot*. En mi caso, el
+directorio raíz de *NFS* será :code:`/srv/nfs`.
+
+.. code-block:: sh
+
+    $ sudo mkdir -p /srv/nfs/media  # creamos el directorio de montaje chroot
+
+Ahora montamos el directorio real que compartiremos,
+:code:`/mnt/Pandorica/Multimedia`, en el directorio recién creado para *NFS*:
+
+.. code-block:: sh
+
+    $ sudo mount --bind /mnt/Pandorica/Multimedia /srv/nfs/media
+
+Añadimos una línea a :code:`/ect/fstab`, para que se monte automáticamente al
+inicio:
+
+.. code-block:: sh
+
+    $ sudo nano /etc/fstab
+    ------------------------
+    ...
+    /mnt/Pandorica/Multimedia /srv/nfs/media  none   bind   0   0
+
+Permisos de acceso a mi :code:`/mnt/Pandorica/Multimedia`:
+
+- lectura, escritura y ejecución, para el propietario y los miembros del grupo
+  *users*;
+- lectura y ejecución, para el resto de usuarios.
+
+Del grupo *users* podrán ser miembros, por ejemplo, un cliente de
+*BitTorrent*, o mi usuario, una vez montado el directorio remoto en mi equipo.
+Y ambos necesitan escribir, para descargar, borrar o copiar archivos. Este
+directorio contendrá archivos multimedia y es el que `Kodi`_ revisará para
+mantener actualizada su colección.
+
+Exports
+^^^^^^^
+
+Una vez establecidos los puntos de montaje, tenemos que indicar en
+:code:`/etc/exports` los directorios compartidos y los clientes (con su IP o
+nombre de máquina) autorizados.
+
+.. code-block:: sh
+
+    $ sudo nano /etc/exports
+    -------------------------------------
+    /srv/nfs/ 192.168.1.0/24(rw,fsid=root,no_subtree_check)
+    /srv/nfs/media 192.168.1.0/24(rw,insecure,no_subtree_check,nohide)
+
+Garantizamos a todos los equipos en nuestra red local (IP en
+:code:`192.168.1.0/24`) el acceso a :code:`/srv/nfs/media`, pudiendo leer y
+escribir (:code:`rw`), si tienen permiso previo, desde un puerto no reservado
+(:code:`insecure`, 1024 en adelante). Dado que el disco compartido sufrirá
+escrituras frecuentes, se activa también la opción :code:`no_subtree_check`.
+
+Podemos ver todas las opciones disponibles para este fichero ejecutando:
+
+.. code-block:: sh
+
+    $ man 5 exports
+
+Iniciar el servidor
+^^^^^^^^^^^^^^^^^^^
+
+Hecho esto, ya podemos activar e iniciar el servidor *NFS*.
+
+.. code-block:: sh
+
+    sudo systemctl enable rpcbind nfs-server
+    sudo systemctl start rpcbind nfs-server
+
+Configuración del cliente
+-------------------------
+
+En cuanto al cliente se refiere, lo que a mí me interesa es que se monte el
+directorio sólo y no tener que preocuparme de montarlo, desmontarlo, subir o
+bajar el servicio cada vez que quiera hacer uso de él. Así que eso es lo que
+me voy a limitar a documentar ;).
+
+Antes de nada, creamos el directorio donde queremos montar las carpetas
+compartidas por *NFS*:
+
+.. code-block:: sh
+
+    $ mkdir /mnt/nfs/mediacenter
+
+Después, activamos e iniciamos :code:`rpcbind.service` y
+:code:`nfs-client.target` usando *systemd*.
+
+.. code-block:: sh
+
+    $ sudo systemctl enable rpcbind nfs-client
+    $ sudo systemctl start rpcbind nfs-client
+
+Y ya podemos montarlo con:
+
+.. code-block:: sh
+
+    $ sudo mount nami.local:/media /mnt/nfs/mediacenter
+
+Se pueden comprobar los dispositivos montados con :code:`df`:
+
+.. code-block:: sh
+
+    S.ficheros          Tamaño Usados  Disp Uso% Montado en
+    /dev/sda3              60G   6,5G   53G  11% /
+    ...
+    nami.local:/media   917G    67G  804G   8% /mnt/nfs/mediacenter
+    ...
+
+O, para más detalles, con :code:`mount`:
+
+.. code-block:: sh
+
+    ...
+    /dev/sdb5 on /home type ext4 (rw,noatime,data=ordered)
+    ...
+    nami.local:/media on /mnt/nfs/mediacenter type nfs4 (rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=tcp,port=0,timeo=600,retrans=2,sec=sys,clientaddr=192.168.1.5,local_lock=none,addr=192.168.1.11)
+
+Comprobado que no hay ningún problema, añadimos a :code:`/etc/fstab` una línea
+con la información necesaria para su automontaje.
+
+Al parecer, la mejor manera de hacerlo es usando el servicio
+:code:`automount`, de *systemd*. Este método remonta el dispositivo
+rápidamente en caso de altibajos en la conexión.
+
+.. code-block:: sh
+
+    $ sudo nano /etc/fstab
+    ---------------------------------------
+    nombre_servidor:/home   /punto/de/montaje/en/cliente  nfs  users,noauto,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,noatime 0 0
+
+**Nota**: la opción :code:`noauto` no monta la carpeta compartida hasta que se
+intenta acceder a ella. Para que se monte de forma inmediata tenemos que usar
+la opción :code:`auto`.
+
+Si tenemos problemas con el montaje de las carpetas, por la indisponibilidad
+puntual de la red, podemos activar el servicio
+:code:`NetworkManager-wait-online`: se asegura de que la *unit*
+:code:`network.target` tiene todos los enlaces disponibles antes de intentarlo.
+
+.. code-block:: sh
+
+    $ sudo systemctl enable NetworkManager-wait-online
+    $ sudo systemctl start NetworkManager-wait-online
+
+Apunte: error parejo a la instalación de NFS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Una vez instalado *NFS*, sufro un error muy molesto durante la secuencia de
+arranque:
+
+.. code-block:: sh
+
+    $ sudo journalctl
+    -------------------------------------
+    ene 28 22:52:09 serenity kernel: EXT4-fs (sda3): mounted filesystem with ordered data mode. Opts: (null)
+    ene 28 22:52:09 serenity systemd[1]: Cannot add dependency job for unit display-manager.service, ignoring: Unit display-manager.service failed to load: No such file or directory.
+    ene 28 22:52:09 serenity systemd[1]: Dependency failed for pNFS block layout mapping daemon.
+    ene 28 22:52:09 serenity systemd[1]: Job nfs-blkmap.service/start failed with result 'dependency'.
+    ene 28 22:52:09 serenity kernel: FS-Cache: Loaded
+    ene 28 22:52:09 serenity kernel: EXT4-fs (sda3): re-mounted. Opts: (null)
+
+Un mensaje amarillo que ataca a la vista, ralentiza el arranque y aparece
+resaltado en rojo en los registros.
+
+Después de mucho buscar, doy con `un reporte de error sobre este tema`_:
+resulta que esto «no es un error» de *systemd* y lo que pasa es que
+«falla porque no lo necesitas». ¡Toma castaña!
+
+Pues bien, la «solución» que nos proponen es el *enmascaramiento del servicio*:
+se reemplaza el servicio (:code:`/etc/systemd/system/nombreservicio.service`)
+con un enlace simbólico a :code:`/dev/null` y así *systemd* no puede
+invocarlo. Si sólo lo desactiváramos, aún podría reactivarlo si lo considerara
+oportuno.
+
+Procedemos pues a enmascarar el servicio problemático,
+:code:`nfs-blkmap.service`:
+
+.. code-block:: sh
+
+    $ sudo systemctl mask nfs-blkmap.service
+
+Si en algún momento necesitamos desenmascararlo, lo haremos con:
+
+.. code-block:: sh
+
+    $ sudo systemctl unmask nfs-blkmap.service
+
+Una vez hecho esto, reiniciamos y comprobamos que, efectivamente, ya no
+molesta más este «no error».
+
+Uso habitual
+------------
+
+Ya sabéis lo que es una carpeta compartida: podéis acceder a ella como si
+estuviera en vuestro equipo.
+
+Puede usarse para el intercambio de archivos, pero para lo que más la uso yo
+es para reproducir archivos desde mi equipo. Y no noto diferencia alguna con
+respecto a la reproducción de archivos locales.
+Va muy bien :). Y eso que mi *Raspberry* está conectada por wifi, ¿eh?
+
+Transmission
+============
+
+Vamos a ver ahora como instalar y configurar un cliente de *BitTorrent* en
+nuestra *Raspberry*, de forma que lo podamos controlar remotamente desde
+nuestro equipo (ordenador o *Android*) y que no sea necesario mantener el PC
+encendido sólo por las descargas.
+
+He sopesado diversas alternativas disponibles, y me quedo con `Transmission`_.
+Un motivo de mucho peso es que es el cliente que uso a diario y, quieras que
+no, eso tira.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_02.png
+    :alt: Icono de Transmission, mi cliente bittorrent favorito.
+    :target: https://trac.transmissionbt.com/ticket/4088
+    :align: center
+
+    Icono oficial de *Transmission*. `Creación original`_ de `Andreas Nilsson`_.
+
+Instalación en la Raspberry
+---------------------------
+
+Instalamos el *daemon* ('servicio') de *Transmission* en la *Raspberry*.
+
+.. code-block:: sh
+
+    $ yaourt -S transmission-cli
+
+Este paquete contiene el *daemon* de *Transmission*, así como herramientas de
+consola y un cliente web. Nosotros sólo vamos a usar el *daemon*.
+
+Por defecto, *Transmission* crea el usuario *transmission* y ubica su archivo
+de configuración en
+:code:`/var/lib/transmission/.config/transmission-daemon/settings.json`.
+
+La configuración se genera con la primera ejecución del programa:
+
+.. code-block:: sh
+
+    $ sudo systemctl enable transmission  # y, de paso, que arranque al inicio
+    $ sudo systemctl start transmission
+    $ sudo systemctl stop transmission
+
+Como se puede apreciar arriba, justo tras iniciar el servicio, lo detengo: es
+porque prefiero editar manualmente la configuración (se podría editar a través
+de un cliente). La editamos con:
+
+.. code-block:: sh
+
+    $ sudo nano /var/lib/transmission/.config/transmission-daemon/settings.json
+
+En la `wiki de Transmission`_ se puede encontrar la explicación de todas las
+opciones de configuración. Yo cambio lo siguiente:
+
+.. code-block:: sh
+
+    ...
+    # lista de hosts a bloquear (por seguridad)
+    "blocklist-enabled": true,
+    "blocklist-url": "http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz",
+    # desactivo dht
+    "dht-enabled": false,
+    # establezco el directorio donde se guardarán los archivos descargados
+    "download-dir": "/srv/nfs/media/torrents/terminados",
+    # establezco que sólo acepte conexiones cifradas
+    "encryption": 2,
+    # establezco el directorio donde se guardarán los archivos descargándose
+    "incomplete-dir": "/srv/nfs/media/torrents/descargando",
+    "incomplete-dir-enabled": true,
+    # cambio el puerto de conexiones entrantes (hay que configurar en el
+    # router un virtual server)
+    "peer-port": 51416,
+    # activar lista blanca (sólo se pueden conectar las IPs citadas)
+    # doy permiso únicamente para mi red local
+    "rpc-whitelist": "127.0.0.1,192.168.1.*",
+    # limitar velocidad de subida y bajada, en KB/s.
+    # puedes probar tu velocidad con, p. ej., http://www.testdevelocidad.es/
+    # es importante si vas a ofrecer algún servicio de red en la raspberry
+    "speed-limit-down": 1750,
+    "speed-limit-down-enabled": true,
+    "speed-limit-up": 175,
+    "speed-limit-up-enabled": true,
+    # máscara de permisos. json sólo acepta números en base 10, por lo que
+    # hemos de convertir de octal a decimal. Por defecto se establece a 18,
+    # que es 022 (755). Yo establezco 2, que corresponde a 002 (775)
+    "umask": 2,
+    ...
+
+Tras esto, sólo nos queda crear los directorios de descarga de *torrents* y
+darles los permisos adecuados:
+
+.. code-block:: sh
+
+    $ sudo mkdir -p /srv/nfs/media/torrents/descargando /srv/nfs/media/torrents/terminados
+    $ sudo chown -R miusuario.transmission /srv/nfs/media/torrents
+    $ sudo chmod -R 775 /srv/nfs/media/torrents
+
+Volvemos a lanzar el *daemon* de *Transmission*:
+
+.. code-block:: sh
+
+    $ sudo systemctl start transmission
+
+Y ya hemos terminado la configuración en la *Raspberry*.
+
+Instalación en el equipo
+------------------------
+
+El cliente *GTK* de *Transmission* no puede conectarse al *daemon*, por lo que
+instalo el cliente *Qt*:
+
+.. code-block:: sh
+
+    $ yaourt -S transmission-qt
+
+.. _mismo puerto de conexiones entrantes que en la Raspberry:
+
+Lanzamos el programa y conectamos con el *daemon* corriendo en la *Raspberry*.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_03.png
+    :alt: Capturas mostrando como conectar a una sesión remota de Transmission.
+    :align: center
+
+    **Edit → Change Session... → Connect to Remote Session**
+
+    Damos la IP, o nombre de máquina de la *Raspberry* (:code:`nami.local`) si
+    `configuramos anteriormente Avahi`_, para conectarnos.
+
+Si revisamos las preferencias de :code:`transmission-qt`, comprobamos que,
+en efecto, son las que establecimos en el servicio.
+Podemos cambiarlas desde aquí siempre que queramos. Además, es recomendable
+pasarnos por la pestaña de privacidad y actualizar la lista negra de IP.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_04.png
+    :alt: Captura mostrando el proceso de actualización de la lista negra de
+          Transmission.
+    :align: center
+
+    **Edit → Preferences → Privacy → Update**
+
+    Tenemos que esperar a que el título del diálogo muestre
+    **Update succeeded!** ('Actualización realizada correctamente').
+
+Si se marca **Enable automatic updates**, las próximas actualizaciones se
+aplicarán automáticamente.
+
+Hemos de realizar también unos ajustes en el apartado de configuración de red.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_05.png
+    :alt: Captura mostrando la configuración de red de Transmission.
+    :align: center
+
+    **Network → Use UPnP or NAT-PMP port forwarding from my router**
+
+    Comprobamos, con **Test port**, que el puerto está abierto (Port is
+    **open**). En caso contrario, ver `configuración del router`_ más abajo.
+
+Ya podemos iniciar torrents en nuestra *Raspberry* a través de
+:code:`transmission-qt` y cerrar el programa sin miedo después, ya que la
+descarga se realiza desde la *Raspberry*.
+
+Para poder manejar cómodamente los archivos descargados, agrego a mi usuario
+local al grupo :code:`transmission`:
+
+.. code-block:: sh
+
+    $ sudo gpasswd -a mi_usuario transmission
+
+Ajuste del cortafuegos
+^^^^^^^^^^^^^^^^^^^^^^
+
+Si aún queremos usar *transmission-qt* para descargar cosillas en el equipo,
+es **importante** no fijar el
+`mismo puerto de conexiones entrantes que en la Raspberry`_ (5146 en este
+caso), ya que `las conexiones a este puerto se dirigirán a la Raspberry`_.
+Tenemos que `definir otro puerto para el equipo`_ y permitirle el paso en
+nuestro cortafuegos, de tener uno configurado (recomendable).
+
+.. figure:: {filename}/images/2015/03/2015-03-04_06.png
+    :alt: Captura mostrando las reglas definidas en gufw (interfaz gráfica de
+          cortafuegos), para el cliente Transmission local.
+    :align: center
+
+    Reglas definidas en gufw para el cliente *Transmission* local.
+
+Como podemos ver, hemos establecido el puerto 5143 como el puerto de
+conexiones bittorrent entrantes para nuestro equipo.
+Ya `hablé antes`_ sobre sobre `cómo configurar el cortafuegos`_.
+
+.. _configuración del router:
+.. _las conexiones a este puerto se dirigirán a la Raspberry:
+.. _definir otro puerto para el equipo:
+
+Abrir puertos en el router
+--------------------------
+
+Definimos un par de reglas *Virtual Server* en nuestro *router*, una
+para el *daemon* en la *Raspberry* y otra para la sesión local de
+*Transmission* en nuestro equipo. Esto es necesario para que el *router* sepa
+a qué máquina debe dirigir las peticiones realizadas a cada puerto.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_07.png
+    :alt: Captura de la creación de un Virtual Server para el daemon de
+          Transmission en la Raspberry.
+    :align: center
+
+    Abrimos el puerto 51416 y dirigimos las peticiones a la *Raspberry*,
+    indicando su IP.
+
+    El procedimiento para abrir el puerto para el *Transmission* local es
+    idéntico, tan sólo hemos de cambiar el nombre del servicio e indicar la IP
+    y puerto correspondientes.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_08.png
+    :alt: Captura mostrando los puertos abiertos para las instancias de
+          Transmission.
+    :align: center
+
+    Reglas *Virtual Server* para *Transmission* ya aplicadas.
+
+**NOTA:** este procedimiento puede ser distinto en tu *router*. Si no lo
+tienes claro, consulta la documentación.
+
+Instalación en Android
+----------------------
+
+Añadir torrents, revisar su estado, pausarlos... suelo hacer todas estas
+tareas desde mi *android*.
+
+Para ello, uso la aplicación `Transdroid`_. Yo tengo una versión de *Android*
+muy desfasada (2.3.5), pero la última versión compatible con ella
+(`Transdroid 2.14`_) funciona estupendamente. Aparte de esto, la mayor ventaja
+de *Transdroid* sobre otras alternativas es su complemento para búsquedas,
+`Transdroid Torrent Search`_, que se actualiza periódicamente con más sitios
+de torrents.
+
+Para la instalación de ambos, basta acceder a los enlaces anteriores desde
+nuestro *Android* y descargar el archivo :code:`.apk` correspondiente.
+
+Configuración
+^^^^^^^^^^^^^
+
+Su configuración es lo más sencillo que puedas echarte a la cara.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_09.gif
+    :alt: Animación GIF con el proceso de instalación básico de Transdroid.
+    :align: center
+
+    **Botón menú → Preferencias → Añadir nuevo servidor**.
+
+    Damos un nombre a nuestro servidor, indicamos su tipo (*Transmission*)
+    e IP (192.168.1.11 en los ejemplos). En **Preferencias avanzadas**,
+    indicamos el puerto *rpc* (9091, en **Número de puerto** y
+    **Local port number**), el nombre de nuestra red wifi (*SSID*) y
+    desactivamos la autentificación (**Disable authentification**).
+
+Una vez configurada, pulsamos el botón **Atrás** de *Android* hasta volver a
+la pantalla principal de la aplicación. Debería avisar entonces de que intenta
+conectarse al servidor y, pasados unos instantes, listar los torrents en el
+servidor o bien mostrar un mensaje informando de que no hay ningún torrent
+activo (similar al que se muestra en el *GIF* anterior, ya que tomé las
+capturas con una conexión ya establecida).
+
+Volviendo a las **Preferencias**, conviene **Establecer sitio predeterminado**
+en el apartado **Sitios de búsqueda** (sólo disponible si se instaló el
+complemento *Transdroid Torrent Search*).
+
+.. figure:: {filename}/images/2015/03/2015-03-04_10.png
+    :alt: Pantalla de elección de motor de búsqueda de torrents.
+    :align: center
+
+En cada búsqueda se consultará primero el sitio predeterminado, pero después,
+desde la pantalla de resultados, se podrá escoger repetirla en otro sitio.
+
+.. figure:: {filename}/images/2015/03/2015-03-04_11.png
+    :alt: Pantalla principal de Transdroid, descargando la película de
+          animación libre «Big Buck Bunny».
+    :align: center
+
+    Pantalla principal de Transdroid, descargando la película libre de
+    animación `Big Buck Bunny`_, realizada enteramente con `Blender`_.
+
+Esto es un seedbox
+------------------
+
+Y ya tenéis un pequeño *seedbox* instalado.
+
+¿Que ya he dicho esto antes? Ya lo sé.
+
+¿Que por qué lo repito entonces? Pues para dejar claro que el objetivo del
+protocolo *BitTorrent* es **compartir** archivos, no sólo *descargar archivos*.
+La *Raspberry* consume poquísimo y está enchufada todo el día: no pasa nada si
+dejáis los torrents compartiendo varios días ;).
+
+La red no se mantiene sola: son las personas quienes la alimentan.
+
+---------------
+
+**Fuentes:** `Wiki de Arch Linux`_, `Documentación oficial de NTP`_,
+`Documentación colaborativa de NTP`_, `Transdroid.org`_.
+
+**Anotaciones:**
+
+.. [#] *Raspberry Pi* es una marca registrada de la `Raspberry Pi Foundation`_. El presente blog no tiene conexión alguna con la `Raspberry Pi Foundation`_.
+.. [#] Un :abbr:`NAS (Network Attached Storage)` es un dispositivo dedicado a compartir su capacidad de almacenamiento a través de la red.
+.. [#] Un *seedbox* es un servidor privado dedicado a la subida y descarga de archivos, normalmente de redes *P2P* (como *BitTorrent*).
+.. [#] :abbr:`KoD (Kiss-of-Death)` es un tipo de paquete especial que el servidor envía al cliente cuando recibe un paquete no permitido (bien porque no está autorizado o bien porque ha excedido su cuota), instándole a cesar de envíar paquetes (en lugar de limitarse a ignorarlo, que es lo que haría sin esta opción) y dejando un aviso al administrador.
+
+.. _BitTorrent: http://es.wikipedia.org/wiki/BitTorrent
+.. _Thomas Hawk: https://www.flickr.com/photos/thomashawk/
+.. _licencia Creative Commons: https://creativecommons.org/licenses/by-nc/2.0/
+.. _Foto original: https://flic.kr/p/62pmaf
+.. _Optimizilla: http://optimizilla.com/
+.. _Wiki de Arch Linux: https://wiki.archlinux.org/
+.. _Raspberry Pi Foundation: http://www.raspberrypi.org/
+.. _Documentación oficial de NTP: http://doc.ntp.org/4.1.0/accopt.htm
+.. _Documentación colaborativa de NTP: http://support.ntp.org/
+.. _Kodi: http://kodi.tv/about/
+.. _un reporte de error sobre este tema: https://bugs.archlinux.org/task/41012
+.. _Andreas Nilsson: https://wiki.gnome.org/AndreasNilsson
+.. _Creación original: https://trac.transmissionbt.com/ticket/4088
+.. _Transmission: https://www.transmissionbt.com/
+.. _wiki de Transmission: https://trac.transmissionbt.com/wiki/EditConfigFiles
+.. _Transdroid: https://github.com/erickok/transdroid/releases
+.. _Transdroid 2.14: https://github.com/erickok/transdroid/releases/tag/v2.1.4
+.. _Transdroid Torrent Search: https://github.com/erickok/transdroid-search/releases
+.. _configuramos anteriormente Avahi: http://soulchainer.github.io/posts/2015/02/05/mi-raspberry-configuracion-local/#resolucion-de-nombres-en-la-red-local-con-zeroconf
+.. _hablé antes:
+.. _cómo configurar el cortafuegos: http://soulchainer.github.io/posts/2014/01/29/antergos-tutorial-parte2/#configurar-el-cortafuegos-ufw
+.. _Big Buck Bunny: https://peach.blender.org/
+.. _Blender: http://www.blender.org/
+.. _Transdroid.org: http://www.transdroid.org/

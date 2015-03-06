@@ -1,0 +1,52 @@
+Cómo solucionar el error «Persistent storage maximum size reached» en Firefox
+#############################################################################
+:date: 2015-03-06 11:30
+:tags: firefox, error, storage, persistent, maximum, size, local, config, about
+:category: CÓMOS, firefox
+:slug: firefox-error-persistent-storage
+:author: Soulchainer
+:twsummary: Firefox me ha recibido esta mañana con el error
+            «Fatal error: Persistent storage maximum size reached» al
+            intentar acceder a Tweetdeck web. Veamos como solucionarlo.
+:twimg: 2015-03-06_01.png
+
+{BEGIN_SUMMARY}
+`Firefox`_ me ha recibido esta mañana con el siguiente error, al intentar
+acceder a *Tweetdeck web*:
+
+.. figure:: {filename}/images/2015/03/2015-03-06_01.png
+    :alt: Error «Persistent storage maximum size reached» en Firefox.
+    :align: center
+
+    :code:`Fatal error: Persistent storage maximum size reached`.
+
+Esto quiere decir que *Tweetdeck web* ha llenado ya todo el espacio de
+almacenamiento local (`localStorage`_) que *Firefox* le permite.
+
+La solución a esto es sencilla:
+
+{END_SUMMARY}
+
+- abrimos una nueva pestaña de *Firefox*;
+- tecleamos en la barra de direcciones: :code:`about:config`;
+- nos aparecerá un aviso informándonos de que «ojito con lo que haces, que
+  este es un tema delicado»;
+- aceptamos y usamos la barra de búsqueda que nos aparece, *Search*, para
+  localizar :code:`storage`;
+- editamos la entrada :code:`dom.storage.default_quota`
+  (**clic derecho → Modify**) con un valor superior.
+
+Y ya está. Si recargamos el sitio que nos arrojaba el problema, debería de
+funcionar ya con total normalidad :).
+
+.. figure:: {filename}/images/2015/03/2015-03-06_02.gif
+    :alt: Captura de la configuración de Firefox (about:config).
+    :align: center
+
+    El valor por defecto de :code:`dom.storage.default_quota` es 5120 (5 MB).
+    Yo lo establezco a 10240 (10 MB), para curarme en salud.
+
+---------------
+
+.. _Firefox: https://www.mozilla.org/es-ES/firefox/new/
+.. _localStorage: https://developer.mozilla.org/es/docs/DOM/Almacenamiento#localStorage
