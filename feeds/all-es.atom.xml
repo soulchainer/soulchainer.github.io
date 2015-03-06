@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-03-04T19:00:00+01:00</updated><entry><title>Mi Raspberry Pi (IV): NAS y seedbox</title><link href="//soulchainer.github.io/posts/2015/03/04/mi-raspberry-nas-seedbox/" rel="alternate"></link><updated>2015-03-04T19:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-03-04:posts/2015/03/04/mi-raspberry-nas-seedbox/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Soulbits</title><link href="//soulchainer.github.io/" rel="alternate"></link><link href="//soulchainer.github.io/feeds/all-es.atom.xml" rel="self"></link><id>//soulchainer.github.io/</id><updated>2015-03-06T11:30:00+01:00</updated><entry><title>Cómo solucionar el error «Persistent storage maximum size reached» en Firefox</title><link href="//soulchainer.github.io/posts/2015/03/06/firefox-error-persistent-storage/" rel="alternate"></link><updated>2015-03-06T11:30:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-03-06:posts/2015/03/06/firefox-error-persistent-storage/</id><summary type="html">&lt;p&gt;
+&lt;a class="reference external" href="https://www.mozilla.org/es-ES/firefox/new/"&gt;Firefox&lt;/a&gt; me ha recibido esta mañana con el siguiente error, al intentar
+acceder a &lt;em&gt;Tweetdeck web&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 726px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Error «Persistent storage maximum size reached» en Firefox." src="//soulchainer.github.io/images/2015/03/2015-03-06_01.png" style="width: 726px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;&lt;code&gt;Fatal error: Persistent storage maximum size reached&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Esto quiere decir que &lt;em&gt;Tweetdeck web&lt;/em&gt; ha llenado ya todo el espacio de
+almacenamiento local (&lt;a class="reference external" href="https://developer.mozilla.org/es/docs/DOM/Almacenamiento#localStorage"&gt;localStorage&lt;/a&gt;) que &lt;em&gt;Firefox&lt;/em&gt; le permite.&lt;/p&gt;
+&lt;p&gt;La solución a esto es sencilla:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;abrimos una nueva pestaña de &lt;em&gt;Firefox&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;tecleamos en la barra de direcciones: &lt;code&gt;about:config&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;nos aparecerá un aviso informándonos de que «ojito con lo que haces, que
+este es un tema delicado»;&lt;/li&gt;
+&lt;li&gt;aceptamos y usamos la barra de búsqueda que nos aparece, &lt;em&gt;Search&lt;/em&gt;, para
+localizar &lt;code&gt;storage&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;editamos la entrada &lt;code&gt;dom.storage.default_quota&lt;/code&gt;
+(&lt;strong&gt;clic derecho → Modify&lt;/strong&gt;) con un valor superior.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y ya está. Si recargamos el sitio que nos arrojaba el problema, debería de
+funcionar ya con total normalidad :).&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 762px; height: auto; max-width: 100%;"&gt;
+&lt;img alt="Captura de la configuración de Firefox (about:config)." src="//soulchainer.github.io/images/2015/03/2015-03-06_02.gif" style="width: 762px; height: auto; max-width: 100%;"/&gt;
+&lt;p class="caption"&gt;El valor por defecto de &lt;code&gt;dom.storage.default_quota&lt;/code&gt; es 5120 (5 &lt;span class="caps"&gt;MB&lt;/span&gt;).
+Yo lo establezco a 10240 (10 &lt;span class="caps"&gt;MB&lt;/span&gt;), para curarme en salud.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils"/&gt;
+</summary><category term="firefox"></category><category term="error"></category><category term="storage"></category><category term="persistent"></category><category term="maximum"></category><category term="size"></category><category term="local"></category><category term="config"></category><category term="about"></category></entry><entry><title>Mi Raspberry Pi (IV): NAS y seedbox</title><link href="//soulchainer.github.io/posts/2015/03/04/mi-raspberry-nas-seedbox/" rel="alternate"></link><updated>2015-03-04T19:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-03-04:posts/2015/03/04/mi-raspberry-nas-seedbox/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#nfs" id="id10"&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
