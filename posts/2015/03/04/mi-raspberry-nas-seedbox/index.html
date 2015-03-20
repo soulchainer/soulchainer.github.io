@@ -145,36 +145,33 @@ para que haga las veces de NAS y de seedbox (a pequeña escala)." />
     <div class="contents topic" id="indice-de-contenido">
 <p class="topic-title first"><strong>Índice de contenido</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="#nfs" id="id10"><span class="caps">NFS</span></a><ul>
-<li><a class="reference internal" href="#instalacion" id="id11">Instalación</a><ul>
-<li><a class="reference internal" href="#sincronizacion-horaria" id="id12">Sincronización horaria</a></li>
+<li><a class="reference internal" href="#nfs" id="id8"><span class="caps">NFS</span></a><ul>
+<li><a class="reference internal" href="#instalacion" id="id9">Instalación</a></li>
+<li><a class="reference internal" href="#configuracion-del-servidor-nfs" id="id10">Configuración del servidor <span class="caps">NFS</span></a><ul>
+<li><a class="reference internal" href="#sistema-de-archivos" id="id11">Sistema de archivos</a></li>
+<li><a class="reference internal" href="#exports" id="id12">Exports</a></li>
+<li><a class="reference internal" href="#iniciar-el-servidor" id="id13">Iniciar el servidor</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#configuracion-del-servidor-nfs" id="id13">Configuración del servidor <span class="caps">NFS</span></a><ul>
-<li><a class="reference internal" href="#sistema-de-archivos" id="id14">Sistema de archivos</a></li>
-<li><a class="reference internal" href="#exports" id="id15">Exports</a></li>
-<li><a class="reference internal" href="#iniciar-el-servidor" id="id16">Iniciar el servidor</a></li>
+<li><a class="reference internal" href="#configuracion-del-cliente" id="id14">Configuración del cliente</a><ul>
+<li><a class="reference internal" href="#apunte-error-parejo-a-la-instalacion-de-nfs" id="id15">Apunte: error parejo a la instalación de <span class="caps">NFS</span></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#configuracion-del-cliente" id="id17">Configuración del cliente</a><ul>
-<li><a class="reference internal" href="#apunte-error-parejo-a-la-instalacion-de-nfs" id="id18">Apunte: error parejo a la instalación de <span class="caps">NFS</span></a></li>
+<li><a class="reference internal" href="#uso-habitual" id="id16">Uso habitual</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#uso-habitual" id="id19">Uso habitual</a></li>
+<li><a class="reference internal" href="#transmission" id="id17">Transmission</a><ul>
+<li><a class="reference internal" href="#instalacion-en-la-raspberry" id="id18">Instalación en la Raspberry</a></li>
+<li><a class="reference internal" href="#instalacion-en-el-equipo" id="id19">Instalación en el equipo</a><ul>
+<li><a class="reference internal" href="#ajuste-del-cortafuegos" id="id20">Ajuste del cortafuegos</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#transmission" id="id20">Transmission</a><ul>
-<li><a class="reference internal" href="#instalacion-en-la-raspberry" id="id21">Instalación en la Raspberry</a></li>
-<li><a class="reference internal" href="#instalacion-en-el-equipo" id="id22">Instalación en el equipo</a><ul>
-<li><a class="reference internal" href="#ajuste-del-cortafuegos" id="id23">Ajuste del cortafuegos</a></li>
+<li><a class="reference internal" href="#abrir-puertos-en-el-router" id="id21">Abrir puertos en el router</a></li>
+<li><a class="reference internal" href="#instalacion-en-android" id="id22">Instalación en Android</a><ul>
+<li><a class="reference internal" href="#configuracion" id="id23">Configuración</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#abrir-puertos-en-el-router" id="id24">Abrir puertos en el router</a></li>
-<li><a class="reference internal" href="#instalacion-en-android" id="id25">Instalación en Android</a><ul>
-<li><a class="reference internal" href="#configuracion" id="id26">Configuración</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#esto-es-un-seedbox" id="id27">Esto es un seedbox</a></li>
+<li><a class="reference internal" href="#esto-es-un-seedbox" id="id24">Esto es un seedbox</a></li>
 </ul>
 </li>
 </ul>
@@ -191,57 +188,28 @@ Belldandy le bendiga por nuestras descargas de cada día:).</div>
 </div>
 <p>Aún me faltan por documentar unos cuantos ajustes de mi entorno de consola,
 pero démonos un pequeño respiro y abordemos algo con un uso práctico más
-«inmediato»: vamos a apañar nuestra <em>Raspberry Pi</em> <a class="footnote-reference" href="#id5" id="id1">[1]</a> para que haga las
-veces de <abbr title="Network Attached Storage"><span class="caps">NAS</span></abbr> <a class="footnote-reference" href="#id6" id="id2">[2]</a> y de <em>seedbox</em> <a class="footnote-reference" href="#id7" id="id3">[3]</a>
+«inmediato»: vamos a apañar nuestra <em>Raspberry Pi</em> <a class="footnote-reference" href="#id4" id="id1">[1]</a> para que haga las
+veces de <abbr title="Network Attached Storage"><span class="caps">NAS</span></abbr> <a class="footnote-reference" href="#id5" id="id2">[2]</a> y de <em>seedbox</em> <a class="footnote-reference" href="#id6" id="id3">[3]</a>
 (a pequeña escala).</p>
 <p></p>
 <div class="section" id="nfs">
-<h2><a class="toc-backref" href="#id10"><span class="caps">NFS</span></a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="caps">NFS</span></a></h2>
 <p><abbr title="Network File System"><span class="caps">NFS</span></abbr> es un protocolo de sistema de archivos en
 red: nos permite acceder a los archivos almacenados en un equipo remoto como
 si estuvieran almacenados localmente.</p>
 <p>Lo usaremos para acceder y trabajar cómodamente con nuestro disco externo.</p>
 <div class="section" id="instalacion">
-<h3><a class="toc-backref" href="#id11">Instalación</a></h3>
+<h3><a class="toc-backref" href="#id9">Instalación</a></h3>
 <p>Tanto el cliente como el servidor <em><span class="caps">NFS</span></em> requieren únicamente la instalación
 del paquete <code>nfs-utils</code>:</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S nfs-utils
 </pre></div>
-<div class="section" id="sincronizacion-horaria">
-<h4><a class="toc-backref" href="#id12">Sincronización horaria</a></h4>
-<p>Además, se recomienda ejecutar un servicio de sincronización horaria en todos
-los nodos, para mantener los relojes sincronizados. De no hacerlo, <em><span class="caps">NFS</span></em>
-podría introducir tiempos de espera no deseados.</p>
-<p>Instalamos pues <code>ntp</code>, que sincronizará el tiempo con los servidores
-<em><span class="caps">NTP</span></em> disponibles en Internet:</p>
-<div class="highlight"><pre><span class="nv">$ </span>yaourt -S ntp
-</pre></div>
-<p>Por defecto, el servicio acepta:</p>
-<ul class="simple">
-<li>todas las peticiones locales;</li>
-<li>peticiones externas de tiempo, con límite de frecuencia de peticiones y <abbr title="Kiss-of-Death">KoD</abbr> <a class="footnote-reference" href="#id8" id="id4">[4]</a> (a fin de evitar abusos).</li>
-</ul>
-<p>Para mayor seguridad, podemos denegar directamente esas peticiones externas:
-no tenemos ningún interés en hacer de servidor, tan sólo nos interesa la
-faceta de cliente del programa.</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/ntp.conf
--------------------------
-...
-<span class="c"># cambiamos la cadena «limited» por «ignore»</span>
-restrict default kod ignore nomodify nopeer noquery notrap
-...
-</pre></div>
-<p>Ya podemos iniciar (y activar) el servicio con:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>ntpd
-<span class="nv">$ </span>sudo systemctl start ntpd
-</pre></div>
-</div>
 </div>
 <div class="section" id="configuracion-del-servidor-nfs">
-<h3><a class="toc-backref" href="#id13">Configuración del servidor <span class="caps">NFS</span></a></h3>
+<h3><a class="toc-backref" href="#id10">Configuración del servidor <span class="caps">NFS</span></a></h3>
 <p>Es decir, la parte de la configuración de la <em>Raspberry</em>.</p>
 <div class="section" id="sistema-de-archivos">
-<h4><a class="toc-backref" href="#id14">Sistema de archivos</a></h4>
+<h4><a class="toc-backref" href="#id11">Sistema de archivos</a></h4>
 <p>Conviene crear un directorio <em>root</em> específico (<em>chroot</em>) para el contenido
 que compartiremos con <em><span class="caps">NFS</span></em>: así, el acceso de los usuarios se limitará a este.</p>
 <p>Para ello, definiremos en <code>/etc/exports</code> los directorios que deseamos
@@ -272,7 +240,7 @@ directorio contendrá archivos multimedia y es el que <a class="reference extern
 mantener actualizada su colección.</p>
 </div>
 <div class="section" id="exports">
-<h4><a class="toc-backref" href="#id15">Exports</a></h4>
+<h4><a class="toc-backref" href="#id12">Exports</a></h4>
 <p>Una vez establecidos los puntos de montaje, tenemos que indicar en
 <code>/etc/exports</code> los directorios compartidos y los clientes (con su <span class="caps">IP</span> o
 nombre de máquina) autorizados.</p>
@@ -291,7 +259,7 @@ escrituras frecuentes, se activa también la opción <code>no_subtree_check</cod
 </pre></div>
 </div>
 <div class="section" id="iniciar-el-servidor">
-<h4><a class="toc-backref" href="#id16">Iniciar el servidor</a></h4>
+<h4><a class="toc-backref" href="#id13">Iniciar el servidor</a></h4>
 <p>Hecho esto, ya podemos activar e iniciar el servidor <em><span class="caps">NFS</span></em>.</p>
 <div class="highlight"><pre>sudo systemctl <span class="nb">enable </span>rpcbind nfs-server
 sudo systemctl start rpcbind nfs-server
@@ -299,7 +267,7 @@ sudo systemctl start rpcbind nfs-server
 </div>
 </div>
 <div class="section" id="configuracion-del-cliente">
-<h3><a class="toc-backref" href="#id17">Configuración del cliente</a></h3>
+<h3><a class="toc-backref" href="#id14">Configuración del cliente</a></h3>
 <p>En cuanto al cliente se refiere, lo que a mí me interesa es que se monte el
 directorio sólo y no tener que preocuparme de montarlo, desmontarlo, subir o
 bajar el servicio cada vez que quiera hacer uso de él. Así que eso es lo que
@@ -310,8 +278,8 @@ compartidas por <em><span class="caps">NFS</span></em>:</p>
 </pre></div>
 <p>Después, activamos e iniciamos <code>rpcbind.service</code> y
 <code>nfs-client.target</code> usando <em>systemd</em>.</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>rpcbind nfs-client
-<span class="nv">$ </span>sudo systemctl start rpcbind nfs-client
+<div class="highlight"><pre><span class="nv">$ </span>sudo systemctl <span class="nb">enable </span>rpcbind nfs-client.target
+<span class="nv">$ </span>sudo systemctl start rpcbind nfs-client.target
 </pre></div>
 <p>Y ya podemos montarlo con:</p>
 <div class="highlight"><pre><span class="nv">$ </span>sudo mount nami.local:/media /mnt/nfs/mediacenter
@@ -349,7 +317,7 @@ puntual de la red, podemos activar el servicio
 <span class="nv">$ </span>sudo systemctl start NetworkManager-wait-online
 </pre></div>
 <div class="section" id="apunte-error-parejo-a-la-instalacion-de-nfs">
-<h4><a class="toc-backref" href="#id18">Apunte: error parejo a la instalación de <span class="caps">NFS</span></a></h4>
+<h4><a class="toc-backref" href="#id15">Apunte: error parejo a la instalación de <span class="caps">NFS</span></a></h4>
 <p>Una vez instalado <em><span class="caps">NFS</span></em>, sufro un error muy molesto durante la secuencia de arranque:</p>
 <div class="highlight"><pre><span class="nv">$ </span>sudo journalctl
 -------------------------------------
@@ -381,7 +349,7 @@ molesta más este «no error».</p>
 </div>
 </div>
 <div class="section" id="uso-habitual">
-<h3><a class="toc-backref" href="#id19">Uso habitual</a></h3>
+<h3><a class="toc-backref" href="#id16">Uso habitual</a></h3>
 <p>Ya sabéis lo que es una carpeta compartida: podéis acceder a ella como si
 estuviera en vuestro equipo.</p>
 <p>Puede usarse para el intercambio de archivos, pero para lo que más la uso yo
@@ -391,7 +359,7 @@ Va muy bien :). Y eso que mi <em>Raspberry</em> está conectada por wifi, ¿eh?
 </div>
 </div>
 <div class="section" id="transmission">
-<h2><a class="toc-backref" href="#id20">Transmission</a></h2>
+<h2><a class="toc-backref" href="#id17">Transmission</a></h2>
 <p>Vamos a ver ahora como instalar y configurar un cliente de <em>BitTorrent</em> en
 nuestra <em>Raspberry</em>, de forma que lo podamos controlar remotamente desde
 nuestro equipo (ordenador o <em>Android</em>) y que no sea necesario mantener el <span class="caps">PC</span>
@@ -404,7 +372,7 @@ no, eso tira.</p>
 <p class="caption">Icono oficial de <em>Transmission</em>. <a class="reference external" href="https://trac.transmissionbt.com/ticket/4088">Creación original</a> de <a class="reference external" href="https://wiki.gnome.org/AndreasNilsson">Andreas Nilsson</a>.</p>
 </div>
 <div class="section" id="instalacion-en-la-raspberry">
-<h3><a class="toc-backref" href="#id21">Instalación en la Raspberry</a></h3>
+<h3><a class="toc-backref" href="#id18">Instalación en la Raspberry</a></h3>
 <p>Instalamos el <em>daemon</em> (‘servicio’) de <em>Transmission</em> en la <em>Raspberry</em>.</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S transmission-cli
 </pre></div>
@@ -469,7 +437,7 @@ darles los permisos adecuados:</p>
 <p>Y ya hemos terminado la configuración en la <em>Raspberry</em>.</p>
 </div>
 <div class="section" id="instalacion-en-el-equipo">
-<h3><a class="toc-backref" href="#id22">Instalación en el equipo</a></h3>
+<h3><a class="toc-backref" href="#id19">Instalación en el equipo</a></h3>
 <p>El cliente <em><span class="caps">GTK</span></em> de <em>Transmission</em> no puede conectarse al <em>daemon</em>, por lo que
 instalo el cliente <em>Qt</em>:</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -S transmission-qt
@@ -511,7 +479,7 @@ local al grupo <code>transmission</code>:</p>
 <div class="highlight"><pre><span class="nv">$ </span>sudo gpasswd -a mi_usuario transmission
 </pre></div>
 <div class="section" id="ajuste-del-cortafuegos">
-<h4><a class="toc-backref" href="#id23">Ajuste del cortafuegos</a></h4>
+<h4><a class="toc-backref" href="#id20">Ajuste del cortafuegos</a></h4>
 <p>Si aún queremos usar <em>transmission-qt</em> para descargar cosillas en el equipo,
 es <strong>importante</strong> no fijar el
 <a class="reference internal" href="#mismo-puerto-de-conexiones-entrantes-que-en-la-raspberry">mismo puerto de conexiones entrantes que en la Raspberry</a> (5146 en este
@@ -528,7 +496,7 @@ Ya <a class="reference external" href="http://soulchainer.github.io/posts/2014/0
 </div>
 </div>
 <div class="section" id="abrir-puertos-en-el-router">
-<span id="definir-otro-puerto-para-el-equipo"></span><span id="las-conexiones-a-este-puerto-se-dirigiran-a-la-raspberry"></span><span id="configuracion-del-router"></span><h3><a class="toc-backref" href="#id24">Abrir puertos en el router</a></h3>
+<span id="definir-otro-puerto-para-el-equipo"></span><span id="las-conexiones-a-este-puerto-se-dirigiran-a-la-raspberry"></span><span id="configuracion-del-router"></span><h3><a class="toc-backref" href="#id21">Abrir puertos en el router</a></h3>
 <p>Definimos un par de reglas <em>Virtual Server</em> en nuestro <em>router</em>, una
 para el <em>daemon</em> en la <em>Raspberry</em> y otra para la sesión local de
 <em>Transmission</em> en nuestro equipo. Esto es necesario para que el <em>router</em> sepa
@@ -550,7 +518,7 @@ y puerto correspondientes.</div>
 tienes claro, consulta la documentación.</p>
 </div>
 <div class="section" id="instalacion-en-android">
-<h3><a class="toc-backref" href="#id25">Instalación en Android</a></h3>
+<h3><a class="toc-backref" href="#id22">Instalación en Android</a></h3>
 <p>Añadir torrents, revisar su estado, pausarlos… suelo hacer todas estas
 tareas desde mi <em>android</em>.</p>
 <p>Para ello, uso la aplicación <a class="reference external" href="https://github.com/erickok/transdroid/releases">Transdroid</a>. Yo tengo una versión de <em>Android</em>
@@ -562,7 +530,7 @@ de torrents.</p>
 <p>Para la instalación de ambos, basta acceder a los enlaces anteriores desde
 nuestro <em>Android</em> y descargar el archivo <code>.apk</code> correspondiente.</p>
 <div class="section" id="configuracion">
-<h4><a class="toc-backref" href="#id26">Configuración</a></h4>
+<h4><a class="toc-backref" href="#id23">Configuración</a></h4>
 <p>Su configuración es lo más sencillo que puedas echarte a la cara.</p>
 <div class="figure align-center" style="width: 480px; height: auto; max-width: 100%;">
 <img alt="Animación GIF con el proceso de instalación básico de Transdroid." src="//soulchainer.github.io/images/2015/03/2015-03-04_09.gif" style="width: 480px; height: auto; max-width: 100%;"/>
@@ -596,7 +564,7 @@ animación <a class="reference external" href="https://peach.blender.org/">Big B
 </div>
 </div>
 <div class="section" id="esto-es-un-seedbox">
-<h3><a class="toc-backref" href="#id27">Esto es un seedbox</a></h3>
+<h3><a class="toc-backref" href="#id24">Esto es un seedbox</a></h3>
 <p>Y ya tenéis un pequeño <em>seedbox</em> instalado.</p>
 <p>¿Que ya he dicho esto antes? Ya lo sé.</p>
 <p>¿Que por qué lo repito entonces? Pues para dejar claro que el objetivo del
@@ -605,31 +573,24 @@ La <em>Raspberry</em> consume poquísimo y está enchufada todo el día: no pasa
 dejáis los torrents compartiendo varios días ;).</p>
 <p>La red no se mantiene sola: son las personas quienes la alimentan.</p>
 <hr class="docutils"/>
-<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/">Wiki de Arch Linux</a>, <a class="reference external" href="http://doc.ntp.org/4.1.0/accopt.htm">Documentación oficial de <span class="caps">NTP</span></a>,
-<a class="reference external" href="http://support.ntp.org/">Documentación colaborativa de <span class="caps">NTP</span></a>, <a class="reference external" href="http://www.transdroid.org/">Transdroid.org</a>.</p>
+<p><strong>Fuentes:</strong> <a class="reference external" href="https://wiki.archlinux.org/">Wiki de Arch Linux</a> y <a class="reference external" href="http://www.transdroid.org/">Transdroid.org</a>.</p>
 <p><strong>Anotaciones:</strong></p>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
+<table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><em>Raspberry Pi</em> es una marca registrada de la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>. El presente blog no tiene conexión alguna con la <a class="reference external" href="http://www.raspberrypi.org/">Raspberry Pi Foundation</a>.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
+<table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Un <abbr title="Network Attached Storage"><span class="caps">NAS</span></abbr> es un dispositivo dedicado a compartir su capacidad de almacenamiento a través de la red.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
+<table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label"></col><col></col></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Un <em>seedbox</em> es un servidor privado dedicado a la subida y descarga de archivos, normalmente de redes <em><span class="caps">P2P</span></em> (como <em>BitTorrent</em>).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label"></col><col></col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><abbr title="Kiss-of-Death">KoD</abbr> es un tipo de paquete especial que el servidor envía al cliente cuando recibe un paquete no permitido (bien porque no está autorizado o bien porque ha excedido su cuota), instándole a cesar de envíar paquetes (en lugar de limitarse a ignorarlo, que es lo que haría sin esta opción) y dejando un aviso al administrador.</td></tr>
 </tbody>
 </table>
 </div>

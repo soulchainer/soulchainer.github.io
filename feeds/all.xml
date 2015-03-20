@@ -31,36 +31,33 @@ Yo lo establezco a 10240 (10 &lt;span class="caps"&gt;MB&lt;/span&gt;), para cur
 </summary><category term="firefox"></category><category term="error"></category><category term="storage"></category><category term="persistent"></category><category term="maximum"></category><category term="size"></category><category term="local"></category><category term="config"></category><category term="about"></category></entry><entry><title>Mi Raspberry Pi (IV): NAS y seedbox</title><link href="//soulchainer.github.io/posts/2015/03/04/mi-raspberry-nas-seedbox/" rel="alternate"></link><updated>2015-03-04T19:00:00+01:00</updated><author><name>Soulchainer</name></author><id>tag:soulchainer.github.io,2015-03-04:posts/2015/03/04/mi-raspberry-nas-seedbox/</id><summary type="html">&lt;div class="contents topic" id="indice-de-contenido"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Índice de contenido&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#nfs" id="id10"&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#instalacion" id="id11"&gt;Instalación&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#sincronizacion-horaria" id="id12"&gt;Sincronización horaria&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#nfs" id="id8"&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion" id="id9"&gt;Instalación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-del-servidor-nfs" id="id10"&gt;Configuración del servidor &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#sistema-de-archivos" id="id11"&gt;Sistema de archivos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#exports" id="id12"&gt;Exports&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#iniciar-el-servidor" id="id13"&gt;Iniciar el servidor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#configuracion-del-servidor-nfs" id="id13"&gt;Configuración del servidor &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#sistema-de-archivos" id="id14"&gt;Sistema de archivos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#exports" id="id15"&gt;Exports&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#iniciar-el-servidor" id="id16"&gt;Iniciar el servidor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion-del-cliente" id="id14"&gt;Configuración del cliente&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#apunte-error-parejo-a-la-instalacion-de-nfs" id="id15"&gt;Apunte: error parejo a la instalación de &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#configuracion-del-cliente" id="id17"&gt;Configuración del cliente&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#apunte-error-parejo-a-la-instalacion-de-nfs" id="id18"&gt;Apunte: error parejo a la instalación de &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#uso-habitual" id="id16"&gt;Uso habitual&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#uso-habitual" id="id19"&gt;Uso habitual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#transmission" id="id17"&gt;Transmission&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion-en-la-raspberry" id="id18"&gt;Instalación en la Raspberry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion-en-el-equipo" id="id19"&gt;Instalación en el equipo&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ajuste-del-cortafuegos" id="id20"&gt;Ajuste del cortafuegos&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#transmission" id="id20"&gt;Transmission&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#instalacion-en-la-raspberry" id="id21"&gt;Instalación en la Raspberry&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#instalacion-en-el-equipo" id="id22"&gt;Instalación en el equipo&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ajuste-del-cortafuegos" id="id23"&gt;Ajuste del cortafuegos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#abrir-puertos-en-el-router" id="id21"&gt;Abrir puertos en el router&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#instalacion-en-android" id="id22"&gt;Instalación en Android&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#configuracion" id="id23"&gt;Configuración&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#abrir-puertos-en-el-router" id="id24"&gt;Abrir puertos en el router&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#instalacion-en-android" id="id25"&gt;Instalación en Android&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#configuracion" id="id26"&gt;Configuración&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#esto-es-un-seedbox" id="id27"&gt;Esto es un seedbox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#esto-es-un-seedbox" id="id24"&gt;Esto es un seedbox&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -77,57 +74,28 @@ Belldandy le bendiga por nuestras descargas de cada día:).&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Aún me faltan por documentar unos cuantos ajustes de mi entorno de consola,
 pero démonos un pequeño respiro y abordemos algo con un uso práctico más
-«inmediato»: vamos a apañar nuestra &lt;em&gt;Raspberry Pi&lt;/em&gt; &lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; para que haga las
-veces de &lt;abbr title="Network Attached Storage"&gt;&lt;span class="caps"&gt;NAS&lt;/span&gt;&lt;/abbr&gt; &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt; y de &lt;em&gt;seedbox&lt;/em&gt; &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt;
+«inmediato»: vamos a apañar nuestra &lt;em&gt;Raspberry Pi&lt;/em&gt; &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[1]&lt;/a&gt; para que haga las
+veces de &lt;abbr title="Network Attached Storage"&gt;&lt;span class="caps"&gt;NAS&lt;/span&gt;&lt;/abbr&gt; &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[2]&lt;/a&gt; y de &lt;em&gt;seedbox&lt;/em&gt; &lt;a class="footnote-reference" href="#id6" id="id3"&gt;[3]&lt;/a&gt;
 (a pequeña escala).&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;div class="section" id="nfs"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;abbr title="Network File System"&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/abbr&gt; es un protocolo de sistema de archivos en
 red: nos permite acceder a los archivos almacenados en un equipo remoto como
 si estuvieran almacenados localmente.&lt;/p&gt;
 &lt;p&gt;Lo usaremos para acceder y trabajar cómodamente con nuestro disco externo.&lt;/p&gt;
 &lt;div class="section" id="instalacion"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Instalación&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;Instalación&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Tanto el cliente como el servidor &lt;em&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/em&gt; requieren únicamente la instalación
 del paquete &lt;code&gt;nfs-utils&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S nfs-utils
 &lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="sincronizacion-horaria"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;Sincronización horaria&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Además, se recomienda ejecutar un servicio de sincronización horaria en todos
-los nodos, para mantener los relojes sincronizados. De no hacerlo, &lt;em&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/em&gt;
-podría introducir tiempos de espera no deseados.&lt;/p&gt;
-&lt;p&gt;Instalamos pues &lt;code&gt;ntp&lt;/code&gt;, que sincronizará el tiempo con los servidores
-&lt;em&gt;&lt;span class="caps"&gt;NTP&lt;/span&gt;&lt;/em&gt; disponibles en Internet:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S ntp
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Por defecto, el servicio acepta:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;todas las peticiones locales;&lt;/li&gt;
-&lt;li&gt;peticiones externas de tiempo, con límite de frecuencia de peticiones y &lt;abbr title="Kiss-of-Death"&gt;KoD&lt;/abbr&gt; &lt;a class="footnote-reference" href="#id8" id="id4"&gt;[4]&lt;/a&gt; (a fin de evitar abusos).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Para mayor seguridad, podemos denegar directamente esas peticiones externas:
-no tenemos ningún interés en hacer de servidor, tan sólo nos interesa la
-faceta de cliente del programa.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nano /etc/ntp.conf
--------------------------
-...
-&lt;span class="c"&gt;# cambiamos la cadena «limited» por «ignore»&lt;/span&gt;
-restrict default kod ignore nomodify nopeer noquery notrap
-...
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Ya podemos iniciar (y activar) el servicio con:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl &lt;span class="nb"&gt;enable &lt;/span&gt;ntpd
-&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl start ntpd
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="configuracion-del-servidor-nfs"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Configuración del servidor &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Configuración del servidor &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Es decir, la parte de la configuración de la &lt;em&gt;Raspberry&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="section" id="sistema-de-archivos"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Sistema de archivos&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Sistema de archivos&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Conviene crear un directorio &lt;em&gt;root&lt;/em&gt; específico (&lt;em&gt;chroot&lt;/em&gt;) para el contenido
 que compartiremos con &lt;em&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/em&gt;: así, el acceso de los usuarios se limitará a este.&lt;/p&gt;
 &lt;p&gt;Para ello, definiremos en &lt;code&gt;/etc/exports&lt;/code&gt; los directorios que deseamos
@@ -158,7 +126,7 @@ directorio contendrá archivos multimedia y es el que &lt;a class="reference ext
 mantener actualizada su colección.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="exports"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Exports&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;Exports&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Una vez establecidos los puntos de montaje, tenemos que indicar en
 &lt;code&gt;/etc/exports&lt;/code&gt; los directorios compartidos y los clientes (con su &lt;span class="caps"&gt;IP&lt;/span&gt; o
 nombre de máquina) autorizados.&lt;/p&gt;
@@ -177,7 +145,7 @@ escrituras frecuentes, se activa también la opción &lt;code&gt;no_subtree_chec
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="iniciar-el-servidor"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Iniciar el servidor&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Iniciar el servidor&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Hecho esto, ya podemos activar e iniciar el servidor &lt;em&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sudo systemctl &lt;span class="nb"&gt;enable &lt;/span&gt;rpcbind nfs-server
 sudo systemctl start rpcbind nfs-server
@@ -185,7 +153,7 @@ sudo systemctl start rpcbind nfs-server
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="configuracion-del-cliente"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Configuración del cliente&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;Configuración del cliente&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;En cuanto al cliente se refiere, lo que a mí me interesa es que se monte el
 directorio sólo y no tener que preocuparme de montarlo, desmontarlo, subir o
 bajar el servicio cada vez que quiera hacer uso de él. Así que eso es lo que
@@ -196,8 +164,8 @@ compartidas por &lt;em&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/em&gt;:&
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Después, activamos e iniciamos &lt;code&gt;rpcbind.service&lt;/code&gt; y
 &lt;code&gt;nfs-client.target&lt;/code&gt; usando &lt;em&gt;systemd&lt;/em&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl &lt;span class="nb"&gt;enable &lt;/span&gt;rpcbind nfs-client
-&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl start rpcbind nfs-client
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl &lt;span class="nb"&gt;enable &lt;/span&gt;rpcbind nfs-client.target
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl start rpcbind nfs-client.target
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Y ya podemos montarlo con:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo mount nami.local:/media /mnt/nfs/mediacenter
@@ -235,7 +203,7 @@ puntual de la red, podemos activar el servicio
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo systemctl start NetworkManager-wait-online
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="apunte-error-parejo-a-la-instalacion-de-nfs"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Apunte: error parejo a la instalación de &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Apunte: error parejo a la instalación de &lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Una vez instalado &lt;em&gt;&lt;span class="caps"&gt;NFS&lt;/span&gt;&lt;/em&gt;, sufro un error muy molesto durante la secuencia de arranque:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo journalctl
 -------------------------------------
@@ -267,7 +235,7 @@ molesta más este «no error».&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="uso-habitual"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Uso habitual&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Uso habitual&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Ya sabéis lo que es una carpeta compartida: podéis acceder a ella como si
 estuviera en vuestro equipo.&lt;/p&gt;
 &lt;p&gt;Puede usarse para el intercambio de archivos, pero para lo que más la uso yo
@@ -277,7 +245,7 @@ Va muy bien :). Y eso que mi &lt;em&gt;Raspberry&lt;/em&gt; está conectada por 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="transmission"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;Transmission&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Transmission&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Vamos a ver ahora como instalar y configurar un cliente de &lt;em&gt;BitTorrent&lt;/em&gt; en
 nuestra &lt;em&gt;Raspberry&lt;/em&gt;, de forma que lo podamos controlar remotamente desde
 nuestro equipo (ordenador o &lt;em&gt;Android&lt;/em&gt;) y que no sea necesario mantener el &lt;span class="caps"&gt;PC&lt;/span&gt;
@@ -290,7 +258,7 @@ no, eso tira.&lt;/p&gt;
 &lt;p class="caption"&gt;Icono oficial de &lt;em&gt;Transmission&lt;/em&gt;. &lt;a class="reference external" href="https://trac.transmissionbt.com/ticket/4088"&gt;Creación original&lt;/a&gt; de &lt;a class="reference external" href="https://wiki.gnome.org/AndreasNilsson"&gt;Andreas Nilsson&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalacion-en-la-raspberry"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Instalación en la Raspberry&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Instalación en la Raspberry&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Instalamos el &lt;em&gt;daemon&lt;/em&gt; (‘servicio’) de &lt;em&gt;Transmission&lt;/em&gt; en la &lt;em&gt;Raspberry&lt;/em&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S transmission-cli
 &lt;/pre&gt;&lt;/div&gt;
@@ -355,7 +323,7 @@ darles los permisos adecuados:&lt;/p&gt;
 &lt;p&gt;Y ya hemos terminado la configuración en la &lt;em&gt;Raspberry&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalacion-en-el-equipo"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Instalación en el equipo&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Instalación en el equipo&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;El cliente &lt;em&gt;&lt;span class="caps"&gt;GTK&lt;/span&gt;&lt;/em&gt; de &lt;em&gt;Transmission&lt;/em&gt; no puede conectarse al &lt;em&gt;daemon&lt;/em&gt;, por lo que
 instalo el cliente &lt;em&gt;Qt&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S transmission-qt
@@ -397,7 +365,7 @@ local al grupo &lt;code&gt;transmission&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo gpasswd -a mi_usuario transmission
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="ajuste-del-cortafuegos"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Ajuste del cortafuegos&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Ajuste del cortafuegos&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Si aún queremos usar &lt;em&gt;transmission-qt&lt;/em&gt; para descargar cosillas en el equipo,
 es &lt;strong&gt;importante&lt;/strong&gt; no fijar el
 &lt;a class="reference internal" href="#mismo-puerto-de-conexiones-entrantes-que-en-la-raspberry"&gt;mismo puerto de conexiones entrantes que en la Raspberry&lt;/a&gt; (5146 en este
@@ -414,7 +382,7 @@ Ya &lt;a class="reference external" href="http://soulchainer.github.io/posts/201
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="abrir-puertos-en-el-router"&gt;
-&lt;span id="definir-otro-puerto-para-el-equipo"&gt;&lt;/span&gt;&lt;span id="las-conexiones-a-este-puerto-se-dirigiran-a-la-raspberry"&gt;&lt;/span&gt;&lt;span id="configuracion-del-router"&gt;&lt;/span&gt;&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Abrir puertos en el router&lt;/a&gt;&lt;/h3&gt;
+&lt;span id="definir-otro-puerto-para-el-equipo"&gt;&lt;/span&gt;&lt;span id="las-conexiones-a-este-puerto-se-dirigiran-a-la-raspberry"&gt;&lt;/span&gt;&lt;span id="configuracion-del-router"&gt;&lt;/span&gt;&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Abrir puertos en el router&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Definimos un par de reglas &lt;em&gt;Virtual Server&lt;/em&gt; en nuestro &lt;em&gt;router&lt;/em&gt;, una
 para el &lt;em&gt;daemon&lt;/em&gt; en la &lt;em&gt;Raspberry&lt;/em&gt; y otra para la sesión local de
 &lt;em&gt;Transmission&lt;/em&gt; en nuestro equipo. Esto es necesario para que el &lt;em&gt;router&lt;/em&gt; sepa
@@ -436,7 +404,7 @@ y puerto correspondientes.&lt;/div&gt;
 tienes claro, consulta la documentación.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="instalacion-en-android"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Instalación en Android&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Instalación en Android&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Añadir torrents, revisar su estado, pausarlos… suelo hacer todas estas
 tareas desde mi &lt;em&gt;android&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Para ello, uso la aplicación &lt;a class="reference external" href="https://github.com/erickok/transdroid/releases"&gt;Transdroid&lt;/a&gt;. Yo tengo una versión de &lt;em&gt;Android&lt;/em&gt;
@@ -448,7 +416,7 @@ de torrents.&lt;/p&gt;
 &lt;p&gt;Para la instalación de ambos, basta acceder a los enlaces anteriores desde
 nuestro &lt;em&gt;Android&lt;/em&gt; y descargar el archivo &lt;code&gt;.apk&lt;/code&gt; correspondiente.&lt;/p&gt;
 &lt;div class="section" id="configuracion"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;Configuración&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Configuración&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Su configuración es lo más sencillo que puedas echarte a la cara.&lt;/p&gt;
 &lt;div class="figure align-center" style="width: 480px; height: auto; max-width: 100%;"&gt;
 &lt;img alt="Animación GIF con el proceso de instalación básico de Transdroid." src="//soulchainer.github.io/images/2015/03/2015-03-04_09.gif" style="width: 480px; height: auto; max-width: 100%;"/&gt;
@@ -482,7 +450,7 @@ animación &lt;a class="reference external" href="https://peach.blender.org/"&gt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="esto-es-un-seedbox"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Esto es un seedbox&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Esto es un seedbox&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Y ya tenéis un pequeño &lt;em&gt;seedbox&lt;/em&gt; instalado.&lt;/p&gt;
 &lt;p&gt;¿Que ya he dicho esto antes? Ya lo sé.&lt;/p&gt;
 &lt;p&gt;¿Que por qué lo repito entonces? Pues para dejar claro que el objetivo del
@@ -491,31 +459,24 @@ La &lt;em&gt;Raspberry&lt;/em&gt; consume poquísimo y está enchufada todo el d
 dejáis los torrents compartiendo varios días ;).&lt;/p&gt;
 &lt;p&gt;La red no se mantiene sola: son las personas quienes la alimentan.&lt;/p&gt;
 &lt;hr class="docutils"/&gt;
-&lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;Wiki de Arch Linux&lt;/a&gt;, &lt;a class="reference external" href="http://doc.ntp.org/4.1.0/accopt.htm"&gt;Documentación oficial de &lt;span class="caps"&gt;NTP&lt;/span&gt;&lt;/a&gt;,
-&lt;a class="reference external" href="http://support.ntp.org/"&gt;Documentación colaborativa de &lt;span class="caps"&gt;NTP&lt;/span&gt;&lt;/a&gt;, &lt;a class="reference external" href="http://www.transdroid.org/"&gt;Transdroid.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fuentes:&lt;/strong&gt; &lt;a class="reference external" href="https://wiki.archlinux.org/"&gt;Wiki de Arch Linux&lt;/a&gt; y &lt;a class="reference external" href="http://www.transdroid.org/"&gt;Transdroid.org&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Anotaciones:&lt;/strong&gt;&lt;/p&gt;
-&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;em&gt;Raspberry Pi&lt;/em&gt; es una marca registrada de la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;. El presente blog no tiene conexión alguna con la &lt;a class="reference external" href="http://www.raspberrypi.org/"&gt;Raspberry Pi Foundation&lt;/a&gt;.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;abbr title="Network Attached Storage"&gt;&lt;span class="caps"&gt;NAS&lt;/span&gt;&lt;/abbr&gt; es un dispositivo dedicado a compartir su capacidad de almacenamiento a través de la red.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Un &lt;em&gt;seedbox&lt;/em&gt; es un servidor privado dedicado a la subida y descarga de archivos, normalmente de redes &lt;em&gt;&lt;span class="caps"&gt;P2P&lt;/span&gt;&lt;/em&gt; (como &lt;em&gt;BitTorrent&lt;/em&gt;).&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label"&gt;&lt;/col&gt;&lt;col&gt;&lt;/col&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;abbr title="Kiss-of-Death"&gt;KoD&lt;/abbr&gt; es un tipo de paquete especial que el servidor envía al cliente cuando recibe un paquete no permitido (bien porque no está autorizado o bien porque ha excedido su cuota), instándole a cesar de envíar paquetes (en lugar de limitarse a ignorarlo, que es lo que haría sin esta opción) y dejando un aviso al administrador.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
@@ -824,7 +785,7 @@ cerramos sesión &lt;span class="caps"&gt;SSH&lt;/span&gt; e intentamos entrar d
 &lt;span class="nb"&gt;logout&lt;/span&gt;
 Connection to nami.local closed.
 
-&lt;span class="nv"&gt;$ &lt;/span&gt;ssh -p &lt;span class="m"&gt;7776&lt;/span&gt; pi@nami.local
+&lt;span class="nv"&gt;$ &lt;/span&gt;ssh -p &lt;span class="m"&gt;7788&lt;/span&gt; pi@nami.local
 Enter passphrase &lt;span class="k"&gt;for&lt;/span&gt; key &lt;span class="s1"&gt;'/home/miusuariolocal/.ssh/id_rsa'&lt;/span&gt;:
 Welcome to Arch Linux ARM
 
@@ -980,6 +941,12 @@ al inicio. Añadimos al final:&lt;/p&gt;
 &lt;p&gt;Por último, y ya acabamos por ahora, vamos a instalar &lt;a class="reference external" href="https://archlinux.fr/yaourt-en"&gt;yaourt&lt;/a&gt;. Lo usamos
 para gestionar los paquetes de la &lt;em&gt;Raspberry&lt;/em&gt;, sobre todo para facilitarnos la
 instalación de aquellos disponibles en &lt;a class="reference external" href="https://aur.archlinux.org/"&gt;&lt;span class="caps"&gt;AUR&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Primero instalamos &lt;code&gt;base-devel&lt;/code&gt; (proporciona herramientas que necesitaremos para construir este y otros paquetes):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo pacman -Sy base-devel
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cuando &lt;code&gt;pacman&lt;/code&gt; proceda a instalar &lt;code&gt;base-devel&lt;/code&gt; nos dirá que hay
+muchas alternativas del «Repositorio core» para instalar. Le damos a &lt;em&gt;enter&lt;/em&gt;,
+para que las instale todas, por omisión.&lt;/p&gt;
 &lt;p&gt;Podemos instalar &lt;code&gt;yaourt&lt;/code&gt; haciendo:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl -Ok https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
 &lt;span class="nv"&gt;$ &lt;/span&gt;tar zxvf package-query.tar.gz
@@ -993,13 +960,6 @@ instalación de aquellos disponibles en &lt;a class="reference external" href="h
 &lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ..
 &lt;span class="nv"&gt;$ &lt;/span&gt;rm -R package-query* yaourt*
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Tras esto, instalamos &lt;code&gt;base-devel&lt;/code&gt; (no es estrictamente necesario, pero
-seguramente lo necesitemos más adelante para construir diversos paquetes):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Sy base-devel
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Cuando &lt;code&gt;pacman&lt;/code&gt; proceda a instalar &lt;code&gt;base-devel&lt;/code&gt; nos dirá que hay
-muchas alternativas del «Repositorio core» para instalar. Le damos a &lt;em&gt;enter&lt;/em&gt;,
-para que las instale todas, por omisión.&lt;/p&gt;
 &lt;p&gt;Su modo de uso es muy similar al de &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -Syua  &lt;span class="c"&gt;# actualiza la lista de paquetes, incluidos los de AUR&lt;/span&gt;
 &lt;span class="nv"&gt;$ &lt;/span&gt;yaourt -S un_paquete otro_paquete  &lt;span class="c"&gt;# instala los paquetes indicados&lt;/span&gt;
@@ -2694,7 +2654,7 @@ que tengamos que crearlo):&lt;/p&gt;
 ----------------------------------------
 vm.swappiness&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="c"&gt;# tendencia a usar la swap. 60 (de 100) por defecto&lt;/span&gt;
 vm.vfs_cache_pressure&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;  &lt;span class="c"&gt;# tendencia del kernel a reclamar la memoría usada para cachear el sistema de archivos en lugar de otras cachés. Bajamos de 100 a 50, para que no se reclame con tanta urgencia.&lt;/span&gt;
-vm.dirty_writeback_centisecs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1500&lt;/span&gt;  &lt;span class="c"&gt;# frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para que limitar las escrituras&lt;/span&gt;
+vm.dirty_writeback_centisecs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1500&lt;/span&gt;  &lt;span class="c"&gt;# frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para limitar las escrituras&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="montar-las-particiones-con-noatime"&gt;

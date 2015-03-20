@@ -251,7 +251,7 @@ que tengamos que crearlo):</p>
 ----------------------------------------
 vm.swappiness<span class="o">=</span><span class="m">1</span>  <span class="c"># tendencia a usar la swap. 60 (de 100) por defecto</span>
 vm.vfs_cache_pressure<span class="o">=</span><span class="m">50</span>  <span class="c"># tendencia del kernel a reclamar la memoría usada para cachear el sistema de archivos en lugar de otras cachés. Bajamos de 100 a 50, para que no se reclame con tanta urgencia.</span>
-vm.dirty_writeback_centisecs<span class="o">=</span><span class="m">1500</span>  <span class="c"># frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para que limitar las escrituras</span>
+vm.dirty_writeback_centisecs<span class="o">=</span><span class="m">1500</span>  <span class="c"># frecuencia con la que se escriben en el disco los datos guardados temporalmente en la caché. 500 por defecto, incrementamos para limitar las escrituras</span>
 </pre></div>
 </div>
 <div class="section" id="montar-las-particiones-con-noatime">

@@ -451,7 +451,7 @@ cerramos sesión <span class="caps">SSH</span> e intentamos entrar de nuevo:</p
 <span class="nb">logout</span>
 Connection to nami.local closed.
 
-<span class="nv">$ </span>ssh -p <span class="m">7776</span> pi@nami.local
+<span class="nv">$ </span>ssh -p <span class="m">7788</span> pi@nami.local
 Enter passphrase <span class="k">for</span> key <span class="s1">'/home/miusuariolocal/.ssh/id_rsa'</span>:
 Welcome to Arch Linux ARM
 
@@ -607,6 +607,12 @@ al inicio. Añadimos al final:</p>
 <p>Por último, y ya acabamos por ahora, vamos a instalar <a class="reference external" href="https://archlinux.fr/yaourt-en">yaourt</a>. Lo usamos
 para gestionar los paquetes de la <em>Raspberry</em>, sobre todo para facilitarnos la
 instalación de aquellos disponibles en <a class="reference external" href="https://aur.archlinux.org/"><span class="caps">AUR</span></a>.</p>
+<p>Primero instalamos <code>base-devel</code> (proporciona herramientas que necesitaremos para construir este y otros paquetes):</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo pacman -Sy base-devel
+</pre></div>
+<p>Cuando <code>pacman</code> proceda a instalar <code>base-devel</code> nos dirá que hay
+muchas alternativas del «Repositorio core» para instalar. Le damos a <em>enter</em>,
+para que las instale todas, por omisión.</p>
 <p>Podemos instalar <code>yaourt</code> haciendo:</p>
 <div class="highlight"><pre><span class="nv">$ </span>curl -Ok https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
 <span class="nv">$ </span>tar zxvf package-query.tar.gz
@@ -620,13 +626,6 @@ instalación de aquellos disponibles en <a class="reference external" href="http
 <span class="nv">$ </span><span class="nb">cd</span> ..
 <span class="nv">$ </span>rm -R package-query* yaourt*
 </pre></div>
-<p>Tras esto, instalamos <code>base-devel</code> (no es estrictamente necesario, pero
-seguramente lo necesitemos más adelante para construir diversos paquetes):</p>
-<div class="highlight"><pre><span class="nv">$ </span>yaourt -Sy base-devel
-</pre></div>
-<p>Cuando <code>pacman</code> proceda a instalar <code>base-devel</code> nos dirá que hay
-muchas alternativas del «Repositorio core» para instalar. Le damos a <em>enter</em>,
-para que las instale todas, por omisión.</p>
 <p>Su modo de uso es muy similar al de <code>pacman</code>.</p>
 <div class="highlight"><pre><span class="nv">$ </span>yaourt -Syua  <span class="c"># actualiza la lista de paquetes, incluidos los de AUR</span>
 <span class="nv">$ </span>yaourt -S un_paquete otro_paquete  <span class="c"># instala los paquetes indicados</span>
