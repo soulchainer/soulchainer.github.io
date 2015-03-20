@@ -57,45 +57,6 @@ del paquete :code:`nfs-utils`:
 
     $ yaourt -S nfs-utils
 
-Sincronización horaria
-^^^^^^^^^^^^^^^^^^^^^^
-
-Además, se recomienda ejecutar un servicio de sincronización horaria en todos
-los nodos, para mantener los relojes sincronizados. De no hacerlo, *NFS*
-podría introducir tiempos de espera no deseados.
-
-Instalamos pues :code:`ntp`, que sincronizará el tiempo con los servidores
-*NTP* disponibles en Internet:
-
-.. code-block:: sh
-
-    $ yaourt -S ntp
-
-Por defecto, el servicio acepta:
-
-- todas las peticiones locales;
-- peticiones externas de tiempo, con límite de frecuencia de peticiones y :abbr:`KoD (Kiss-of-Death)` [#]_ (a fin de evitar abusos).
-
-Para mayor seguridad, podemos denegar directamente esas peticiones externas:
-no tenemos ningún interés en hacer de servidor, tan sólo nos interesa la
-faceta de cliente del programa.
-
-.. code-block:: sh
-
-    $ sudo nano /etc/ntp.conf
-    -------------------------
-    ...
-    # cambiamos la cadena «limited» por «ignore»
-    restrict default kod ignore nomodify nopeer noquery notrap
-    ...
-
-Ya podemos iniciar (y activar) el servicio con:
-
-.. code-block:: sh
-
-    $ sudo systemctl enable ntpd
-    $ sudo systemctl start ntpd
-
 Configuración del servidor NFS
 ------------------------------
 
@@ -200,8 +161,8 @@ Después, activamos e iniciamos :code:`rpcbind.service` y
 
 .. code-block:: sh
 
-    $ sudo systemctl enable rpcbind nfs-client
-    $ sudo systemctl start rpcbind nfs-client
+    $ sudo systemctl enable rpcbind nfs-client.target
+    $ sudo systemctl start rpcbind nfs-client.target
 
 Y ya podemos montarlo con:
 
@@ -610,15 +571,13 @@ La red no se mantiene sola: son las personas quienes la alimentan.
 
 ---------------
 
-**Fuentes:** `Wiki de Arch Linux`_, `Documentación oficial de NTP`_,
-`Documentación colaborativa de NTP`_, `Transdroid.org`_.
+**Fuentes:** `Wiki de Arch Linux`_ y `Transdroid.org`_.
 
 **Anotaciones:**
 
 .. [#] *Raspberry Pi* es una marca registrada de la `Raspberry Pi Foundation`_. El presente blog no tiene conexión alguna con la `Raspberry Pi Foundation`_.
 .. [#] Un :abbr:`NAS (Network Attached Storage)` es un dispositivo dedicado a compartir su capacidad de almacenamiento a través de la red.
 .. [#] Un *seedbox* es un servidor privado dedicado a la subida y descarga de archivos, normalmente de redes *P2P* (como *BitTorrent*).
-.. [#] :abbr:`KoD (Kiss-of-Death)` es un tipo de paquete especial que el servidor envía al cliente cuando recibe un paquete no permitido (bien porque no está autorizado o bien porque ha excedido su cuota), instándole a cesar de envíar paquetes (en lugar de limitarse a ignorarlo, que es lo que haría sin esta opción) y dejando un aviso al administrador.
 
 .. _BitTorrent: http://es.wikipedia.org/wiki/BitTorrent
 .. _Thomas Hawk: https://www.flickr.com/photos/thomashawk/
@@ -627,8 +586,6 @@ La red no se mantiene sola: son las personas quienes la alimentan.
 .. _Optimizilla: http://optimizilla.com/
 .. _Wiki de Arch Linux: https://wiki.archlinux.org/
 .. _Raspberry Pi Foundation: http://www.raspberrypi.org/
-.. _Documentación oficial de NTP: http://doc.ntp.org/4.1.0/accopt.htm
-.. _Documentación colaborativa de NTP: http://support.ntp.org/
 .. _Kodi: http://kodi.tv/about/
 .. _un reporte de error sobre este tema: https://bugs.archlinux.org/task/41012
 .. _Andreas Nilsson: https://wiki.gnome.org/AndreasNilsson

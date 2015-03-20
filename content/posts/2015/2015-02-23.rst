@@ -403,7 +403,7 @@ cerramos sesión SSH e intentamos entrar de nuevo:
     logout
     Connection to nami.local closed.
 
-    $ ssh -p 7776 pi@nami.local
+    $ ssh -p 7788 pi@nami.local
     Enter passphrase for key '/home/miusuariolocal/.ssh/id_rsa':
     Welcome to Arch Linux ARM
 
@@ -612,6 +612,16 @@ Por último, y ya acabamos por ahora, vamos a instalar `yaourt`_. Lo usamos
 para gestionar los paquetes de la *Raspberry*, sobre todo para facilitarnos la
 instalación de aquellos disponibles en `AUR`_.
 
+Primero instalamos :code:`base-devel` (proporciona herramientas que necesitaremos para construir este y otros paquetes):
+
+.. code-block:: sh
+
+    $ sudo pacman -Sy base-devel
+
+Cuando :code:`pacman` proceda a instalar :code:`base-devel` nos dirá que hay
+muchas alternativas del «Repositorio core» para instalar. Le damos a *enter*,
+para que las instale todas, por omisión.
+
 Podemos instalar :code:`yaourt` haciendo:
 
 .. code-block:: sh
@@ -627,17 +637,6 @@ Podemos instalar :code:`yaourt` haciendo:
     $ makepkg -si
     $ cd ..
     $ rm -R package-query* yaourt*
-
-Tras esto, instalamos :code:`base-devel` (no es estrictamente necesario, pero
-seguramente lo necesitemos más adelante para construir diversos paquetes):
-
-.. code-block:: sh
-
-    $ yaourt -Sy base-devel
-
-Cuando :code:`pacman` proceda a instalar :code:`base-devel` nos dirá que hay
-muchas alternativas del «Repositorio core» para instalar. Le damos a *enter*,
-para que las instale todas, por omisión.
 
 Su modo de uso es muy similar al de :code:`pacman`.
 
